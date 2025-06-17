@@ -65,16 +65,18 @@ This architecture follows the following key principles.
 
 Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
 
-| Legend | Design area | Objective |
+| Legend | Design area (s) | Objective |
 |--------|-------------|-----------|
-| A | [Enterprise enrollment](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-enterprise-enrollment) | Proper tenant creation, enrollment, and billing setup are important early steps. |
-| B, G | [Identity and access management](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-identity-and-access-management) | Identity and access management is a primary security boundary in the public cloud. It's the foundation for any secure and fully compliant architecture. |
-| C-H, J | [Resource organization](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-resource-organization) | As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
-| C-H, J | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
-| E, F | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
-| G, F, J | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery) | Automate auditing and enforcement of governance policies. |
-| F, J | [Security governance and compliance](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) | Implement controls and processes to protect your cloud environments. |
-| I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Align the best tools and templates to deploy your landing zones and supporting resources. |
+| A | [Azure billing and Active Directory tenant](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-enterprise-enrollment) | Proper tenant creation, enrollment, and billing setup are important early steps. |
+| B | [Identity and access management](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-identity-and-access-management) | Identity and access management is a primary security boundary in the public cloud. It's the foundation for any secure and fully compliant architecture. Enables secure access to AVD through Azure AD, conditional access, and role-based access control |
+| C | [Resource organization](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-resource-organization) | As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
+| D, G, H | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
+| E | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
+| F | [Security](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) | Implements security controls within the AVD workload |
+| G, F | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery) | not represented in the diagram, this area is addressed by implementing BCDR strategies for the AVD workload and its supporting services to ensure resilience and recovery capabilities.|
+| I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Supports infrastructure-as-code and CI/CD pipelines for deploying and managing AVD environments.  |
+
+
 
 > [!TIP]
 >
@@ -115,7 +117,7 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
     TODO
 :::image-end:::
 
-*Figure 3: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.vsdx) of this architecture.*
+*Figure 3: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 #### Benefits of using this reference implementation
 
