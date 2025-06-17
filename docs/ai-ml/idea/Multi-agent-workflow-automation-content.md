@@ -1,37 +1,21 @@
-# Multi-Agent-Custom-Automation-Engine-Solution-Accelerator Architecture
-<span style="background-color:rgba(240, 240, 240, 0.09); padding: 4px 8px; margin: 2px; border-radius: 4px; font-size: 14px;">Azure OpenAI</span>
-<span style="background-color:rgba(240, 240, 240, 0.09); padding: 4px 8px; margin: 2px; border-radius: 4px; font-size: 14px;">Azure Container Instances</span>
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture shows a multi-agent AI automation system deployed using Azure container services and AI platforms. It describes a foundational configuration that leverages specialized AI agents to coordinate and execute complex organizational tasks automatically. This article assumes that you have a basic understanding of containerized applications and AI orchestration concepts. The article primarily highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination. For more information about designing AI agent architectures, see Multi-agent systems design patterns.
-The architecture demonstrates how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
 
-> 
-> **💡 Solution ideas**
->
-> This article describes a solution idea. Your cloud architect can use this guidance to help visualize the major components for a typical implementation of this architecture. Use this article as a starting point to design a well-architected solution that aligns with your workload's specific requirements.
+The architecture demonstrates how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
 
 ## Architecture
 
-
-
-
-:::image type="complex" border="false" source="./images/Multi-agent-workflow-automation" 
-alt-text="Diagram that shows the <solution name> architecture." lightbox="./images/
-<file-name-and-extension>":::
+:::image type="complex" border="false" source="./_images/Multi-agent-workflow-automation.png" alt-text="Diagram that shows a typical multi-agent architecture." lightbox="./_images/Multi-agent-workflow-automation.png":::
    <Long description that ends with a period.>
 :::image-end:::
 
-
-![Diagram that shows the Multi-Agent Custom Automation Engine Solution Accelerator architecture.](./_images/Multi-agent-workflow-automation.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/Multi-agent-workflow-automation.vsdx) of this architecture.*
-
-*Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/p/gpickett/EXwTbbT_LFtLhb087-xEQNsBOFI-AqvNu6yuSPRG6NS1jw?e=1aapbb
-) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/multi-agent-workflow-automation.vsdx) of this architecture.*
 
 ### Workflow
+
 The following workflow corresponds to the preceding diagram:
+
 1. User Input & Task Specification: Users access the Web Front-end to request and manage automated solutions
 Tasks are submitted through the web interface with specific requirements and parameters
 
@@ -56,7 +40,6 @@ Docker builds and deploys updated container images to the registry
 Website and API server images are generated automatically on code updates
 Continuous integration ensures rapid deployment of improvements
 
-
 ### Components
 
 - [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service Website serves as the frontend interface where users can request and manage automated solutions, providing a responsive web experience for task submission and monitoring.
@@ -67,14 +50,13 @@ Continuous integration ensures rapid deployment of improvements
 
 - [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db/) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores all data related to current and past automation plans and solutions, enabling agents to learn from historical patterns and maintain consistency across task executions.
 
-- [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry/) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the frontend website and backend API, ensuring consistent deployment and version control of the multi-agent system components.
-
-
+- [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry/) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the frontend website and backend API, ensuring consistent deployment and version control of the multi-agent system components across environments.
 
 ## Scenario details
-The Multi-Agent Custom Automation Engine addresses the challenge of coordinating complex, multi-departmental business processes that traditionally require significant manual oversight and coordination. Organizations often struggle with tasks that span multiple domains of expertise, require consistent execution across different teams, and need to maintain audit trails for compliance purposes.
 
-This solution leverages specialized AI agents that work collaboratively to break down complex organizational tasks into manageable components. Each agent brings domain-specific knowledge and capabilities, enabling the system to handle sophisticated workflows that would typically require human coordination across multiple departments. The architecture ensures scalability through containerized deployment, maintains learning through persistent data storage, and provides continuous improvement through automated CI/CD pipelines.
+This custom, multi-agent automation engine addresses the challenge of coordinating complex, multi-departmental business processes that traditionally require significant manual oversight and coordination. Organizations often struggle with tasks that span multiple domains of expertise, require consistent execution across different teams, and need to maintain audit trails for compliance purposes.
+
+This solution uses custom coded, specialized AI agents that work collaboratively to break down complex organizational tasks into manageable components. Each agent brings domain-specific knowledge and capabilities, enabling the system to handle sophisticated workflows that would typically require human coordination across multiple departments. The architecture ensures scalability through containerized deployment, maintains learning through persistent data storage, and provides continuous improvement through automated CI/CD pipelines.
 
 ### Potential use cases
 
@@ -113,18 +95,16 @@ Alternatively, if you require maximum control over agent behavior and have compl
 
 For organizations with mixed requirements, a hybrid approach can be effective where standard workflows use Azure AI Foundry's managed services while critical or highly customized processes use self-hosted orchestration through the same Container App API interface.
 
+## Cost Optimization
 
-
-### Cost Optimization
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Design review checklist for Cost Optimization.
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/86d0eefbe4dd4a23981c1d3d4f6fe7ed).
 
-
 Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
 
-
 ## Deploy this scenario
+
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo](https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator).
 
 ## Contributors
@@ -138,7 +118,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351) | Principal Software Engineer
+- [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351/) | Principal Software Engineer
 
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
