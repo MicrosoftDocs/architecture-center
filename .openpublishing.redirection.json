@@ -4997,7 +4997,7 @@
     {
       "source_path": "docs/networking/architecture/manage-routing-azure-route-server.yml",
       "redirect_url": "/azure/route-server/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/networking/hub-spoke-vwan-architecture.yml",
