@@ -126,13 +126,6 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
 - **Faster deployment**: Predefined templates, configurations, and best practices ensure faster and more reliable deployments.
 - **Best practices compliance**: The architecture follows the best practices outlined in the Cloud Adoption Framework.
 
-### Next steps
-
-1. **Review prerequisites**: review the baseline deployment prerequisites, this will help you ensure your environment is ready for the deployment.
-2. **Deploy the platform landing zone**: Start by deploying the platform landing zone to set up the foundational components.
-3. **Use the Azure Virtual Desktop accelerator**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop landing zone accelerator to implement the reference architecture.
-
-For detailed guidance, refer to the full [Enterprise-Scale landing zone for Azure Virtual Desktop documentation](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone).
 
 #### Accelerator overview
 
