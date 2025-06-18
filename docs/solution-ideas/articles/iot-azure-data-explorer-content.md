@@ -92,4 +92,4 @@ Principal author:
 
 ## Related resource
 
-- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Analytics architecture design](analytics-start-here.yml)
