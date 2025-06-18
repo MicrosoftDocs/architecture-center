@@ -48,29 +48,37 @@ This solution uses custom coded, specialized AI agents that work collaboratively
 
 ### Potential use cases
 
-Enterprise Process Automation
+### Enterprise process automation
 
-Employee Onboarding Orchestration: Coordinate IT provisioning, HR documentation, facility access, training schedules, and compliance requirements across multiple departments
-Contract Management Workflow: Automate legal review, procurement approval, financial analysis, and vendor communication for complex business agreements
-Incident Response Coordination: Orchestrate technical remediation, stakeholder communication, documentation, and post-incident analysis across IT, security, and business teams
+**Employee onboarding orchestration:** Coordinate IT provisioning, HR documentation, facility access, training schedules, and compliance requirements across multiple departments.
 
-Financial Services & Compliance
+**Contract management workflow:** Automate legal review, procurement approval, financial analysis, and vendor communication for complex business agreements.
 
-Regulatory Compliance Automation: Coordinate data collection, analysis, reporting, and submission across multiple regulatory frameworks simultaneously
-Loan Processing Pipeline: Automate credit analysis, risk assessment, documentation review, and approval workflows involving multiple specialist teams
-Audit Preparation Management: Coordinate evidence gathering, documentation preparation, stakeholder interviews, and compliance verification across business units
+**Incident response coordination:** Orchestrate technical remediation, stakeholder communication, documentation, and post-incident analysis across IT, security, and business teams.
 
-Healthcare & Research
+### Financial services & compliance
 
-Clinical Trial Management: Orchestrate patient recruitment, regulatory compliance, data collection, safety monitoring, and reporting across research teams
-Patient Care Coordination: Automate scheduling, treatment planning, insurance verification, and care team communication for complex medical cases
-Medical Equipment Procurement: Coordinate clinical requirements, technical specifications, vendor evaluation, and regulatory approval processes
+**Regulatory compliance automation:** Coordinate data collection, analysis, reporting, and submission across multiple regulatory frameworks simultaneously.
 
-Manufacturing & Supply Chain
+**Loan processing pipeline:** Automate credit analysis, risk assessment, documentation review, and approval workflows involving multiple specialist teams.
 
-Product Launch Coordination: Orchestrate design finalization, manufacturing setup, quality assurance, marketing preparation, and distribution planning
-Supplier Onboarding Process: Automate qualification assessments, contract negotiations, system integrations, and performance monitoring setup
-Quality Incident Management: Coordinate investigation, root cause analysis, corrective actions, and supplier communication for quality issues
+**Audit preparation management:** Coordinate evidence gathering, documentation preparation, stakeholder interviews, and compliance verification across business units.
+
+### Healthcare & research
+
+**Clinical trial management:** Orchestrate patient recruitment, regulatory compliance, data collection, safety monitoring, and reporting across research teams.
+
+**Patient care coordination:** Automate scheduling, treatment planning, insurance verification, and care team communication for complex medical cases.
+
+**Medical equipment procurement:** Coordinate clinical requirements, technical specifications, vendor evaluation, and regulatory approval processes.
+
+### Manufacturing & supply chain
+
+**Product launch coordination:** Orchestrate design finalization, manufacturing setup, quality assurance, marketing preparation, and distribution planning.
+
+**Supplier onboarding process:** Automate qualification assessments, contract negotiations, system integrations, and performance monitoring setup.
+
+**Quality incident management:** Coordinate investigation, root cause analysis, corrective actions, and supplier communication for quality issues.
 
 ## Alternatives
 
@@ -92,7 +100,7 @@ For organizations with mixed requirements, a hybrid approach can be effective wh
 
 ## Cost Optimization
 
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Design review checklist for Cost Optimization.
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist)
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/86d0eefbe4dd4a23981c1d3d4f6fe7ed).
 
@@ -108,7 +116,7 @@ To deploy an implementation of this architecture, follow the steps in the [GitHu
 
 Principal authors:
 
-- [Solomon Pickett](https://www.linkedin.com/in/ProfileURL/) | Software Engineer II
+- [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130) | Software Engineer II
 
 
 Other contributors:
@@ -120,6 +128,6 @@ Other contributors:
 
 ## Next steps
 
-- [Overview of Agent Architecture](https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-architecture?pivots=programming-language-csharp)
+- [Overview of Agent Architecture using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-architecture)
 
 
