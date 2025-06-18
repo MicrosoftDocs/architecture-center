@@ -322,7 +322,7 @@ Other contributors:
 
 ## Related resources
 
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)
 - [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 [azure-monitor]: https://azure.microsoft.com/services/monitor

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 06/09/2025
+ms.date: 06/17/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,13 +22,33 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md)
+- [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)
 - [Implement SMA OpCon in Azure](./example-scenario/integration/sma-opcon-azure.yml)
 - [Cross-Region Resiliency for SQL TDE with Azure Key Vault Managed HSM](./solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
 
 ### Updated articles
 
-- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml)  ([#49f9b377bb](https://github.com/MicrosoftDocs/architecture-center/commit/49f9b377bb))
+- [AI Architecture Design](./ai-ml/index.md)  ([#67e00137ce](https://github.com/MicrosoftDocs/architecture-center/commit/67e00137ce))
 - [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md)  ([#28af09d05c](https://github.com/MicrosoftDocs/architecture-center/commit/28af09d05c))
+- [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#c33187a67c](https://github.com/MicrosoftDocs/architecture-center/commit/c33187a67c))
+- [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#f631aedcfa](https://github.com/MicrosoftDocs/architecture-center/commit/f631aedcfa))
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#ff2bccc86b](https://github.com/MicrosoftDocs/architecture-center/commit/ff2bccc86b))
+- [Patterns for inter-spoke networking](./networking/guide/spoke-to-spoke-networking.yml)  ([#f2d5a65b3e](https://github.com/MicrosoftDocs/architecture-center/commit/f2d5a65b3e))
+- [Guidance for using Azure Event Hubs in a multitenant solution](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
+- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
+- [Guidance for using Azure NAT Gateway in a multitenant solution](./guide/multitenant/service/nat-gateway.md)  ([#3b18425a8a](https://github.com/MicrosoftDocs/architecture-center/commit/3b18425a8a))
+- [Kubernetes Monitoring and Logging](./aws-professional/eks-to-aks/monitoring.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Kubernetes Workload Identity and Access](./aws-professional/eks-to-aks/workload-identity.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution](./guide/multitenant/service/aks.yml)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Messaging Bridge pattern](./patterns/messaging-bridge.yml)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
+- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#91443f679e](https://github.com/MicrosoftDocs/architecture-center/commit/91443f679e))
+- [Architectural Approaches for Identity in Multitenant Solutions](./guide/multitenant/approaches/identity.md)  ([#6d6acc32ed](https://github.com/MicrosoftDocs/architecture-center/commit/6d6acc32ed))
+- [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#5cd73dc642](https://github.com/MicrosoftDocs/architecture-center/commit/5cd73dc642))
 - [Scale out an Azure IoT Hub-based solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)  ([#54c99a236d](https://github.com/MicrosoftDocs/architecture-center/commit/54c99a236d))
 - [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#c92d3f1e02](https://github.com/MicrosoftDocs/architecture-center/commit/c92d3f1e02))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#110aa0e75a](https://github.com/MicrosoftDocs/architecture-center/commit/110aa0e75a))
@@ -57,12 +77,11 @@ The following new and updated articles have recently been published in the Azure
 
 - [Use Azure Front Door in a Multitenant Solution](./guide/multitenant/service/front-door.md)  ([#fa99f8af18](https://github.com/MicrosoftDocs/architecture-center/commit/fa99f8af18))
 - [SaaS and Multitenant Solution Architecture](./guide/saas-multitenant-solution-architecture/index.md)  ([#0f76c2f436](https://github.com/MicrosoftDocs/architecture-center/commit/0f76c2f436))
-- [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#350d437efd](https://github.com/MicrosoftDocs/architecture-center/commit/350d437efd))
+- [Architectural Approaches for Identity in Multitenant Solutions](./guide/multitenant/approaches/identity.md)  ([#350d437efd](https://github.com/MicrosoftDocs/architecture-center/commit/350d437efd))
 - [Architectural Approaches for Compute in Multitenant Solutions](./guide/multitenant/approaches/compute.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Azure Service Bus Considerations for Multitenancy](./guide/multitenant/service/service-bus.md)  ([#5998e0f989](https://github.com/MicrosoftDocs/architecture-center/commit/5998e0f989))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#a3f82db38d](https://github.com/MicrosoftDocs/architecture-center/commit/a3f82db38d))
-- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml)  ([#e70afb2615](https://github.com/MicrosoftDocs/architecture-center/commit/e70afb2615))
 - [Choose an Azure data service](./guide/technology-choices/data-options.md)  ([#30d024dc16](https://github.com/MicrosoftDocs/architecture-center/commit/30d024dc16))
 - [Mainframe File Replication and Sync on Azure](./solution-ideas/articles/mainframe-azure-file-replication.yml)  ([#e63f05ade9](https://github.com/MicrosoftDocs/architecture-center/commit/e63f05ade9))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#9be7ee44b0](https://github.com/MicrosoftDocs/architecture-center/commit/9be7ee44b0))
@@ -184,7 +203,6 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Networking architecture design](./networking/index.md)  ([#4d4330c7bb](https://github.com/MicrosoftDocs/architecture-center/commit/4d4330c7bb))
-- [Baseline AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))
 - [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#c14047e342](https://github.com/MicrosoftDocs/architecture-center/commit/c14047e342))

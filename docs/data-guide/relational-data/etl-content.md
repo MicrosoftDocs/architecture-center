@@ -87,4 +87,4 @@ Other tools:
 The following reference architectures show end-to-end ELT pipelines on Azure:
 
 - [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
-- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)
