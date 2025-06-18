@@ -20,12 +20,12 @@ This solution idea demonstrates big data analytics over large volumes of high-ve
 
 ### Components
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
 - [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): Analytics service that brings together enterprise data warehousing and Big Data analytics.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): Analytics service that brings together enterprise data warehousing and Big Data analytics.
 
 ## Scenario details
 
