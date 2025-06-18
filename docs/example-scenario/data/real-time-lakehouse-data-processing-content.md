@@ -45,11 +45,11 @@ Note: A similar architecture can also be implemented using Microsoft Fabric, whi
 
 This solution uses the following Azure components:
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs Capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs Capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale, and supports different file formats and sizes. Hierarchical namespaces help organize data into a familiar folder structure and support Portable Operating System Interface for UniX (POSIX) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale and supports different file formats and sizes. Hierarchical namespaces help organize data into a familiar folder structure and support Portable Operating System Interface for Unix (POSIX) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This solution uses the following features of the Azure Synapse Analytics ecosystem:
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This solution uses the following features of the Azure Synapse Analytics ecosystem:
 
   - [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) offer an on-demand Spark runtime that adds built-in performance enhancements to open-source Spark. Customers can configure flexible autoscale settings, submit jobs remotely through the Apache Livy endpoint, and use the Synapse Studio notebook interface for interactive experiences.
 
@@ -57,11 +57,11 @@ This solution uses the following Azure components:
 
   - [Azure Synapse dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) store data in relational tables with columnar storage. Dedicated SQL pools use a scale-out architecture to distribute data processing across multiple nodes. PolyBase queries bring the data into SQL pool tables. The tables can connect to Power BI for analysis and reporting.
 
-- [Power BI](https://powerbi.microsoft.com) provides a visual interface to create and access reports and dashboards. Power BI Desktop can connect to various data sources, combine the sources into a data model, and build reports or dashboards. With Power BI, you can transform data based on business requirements, and share visuals and reports with others through the Power BI service.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) provides a visual interface to create and access reports and dashboards. Power BI Desktop can connect to various data sources, combine the sources into a data model, and build reports or dashboards. With Power BI, you can transform data based on business requirements, and share visuals and reports with others through the Power BI service.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. 
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. 
 
-- [Azure Cognitive Search](https://azure.microsoft.com/services/search) Azure AI Search is an alternative when Cosmos DB indexing limitations prevent flexible querying. For example, if a retail application stores product catalog data in Cosmos DB, but users need to search by product name, description, and tags with typo tolerance and autocomplete, Azure AI Search can index the data and provide advanced search features like semantic ranking and synonyms. This is particularly useful when Cosmos DB’s indexing model is too rigid for complex search scenarios. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is an alternative when Cosmos DB indexing limitations prevent flexible querying. For example, if a retail application stores product catalog data in Cosmos DB, but users need to search by product name, description, and tags with typo tolerance and autocomplete, Azure AI Search can index the data and provide advanced search features like semantic ranking and synonyms. This is particularly useful when Cosmos DB’s indexing model is too rigid for complex search scenarios. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
 
 ## Scenario details
 
@@ -91,11 +91,11 @@ Similar scenarios apply to retail, commerce, and healthcare sectors. Enabling th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Event Hubs offers 90-day data retention on the premium and dedicated tiers. For failover scenarios, you can set up a secondary namespace in the paired region and activate it during failover.Enable zone redundancy to ensure resilience against datacenter failures. Event hubs capture can be used to persist data to Azure Data Lake Storage for replay and recovery scenarios.
 
@@ -103,9 +103,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - Use dedicated SQL pools with Geo-Backup and Zone-Redundant Storage (ZRS) to protect against regional and zonal outages.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - You can select from different Event Hubs tiers based on workload characteristics. Event Hubs bills Capture storage separately, based on the amount of data being stored on Data Lake Storage.
 
@@ -117,9 +117,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - To optimize cost efficiency in Azure Cosmos DB, tailor your indexing policies to include only necessary paths, reducing storage and RU consumption. Choose the appropriate API and consistency level to match workload needs without overprovisioning. Use autoscale throughput to dynamically adjust RU/s based on demand, and consolidate workloads into fewer containers when possible to minimize overhead. Regularly monitor usage with Azure Cost Management and set alerts to avoid unexpected charges.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - You can scale Event Hubs through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity. Tune throughput units (TUs) based on expected event volume.Use Capture to write directly to Data Lake in Avro or Parquet format for efficient downstream processing.
 
