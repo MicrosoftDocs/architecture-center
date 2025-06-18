@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a multi-agent AI automation system deployed using Azure container services and Azure AI services. This architecture uses agents and orchestration behavior defined in custom software with Semantic Kernel. The architecture hosts specialized AI agents that coordinate and execute organizational tasks automatically. The article highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
+This architecture shows a process automation system using multiple AI agents. The agents deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior is defined in custom software with Semantic Kernel. The architecture hosts specialized multiple AI agents that coordinate and execute organizational tasks automatically. The article highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
 
 The architecture demonstrates how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
 
@@ -30,15 +30,15 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure App Service](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service Website serves as the frontend interface where users can request and manage automated solutions, providing a responsive web experience for task submission and monitoring.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service Website serves as the frontend interface where users can request and manage automated solutions, providing a responsive web experience for task submission and monitoring.
 
-- [Azure Container App](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-container-apps)is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container App API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the execution of complex automated tasks. It hosts the custom developed code your software team writes that uses Semantic Kernel.
+- [Azure Container App](/azure/well-architected/service-guides/azure-container-apps)is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container App API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the execution of complex automated tasks. It hosts the custom developed code your software team writes that uses Semantic Kernel.
 
-- [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models-as-a-service (MaaS) for the Semantic Kernel based agents to invoke.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models-as-a-service (MaaS) for the Semantic Kernel based agents to invoke.
 
-- [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores all data related to current and past automation plans and solutions, with the Container App API writing data whenever new plans are created or tasks are executed, and reading data when users access their automation history via the App Service Website.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores all data related to current and past automation plans and solutions, with the Container App API writing data whenever new plans are created or tasks are executed, and reading data when users access their automation history via the App Service Website.
 
-- [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the frontend website and backend API, ensuring consistent deployment and version control of the multi-agent system components across environments.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the frontend website and backend API, ensuring consistent deployment and version control of the multi-agent system components across environments.
 
 ## Scenario details
 
@@ -100,7 +100,7 @@ For organizations with mixed requirements, a hybrid approach can be effective wh
 
 ## Cost Optimization
 
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist)
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
 
@@ -116,7 +116,7 @@ To deploy an implementation of this architecture, follow the steps in the [GitHu
 
 Principal authors:
 
-- [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130) | Software Engineer II
+- [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
 
 
 Other contributors:
@@ -129,5 +129,4 @@ Other contributors:
 ## Next steps
 
 - [Overview of Agent Architecture using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-architecture)
-
 
