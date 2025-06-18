@@ -1,20 +1,13 @@
 ---
 title: Develop a RAG Solution - Chunking Phase
 description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/16/2025 
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-categories:
-  - ai-machine-learning
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
 ---
 
 # RAG chunking phase

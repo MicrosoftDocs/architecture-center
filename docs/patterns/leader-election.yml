@@ -3,7 +3,7 @@ metadata:
   title: Leader Election pattern
   description: Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
   ms.author: pnp
-  author: RobBagby
+  author: claytonsiemens77
   ms.date: 05/30/2024
   ms.topic: design-pattern
   ms.subservice: design-pattern

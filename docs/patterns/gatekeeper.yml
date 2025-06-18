@@ -3,7 +3,7 @@ metadata:
   title: Gatekeeper pattern
   description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
   ms.author: pnp
-  author: RobBagby
+  author: claytonsiemens77
   ms.date: 05/26/2023
   ms.topic: design-pattern
   ms.subservice: design-pattern

@@ -6,13 +6,6 @@ ms.author: dabarkol
 ms.topic: conceptual
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
-ms.category:
-  - compute
-categories:
-  - compute
-products:
-  - azure-event-hubs
-  - azure-functions
 ---
 
 # Secure Azure Functions with Event Hubs

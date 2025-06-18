@@ -1,20 +1,11 @@
 ---
 title: Networking architecture design
 description: Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-virtual-network
-  - azure-virtual-wan
-  - azure-firewall
-  - azure-private-link
-  - azure-expressroute
-categories:
-  - networking
-  - hybrid
 ms.custom: fcp
 ---
 

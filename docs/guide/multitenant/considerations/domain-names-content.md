@@ -78,7 +78,7 @@ From a name resolution perspective, this chain of records accurately resolves re
 
 ### Host header resolution
 
-Name resolution is only half of the problem. All of the web components within Contoso's European deployment need to be aware of how to handle requests that arrive with Fabrikam's domain name in their `Host` request header. Depending on the specific web technologies that Contoso uses, this might require further configuration for each tenant's domain name, which adds extra operational overhead to the onboarding of tenants.
+Name resolution is only part of the problem. All of the web components within Contoso's European deployment need to be aware of how to handle requests that arrive with Fabrikam's domain name in their `Host` request header. Depending on the specific web technologies that Contoso uses, this might require further configuration for each tenant's domain name, which adds extra operational overhead to the onboarding of tenants.
 
 You can also consider rewriting host headers, so that regardless of the incoming request's `Host` header, your web server sees a consistent header value. For example, Azure Front Door enables you to rewrite `Host` headers, so that regardless of the request, your application server receives a single `Host` header. Azure Front Door propagates the original host header in the `X-Forwarded-Host` header, so that your application can inspect it and then look up the tenant. However, rewriting a `Host` header can cause other problems. For more information, see [Host name preservation](../../../best-practices/host-name-preservation.yml).
 

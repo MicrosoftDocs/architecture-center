@@ -6,11 +6,6 @@ ms.author: zriffle
 ms.date: 07/11/2024
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
-categories:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-machine-learning
 ms.collection: 
  - migration
  - gcp-to-azure
@@ -55,7 +50,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -78,7 +73,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
-| [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three Vs of big data. |
+| [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -95,7 +90,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -136,7 +131,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Continuous Evaluation](https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation) | [Azure ML – Data Drift](/azure/machine-learning/how-to-monitor-datasets) | Monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected. |
 | [Explainable AI](https://cloud.google.com/explainable-ai/) | [Azure ML – Model Interpretability](/azure/machine-learning/how-to-machine-learning-interpretability) | Understand and explain the behaviors of your machine learning models. |
 | [Cloud TPU](https://cloud.google.com/tpu) | [FPGA accelerated virtual machines](/azure/virtual-machines/sizes/overview#fpga-accelerated) | Perform AI and machine learning inferencing tasks that are optimized for FPGA programming. FPGAs are based on Intel's FPGA devices. |
-| [Vertax AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops) | A platform that streamlines the development and deployment of ML models and AI workflows, from data preparation and model training to deployment and monitoring. |
+| [Vertax AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/solutions/machine-learning-ops) | A platform that streamlines the development and deployment of ML models and AI workflows, from data preparation and model training to deployment and monitoring. |
 | [Dialogflow](https://cloud.google.com/dialogflow/docs/) | [Microsoft Bot Framework](https://dev.botframework.com) | Help build conversational AI experiences and integrate a conversational user interface. |
 
 ### AI and machine learning architectures

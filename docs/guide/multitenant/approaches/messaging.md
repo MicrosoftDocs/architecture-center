@@ -6,18 +6,7 @@ ms.author: paolos
 ms.date: 11/27/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-service-bus
-  - azure-event-grid
-  - azure-event-hubs
-  - azure-queue-storage
-categories:
-  - integration
-  - compute
-  - hybrid
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural approaches for messaging in multitenant solutions

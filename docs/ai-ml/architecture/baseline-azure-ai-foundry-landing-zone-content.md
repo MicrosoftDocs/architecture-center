@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure OpenAI Service end-to-end chat baseline architecture](baseline-openai-e2e-chat.yml). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying the architecture in an Azure application landing zone subscription.
+This article is part of a series that builds on the [Baseline AI Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying the architecture in an Azure application landing zone subscription.
 
 This article describes the architecture of a generative AI workload that deploys the same baseline chat application but uses resources that are outside the scope of the workload team. Those resources are shared among other workload teams and are centrally managed by the platform teams of an organization. Shared resources include networking resources for connecting to or from on-premises locations, identity access management resources, and policies. This guidance is for organizations that use Azure landing zones to ensure consistent governance and cost efficiency.
 
@@ -40,7 +40,7 @@ Like most application landing zone implementations, the workload team is mostly 
 
 #### Workload team-owned resources
 
-The following resources remain mostly unchanged from the [baseline architecture](./baseline-openai-e2e-chat.yml#components).
+The following resources remain mostly unchanged from the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#components).
 
 - **Azure OpenAI** is a managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5 Turbo, and embedding models.
 
@@ -139,7 +139,7 @@ For this architecture, the workload team and platform team need to collaborate o
 
 ## Compute
 
-The compute that hosts the prompt flow and the chat UI remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml).
+The compute that hosts the prompt flow and the chat UI remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml).
 
 An organization might impose requirements on the workload team that mandates the use of a specific Azure AI Foundry runtime. For example, the requirement might be to avoid automatic runtimes or compute instance runtimes and instead favors a prompt flow container host that fulfills compliance, security, and observability mandates.
 
@@ -151,7 +151,7 @@ Instead of hosting the prompt flow code in an Azure AI Foundry runtime environme
 
 ## Networking
 
-In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the workload is provisioned in a single virtual network.
+In the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking), the workload is provisioned in a single virtual network.
 
 *Change from the baseline:* The workload is effectively split over two virtual networks. One network is for the workload components and one is for controlling internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture, which is usually with a hub-spoke topology.
 
@@ -173,13 +173,13 @@ Because of this management and ownership split, make sure that you clearly [comm
 
 ### Virtual network subnets
 
-In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-openai-e2e-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` subnet because the platform team hosts this service in their subscriptions.
+In the spoke virtual network, the workload team creates and allocates the subnets that are aligned with the requirements of the workload. Placing controls to restrict traffic in and out of the subnets helps provide segmentation. This architecture doesn't add any subnets beyond those subnets described the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). The network architecture however no longer requires the `AzureBastionSubnet` subnet because the platform team hosts this service in their subscriptions.
 
 You still have to implement local network controls when you deploy your workload in an Azure landing zone. Organizations might impose further network restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
 ### Ingress traffic
 
-The ingress traffic flow remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml#network-flows).
+The ingress traffic flow remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#network-flows).
 
 Your workload team is responsible for any resources that are related to public internet ingress into the workload. For example, in this architecture, Application Gateway and its public IP address are placed in the spoke network and not the hub network. Some organizations might place resources with ingress traffic in a connectivity subscription by using a centralized perimeter network (also known as DMZ, demilitarized zone, and screened subnet) implementation. Integration with that specific topology is out of scope for this article.
 
@@ -231,7 +231,7 @@ In the baseline architecture, internet egress control is available only through 
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
-East-west client communication to the private endpoints for Container Registry, Key Vault, Azure OpenAI, and others remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml#networking). That path is omitted from the preceding diagram for brevity.
+East-west client communication to the private endpoints for Container Registry, Key Vault, Azure OpenAI, and others remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking). That path is omitted from the preceding diagram for brevity.
 
 #### Route internet traffic to the firewall
 
@@ -277,7 +277,7 @@ In this architecture, the platform team must ensure reliable and timely DNS host
 
 ## Data scientist and prompt flow authorship access
 
-Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
+Like the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#ingress-to-azure-ai-foundry), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
 When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
@@ -295,7 +295,7 @@ The VM that's used as the jump box must comply with organizational requirements 
 
 ## Monitor resources
 
-The Azure landing zone platform provides shared observability resources as part of the management subscription. However, we recommend that you provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach is consistent with the [baseline architecture](./baseline-openai-e2e-chat.yml#monitoring).
+The Azure landing zone platform provides shared observability resources as part of the management subscription. However, we recommend that you provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach is consistent with the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#monitoring).
 
 The workload team provisions the monitoring resources, which include:
 
@@ -309,7 +309,7 @@ The platform team might also have processes that affect your application landing
 
 ## Azure Policy
 
-The [baseline architecture](./baseline-openai-e2e-chat.yml#governance-through-policy) recommends some general policies to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove any more policies. Continue to apply policies to your subscription, resource groups, or resources that help enforce governance and enhance the security of this workload.
+The [baseline architecture](./baseline-azure-ai-foundry-chat.yml#governance-through-policy) recommends some general policies to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove any more policies. Continue to apply policies to your subscription, resource groups, or resources that help enforce governance and enhance the security of this workload.
 
 Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:
 
@@ -383,7 +383,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture aligns with the reliability guarantees in the [baseline architecture](./baseline-openai-e2e-chat.yml#reliability). There are no new reliability considerations for the core workload components.
+This architecture aligns with the reliability guarantees in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#reliability). There are no new reliability considerations for the core workload components.
 
 #### Reliability targets
 
@@ -460,7 +460,7 @@ All of the data storage services in this architecture support encryption keys ma
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For the workload resources, all of the cost optimization strategies in the [baseline architecture](./baseline-openai-e2e-chat.yml#cost-optimization) also apply to this architecture.
+For the workload resources, all of the cost optimization strategies in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#cost-optimization) also apply to this architecture.
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). Even if you use those resources via a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
 
@@ -468,7 +468,7 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
+The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
 #### Correlate data from multiple sinks
 
@@ -487,7 +487,7 @@ Many services in this architecture use private endpoints. Similar to the baselin
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The performance efficiency considerations described in the [baseline architecture](./baseline-openai-e2e-chat.yml#performance-efficiency) also apply to this architecture. The workload team retains control over the resources used in demand flows, not the platform team. Scale the chat UI host, prompt flow host, language models, and others according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
+The performance efficiency considerations described in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#performance-efficiency) also apply to this architecture. The workload team retains control over the resources used in demand flows, not the platform team. Scale the chat UI host, prompt flow host, language models, and others according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
 
 - Egress and cross-premises latency
 - SKU limitations derived from cost containment governance
@@ -505,7 +505,7 @@ A landing zone deployment for this reference architecture is available on GitHub
 
 Principal authors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Azure patterns & practices - Microsoft
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Microsoft Cloud Solution Architect
 - [Bilal Amjad](https://www.linkedin.com/in/mbilalamjad/) | Microsoft Cloud Solution Architect
 

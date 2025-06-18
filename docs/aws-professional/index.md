@@ -9,18 +9,6 @@ ms.subservice: architecture-guide
 ms.collection: 
  - migration
  - aws-to-azure
-categories: azure
-azureCategories:
-  - analytics
-  - compute
-  - developer-tools
-  - devops
-  - networking
-  - web
-products:
-  - azure-cloud-services
-  - azure-devops
-  - azure-managed-applications
 ---
 
 # Azure for AWS professionals

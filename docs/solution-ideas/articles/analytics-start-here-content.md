@@ -32,7 +32,7 @@ To get started, consider the following example implementations:
 
 -   [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
--   [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+-   [Databases architecture design](../../databases/index.yml)
 
 -   [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 
@@ -79,8 +79,6 @@ A hybrid approach might include mainframe and midrange systems as a data source 
 ### Example solutions
 
 Here are a few sample implementations of analytics on Azure to consider:
-
--   [Big data analytics with Azure Data Explorer](./big-data-azure-data-explorer.yml)
 
 -   [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml)
 

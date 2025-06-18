@@ -2,22 +2,10 @@
 title: Improper Instantiation antipattern
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 ms.author: pnp
-author: RobBagby
-categories: azure
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-azureCategories:
-  - analytics
-  - compute
-  - databases
-  - storage
-  - web
-products:
-  - azure-cache-redis
-  - azure-cosmos-db
-ms.custom:
-  - article
 keywords:
   - "Antipattern singleton"
   - "what is instantiation"

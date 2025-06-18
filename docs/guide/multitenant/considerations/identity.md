@@ -6,14 +6,7 @@ ms.author: dascottr
 ms.date: 05/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - entra-id
-categories:
-  - identity
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution
@@ -127,7 +120,7 @@ A common requirement for corporate or enterprise customers of a solution is a se
 When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following questions, when you plan your authentication process:
 
 - Do your tenants need to configure their own multifactor authentication (MFA) policies? For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
-- Do your tenants need to configure their own conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
+- Do your tenants need to configure their own Conditional Access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
 - Do your tenants need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
 - Do your users need to impersonate other users? For example, a support team member might wish to investigate an issue that another user has, by impersonating their user account without having to authenticate as the user.
 - Do your users need to gain access to the APIs for your solution? For example, users or third-party applications might need to directly call your APIs to extend your solution, without a user interface to provide an authentication flow.
@@ -143,7 +136,7 @@ If your tenants expect to be able to enable workload identity access to your mul
 - How will workload identities be created and managed in each tenant?
 - How will workload identity requests be scoped to the tenant?
 - Do you need to limit the number of workload identities that are created by each tenant?
-- Do you need to provide conditional access controls on workload identities for each tenant? For example, a tenant might want to limit a workload identity from being authenticated from outside a specific region.
+- Do you need to provide Conditional Access controls on workload identities for each tenant? For example, a tenant might want to limit a workload identity from being authenticated from outside a specific region.
 - Which security controls will you provide to tenants to ensure that workload identities are kept secure? For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring are all methods of reducing the risk, where a workload identity might be misused.
 
 ## Federate with an identity provider for single sign-on (SSO)

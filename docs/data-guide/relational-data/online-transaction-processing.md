@@ -6,10 +6,6 @@ ms.author: ambers
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - databases
-products:
-  - azure-sql-database
 ms.custom: arb-data
 ---
 

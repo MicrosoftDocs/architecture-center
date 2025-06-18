@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
-products: azure
-ms.custom:
-  - guide
 ---
 
 # Criteria for choosing a data store

@@ -173,7 +173,6 @@ Other contributors:
 - [HDInsight documentation](/azure/hdinsight)
 - [Microsoft Purview data governance documentation](/azure/purview)
 - [Azure Stream Analytics documentation](/azure/stream-analytics)
-- [Azure Synapse Analytics](/azure/synapse-analytics)
 
 ### Other
 

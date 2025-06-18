@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how small and medium businesses (SMBs) can combine existing investments in Azure Databricks with a fully managed software as a service (SaaS) data platform such as Microsoft Fabric. SaaS data platforms are end-to-end data analytics solutions that integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics 365, and other Microsoft technologies.
+This article describes how small and medium businesses (SMBs) can build a modern data platform architecture by combining existing investments in Azure Databricks with a fully managed software as a service (SaaS) data platform such as Microsoft Fabric. SaaS data platforms are end-to-end data analytics solutions that integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics 365, and other Microsoft technologies.
 
 ## Simplified architecture
 
-:::image type="content" source="../media/small-medium-businesses-simplified-architecture.svg" alt-text="Diagram that shows a simplified architecture for small and medium businesses." lightbox="../media/small-medium-businesses-simplified-architecture.svg":::
+:::image type="content" source="../media/small-medium-businesses-simplified-architecture.svg" alt-text="Diagram that shows a simplified modern data platform architecture for small and medium businesses." lightbox="../media/small-medium-businesses-simplified-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/small-medium-businesses-simplified-architecture.vsdx) of this architecture.*
 
@@ -18,7 +18,7 @@ As a result, Azure Databricks notebooks can use OneLake endpoints to access the 
 
 ## Architecture
 
-:::image type="content" source="../media/small-medium-businesses-architecture.svg" alt-text="Diagram that shows an SMB architecture." lightbox="../media/small-medium-businesses-architecture.svg":::
+:::image type="content" source="../media/small-medium-businesses-architecture.svg" alt-text="Diagram that shows a complete modern data platform architecture for small and medium businesses." lightbox="../media/small-medium-businesses-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/small-medium-businesses-simplified-architecture.vsdx) of this architecture.*
 

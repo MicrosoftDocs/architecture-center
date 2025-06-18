@@ -163,3 +163,4 @@ Other contributor:
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 - [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
 - [Big data analytics with enterprise grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
+

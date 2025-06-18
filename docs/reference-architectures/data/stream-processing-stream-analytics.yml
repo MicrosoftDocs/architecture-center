@@ -10,10 +10,7 @@ metadata:
   ms.category:
     - analytics
     - databases
-  ms.custom:
-    - reference-architecture
-    - internal-intro
-    - arb-data
+  ms.custom: arb-data
 name: Stream processing with Azure Stream Analytics
 azureCategories:
   - analytics
@@ -26,4 +23,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-asa.png
 content: |
-   [!include[](stream-processing-stream-analytics-content.md)]
+   [!INCLUDE[](stream-processing-stream-analytics-content.md)]

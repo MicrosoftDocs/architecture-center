@@ -6,14 +6,6 @@ ms.author: brmar
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-categories:
-  - devops
-  - containers
-products:
-  - azure-devops
-  - azure-monitor
-  - azure-pipelines
-  - azure-devtest-labs
 ms.custom: arb-devops
 ---
 

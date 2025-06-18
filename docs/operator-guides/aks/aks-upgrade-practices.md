@@ -10,9 +10,6 @@ ms.custom:
   - e2e-aks
   - devx-track-azurecli
   - arb-containers
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Azure Kubernetes Service patch and upgrade guidance
