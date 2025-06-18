@@ -2,7 +2,7 @@ Data-driven enterprises need to keep their back end and analytics systems in nea
 
 This article describes an end-to-end solution for near real-time data processing to keep lakehouse data in sync. The solution uses Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage for data processing and analytics.
 
-Note: This architecture can also be implemented using Microsoft Fabric, which provides a unified SaaS platform for data ingestion, transformation, storage, and analytics. See the Microsoft Fabric implementation section for details.
+Note: A similar architecture can also be implemented using Microsoft Fabric, which provides a unified SaaS platform for data ingestion, transformation, storage, and analytics. See the [Microsoft Fabric Real Time Intelligence] (/fabric/real-time-intelligence/overview) for details.
 
 *Apache® and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
