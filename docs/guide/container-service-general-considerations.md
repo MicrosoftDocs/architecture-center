@@ -1,5 +1,5 @@
 ---
-title: General Considerations for Choosing an Azure Container Service 
+title: Architectural Considerations for Choosing an Azure Container Service 
 description: Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series. 
 author: r-kayongo
 ms.author: rkayongo
@@ -10,48 +10,42 @@ ms.custom:
   - arb-containers
 ---
 
-# General architectural considerations for choosing an Azure container service
+# Architectural considerations for choosing an Azure container service
 
 This article guides you through the process of choosing an Azure container service. It provides an overview of feature-level considerations that are common and critical for some workloads. It can help you make decisions to ensure that your workload meets requirements for reliability, security, cost optimization, operational excellence, and performance efficiency.
 
 > [!NOTE]
-> This article is part two in a series that starts with [Choose an Azure container service](choose-azure-container-service.md). We strongly recommend that you read that overview article first to get a context for these architectural considerations.
+> This article is part two in a series that starts with [Choose an Azure container service](choose-azure-container-service.md). We strongly recommend that you read that overview article first to get context for these architectural considerations.
 
 ## Overview
 
-The considerations in this article are divided into four categories:
+The considerations in this article are divided into the following four categories:
 
 [Architectural and network considerations](#architectural-considerations)
 
 - Operating system support
-- Network address spaces
-- Understanding traffic flow
-- Planning subnets
-- Number of ingress IPs available
-- User-defined routes and NAT gateway support
+- Network address space
+- Traffic flow analysis
+- Subnet planning  
+- Available ingress IP addresses
+- User-defined routes (UDRs) and NAT gateway support
 - Private networking integration
 - Protocol coverage
 - Load balancing
 - Service discovery
-- Custom domains and managed TLS
-- Mutual TLS
-- Advanced Container Networking Services for AKS
+- Custom domains and managed Transport Layer Security (TLS)
+- Mutual TLS (mTLS)
+- Advanced container networking for AKS
 - Networking concepts for specific Azure services
 
 [Security considerations](#security-considerations)
 
-- Providing security for intra-cluster traffic by using network policies
-
+- Securing intra-cluster traffic with network policies
 - Network security groups (NSGs)
-
 - Azure Key Vault integration
-
 - Managed identity support
-
 - Threat protection and vulnerability assessments with Defender for Containers
-
 - Security baselines
-
 - Azure Well-Architected Framework for Security
 
 [Operational considerations](#operational-considerations)
@@ -67,31 +61,31 @@ The considerations in this article are divided into four categories:
 [Reliability considerations](#reliability)
 
 - Service-level agreements
-- Redundancy via availability zones
+- Redundancy through availability zones
 - Health checks and self-healing
 - Zero-downtime application deployments
 - Resource limits
 - Well-Architected Framework for Reliability
 
-Note that this article focuses on a subset of Azure container services that provide a mature feature set for web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service (AKS), AKS Automatic, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
+This article focuses on a subset of Azure container services that provide a mature feature set for web applications and APIs, networking, observability, developer tools, and operations. These services include Azure Kubernetes Service (AKS), AKS Automatic, Azure Container Apps, and Web App for Containers. For a full list of Azure container services, see [Container services](https://azure.microsoft.com/products/category/containers/).
 
 > [!NOTE]
-> Some sections distinguish AKS Standard from AKS Automatic. If a section doesn't distinguish between the two, feature parity is assumed.
+> Some sections differentiate AKS Standard from AKS Automatic. If a section doesn't specify a distinction, assume feature parity.
 
 ## Architectural considerations
 
-This section describes architectural decisions that are difficult to reverse or correct without requiring significant downtime or re-deployment. It's especially necessary to keep this consideration in mind for fundamental components like networking and security.
+This section covers architectural decisions that are difficult to reverse or correct without significant downtime or redeployment. It's especially important to consider this for fundamental components like networking and security.  
 
-These considerations aren't specific to Well-Architected Framework pillars. However, they deserve extra scrutiny and evaluation against businesses requirements when you choose an Azure container service.
+These considerations aren't specific to Well-Architected Framework pillars. However, they require extra scrutiny and evaluation against business requirements when you choose an Azure container service.
 
 > [!NOTE]
-> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features can't be disabled. This guide doesn't call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison).
+> AKS Automatic is a more opinionated solution than AKS Standard. Some built-in features can't be disabled. This guide doesn't call out those features. For more information, see [AKS Automatic and Standard feature comparison](/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison).
 
 ### Operating system support
 
 Most containerized applications run in Linux containers, all Azure container services support. Your options are more limited for workload components that require Windows containers.
 
-| |  Container Apps | AKS | AKS Automatic | Web App for Containers |
+| Container Apps | AKS | AKS Automatic | Web App for Containers |
 |---|---|---|---|--|
 | **Linux support** | ✅ | ✅ | ✅ |✅ |
 | **Windows support** | ❌ | ✅ | ❌|✅ |
@@ -115,12 +109,12 @@ Keep in mind that networking is a foundational infrastructure layer. It's often 
 
 When you integrate applications into virtual networks, you need to do some IP address planning to ensure that enough IP addresses are available for container instances. During this process, plan for additional addresses for updates, blue/green deployments, and similar situations in which extra instances are deployed, which consume additional IP addresses.
 
-| |  Container Apps | AKS | Web App for Containers |
+| Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | **Dedicated subnets** | Consumption plan: optional<br>Dedicated plan: required | Required | Optional |
 | **IP address requirements** | Consumption plan: See [Consumption-only environment](/azure/container-apps/networking#subnet).<br>Dedicated plan: See [Workload profiles environment](/azure/container-apps/networking#subnet). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
 
-Note that AKS requirements depend on the chosen network plug-in. Some network plug-ins for AKS require broader IP reservations. Details are outside the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
+Note that AKS requirements depend on the chosen network plug-in. Some network plug-ins for AKS require broader IP address reservations. Details are outside the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
 
 ### Understanding traffic flow
 
@@ -138,13 +132,13 @@ The following sections provide information about various networking constraints.
 
 Ensuring that you have a subnet that's large enough to include instances of your application for your workload isn't the only factor that dictates the network footprint where these applications are deployed.
 
-| |  Container Apps| AKS | Web App for Containers |
+| Container Apps | AKS | Web App for Containers |
 |---|--|--|---|
 | **Support for colocated workloads within a subnet*** | ❌* | ✅ | N/A* |
 
 *This describes a best practice, not a technical limitation.
 
-For Container Apps, subnet integration applies only to a single Container Apps environment. Each Container Apps environment is constrained to a single ingress IP, either public or private.
+For Container Apps, subnet integration applies only to a single Container Apps environment. Each Container Apps environment is constrained to a single ingress IP address, either public or private.
 
 Each Container Apps environment is meant only for a single workload in which dependent applications are colocated. Therefore, you need to introduce additional Azure networking appliances for ingress load balancing if you need both public and private ingress. Examples include Azure Application Gateway and Azure Front Door. Also, if you have multiple workloads that need to be segregated, additional Container Apps environments are required, so an additional subnet must be allocated for each environment.
 
@@ -155,25 +149,25 @@ For Web App for Containers, there are no constraints on how many apps you can in
 > [!NOTE]
 > You can't resize subnets that have resources deployed in them. Take extra care when you plan your network to avoid needing to redeploy entire workload components, which can lead to downtime.
 
-### Number of ingress IPs available
+### Number of ingress IP addresses available
 
-The following table takes the previous subnet planning section into consideration to define how many IPs can be exposed for an arbitrary number of applications that are hosted in a single deployment of an Azure container service.
+The following table takes the previous subnet planning section into consideration to define how many IP addresses can be exposed for an arbitrary number of applications that are hosted in a single deployment of an Azure container service.
 
 | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| **Number of ingress IPs** | One | Many | App Service Environment: One<br>No App Service Environment: Many |
+| **Number of ingress IP addresses** | One | Many | App Service Environment: One<br>No App Service Environment: Many |
 
-Container Apps allows one IP per environment, public or private. AKS allows any number of IPs, public or private. Web App for Containers, outside of an App Service Environment, allows one public IP for all apps within an App Service plan and multiple, different private IPs that use Azure private endpoints.
+Container Apps allows one IP address for each environment, public or private. AKS allows any number of IP addresses, public or private. Web App for Containers, outside of an App Service Environment, allows one public IP address for all apps within an App Service plan and multiple, different private IP addresses that use Azure private endpoints.
 
-It's important to note that web apps that are integrated into an App Service Environment only receive traffic through the single ingress IP that's associated with the App Service Environment, whether it's public or private.
+It's important to note that web apps that are integrated into an App Service Environment only receive traffic through the single ingress IP address that's associated with the App Service Environment, whether it's public or private.
 
-### User-defined routes and NAT gateway support
+### UDRs and NAT gateway support
 
-If a workload requires user-defined routes (UDRs) and NAT gateway capabilities for granular networking control, Container Apps requires the use of [workload profiles](/azure/container-apps/workload-profiles-overview). UDR and NAT gateway compatibility isn't available in the consumption-only plan for ACA.
+If a workload requires UDRs and NAT gateway capabilities for granular networking control, Container Apps requires the use of [workload profiles](/azure/container-apps/workload-profiles-overview). UDR and NAT gateway compatibility isn't available in the consumption-only plan for ACA.
 
 AKS and Web App for Containers implement these two networking features through standard virtual network functionality or virtual network integration, respectively. To elaborate, AKS node pools and Web App for Containers in an App Service Environment are already direct virtual network resources. Web App for Containers that aren't in an App Service Environment support UDRs and NAT gateway via [virtual network integration](/azure/app-service/overview-vnet-integration). With virtual network integration, the resource technically doesn't reside directly in the virtual network, but all of its outbound access flows through the virtual network, and the network's associated rules affect traffic as expected.
 
-| Container Apps| AKS| Web App for Containers |
+| Container Apps | AKS| Web App for Containers |
 |---|---|--|---|
 | **UDR support** | Consumption-only plan: ❌<br>Workload profile plan: ✅ | ✅ | ✅ |
 | **NAT gateway support** | Consumption-only plan: ❌<br>Workload profile plan: ✅ | ✅ | ✅ |
@@ -182,7 +176,7 @@ AKS and Web App for Containers implement these two networking features through s
 
 For workloads that require strict Layer 4 private networking for both ingress and egress, you should consider Container Apps, AKS, and the single-tenant App Service Environment SKU, where workloads are deployed into a self-managed virtual network, providing the customary granular private networking controls.
 
-| Container Apps| AKS | Web App for Containers |
+| Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | **Private ingress into a virtual network** | ✅ | ✅ | Via [private endpoint](/azure/app-service/networking/private-endpoint) |
 | **Private egress from a virtual network** | ✅ | ✅ | Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
@@ -217,7 +211,7 @@ With Container Apps and Web App for Containers, Azure fully abstracts away the L
 
 In contrast AKS uses a shared responsibility model in which Azure manages the underlying Azure infrastructure that the workload team configures by interfacing with the Kubernetes API. For Layer 7 load balancing in AKS, you can choose an Azure-managed options, for example the [AKS managed application routing add-on](/azure/aks/app-routing) or the [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), or deploy and self-manage an ingress controller of your choice.
 
-| Container Apps| AKS | Web App for Containers |
+| Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | **Layer 4 load balancer** | Azure-managed | Shared responsibility | Azure-managed |
 | **Layer 7 load balancer** | Azure-managed | Shared or self-managed | Azure-managed |
@@ -230,7 +224,7 @@ ACNS equips AKS with advanced networking capabilities that go beyond what’s av
   ACNS leverages Hubble’s control plane to deliver intuitive, in-depth insights into network behavior. With easy-to-consume node- and pod-level metrics and comprehensive flow logs, teams can quickly pinpoint issues and optimize performance. This built-in observability reduces the need for external monitoring setups and lowers the learning curve typically associated with Kubernetes network diagnostics.
 
 - **Container Network Security:**  
-  For clusters using Azure CNI powered by Cilium, ACNS provides FQDN filtering. Instead of managing static, IP-based security policies, you can define policies based on domain names. This dynamic approach not only simplifies policy management but also aligns with modern, Zero Trust security models—making it easier for teams to enforce robust security without constant manual updates.
+  For clusters using Azure CNI powered by Cilium, ACNS provides FQDN filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach not only simplifies policy management but also aligns with modern, Zero Trust security models—making it easier for teams to enforce robust security without constant manual updates.
 
 For more information, see the following resources:
 
@@ -241,7 +235,7 @@ For more information, see the following resources:
 
 In cloud architectures, runtimes can be removed and re-created at any time to rebalance resources, so instance IP addresses regularly change. These architectures use fully qualified domain names (FQDNs) for reliable and consistent communication.
 
-| Container Apps| AKS | Web App for Containers |
+| Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | **Service discovery** | Azure-managed FQDN | Kubernetes configurable | Azure-managed FQDN |
 
@@ -256,7 +250,7 @@ Kubernetes deployments are not initially discoverable within or from outside the
 
 ### Custom domains and managed TLS
 
-Both Container Apps and Web App for Containers provide out-of-the-box solutions for custom domains and certificate management.
+Both Container Apps and Web App for Containers provide built-in solutions for custom domains and certificate management.
 
 | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
@@ -266,19 +260,19 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 
 AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS doesn't provide managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager](https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
 
-### Mutual TLS
+### MTLs
 
-Another alternative for restricting incoming traffic is mutual TLS (mTLS). Mutual TLS is a security protocol that ensures that both the client and server in communication are authenticated. To accomplish authentication, both parties exchange and verify certificates before any data is transmitted.
+Another alternative for restricting incoming traffic is mTLS. mTLS is a security protocol that ensures that both the client and server in communication are authenticated. To accomplish authentication, both parties exchange and verify certificates before any data is transmitted.
 
 Web App for Containers has built-in mTLS support for incoming client connections. However, the application needs to validate the certificate by [accessing the `X-ARR-ClientCert` HTTP header](/azure/app-service/app-service-web-configure-tls-mutual-auth#access-client-certificate) that the App Service platform forwards.
 
 Container Apps also has built-in support for mTLS. It forwards the client certificate to the application in the HTTP header [X-Forwarded-Client-Cert](/azure/container-apps/client-certificate-authorization). You can also easily enable [automatic mTLS for internal communication between apps](/azure/container-apps/networking#mtls) in a single environment.
 
-Mutual TLS in AKS can be implemented through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services. Workload teams could also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
+mTLS in AKS can be implemented through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services. Workload teams could also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
 
 ### Service-specific networking concepts
 
-The preceding sections describe some of the most common considerations to take into account. For more details and to learn more about networking features that are specific to individual Azure container services, see these articles:
+The preceding sections describe some of the most common considerations to take into account. For more details and to learn more about networking features that are specific to individual Azure container services, see the following articles:
 
 - [Networking in Container Apps](/azure/container-apps/networking)
 - [Networking concepts for AKS](/azure/aks/concepts-network)
@@ -309,7 +303,7 @@ AKS provides the most flexibility of the three options considered in this articl
 
 #### Identity-based security
 
-Customers are responsible for securing identity-based access to the API. Out of the box, Kubernetes provides its own authentication and authorization management system, which also needs to be secured with access controls. 
+Customers are responsible for securing identity-based access to the API. Out of the box, Kubernetes provides its own authentication and authorization management system, which also needs to be secured with access controls.
 
 To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure RBAC for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
@@ -327,14 +321,14 @@ There are consequences to implementing network-restricted access to the Kubernet
 
 | Container Apps | AKS |
 |---|---|---|
-| **Kubernetes API network security** | Not configurable in PaaS | Configurable: public IP or private IP |
+| **Kubernetes API network security** | Not configurable in PaaS | Configurable: public IP address or private IP address |
 
-In addition, Advanced Container Networking Services (ACNS) enhances data plane security in AKS. For clusters using Azure CNI powered by Cilium, ACNS introduces **Container Network Security** through FQDN filtering. Instead of managing static, IP-based security policies, you can define dynamic policies based on fully qualified domain names. This simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring only traffic to trusted domains is allowed.
+In addition, Advanced Container Networking Services (ACNS) enhances data plane security in AKS. For clusters using Azure CNI powered by Cilium, ACNS introduces **Container Network Security** through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on fully qualified domain names. This simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring only traffic to trusted domains is allowed.
 
 > [!NOTE]
 > ACNS security features require Kubernetes 1.29 or later and are available only on clusters using the Cilium data plane.
 
-These considerations don't apply to Container Apps. Because it's PaaS, Microsoft abstracts away the underlying infrastructure.
+These considerations don't apply to Container Apps. Because it's PaaS, Microsoft abstracts the underlying infrastructure.
 
 ### Data plane network security
 
@@ -348,7 +342,7 @@ Some security postures require network traffic segregation *within* an environme
 |---|---|---|---|
 | **Network policies** | Consumption plan: ❌<br>Dedicated plan: ❌ | ✅ | ❌ |
 
-Of the three Azure services described in this article, AKS is the only one that supports further workload isolation within the cluster.  Network policies aren't supported in Container Apps or Web App for Containers.
+Of the three Azure services described in this article, AKS is the only one that supports further workload isolation within the cluster. Network policies aren't supported in Container Apps or Web App for Containers.
 
 #### NSGs
 
@@ -358,17 +352,17 @@ In all scenarios, you can regulate networking communication within the wider vir
 |---|---|---|---|
 | **NSGs** | Consumption plan: ✅<br>Dedicated plan: ✅ | ✅ | ✅ VNet-integrated apps: egress only |
 
-#### Built-in IP restrictions for ingress
+#### Built-in IP address restrictions for ingress
 
-Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic for individual applications. AKS can achieve the same functionality, but requires Kubernetes native functionality through the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for *loadBalancerSourceRanges*.
+Container Apps and Web App for Containers provide built-in source IP address restrictions for ingress traffic for individual applications. AKS can achieve the same functionality, but requires Kubernetes native functionality through the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for *loadBalancerSourceRanges*.
 
 | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| **Built-in ingress IP restrictions** | ✅ | ❌* | ✅ |
+| **Built-in ingress IP address restrictions** | ✅ | ❌* | ✅ |
 | **Resource consumption** | - | Consumes cluster resources | - |
 
 > [!NOTE]
-> AKS provides ingress IP restrictions, but it's a Kubernetes native feature and not Azure Native like the other services. 
+> AKS provides ingress IP address restrictions, but it's a Kubernetes native feature and not Azure Native like the other services.
 
 ## Application-level security
 
@@ -450,7 +444,7 @@ As a managed Kubernetes service, AKS will provide the updated images for the nod
 
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so customers can avoid the complexity of AKS upgrade management.
 
-| | Container Apps| AKS| AKS Automatic| Web App for Containers|
+| | Container Apps | AKS| AKS Automatic | Web App for Containers |
 |---|---|---|---|--|
 | **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform | Platform |
 | **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform | Platform |
@@ -671,7 +665,7 @@ Another important component of a reliable shared environment is your control ove
 
 ### Well-Architected Framework for Reliability
 
-This article focuses on the main differences among the container services features in Azure. If you want to review the complete reliability guidance for a specific service, see these articles:
+This article focuses on the main differences among the container services features in Azure. If you want to review the complete reliability guidance for a specific service, see the following articles:
 
 - [Well-Architected Framework review for AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 - [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps)
@@ -679,17 +673,17 @@ This article focuses on the main differences among the container services featur
 
 ## Conclusion
 
-Well-architected solutions set the foundations for successful workloads. Although architectures can be adjusted as a workload grows and teams progress on their cloud journeys, some decisions, especially around networking, are difficult to reverse without significant downtime or re-deployment.
+Well-architected solutions lay the foundation for successful workloads. Architecture decisions can evolve as workloads grow and teams progress in their cloud journeys. Some choices, especially those related to networking, are difficult to reverse without significant downtime or redeployment.
 
-In general, when you compare Azure container services, a theme emerges: AKS surfaces the most underlying infrastructure, thus offering the greatest control and configurability, while AKS Automatic provides a balance between control and simplicity by automating many operational tasks.
+When you compare Azure container services, a clear theme emerges. AKS exposes the most underlying infrastructure, which provides maximum control and configurability. AKS Automatic strikes a balance between control and simplicity by automating many operational tasks.
 
-The amount of operational overhead and complexity is highly variable for AKS workloads. Some teams can greatly reduce the operational overhead by using Microsoft managed add-ons and extensions, and auto-upgrade features. Other customers might prefer full control of the cluster in order to leverage full extensibility of Kubernetes and the CNCF ecosystem. For example, although Microsoft provides Flux as a managed GitOps extension, many teams choose instead to setup and operate ArgoCD on their own.
+The amount of operational overhead and complexity vary widely for AKS workloads. Some teams significantly reduce overhead by using Microsoft-managed add-ons, extensions, and auto-upgrade features, while others prefer full cluster control to take advantage of Kubernetes' full extensibility and the CNCF ecosystem. For example, while Microsoft provides Flux as a managed GitOps extension, many teams choose to set up and operate ArgoCD on their own.
 
-Workload teams that, for example, do not require CNCF applications, have less operations experience or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
+Workload teams that don't require CNCF applications, have less operations experience, or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
 
-Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure. However, a key difference is that Container Apps is closer to Kubernetes and provides extra cloud-native capabilities for service discovery, event-driven autoscaling, [Dapr](https://dapr.io/) integration, and more. Teams that don't need these capabilities and are familiar with App Service networking and deployment models might prefer Web App for Containers.
+Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure. However, Container Apps is closer to Kubernetes and provides extra cloud-native capabilities for service discovery, event-driven autoscaling, and [Dapr](https://dapr.io/) integration. Teams that don't need these features and are familiar with App Service networking and deployment models might prefer Web App for Containers.
 
-Generalizations can help you narrow down the list of Azure container services to consider. But keep in mind that you also need to verify your choice by examining individual requirements in detail and matching them to service-specific feature sets.
+Generalizations can help narrow down the list of Azure container services to consider. However, you should also verify your choice by reviewing individual requirements in detail and matching them to service-specific features.
 
 ## Contributors
 
@@ -706,7 +700,7 @@ Other contributors:
 
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski/) | Senior Customer Engineer
 - [Don High](https://www.linkedin.com/in/donhighdevops/) |  Principal Customer Engineer
-- [Nelly Kiboi](https://www.linkedin.com/in/nellykiboi/)  | Service Engineer 
+- [Nelly Kiboi](https://www.linkedin.com/in/nellykiboi/)  | Service Engineer
 - [Faisal Mustafa](https://www.linkedin.com/in/faisalmustafa/) |  Senior Customer Engineer
 - [Walter Myers](https://www.linkedin.com/in/waltermyersiii/) | Principal Customer Engineering Manager
 - [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Customer Engineer
@@ -723,5 +717,5 @@ Other contributors:
 
 ## Related resources
 
-- [AKS - Plan your design and operations](../reference-architectures/containers/aks-start-here.md)
+- [Plan your design and operations](../reference-architectures/containers/aks-start-here.md)
 - [Deploy microservices with Container Apps](../example-scenario/serverless/microservices-with-container-apps.yml)
