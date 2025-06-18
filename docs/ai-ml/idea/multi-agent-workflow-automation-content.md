@@ -102,7 +102,7 @@ For organizations with mixed requirements, a hybrid approach can be effective wh
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist)
 
-For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/86d0eefbe4dd4a23981c1d3d4f6fe7ed).
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
 
 Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
 
