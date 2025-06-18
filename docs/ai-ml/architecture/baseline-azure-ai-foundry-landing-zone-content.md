@@ -125,14 +125,15 @@ For this architecture, the workload team and platform team need to collaborate o
 
 | &nbsp; | Topic | Workload requirement for this architecture |
 | ------ | :---- | :----------------------------------------- |
-|&#9744;|**Number of spoke virtual networks and their size.** The platform team needs to know the number of spokes because they create and configure the virtual network and make it a spoke by peering it to the central hub. They also need to make sure that the network is large enough to accommodate future growth. | Only one dedicated virtual network for a spoke is required. All resources are deployed in that network. <br><br> TODO DETAILS FOR THESE Request /22 contiguous address space to operate at full scale or accommodate situations, such as side-by-side deployments. Most IP address requirements are driven by: <br> - Application Gateway requirements for the subnet size (fixed size). <br>- Private endpoints with single IP addresses for PaaS services (fixed size). <br> - The subnet size for build agents (fixed size).<br><br>AI Foundry Agent Service requires that its subnet be within the prefix of TODO RANGE <-- This is really important, how do we call this out?.|
+|&#9744;|**Number of spoke virtual networks and their size.** The platform team needs to know the number of spokes because they create and configure the virtual network and make it a spoke by peering it to the regional hub. They also need to make sure that the network is large enough to accommodate future workload growth. | Only one dedicated virtual network for a spoke is required. All resources are deployed in that network. <br><br> Request /22 contiguous address space to operate at full scale or accommodate situations, such as side-by-side deployments. Most IP address requirements are driven by: <br> - Application Gateway requirements for the subnet size (fixed size). <br>- Private endpoints with single IP addresses for PaaS services (fixed size). <br> - The subnet size for build agents (fixed size).<br><br>AI Foundry Agent Service requires that its subnet be within the prefix of `/24`.|
+|&#9744;|**Virtual network address prefixes.** Typically the platform team will assign IP addresses based on existing conventions, overlap avoidence with peered networks, and IPAM availability. | Due to a runtime restriction in the Azure Foundry Agent Service capability host, the agent integration subnet must start with *172.* or *192.* (such as 192.168.45.1/24). Subnets using *10.* are not supported. Have your platform team provide a spoke containing this address prefix for your agent subnet. |
 |&#9744;|**Virtual network subscription.** The platform team needs to know if they are free to host the virtual network in their subscription or if it needs to be placed within a workload-owned resource group. | Due to a restriction on how Azure AI Foundry Agent Service operates, the virtual network must be in the same resource group as the Azure AI Foundry account. Have your platform team provision the virtual network within the resource group you plan on deploying your Azure AI Foundry account to. |
-|&#9744;|**Deployment region.** The platform team uses this information to ensure that they have a hub deployed in the same region as the workload resources.| Availability is limited for [Azure OpenAI in certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). Communicate the chosen region. Also, communicate the region or regions where the underlying compute resources are deployed. The selected regions should support availability zones. |
+|&#9744;|**Deployment region.** The platform team uses this information to ensure that they have a hub deployed in the same region as the workload resources.| Availability is limited for [Azure OpenAI in Foundry Models in certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). Communicate the chosen region. Also, communicate the region or regions where the underlying compute resources are deployed. The selected regions should support availability zones. |
 |&#9744;|**Type, volume, and pattern of traffic.** The platform team uses this information to determine the ingress and egress requirements of the shared resources used by your workload. | Provide information about: <br> - How users should consume this workload. <br> - How this workload consumes its surrounding resources. <br> - The configured transport protocol. <br> - The traffic pattern and the expected peak and off-peak hours. When do you expect a high number of concurrent connections to the internet (chatty) and when do you expect the workload to generate minimal network traffic (background noise).|
 |&#9744;|**Firewall configuration.** The platform team uses this information to set rules to allow legitimate egress traffic.| Inform the platform team of specific information that's related to the traffic that leaves the spoke network, including agent traffic. <br> - Build agent and jump box machines need regular operating system patching.<br> - Agents might need to interact with internet grounding sources, tools, or other agents hosted outside of the workload. |
 |&#9744;|**Ingress traffic from specialized roles.** The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists and developers to access the Azure AI Foundry portal from their workstations on corporate network connections. <br> - Operators to access the compute layer through the jump box that's managed by the workload team. |
 |&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - Protection from DDoS for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
-|&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure Private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Key Vault <br> - Azure AI Foundry, Azure AI Services, and Azure OpenAI <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
+|&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure Private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Cosmos DB for NoSQL <br> - Key Vault <br> - Azure AI Foundry <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
 |&#9744;|**Centralized AI resources.** The platform team needs to be aware of expected model and hosting platform usage as the platform team uses this information to establish networking to any centralized AI resources established in the organization. Organizations build their own unique [AI adoption and governance plans](/azure/cloud-adoption-framework/scenarios/ai/plan) that workload teams will be constrained by. | Inform the platform team about all AI and ML resources that are planned to be used. In this architecture, those services are: <br> - Azure AI Foundry, Foundry Agent Service, and generative foundation models hosted in AI Foundry<br><br>Have a clear understanding of what centralized AI services are mandated to be used and what taking a dependency on those offerings means for your workload.|
 
 > [!IMPORTANT]
@@ -228,7 +229,7 @@ The egress controls are further augmented. All traffic that leaves the spoke vir
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
-East-west client communication to the private endpoints for Container Registry, Key Vault, Azure OpenAI, and others remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking). That path is omitted from the preceding diagram for brevity.
+East-west client communication to the private endpoints for Key Vault, Azure AI Foundry, and others remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking). That path is omitted from the preceding diagram for brevity.
 
 #### Route internet traffic to the firewall
 
@@ -239,8 +240,8 @@ A route is attached to all of the possible subnets in the spoke network that dir
 | Application Gateway | None. Internet-bound traffic that originates from this service can't be forced through a platform team firewall. |
 | App Service (chat UI) | [Regional virtual network integration](/azure/app-service/configure-vnet-integration-enable) is enabled.<br/>[vnetRouteAllEnabled](/azure/app-service/configure-vnet-integration-routing#configure-application-routing) is enabled. |
 | AI Search | None. Traffic that originates from this service can't be forced through a firewall. This architecture doesn't use skills. |
-| Azure AI Foundry Agent Service | A UDR applied to the Azure AI Agent integration subnet. |
-| Jump box | Uses the UDR that's applied to snet-jumpbox. |
+| Azure AI Foundry Agent Service | A UDR applied to the Foundry Agent Service integration subnet. |
+| Jump boxes | Uses the UDR that's applied to snet-jumpbox. |
 | Build agents | Uses the UDR that's applied to snet-agents. |
 
 No force tunnel settings are configured for the components that remain in the architecture because no outbound communication happens from those services.
@@ -255,7 +256,7 @@ When you apply this route configuration to the architecture, all outbound connec
 
 ### Azure Private DNS zones
 
-Architectures that use private endpoints for east-west traffic within their workload need DNS zone records in the configured DNS provider. This architecture requires many DNS zone records to function properly: Key Vault, Azure OpenAI, and more to support Private Link.
+Architectures that use private endpoints for east-west traffic within their workload need DNS zone records in the configured DNS provider. This architecture requires many DNS zone records to function properly: Key Vault, Azure AI Foundry, Azure Storage, and more to support Private Link.
 
 *Change from the baseline:* The workload team is directly responsible for the private DNS zones in the baseline architecture. In the landing zone architecture, the platform team typically maintains private DNS zones. They might use another technology, but for this architecture, it's private DNS zone records. The workload team must clearly understand the platform team's requirements and expectations for the management of those private DNS zone records.
 
@@ -264,6 +265,22 @@ In this architecture, the platform team must set up DNS for the following Azure 
 - privatelink.services.ai.azure.com
 - privatelink.openai.azure.com
 - privatelink.cognitiveservices.azure.com
+
+Along with those AI Foundry endpoints, the FQDN values for Foundry Agent Service dependencies must also be established.
+
+- privatelink.search.windows.net
+- privatelink.blob.core.windows.net
+- privatelink.documents.azure.com
+
+> [!IMPORTANT]
+> It is absolutly critical that DNS resolution resolves from within the spoke virtual before the capability host for Foundry Agent Service is deployed by the workload team. For example, your platform team might use have DINE policies that are handling DNS private zones. As a workload team, you must wait until the Foundry Agent Service dependencies (AI Search, Storage, Cosmos DB) you deploy are fully resovable to their private endpoints from within your spoke before deploying Azure AI Foundry and its agent capability.
+>
+> If you attempt to deploy the Foundry Agent Service capability before the private DNS records are resolvable from within your subnet, the deployment will fail.
+
+And finally, the private DNS zones for other workload dependencies in this architecture must be managed.
+
+- privatelink.vaultcore.azure.net
+- privatelink.azurewebsites.net
 
 ## Data scientist and agent developer access
 
@@ -303,22 +320,13 @@ The [baseline architecture](./baseline-azure-ai-foundry-chat.yml#governance-thro
 
 Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:
 
-<!--TODO: We need to replace the below examples with some relevant for the updated architecture
- - Policy: "Secrets [in Key Vault] should have the specified maximum validity period."
+- Policy: "Secrets [in Key Vault] should have the specified maximum validity period."
 
-    Complication: Azure AI Foundry manages secrets in the workload's Key Vault, and those secrets don't have an expiry date set.
+    Complication: Azure AI Foundry can be configured to store secrets involved knowledge and tools connection in a connected Key Vault, and those secrets don't have an expiry date set by the service. The baseline architecture doesn't use connections involving secrets however, it can be extended to use them.
 
-- Policy: "Machine Learning workspaces should be encrypted with a customer-managed key."
+- Policy: "Azure AI Search services should use customer-managed keys to encrypt data at rest."
 
-    Complication: This architecture isn't designed solely to handle customer-managed keys. However, it can be extended to use them.
-
-- Policy: "Azure Machine Learning workspaces should enable V1LegacyMode to support network isolation backward compatibility."
-
-    Complication: This architecture does not require network isolation backward compatibility."
-
-- Policy: "Azure Machine Learning workspaces should use user-assigned managed identity."
-
-    Complication: This architecture uses system-assigned managed identity to take advantage of system-managed role assignments. -->
+    Complication: This architecture isn't require to use customer-managed keys. However, it can be extended to use them.
 
 Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
@@ -333,16 +341,16 @@ Workload and platform teams must communicate in an efficient and timely manner t
 In this architecture, the platform team manages the following resources. Changes to these resources can potentially affect the workload's reliability, security, operations, and performance targets. It's important to evaluate these changes before the platform team implements them to determine how they affect the workload.
 
 - **Azure policies:** Changes to Azure policies can affect workload resources and their dependencies. For example, there might be direct policy changes or movement of the landing zone into a new management group hierarchy. These changes might go unnoticed until there's a new deployment, so it's important to thoroughly test them.
-<!-- TODO: Update the following with something relevant to this architecture
-  *Example:* A policy no longer allows the deployment of Azure OpenAI instances that support API key access. -->
+
+  *Example:* A policy no longer allows the deployment of Cosmos DB instances that require customer-managed key (CMK) encryption and your architecture is using Microsoft-managed key encryption.
 
 - **Firewall rules:** Modifications to firewall rules can affect the workload's virtual network or rules that apply broadly across all traffic. These modifications can result in blocked traffic and even silent process failures. These potential problems apply to both the egress firewall and Azure Virtual Network Manager-applied NSG rules.
 
-  *Example:* Blocked vendor update servers lead to failed operating system updates on the jump box or build agents.
+  *Example:* Blocked traffic to Bing APIs lead to failed agent tool invocations for internet grounding data.
 
 - **Routing in the hub network:** Changes in the transitive nature of routing in the hub can potentially affect the workload functionality if a workload depends on routing to other virtual networks.
 
-  *Example:* Prevents Azure AI Foundry agents to access a vector store that's operated by another team or data science teams from accessing browser-based experiences in the AI portals from their workstations.
+  *Example:* Prevents Azure AI Foundry agents to access a vector store that's operated by another team or data science teams from accessing the AI Foundry portal from their workstations.
 
 - **Azure Bastion host:** Changes to the Azure Bastion host availability or configuration.
 
@@ -423,7 +431,7 @@ The following table shows examples of egress in this architecture.
 
 | Endpoint | Purpose | Workload control | Platform control |
 | :------- | :------ | :---------- | :---------- |
-| Public internet sources | Your agent might require internet search to complement an Azure OpenAI request | NSG on the agent integration subnet | Firewall application rules for external knowledge stores and tools |
+| Public internet sources | Your agent might require internet search to ground an Azure OpenAI in Foundry Models request | NSG on the agent integration subnet | Firewall application rules for external knowledge stores and tools |
 | Azure AI Foundry data plane | The chat UI involving the chat agent | *TCP/443* to the private endpoint subnet containing the AI foundry private endpoint from the app service integration subnet | None |
 | Azure Cosmos DB | To access the memory database from the Azure AI Foundry Agent Service | *TCP/443* to the private endpoint subnet that contains Cosmos DB | None |
 
@@ -457,8 +465,6 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-It is absolutly critical that DNS resolution resolves from within the Vnet before the capability host is deployed. For example, if you have DINE policies that are handling DNS private zones, we need to make sure those records for agent service dependencies are in place before the capability host is deployed.
 
 The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
