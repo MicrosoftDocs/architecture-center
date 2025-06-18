@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a multi-agent AI automation system deployed using Azure container services and AI platforms. It describes a foundational configuration that leverages specialized AI agents to coordinate and execute complex organizational tasks automatically. This article assumes that you have a basic understanding of containerized applications and AI orchestration concepts. The article primarily highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination. For more information about designing AI agent architectures, see Multi-agent systems design patterns.
+This architecture shows a multi-agent AI automation system deployed using Azure container services and Azure AI services. This architecture uses agents and orchestration behavior defined in custom software with Semantic Kernel. The architecture hosts specialized AI agents that coordinate and execute organizational tasks automatically. The article highlights the infrastructure and DevOps aspects of how to manage multi-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
 
 The architecture demonstrates how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator, with persistent learning capabilities and automated deployment processes for enterprise-grade task automation.
 
@@ -16,29 +16,17 @@ The architecture demonstrates how to build scalable automation pipelines where m
 
 The following workflow corresponds to the preceding diagram:
 
-1. User Input & Task Specification: Users access the Web Front-end to request and manage automated solutions
-Tasks are submitted through the web interface with specific requirements and parameters
+1. Employees access the web frontend to request and manage automated solutions. Tasks are submitted through the web interface with specific requirements and parameters.
 
-2. Task Processing & Orchestration: App Service Website receives the user request from the frontend
-Container App API processes the incoming task and determines which specialized AI agents are needed
-Task is broken down into component parts for multi-agent coordination
+2. App Service Website receives the user request from the frontend and calls an API hosted in Container Apps. That API processes the incoming task and determines which specialized AI agents are needed. Task is broken down into component parts for multi-agent coordination.
 
-3. Agent Coordination & AI Processing: Container App API connects to Azure AI Foundry GPT-4o model
-Multiple specialized AI agents are orchestrated to handle different aspects of the task
-Agents collaborate to plan, execute, and validate the automated solution
+3. The Container App API connects to an Azure AI Foundry hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, execute, and validate the automated solution.
 
-4. Data Storage & Retrieval: Azure Cosmos DB stores all data related to current and past plans/solutions
-Historical task data and patterns are maintained for learning and optimization
-Agent decisions and outcomes are persisted for future reference
+4. Azure Cosmos DB stores all data related to current and past plans/solutions. Historical task data and patterns are maintained for learning and optimization. Agent decisions and outcomes are persisted for future reference.
 
-5. Container Management & Deployment: Container Registry manages images for frontend website and backend API
-Ensures consistent deployment of agent services across environments
-Maintains versioned container images for rollback capabilities
+5. Container Registry manages images for frontend website and backend API. This registry maintains versioned container images for rollback capabilities as well.
 
-6. CI/CD Pipeline & Automation: Source Repository (GitHub) triggers automatic updates when code changes
-Docker builds and deploys updated container images to the registry
-Website and API server images are generated automatically on code updates
-Continuous integration ensures rapid deployment of improvements
+6. The source repository, GitHub, triggers automatic building of website and API server images on code updates. Docker builds and deploys updated container images to the registry.
 
 ### Components
 
