@@ -4,7 +4,7 @@ metadata:
   description: Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
   author: RobBagby
   ms.author: pnp
-  ms.date: 05/23/2025
+  ms.date: 06/19/2025
   ms.topic: example-scenario
   ms.category:
     - containers
