@@ -1,4 +1,4 @@
-This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Distributed Application Runtime (Dapr) and event-driven scaling with Kubernetes event-driven autoscaling (KEDA).
+This article describes a solution for running an order management system that has 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Distributed Application Runtime (Dapr) and event-driven scaling with Kubernetes event-driven autoscaling (KEDA).
 
 *Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
@@ -89,7 +89,7 @@ You can also enable HTTPS ingress in Container Apps without creating more Azure 
 
 For more information, see [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
-This article describes a solution for running an order management system with 10 microservices on Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
+This article describes a solution for running an order management system that has 10 microservices on Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
 ### Potential use cases
 
