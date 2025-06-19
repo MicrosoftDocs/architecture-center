@@ -355,7 +355,7 @@ Product documentation:
 
 - [ExpressRoute Documentation](/azure/expressroute)
 - [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
-- [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+- [How to create an ExpressRoute circuit](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
 - [Azure Networking Blog](https://azure.microsoft.com/blog/topics/networking)
 - [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
