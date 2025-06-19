@@ -20,9 +20,9 @@ The following dataflow corresponds to the previous diagram:
 
 1. Pull requests trigger automated unit testing through GitHub Actions.
 
-1. Configure the GitHub Actions workflow process to test the IaC with locally deployed infrastructure states and plans.
+1. Configure the GitHub Actions workflow process to test the IaC by using locally deployed infrastructure states and plans.
 
-1. Configure GitHub Actions to scan for code quality and security issues. Create your own custom-built GitHub CodeQL queries to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
+1. Configure GitHub Actions to scan for code quality and security problems. Create your own custom-built GitHub CodeQL queries to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
 
 1. The IaC tool provisions and modifies resources for each environment by tailoring size, instance count, and other properties. You can run automated integration tests for IaC on provisioned resources.
 
@@ -30,7 +30,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. SecOps continuously monitors and defends against security threats and vulnerabilities. Azure Policy enforces cloud governance.
 
-1. When an anomaly is detected, a GitHub Issue is automatically logged so that it can be rectified.
+1. When an anomaly is detected, a GitHub Issue is automatically logged so that it can be resolved.
 
 ### Components
 
@@ -60,7 +60,7 @@ When you adopt IaC, it's important to create automation tests as you develop the
 
 PaC is another important method to deliver infrastructure that complies with regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
 
-Securing infrastructure early in the development stage reduces the risks of misconfigured infrastructure that opens up points for attack after deployment. You can integrate static code analysis tools like Synk or Aqua Security tfsec by using GitHub's CodeQL to scan for security vulnerabilities in infrastructure code. This process is similar to static application security testing.
+Securing infrastructure early in the development stage reduces the risks of misconfigured infrastructure that exposes points for attack after deployment. You can integrate static code analysis tools like Synk or Aqua Security tfsec by using GitHub's CodeQL to scan for security vulnerabilities in infrastructure code. This process is similar to static application security testing.
 
 When the infrastructure is deployed and operational, cloud configuration drifts can be difficult to resolve, especially in production environments.
 
@@ -78,8 +78,8 @@ You're part of a central team of IaC developers that uses a multicloud strategy 
 
 Principal authors:
 
-- [Vito Chin](https://www.linkedin.com/in/vitochin) | SR Cloud Solution Architect
-- [Yee Shian Lee](https://www.linkedin.com/in/yeeshian) | SR Cloud Solution Architect
+- [Vito Chin](https://www.linkedin.com/in/vitochin) | Senior Cloud Solution Architect
+- [Yee Shian Lee](https://www.linkedin.com/in/yeeshian) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

@@ -453,7 +453,7 @@
 		</g>
 		<g id="shape1551-50" v:mID="1551" v:groupContext="shape" transform="translate(54.1908,-31.8415)">
 			<title>Sheet.1551</title>
-			<desc>Infrastructure as code &#38; tests Policy as code</desc>
+			<desc>Infrastructure as code and tests Policy as code</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(12000):26"/>
 			</v:userDefs>
@@ -462,12 +462,12 @@
 			<rect x="0" y="224.876" width="106.053" height="108.124" class="st6"/>
 			<text x="4" y="237.99" class="st12" v:langID="1033"><v:paragraph v:indentFirst="-18" v:indentLeft="18" v:bullet="1"/><v:tabList/><tspan
 						class="st8" v:isBullet="true">·</tspan> <tspan class="st13">Infrastructure as </tspan><tspan x="22"
-						dy="1.204em" class="st13">code &#38; tests<v:newlineChar/><v:paragraph/><v:newlineChar/><v:paragraph
+						dy="1.204em" class="st13">code and tests<v:newlineChar/><v:paragraph/><v:newlineChar/><v:paragraph
 							v:indentFirst="-18" v:indentLeft="18" v:bullet="1"/></tspan><tspan x="4" dy="2.412em" class="st8"
 						v:isBullet="true">·</tspan> <tspan class="st13">Policy as code</tspan><v:newlineChar/></text>		</g>
 		<g id="shape1554-58" v:mID="1554" v:groupContext="shape" transform="translate(362.934,-244.227)">
 			<title>Sheet.1554</title>
-			<desc>Configuration drifts &#38; reconciliation</desc>
+			<desc>Configuration drifts and reconciliation</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(13000):26"/>
 			</v:userDefs>
@@ -475,7 +475,7 @@
 			<v:textRect cx="48.0329" cy="323" width="96.07" height="20"/>
 			<rect x="0" y="313" width="96.0657" height="20" class="st6"/>
 			<text x="4" y="320" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Configuration drifts <tspan x="4" dy="1.2em"
-						class="st8">&#38; reconciliation</tspan></text>		</g>
+						class="st8">and reconciliation</tspan></text>		</g>
 		<g id="group1560-62" transform="translate(442.947,-159.25)" v:mID="1560" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(15000):26"/>
