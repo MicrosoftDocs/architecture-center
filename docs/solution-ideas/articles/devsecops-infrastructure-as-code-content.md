@@ -77,4 +77,4 @@ Principal authors:
 ## Related resources
 
 - [GitOps for Azure Kubernetes Service](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
-- [Tenancy models to consider for a multitenant solution](../../guide/multitenant/considerations/tenancy-models.yml)
+- [Tenancy models to consider for a multitenant solution](../../guide/multitenant/considerations/tenancy-models.md)

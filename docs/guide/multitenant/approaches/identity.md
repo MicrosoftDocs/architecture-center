@@ -133,7 +133,7 @@ It's important to clearly consider how your solution defines a user and a tenant
 
 Ensure that you have a clear process for tracking tenant context within your application and requests. In some scenarios, this process requires you to include a tenant identifier in every access token and validate it on each request. In other cases, tenant authorization information is stored separately from user identities. This approach requires a more complex authorization system to manage which users can perform specific operations within each tenant.
 
-Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.yml) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
+Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.md) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
 
 ### Conflating role and resource authorization
 
