@@ -96,7 +96,9 @@ Also, removing a cluster stamp from the deployment pipeline doesn't always decom
 
 After each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and workload components need to be deployed and configured. You might need to create Kubernetes namespaces, and you also need to consider applying security, access, and governance policies across the cluster. These operations are referred to as *bootstrapping* the cluster to prepare for workloads that will be deployed to it.
 
-Similar to deployment, bootstrapping configurations can become challenging to manage across several Kubernetes instances manually. Azure Kubernetes Fleet Manager doesn't affect how you bootstrap your member clusters. You should instead consider one of the following options for configuration and policy at scale.
+Similar to deployment, bootstrapping configurations can become challenging to manage across several Kubernetes instances manually. If you use a hub cluster with Azure Kubernetes Fleet Manager, you can deploy some of the bootstrapping configuration across your fleet, such as namespaces. However, other bootstrapping components require a different deployment approach.
+
+You should consider one of the following options for applying bootstrap configuration and policy at scale.
 
 ##### GitOps
 
