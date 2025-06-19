@@ -106,7 +106,7 @@ Instead of manually configuring Kubernetes components on each cluster, it's reco
 
 GitOps is detailed in more depth in the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping). By using a GitOps based approach to configuration, you ensure that each Kubernetes instance is configured similarly without bespoke effort. A streamlined configuration process becomes even more important as the size of your fleet grows.
 
-You can use a GitOps approach to deploy the base cluster configuration. You can enrol the cluster in the fleet to participate in fleet-wide activities like automated upgrade rollouts.
+You can use a GitOps approach to deploy the base cluster configuration. You can enroll the cluster in the fleet to participate in fleet-wide activities like automated upgrade rollouts.
 
 You can also optionally use GitOps to deploy your workloads. To learn more, see the workload deployment section below.
 
@@ -125,9 +125,9 @@ When designing policy for multiple AKS clusters, consider the following items:
 
 See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org) for materials that help you establish a policy management strategy.
 
-#### Fleet enrolment
+#### Fleet enrollment
 
-After a cluster is deployed and configured, you enrol it into the fleet as a *member cluster*. Each member cluster can be assigned to a *update group*, which can be used as part of an update strategy to determine where in an update run the cluster is updated. To learn more about cluster enrolment, groups, and update strategies, see [Define reusable update strategies using Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-create-update-strategy).
+After a cluster is deployed and configured, you enroll it into the fleet as a *member cluster*. Each member cluster can be assigned to an *update group*, which can be used as part of an update strategy to determine where in an update run the cluster is updated. To learn more about cluster enrollment, groups, and update strategies, see [Define reusable update strategies using Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-create-update-strategy).
 
 #### Workload deployment
 
@@ -274,7 +274,7 @@ For more information on managing AKS cluster access with Microsoft Entra ID, see
 
 When you use a fleet to centralize aspects of your cluster management, it's important to protect the fleet resources to avoid misuse. [Fleet resources use Azure role-based access control](/azure/kubernetes-fleet/concepts-rbac), and you can grant fleet permissions to a restricted set of administrators. Follow the principle of least privilege and grant the least possible access to the fleet resource (the *control plane* of the fleet).
 
-If your fleet uses a hub cluster, consider the following extra recommenations:
+If your fleet uses a hub cluster, consider the following extra recommendations:
 
 - Evaluate the role assignments you create in your hub cluster (the *data plane* role assignments). These role assignments grant access to the Kubernetes resources that the fleet creates. Scope role assignments to an individual Kubernetes namespace where possible.
 - Use a private hub cluster to restrict internet connectivity. However, ensure your network architecture allows the member clusters to reach the hub cluster.
