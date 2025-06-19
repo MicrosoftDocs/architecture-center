@@ -18,7 +18,7 @@ items:
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
-      - name: Document processing & enrichment
+      - name: Document processing and enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
@@ -26,8 +26,8 @@ items:
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
-        - name: Build a multi-agent workflow automation solution with Semantic Kernel
-          href: idea/multi-agent-workflow-automation.yml
+        - name: Build a multiple-agent workflow automation solution with Semantic Kernel
+          href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
       - name: Chat bots
