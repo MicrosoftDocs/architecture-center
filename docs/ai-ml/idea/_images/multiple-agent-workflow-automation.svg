@@ -33,7 +33,7 @@
 		.st18 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st19 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
 		.st20 {fill:#000000;font-family:Segoe UI;font-size:0.916672em;font-weight:bold}
-		.st21 {marker-start:url(#mrkr4-143);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st21 {marker-start:url(#mrkr4-144);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st22 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
 		.st23 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st24 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -59,7 +59,7 @@
 		<g id="lend4">
 			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr4-143" class="st22" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
+		<marker id="mrkr4-144" class="st22" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(2.68) "/>
 		</marker>
@@ -2595,15 +2595,16 @@
 			<text x="13.44" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB</text>		</g>
 		<g id="shape1071-110" v:mID="1071" v:groupContext="shape" transform="translate(420.422,-523.001)">
 			<title>Sheet.1071</title>
-			<desc>Container App API</desc>
+			<desc>Container Apps API</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(94000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="56.6496" cy="687.104" width="113.3" height="10.8"/>
 			<rect x="0" y="681.704" width="113.299" height="10.8" class="st3"/>
-			<text x="11.89" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Container App API</text>		</g>
-		<g id="shape1072-113" v:mID="1072" v:groupContext="shape" transform="translate(597.431,-502.402)">
+			<text x="9.56" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Container App<tspan
+						class="st11" v:langID="1033">s</tspan> API</text>		</g>
+		<g id="shape1072-114" v:mID="1072" v:groupContext="shape" transform="translate(597.431,-502.402)">
 			<title>Sheet.1072</title>
 			<desc>App Service website</desc>
 			<v:userDefs>
@@ -2614,7 +2615,7 @@
 			<rect x="0" y="681.704" width="127.49" height="10.8" class="st3"/>
 			<text x="15.13" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>App Service <tspan
 						class="st11" v:langID="1033">w</tspan>ebsite</text>		</g>
-		<g id="shape1073-117" v:mID="1073" v:groupContext="shape" transform="translate(227.988,-271.577)">
+		<g id="shape1073-118" v:mID="1073" v:groupContext="shape" transform="translate(227.988,-271.577)">
 			<title>Sheet.1073</title>
 			<desc>Azure AI Foundry GPT-4o model</desc>
 			<v:userDefs>
@@ -2625,7 +2626,7 @@
 			<rect x="0" y="681.704" width="113.299" height="10.8" class="st3"/>
 			<text x="14.74" y="683.8" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry<v:newlineChar/><tspan
 						x="21.61" dy="1.2em" class="st11">GPT</tspan><tspan class="st11" v:langID="1033">-</tspan>4o model</text>		</g>
-		<g id="shape1074-122" v:mID="1074" v:groupContext="shape" transform="translate(516.492,-343.224)">
+		<g id="shape1074-123" v:mID="1074" v:groupContext="shape" transform="translate(516.492,-343.224)">
 			<title>Sheet.1074</title>
 			<desc>Container Registry</desc>
 			<v:userDefs>
@@ -2635,7 +2636,7 @@
 			<v:textRect cx="56.6496" cy="687.104" width="113.3" height="10.8"/>
 			<rect x="0" y="681.704" width="113.299" height="10.8" class="st3"/>
 			<text x="12" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Container Registry</text>		</g>
-		<g id="shape1075-125" v:mID="1075" v:groupContext="shape" transform="translate(810.223,-394.387)">
+		<g id="shape1075-126" v:mID="1075" v:groupContext="shape" transform="translate(810.223,-394.387)">
 			<title>Sheet.1075</title>
 			<desc>Web front end to request and manage automated solutions</desc>
 			<v:userDefs>
@@ -2646,7 +2647,7 @@
 			<rect x="0" y="681.704" width="196.56" height="10.8" class="st3"/>
 			<text x="21.32" y="683.8" class="st20" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Web <tspan
 						class="st11" v:langID="1033">fr</tspan>ont end to request and <tspan x="22.79" dy="1.2em" class="st11">manage automated solutions</tspan></text>		</g>
-		<g id="shape1076-130" v:mID="1076" v:groupContext="shape" transform="translate(523.944,-159.235)">
+		<g id="shape1076-131" v:mID="1076" v:groupContext="shape" transform="translate(523.944,-159.235)">
 			<title>Sheet.1076</title>
 			<desc>Docker</desc>
 			<v:userDefs>
@@ -2656,7 +2657,7 @@
 			<v:textRect cx="56.6496" cy="687.104" width="113.3" height="10.8"/>
 			<rect x="0" y="681.704" width="113.299" height="10.8" class="st3"/>
 			<text x="39.51" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Docker</text>		</g>
-		<g id="shape1077-133" v:mID="1077" v:groupContext="shape" transform="translate(348.184,-157.097)">
+		<g id="shape1077-134" v:mID="1077" v:groupContext="shape" transform="translate(348.184,-157.097)">
 			<title>Sheet.1077</title>
 			<desc>Source repository</desc>
 			<v:userDefs>
@@ -2667,27 +2668,27 @@
 			<rect x="0" y="681.704" width="120.111" height="10.8" class="st3"/>
 			<text x="17.39" y="690.4" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Source <tspan
 						class="st11" v:langID="1033">r</tspan>epository</text>		</g>
-		<g id="shape1094-137" v:mID="1094" v:groupContext="shape" v:layerMember="0" transform="translate(311.376,-516.159)">
+		<g id="shape1094-138" v:mID="1094" v:groupContext="shape" v:layerMember="0" transform="translate(311.376,-516.159)">
 			<title>Dynamic connector.1094</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(110000):26"/>
 			</v:userDefs>
 		</g>
-		<g id="shape1106-138" v:mID="1106" v:groupContext="shape" v:layerMember="0" transform="translate(517.146,-165.857)">
+		<g id="shape1106-139" v:mID="1106" v:groupContext="shape" v:layerMember="0" transform="translate(517.146,-165.857)">
 			<title>Dynamic connector.1106</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(116000):26"/>
 			</v:userDefs>
 			<path d="M-7.68 685.42 L-8.04 685.42 L-46.57 685.42" class="st21"/>
 		</g>
-		<g id="shape1110-144" v:mID="1110" v:groupContext="shape" v:layerMember="0" transform="translate(571.253,-334.562)">
+		<g id="shape1110-145" v:mID="1110" v:groupContext="shape" v:layerMember="0" transform="translate(571.253,-334.562)">
 			<title>Dynamic connector.1110</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(119000):26"/>
 			</v:userDefs>
 			<path d="M7.09 700.18 L7.09 700.54 L7.09 819.53" class="st21"/>
 		</g>
-		<g id="shape1128-149" v:mID="1128" v:groupContext="shape" transform="translate(165.117,-445.759)">
+		<g id="shape1128-150" v:mID="1128" v:groupContext="shape" transform="translate(165.117,-445.759)">
 			<title>Sheet.1128</title>
 			<desc>Stores all data related to current and past plans and solutio...</desc>
 			<v:userDefs>
@@ -2699,7 +2700,7 @@
 			<text x="13.39" y="673.72" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Stores all data related to current <tspan
 						x="21.11" dy="1.2em" class="st11">and past plan</tspan><tspan class="st11" v:langID="1033">s and</tspan> solutions<tspan
 						class="st11" v:langID="1033">.</tspan></text>		</g>
-		<g id="shape1129-155" v:mID="1129" v:groupContext="shape" transform="translate(634.871,-354.024)">
+		<g id="shape1129-156" v:mID="1129" v:groupContext="shape" transform="translate(634.871,-354.024)">
 			<title>Sheet.1129</title>
 			<desc>Images for front-end website and back-end API</desc>
 			<v:userDefs>
@@ -2711,7 +2712,7 @@
 			<text x="6.07" y="677.2" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Images for <tspan
 						class="st11" v:langID="1033">fr</tspan>ont-end <tspan x="12.49" dy="1.2em" class="st11">website and </tspan><tspan
 						class="st11" v:langID="1033">ba</tspan>ck-<tspan x="37.82" dy="1.2em" class="st11">end API</tspan></text>		</g>
-		<g id="shape1130-162" v:mID="1130" v:groupContext="shape" transform="translate(354.999,-80.0712)">
+		<g id="shape1130-163" v:mID="1130" v:groupContext="shape" transform="translate(354.999,-80.0712)">
 			<title>Sheet.1130</title>
 			<desc>Website and API server images generated automatically on code...</desc>
 			<v:userDefs>
@@ -2722,7 +2723,7 @@
 			<rect x="0" y="661.544" width="254.7" height="30.96" class="st3"/>
 			<text x="26.27" y="673.72" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Website and API server images generated <tspan
 						x="55.1" dy="1.2em" class="st11">automatically on code update</tspan></text>		</g>
-		<g id="shape1137-166" v:mID="1137" v:groupContext="shape" transform="translate(730.472,-543.414)">
+		<g id="shape1137-167" v:mID="1137" v:groupContext="shape" transform="translate(730.472,-543.414)">
 			<title>Sheet.1137</title>
 			<desc>1</desc>
 			<v:userDefs>
@@ -2732,7 +2733,7 @@
 			<v:textRect cx="14.1732" cy="680.035" width="28.35" height="24.9379"/>
 			<ellipse cx="14.1732" cy="680.035" rx="14.1732" ry="12.469" class="st14"/>
 			<text x="11.01" y="683.34" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
-		<g id="shape1138-169" v:mID="1138" v:groupContext="shape" transform="translate(559.587,-554.783)">
+		<g id="shape1138-170" v:mID="1138" v:groupContext="shape" transform="translate(559.587,-554.783)">
 			<title>Sheet.1138</title>
 			<desc>2</desc>
 			<v:userDefs>
@@ -2742,56 +2743,56 @@
 			<v:textRect cx="14.1732" cy="680.035" width="28.35" height="24.9379"/>
 			<ellipse cx="14.1732" cy="680.035" rx="14.1732" ry="12.469" class="st14"/>
 			<text x="11.01" y="683.34" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
-		<g id="shape1141-172" v:mID="1141" v:groupContext="shape" v:layerMember="0" transform="translate(318.133,-516.307)">
+		<g id="shape1141-173" v:mID="1141" v:groupContext="shape" v:layerMember="0" transform="translate(318.133,-516.307)">
 			<title>Dynamic connector.1141</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(133000):26"/>
 			</v:userDefs>
 			<path d="M7.68 685.42 L8.04 685.42 L74.72 685.42" class="st21"/>
 		</g>
-		<g id="shape1142-177" v:mID="1142" v:groupContext="shape" v:layerMember="0" transform="translate(768.152,-514.867)">
+		<g id="shape1142-178" v:mID="1142" v:groupContext="shape" v:layerMember="0" transform="translate(768.152,-514.867)">
 			<title>Dynamic connector.1142</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(134000):26"/>
 			</v:userDefs>
 			<path d="M0 685.42 L-44.77 685.42" class="st23"/>
 		</g>
-		<g id="shape1143-180" v:mID="1143" v:groupContext="shape" v:layerMember="0" transform="translate(557.072,-516.296)">
+		<g id="shape1143-181" v:mID="1143" v:groupContext="shape" v:layerMember="0" transform="translate(557.072,-516.296)">
 			<title>Dynamic connector.1143</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(135000):26"/>
 			</v:userDefs>
 			<path d="M7.68 685.42 L8.04 685.42 L30.36 685.42" class="st21"/>
 		</g>
-		<g id="shape1144-185" v:mID="1144" v:groupContext="shape" v:layerMember="0" transform="translate(557.621,-402.825)">
+		<g id="shape1144-186" v:mID="1144" v:groupContext="shape" v:layerMember="0" transform="translate(557.621,-402.825)">
 			<title>Dynamic connector.1144</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(136000):26"/>
 			</v:userDefs>
 			<path d="M7.09 684.82 L7.09 684.46 L7.09 639.77" class="st21"/>
 		</g>
-		<g id="shape1145-190" v:mID="1145" v:groupContext="shape" v:layerMember="0" transform="translate(474.962,-484.247)">
+		<g id="shape1145-191" v:mID="1145" v:groupContext="shape" v:layerMember="0" transform="translate(474.962,-484.247)">
 			<title>Dynamic connector.1145</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(137000):26"/>
 			</v:userDefs>
 			<path d="M0 692.5 L0 720.97 L90.49 720.97" class="st23"/>
 		</g>
-		<g id="shape1146-193" v:mID="1146" v:groupContext="shape" v:layerMember="0" transform="translate(658.951,-483.332)">
+		<g id="shape1146-194" v:mID="1146" v:groupContext="shape" v:layerMember="0" transform="translate(658.951,-483.332)">
 			<title>Dynamic connector.1146</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(138000):26"/>
 			</v:userDefs>
 			<path d="M0 692.5 L0 719.87 L-96.71 719.87" class="st23"/>
 		</g>
-		<g id="shape1148-196" v:mID="1148" v:groupContext="shape" transform="translate(407.944,-598.201)">
+		<g id="shape1148-197" v:mID="1148" v:groupContext="shape" transform="translate(407.944,-598.201)">
 			<title>Sheet.1148</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(142000):26"/>
 			</v:userDefs>
 			<rect x="0" y="614.189" width="134.066" height="78.3148" class="st2"/>
 		</g>
-		<g id="shape1150-198" v:mID="1150" v:groupContext="shape" transform="translate(418.327,-610.034)">
+		<g id="shape1150-199" v:mID="1150" v:groupContext="shape" transform="translate(418.327,-610.034)">
 			<title>Sheet.1150</title>
 			<desc>Knowledge sources and tools</desc>
 			<v:userDefs>
@@ -2803,7 +2804,7 @@
 			<text x="9.75" y="683.8" class="st19" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Knowledge<tspan
 						class="st11" v:langID="1036"> </tspan>s<tspan class="st11" v:langID="1036">ources </tspan><tspan x="34.02"
 						dy="1.2em" class="st11">and t</tspan><tspan class="st11" v:langID="1036">ools</tspan></text>		</g>
-		<g id="shape252-205" v:mID="252" v:groupContext="shape" transform="translate(451.164,-629.702)">
+		<g id="shape252-206" v:mID="252" v:groupContext="shape" transform="translate(451.164,-629.702)">
 			<title>Sheet.252</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(145000):26"/>
@@ -3093,14 +3094,14 @@
 						dgk82y61/22zCB4vztvk8cJc1z1eV7r3yeOFeckCRDt0sz1emOtaYHYlV3IlV3IlV3IlV3KlBzb9f+XkxUFyewskAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="645.685" width="47.6112" height="46.8192" class="st3"/>
 		</g>
-		<g id="shape1162-209" v:mID="1162" v:groupContext="shape" transform="translate(415.228,-487.866)">
+		<g id="shape1162-210" v:mID="1162" v:groupContext="shape" transform="translate(415.228,-487.866)">
 			<title>Sheet.1162</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(150000):26"/>
 			</v:userDefs>
 			<rect x="0" y="658.574" width="123.701" height="33.9302" class="st24"/>
 		</g>
-		<g id="shape1163-211" v:mID="1163" v:groupContext="shape" transform="translate(420.422,-511.005)">
+		<g id="shape1163-212" v:mID="1163" v:groupContext="shape" transform="translate(420.422,-511.005)">
 			<title>Sheet.1163</title>
 			<desc>agent orchestration</desc>
 			<v:userDefs>
@@ -3111,7 +3112,7 @@
 			<rect x="0" y="681.704" width="113.299" height="10.8" class="st3"/>
 			<text x="9.15" y="690.4" class="st19" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>a<tspan class="st11"
 						v:langID="1036">gent orchestration</tspan></text>		</g>
-		<g id="shape254-215" v:mID="254" v:groupContext="shape" transform="translate(420.421,-493.619)">
+		<g id="shape254-216" v:mID="254" v:groupContext="shape" transform="translate(420.421,-493.619)">
 			<title>Sheet.254</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(149000):26"/>
@@ -3128,7 +3129,7 @@
 						e+khE8075+I+Rv9dmJgje+YSQTYk7ZpRusDtdl0nwef5koguic/zC2xo7W12/AfVU7riQJbdxgAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="675.128" width="19.0824" height="17.376" class="st3"/>
 		</g>
-		<g id="shape255-219" v:mID="255" v:groupContext="shape" transform="translate(443.987,-493.634)">
+		<g id="shape255-220" v:mID="255" v:groupContext="shape" transform="translate(443.987,-493.634)">
 			<title>Sheet.255</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(152000):26"/>
@@ -3145,7 +3146,7 @@
 						e+khE8075+I+Rv9dmJgje+YSQTYk7ZpRusDtdl0nwef5koguic/zC2xo7W12/AfVU7riQJbdxgAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="675.128" width="19.0824" height="17.376" class="st3"/>
 		</g>
-		<g id="shape1164-223" v:mID="1164" v:groupContext="shape" transform="translate(491.687,-493.626)">
+		<g id="shape1164-224" v:mID="1164" v:groupContext="shape" transform="translate(491.687,-493.626)">
 			<title>Sheet.1164</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(153000):26"/>
@@ -3162,7 +3163,7 @@
 						e+khE8075+I+Rv9dmJgje+YSQTYk7ZpRusDtdl0nwef5koguic/zC2xo7W12/AfVU7riQJbdxgAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="675.128" width="19.0824" height="17.376" class="st3"/>
 		</g>
-		<g id="shape1165-227" v:mID="1165" v:groupContext="shape" transform="translate(514.64,-493.626)">
+		<g id="shape1165-228" v:mID="1165" v:groupContext="shape" transform="translate(514.64,-493.626)">
 			<title>Sheet.1165</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(154000):26"/>
@@ -3179,21 +3180,21 @@
 						e+khE8075+I+Rv9dmJgje+YSQTYk7ZpRusDtdl0nwef5koguic/zC2xo7W12/AfVU7riQJbdxgAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="675.128" width="19.0824" height="17.376" class="st3"/>
 		</g>
-		<g id="shape1166-231" v:mID="1166" v:groupContext="shape" transform="translate(467.89,-598.201)">
+		<g id="shape1166-232" v:mID="1166" v:groupContext="shape" transform="translate(467.89,-598.201)">
 			<title>Dynamic connector.1166</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(155000):26"/>
 			</v:userDefs>
 			<path d="M7.09 700.18 L7.09 700.54 L7.09 722.35" class="st21"/>
 		</g>
-		<g id="shape1167-236" v:mID="1167" v:groupContext="shape" v:layerMember="0" transform="translate(503.178,-598.201)">
+		<g id="shape1167-237" v:mID="1167" v:groupContext="shape" v:layerMember="0" transform="translate(503.178,-598.201)">
 			<title>Dynamic connector.1167</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(156000):26"/>
 			</v:userDefs>
 			<path d="M7.09 700.18 L7.09 700.54 L7.09 722.35" class="st21"/>
 		</g>
-		<g id="shape1169-241" v:mID="1169" v:groupContext="shape" v:layerMember="0" transform="translate(366.74,-295.689)">
+		<g id="shape1169-242" v:mID="1169" v:groupContext="shape" v:layerMember="0" transform="translate(366.74,-295.689)">
 			<title>Dynamic connector.1169</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(157000):26"/>
