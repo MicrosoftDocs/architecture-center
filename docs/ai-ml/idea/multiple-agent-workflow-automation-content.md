@@ -1,6 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior is defined in custom software with Semantic Kernel. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically. The article highlights the infrastructure and DevOps aspects of how to manage multiple-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
+This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior is defined in custom software with Semantic Kernel. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically. 
+
+This article highlights the infrastructure and DevOps aspects of how to manage multiple-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
 
 The architecture describes how to build scalable automation pipelines in which multiple AI agents collaborate through a central API orchestrator. It supports persistent learning and automated deployment processes for enterprise-grade task automation.
 
@@ -14,31 +16,31 @@ The architecture describes how to build scalable automation pipelines in which m
 
 ### Workflow
 
-The following workflow corresponds to the preceding diagram:
+The following workflow corresponds to the previous diagram:
 
 1. Employees access the web front end to request and manage automated solutions. Tasks are submitted through the web interface with specific requirements and parameters.
 
-1. App Service website receives the user request from the front end and calls an API hosted in Container Apps. That API processes the incoming task and determines which specialized AI agents are needed. The task is broken down into component parts for multiple-agent coordination.
+1. The Azure App Service website receives the user request from the front end and calls an API hosted in Container Apps. That API processes the incoming task and determines which specialized AI agents are needed. The task is broken down into component parts for multiple-agent coordination.
 
-1. The Container Apps API connects to an Azure AI Foundry hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, implement, and validate the automated solution.
+1. The Container Apps API connects to an Azure AI Foundry-hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, implement, and validate the automated solution.
 
-1. Azure Cosmos DB stores all data related to current and past plans and solutions. Historical task data and patterns are maintained for learning and optimization. Agent decisions and outcomes are persisted for future reference.
+1. Azure Cosmos DB stores all data related to current and past plans and solutions. Historical task data and patterns are maintained for learning and optimization purposes. Agent decisions and outcomes are persisted for future reference.
 
-1. Container Registry manages images for the front-end website and back-end API. This registry also maintains versioned container images for rollback capabilities.
+1. Azure Container Registry manages images for the front-end website and back-end API. This registry also maintains versioned container images for rollback capabilities.
 
 1. The GitHub source repository triggers automatic builds of website and API server images on code updates. Docker then builds and deploys the updated container images to the registry.
 
 ### Components
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform-as-a-service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the implementation of complex automated tasks. It hosts the custom-developed code created by your software team that uses Semantic Kernel.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Semantic Kernel based agents to invoke.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Semantic Kernel-based agents to invoke.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run, and reads data when users access their automation history via the App Service website.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run. The API reads data when users access their automation history via the App Service website.
 
-- [Azure Container Registry](/azure/container-registry/) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the front-end website and back-end API. This setup ensures consistent deployment and version control of the multiple-agent system components across environments.
+- [Container Registry](/azure/container-registry/) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the front-end website and back-end API. This setup ensures consistent deployment and version control of the multiple-agent system components across environments.
 
 ## Scenario details
 
@@ -96,9 +98,9 @@ Consider this alternative if your workload has the following characteristics:
 
 - You don't require full control of your agents' compute.
 
-- You only need HTTPS-accessible tools and your knowledge stores are compatible with Foundry Agent Service.
+- You only need HTTPS-accessible tools, and your knowledge stores are compatible with Foundry Agent Service.
 
-For organizations that have mixed requirements, a hybrid approach can be effective where standard workflows use Foundry Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
+For organizations that have mixed requirements, a hybrid approach can be effective. Standard workflows use Foundry Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
 
 ## Cost Optimization
 
