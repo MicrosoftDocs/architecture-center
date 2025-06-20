@@ -81,7 +81,7 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 
 > [!TIP]
 >
-> It's recommended to review the Azure Virtual Desktop design areas to ensure alignment with best practices for Azure Virtual Desktop.
+> We recommend you review the Azure Virtual Desktop design areas to ensure alignment with best practices for Azure Virtual Desktop.
 >
 > **[Azure Virtual Desktop Azure landing zone design areas](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone#design-guidelines)**: This describes the foundational elements required to set up the Azure Virtual Desktop deployment in an enterprise-scale environment. It focuses on preparing resources like network configurations, identity management, security, and governance. This landing zone helps create a scalable and secure environment for Azure Virtual Desktop workloads.
 >
