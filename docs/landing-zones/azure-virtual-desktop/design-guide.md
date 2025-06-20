@@ -155,7 +155,7 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 ##### Accelerator deployment
 
 
-To perform the deployment, you'll follow these steps.
+To perform the deployment, follow these steps.
 
 1. **Review prerequisites**: Review the deployment prerequisites. This will help you ensure your environment is ready for the deployment.
 
