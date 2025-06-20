@@ -24,7 +24,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 |&#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) |&#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-agent-developer-access)<br>&#9642; [Monitor resources](#monitor-resources)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time)|&#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost Optimization](#cost-optimization)<br>&#9642; [Operational Excellence](#operational-excellence)<br>&#9642; [Performance Efficiency](#performance-efficiency) |
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Azure AI Foundry Agent service chat baseline reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
+> :::image type="icon" source="../../_images/github.svg"::: The [Azure AI Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
 
 ## Architecture
 
@@ -164,7 +164,7 @@ In the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking),
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone-networking.vsdx) of this architecture.*
 
-- **Hub virtual network:** This virtual network is a regional hub that contains centralized, and often shared, services that communicate with workload resources in the same region. The hub resides in the [connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). The platform team owns the resources in this network.
+- **Hub virtual network:** This virtual network serves as a regional hub that contains centralized, and often shared, services that communicate with workload resources in the same region. The hub resides in the [connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). The platform team owns the resources in this network.
 
 - **Spoke virtual network:** In this architecture, the single virtual network from the baseline architecture essentially becomes the spoke virtual network. The platform team peers this spoke network to the hub network. They own and manage the spoke network, including its peering and DNS configuration. The workload team owns the resources in this network, including its subnets. This network contains many of the [workload resources](#workload-team-owned-resources).
 
