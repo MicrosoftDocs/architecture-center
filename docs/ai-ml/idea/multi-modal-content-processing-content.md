@@ -6,7 +6,7 @@ The architecture demonstrates how to build scalable content processing systems t
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/multi-modal-content-processing.png" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/content-processing-solution.png":::
+:::image type="complex" border="false" source="./_images/multi-modal-content-processing.png" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/multi-modal-content-processing.png":::
    TODO - Add long description
 :::image-end:::
 
