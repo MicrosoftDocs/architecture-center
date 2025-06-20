@@ -47,7 +47,7 @@ This solution idea uses the following Azure components:
 
 #### Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed, and highly scalable big data analytics service. Azure Data Explorer can analyze large volumes of streaming data from applications, websites, and IoT devices in near real-time to serve analytics applications and dashboards.
+[Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed, and highly scalable big data analytics service. Azure Data Explorer can analyze large volumes of streaming data from applications, websites, and IoT devices in near real-time to serve analytics applications and dashboards.
 
 Azure Data Explorer provides native advanced analytics for:
 
@@ -60,10 +60,10 @@ The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects t
 
 #### Other Azure components
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database service for modern app development with open APIs for any scale.
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) stores digital models of physical environments, to help create next-generation IoT solutions that model the real world.
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database service for modern app development with open APIs for any scale.
+- [Azure Digital Twins](/azure/digital-twins/overview) stores digital models of physical environments, to help create next-generation IoT solutions that model the real world.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed, real-time data ingestion service.
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) runs near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost impact on transactional workloads. Synapse Link uses the [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview) analytics engines from the Azure Synapse workspace.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
 
@@ -92,4 +92,4 @@ Principal author:
 
 ## Related resource
 
-- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Analytics architecture design](analytics-start-here.yml)

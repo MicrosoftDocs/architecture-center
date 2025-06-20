@@ -11,13 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - management-and-governance
-products:
-  - azure-kubernetes-service
-  - azure-log-analytics
-  - azure-monitor
 ---
 
 # Kubernetes monitoring and logging
@@ -75,7 +68,7 @@ To help ensure comprehensive monitoring of your Kubernetes clusters, use the fol
 
 [Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across enterprises. Microsoft Sentinel provides a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-You must connect Microsoft Sentinel with AKS by using the [AKS connector](/azure/sentinel/data-connectors/azure-kubernetes-service-aks). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
+You must connect Microsoft Sentinel with AKS by using the [AKS connector](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azurekubernetes). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
 
 After you connect your data sources to Microsoft Sentinel, you can [visualize and monitor the data](/azure/sentinel/monitor-your-data). Microsoft Sentinel and Azure Monitor workbooks provide versatility to create custom dashboards.
 
@@ -126,15 +119,15 @@ Before you enable container insights, estimate costs and understand how to contr
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Cloud Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
+- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402/) | Senior Customer Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Cloud Solution Architect
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

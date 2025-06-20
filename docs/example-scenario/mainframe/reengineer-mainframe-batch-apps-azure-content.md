@@ -96,7 +96,7 @@ Azure storage provides multiple tiers of hot, cool, and archive data. Effective 
 - [Azure Files](/azure/well-architected/service-guides/azure-files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
 - [Table Storage](/azure/storage/tables/table-storage-overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
 - [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability): Simple, cost-effective, durable message queueing for large workloads.
-- [Azure SQL](/azure/azure-sql/): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
+- [Azure SQL](/azure/azure-sql/): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
 
 #### Monitoring

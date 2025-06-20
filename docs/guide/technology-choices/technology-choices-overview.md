@@ -1,29 +1,11 @@
 ---
 title: Technology choices for Azure solutions
 description: View a list of resources that can help you make informed decisions about the technologies you choose for your Azure solutions.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 09/19/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-machine-learning
-  - azure-stack-hub
-  - azure-kubernetes-service
-  - azure-iot-hub
-  - azure-iot-central
-categories:
-  - ai-machine-learning
-  - containers
-  - compute
-  - hybrid
-  - identity
-  - storage
-  - databases
-  - analytics
-  - networking
-  - iot
-  - mobile
 ms.custom: fcp
 ---
 
@@ -69,8 +51,8 @@ Identity solutions help you protect your data and resources. These articles can 
 
 |Article |Summary  |
 |---------|---------|
-|[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Compare the identity services that are provided by Active Directory Domain Services, Microsoft Entra ID, and Microsoft Entra Domain Services.     |
-|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Choose an authentication method for a Microsoft Entra hybrid identity solution in a medium-sized to large organization.      |
+|[Active Directory services](/entra/identity/domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Compare the identity services that are provided by Active Directory Domain Services, Microsoft Entra ID, and Microsoft Entra Domain Services.     |
+|[Hybrid identity authentication methods](/entra/identity/hybrid/connect/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Choose an authentication method for a Microsoft Entra hybrid identity solution in a medium-sized to large organization.      |
 
 ## Choose a storage service
 

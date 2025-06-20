@@ -18,10 +18,10 @@ This solution uses Azure virtual machines (VMs) to replicate the behavior of an 
 
 ### Components
  
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One is a quorum disk, and the other one is dedicated to the DFS Namespaces share.
-* [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks). Designed for use with Azure Virtual Machines and Azure VMware Solution, Azure Disk Storage delivers high-performance, high-durability block storage for mission-critical applications.
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network provides IP connectivity between the compute resources and the other cloud services, beyond what any native InfiniBand or RDMA communication provides.
-* [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This standard load balancer is the entry point for client requests.
+* [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One is a quorum disk, and the other one is dedicated to the DFS Namespaces share.
+* [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage). Designed for use with Azure Virtual Machines and Azure VMware Solution, Azure Disk Storage delivers high-performance, high-durability block storage for mission-critical applications.
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network). Virtual Network provides IP connectivity between the compute resources and the other cloud services, beyond what any native InfiniBand or RDMA communication provides.
+* [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This standard load balancer is the entry point for client requests.
  
 ## Scenario details
 

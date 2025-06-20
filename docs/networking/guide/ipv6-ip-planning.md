@@ -6,13 +6,6 @@ ms.author: leuthaeusern
 ms.date: 01/17/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-virtual-network
-  - azure-firewall
-  - azure-expressroute
-  - azure-dns
-categories:
-  - networking
 ---
 
 # Conceptual planning for IPv6 networking

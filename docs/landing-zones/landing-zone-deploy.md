@@ -6,23 +6,6 @@ ms.author: jatracey
 ms.date: 02/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - management-and-governance
-  - devops
-  - networking
-  - security
-azureCategories:
-  - devops
-  - hybrid
-  - management-and-governance
-  - networking
-  - security
-products:
-  - azure
-  - azure-resource-manager
-  - azure-policy
-  - azure-rbac
-  - azure-virtual-network
 ---
 
 # Deploy Azure landing zones
@@ -41,11 +24,21 @@ The following platform deployment options provide an opinionated approach to dep
 
 Standard deployment options address typical enterprise Azure usage.
 
-| Azure platform landing zone deployment option | Description |
-| :-------------------------------------------- | :---------- |
-| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. |
-| [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. Bicep deployment supports the Azure public cloud, Azure operated by 21Vianet regions, and Azure Infrastructure Services for US Government Clouds. |
-| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. |
+| Azure platform landing zone deployment option | Description | Azure public clouds | Azure sovereign clouds (US Government, 21Vianet, and so on.) |
+| :-------------------------------------------- | :---------- | :----------------- | :----------------------------------------------------------- |
+| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported.<br><br>The individual resources can be deployed with the Azure Portal, just not as unified, guided portal experience. |
+| [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. | Supported | Supported but requires modification. See the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. | Supported | Supported but requires modification. See the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+
+#### Azure sovereign cloud deployments
+
+The three deployment options are supported for the Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets will require manual configuration changes by your platform team. Only the Bicep & Terraform deployment options can be altered to handle these required changes.
+
+- Azure Policy definitions, initiatives & assignments - Not all Azure policies are available across all clouds, so you'll need to remove unsupported policies prior to deployment.
+- API versions for some resources - Certain API versions may not exist in some clouds, so you'll need to adjust resource API versions prior to deployment
+- Resource availability - Some resources might not exist in some clouds, for example DDoS Protection plans are not available in Azure in China. You will need to remove those prior to deployment.
+
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds. However, the deployment for that architecture is not provided in an automated solution that works across all clouds. If you would like to see automated deployment support for these clouds, [request the feature](https://github.com/Azure/Enterprise-Scale/issues/new?template=FEATURE_REQUEST.md).
 
 ### Variants and specializations
 
@@ -102,7 +95,7 @@ It's possible for an architect to adapt a reference architecture that isn't desi
 | [Azure Arc for hybrid and multicloud scenarios](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | Guidance for servers, Kubernetes, and Azure SQL Managed Instance enabled by Azure Arc. |
 | [Azure Container Apps](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator) | Guidance that outlines the strategic design path and defines the target technical state for deploying Container Apps. A dedicated workload team owns and operates this platform. |
 | [Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) | Guidance about how to host a [medallion lakehouse](/azure/databricks/lakehouse/medallion) within an application landing zone. |
-| [Azure OpenAI Service chat workload](../ai-ml/architecture/azure-openai-baseline-landing-zone.yml) | Guidance about how to integrate a typical [Azure OpenAI chat application](../ai-ml/architecture/baseline-openai-e2e-chat.yml) within Azure landing zones to use centralized shared resources while adhering to governance and cost efficiency. It provides guidance for workload teams about deployment and management.|
+| [Azure AI Foundry chat workload](../ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml) | Guidance about how to integrate a typical [Azure AI Foundry chat architecture](../ai-ml/architecture/baseline-azure-ai-foundry-chat.yml) within Azure landing zones to use centralized shared resources while adhering to governance and cost efficiency. It provides guidance for workload teams about deployment and management.|
 | [AKS](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | Guidance and related IaC templates that represent the strategic design path and target technical state for an AKS deployment that runs within an application landing zone. |
 | [Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | An open-source collection of Terraform templates that represent an optimal Azure Red Hat OpenShift deployment that includes Azure and Red Hat resources. |
 | [Azure Synapse Analytics](../example-scenario/analytics/synapse-analytics-landing-zone.yml) | An architectural approach to prepare application landing zones for a typical enterprise deployment of Azure Synapse Analytics. |

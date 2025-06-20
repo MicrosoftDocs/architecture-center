@@ -191,7 +191,7 @@ The following services are alternatives for the storage modeling layer:
 
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/): This service isn't a good match for the scenario described in this article because of the lack of migration requirement and higher operating expenses.
 
-- [Azure Database for PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
+- [Azure Database for PostgreSQL](/azure/postgresql/): This service isn't a good match for the scenario described in this article because of Contoso's existing skill set and preference to minimize the introduction of new technologies, which reduces cost and complexity.
 
 ### Reliability
 

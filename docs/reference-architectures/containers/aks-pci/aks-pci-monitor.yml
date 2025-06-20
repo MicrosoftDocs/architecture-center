@@ -2,7 +2,7 @@
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations
   description: Best practices for monitoring a PCI-DSS 3.2.1 infrastructure as per Requirement 10, and 11.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 04/28/2021
   ms.topic: reference-architecture

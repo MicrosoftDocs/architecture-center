@@ -103,7 +103,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Implement strong authentication in the Microsoft Entra ID tenant associated with Azure subscriptions used to provision sandbox environments. Follow the recommendations in [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
   - Use multifactor authentication (MFA) for all users.
-  - Use conditional access policies to restrict access to sandbox environments.
+  - Use Conditional Access policies to restrict access to sandbox environments.
   - Use integrated Microsoft Entra authentication to authorize access to Azure platform as a service (PaaS) services like SQL Database and Azure Storage.
 
 - Start with a [least privilege approach](/azure/well-architected/security/identity-access#role-assignment) to authorize sandbox use.
@@ -111,7 +111,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Limit `Contributor` Azure RBAC role assignments to sandbox subscription users.
   - Use Microsoft Entra Privileged Identity Management (PIM) to manage privileged Azure RBAC role assignments scoped to sandbox subscriptions, such as `Owner`, `Contributor`, and `User Access Administrator`.
 
-- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or deidentified data.
+- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or de-identified data.
 
 Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when you're designing and implementing sandbox environments. The [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation on GitHub showcases many of these principles.
 
@@ -141,7 +141,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
   - For SQL Server VMs, [enable first-party updates](/azure/update-manager/configure-wu-agent#enable-updates-for-other-microsoft-products) in Windows Update to ensure that SQL Server is patched.
   
-- Monitor activity and diagnostic logs with [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/en-us/azure/sentinel/overview).
+- Monitor activity and diagnostic logs with [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/azure/sentinel/overview).
 
 - Decommission individual sandbox resources and whole sandboxes that are no longer in use.
 

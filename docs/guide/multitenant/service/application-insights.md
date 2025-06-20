@@ -6,10 +6,6 @@ ms.author: ranema
 ms.date: 08/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-monitor
-categories:
-  - analytics
 ms.custom:
   - arb-saas
 ---
@@ -131,17 +127,16 @@ You can perform ingestion rate limiting in Application Insights by using [sampli
 
 Principal author:
 
- * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist, GPS-ISV
+- [Raj Nemani](https://linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
 
 Other contributors:
 
-* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-* [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
-* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-* [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
-* [Landon Pierce](https://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
-* [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
-* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
+- [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
+- [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer - Azure Patterns & Practices
+- [Landon Pierce](https://linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

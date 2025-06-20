@@ -4,8 +4,6 @@ items:
   items:
       - name: SaaS
         items:
-        - name: Plan your journey to SaaS
-          href: ../saas/plan-journey-saas.md
         - name: Case studies
           items:
           - name: Dynamics 365

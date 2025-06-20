@@ -6,13 +6,13 @@ This article provides information about the responsibilities of control planes a
 
 For example, consider a bookkeeping system for managing financial records. Multiple tenants store their financial records in the system. When end users access the system to view and enter their financial records, they use the data plane. The data plane is likely the primary application component for your solution. Your tenants probably think of it as the way to use the system for its intended purpose. In contrast, the control plane is the component that onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. If the system didn't have a control plane, administrators would need to run many manual processes. Or data plane and control plane tasks would be mixed together, overcomplicating the solution.
 
-Many complex systems include control planes. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that are responsible for deploying and configuring Azure resources. The [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
+Many complex systems include control planes. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that are responsible for deploying and configuring Azure resources. Another is example is the [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components), which manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
 
- When you design multitenant solutions, you need to consider control planes. The following sections provide the details you need to scope and design a control plane.
+When you design multitenant solutions, you need to consider control planes. The following sections provide the details you need to scope and design a control plane.
 
 ## Responsibilities of a control plane
 
-There's no single template for a control plane or its responsibilities. Your solution's requirements and architecture dictate what your control plane needs to do. In some multitenant solutions, the control plane has a wide range of responsibilities and is a complex system in its own right. In other multitenant solutions, the control plane has only basic responsibilities.
+There's no single template for a control plane or its responsibilities. Your solution's requirements and architecture dictate what your control plane needs to do and how it works. In some multitenant solutions, the control plane has a wide range of responsibilities and is a complex system in its own right. In other multitenant solutions, the control plane has only basic responsibilities.
 
 In general, a control plane might have many of the following core responsibilities:
 
@@ -21,7 +21,7 @@ In general, a control plane might have many of the following core responsibiliti
 - **Tenant configuration:** Store and manage the configuration of each tenant.
 - **Tenant lifecycle management:** Handle [tenant lifecycle events](tenant-lifecycle.md), including onboarding, moving, and offboarding tenants.
 - **Telemetry:** Track each tenant's use of your features and the performance of the system.
-- **Consumption tracking:** [Measure each tenant's consumption](measure-consumption.md) of your system's resources. Consumption metrics might inform your billing systems, or they might be used for resource governance.
+- **Consumption tracking:** [Measure and aggregate each tenant's consumption](measure-consumption.md) of your system's resources. Consumption metrics might inform your billing systems, or they might be used for resource governance.
 
 If you use the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments) and don't deploy any tenant-specific resources, a basic control plane might just track tenants and their associated metadata. For example, whenever a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system is able to serve the new tenant's requests.
 

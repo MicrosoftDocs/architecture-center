@@ -178,9 +178,9 @@ To learn about related solutions, see the following guides and architectures.
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
-[Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
+[Databricks Delta Lake]: /azure/databricks/delta/
 [Event Hubs]: /azure/well-architected/service-guides/event-hubs
-[Key Vault]: /azure/key-vault/general/basic-concepts
+[Key Vault]: /azure/key-vault/general/overview
 [Medallion model]: /azure/databricks/lakehouse/medallion
 [MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Index file content and metadata by using Azure AI Search
-  description: Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
+  title: Index File Content and Metadata by Using Azure AI Search
+  description: Build an Azure AI Search index to search for documents by using file content from Azure Blob Storage and metadata from Azure Table Storage.
   author: jelledruyts
   ms.author: jelled
   ms.date: 01/09/2025
@@ -17,8 +17,8 @@ products:
   - azure-cognitive-search
   - azure-blob-storage
   - azure-table-storage
-name: Index file content and metadata by using Azure AI Search
-summary: Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
+name: Create an Azure AI Search index based on file content and metadata
+summary: Build an Azure AI Search index to search for documents by using file content from Azure Blob Storage and metadata from Azure Table Storage.
 thumbnailUrl: /azure/architecture/browse/thumbs/search-blob-metadata-thumb.png
 content: |
   [!INCLUDE[](search-blob-metadata-content.md)]

@@ -2,18 +2,10 @@
 title: Cloud Design Patterns
 description: Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 12/11/2024
 ms.topic: design-pattern
 ms.subservice: design-pattern
-products:
-  - azure
-categories:
-  - compute
-  - databases
-  - migration
-  - security
-  - web
 ---
 
 # Cloud design patterns
@@ -55,21 +47,40 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Choreography](./choreography.yml) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Circuit Breaker](./circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when an application connects to a remote service or resource. | - Reliability<br><br>- Performance&nbsp;Efficiency |
-| [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | - Reliability<br><br>- Security<br><br>- Cost Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a sequence of steps that collectively form an eventually consistent operation. | - Reliability |
-| [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | - Reliability<br><br>- Cost Optimization<br><br>- Performance&nbsp;Efficiency |
-| [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | - Cost Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [CQRS](./cqrs.md) | Separate operations that read data from those that update data by using distinct interfaces. | - Performance&nbsp;Efficiency |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Aggregation](./gateway-aggregation.yml) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
-| [Gateway Offloading](./gateway-offloading.yml) | Offload shared or specialized service functionality to a gateway proxy. | - Reliability<br><br>- Security<br><br>- Cost Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Gateway Offloading](./gateway-offloading.yml) | Offload shared or specialized service functionality to a gateway proxy. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Routing](./gateway-routing.yml) | Route requests to multiple services by using a single endpoint. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Geode](./geodes.yml) | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Health Endpoint Monitoring](./health-endpoint-monitoring.yml) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | - Reliability<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
-
+| [Index Table](./index-table.yml) | Create indexes over the fields in data stores that queries frequently reference. | - Reliability<br><br>- Performance&nbsp;Efficiency |
+| [Leader Election](./leader-election.yml) | Coordinate actions in a distributed application by electing one instance as the leader. The leader manages a collection of collaborating task instances. | - Reliability |
+| [Materialized View](./materialized-view.yml) | Generate prepopulated views over the data in one or more data stores when the data is poorly formatted for required query operations. | - Performance&nbsp;Efficiency |
+| [Messaging Bridge](./messaging-bridge.yml) | Build an intermediary to enable communication between messaging systems that are otherwise incompatible. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
+| [Pipes and Filters](./pipes-and-filters.yml) | Break down a task that performs complex processing into a series of separate elements that can be reused. | - Reliability |
+| [Priority Queue](./priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are processed more quickly. | - Reliability<br><br>- Performance&nbsp;Efficiency |
+| [Publisher/Subscriber](./publisher-subscriber.yml) | Enable an application to announce events to multiple consumers asynchronously, without coupling senders to receivers. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Quarantine](./quarantine.yml) | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | - Security<br><br>- Operational&nbsp;Excellence |
+| [Queue-Based Load Leveling](./queue-based-load-leveling.yml) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Rate Limiting](./rate-limiting-pattern.yml) | Avoid or minimize throttling errors by controlling the consumption of resources. | - Reliability |
+| [Retry](./retry.yml) | Enable applications to handle anticipated temporary failures by retrying failed operations. | - Reliability |
+| [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
+| [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
+| [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
+| [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
+| [Sidecar](./sidecar.yml) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
+| [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
+| [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
+| [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 
 ## Next steps
 
@@ -77,6 +88,6 @@ Review the design patterns from the perspective of the Well-Architected Framewor
 
 - [Design patterns to support the Reliability pillar](/azure/well-architected/reliability/design-patterns)
 - [Design patterns to support the Security pillar](/azure/well-architected/security/design-patterns)
-- [Design patterns to support the Cost Optimization pillar](/azure/well-architected/cost-optimization/design-patterns)
-- [Design patterns to support the Operational Excellence pillar](/azure/well-architected/operational-excellence/design-patterns)
-- [Design patterns to support the Performance Efficiency pillar](/azure/well-architected/performance-efficiency/design-patterns)
+- [Design patterns to support the Cost&nbsp;Optimization pillar](/azure/well-architected/cost-optimization/design-patterns)
+- [Design patterns to support the Operational&nbsp;Excellence pillar](/azure/well-architected/operational-excellence/design-patterns)
+- [Design patterns to support the Performance&nbsp;Efficiency pillar](/azure/well-architected/performance-efficiency/design-patterns)

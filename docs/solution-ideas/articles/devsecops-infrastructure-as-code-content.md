@@ -15,7 +15,7 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 1. With test driven development, you check in code changes for infrastructure definitions, like IaC templates, into GitHub repositories. You develop unit tests, integration tests, and PaC at the same time to test the quality of IaC.
 2. Pull requests (PRs) trigger automated unit testing through GitHub Actions.
 3. You configure the GitHub Actions workflow process to test the IaC with locally deployed infrastructure states and plans.
-4. You configure GitHub Actions to scan for code quality and security issues. You then use security scanning tools built on GitHub's CodeQL to scan for security vulnerabilities on the IaC. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
+4. You configure GitHub Actions to scan for code quality and security issues. Create your own custom-built GitHub CodeQL queries to analyze Infrastructure as Code (IaC) templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
 5. The IaC tool provisions and modifies resources for each environment, tailoring size, instance count, and other properties. You can run automated integration tests for IaC on provisioned resources.
 6. When a manual update to the infrastructure is necessary, the designated administrator access is elevated to perform the modifications. After modification, the elevated access is removed, and an issue should be logged into GitHub for reconciliation of the IaC. The reconciliation steps and possibility depend on the specific IaC tools.
 7. SecOps continuously monitors and defends against security threats and vulnerabilities. Azure Policy enforces cloud governance.
@@ -28,10 +28,10 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 - [GitHub Advanced Security](https://github.com/advanced-security) provides features to secure your IaC. It requires another license.
 - [CodeQL](https://codeql.github.com) provides security scanning tools that run on static code to detect infrastructure misconfigurations.
 - [Terraform](https://www.terraform.io) is a partner product developed by HashiCorp that allows infrastructure automation on Azure and other environments.
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) provides unified security management and advanced threat protection across hybrid cloud workloads.
-- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and security orchestration automated response (SOAR) solution. It uses advanced AI and security analytics to help you detect and respond to threats across your enterprise.
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For example, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Microsoft Sentinel](/azure/sentinel/overview) is a cloud-native SIEM and security orchestration automated response (SOAR) solution. It uses advanced AI and security analytics to help you detect and respond to threats across your enterprise.
+- [Azure Policy](/azure/governance/policy/overview) helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For example, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
+- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 ## Scenario details
 

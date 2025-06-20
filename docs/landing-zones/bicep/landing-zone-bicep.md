@@ -1,7 +1,7 @@
 ---
 title: Azure landing zones - Bicep modules design considerations
 description: Design considerations for the Azure landing zones Bicep modules.
-author: robbagby
+author: claytonsiemens77
 categories:
   - management-and-governance
   - devops
@@ -13,18 +13,6 @@ ms.author: pnp
 ms.date: 06/14/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories:
-  - devops
-  - hybrid
-  - management-and-governance
-  - networking
-  - security
-products:
-  - azure
-  - azure-resource-manager
-  - azure-policy
-  - azure-rbac
-  - azure-virtual-network
 ---
 
 # Azure landing zones - Bicep modules design considerations

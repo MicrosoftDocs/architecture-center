@@ -9,10 +9,6 @@ ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - gcp-to-azure
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Azure for Google Cloud Professionals

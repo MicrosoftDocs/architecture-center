@@ -160,7 +160,7 @@ Using AKS as the data-tier service is ideal if you're looking to reduce costs. F
 
 By design, the Azure SQL Elastic Pool pricing is highly cost-effective in a multitenant scenario. Tenant databases in an Elastic Pool will share the available resources. As demand shifts between tenants over time, resources will shift as well.  Azure SQL Elastic Pool provides the maximum available resources to demanded databases without the need for resource overhead on all databases. The service keeps cost low for the developer of the SaaS and the tenants. Use the [Azure SQL Database pricing calculator](https://azure.microsoft.com/pricing/details/sql-database/elastic/) to price out and determine the tier and amount of resources needed to serve your tenants and their data.
 
-* Using a virtual core (vCore) pricing model provides greater flexibility in scaling to meet required resources. Also, you can take advantage of the Azure Hybrid Benefit. Existing SQL Server licenses provide a discount to vCore SQL resources in the cloud. Therefore, in an instance when on-premises servers are already part of the developer infrastructure, you can manage cost even more by using these discounts. You can estimate your potential savings by using the [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
+* Using a virtual core (vCore) pricing model provides greater flexibility in scaling to meet required resources. Also, you can take advantage of the Azure Hybrid Benefit, an offer that provides discounts to vCore SQL resources in the cloud. Therefore, in an instance when on-premises servers are already part of the developer infrastructure, you can manage costs even more by using these discounts. You can estimate your potential savings by using the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
 
 * You can also save cost on SQL Server resources by purchasing [Azure SQL Database reserved capacity](/azure/sql-database/sql-database-reserved-capacity). Purchasing reserved capacity marks a commitment of long-term SQL Database usage. The term is usually between one to three years. In return, you get discounts on the compute costs of the resources in reservation. For instance, you could reserve 32 general purpose vCores for a year, which reduces the cost of those 32 vCores for that year. Having multiple tenants purchasing licenses for a SaaS is a strong indicator that making use of Reserved capacity fits the solution, and an ideal cost saver in this workload.
 
@@ -172,11 +172,11 @@ The [pricing for AI Search](https://azure.microsoft.com/pricing/details/search/)
 
 ## Next steps
 
-* [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Microsoft Entra ID to implement multitenant apps.
+* [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals) is about leveraging Microsoft Entra ID to implement multitenant apps.
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
-* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Microsoft Entra ID to implement multitenant apps.
+* [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps) is also about leveraging Microsoft Entra ID to implement multitenant apps.
 
 ## Related resource
 

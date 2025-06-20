@@ -64,7 +64,7 @@ For more information about the sample microservices application, see [Microservi
 
 [Azure Container Apps](/azure/container-apps/) provides a managed serverless Kubernetes experience. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
 
-Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, Istio ingress gateway, or non-Microsoft solutions. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
+Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, Istio ingress gateway, or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
 You can store container images in non-Microsoft container registries such as Docker Hub.
 
@@ -121,7 +121,7 @@ In Kubernetes, an ingress controller primarily handles the functionality of an A
 
 - Offload functionality from the back-end services, such as SSL termination, authentication, IP address restrictions, or client rate limiting (called *throttling*).
 
-There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on, Application Gateway for Containers. Or you can choose Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/en-us/azure/aks/concepts-network-ingress).
+There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on, Application Gateway for Containers. Or you can choose Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
 The ingress resources Kubernetes objects have been replaced by the more advanced and versatile Kubernetes Gateway API. Ingress controller and Gateway API are both Kubernetes objects used for traffic management routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
 

@@ -11,8 +11,6 @@ metadata:
     - hybrid
     - networking
   ms.custom:
-    - networking
-    - reference-architecture
     - e2e-hybrid
     - devx-track-azurepowershell
     - arb-hybrid
@@ -27,4 +25,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/expressroute-vpn-failover.png
 content: |
-   [!include[](expressroute-vpn-failover-content.md)]
+   [!INCLUDE[](expressroute-vpn-failover-content.md)]

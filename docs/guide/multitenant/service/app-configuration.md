@@ -6,14 +6,7 @@ ms.author: pnp
 ms.date: 09/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-resource-manager
-categories:
-  - data
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Multitenancy and Azure App Configuration

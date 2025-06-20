@@ -6,11 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
-products: azure
-ms.custom:
-  - guide
 ---
 
 # Select an Azure data store for your application
@@ -24,9 +19,6 @@ If your application consists of multiple workloads, evaluate each workload separ
 Use the following flowchart to select a candidate Azure managed data store.
 
 ![Data store decision tree](./images/data-store-decision-tree.png)
-
-> [!CAUTION]
-> Azure Database for MariaDB will be retired in September 2025. Please select Azure Database for MySQL Flexible Server instead. To learn more, see [What's happening to Azure Database for MariaDB](/azure/mariadb/migrate/whats-happening-to-mariadb).
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the data store to see if it meets your needs. Refer to [Criteria for choosing a data store](./data-store-considerations.md) to aid in this evaluation.
 
