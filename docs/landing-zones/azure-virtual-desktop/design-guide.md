@@ -64,7 +64,7 @@ This architecture follows the following key principles.
 
 ### Design areas
 
-Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
+Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "I" in the diagram, to illustrate the hierarchy of resource organization:
 
 | Legend | Design area (s) | Objective |
 |--------|-------------|-----------|
