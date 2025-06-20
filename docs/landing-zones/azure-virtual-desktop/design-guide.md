@@ -111,7 +111,6 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
    - **Management**: Includes resources for governance, monitoring, and operations, such as Azure Monitor and Azure Automation.
    - **Connectivity**: Contains network-related components like Virtual Networks, Network security groups, and Azure Firewall to ensure secure communication between resources.
    - **Identity**: Handles the identity and access management services.
-   - 
 
 
 ![Figure 2: Azure Virtual Desktop reference architecture](./media/avd-accelerator-baseline-architecture.png)
@@ -201,4 +200,13 @@ When you're ready for deployment, complete the following steps.
 
 ## Next steps
 
-TODO
+To continue learning and implementing best practices for Azure Virtual Desktop, consider the following resources:
+
+[Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator). Learn how to accelerate your deployment using pre-configured landing zone templates aligned with the Cloud Adoption Framework.
+
+[Azure Virtual Desktop for the enterprise](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop). Explore a real-world example of how to deploy and configure Azure Virtual Desktop with best practices.
+
+[Virtual desktop architecture design](https://learn.microsoft.com/en-us/azure/architecture/guide/virtual-desktop/start-here?source=recommendations). Understand core architectural guidelines and best practices for designing virtual desktop solutions in Azure.
+
+[Azure Virtual Desktop enterprise-scale design considerations](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone). Explore enterprise-scale design strategies to ensure your Azure Virtual Desktop deployment is scalable, secure, and aligned with organizational needs.
+
