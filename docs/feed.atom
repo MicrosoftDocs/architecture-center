@@ -9,7 +9,6 @@
     <category term="new"/>
     <category term="updated"/>
     <entry>
-<<<<<<< HEAD
         <title ty<entry>
         <title type="html"><![CDATA[Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network</id>
@@ -18,7 +17,6 @@
         <summary type="html"><![CDATA[Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.]]></summary>
         <category label="updated" term="updated"/>
     </entry>pe="html"><![CDATA[Backends for Frontends Pattern]]></title>
-=======
         <title type="html"><![CDATA[Prevent IPv4 Exhaustion in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion</id>
         <link href="https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion"/>
