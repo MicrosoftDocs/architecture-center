@@ -163,7 +163,7 @@ To perform the deployment, you'll follow these steps.
 
 1. **Deploy the Azure Virtual Desktop reference implementation**: Once the platform landing zone is in place, deploy the Azure Virtual Desktop landing zone reference implementation of the reference architecture.
 
-To start, you'll need to choose the following deployment scenario tab that best matches your requirements.
+To start, you need to choose the following deployment scenario tab that best matches your requirements.
 
 ##### [Baseline deployment](#tab/baseline)
 The baseline deployment deploys the Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline.
