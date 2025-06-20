@@ -4,6 +4,7 @@ description: Learn about Azure AI services that you can use in AI applications a
 author: ritesh-modi
 ms.author: rimod
 ms.date: 03/20/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
