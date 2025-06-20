@@ -195,7 +195,7 @@ When you're ready for deployment, complete the following steps.
 
 
 ###### [Custom image build deployment](#tab/custom-image)
-The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images.
+The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched, and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images.
 
 When you're ready for deployment, complete the following steps.
 
