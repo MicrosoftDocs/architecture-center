@@ -23,7 +23,7 @@ The architecture diagram above depicts the following components:
 
   - [Arc Resource Bridge][]. Arc Resource Bridge is a highly available virtual machine (VM) running on Azure Local. Arc Resource Bridge is responsible for deploying and managing multiple AKS clusters.
 
-  - [Azure Kubernetes Service (AKS) on Azure Local][]. An on-premises implementation of AKS, which automates running containerized applications at scale. An AKS on Azure Local cluster has highly available control plane nodes and worker nodes. Containerized applications run on  the worker nodes in an AKS cluster. To achieve application isolation, you can deploy up to 32 AKS clusters. The AKS cluster consists of the following components:
+  - [Azure Kubernetes Service (AKS) on Azure Local][]. An on-premises implementation of AKS, which automates running containerized applications at scale. An AKS on Azure Local cluster has highly available control plane nodes and worker nodes. Containerized applications run on the worker nodes in an AKS cluster. To achieve application isolation, you can deploy up to 32 AKS clusters. The AKS cluster consists of the following components:
 
     - **Control plane.** Runs on Azure Linux operating system and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
 
@@ -81,20 +81,18 @@ The [Azure Arc–enabled Kubernetes Service][] provides Azure Resource Manager r
 
 ## Recommended services and extensions
 
-The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides them.
+The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides them. The below Azure services must be deployed in the same Azure region as the AKS cluster. 
 
 - Use the [MetalLB extension][]. Deploys a MetalLB load balancer on the AKS cluster to perform L2 load balancing.
 
-- Use [Azure RBAC][]. Use for role assignment and to manage access to the AKS cluster.
-
-- [Azure Monitor Container Insights.][] Monitors the performance of container workloads that are running on both Linux and Windows clusters. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall pod's performance, understand the behavior of the cluster, and configure alerts for proactive monitoring.
+- [Azure Monitor Container Insights.][] Monitors the performance of container workloads that are running on both Linux and Windows node pools. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall Kubernetes cluster performance, understand the behavior of the Kubernetes cluster, and configure alerts for proactive monitoring.
 
 - Use available [Automation capabilities][]. AKS provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Local vendors and partners. You can run Windows PowerShell locally from one of the Azure Local machines or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of automation scenarios for [virtualized][] and [containerized][] workloads.
 
-- Provide cluster resource governance through [Azure Policy][]. Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to [enforce GitOps configuration][], which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository. 
+- Provide cluster resource governance through [Azure Policy][]. Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your AKS cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces.
 
-- Use [Azure Policy for Kubernetes][] for inner-cluster governance. Manage internal cluster policies implemented by Gatekeeper, deploys policy definition into the cluster as constraint template and report on the compliance state of your Kubernetes clusters from one place.
-
+- Deploy applications consistently at scale using [Flux v2 configurations and Azure Policy for Kubernetes][]. You can use Azure Policy to apply Flux v2 configurations at-scale across AKS clusters by selecting a built-in policy definition and creating a policy assignment. When assigning the configuration deployment policy, you specify parameters for the Flux setup to be applied within the defined scope. To support separation of concerns, you can create multiple policy assignments with different Flux configurations pointing to separate sources—for instance, one Git repository for cluster admins and another for application teams.
+  
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -108,8 +106,6 @@ Reliability helps ensure that your application can meet the commitments that you
 - Review requirements for failover clustering. AKS deployments use failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
 
 - Configure deployments to use Kubernetes features, such as Deployments, Affinity Mapping, and ReplicaSets, to ensure that the pods are resilient in disruption scenarios.
-
-- Verify that all required components are supported in the region to which Azure Arc is deployed.
 
 - Limit usage of public container images and only pull from container registries for which you have control over the SLA, such as ACR.
 
@@ -132,12 +128,12 @@ Focus on the entire stack by securing both the host and its containers.
 - Use BitLocker Drive Encryption to encrypt Storage Spaces Direct volumes at rest.
 
 - Use [Microsoft Defender for Cloud][], to manage security settings for servers and clusters. It provides threat protection for your Arc–enabled Kubernetes clusters. The Microsoft Defender for Cloud extension collects data from nodes in the cluster and sends it to the Azure Defender for Kubernetes backend in the cloud for further analysis.
-
-- Secure communication with certificates.
-
-- Rotate encryption keys of the Kubernetes secret store (etcd) using the Key Management Server (KMS) plug-in.
+ 
+- Use [Azure RBAC][]. Use for role assignment and to manage access to the AKS cluster.
 
 - Use [Workload identity][] for securing and managing identities to access Azure resources from workload pods.
+
+- AKS comes with encryption of etcd secrets using a Key Management Service (KMS) plugin. All AKS clusters have a built-in KMS plugin enabled by default. This plugin generates the Key Encryption Key (KEK) and automatically rotates it every 30 days.
 
 #### Application security
 
@@ -161,7 +157,7 @@ Focus on the entire stack by securing both the host and its containers.
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices. For more information, see [Pricing details](/azure/aks/aksarc/pricing).
+- Use the [Azure pricing calculator][] to estimate costs for the Azure services like Azure Monitor Container Insights used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices. AKS is available at no extra charge when you use it on Azure Local. For more information, see [Azure Local pricing details](https://azure.microsoft.com/pricing/details/azure-local/).
 
 ### Operational Excellence
 
@@ -240,8 +236,7 @@ Other contributors:
   [containerized]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
   [cost optimization]: /azure/architecture/framework/cost/overview
   [Custom Location]: /azure/azure-arc/kubernetes/conceptual-custom-locations
-  [enfore Gitops configuration]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
-  [Istio]: https://istio.io/latest/docs/setup/getting-started/
+  [Flux v2 configurations and Azure Policy for Kubernetes]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
   [ip address planning]: /azure/aks/aksarc/aks-hci-ip-address-planning
   [Logical Networks]: /azure/azure-local/manage/create-logical-networks
   [MetalLB extension]: /azure/aks/aksarc/load-balancer-overview
@@ -251,7 +246,6 @@ Other contributors:
   [SSH Access Restrictions]: /azure/aks/aksarc/restrict-ssh-access
   [hybrid-container-service github]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
   [Use isolation of containers]: /azure/aks/aksarc/container-security#practice-isolation
-  [Velero and Azure Blob Storage]: /azure/aks/aksarc/backup-workload-cluster
   [virtualization-based security (VBS)]: /windows-hardware/design/device-experiences/oem-vbs
   [virtualized]: /azure/azure-arc/servers/manage-vm-extensions
   [Workload identity]: /azure/aks/aksarc/workload-identity
