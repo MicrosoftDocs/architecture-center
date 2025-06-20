@@ -9,14 +9,6 @@
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title ty<entry>
-        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network"/>
-        <updated>2025-01-14T18:25:02.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>pe="html"><![CDATA[Backends for Frontends Pattern]]></title>
         <title type="html"><![CDATA[Prevent IPv4 Exhaustion in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion</id>
         <link href="https://learn.microsoft.com/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion"/>
@@ -321,7 +313,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
->>>>>>> a6d21b03d7c3e60a7847f5d01f4e725fab73b834
         <title type="html"><![CDATA[Architectural considerations for identity in a multitenant solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity"/>
@@ -847,6 +838,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local"/>
         <updated>2025-04-28T15:53:37.000Z</updated>
         <summary type="html"><![CDATA[Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Local or Windows Server.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network"/>
+        <updated>2025-04-28T15:53:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
