@@ -541,10 +541,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
-      - name: Azure Data Explorer solutions
-        items:
-        - name: Big data analytics with Data Explorer
-          href: solution-ideas/articles/big-data-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Modern analytics with Azure Databricks

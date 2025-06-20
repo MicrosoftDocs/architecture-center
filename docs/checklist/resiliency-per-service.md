@@ -1,7 +1,7 @@
 ---
 title: Resiliency checklist for services
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual

@@ -6,11 +6,7 @@ ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 

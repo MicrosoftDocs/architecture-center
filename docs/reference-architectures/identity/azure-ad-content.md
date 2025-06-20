@@ -178,7 +178,7 @@ For additional considerations about achieving high availability of the Microsoft
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Use conditional access control to deny authentication requests from unexpected sources:
+Use Conditional Access control to deny authentication requests from unexpected sources:
 
 - Trigger [Microsoft Entra multifactor authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from an untrusted location such as across the Internet instead of a trusted network.
 
@@ -257,7 +257,7 @@ Principal author:
 ## Next steps
 
 - Review [Topologies for Microsoft Entra Connect][aad-topologies] to ensure the hybrid topology for Microsoft Entra Connect is deployed in a supported configuration.
-- Learn about using conditional access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
+- Learn about using Conditional Access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
 - Review [Microsoft Entra application proxy][aad-application-proxy] if you intend on providing Microsoft Entra integrations with on-premises or cloud IaaS applications.
 - Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices].

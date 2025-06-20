@@ -10,7 +10,7 @@ This architecture and the implementation aren't designed to provide controls on 
 >
 > This guidance and the accompanying implementation build on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture is based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
-> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides a Microsoft Entra ID-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
+> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides a Microsoft Entra ID-backed, private cluster that supports just-in-time (JIT) access and Conditional Access models for illustrative purposes.
 
 ## Implement strong access control measures
 
@@ -93,7 +93,7 @@ Based on the job functions, strive to minimize access without causing disruption
 
 - Reduce the access that each identity requires. An identity should have just enough access to complete their task.
 - Minimize standing permissions, especially on critical-impact identities that have access to in-scope components.
-- Add extra restrictions where possible. One way is to provide conditional access based on access criteria.
+- Add extra restrictions where possible. One way is to provide Conditional Access based on access criteria.
 - Conduct a regular review and audit of users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
 
 #### Requirement 7.1.3
@@ -161,10 +161,10 @@ Here are some best practices to maintain access control measures:
 
 - Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Microsoft Entra Privileged Identity Management.
 
-- Set up [conditional access policies in Microsoft Entra ID for your cluster](/azure/aks/access-control-managed-azure-ad#use-conditional-access-with-microsoft-entra-id-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multifactor authentication, restrict authentication to devices that are managed by your Microsoft Entra tenant, or block non-typical sign-in attempts. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
+- Set up [Conditional Access policies in Microsoft Entra ID for your cluster](/azure/aks/access-control-managed-azure-ad#use-conditional-access-with-microsoft-entra-id-and-aks). This further puts restrictions on access to the Kubernetes control plane. With Conditional Access policies, you can require multifactor authentication, restrict authentication to devices that are managed by your Microsoft Entra tenant, or block non-typical sign-in attempts. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
 
   > [!NOTE]
-  > Both JIT and conditional access technology choices require Microsoft Entra ID P1 or P2 licenses.
+  > Both JIT and Conditional Access technology choices require Microsoft Entra ID P1 or P2 licenses.
 
 - Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose.
 
@@ -276,7 +276,7 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 ##### Your responsibilities
 
-Microsoft Entra ID provides a [smart lockout feature](/entra/identity/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra conditional access policies.
+Microsoft Entra ID provides a [smart lockout feature](/entra/identity/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra Conditional Access policies.
 
 Implement the lockout for components that support similar features but aren't backed with Microsoft Entra ID (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
 
@@ -303,14 +303,14 @@ Several of the preceding set of requirements are automatically handled by Micros
 
 - **Password security**
 
-    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. To create an organization-specific ban list, consider adding the Microsoft Entra Password Protection feature. A password policy is applied by default. Certain policies can't be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider advanced enforcement by using conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
+    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. To create an organization-specific ban list, consider adding the Microsoft Entra Password Protection feature. A password policy is applied by default. Certain policies can't be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider advanced enforcement by using Conditional Access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
     > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-deployment).
 
 - **User identity verification**
 
-    You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk).
+    You can apply the sign-in risk Conditional Access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk).
 
 You might have components that don't use Microsoft Entra ID, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 key size. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should only be allowed through an intermediary, such as Azure Bastion, to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
 
@@ -320,7 +320,7 @@ Secure all individual non-console administrative access and all remote access to
 
 #### Your responsibilities
 
-Use conditional access policies to enforce multifactor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
+Use Conditional Access policies to enforce multifactor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
 
 This policy can be further hardened with additional policies. Here are some examples:
 
@@ -329,9 +329,9 @@ This policy can be further hardened with additional policies. Here are some exam
 
 For more information, see:
 
-- [Conditional access: Require MFA for administrators](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa)
-- [Conditional access: Require compliant devices](/entra/identity/conditional-access/how-to-policy-require-device-compliance)
-- [Conditional access: Sign-in risk-based multifactor authentication](/entra/identity/conditional-access/howto-conditional-access-policy-risk)
+- [Conditional Access: Require MFA for administrators](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa)
+- [Conditional Access: Require compliant devices](/entra/identity/conditional-access/how-to-policy-require-device-compliance)
+- [Conditional Access: Sign-in risk-based multifactor authentication](/entra/identity/conditional-access/howto-conditional-access-policy-risk)
 
 ### Requirement 8.4
 
@@ -406,7 +406,7 @@ This architecture and the implementation aren't designed to provide controls on 
 Here are some suggestions for applying technical controls:
 
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
-- Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
+- Tune Conditional Access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
   - [Configure adaptive session lifetime policies](/entra/identity/conditional-access/howto-conditional-access-session-lifetime)
   - [Configurable token lifetimes in the Microsoft identity platform](/entra/identity-platform/configurable-token-lifetimes)

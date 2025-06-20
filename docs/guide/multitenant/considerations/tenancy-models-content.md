@@ -18,7 +18,7 @@ Your definition of *tenant* affects some of the things that you need to consider
 
 Selecting a tenancy model isn't just a technical decision. It's also a commercial decision. You need to consider questions like these:
 
-- What are your business objectives?
+- What are your business objectives? Is it more important for you to reduce the cost of each tenant's resources or give each tenant the best possible experience?
 - Will your customers accept all forms of multitenancy? How does each multitenancy model affect your compliance requirements, or your customers' compliance requirements?
 - Will a single-tenant solution scale to your future growth aspirations?
 - How large is your operations team, and how much of your infrastructure management can you automate?
@@ -30,11 +30,11 @@ Conversely, if you expect that your business will have only a few customers, you
 
 ## Tenants and deployments
 
-Next, you need to determine what *tenant* means for your particular solution, and whether you should distinguish between logical tenants and deployments.
+Next, you need to determine whether you should distinguish between logical tenants and deployments.
 
 For example, consider a music streaming service. Initially, you might build a solution that can easily handle thousands (or even tens of thousands) of users. As you continue to grow, however, you might find that you need to duplicate your solution or some of its components in order to scale to new customer demand. This means that you need to determine how to assign specific customers to specific instances of your solution. You might assign customers randomly, or geographically, or by filling up a single instance and then starting another ([bin packing](../approaches/resource-organization.yml#bin-packing)). However, you probably need to maintain a record of your customers and which infrastructure their data and applications are available on so that you can route their traffic to the correct infrastructure. In this example, you might represent each customer as a separate tenant, and then map the users to the deployment that contains their data. You have a one-to-many mapping between tenants and deployments, and you can move tenants among deployments at your own discretion.
 
-In contrast, consider a company that creates cloud software for legal firms. Your customers might insist on having their own dedicated infrastructure to maintain their compliance standards. Therefore, you need to be prepared to deploy and manage many different instances of your solution from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to its own dedicated deployment.
+In contrast, consider a company that creates cloud software for legal firms. Your customers might insist on having their own dedicated infrastructure to maintain compliance with regulatory requirements. Therefore, you need to be prepared to deploy and manage many different instances of your solution from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to its own dedicated deployment.
 
 A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (a set of infrastructure), you typically rely on your application code and a tenant identifier that's in a database to keep each tenant's data separate. When you have tenants with their own dedicated deployments, they have their own infrastructure, so it might be less important for your code to be aware that it's operating in a multitenant environment.
 
@@ -145,13 +145,13 @@ Whichever isolation model you choose, be sure to test your solution to verify th
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

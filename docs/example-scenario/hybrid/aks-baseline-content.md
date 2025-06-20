@@ -3,7 +3,7 @@ This scenario illustrates how to design and implement a baseline architecture fo
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
 
 > [!IMPORTANT]
-> The information in this article applies to [AKS on Azure Local, version 23H2 (latest version)][].
+> The information in this article applies to [AKS on Azure Local and AKS on Windows Server](/azure/aks/aksarc/overview). The most recent version of AKS runs on the Azure Stack HCI, version 23H2 operating system. For more information about the latest version, see the [AKS on Azure Local documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 

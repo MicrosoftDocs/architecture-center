@@ -1,9 +1,9 @@
 ---
 title: Guidance for using Azure Event Hubs in a multitenant solution
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
-author: landonpierce
-ms.author: landonpierce
-ms.date: 06/05/2024 
+author: PlagueHO
+ms.author: dascottr
+ms.date: 06/15/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -93,14 +93,22 @@ Each application group can be scoped to a single Event Hubs namespace or to a si
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
-<a name='azure-ad-authentication'></a>
+### Event Hubs Premium namespaces
 
+Event Hubs Premium namespaces provide reserved processing units that are not shared with other namespaces. They ensure predictable latency and throughput for each namespace and avoid noisy neighbor problems. Premium namespaces offer the highest level of performance isolation without requiring a dedicated cluster.
+
+Premium namespaces are well suited for hostile multitenancy scenarios, where tenants operate independently and may have unpredictable workloads. Each tenant can use the full capacity of their premium namespace without affecting others, though this benefit comes at a higher price than the standard tier.
+
+Premium features include reserved processing units, customer-managed keys, virtual network integration, and enhanced message retention.
+
+For more information, see [Overview of Event Hubs Premium](/azure/event-hubs/event-hubs-premium-overview).
+
+<a name='azure-ad-authentication'></a>
 ### Microsoft Entra authentication
 
 Event Hubs is integrated with Microsoft Entra ID. Clients can authenticate to Event Hubs resources by using a managed identity with Microsoft Entra ID. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, by using Microsoft Entra authentication, you can grant a tenant access to an event hub that has the messages for that tenant. You can use this technique to isolate a tenant from other tenants.
 
 Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-kafka) to access Event Hubs resources.
-
 
 For more information, see the following articles:
 
@@ -117,7 +125,7 @@ For more information, see [Authenticate access to Event Hubs resources using sha
 
 If your tenants require their own keys to encrypt and decrypt events, you can configure customer-managed keys in some versions of Event Hubs.
 
-This feature requires that you use the [dedicated namespace](#dedicated-namespace) isolation model. Encryption can only be enabled for new or empty namespaces.
+This feature requires that you use either an [Event Hub Premium tier namespace](/azure/event-hubs/event-hubs-premium-overview) or [Event Hub Dedicated tier namespace](/azure/event-hubs/event-hubs-dedicated-overview). Encryption can only be enabled for new or empty namespaces.
 
 For more information, see [Configure customer-managed keys for encrypting Azure Event Hubs data at rest](/azure/event-hubs/configure-customer-managed-key).
 
@@ -149,6 +157,14 @@ For more information, see:
 - [Network security for Azure Event Hubs](/azure/event-hubs/network-security)
 - [Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges](/azure/event-hubs/event-hubs-ip-filtering)
 
+### Auto-inflate for elastic scaling
+
+Standard Event Hubs namespaces support the Auto-inflate feature, which automatically increases the number of throughput units (TUs) during periods of high demand. Enabling auto-inflate on shared namespaces allows the platform to scale up capacity temporarily (up to a defined maximum) when one or more tenants experience traffic spikes. This elasticity helps prevent throttling and service errors during sudden load surges, maintaining stability for all tenants.
+
+Auto-inflate is especially useful in multitenant environments, as it absorbs noisy neighbor bursts by allocating additional resources rather than suppressing traffic. However, this increase in capacity can also increase costs for the duration of the spike. For best results, combine auto-inflate with throttling policies to ensure that no single tenant can consume unbounded resources.
+
+For more information, see [Auto-inflate Event Hubs throughput units](/azure/event-hubs/event-hubs-auto-inflate).
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -161,6 +177,7 @@ Other contributors:
 
 - [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

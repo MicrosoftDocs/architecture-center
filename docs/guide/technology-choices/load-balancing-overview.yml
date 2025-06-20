@@ -2,7 +2,7 @@
 metadata:
   title: Load-balancing options
   description: Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 06/28/2024
   ms.topic: conceptual

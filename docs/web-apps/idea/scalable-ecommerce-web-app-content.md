@@ -29,9 +29,9 @@ This solution is ideal for retail organizations, but it can apply to other indus
 ### Components
 
 * [Web Apps](/azure/well-architected/service-guides/app-service-web-apps): An App Service Web App runs in a single region, accessible to web and mobile browsers
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
-* [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
-* Application Insights: Detect, triage, and diagnose issues in your web apps and services
+* [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database): Managed, intelligent SQL in the cloud
+* [Azure Functions](/azure/well-architected/service-guides/azure-functions): Process events with serverless code
+* [Application Insights](/azure/well-architected/service-guides/application-insights): Detect, triage, and diagnose issues in your web apps and services
 
 ## Contributors
 

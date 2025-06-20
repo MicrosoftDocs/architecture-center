@@ -2,12 +2,10 @@
 title: Monolithic Persistence Antipattern
 description: Learn about the Monolithic Persistence antipattern, which can weaken performance by putting all of an application's data into a single data store.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: design-pattern
-ms.custom:
-  - article
 ---
 
 <!-- cSpell:ignore DTUs -->

@@ -6,8 +6,6 @@ ms.author: pnp
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 # Criteria for choosing a data store

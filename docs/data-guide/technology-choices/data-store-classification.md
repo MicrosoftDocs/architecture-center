@@ -7,9 +7,6 @@ ms.reviewer: ambers
 ms.date: 08/20/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - engagement-fy24
 ai-usage: ai-assisted
 ---
 

@@ -48,8 +48,6 @@ items:
           href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
-        - name: Automated enterprise BI
-          href: ../reference-architectures/data/enterprise-bi-adf.yml
         - name: Disaster recovery for data analytics pipelines
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe

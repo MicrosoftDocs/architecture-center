@@ -14,7 +14,6 @@ products:
   - azure-hdinsight
   - azure-cosmos-db
   - azure-data-lake-storage
-  - azure-synapse-analytics
   - azure-stream-analytics
 name: Apache Kafka migration to Azure
 summary: Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.

@@ -3,7 +3,8 @@ title: Service-specific guidance for a multitenant solution
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/11/2024
+ms.date: 06/11/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -22,12 +23,6 @@ In this section, we provide guidance about the features of each service that are
 ## Intended audience
 
 The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions.
-
-## What's covered in this section?
-
-The articles in this section describe some Azure services commonly used in multitenant solutions.
-
-We frequently add new articles with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 
 ## Next steps
 

@@ -250,4 +250,4 @@ For information about Azure solution components, see these resources:
 ## Related resources
 
 - [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)
