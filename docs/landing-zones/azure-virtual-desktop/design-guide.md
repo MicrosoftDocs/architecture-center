@@ -44,7 +44,9 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Security**: Uses security measures like Role-Based Access Control (RBAC) and network security ensure your environment is protected from threats.
 - **Operational efficiency**: The architecture includes automation and monitoring tools to reduce the operational burden and improve system performance.
 
-![Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture](./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png)
+:::image type="complex" source="./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png" alt-text="Diagram of Azure Virtual Desktop architecture in an Azure landing zone." border="false" lightbox="./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png":::
+    TODO
+:::image-end:::
 
 
 *Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
@@ -109,11 +111,12 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
 1. **Platform subscriptions**: These are foundational subscriptions that provide shared services across the entire environment. The application landing zone subscriptions will be connected to and supported by these platform subscriptions.
 
    - **Management**: Includes resources for governance, monitoring, and operations, such as Azure Monitor, Log Analytics, Azure Automation, and Azure Policy. In this architecture, the management subscription provides centralized monitoring and alerting for the Azure Virtual Desktop application landing zone by using Azure Monitor to track session host performance, Log Analytics to collect diagnostic data, and Azure Automation to orchestrate maintenance tasks like automated VM shutdowns to optimize costs.
-   - **Connectivity**: Contains network-related components like Virtual Networks (VNets), Network Security Groups (NSGs), Azure Firewall, and ExpressRoute or VPN Gateways. In this architecture, the connectivity subscription provides the Azure Virtual Desktop application landing zone with secure and scalable network infrastructure, enabling isolated traffic flows, segmentation between workloads, and secure access to on-premises resources.
+   - **Connectivity**: Contains network-related components like Virtual Networks (VNets), Network Security Groups (NSGs), Azure Firewall, and ExpressRoute or VPN Gateways. In this architecture, the connectivity subscription is *responsible* for providing the Azure Virtual Desktop application landing zone with secure and scalable network infrastructure, enabling isolated traffic flows, segmentation between organization workloads, and secure access to cross-premises resources.
    - **Identity**: Handles identity and access management services, specifically infrastructure components required to support domain-joined Azure Virtual Desktop session hosts. In this architecture, the identity subscription provides the Azure Virtual Desktop application landing zone with domain services such as Microsoft Entra Domain Services or self-managed Active Directory domain controllers hosted in Azure. These services enable session hosts to join a domain and authenticate users securely, supporting group policy enforcement and legacy authentication scenarios required by some applications.
 
-
-![Figure 2: Azure Virtual Desktop reference architecture](./media/avd-accelerator-baseline-architecture.png)
+:::image type="complex" source="./media/avd-accelerator-baseline-architecture.png" alt-text="Diagram of Azure Virtual Desktop reference architecture." border="false" lightbox="./media/avd-accelerator-baseline-architecture.png":::
+    TODO
+:::image-end:::
 
 
 *Figure 2: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
@@ -128,7 +131,7 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
 
 #### Accelerator overview
 
-[![GitHub Icon](../../_images/github.png) Azure Virtual Desktop landing zone reference implementation](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments and provides multiple infrastructure-as-code (IaC) template options.
+[![GitHub icon](../../_images/github.png) Azure Virtual Desktop landing zone reference implementation](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments and provides multiple infrastructure-as-code (IaC) template options.
 
 - Azure portal UI
 - Azure CLI or Azure PowerShell Bicep template
@@ -142,7 +145,9 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator.
 
-![Figure 3: Azure Virtual Desktop implementation resource organization and naming](./media/avd-accelerator-resource-organization-naming.png)
+:::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Diagram showing Azure Virtual Desktop resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
+    TODO
+:::image-end:::
 
 
 *Figure 3: Azure Virtual Desktop implementation resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
@@ -202,12 +207,9 @@ When you're ready for deployment, complete the following steps.
 
 To continue building on the concepts from this design guide, explore the following Microsoft Learn resources:
 
-[Enterprise-scale support for Azure Virtual Desktop landing zone accelerator](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone)
-Learn how to deploy an enterprise-scale Azure Virtual Desktop landing zone using Infrastructure-as-Code accelerators aligned with the Cloud Adoption Framework.
+[Enterprise-scale support for Azure Virtual Desktop landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) - Learn how to deploy an Azure Virtual Desktop landing zone using Infrastructure-as-Code accelerators aligned with the Cloud Adoption Framework.
 
-[Network topology and connectivity for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity)
-Explore recommended network designs, including hub-and-spoke topology, hybrid connectivity, RDP Shortpath, and security best practices for Azure Virtual Desktop.
+[Network topology and connectivity for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity) - Explore recommended network designs, including hub-and-spoke topology, hybrid connectivity, RDP Shortpath, and security best practices for Azure Virtual Desktop.
 
-[Security, governance, and compliance for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance)
-Understand how to implement security controls, role-based access, monitoring, and governance to ensure your Azure Virtual Desktop environment is secure and compliant.
+[Security, governance, and compliance for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) - Understand how to implement security controls, role-based access, monitoring, and governance to ensure your Azure Virtual Desktop environment is secure and compliant.
 
