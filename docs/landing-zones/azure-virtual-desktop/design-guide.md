@@ -75,7 +75,7 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 | E | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
 | F | [Security](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) | Implements security controls within the AVD workload |
 | G, F | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery) | not represented in the diagram, this area is addressed by implementing BCDR strategies for the AVD workload and its supporting services to ensure resilience and recovery capabilities.|
-| I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Supports infrastructure-as-code and CI/CD pipelines for deploying and managing AVD environments.  |
+| I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | This design area focuses on automating and managing the Azure Virtual Desktop infrastructure to ensure consistent, repeatable, and secure deployments. It uses Infrastructure as Code (IaC), CI/CD pipelines, and monitoring tools to enable fast delivery, reliable updates, and proactive issue detection. Automation reduces manual errors, enforces governance, and supports scalable, efficient operations for AVD environments. |
 
 
 
