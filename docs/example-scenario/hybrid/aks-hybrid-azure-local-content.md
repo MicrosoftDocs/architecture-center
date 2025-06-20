@@ -41,7 +41,7 @@ The architecture illustrates an implementation that deploys containerized applic
 
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration (CI) and continuous delivery (CD) service that automates updates to repositories and registries. In this architecture, an application developer would use Azure pipelines to build and push images to container registries like Docker Hub and Azure Container Registry.
 
-- Container registries (public and private), including [Azure Container Registry](/products/container-registry/) and Docker Hub, host container images. Container registries are used with your existing container development and deployment pipelines to build container images on demand, or fully automate builds with triggers such as source code commits and base image updates.
+- Container registries (public and private), including [Azure Container Registry](https://azure.microsoft.com/products/container-registry) and Docker Hub, host container images. Container registries are used with your existing container development and deployment pipelines to build container images on demand, or fully automate builds with triggers such as source code commits and base image updates.
 
 - [GitOps Configuration](/azure/azure-arc/kubernetes/conceptual-gitops-flux2) Azure provides an automated application deployments capability using GitOps that works with Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. Git, Helm, and Bitbucket repositories (public and private) can host GitOps configurations.
 
