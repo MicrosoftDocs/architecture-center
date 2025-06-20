@@ -172,7 +172,6 @@ The following new and updated articles have recently been published in the Azure
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Hub-spoke network topology with Azure Virtual WAN](./networking/architecture/hub-spoke-vwan-architecture.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Update route tables by using Azure Route Server](./networking/architecture/manage-routing-azure-route-server.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Massive-scale VWAN architecture design](./networking/architecture/massive-scale-azure-architecture.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Implement TIC 3.0 compliance](./networking/architecture/trusted-internet-connections.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
