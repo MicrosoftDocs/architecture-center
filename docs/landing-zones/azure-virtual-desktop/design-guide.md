@@ -91,7 +91,7 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 
 Azure Virtual Desktop application landing zone reference implementation represents an implementation that follows the reference architecture and design principles outlined in the Cloud Adoption Framework and the Azure Well-Architected Framework. This solution provides steps to prepare landing zone subscriptions for a scalable Azure Virtual Desktop deployment, and a deployment of Azure Virtual Desktop within the landing zone subscriptions.
 
-When you use the Azure Virtual Desktop landing zone implementation, your organization will have an enterprise-ready Azure Virtual Desktop deployment that aligns with best practices in scalability, security, and governance.
+When you use the Azure Virtual Desktop landing zone implementation, your organization has an enterprise-ready Azure Virtual Desktop deployment that aligns with best practices in scalability, security, and governance.
 
 #### Architecture
 
