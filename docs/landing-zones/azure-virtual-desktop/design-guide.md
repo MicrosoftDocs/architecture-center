@@ -200,13 +200,14 @@ When you're ready for deployment, complete the following steps.
 
 ## Next steps
 
-To continue learning and implementing best practices for Azure Virtual Desktop, consider the following resources:
+To continue building on the concepts from this design guide, explore the following Microsoft Learn resources:
 
-[Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator). Learn how to accelerate your deployment using pre-configured landing zone templates aligned with the Cloud Adoption Framework.
+[Enterprise-scale support for Azure Virtual Desktop landing zone accelerator](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone)
+Learn how to deploy an enterprise-scale Azure Virtual Desktop landing zone using Infrastructure-as-Code accelerators aligned with the Cloud Adoption Framework.
 
-[Azure Virtual Desktop for the enterprise](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop). Explore a real-world example of how to deploy and configure Azure Virtual Desktop with best practices.
+[Network topology and connectivity for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity)
+Explore recommended network designs, including hub-and-spoke topology, hybrid connectivity, RDP Shortpath, and security best practices for Azure Virtual Desktop.
 
-[Virtual desktop architecture design](https://learn.microsoft.com/en-us/azure/architecture/guide/virtual-desktop/start-here?source=recommendations). Understand core architectural guidelines and best practices for designing virtual desktop solutions in Azure.
-
-[Azure Virtual Desktop enterprise-scale design considerations](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone). Explore enterprise-scale design strategies to ensure your Azure Virtual Desktop deployment is scalable, secure, and aligned with organizational needs.
+[Security, governance, and compliance for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance)
+Understand how to implement security controls, role-based access, monitoring, and governance to ensure your Azure Virtual Desktop environment is secure and compliant.
 
