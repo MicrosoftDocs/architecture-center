@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a content processing solution that extracts data and applies schemas across multi-modal content with confidence scoring and user validation. The solution processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding Service, Azure OpenAI Service, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This architecture shows a content processing solution that extracts data and applies schemas across multi-modal content with confidence scoring and user validation. The solution processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding Service, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
 
 This architecture shows how to build scalable systems for processing content. The systems handle text, images, tables, and graphs. They include automatic quality checks and human review for business document workflows.
 
@@ -18,29 +18,29 @@ The following workflow corresponds to the previous diagram:
 
 1. Users upload multi-modal content (documents, images, contracts, invoices) through the web frontend interface. Content is submitted with specific processing requirements and target schemas.
 
-2. Container App Website receives the content upload request and calls the processing API hosted in Container Apps. The API determines the appropriate processing pipeline and initiates content analysis workflows.
+2. Container App Website receives the content upload request and calls the processing API hosted in Container Apps. Both of these are custom coded solutions for this scenario. The API determines the appropriate processing pipeline and initiates content analysis workflows.
 
-3. Container Apps manage the processing workflow. They connect Azure AI Content Understanding Service (which handles Optical Character Recognition or OCR and text extraction) with Azure OpenAI Service (which maps schemas and converts data).
+3. Container Apps manage the processing workflow. They connect Azure AI Content Understanding Service (which handles Optical Character Recognition or OCR and text extraction) with Azure OpenAI in Foundry Models (which maps schemas and converts data).
 
 4. Azure AI Content Understanding Service performs machine learning-based OCR for efficient text extraction from various content formats including images, tables, and graphs.
 
-5. Azure OpenAI Service with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates structured JSON output with confidence scoring.
+5. Azure OpenAI in Foundry Models with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates structured JSON output with confidence scoring.
 
-6. Azure Cosmos DB stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement.
+6. The orchestration code in Container Apps stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement in Azure Cosmos DB.
 
-7. Azure Blob Storage maintains source documents, intermediate processing artifacts, and final structured outputs for reliable data persistence and retrieval.
+7. The orchestration code in Container Apps uses Azure Blob Storage to store source documents, intermediate processing artifacts, and final structured outputs for reliable data persistence and retrieval.
 
-8. Azure Queue Storage manages event-driven processing workflows, ensuring reliable message handling and processing coordination across the pipeline components.
+8. Azure Queue Storage manages event-driven processing workflows between this solution's services, ensuring reliable message handling and processing coordination across the pipeline components.
 
 ### Components
 
-- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps host the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows.
+- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps host the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code running on here is custom coded by your software engineering team.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like the Azure AI Content Understanding Service.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) provides REST API access to OpenAI's powerful language models including GPT-4o and GPT-4o mini. In this architecture, Azure OpenAI Service performs schema-based data transformation, maps extracted content to structured formats, and calculates confidence scores for extraction accuracy.
+  - [Azure OpenAI in Foundry Models](/azure/well-architected/service-guides/azure-openai) provides language models including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Azure AI Foundry. The models perform schema-based data transformation, maps extracted content to structured formats, and calculates confidence scores for extraction accuracy.
 
-- [Azure AI Content Understanding Service](/azure/ai-services/content-understanding/overview) analyzes various media content—such as audio, video, text, and images—transforming it into structured, searchable data. In this architecture, it performs advanced OCR and content extraction from multi-modal documents with high accuracy.
+  - [Azure AI Content Understanding Service](/azure/ai-services/content-understanding/overview) analyzes various media content—such as audio, video, text, and images—transforming it into structured, searchable data. In this architecture, it performs advanced OCR and content extraction from multi-modal documents with high accuracy.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 
@@ -48,7 +48,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages versioned container images for the processing pipeline components, ensuring consistent deployment and rollback capabilities.
 
-- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) enables storing large numbers of messages and accessing them from anywhere via HTTP or HTTPS. In this architecture, Queue Storage manages event-driven processing workflows, ensuring reliable message handling and processing coordination across pipeline components.
+- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) enables storing large numbers of messages and accessing them from anywhere via HTTPS. In this architecture, Queue Storage stores the messages used in the event-driven processing workflows.
 
 ## Scenario details
 
@@ -140,11 +140,9 @@ Principal author:
 
 - [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
 
-
 Other contributor:
 
 - [Todd Herman](https://www.linkedin.com/in/todd-herman) | Principal Software Engineer
-
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -152,4 +150,4 @@ Other contributor:
 
 - [Azure AI Content Understanding Service documentation](/azure/ai-services/content-understanding/)
 - [Azure OpenAI Service documentation](/azure/ai-services/openai/)
-- [Content Processing Solution Accelerator deployment guide](https://github.com/microsoft/content-processing-solution-accelerator/blob/main/docs/DeploymentGuide.md)
+- [Content processing solution implementation deployment guide](https://github.com/microsoft/content-processing-solution-accelerator/blob/main/docs/DeploymentGuide.md)
