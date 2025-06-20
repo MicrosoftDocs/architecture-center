@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a content processing solution that extracts data and applies schemas across multi-modal content with confidence scoring and user validation. The solution processes claims, invoices, contracts and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture leverages Azure AI Foundry, Azure AI Content Understanding Service, Azure OpenAI Service, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This architecture shows a content processing solution that extracts data and applies schemas across multi-modal content with confidence scoring and user validation. The solution processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding Service, Azure OpenAI Service, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
 
-The architecture demonstrates how to build scalable content processing systems that handle text, images, tables and graphs with automated accuracy scoring and human-in-the-loop validation for enterprise-grade document processing workflows.
+This architecture shows how to build scalable systems for processing content. The systems handle text, images, tables, and graphs. They include automatic quality checks and human review for business document workflows.
 
 ## Architecture
 
@@ -20,7 +20,7 @@ The following workflow corresponds to the preceding diagram:
 
 2. Container App Website receives the content upload request and calls the processing API hosted in Container Apps. The API determines the appropriate processing pipeline and initiates content analysis workflows.
 
-3. Container Apps orchestrate the content processing pipeline, coordinating between Azure AI Content Understanding Service for OCR and text extraction, and Azure OpenAI Service for schema mapping and data transformation.
+3. Container Apps manage the processing workflow. They connect Azure AI Content Understanding Service (which handles Optical Character Recognition or OCR and text extraction) with Azure OpenAI Service (which maps schemas and converts data).
 
 4. Azure AI Content Understanding Service performs machine learning-based OCR for efficient text extraction from various content formats including images, tables, and graphs.
 
@@ -52,7 +52,7 @@ The following workflow corresponds to the preceding diagram:
 
 ## Scenario details
 
-This content processing solution addresses the challenge of extracting meaningful data from large volumes of unstructured, multi-modal content that organizations receive daily. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports is time-consuming, error-prone, and doesn't scale with business growth. Organizations struggle with inconsistent data quality, lack of standardization, and the inability to quickly integrate extracted information into downstream business processes.
+This content processing solution addresses the challenge of extracting meaningful data from large volumes of unstructured, multi-modal content that organizations receive daily. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports are time-consuming, error-prone, and doesn't scale with business growth. Organizations struggle with inconsistent data quality, lack of standardization, and the inability to quickly integrate extracted information into downstream business processes.
 
 This solution uses advanced AI services to automatically extract, transform, and validate content from various document types. The system provides confidence scoring to enable automated processing for high-confidence extractions while flagging lower-confidence results for human review. This approach ensures both speed and accuracy while maintaining the flexibility to handle diverse content formats and custom business schemas.
 
@@ -126,7 +126,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/8d37476a9c784204b58909d57c1890a1).
 
-Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
+Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. Most the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
 
 ## Deploy this scenario
 
