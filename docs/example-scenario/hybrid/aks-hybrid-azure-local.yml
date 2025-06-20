@@ -18,7 +18,7 @@ products:
   - azure-arc
   - github
   - azure-pipelines
-name: Deploy and operate apps with AKS on Azure Local
+name: Deploy and operate apps with AKS enabled by Arc on Azure Local
 summary: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that is running on Azure Local.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-local.png
 content: |
