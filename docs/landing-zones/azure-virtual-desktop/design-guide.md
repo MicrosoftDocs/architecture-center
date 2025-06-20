@@ -46,8 +46,6 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 
 ![Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture](./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png)
 
-:::image type="complex" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of Azure Virtual Desktop in an Azure landing zone." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture_AVD.png":::
-:::image-end:::
 
 *Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
