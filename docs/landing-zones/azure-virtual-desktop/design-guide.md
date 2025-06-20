@@ -3,7 +3,7 @@ title: Azure landing zones - Azure Virtual Desktop landing zone design considera
 description: Design considerations for using Azure Virtual Desktop in an landing zone.
 author: roarrioj
 ms.author: roarrioj
-ms.date: 05/15/2025
+ms.date: 06/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
