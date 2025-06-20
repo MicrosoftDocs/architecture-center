@@ -13,6 +13,7 @@ azureCategories:
 products:
   - ai-services
   - azure-cosmos-db
+  - azure-container-apps
 name: Build scalable, accurate multi-modal content processing systems with human-in-the-loop validation for enterprise documents.
 summary: Learn to build scalable systems that handle various content formats. These systems process text, images, tables, and graphs while providing quality checks and human review for professional document workflows.
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-modal-content-processing.png

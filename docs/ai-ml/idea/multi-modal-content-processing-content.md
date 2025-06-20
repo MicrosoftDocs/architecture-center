@@ -14,7 +14,7 @@ This architecture shows how to build scalable systems for processing content. Th
 
 ### Workflow
 
-The following workflow corresponds to the preceding diagram:
+The following workflow corresponds to the previous diagram:
 
 1. Users upload multi-modal content (documents, images, contracts, invoices) through the web frontend interface. Content is submitted with specific processing requirements and target schemas.
 
@@ -136,12 +136,12 @@ To deploy an implementation of this architecture, follow the steps in the [GitHu
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal authors:
+Principal author:
 
 - [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
 
 
-Other contributors:
+Other contributor:
 
 - [Todd Herman](https://www.linkedin.com/in/todd-herman) | Principal Software Engineer
 
