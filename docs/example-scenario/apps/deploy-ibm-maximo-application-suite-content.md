@@ -62,7 +62,7 @@ IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise a
 - **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
 - **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
 
-These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview). This guide details how to install Maximo manually.
+These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. Azure offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://www.ibm.com/docs/masv-and-l/cd?topic=imas-installing-byol-maximo-application-suite). This guide details how to install Maximo manually.
 
 ### Potential use cases
 
@@ -324,8 +324,8 @@ For help with getting started, see the following resources:
 - [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/preparing-to-install-on-azure.html)
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
-- [Requirements for Maximo](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements)
-- [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview)
+- [Requirements for Maximo](https://www.ibm.com/docs/mas-cd/continuous-delivery?topic=deploy-system-requirements)
+- [IBM Maximo Application Suite (BYOL)](https://www.ibm.com/docs/masv-and-l/cd?topic=imas-installing-byol-maximo-application-suite)
 
 To learn more about the featured technologies, see the following resources:
 
