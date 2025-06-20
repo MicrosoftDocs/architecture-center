@@ -280,7 +280,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 This architecture extends the security foundation established in the [basic Azure AI Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
 
-This section describes networking and security considerations for key rotation and Azure OpenAI fine-tuning.
+This section describes networking and security considerations for key rotation and Azure OpenAI model fine-tuning.
 
 #### Identity and access management
 
@@ -460,7 +460,7 @@ To control costs and maintain predictable behavior, apply the following strategi
 
 - Be aware that nondeterministic invocation can make cost forecasting difficult, especially when integrating with metered APIs. If you require predictable costs, consider self-hosting the orchestrator by using deterministic code.
 
-#### Azure OpenAI
+#### Azure OpenAI models
 
 Model deployments in Azure AI Foundry use the MaaS approach. Costs depend primarily on usage or pre-provisioned allocation.
 
