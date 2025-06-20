@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy and operate apps with AKS on Azure Local
+  title: Deploy and Operate Apps with AKS on Azure Local
   titleSuffix: Azure Architecture Center
-  description: Build an app deployment pipeline for containerized apps on AKS on Azure Local.
+  description: Learn how to build an efficient and secure app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS) on Azure Local.
   author: wenzongge
   ms.author: nnamuhcs
   ms.date: 4/28/2025
@@ -19,7 +19,7 @@ products:
   - github
   - azure-pipelines
 name: Deploy and operate apps with AKS on Azure Local
-summary: Build an app deployment pipeline for containerized apps on AKS on Azure Local.
+summary: Learn how to build an efficient and secure app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS) on Azure Local.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-local.png
 content: |
   [!INCLUDE[](aks-hybrid-azure-local-content.md)]
