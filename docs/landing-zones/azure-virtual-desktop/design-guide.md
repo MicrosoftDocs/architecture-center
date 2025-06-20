@@ -188,7 +188,9 @@ When you're ready for deployment, complete the following steps.
 
 1. Continue with the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md). If you created a custom Azure Compute Gallery image in the previous step, be sure to select "Compute gallery" for **OS image source** and select the correct **Image** on the **Session hosts** page:
 
-![portal-session-hosts-os-selection](./media/portal-session-hosts-os-selection.png)
+:::image type="complex" source="./media/portal-session-hosts-os-selection.png" lightbox="./media/portal-session-hosts-os-selection.png" alt-text="Screenshot for deploying the Azure Virtual Desktop highlighting the OS Selection" border="false":::
+    Screenshot of the deployment user interface for the Azure Virtual Desktop - Landing Zone Accelerator - Baseline. This screenshot shows the 'session hosts' tab of the deployment where the 'OS selection' is highlighted. The 'source' under 'OS Selection' is set to 'Compute Gallery'
+:::image-end:::
 
 
 
