@@ -45,10 +45,9 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Operational efficiency**: The architecture includes automation and monitoring tools to reduce the operational burden and improve system performance.
 
 :::image type="complex" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of Azure Virtual Desktop in an Azure landing zone." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture_AVD.png":::
-
 :::image-end:::
 
-*Figure 2: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
+*Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 ### Design principles addressed in this architecture
 
@@ -113,11 +112,10 @@ The architecture is based on multiple subscriptions, each dedicated to specific 
    - **Connectivity**: Contains network-related components like Virtual Networks, Network security groups, and Azure Firewall to ensure secure communication between resources.
    - **Identity**: Handles the identity and access management services.
 
-:::image type="complex" source="./media/avd-accelerator-baseline-architecture.png" alt-text="Figure 3: Azure Virtual Desktop reference architecture." border="false" lightbox="./media/avd-accelerator-baseline-architecture.png":::
-    TODO
+:::image type="complex" source="./media/avd-accelerator-baseline-architecture.png" alt-text="Figure 2: Azure Virtual Desktop reference architecture." border="false" lightbox="./media/avd-accelerator-baseline-architecture.png":::
 :::image-end:::
 
-*Figure 3: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
+*Figure 2: Azure Virtual Desktop reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 #### Benefits of using this reference implementation
 
@@ -143,11 +141,10 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator.
 
-:::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Figure 4: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
-    TODO
+:::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Figure 3: Azure Virtual Desktop implementation resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
 :::image-end:::
 
-*Figure 4: Azure Virtual Desktop implementation resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
+*Figure 3: Azure Virtual Desktop implementation resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
 
 ##### Accelerator deployment
 
