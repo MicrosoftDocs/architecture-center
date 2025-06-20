@@ -104,7 +104,7 @@ When you use the Azure Virtual Desktop landing zone implementation, your organiz
 
 The architecture is based on multiple subscriptions, each dedicated to specific purposes.
 
-1. **Azure Virtual Desktop subscription**: This subscription or subscriptions depending on environment scale, will be used to deploy the Azure Virtual Desktop resources that are workload specific (not shared across workloads), some of the resources created on these subscriptions are virtual machines, storage, key vaults, private endpoints, among others. These subscriptions are considered part of the application landing zone.
+1. **Azure Virtual Desktop subscription**: This subscription or subscriptions, depending on environment scale, is used to deploy the Azure Virtual Desktop resources that are workload specific (not shared across workloads), some of the resources created on these subscriptions are virtual machines, storage, key vaults, private endpoints, among others. These subscriptions are considered part of the application landing zone.
 
 1. **Azure Virtual Desktop shared services subscription**: This subscription hosts all the services that are used by more than one Azure Virtual Desktop workload, some of the resources created on this subscription are automation accounts, Data Collection Rules, Log Analytics workspaces, Azure Compute Galleries, among others. This subscription is also considered part of the application landing zone.
 
