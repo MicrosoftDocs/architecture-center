@@ -124,7 +124,7 @@ Consider this alternative if your workload has the following characteristics:
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/8d37476a9c784204b58909d57c1890a1).
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/46ff2147f30f40dcb61a5a3f2e405117).
 
 Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. Most the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
 
