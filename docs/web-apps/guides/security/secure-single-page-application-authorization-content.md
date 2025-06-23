@@ -28,9 +28,9 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [API Management](https://azure.microsoft.com/services/api-management/) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
-- [Azure Static Web Apps](https://azure.microsoft.com/products/app-service/static) is a service that automatically builds and deploys full-stack web apps to Azure from a code repository. Deployments are triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+- [API Management](/azure/api-management/api-management-key-concepts) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
+- [Azure Static Web Apps](/azure/static-web-apps/overview) is a service that automatically builds and deploys full-stack web apps to Azure from a code repository. Deployments are triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
 
 ## Scenario details
 
