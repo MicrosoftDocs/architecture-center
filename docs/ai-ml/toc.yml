@@ -12,20 +12,22 @@ items:
         items:
         - name: Customer order forecasting
           href: idea/next-order-forecasting.yml
-      - name: Document enrichment
-        items:
-        - name: Use AI enrichment with Azure AI Search
-          href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
         - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
-      - name: Document processing
+      - name: Document processing and enrichment
         items:
+        - name: Use AI enrichment with Azure AI Search
+          href: ../solution-ideas/articles/ai-search-skillsets.yml
         - name: Extract text using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
+      - name: Workflow automation
+        items:
+        - name: Build a multiple-agent workflow automation solution with Semantic Kernel
+          href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
       - name: Chat bots

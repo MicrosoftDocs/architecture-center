@@ -59,7 +59,7 @@ As illustrated in the table, the benefits of moving to a new model are typically
 
 Model retirement behavior depends on your model deployment strategy. There are three key strategies for deploying models. It's important to understand how each strategy handles version retirements:
 
-- **MaaS (model as a service) solutions** are pretrained models exposed as APIs that provide scalability and ease of integration. They have a trade-off of potentially higher costs and lower control of models. Examples of MaaS solutions include models deployed in Azure OpenAI Service and models from the model catalog deployed as serverless APIs.
+- **MaaS (model as a service) solutions** are pretrained models exposed as APIs that provide scalability and ease of integration. They have a trade-off of potentially higher costs and lower control of models. Examples of MaaS solutions include models deployed in Azure OpenAI in Foundry Models and models from the model catalog deployed as serverless APIs.
 
 - **MaaP (model as a platform) solutions** are models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/how-to/model-catalog-overview#managed-compute). This solution usually provides greater control of models but requires more management than MaaS solutions.
 
@@ -94,7 +94,7 @@ For each of these areas, consider downtime caused by updates and how you handle 
 
 1. **The orchestration logic:** Some model updates, especially when you take advantage of new features, require you to make changes to your orchestration or agent logic.
 
-   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result that you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's typical to implement orchestration logic in [Azure AI Agent Service](/azure/ai-services/agents/overview) or by using code-based solutions like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
+   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result that you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's typical to implement orchestration logic in [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) or by using code-based solutions like [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
 1. **The grounding data:** Some model updates and larger scoped changes might require you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
@@ -207,7 +207,7 @@ An example of an end-of-life announcement is the [NC A100 v4 series of compute a
 
 - Test and evaluate new versions and new models by using automated pipelines. You should compare the results to the results of your baseline to ensure that you get the results that you require.
 
-- Be intentional about updating models. Avoid using platform features that automatically upgrade production models to new versions without the opportunity to test. You need to be aware of how every model update affects your workload. If you use [Azure AI model inference](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and don't provide an upgrade policy. This setup requires a manual upgrade if a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off automatic upgrades.
+- Be intentional about updating models. Avoid using platform features that automatically upgrade production models to new versions without the opportunity to test. You need to be aware of how every model update affects your workload. If you use the [Azure AI Foundry Models API](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and don't provide an upgrade policy. This setup requires a manual upgrade if a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off automatic upgrades.
 
 - Ensure that your observability and logging solution collects enough metadata to correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. This correlation enables you to identify unexpected regressions in system performance.
 
