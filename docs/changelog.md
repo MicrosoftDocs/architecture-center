@@ -1,9 +1,10 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: claytonsiemens77
-ms.date: 06/17/2025
+author: RobBagby
+ms.date: 06/23/2025
 ms.topic: whats-new
+ms.service: azure-architecture-center
 ms.author: pnp
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
@@ -25,12 +26,33 @@ The following new and updated articles have recently been published in the Azure
 - [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md)
 - [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)
 - [Implement SMA OpCon in Azure](./example-scenario/integration/sma-opcon-azure.yml)
+- [Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel](./ai-ml/idea/multiple-agent-workflow-automation.yml)
 - [Cross-Region Resiliency for SQL TDE with Azure Key Vault Managed HSM](./solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
 
 ### Updated articles
 
+- [Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml)  ([#044ad95c35](https://github.com/MicrosoftDocs/architecture-center/commit/044ad95c35))
 - [AI Architecture Design](./ai-ml/index.md)  ([#67e00137ce](https://github.com/MicrosoftDocs/architecture-center/commit/67e00137ce))
 - [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md)  ([#28af09d05c](https://github.com/MicrosoftDocs/architecture-center/commit/28af09d05c))
+- [Azure Resource Manager Considerations for Multitenancy](./guide/multitenant/service/resource-manager.md)  ([#ca7914beff](https://github.com/MicrosoftDocs/architecture-center/commit/ca7914beff))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)  ([#0c7aa6c9bf](https://github.com/MicrosoftDocs/architecture-center/commit/0c7aa6c9bf))
+- [Deploy Microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#2bf20fb4ab](https://github.com/MicrosoftDocs/architecture-center/commit/2bf20fb4ab))
+- [Use AI to forecast customer orders](./ai-ml/idea/next-order-forecasting.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Highly available SharePoint farm](./solution-ideas/articles/highly-available-sharepoint-farm.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Build ETL pipelines with Azure Databricks and Delta Lake](./solution-ideas/articles/ingest-etl-stream-with-adb.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Map threats to your IT environment](./solution-ideas/articles/map-threats-it-environment.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Build the second layer of defense with Microsoft Defender XDR Solutions](./solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Integrate Azure and Microsoft Defender XDR security services](./solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](./solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Multilayered protection for Azure virtual machines](./solution-ideas/articles/multilayered-protection-azure-vm.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Project 15 Open Platform IoT Sustainability](./solution-ideas/articles/project-15-iot-sustainability.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [SAP S/4 HANA for Large Instances](./solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Modern Data Platform Architecture for SMBs](./solution-ideas/articles/small-medium-modern-data-platform.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#69a84710fd](https://github.com/MicrosoftDocs/architecture-center/commit/69a84710fd))
 - [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#c33187a67c](https://github.com/MicrosoftDocs/architecture-center/commit/c33187a67c))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#f631aedcfa](https://github.com/MicrosoftDocs/architecture-center/commit/f631aedcfa))
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#ff2bccc86b](https://github.com/MicrosoftDocs/architecture-center/commit/ff2bccc86b))
@@ -86,7 +108,7 @@ The following new and updated articles have recently been published in the Azure
 - [Mainframe File Replication and Sync on Azure](./solution-ideas/articles/mainframe-azure-file-replication.yml)  ([#e63f05ade9](https://github.com/MicrosoftDocs/architecture-center/commit/e63f05ade9))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#9be7ee44b0](https://github.com/MicrosoftDocs/architecture-center/commit/9be7ee44b0))
 - [Choose an Analytical Data Store in Azure](./data-guide/technology-choices/analytical-data-stores.md)  ([#2390621603](https://github.com/MicrosoftDocs/architecture-center/commit/2390621603))
-- [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#7e9010efc1](https://github.com/MicrosoftDocs/architecture-center/commit/7e9010efc1))
+- [Deploy Microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#7e9010efc1](https://github.com/MicrosoftDocs/architecture-center/commit/7e9010efc1))
 - [Autoscaling Guidance](./best-practices/auto-scaling.md)  ([#0b258e9b9b](https://github.com/MicrosoftDocs/architecture-center/commit/0b258e9b9b))
 - [Multitenancy Checklist on Azure](./guide/multitenant/checklist.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
 - [Architect Multitenant Solutions on Azure](./guide/multitenant/overview.md)  ([#496e7a1937](https://github.com/MicrosoftDocs/architecture-center/commit/496e7a1937))
