@@ -1,5 +1,5 @@
 ---
-title: Service-specific guidance for a multitenant solution
+title: Service-Specific Guidance for a Multitenant Solution
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: pnp
@@ -13,17 +13,17 @@ ms.custom:
 
 # Service-specific guidance for a multitenant solution
 
-When you're building a solution on Azure, you combine multiple distinct Azure services together to achieve your business and technical goals. Although Azure services work in a consistent manner, there are specific considerations for how you design and implement each service. When you design a multitenant solution, there are further considerations to review, for each service.
+When you build a solution on Azure, you combine multiple distinct Azure services to achieve your business and technical goals. Although Azure services operate consistently, each service requires specific design and implementation considerations. A multitenant solution introduces extra design factors to evaluate for each service.
 
-In this section, we provide guidance about the features of each service that are helpful for multitenant solutions. We also discuss the levels of tenant isolation that each service supports. Where applicable, we link to more details and sample implementations in the service's documentation.
+This section provides guidance about the features of each service that support multitenant solutions. It also explains the levels of tenant isolation that each service supports. Where applicable, it includes links to detailed documentation and sample implementations.
 
 > [!NOTE]
-> The content in this section focuses specifically on the aspects of each service that relate to building a multitenant solution on Azure. For comprehensive information about each service and its features, refer to the service's documentation.
+> The content in this section focuses specifically on the aspects of each service that relate to building a multitenant solution on Azure. For comprehensive information about each service and its features, see the service's documentation.
 
 ## Intended audience
 
-The content in this section is designed for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution. The audience also includes independent software vendors (ISVs) and startups who develop SaaS solutions.
+The content in this section helps architects, lead developers, and others build or implement Azure components for a multitenant solution. The audience also includes independent software vendors and startups who develop software as a service (SaaS) solutions.
 
-## Next steps
+## Next step
 
-Review the guidance for [Azure Resource Manager](resource-manager.md).
+- Review the guidance for [Azure Resource Manager](resource-manager.md).
