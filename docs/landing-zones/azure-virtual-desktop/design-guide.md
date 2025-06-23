@@ -45,7 +45,9 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Operational efficiency**: The architecture includes automation and monitoring tools to reduce the operational burden and improve system performance.
 
 :::image type="complex" source="./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png" alt-text="Diagram of Azure Virtual Desktop architecture in an Azure landing zone." border="false" lightbox="./media/avd-accelerator-enterprise-scale-alz-architecture_AVD.png":::
-    TODO
+    The diagram illustrates a comprehensive Azure architecture for managing subscriptions and workloads. At the top, the Enterprise Agreement/Microsoft Customer Agreement section connects to Microsoft Entra ID and Active Directory Domain Services, representing identity and access management. Below, the Management subscription includes dashboards and tools for governance and monitoring. The Management group and subscription organization section shows a hierarchy of management groups, including platform, identity, connectivity, and landing zone subscriptions, with connections to DevOps processes.
+
+The Identity subscription contains virtual networks labeled region I and region II, each with DNS, UDRs, NSGs/ASGs, resource groups, and recovery services vaults. The Connectivity subscription includes Azure DNS Private Zones, ExpressRoute, and Azure Firewall, with virtual network peering connecting to other subscriptions. The Azure Virtual Desktop landing zone subscriptions feature detailed virtual network configurations and peering, while the Sandbox subscription contains applications and management tools. A legend at the bottom provides definitions for icons and connections used throughout the diagram.
 :::image-end:::
 
 
