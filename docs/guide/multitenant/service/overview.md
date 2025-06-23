@@ -13,7 +13,7 @@ ms.custom:
 
 # Service-specific guidance for a multitenant solution
 
-When you build a solution on Azure, you combine multiple distinct Azure services to achieve your business and technical goals. Although Azure services operate consistently, each service requires specific design and implementation considerations. A multitenant solution introduces extra design factors to evaluate for each service.
+When you build a solution on Azure, you combine multiple distinct Azure services to achieve your business and technical goals. Azure services operate consistently, but each service requires specific design and implementation considerations. A multitenant solution introduces extra design factors to evaluate for each service.
 
 This section provides guidance about the features of each service that support multitenant solutions. It also explains the levels of tenant isolation that each service supports. Where applicable, it includes links to detailed documentation and sample implementations.
 
@@ -26,4 +26,4 @@ The content in this section helps architects, lead developers, and others build 
 
 ## Related resource
 
-- Review the guidance for [Azure Resource Manager](resource-manager.md).
+- [Azure Resource Manager](resource-manager.md)
