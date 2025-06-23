@@ -50,7 +50,6 @@ The diagram illustrates a comprehensive Azure architecture for managing subscrip
 The Identity subscription contains virtual networks labeled region 1 and region N, each with DNS, UDRs, NSGs/ASGs, resource groups, and recovery services vaults. The Connectivity subscription includes Azure DNS Private Zones, ExpressRoute, and Azure Firewall, with virtual network peering connecting to other subscriptions. The Azure Virtual Desktop landing zone subscriptions feature detailed virtual network configurations and peering, while the Sandbox subscription contains applications and management tools. A legend at the bottom provides definitions for icons and connections used throughout the diagram.
 :::image-end:::
 
-
 *Figure 1: Azure Virtual Desktop landing zone in an Azure landing zone reference architecture. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-enterprise-scale-alz-architecture.vsdx) of this architecture.*
 
 ### Design principles addressed in this architecture
@@ -78,8 +77,6 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 | F | [Security](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-security-governance-and-compliance) | Implements security controls within the AVD workload |
 | G, F | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery) | not represented in the diagram, this area is addressed by implementing BCDR strategies for the AVD workload and its supporting services to ensure resilience and recovery capabilities.|
 | I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-platform-automation-and-devops) | Supports infrastructure-as-code and CI/CD pipelines for deploying and managing platform-level resources and governance artifacts such as management group policies, role definitions, and subscription vending processes.|
-
-
 
 > [!TIP]
 >
@@ -130,7 +127,6 @@ The identity subscription in Region A hosts Active Directory Domain Services and
 - **Security**: The implementation uses enterprise-grade security, compliance, and governance controls to protect your environment.
 - **Faster deployment**: The predefined templates, configurations, and best practices provide you a fast and reliable deployment.
 - **Best practices compliance**: The implementation follows the best practices designed in the architecture.
-
 
 #### Accelerator overview
 
@@ -195,8 +191,6 @@ When you're ready for deployment, complete the following steps.
 :::image type="complex" source="./media/portal-session-hosts-os-selection.png" lightbox="./media/portal-session-hosts-os-selection.png" alt-text="Screenshot for deploying the Azure Virtual Desktop highlighting the OS Selection" border="false":::
     Screenshot of the deployment user interface for the Azure Virtual Desktop - Landing Zone Accelerator - Baseline. This screenshot shows the 'session hosts' tab of the deployment where the 'OS selection' is highlighted. The 'source' under 'OS Selection' is set to 'Compute Gallery'
 :::image-end:::
-
-
 
 ###### [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched, and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images.
