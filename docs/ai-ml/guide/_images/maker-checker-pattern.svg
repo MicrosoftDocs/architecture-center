@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="250" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Maker-Checker Pattern</text>
+  
+  <!-- Input Task -->
+  <rect x="175" y="50" width="50" height="30" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="200" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Input</text>
+  
+  <!-- Maker Agent -->
+  <rect x="50" y="120" width="80" height="40" rx="5" fill="#fdcb6e" stroke="#e17055" stroke-width="2"/>
+  <text x="90" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Maker Agent</text>
+  
+  <!-- Checker Agent -->
+  <rect x="270" y="120" width="80" height="40" rx="5" fill="#a29bfe" stroke="#6c5ce7" stroke-width="2"/>
+  <text x="310" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Checker Agent</text>
+  
+  <!-- Final Output -->
+  <rect x="320" y="200" width="60" height="30" rx="5" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="350" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Output</text>
+  
+  <!-- Input to Maker -->
+  <path d="M 200 80 L 200 100 L 90 100 L 90 120" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Maker to Checker -->
+  <path d="M 130 140 L 270 140" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Checker to Output (Approved) -->
+  <path d="M 310 160 L 310 180 L 350 180 L 350 200" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- Feedback for revision (Checker back to Maker) -->
+  <path d="M 290 120 Q 200 90 110 120" stroke="#e74c3c" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowhead-red)"/>
+  <text x="200" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">Feedback for revision</text>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+  </defs>
+</svg>

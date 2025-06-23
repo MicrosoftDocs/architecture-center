@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="220" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="220" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Supervisor Pattern</text>
+  
+  <!-- Input Task -->
+  <rect x="20" y="90" width="60" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Task</text>
+  
+  <!-- Supervisor Agent -->
+  <rect x="150" y="90" width="100" height="40" rx="5" fill="#e17055" stroke="#d63031" stroke-width="2"/>
+  <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Supervisor</text>
+  
+  <!-- Worker Agents -->
+  <circle cx="130" cy="180" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="130" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Worker A</text>
+  
+  <circle cx="200" cy="180" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="200" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Worker B</text>
+  
+  <circle cx="270" cy="180" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="270" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Worker C</text>
+  
+  <!-- Results -->
+  <rect x="320" y="90" width="60" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="350" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Result</text>
+  
+  <!-- Arrows -->
+  <path d="M 80 110 L 150 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 250 110 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Supervision arrows (bidirectional) -->
+  <path d="M 180 130 L 140 162" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 200 130 L 200 162" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 220 130 L 260 162" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Feedback arrows -->
+  <path d="M 148 162 L 188 130" stroke="#a0a0a0" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-light)"/>
+  <path d="M 200 162 L 200 130" stroke="#a0a0a0" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-light)"/>
+  <path d="M 252 162 L 212 130" stroke="#a0a0a0" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-light)"/>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0, 8 2.5, 0 5" fill="#a0a0a0"/>
+    </marker>
+  </defs>
+  
+  <!-- Pattern indicator -->
+  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Centralized Coordination</text>
+  
+  <!-- Labels -->
+  <text x="120" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Directs</text>
+  <text x="280" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Reports</text>
+</svg>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Sequential Pattern</text>
+  
+  <!-- Input Task -->
+  <rect x="20" y="80" width="60" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="50" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Task</text>
+  
+  <!-- Agents in sequence -->
+  <circle cx="130" cy="100" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="130" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Agent A</text>
+  
+  <circle cx="200" cy="100" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="200" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Agent B</text>
+  
+  <circle cx="270" cy="100" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="270" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Agent C</text>
+  
+  <!-- Final Result -->
+  <rect x="320" y="80" width="60" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="350" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Result</text>
+  
+  <!-- Sequential arrows -->
+  <path d="M 80 100 L 110 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 150 100 L 180 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 220 100 L 250 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 290 100 L 320 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+  </defs>
+  
+  <!-- Sequential flow indicator -->
+  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Sequential Flow</text>
+  
+  <!-- Step numbers -->
+  <text x="130" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">1</text>
+  <text x="200" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">2</text>
+  <text x="270" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">3</text>
+</svg>

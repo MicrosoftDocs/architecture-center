@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="220" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="220" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Handoff Pattern</text>
+  
+  <!-- Input Task -->
+  <rect x="20" y="90" width="60" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Task</text>
+  
+  <!-- Triage Agent -->
+  <circle cx="130" cy="110" r="20" fill="#fdcb6e" stroke="#e17055" stroke-width="2"/>
+  <text x="130" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Triage</text>
+  
+  <!-- Specialist Agents -->
+  <circle cx="250" cy="70" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="250" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Specialist A</text>
+  
+  <circle cx="250" cy="110" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="250" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Specialist B</text>
+  
+  <circle cx="250" cy="150" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="250" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Specialist C</text>
+  
+  <!-- Results -->
+  <rect x="320" y="90" width="60" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="350" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Result</text>
+  
+  <!-- Arrows -->
+  <path d="M 80 110 L 110 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision arrows (dashed to show conditional routing) -->
+  <path d="M 150 110 L 230 80" stroke="#636e72" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <path d="M 150 110 L 230 110" stroke="#636e72" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <path d="M 150 110 L 230 140" stroke="#636e72" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  
+  <!-- Results arrows -->
+  <path d="M 270 80 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 270 110 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 270 140 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+  </defs>
+  
+  <!-- Dynamic routing indicator -->
+  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Dynamic Routing</text>
+  
+  <!-- Decision label -->
+  <text x="190" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Routes to</text>
+  <text x="190" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">appropriate</text>
+  <text x="190" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">specialist</text>
+</svg>
