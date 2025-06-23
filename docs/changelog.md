@@ -1,10 +1,9 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: RobBagby
+author: claytonsiemens77
 ms.date: 06/23/2025
 ms.topic: whats-new
-ms.service: azure-architecture-center
 ms.author: pnp
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
