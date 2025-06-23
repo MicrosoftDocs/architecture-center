@@ -74,7 +74,7 @@ Azure compute services provide various capabilities that scale workloads. [Many 
 
 ### Deployment Stamps pattern
 
-For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.yml#deployment-stamps-pattern).
+For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.md#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 

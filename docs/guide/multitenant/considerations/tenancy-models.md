@@ -27,9 +27,9 @@ First, you need to define a *tenant* for your organization. Consider who your cu
 
 Your definition of *tenant* affects some of the things that you need to consider or emphasize when you architect your solution. For example, consider the following types of tenants:
 
-- If your tenants are individual people or families, you might need to be particularly concerned about how you handle personal data and the about data sovereignty laws within each jurisdiction that you serve.
+- If your tenants are individual people or families, you might need to be concerned about how you handle personal data and about the data sovereignty laws within each jurisdiction that you serve.
 
-- If your tenants are businesses, you might need to be mindful of your customers' requirements for regulatory compliance and the isolation of their data and ensure that you meet a specified service-level objective (SLO), like uptime or service availability.
+- If your tenants are businesses, you might need to be mindful of your customers' requirements for regulatory compliance and the isolation of their data. Ensure that you meet a specified service-level objective (SLO), like uptime or service availability.
 
 ## Decide which model to use
 
@@ -57,7 +57,7 @@ For example, consider a music streaming service. Initially, you might build a so
 
 In contrast, consider a company that creates cloud software for legal firms. Your customers might insist on having their own dedicated infrastructure to maintain compliance with regulatory requirements. Therefore, you need to be prepared to deploy and manage many different instances of your solution from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to its own dedicated deployment.
 
-A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (a set of infrastructure), you typically rely on your application code and a tenant identifier that's in a database to keep each tenant's data separate. When tenants have their own dedicated deployments, they have their own infrastructure, so it might be less important for your code to be aware that it's operating in a multitenant environment.
+A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (a set of infrastructure), you typically rely on your application code and a tenant identifier that's in a database to keep each tenant's data separate. When tenants have their own dedicated deployments, they have their own infrastructure, so it might be less important for your code to account for a multitenant environment.
 
 Deployments are sometimes referred to as *supertenants* or *stamps*.
 
@@ -75,7 +75,7 @@ One of the biggest considerations in multitenant architecture design is the leve
 
 - Sharing some common resources, but keeping other resources separate for each tenant.
 
-- Keeping data on a separate physical infrastructure. In the cloud, this configuration might require separate Azure resources for each tenant. In extreme situations, it could even mean deploying a separate physical infrastructure by using [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
+- Keeping data on a separate physical infrastructure. In the cloud, this configuration might require separate Azure resources for each tenant. In extreme situations, it can even require you to deploy a separate physical infrastructure by using [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
 Rather than thinking of isolation as a discrete property, you should think about it as being on a continuum. You can deploy components of your architecture that are more isolated or less isolated than other components in the same architecture, depending on your requirements. The following diagram demonstrates a continuum of isolation:
 
@@ -85,9 +85,9 @@ The level of isolation affects many aspects of your architecture, including:
 
 - **Security.** If you share infrastructure among multiple tenants, take care not to access data from one tenant when you return responses to another. You need a strong foundation for your identity strategy, and you need to consider both tenant and user identity in your authorization process.
 
-- **Cost.** Shared infrastructure can be used by multiple tenants, so it's less expensive.
+- **Cost.** Multiple tenants can use shared infrastructure, so it's less expensive.
 
-- **Performance.** If you share infrastructure, your system's performance might degrade as more customers use it because the resources might be consumed faster. Performance problems can be exacerbated by tenants that have unusual usage patterns.
+- **Performance.** If you share infrastructure, your system's performance might degrade as more customers use it because the resources might be consumed faster. Tenants that have unusual usage patterns can worsen performance problems.
 
 - **Reliability.** If you use a single set of shared infrastructure, a problem with one component can result in an outage for all of your tenants.
 
@@ -101,7 +101,7 @@ Your solution architecture can influence your available options for isolation. F
 
 - Your data tier can be isolated databases, tables, or blob containers.
 
-Consider using different levels of isolation on each tier. You should base your decision about what to share and what to isolate on many considerations, including cost, complexity, your customers' requirements, and the number of resources that you can deploy before you reach Azure quotas and limits.
+You can use different levels of isolation on each tier. You should base your decision about what to share and what to isolate on many considerations, including cost, complexity, your customers' requirements, and the number of resources that you can deploy before you reach Azure quotas and limits.
 
 ## Common tenancy models
 
@@ -115,62 +115,63 @@ In an automated single-tenant deployment model, you deploy a dedicated set of in
 
 Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically, solutions that use this model use infrastructure as code (IaC) or the Azure Resource Manager APIs extensively. You might use this approach when you need to provision entirely separate infrastructures for each of your customers. Consider using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) when you plan your deployment.
 
-**Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This safeguard can be important to some customers that have high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, an issue that's sometimes called the *noisy neighbor* problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
+**Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This safeguard can be important to customers that have high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, also known as the *noisy neighbor* problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
 
-**Risks:** If you use this approach, cost efficiency is low, because you don't share infrastructure among your tenants. If a single tenant requires a certain infrastructure cost, 100 tenants probably require 100 times that cost. Additionally, ongoing maintenance (like applying new configuration or software updates) will probably be time-consuming. Consider automating your operational processes, and consider applying changes progressively through your environments. You should also consider other cross-deployment operations, like reporting and analytics across your whole fleet. Likewise, be sure to plan for how you can query and manipulate data across multiple deployments.
+**Risks:** If you use this approach, cost efficiency is low because you don't share infrastructure among your tenants. If a single tenant requires a specific infrastructure cost, 100 tenants probably require 100 times that cost. Additionally, ongoing maintenance, like applying new configuration or software updates, can be time consuming. Consider automating your operational processes, and consider applying changes progressively through your environments. You should also consider other cross-deployment operations, like reporting and analytics across your whole fleet. Likewise, be sure to plan for how you can query and manipulate data across multiple deployments.
 
 ### Fully multitenant deployments
 
-At the opposite extreme, you can consider a fully multitenant deployment, where all components are shared. You have only one set of infrastructure to deploy and maintain, and all tenants use it, as shown in the following diagram:
+At the opposite extreme, you can consider a fully multitenant deployment in which all components are shared. You have only one set of infrastructure to deploy and maintain, and all tenants use it, as shown in the following diagram:
 
-![Diagram that shows three tenants, all using a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
+![Diagram that shows three tenants that all use a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
 
-**Benefits:** This model is attractive because operating a solution that has shared components is less expensive than using individual resources for each tenants. Even if you need to deploy higher tiers or SKUs of resources to account for the increased load, the overall deployment cost is often still lower than the cost of a set of single-tenant resources. Additionally, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and you might not have to migrate data between two separate deployments.
+**Benefits:** This model is attractive because operating a solution that has shared components is less expensive than using individual resources for each tenant. Even if you need to deploy higher tiers or SKUs of resources to account for the increased load, the overall deployment cost is often still lower than the cost of a set of single-tenant resources. Additionally, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and you might not have to migrate data between two separate deployments.
 
 **Risks:**
 
 - Be sure to separate data for each tenant, and don't leak data among tenants. You might need to manage sharding data. Additionally, you might need to be concerned about the effects that individual tenants can have on the overall system. For example, if a large tenant tries to perform a heavy query or operation, it might affect other tenants.
 
-- Determine how to [track and associate your Azure costs to tenants](measure-consumption.md), if doing so is important to you.
+- Determine how to [track and associate your Azure costs to tenants](measure-consumption.md), if this information is important to you.
 
-- Maintenance can be simpler with a single deployment, because you only have to update one set of resources. However, it's also often riskier, because changes might affect your entire customer base.
+- You can simplify maintenance by using a single deployment because you only have to update one set of resources. However, it's also often riskier because changes might affect your entire customer base.
 
-- You might also need to consider scale. You're more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, as your scale increases, the number of requests to that storage account might reach the limit of what the storage account can handle. To avoid reaching a resource quota limit, you can consider deploying a pool of multiple instances of your resources (for example, multiple AKS clusters or storage accounts). You can even consider distributing your tenants across resources that you deploy into multiple Azure subscriptions.
+- You might also need to consider scale. You're more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, as your scale increases, the number of requests to that storage account might reach the limit of what the storage account can handle. To avoid reaching a resource quota limit, you can deploy a pool of multiple instances of your resources, such as multiple AKS clusters or storage accounts. You can even consider distributing your tenants across resources that you deploy into multiple Azure subscriptions.
 
-- There's probably a limit to how far you can scale a single deployment, and the costs of doing so might increase non-linearly. For example, if you have a single shared database, when you run at very high scale you might exhaust its throughput and need to pay increasingly more for increased throughput to keep up with your demand.
+- There's probably a limit to how far you can scale a single deployment, and the costs of scaling might increase nonlinearly. For example, if you have a single shared database that you run at high scale, you might exhaust its throughput and need to pay increasingly more for increased throughput to keep up with your demand.
 
 ### Vertically partitioned deployments
 
-You don't have to choose one of the extremes of these scales. Instead, you can consider vertically partitioning your tenants by taking this approach:
+You don't have to choose one of the extremes of these scales. Instead, you can vertically partition your tenants by taking this approach:
 
-- Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructures, but deploy single-tenant infrastructures for customers who require higher performance or data isolation.
-- Deploy multiple instances of your solution geographically, and map each tenant to a specific deployment. This approach is particularly effective when you have tenants in different geographies.
+- Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructures, but you deploy single-tenant infrastructures for customers who require higher performance or data isolation.
+
+- Deploy multiple instances of your solution geographically, and map each tenant to a specific deployment. This approach is effective when you have tenants in different geographies.
 
 Here's an example that illustrates a shared deployment for some tenants and a single-tenant deployment for another:
 
 ![Diagram that shows three tenants. Tenants A and B share a deployment. Tenant C has a dedicated deployment.](media/tenancy-models/vertically-partitioned-deployments.png)
 
-**Benefits:** Because you're still sharing some of your infrastructure, you can gain some of the cost benefits of using shared multitenant deployments. You can deploy cheaper shared resources for certain customers, like customers who are evaluating your service with a trial. You can even bill customers a higher rate to use a single-tenant deployment, which helps you to recover some of your costs.
+**Benefits:** Because you're still sharing some of your infrastructure, you can gain some of the cost benefits of using shared multitenant deployments. You can deploy less expensive shared resources for specific customers, like customers who are evaluating your service by using a trial. You can even charge customers a higher rate to use a single-tenant deployment, which helps you recover some of your costs.
 
-**Risks:** Your codebase needs to be designed to support both multitenant and single-tenant deployments. If you plan to allow migration between deployments, you need to consider how to migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to know which of your tenants are on each deployment, so that you can communicate information about system issues or upgrades to the relevant customers.
+**Risks:** Your codebase needs to be designed to support both multitenant and single-tenant deployments. If you plan to allow migration between deployments, you need to consider how to migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to know which of your tenants are on each deployment so that you can communicate information about system problems or upgrades to the relevant customers.
 
 ### Horizontally partitioned deployments
 
-You can also consider horizontally partitioning your deployments. In a horizontal deployment, you have some shared components but maintain other components with single-tenant deployments. For example, you could build a single application tier and then deploy individual databases for each tenant, as shown in this diagram:
+You can also horizontally partition your deployments. In a horizontal deployment, you have some shared components but maintain other components with single-tenant deployments. For example, you can build a single application tier and then deploy individual databases for each tenant, as shown in this diagram:
 
-![Diagram that shows three tenants, each using a dedicated database and a single shared web server.](media/tenancy-models/horizontally-partitioned-deployments.png)
+![Diagram that shows three tenants that each use a dedicated database and a single shared web server.](media/tenancy-models/horizontally-partitioned-deployments.png)
 
-**Benefits:** Horizontally partitioned deployments can help you mitigate a noisy neighbor problem: if you identify that most of the load on your system is caused by specific components then you can deploy separate components for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
+**Benefits:** Horizontally partitioned deployments can help you mitigate a noisy neighbor problem. If you identify that specific components cause most of the load on your system, then you can deploy separate components for each tenant. For example, your databases might absorb most of your system's load because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases and shared components, like the application tier, remain unaffected.
 
-**Risks:** With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components used by a single tenant.
+**Risks:** With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components that a single tenant uses.
 
 ## Test your isolation model
 
-Whichever isolation model you choose, be sure to test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
+Whichever isolation model you choose, be sure to test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) outcomes are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -182,8 +183,8 @@ Other contributors:
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Consider the [lifecycle of your tenants](tenant-lifecycle.md)
+Consider the [life cycle of your tenants](tenant-lifecycle.md).

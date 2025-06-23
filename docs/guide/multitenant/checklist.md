@@ -37,7 +37,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from affecting the system's availability for other tenants.  
 
-- [Design your multitenant solution](./approaches/overview.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.  
+- [Design your multitenant solution](./approaches/overview.md) for the level of growth that you expect. But don't overengineer for unrealistic growth.  
 
 - Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally service-level agreements (SLAs) for your solution. SLOs and SLAs should be based on the requirements of your tenants.  
 
@@ -115,6 +115,6 @@ Other contributor:
 ## Related resources
 
 - [Architectural considerations for multitenant solutions](./considerations/overview.yml)
-- [Architectural approaches for multitenancy](./approaches/overview.yml)
+- [Architectural approaches for multitenancy](./approaches/overview.md)
 - [Service-specific guidance for multitenancy](./service/overview.md)
 - [Resources for architects and developers of multitenant solutions](related-resources.md)
