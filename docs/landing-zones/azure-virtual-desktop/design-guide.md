@@ -148,7 +148,9 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator.
 
-![avd-accelerator-resource-organization-naming](./media/azure-virtual-desktop-accelerator-resource-organization-naming.png)
+:::image type="complex" source="./media/avd-accelerator-resource-organization-naming.png" alt-text="Diagram showing Azure Virtual Desktop resource organization and naming." border="false" lightbox="./media/avd-accelerator-resource-organization-naming.png":::
+    TODO
+:::image-end:::
 
 
 *Figure 3: Azure Virtual Desktop implementation resource organization and naming. Download a [Visio file](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.vsdx) of the image.*
