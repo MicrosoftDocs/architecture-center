@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-06-17T16:43:15.907Z</updated>
+    <updated>2025-06-23T17:11:32.588Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -33,12 +33,28 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation"/>
+        <updated>2025-06-20T18:33:53.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Semantic Kernel and Azure Container Apps for enterprise-grade tasks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Cross-Region Resiliency for SQL TDE with Azure Key Vault Managed HSM]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module"/>
         <updated>2025-06-05T21:13:11.000Z</updated>
         <summary type="html"><![CDATA[This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Key Vault Managed HSM stores customer-managed TDE protector keys.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone"/>
+        <updated>2025-06-23T15:02:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Azure AI Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[AI Architecture Design]]></title>
@@ -54,6 +70,158 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing"/>
         <updated>2025-06-05T21:48:10.000Z</updated>
         <summary type="html"><![CDATA[Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Resource Manager Considerations for Multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/resource-manager</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/resource-manager"/>
+        <updated>2025-06-23T16:07:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the features of Azure Resource Manager when you work with multitenant systems, and get links to guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana"/>
+        <updated>2025-06-23T13:25:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about proven practices for running SAP S/4HANA effectively in a Linux environment on Azure with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Microservices with Azure Container Apps and Dapr]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr"/>
+        <updated>2025-06-19T17:06:27.000Z</updated>
+        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps by using Distributed Application Runtime (Dapr) and Kubernetes event-driven autoscaling (KEDA).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use AI to forecast customer orders]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/next-order-forecasting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/next-order-forecasting"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Minimal storage – change feed to replicate data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use AI enrichment with image and text processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ai-search-skillsets</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ai-search-skillsets"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transform unstructured image and text data into full-text searchable content with Azure AI Search prebuilt skills and custom skills.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Building the First Layer of Defense with Azure Security Services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data streaming with AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/data-streaming-scenario</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/data-streaming-scenario"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Highly available SharePoint farm]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Deploy a highly available SharePoint farm for intranet capabilities that uses Microsoft Entra ID, a SQL always on instance, and SharePoint resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build ETL pipelines with Azure Databricks and Delta Lake]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Map threats to your IT environment]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/map-threats-it-environment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/map-threats-it-environment"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is the second in a part of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build the second layer of defense with Microsoft Defender XDR Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series. Now with the information about Sentinel running in the unified portal.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate Azure and Microsoft Defender XDR security services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-security-integrate-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-security-integrate-azure"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Integrate security solutions from Azure and Microsoft 365 to create robust security for your hybrid and cloud IT environments. This article is part of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame offers for this lift and shift operation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multilayered protection for Azure virtual machines]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Protect access to Azure VMs through a multilayer approach, using Azure and Entra ID security services. These recommendations align with security principles and best practices, such as defense in depth, least privilege, and zero trust.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project 15 Open Platform IoT Sustainability]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4 HANA for Large Instances]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern Data Platform Architecture for SMBs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform"/>
+        <updated>2025-06-19T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[Use Microsoft Fabric and Azure Databricks to build a modern data platform architecture designed for small and medium businesses.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
+        <updated>2025-06-19T03:21:00.000Z</updated>
+        <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -433,11 +601,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy microservices with Azure Container Apps and Dapr]]></title>
+        <title type="html"><![CDATA[Deploy Microservices with Azure Container Apps and Dapr]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr"/>
         <updated>2025-05-22T15:41:11.000Z</updated>
-        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).]]></summary>
+        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps by using Distributed Application Runtime (Dapr) and Kubernetes event-driven autoscaling (KEDA).]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1054,14 +1222,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke-vwan-architecture"/>
         <updated>2025-04-25T16:01:53.000Z</updated>
         <summary type="html"><![CDATA[A hub-spoke reference architecture.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Update route tables by using Azure Route Server]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/manage-routing-azure-route-server</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/manage-routing-azure-route-server"/>
-        <updated>2025-04-25T16:01:53.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
