@@ -47,13 +47,26 @@ The architecture consists of:
 
 -   **Virtual network peering**. Two virtual networks can be connected using a VNet peering connection. Peering connections are nontransitive, low-latency connections between virtual networks. Once peered, virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which isn't possible solely using peering.
 
+### Workflow
+The following steps describe how traffic flows through the hub-spoke virtual WAN architecture:
+1. **Branch or user traffic originates on-premises:**  A user or system from a branch site or on-premises network initiates a connection. This traffic is routed through the SD-WAN or VPN device configured to connect to Azure Virtual WAN.
+1. **Traffic enters Azure via a VPN or ExpressRoute gateway:** The encrypted traffic reaches the Virtual WAN hub through a VPN or ExpressRoute gateway deployed in the region. Azure Virtual WAN manages and optimizes routing to the appropriate destination.
+1. **Routing is handled by the Virtual WAN hub:** The hub evaluates routing policies (including custom routes or policies enforced by Azure Firewall or network virtual appliances) and determines the next hop for the traffic. If the destination is in another region or hub, routing is performed using global transit capabilities.
+1. **Inter-hub connectivity ensures global reachability:** If the destination is in another region, the traffic is routed via Microsoft's global backbone through inter-hub connectivity between Virtual WAN hubs.
+1. **Traffic is directed to the spoke virtual network:** If the destination is a workload or application in a spoke VNet, the Virtual WAN hub forwards the traffic to that VNet based on defined peering and routing configurations.
+1. **Security inspection (optional):** Traffic can be inspected by Azure Firewall or a third-party NVA deployed in the hub before reaching its final destination. This enables centralized security enforcement and policy compliance.
+1. **Application response follows the reverse path:** The application or resource in the spoke VNet responds, and the return traffic flows back through the same Virtual WAN hub and gateway, following the defined route and security policies.
+1. **Internet-bound traffic is filtered or routed:** If the destination is external (e.g., the internet), the traffic can be inspected, filtered, or routed through the Azure Firewall or a third-party security solution before exiting via a secured egress point.
+
 ### Components
 
-* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)
-* [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
-* [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
-* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub using VNet connections, allowing workloads in the spokes to communicate securely with each other, with on-premises networks, or with the internet via centralized services.
+* [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides a unified global transit network architecture to connect VNets, branches, and remote users. In this architecture, it serves as the central control plane and data plane to manage and route traffic across hubs, spokes, and external networks, enabling global connectivity through a common framework.
+* [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure over IPsec tunnels. In this architecture, it's used in the hub to securely connect branch offices or data centers to the Azure network via Virtual WAN.
+* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it offers a reliable and fast alternative to VPN connections for mission-critical workloads.
+* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it's deployed in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between VNets or from on-premises environments.
+
+
 
 ### Alternatives
 
@@ -134,6 +147,20 @@ For additional information, see [Choose between virtual network peering and VPN 
 
 Virtual network peering is a nontransitive relationship between two virtual networks. While using Azure Virtual WAN, virtual network peering is managed by Microsoft. Each connection added to a hub will also configure virtual network peering. With the help Virtual WAN, all spokes will have a transitive relationship.
 
+### Routing Intents
+Routing intents in Azure Virtual WAN are predefined routing configurations that simplify how traffic is routed between spokes, on-premises, and the internet through the hub. Routing intents allow you to enforce consistent and centralized traffic flows for specific traffic categories, such as Internet and Private Traffic (i.e., VNet-to-VNet or on-prem-to-VNet). By enabling routing intents on the Virtual WAN hub, Azure automatically configures the appropriate routes so that traffic matching a given intent is directed to a specified next hop, such as:
+* Azure Firewall for traffic inspection and filtering.
+* Network Virtual Appliances (NVAs) for custom traffic processing.
+  
+**Supported intents:**
+- **Internet:** Routes internet-bound traffic through a designated security appliance (e.g., Azure Firewall).
+- **Private Traffic:** Routes VNet-to-VNet or hybrid traffic through the security path (e.g., NVAs or firewall).
+
+### Route Maps
+Route Maps in Azure Virtual WAN provide fine-grained control over advertised and received routes. They enable you to filter, modify, or control BGP route propagation to and from branch connections and Virtual WAN hubs. Route maps allows to control which routes are advertised or accepted over a BGP connection between the Virtual WAN hub and external networks (e.g., branches, partner networks, or SD-WAN). Route maps are attached to connections (e.g., VPN site, ExpressRoute, or VNet connections). Each route map contains one or more rules with conditions (match statements) and actions (permit, deny, set). Rules are evaluated in order. The first match determines the outcome for that route. Route maps can be applied in inbound or outbound direction.
+
+Route Maps supports scalable and controlled hybrid connectivity and ensures compliance with routing policies and network segmentation. This way it reduces risk of routing loops or route leaks in large environments.
+
 ### Hub extensions
 
 To support network-wide shared services like DNS resources, custom NVAs, Azure Bastion, and others, implement each service following the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml). Following this model, you can build and operate single-responsibility extensions to individually expose these business-critical, shared services that you're otherwise unable to deploy directly in a virtual hub.
@@ -205,18 +232,14 @@ Principal author:
 Learn more:
 
 -   [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
-
+-   [Azure Landing Zone Architecture](/azure/cloud-adoption-framework/ready/landing-zone/)
 -   [Design a hybrid Domain Name System solution with Azure](../../hybrid/hybrid-dns-infra.yml)
-
 -   [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-
 -   [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-
 -   [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
-
 -   [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-
 -   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+
 
 ## Related resources
 
@@ -229,3 +252,4 @@ Learn more:
 -   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 
 -   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+
