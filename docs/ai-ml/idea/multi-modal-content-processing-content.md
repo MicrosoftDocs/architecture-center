@@ -32,7 +32,7 @@ The following workflow corresponds to the previous diagram:
 
 8. Azure Queue Storage manages event-driven processing workflows between this solution's services, ensuring reliable message handling and processing coordination across the pipeline components.
 
-9. The Container App Website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
+9. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
 
 ### Components
 
