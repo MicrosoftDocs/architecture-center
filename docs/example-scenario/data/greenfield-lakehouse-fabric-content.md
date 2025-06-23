@@ -159,7 +159,7 @@ You can use Fabric to manage, control, and audit your security settings accordin
 
 - Role-based access control (RBAC). Implement workspace-based access control to manage who can access and interact with specific datasets.
 
-- Network security. Use the Fabric inbound and outbound network security controls when you connect to data or services within or outside your network. Key features include [conditional access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
+- Network security. Use the Fabric inbound and outbound network security controls when you connect to data or services within or outside your network. Key features include [Conditional Access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
 
 - Audit logs. Use the detailed audit logs provided by Fabric to track user activities and ensure accountability across the platform.
 

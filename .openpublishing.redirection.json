@@ -3836,6 +3836,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/big-data-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
       "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
       "redirect_document_id": false
@@ -4209,6 +4214,11 @@
       "source_path": "docs/reference-architectures/data/profisee-master-data-management-purview.yml",
       "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-adf.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
@@ -4990,6 +5000,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/architecture/manage-routing-azure-route-server.yml",
+      "redirect_url": "/azure/route-server/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/networking/hub-spoke-vwan-architecture.yml",
       "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-vwan-architecture",
       "redirect_document_id": true
@@ -5177,6 +5192,11 @@
     {
       "source_path": "docs/solution-ideas/articles/video-analytics.yml",
       "redirect_url": "/azure/architecture/networking/idea/video-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/guide/ipv4-exhaustion.md",
+      "redirect_url": "/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion",
       "redirect_document_id": true
     },
     {

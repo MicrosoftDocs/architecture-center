@@ -4,7 +4,7 @@ metadata:
   description: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.
   author: erjosito
   ms.author: jomore
-  ms.date: 06/07/2024
+  ms.date: 06/16/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom:
@@ -19,6 +19,7 @@ products:
   - azure-virtual-network
   - azure-virtual-wan
   - azure-vpn-gateway
+  - azure-expressroute
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-network-manager-connectivity-options.png
 content: |
    [!include[](spoke-to-spoke-networking-content.md)]

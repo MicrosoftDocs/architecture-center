@@ -103,7 +103,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Implement strong authentication in the Microsoft Entra ID tenant associated with Azure subscriptions used to provision sandbox environments. Follow the recommendations in [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
   - Use multifactor authentication (MFA) for all users.
-  - Use conditional access policies to restrict access to sandbox environments.
+  - Use Conditional Access policies to restrict access to sandbox environments.
   - Use integrated Microsoft Entra authentication to authorize access to Azure platform as a service (PaaS) services like SQL Database and Azure Storage.
 
 - Start with a [least privilege approach](/azure/well-architected/security/identity-access#role-assignment) to authorize sandbox use.

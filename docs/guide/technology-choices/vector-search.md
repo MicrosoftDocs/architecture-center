@@ -4,11 +4,12 @@ description: Learn how to use this information to decide which Azure service for
 author: konabuta
 ms.author: keonabut
 ms.reviewer: krmeht
+ms.date: 01/10/2025
+ms.update-cycle: 180-days
 ms.subservice: architecture-guide
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
-ms.date: 01/10/2025
 ---
 
 # Choose an Azure service for vector search

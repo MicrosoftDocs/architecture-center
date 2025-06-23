@@ -4,6 +4,7 @@ description: Learn about Azure's AI speech recognition and generation capabiliti
 author: ritesh-modi
 ms.author: rimod
 ms.date: 3/20/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
