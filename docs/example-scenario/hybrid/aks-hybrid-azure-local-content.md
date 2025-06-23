@@ -17,9 +17,9 @@ The architecture illustrates an implementation that deploys containerized applic
 
 1. An operator sets up an on-premises infrastructure on Azure Local hardware that's capable of hosting an AKS cluster.
 
-2. From the Azure portal, an administrator of Azure Local instance, deploys an AKS cluster on Azure Local.
+2. From the Azure portal, an administrator of Azure Local instance deploys an AKS cluster on Azure Local.
 
-3. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS cluster. GitOps configurations facilitate IaC. These GitOps configurations represent the desired state of the AKS cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS cluster that's deployed on Azure Local.
+3. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS cluster. GitOps configurations facilitate IaC, as they represent the desired state of the AKS cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS cluster that's deployed on Azure Local.
 
 4. The administrator pushes GitOps configurations to a Git repository. You can also use a Helm or Kustomize repository. The Flux components in the AKS cluster monitor the repository for changes, detecting and applying updates as needed.
 
@@ -45,7 +45,7 @@ The architecture illustrates an implementation that deploys containerized applic
 
 - [GitOps Configuration](/azure/azure-arc/kubernetes/conceptual-gitops-flux2) Azure provides an automated application deployments capability using GitOps that works with Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. Git, Helm, and Bitbucket repositories (public and private) can host GitOps configurations.
 
-- [Flux](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) is an open-source GitOps deployment tool that Azure Arc-enabled Kubernetes clusters can use. You can use the Azure Arc connection to implement the cluster components that track changes to the Git, Helm, or Kustomize repositories that you designate and apply them to the local cluster. In this architecture, the Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one in the repository. If it detects differences, Flux remediates them by applying or, in the case of configuration drift, reapplying the desired configuration.
+- [Flux](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) is an open-source GitOps deployment tool that Azure Arc-enabled Kubernetes clusters can use to implement cluster components that track changes to your designated Git, Helm, or Kustomize repositories. If changes are detected, the cluster components update the local cluster with those changes. In this architecture, the Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one in the repository. If it detects differences, Flux remediates them by applying or, in the case of configuration drift, by reapplying the desired configuration.
 
 ## Scenario details
 
@@ -201,6 +201,6 @@ Other contributors:
 
 ## Related resources
 
-- [Quickstart - Jumpstart HCIBox](https://arcjumpstart.com/azure_jumpstart_hcibox/getting_started)
+- [Quickstart - Jumpstart HCIBox](https://techcommunity.microsoft.com/blog/azurearcblog/announcing-jumpstart-hcibox/3647646)
 - [Baseline architecture for AKS on Azure Local](../../example-scenario/hybrid/aks-baseline.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
