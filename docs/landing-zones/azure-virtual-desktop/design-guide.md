@@ -44,7 +44,7 @@ When designing Azure Virtual Desktop to run from application landing zone, it's 
 - **Security**: Uses security measures like Role-Based Access Control (RBAC) and network security ensure your environment is protected from threats.
 - **Operational efficiency**: The architecture includes automation and monitoring tools to reduce the operational burden and improve system performance.
 
-![azure-virtual-desktop-accelerator-enterprise-scale-alz-architecture](./media/azure-virtual-desktop-accelerator-enterprise-scale-alz-architecture.png)
+:::image type="complex" source="./media/azure-virtual-desktop-accelerator-enterprise-scale-alz-architecture.png" alt-text="Diagram of Azure Virtual Desktop architecture in an Azure landing zone." border="false" lightbox="./media/azure-virtual-desktop-accelerator-enterprise-scale-alz-architecture.png":::
 
     The diagram illustrates a comprehensive Azure architecture for managing subscriptions and workloads. At the top, the Enterprise Agreement/Microsoft Customer Agreement section connects to Microsoft Entra ID and Active Directory Domain Services, representing identity and access management. Below, the Management subscription includes dashboards and tools for governance and monitoring. The Management group and subscription organization section shows a hierarchy of management groups, including platform, identity, connectivity, and landing zone subscriptions, with connections to DevOps processes.
 
