@@ -58,9 +58,9 @@ The following diagram shows the patient record creation request flow:
 
 - [Azure VMs][Azure Virtual Machines] are one of several types of on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
-- [Azure Virtual Networks][Azure Virtual Networks] are the fundamental building blocks for private networks in Azure. These networks provide a way for many types of Azure resources, such as Azure VMs, to securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a data center. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure virtual networks][Azure Virtual Networks] are the fundamental building blocks for private networks in Azure. These networks provide a way for many types of Azure resources, such as Azure VMs, to securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a data center. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-- [Azure Files Storage Accounts and Azure File Shares][Azure Files] are fully managed file shares in the cloud. Azure file shares are accessible via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
+- [Azure Files storage accounts and Azure file shares][Azure Files] are fully managed file shares in the cloud. Azure file shares are accessible via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
 - [Azure SQL Database][Azure SQL Database] is an intelligent, scalable relational database service built for the cloud. With AI-powered, automated features, Azure SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
 
@@ -79,13 +79,13 @@ The following diagram shows the patient record creation request flow:
 
 [Active-active definition]: https://www.webopedia.com/TERM/A/active_active.html
 [Active-passive definition]: https://www.jscape.com/blog/active-active-vs-active-passive-high-availability-cluster
-[Azure ExpressRoute]: /azure/expressroute/expressroute-introduction
-[Azure Load Balancer]: /azure/load-balancer/load-balancer-overview
-[Azure Files]: /azure/storage/files/storage-files-introduction
-[Azure Site Recovery]: https://azure.microsoft.com/services/site-recovery
-[Azure SQL Database]: https://azure.microsoft.com/services/sql-database
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
-[Azure Virtual Networks]: /azure/virtual-network/virtual-networks-overview
+[Azure ExpressRoute]: /azure/well-architected/service-guides/azure-expressroute
+[Azure Load Balancer]: /azure/well-architected/service-guides/azure-load-balancer
+[Azure Files]: /azure/well-architected/service-guides/azure-files
+[Azure Site Recovery]: /azure/site-recovery/site-recovery-overview
+[Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Networks]: /azure/well-architected/service-guides/virtual-network
 [CICS]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zmidtrmg/zmiddle_13.htm
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
 [IMS-DC]: https://www.sawaal.com/mainframe-interview-questions/what-is-ims-db-dc_9366
@@ -101,6 +101,6 @@ The following diagram shows the patient record creation request flow:
 [SMB protocol]: /openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
 [Tmax OpenFrame documentation]: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE36tt6
 [UnixODBC]: https://en.wikipedia.org/wiki/UnixODBC
-[What is Azure]: https://azure.microsoft.com/overview/what-is-azure
+[What is Azure]: /azure/
 [What is Azure Bastion]: /azure/bastion/bastion-overview
-[What is Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365?rtc=1
+[What is Microsoft 365]: /microsoft-365/

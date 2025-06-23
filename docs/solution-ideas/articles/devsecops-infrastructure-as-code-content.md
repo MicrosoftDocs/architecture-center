@@ -28,10 +28,10 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 - [GitHub Advanced Security](https://github.com/advanced-security) provides features to secure your IaC. It requires another license.
 - [CodeQL](https://codeql.github.com) provides security scanning tools that run on static code to detect infrastructure misconfigurations.
 - [Terraform](https://www.terraform.io) is a partner product developed by HashiCorp that allows infrastructure automation on Azure and other environments.
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) provides unified security management and advanced threat protection across hybrid cloud workloads.
-- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and security orchestration automated response (SOAR) solution. It uses advanced AI and security analytics to help you detect and respond to threats across your enterprise.
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For example, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Microsoft Sentinel](/azure/sentinel/overview) is a cloud-native SIEM and security orchestration automated response (SOAR) solution. It uses advanced AI and security analytics to help you detect and respond to threats across your enterprise.
+- [Azure Policy](/azure/governance/policy/overview) helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For example, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
+- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 ## Scenario details
 

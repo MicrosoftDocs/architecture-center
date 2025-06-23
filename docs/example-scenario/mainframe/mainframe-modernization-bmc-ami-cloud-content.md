@@ -56,7 +56,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
 
-- **[Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)** is a fully managed, scalable database service that has AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
+- **[Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)** is a fully managed, scalable database service that has AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
 
 - **[Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)** is a fully managed, relational database service that's based on the community edition of the open-source PostgreSQL database engine. You can use Azure Database for PostgreSQL to focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
@@ -66,7 +66,7 @@ The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent.
 
 - **[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)** is a fast and flexible cloud data warehouse that helps you scale, compute, and store data elastically and independently, with a massively parallel processing architecture.
 
-- **[Storage](/azure/well-architected/service-guides/storage-accounts/reliability)** is a comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Storage supports hybrid storage solutions and provides tools for data transfer, sharing, and backup. It also provides scalable backup and archival solutions for the migrated mainframe data.
+- **[Storage](/azure/storage/common/storage-introduction)** is a comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Storage supports hybrid storage solutions and provides tools for data transfer, sharing, and backup. It also provides scalable backup and archival solutions for the migrated mainframe data.
 
 ### Analysis and monitoring
 
