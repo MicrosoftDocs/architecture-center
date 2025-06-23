@@ -18,9 +18,9 @@ The following workflow corresponds to the previous diagram:
 
 1. Users upload multi-modal content (documents, images, contracts, invoices) through the web frontend interface. Content is submitted with specific processing requirements and target schemas.
 
-2. Container App Website receives the content upload request and calls the processing API hosted in Container Apps. Both of these are custom coded solutions for this scenario. The API determines the appropriate processing pipeline and initiates content analysis workflows.
+2. The Container App Website receives the content upload request and calls the processing API hosted in Container Apps. Both of these are custom coded solutions for this scenario. The API determines the appropriate processing pipeline and initiates content analysis workflows.
 
-3. Container Apps manage the processing workflow. They connect Azure AI Content Understanding Service (which handles Optical Character Recognition or OCR and text extraction) with Azure OpenAI in Foundry Models (which maps schemas and converts data).
+3. The Container Apps manage the processing workflow. They connect Azure AI Content Understanding Service (which handles Optical Character Recognition or OCR and text extraction) with Azure OpenAI in Foundry Models (which maps schemas and converts data).
 
 4. Azure AI Content Understanding Service performs machine learning-based OCR for efficient text extraction from various content formats including images, tables, and graphs.
 
@@ -31,6 +31,8 @@ The following workflow corresponds to the previous diagram:
 7. The orchestration code in Container Apps uses Azure Blob Storage to store source documents, intermediate processing artifacts, and final structured outputs for reliable data persistence and retrieval.
 
 8. Azure Queue Storage manages event-driven processing workflows between this solution's services, ensuring reliable message handling and processing coordination across the pipeline components.
+
+9. The Container App Website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
 
 ### Components
 
