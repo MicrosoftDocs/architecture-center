@@ -1,6 +1,6 @@
 ---
 title: Service-Specific Guidance for a Multitenant Solution
-description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
+description: This article introduces the guidance for using many distinct Azure services in a multitenant solution to achieve business and technical goals.
 author: johndowns
 ms.author: pnp
 ms.date: 06/11/2025
@@ -24,6 +24,6 @@ This section provides guidance about the features of each service that support m
 
 The content in this section helps architects, lead developers, and others build or implement Azure components for a multitenant solution. The audience also includes independent software vendors and startups who develop software as a service (SaaS) solutions.
 
-## Next step
+## Related resource
 
 - Review the guidance for [Azure Resource Manager](resource-manager.md).

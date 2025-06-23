@@ -39,6 +39,6 @@ To implement the Deployment Stamps pattern, use automated deployment approaches.
 
 The articles in this section aim to help solution architects and lead developers of multitenant applications, including independent software vendors and startups who develop software as a service (SaaS) solutions. Much of the guidance in this section applies broadly to multiple Azure services within a category.
 
-## Next step
+## Related resource
 
 - Before you review the service-specific Azure guidance, review the [approaches for resource organization in a multitenant solution](resource-organization.yml) .
