@@ -69,11 +69,11 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 - [API Apps][API Apps] is a feature of App Service that you can use to build and consume APIs in the cloud while you use the language of your choice.
 
-- [Microsoft Entra ID][Azure AD] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Microsoft Entra ID] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps.
 
 - [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
 
-- [Defender for Cloud][Azure Defender] provides extended detection and response (XDR) capabilities that protect hybrid cloud workloads from threats.
+- [Defender for Cloud][Defender for Cloud] provides extended detection and response (XDR) capabilities that protect hybrid cloud workloads from threats.
 
 - [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
 
@@ -159,22 +159,22 @@ Principal authors:
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
-[API Apps]: https://azure.microsoft.com/services/app-service/api
-[App Service]: https://azure.microsoft.com/services/app-service
-[Azure AD]: /entra/fundamentals/whatis
-[Azure Defender]: https://azure.microsoft.com/services/azure-defender
-[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins
-[Azure Maps]: https://azure.microsoft.com/services/azure-maps
+[API Apps]: /azure/app-service/overview
+[App Service]: /azure/well-architected/service-guides/app-service-web-apps
+[Microsoft Entra ID]: /entra/fundamentals/whatis
+[Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[Azure Digital Twins]: /azure/digital-twins/overview
+[Azure Maps]: /azure/azure-maps/about-azure-maps
 [Azure SignalR Service]: /aspnet/signalr/overview/getting-started/introduction-to-signalr
-[Blob Storage]: /azure/storage/blobs/storage-blobs-introduction
+[Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
 [device provisioning service of IoT Hub]: /azure/iot-dps
-[Event Hubs]: /azure/event-hubs/event-hubs-about
-[Event Grid]: https://azure.microsoft.com/services/event-grid
-[Functions]: https://azure.microsoft.com/services/functions
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Logic Apps]: https://azure.microsoft.com/services/logic-apps
-[Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
+[Event Hubs]: /azure/well-architected/service-guides/event-hubs
+[Event Grid]: /azure/well-architected/service-guides/event-grid/reliability
+[Functions]: /azure/well-architected/service-guides/azure-functions
+[IoT Hub]: /azure/well-architected/service-guides/azure-iot-hub
+[Logic Apps]: /azure/logic-apps/logic-apps-overview
+[Machine Learning]: /azure/well-architected/service-guides/azure-machine-learning
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview
@@ -183,8 +183,8 @@ Principal authors:
 [Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
 [Project 15 YouTube Channel]: https://aka.ms/project15video
 [Solution details]: #solution-details
-[Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
-[Microsoft Power Platform]: https://powerplatform.microsoft.com
+[Stream Analytics]: /azure/stream-analytics/stream-analytics-introduction
+[Microsoft Power Platform]: /power-platform
 [Internet of Things Learning Path]: https://aka.ms/iotlp
 [Introduction to Azure IoT]: https://learn.microsoft.com/training/modules/introduction-to-azure-iot/
-[Seeed Studio’s IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
+[Seeed Studio's IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
