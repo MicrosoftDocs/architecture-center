@@ -21,7 +21,7 @@ This section describes approaches for the main categories of Azure services that
 
 Multitenant solutions often use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). This pattern deploys dedicated infrastructure for a tenant or a group of tenants. A single stamp might serve multiple tenants or only a single tenant.
 
-:::image type="complex" source="media/overview/deployment-stamps.png" alt-text="Diagram that shows an example implementation of the Deployment Stamps pattern. In this scenario, each tenant has their own stamp containing a database." lightbox="media/overview/deployment-stamps.png" border="false":::
+:::image type="complex" source="media/overview/deployment-stamps.svg" alt-text="Diagram that shows an example implementation of the Deployment Stamps pattern. In this scenario, each tenant has their own stamp containing a database." lightbox="media/overview/deployment-stamps.svg" border="false":::
 The diagram has three tenants, Tenant A, B, and C. Tenants A and B point to deployment stamp 1, which contains a web server and a database for both tenants. Tenant C points to deployment stamp 2, which contains a dedicated web server and database.
 :::image-end:::
 
