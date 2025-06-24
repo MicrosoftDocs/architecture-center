@@ -1,4 +1,4 @@
-The information in this article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS), enabled by Azure Arc. The apps can run on Azure Local. The guidance is specifically for deployments that use Azure Arc and GitOps.
+This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS) enabled by Azure Arc. The apps can run on Azure Local. The guidance is specifically for deployments that use Azure Arc and GitOps.
 
 > [!IMPORTANT]
 > The information in this article applies to [AKS on Azure Local, version 23H2 (latest version)](/azure/aks/aksarc/aks-whats-new-23h2).
@@ -35,15 +35,15 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Azure Local](https://azure.microsoft.com/products/local) is a hyperconverged infrastructure solution that you can use to run virtualized and cloud-native workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It builds on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience. In this architecture, Azure Local is the infrastructure that hosts your infrastructure on-premises workloads.
+- [Azure Local](/azure/well-architected/service-guides/azure-local) is a hyperconverged infrastructure solution that you can use to run virtualized and cloud-native workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It builds on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience. In this architecture, Azure Local is the infrastructure that hosts your infrastructure on-premises workloads.
 
 - [AKS on Azure Local](/azure/aks/aksarc/aks-overview) is the managed Kubernetes platform from Microsoft. It enables developers and administrators to use AKS to deploy and manage containerized apps on Azure Local. In this architecture, an operator creates a Kubernetes cluster on an Azure Local instance and provides application developers with the required level of access to this cluster.
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multicloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Microsoft Defender for Cloud, and Azure Monitor. In this architecture, Azure Arc enables the operator to manage the life cycle of the Kubernetes cluster using Azure. It also enables the application developer to access the cluster, remotely connect to the cluster, and manage workloads that run on the cluster.
+- [Azure Arc](/azure/azure-arc/overview) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multicloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Microsoft Defender for Cloud, and Azure Monitor. In this architecture, Azure Arc enables the operator to manage the life cycle of the Kubernetes cluster by using Azure. It also enables the application developer to access the cluster, remotely connect to the cluster, and manage workloads that run on the cluster.
 
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration and continuous delivery (CI/CD) service that automates updates to repositories and registries. In this architecture, an application developer would use Azure pipelines to build and push images to container registries like Docker Hub and Azure Container Registry.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a continuous integration and continuous delivery (CI/CD) service that automates updates to repositories and registries. In this architecture, an application developer would use Azure pipelines to build and push images to container registries like Docker Hub and Azure Container Registry.
 
-- Both public and private container registries, including [Container Registry](https://azure.microsoft.com/products/container-registry) and Docker Hub, host container images. Container registries are used with your existing container development and deployment pipelines to build container images on demand, or fully automate builds with triggers such as source code commits and base image updates.
+- Both public and private container registries, including [Container Registry](/azure/container-registry/container-registry-intro) and Docker Hub, host container images. Container registries are used with your existing container development and deployment pipelines to build container images on demand, or fully automate builds with triggers such as source code commits and base image updates.
 
 - Azure provides an automated application deployments capability by using GitOps that works with AKS and Azure Arc-enabled Kubernetes clusters. With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. Both public and private Git, Helm, and Bitbucket repositories can host [GitOps configurations](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 #### Use Azure policies and Azure Arc
 
-Azure Arc extends the scope of resource management beyond Azure. This extended scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include the following Azure Arc capabilities:
+Azure Arc extends the scope of resource management beyond Azure. This expanded scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include the following Azure Arc capabilities:
 
 - **Governance:** Azure Arc enforces runtime governance for AKS clusters and their pods by using Azure Policy for Kubernetes and providing centralized reports on policy compliance. You can use this capability to enforce the use of HTTPS for ingress traffic directed at the Kubernetes cluster or to restrict containers to listening on only the specific ports that you designate.
 

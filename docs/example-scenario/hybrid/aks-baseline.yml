@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local
-  description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.
+  description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) that runs on Azure Local.
   author: sethmanheim
   ms.author: sethm
   ms.date: 06/23/2025
@@ -16,7 +16,7 @@ products:
   - azure-local
   - azure-arc
 name: Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local
-summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.
+summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) that runs on Azure Local.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-local-baseline-v9.png
 content: |
   [!INCLUDE[](aks-baseline-content.md)]
