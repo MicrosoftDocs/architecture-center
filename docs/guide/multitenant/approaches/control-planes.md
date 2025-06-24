@@ -173,4 +173,4 @@ Other contributors:
 ## Related resources
 
 - [Architectural considerations for control planes in a multitenant solution](../considerations/control-planes.yml)
-- [Architectural approaches for a multitenant solution](../approaches/overview.yml)
+- [Architectural approaches for a multitenant solution](../approaches/overview.md)

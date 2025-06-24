@@ -21,7 +21,7 @@ ms.custom:
 
 ## Isolation models
 
-API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.yml), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
+API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.yml), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.md#deployment-stamps-pattern).
 
 Typically, the way you use API Management is similar, regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
 
