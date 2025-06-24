@@ -155,7 +155,7 @@ Focus on the entire stack by securing both the host and its containers.
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Use the [Azure pricing calculator][] to estimate costs for the Azure services like Azure Monitor Container Insights used in the architecture. The [cost optimization][] section in [Well-Architected Framework][cost optimization] describes other best practices. AKS is available at no extra charge when you use it on Azure Local. For more information, see [Azure Local pricing details](https://azure.microsoft.com/pricing/details/azure-local/).
+- Use the [Azure pricing calculator][] to estimate costs for the Azure services like Azure Monitor Container Insights used in the architecture. The cost optimization section in [Well-Architected Framework][cost optimization] describes other best practices. AKS is available at no extra charge when you use it on Azure Local. For more information, see [Azure Local pricing details](https://azure.microsoft.com/pricing/details/azure-local/).
 
 ### Operational Excellence
 
@@ -229,7 +229,7 @@ Other contributor:
   [Azure role-based access control (Azure RBAC)]: /azure/aks/aksarc/azure-rbac-23h2
   [Azure verified modules]: /community/content/azure-verified-modules
   [containerized]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
-  [cost optimization]: /azure/well-architected/cost-optimization/overview
+  [cost optimization]: /azure/well-architected/cost-optimization/principles
   [Flux v2 configurations and Azure Policy for Kubernetes]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
   [hybrid-container-service github]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
   [IP address planning]: /azure/aks/aksarc/aks-hci-ip-address-planning
