@@ -16,10 +16,10 @@ This architecture includes the benefits of standard hub-spoke network topology a
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/hub-spoke-Virtual WAN-architecture-001.png" alt-text="Diagram that shows a hub-spoke reference architecture." lightbox="_images/hub-spoke-Virtual WAN-architecture-001.png":::
+:::image type="complex" border="false" source="_images/hub-spoke-virtual-wan-architecture-1.svg" alt-text="Diagram that shows a hub-spoke reference architecture." lightbox="_images/hub-spoke-virtual-wan-architecture-1.svg":::
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-Virtual WAN-architecture-001.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-Virtual-WAN-architecture-001.vsdx) of this architecture.* 
 
 ### Workflow
 
@@ -78,10 +78,10 @@ You can use this architecture for the following use cases:
 
 ## Advantages
 
-:::image type="complex" border="false" source="_images/hub-spoke-Virtual WAN-architecture-002.png" alt-text="Diagram that shows the advantages of a hub-spoke reference architecture." lightbox="_images/hub-spoke-Virtual WAN-architecture-002.png":::
+:::image type="complex" border="false" source="_images/hub-spoke-virtual-wan-architecture-2.svg" alt-text="Diagram that shows the advantages of a hub-spoke reference architecture." lightbox="_images/hub-spoke-virtual-wan-architecture-2.svg":::
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-Virtual WAN-architecture-002.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
 
 The previous diagram shows advantages that this architecture provides:
 
