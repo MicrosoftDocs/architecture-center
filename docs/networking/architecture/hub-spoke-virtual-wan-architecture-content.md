@@ -19,7 +19,7 @@ This architecture includes the benefits of standard hub-spoke network topology a
 The diagram has two hub virtual networks that connect. Hub virtual network 1 connects to a shared services virtual network and another virtual network. It also has other connections, including a VPN point-to-site user, two VPN branches, and an ExpressRoute circuit. Hub virtual network 2 has two attached virtual networks. The text under this setup reads Routing configuration of virtual network connections except shared services virtual network. The associated route table is RT_VNets. The propagated route table is default. Hub virtual network 2 connects to two virtual networks. It also has other connections, including a VPN point-to-site user, two VPN branches, and an ExpressRoute circuit. The text under this setup reads Routing configuration of VPN, ExpressRoute, point-to-site connections, and shared services virtual network. The associated route table is default. The propagated route tables are default and RT_VNets. DDoS Protection is in the top right corner of the diagram.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-Virtual-WAN-architecture-001.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-virtual-wan-architecture-1.vsdx) of this architecture.* 
 
 The architecture uses the following networking components:
 
@@ -80,7 +80,7 @@ You can use this architecture for the following use cases:
 The diagram shows Virtual WAN in the center. It has three connected regions. Each region contains multiple virtual networks. Region 1 contains Arrows illustrate various types of connectivity, including branch-to-Azure, branch-to-branch, network-to-network, and user VPN connections. The diagram highlights the use of both VPN and ExpressRoute for hybrid connectivity. DDoS Protection is in the top left corner.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-virtual-wan-architecture-2.vsdx) of this architecture.* 
 
 The previous diagram shows advantages that this architecture provides:
 
