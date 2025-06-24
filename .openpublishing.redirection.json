@@ -2631,6 +2631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/architecture/hub-spoke-vwan-architecture.yml",
+      "redirect_url": "/networking/architecture/hub-spoke-virtual-wan-architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
       "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
       "redirect_document_id": true

@@ -13,6 +13,6 @@ products:
   - azure-virtual-wan
 name: Hub-spoke network topology with Azure Virtual WAN
 summary: A hub-spoke reference architecture.
-thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke-vwan-architecture-001.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke-virtual-wan-architecture.png
 content: |
-  [!include[](hub-spoke-vwan-architecture-content.md)]
+  [!include[](hub-spoke-virtual-wan-architecture-content.md)]

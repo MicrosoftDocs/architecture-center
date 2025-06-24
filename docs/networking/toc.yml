@@ -8,8 +8,8 @@ items:
         items: 
         - name: Hub-spoke network topology in Azure
           href: architecture/hub-spoke.yml
-        - name: Hub-spoke topology with VWAN
-          href: architecture/hub-spoke-vwan-architecture.yml
+        - name: Hub-spoke topology with Virtual WAN
+          href: architecture/hub-spoke-virtual-wan-architecture.yml
         - name: Massive-scale VWAN architecture design
           href: architecture/massive-scale-azure-architecture.yml      
         - name: Virtual WAN optimized for requirements

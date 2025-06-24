@@ -179,7 +179,7 @@ Other contributors:
 
 ## Related resources
 - [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
-- [Hub-spoke network topology with Azure Virtual WAN](../architecture/hub-spoke-vwan-architecture.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](../architecture/hub-spoke-virtual-wan-architecture.yml)
 - [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology)
 
 [vwan]: /azure/virtual-wan/virtual-wan-about
