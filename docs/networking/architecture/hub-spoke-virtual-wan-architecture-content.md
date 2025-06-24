@@ -1,50 +1,25 @@
-This hub-spoke architecture provides an alternate solution to the
-reference architectures, [hub-spoke network topology in Azure](../architecture/hub-spoke.yml) and [implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml).
+This hub-spoke architecture provides an alternate solution to the [hub-spoke network topology architecture](../architecture/hub-spoke.yml) and the [secure hybrid network architecture](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
-The *hub* is a virtual network in Azure that serves as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and isolate workloads. Traffic flows between the on-premises datacenters and the hub through an Azure ExpressRoute or Azure VPN Gateway connection. This approach replaces traditional hubs with
+The *hub* is a virtual network in Azure that serves as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and help isolate workloads. Traffic flows between the on-premises datacenters and the hub through an Azure ExpressRoute or Azure VPN Gateway connection. This approach replaces traditional hubs with
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/), which is a fully managed service.
 
 This architecture includes the benefits of standard hub-spoke network topology and introduces new benefits:
 
-- **Less operational overhead** by replacing existing hubs with a fully managed Virtual WAN service.
+- **Less operational overhead** by replacing existing hubs with a fully managed Virtual WAN service
 
-- **Cost savings** by using a managed service and removing the need for a network virtual appliance (NVA).
+- **Cost savings** by using a managed service and removing the need for a network virtual appliance (NVA)
 
-- **Improved security** through centrally managed secure hubs that use Azure Firewall and Virtual WAN to minimize security risks related to misconfiguration.
+- **Improved security** through centrally managed secure hubs that use Azure Firewall and Virtual WAN to minimize security risks related to misconfiguration
 
-- **Separation of concerns** between central IT teams such as SecOps and InfraOps and workloads such as DevOps.
+- **Separation of concerns** between central IT such as SecOps and InfraOps and workloads such as DevOps
 
 ## Architecture
 
 :::image type="complex" border="false" source="_images/hub-spoke-virtual-wan-architecture-1.svg" alt-text="Diagram that shows a hub-spoke reference architecture." lightbox="_images/hub-spoke-virtual-wan-architecture-1.svg":::
+The diagram has two hub virtual networks that connect. Hub virtual network 1 connects to a shared services virtual network and another virtual network. It also has other connections, including a VPN point-to-site user, two VPN branches, and an ExpressRoute circuit. Hub virtual network 2 has two attached virtual networks. The text under this setup reads Routing configuration of virtual network connections except shared services virtual network. The associated route table is RT_VNets. The propagated route table is default. Hub virtual network 2 connects to two virtual networks. It also has other connections, including a VPN point-to-site user, two VPN branches, and an ExpressRoute circuit. The text under this setup reads Routing configuration of VPN, ExpressRoute, point-to-site connections, and shared services virtual network. The associated route table is default. The propagated route tables are default and RT_VNets. DDoS Protection is in the top right corner of the diagram.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-Virtual-WAN-architecture-001.vsdx) of this architecture.* 
-
-### Workflow
-
-The following workflow corresponds to the previous diagram. It describes how traffic flows through the hub-spoke Virtual WAN architecture.
-
-1. **Branch or user traffic originates on-premises:** A user or system from a branch site or on-premises network initiates a connection. This traffic is routed through the SD-WAN or VPN device configured to connect to Virtual WAN.
-
-1. **Traffic enters Azure via a VPN or ExpressRoute gateway:** The encrypted traffic reaches the Virtual WAN hub through a VPN or ExpressRoute gateway deployed in the region. Virtual WAN manages and optimizes routing to the appropriate destination.
-1. **The Virtual WAN hub manages routing:** The hub evaluates routing policies, including custom routes or policies that Azure Firewall or NVAs enforce. The hub determines the next hop for the traffic. If the destination is in another region or hub, global transit capabilities handle the routing.
-1. **Inter-hub connectivity ensures global reachability:** If the destination is in another region, the traffic is routed via the Microsoft global backbone through inter-hub connectivity between Virtual WAN hubs.
-1. **Traffic reaches the spoke virtual network:** If the destination is a workload or application in a spoke virtual network, the Virtual WAN hub forwards the traffic based on defined peering and routing configurations.
-1. **Security inspection (optional):** Azure Firewall or a non-Microsoft NVA deployed in the hub can inspect traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
-1. **The application response follows the reverse path:** The application or resource in the spoke virtual network responds, and the return traffic flows back through the same Virtual WAN hub and gateway, following the defined route and security policies.
-1. **Azure Firewall filters or routes internet-bound traffic:** If the destination is external, such as the internet, Azure Firewall or a non-Microsoft security solution can inspect, filter, or route the traffic. Then the traffic exits through a secured egress point.
-
-### Components
-
-The architecture uses the following services:
-
-* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub via virtual network connections. These connections allow workloads in the spokes to communicate securely with each other, on-premises networks, or the internet via centralized services.
-
-* [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
-* [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using IPsec tunnels. In this architecture, it operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
-* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
-* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it runs in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between virtual networks or from on-premises environments.
 
 The architecture uses the following networking components:
 
@@ -64,6 +39,29 @@ The architecture uses the following networking components:
 
 - **Virtual network peering:** You can use virtual network peering to provide a nontransitive, low-latency connection between virtual networks. Peered networks exchange traffic over the Azure backbone without requiring a router. In a hub-spoke network topology, use virtual network peering to connect the hub to each spoke. Virtual WAN enables transitivity among hubs, which isn't possible by using only peering.
 
+### Workflow
+
+The following workflow describes how traffic flows through the hub-spoke Virtual WAN architecture:
+
+1. **Branch or user traffic originates on-premises:** A user or system from a branch site or on-premises network initiates a connection. This traffic is routed through the SD-WAN or VPN device configured to connect to Virtual WAN.
+
+1. **Traffic enters Azure via a VPN or ExpressRoute gateway:** The encrypted traffic reaches the Virtual WAN hub through a VPN or ExpressRoute gateway deployed in the region. Virtual WAN manages and optimizes routing to the appropriate destination.
+1. **The Virtual WAN hub manages routing:** The hub evaluates routing policies, including custom routes or policies that Azure Firewall or NVAs enforce. The hub determines the next hop for the traffic. If the destination is in another region or hub, global transit capabilities handle the routing.
+1. **Inter-hub connectivity ensures global reachability:** If the destination is in another region, the traffic is routed via the Microsoft global backbone through inter-hub connectivity between Virtual WAN hubs.
+1. **Traffic reaches the spoke virtual network:** If the destination is a workload or application in a spoke virtual network, the Virtual WAN hub forwards the traffic based on defined peering and routing configurations.
+1. **Security inspection (optional):** Azure Firewall or a non-Microsoft NVA deployed in the hub can inspect traffic before it reaches its final destination. This method enforces centralized security and policy compliance.
+1. **The application response follows the reverse path:** The application or resource in the spoke virtual network responds, and the return traffic flows back through the same Virtual WAN hub and gateway. It follows the defined route and security policies.
+1. **Azure Firewall filters or routes internet-bound traffic:** If the destination is external, such as the internet, Azure Firewall or a non-Microsoft security solution can inspect, filter, or route the traffic. Then the traffic exits through a secured egress point.
+
+### Components
+
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub via virtual network connections. These connections allow workloads in the spokes to communicate securely with each other, on-premises networks, or the internet via centralized services.
+
+* [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
+* [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using IPsec tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
+* [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
+* [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it runs in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between virtual networks or from on-premises environments.
+
 ### Alternatives
 
 To implement a hub-spoke architecture, you can use a customer-managed hub infrastructure or a Microsoft-managed hub infrastructure. For both methods, spokes connect to the hub via virtual network peering.
@@ -79,6 +77,7 @@ You can use this architecture for the following use cases:
 ## Advantages
 
 :::image type="complex" border="false" source="_images/hub-spoke-virtual-wan-architecture-2.svg" alt-text="Diagram that shows the advantages of a hub-spoke reference architecture." lightbox="_images/hub-spoke-virtual-wan-architecture-2.svg":::
+The diagram shows Virtual WAN in the center. It has three connected regions. Each region contains multiple virtual networks. Region 1 contains Arrows illustrate various types of connectivity, including branch-to-Azure, branch-to-branch, network-to-network, and user VPN connections. The diagram highlights the use of both VPN and ExpressRoute for hybrid connectivity. DDoS Protection is in the top left corner.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
@@ -98,15 +97,15 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 ### Resource groups
 
-The hub and each spoke can reside in different resource groups and, ideally, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can belong to the same Microsoft Entra tenant or a different one. This setup enables decentralized management of each workload while sharing services maintained in the hub.
+The hub and each spoke can reside in different resource groups and, ideally, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can belong to the same Microsoft Entra ID tenant or different ones. This setup enables decentralized management of each workload while sharing services maintained in the hub.
 
 ### Virtual WAN
 
-Create a Standard Virtual WAN if yours solution requires any of the following capabilities:
+Create a Standard Virtual WAN if your solution requires any of the following capabilities:
 
 - Scaling for higher throughputs
 
-- Private connectivity by using an ExpressRoute Premium Circuit in a Global Reach location
+- Private connectivity by using an ExpressRoute Premium circuit in a Global Reach location
 
 - ExpressRoute VPN interconnect
 
@@ -116,7 +115,7 @@ Standard Virtual WAN uses full-mesh connectivity by default. It supports any-to-
 
 Basic Virtual WAN supports site-to-site VPN connectivity, branch-to-branch connectivity, and branch-to-virtual network connectivity within a single hub.
 
-### Virtual WAN Hub
+### Virtual WAN hub
 
 A virtual hub is a Microsoft-managed virtual network that serves as the core of your network in a region. The hub contains various service endpoints to enable connectivity. You can have multiple hubs in each Azure region. For more information, see [Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq#is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region). 
 
@@ -128,7 +127,7 @@ You can create a virtual hub as a secured virtual hub or convert an existing hub
 
 ### Gateway subnet
 
-For more information about setting up the gateway, see [Hybrid network by using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
+For more information about setting up a gateway, see [Hybrid network by using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 For higher availability, you can use ExpressRoute with a VPN for failover. For more information, see 
 [Connect an on-premises network to Azure by using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
@@ -141,7 +140,7 @@ Virtual network peering creates a nontransitive relationship between two virtual
 
 When you need to connect multiple spokes, you can quickly reach the limit for virtual network peerings for each virtual network. For more information, see [Networking limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits). Virtual WAN resolves this limitation by providing built-in connectivity between spokes. For more information, see [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture).
 
-You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, do the following steps:
+You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from the spoke to the hub and connect to remote networks, do the following steps:
 
 1. Configure the peering connection in the hub to **allow gateway transit**.
 
@@ -151,43 +150,42 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 For more information, see [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml).
 
-#### Virtual network peering - Hub connection
+#### Virtual network peering for a hub connection
 
 In Virtual WAN, Microsoft manages virtual network peering. When you add a connection to a hub, Virtual WAN configures virtual network peering. As a result, all spokes have a transitive relationship.
 
 ### Routing intents
 
-Routing intents in Virtual WAN are predefined routing configurations that simplify how traffic flows between spokes, on-premises, and the internet through the hub. You can use routing intents to enforce consistent and centralized traffic flows for specific traffic categories:
+Routing intents in Virtual WAN are predefined routing configurations that simplify how traffic flows between spokes, on-premises, and the internet through the hub. You can use routing intents to enforce consistent and centralized traffic flows for specific traffic categories, including the following categories:
 
-- **The internet:** Traffic destined for the internet
+- **Internet:** Traffic destined for the internet
 - **Private traffic:** Traffic between virtual networks or from on-premises to virtual networks
 
-When you enable routing intents on the Virtual WAN hub, Azure automatically configures the appropriate routes. Traffic that matches a given intent flows to a specified next hop:
+When you enable routing intents on the Virtual WAN hub, Azure automatically configures the appropriate routes. Traffic that matches a given intent flows to a specified next hop, such as the following components:
 
 - Azure Firewall for traffic inspection and filtering
 - NVAs for custom traffic processing
   
-**Supported intents:**
+Virtual WAN supports the following routing intents:
 
 - **Internet:** Routes internet-bound traffic through a designated security appliance, such as Azure Firewall
-
-- **Private Traffic:** Routes virtual network-to-virtual network or hybrid traffic through the security path, such as NVAs or a firewall
+- **Private traffic:** Routes network-to-network or hybrid traffic through the security path, such as an NVA or firewall
 
 ### Route maps
 
 Route maps in Virtual WAN provide fine-grained control over advertised and received routes. Use route maps to filter, modify, or control Border Gateway Protocol (BGP) route propagation between Virtual WAN hubs and external networks, such as branches, partner networks, or SD-WAN connections. Route maps control which routes are advertised or accepted over a BGP connection.
 
-You can attach route maps to connections, such as VPN sites, ExpressRoute circuits, or virtual network connections. Each route map contains one or more rules that have conditions (match statements) and actions (permit, deny, or set). Azure evaluates rules in order, and the first match determines the outcome for that route. You can apply route maps in either the inbound or outbound direction.
+You can attach route maps to connections, such as VPN sites, ExpressRoute circuits, or virtual network connections. Each route map contains one or more rules that have conditions, such as match statements, and actions, such as permit, deny, or set. Azure evaluates rules in order, and the first match determines the outcome for that route. You can apply route maps in either the inbound or outbound direction.
 
 Route maps support scalable and controlled hybrid connectivity and ensure compliance with routing policies and network segmentation. They help prevent routing loops or route leaks in large environments.
 
 ### Hub extensions
 
-To support network-wide shared services, like Domain Name System (DNS) resources, custom NVAs, and Azure Bastion, use the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) to implement each service. Use this model to build and operate single-responsibility extensions that expose business-critical, shared services that you can't deploy directly in a virtual hub.
+To support network-wide shared tools, like Domain Name System (DNS) resources, custom NVAs, and Azure Bastion, use the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) to implement each service. Use this model to build and operate single-responsibility extensions that expose business-critical, shared services that you can't deploy directly in a virtual hub.
 
 #### Spoke connectivity and shared services
 
-Virtual WAN already provides connectivity among spokes. But user-defined routes (UDRs) in the spoke traffic help isolate virtual networks. You can also host shared services on the same Virtual WAN as a spoke.
+Virtual WAN provides connectivity among spokes. But user-defined routes (UDRs) in the spoke traffic help isolate virtual networks. You can also host shared services on the same Virtual WAN as a spoke.
 
 ## Considerations
 
@@ -215,12 +213,12 @@ Use the [Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/v
 
 1. **Deployment hours:** Charges for the deployment and use of Virtual WAN hubs.
 
-1. **Scale unit:** Fees based on the bandwidth capacity (Mbps/Gbps) for scaling VPN (site-to-site, point-to-site) and ExpressRoute gateways.
+1. **Scale unit:** Fees based on the bandwidth capacity in megabits per second (Mbps) or gigabits per second (Gbps) for scaling site-to-site or  point-to-site VPN and ExpressRoute gateways.
 1. **Connection unit:** Costs for each connection to VPN, ExpressRoute, or remote users.
-1. **Data processed unit:** Charges per GB for data processed through the hub.
+1. **Data processed unit:** Charges per gigabyte (GB) for data processed through the hub.
 1. **Routing infrastructure unit:** Costs for routing capabilities in the hub.
 1. **Azure Firewall with secured virtual hub:** Recommended but adds an extra cost per deployment unit and per data processed unit.
-1. **Hub-to-hub data transfer:** Costs for transferring data between hubs subject to inter-region (intra/inter-continental) charges as detailed in the [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+1. **Hub-to-hub data transfer:** Costs for transferring data between hubs. These costs are subject to inter-region (intra-continental or inter-continental) rates as detailed in [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 For more information about pricing that aligns with common networking scenarios, see [About Virtual WAN pricing](/azure/virtual-wan/pricing-concepts#pricing).
 
@@ -238,7 +236,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Virtual WAN helps reduce latency among spokes and across regions. It supports scaling up to 20 Gbps of aggregate throughput.
 
-Virtual WAN provides full-mesh connectivity among spokes while allowing traffic restriction based on specific needs. This architecture enables large-scale site-to-site performance. You can also create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
+Virtual WAN provides full-mesh connectivity among spokes while allowing traffic restriction based on specific needs. This architecture enables large-scale, site-to-site performance. You can also create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
 
 ## Contributors
 

@@ -2632,7 +2632,7 @@
     },
     {
       "source_path": "docs/networking/architecture/hub-spoke-vwan-architecture.yml",
-      "redirect_url": "/networking/architecture/hub-spoke-virtual-wan-architecture",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture",
       "redirect_document_id": true
     },
     {
