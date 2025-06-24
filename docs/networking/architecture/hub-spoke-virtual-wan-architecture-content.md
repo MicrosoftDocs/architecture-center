@@ -255,7 +255,7 @@ Principal author:
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute)
 - [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
-- [Azure Landing Zone Architecture](/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [ExpressRoute overview](/azure/expressroute/expressroute-introduction)
 - [Extend an on-premises network by using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
