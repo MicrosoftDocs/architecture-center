@@ -197,7 +197,7 @@ An important consideration for the hosting platform is the networking protocols 
 
 | Network and protocol support | Container Apps| AKS | Web App for Containers |
 |---|---|---|---|
-| Protocol and port support | - HTTP (port 80)* <br><br> - HTTPS (port 443)*<br><br> - TCP (ports 1 to 65535, except 80 and 443) | - TCP (any port)<br><br> - UDP (any port) | HTTP (port 80)<br><br>- HTTPS (port 443) |
+| Protocol and port support | - HTTP (port 80)* <br><br> - HTTPS (port 443)*<br><br> - TCP (ports 1 to 65535, except 80 and 443) | - TCP (any port)<br><br> - UDP (any port) | - HTTP (port 80)<br><br>- HTTPS (port 443) |
 | WebSocket support | ✅ | ✅ | ✅ |
 | HTTP/2 support | ✅ | ✅ | ✅ |
 
@@ -479,7 +479,7 @@ Scaling out and in includes rebalancing instances, so it creates a risk of downt
 | Infrastructure flexibility | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | Infrastructure scale-in and scale-out | - Consumption plan: Not available<br><br> - Dedicated plan: Configurable | Configurable | Configurable |
-| Flexible hardware provisioning | - Consumption plan: Not available <br><br> - Dedicated plan: Abstracted with workload profiles | - Any VM SKU | Abstracted, see [App Service plan](/azure/app-service/overview-hosting-plans) |
+| Flexible hardware provisioning | - Consumption plan: Not available <br><br> - Dedicated plan: Abstracted with workload profiles | Any VM SKU | Abstracted, see [App Service plan](/azure/app-service/overview-hosting-plans) |
 
 > [!IMPORTANT]
 > The hardware provisioning options available through the Container Apps Dedicated plan (workload profiles) and Web App for Containers (App Service plans) aren't as flexible as AKS. You need to familiarize yourself with the SKUs available in each service to ensure that your needs are met.
@@ -531,7 +531,7 @@ Azure Monitor is the key logging and metrics service in Azure that integrates wi
 | --- | --- | --- | --- | --- |
 | Support for log streaming | ✅   | ✅   | ✅   | ✅   |
 | Support for Azure Monitor | ✅   | ✅   | ✅   | ✅   |
-| Azure Monitor resource logs | [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
+| Azure Monitor resource logs | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
 | Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
 | Preconfigured Prometheus and Grafana | ❌ | Requires manual setup. | Managed Prometheus and Managed Grafana are preconfigured by default. | ❌ |
 
