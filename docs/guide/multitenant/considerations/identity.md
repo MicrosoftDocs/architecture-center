@@ -1,6 +1,6 @@
 ---
 title: Architectural Considerations for Identity in a Multitenant Solution
-description: Learn multitenant identity architecture with authentication, authorization, SSO, federation, and tenant isolation strategies for secure solutions.
+description: Learn about multitenant identity architecture with authentication, authorization, SSO, federation, and tenant isolation strategies for secure solutions.
 author: plagueho
 ms.author: dascottr
 ms.date: 05/30/2025
@@ -24,7 +24,7 @@ Your customers might also wish to authorize external applications to access thei
 >
 > Building your own IdP is complex, expensive, and challenging to secure. It's considered an [antipattern](../approaches/identity.md#building-or-running-your-own-identity-system), and we don't recommend it.
 
-Before you identify a multitenant identity strategy, first consider the following high-level identity requirements for your service:
+Before you define a multitenant identity strategy, first consider the following high-level identity requirements for your service:
 
 - Determine whether users or [workload identities](#workload-identities) will access a single application or multiple applications within a product family. Some product families might include distinct applications that share the same identity infrastructure, such as point-of-sale systems and inventory management platforms.
 
@@ -32,13 +32,17 @@ Before you identify a multitenant identity strategy, first consider the followin
 
 - Evaluate whether authentication is limited to UI-based applications or if API access will also be provided to tenants and non-Microsoft systems.
 
-- Identify whether tenants will need to federate with their own IdPs. If so, assess whether multiple IdPs must be supported for each tenant. Protocol support affects your solution design, especially when supporting providers such as Microsoft Entra ID, Auth0, and Active Directory Federation Services.  
+- Determine whether tenants will need to federate with their own IdPs and if multiple different identity providers need to be supported for each tenant. For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services where each tenant wants to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs to support because the protocols influence the requirements for your own IdP.
 
-- Review any applicable compliance requirements, such as GDPR, that might shape your identity strategy.  
+- Review any applicable compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr), that might shape your identity strategy.  
 
 - Determine whether tenants require identity data to be stored in specific geographic regions in order to meet legal or operational needs.  
 
-- Assess whether users need access to data from one or multiple tenants within the application. You might also need to support seamless tenant switching or provide consolidated views across tenants for certain users.
+- Assess whether users need access to data from one or multiple tenants within the application. You might also need to support seamless tenant switching or provide consolidated views across tenants for specific users.
+
+- Determine if users of your solution require access to data from one tenant or from multiple tenants within your application. Also determine if users need the ability to quickly switch between tenants or to view consolidated information from multiple tenants. For example, users who have signed into the Azure portal can easily switch between different Microsoft Entra ID directories and subscriptions that they have access to.
+
+When you establish your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up and sign-in flows.
 
 ## Identity directory
 
@@ -160,15 +164,15 @@ Workload identities are similar to user identities, but usually they require dif
 
 If your tenants expect to be able to enable workload identity access to your multitenant solution, then you should consider the following factors:
 
-- Workload identity creation and management should be clearly defined for each tenant. Consider how these identities will be provisioned, tracked, and maintained.  
+- Workload identity creation and management should be clearly defined for each tenant. Determine how workload identities will be created and managed in each tenant.
 
-- Requests made by workload identities need to be properly scoped so that each request aligns with the specific tenant's access boundaries.  
+- Requests made by workload identities need to be properly scoped so that each request aligns with the specific tenant's access boundaries. Determine how workload identity requests will be scoped to the tenant.
 
-- It might be necessary to place limits on the number of workload identities that a tenant can create to avoid resource overuse or mismanagement.
+- It might be necessary to place limits on the number of workload identities that a tenant can create to avoid resource overuse or mismanagement. Determine if you need to limit the number of workload identities that each tenant creates.
 
-- CA controls could be required for workload identities in each tenant. For example, a tenant might want to ensure that workload identities can only be authenticated from specific geographic regions.
+- Determine if CA controls are required for workload identities in each tenant. For example, a tenant might want to ensure that workload identities can only be authenticated from specific geographic regions.
 
-- Security controls provided to tenants must be effective at protecting workload identities. These controls might include automated key rotation, expiration policies for keys and certificates, and active monitoring for potential sign-in risks.
+- Determine which security controls you will provide to tenants to ensure that workload identities are secured. For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring are all methods of reducing the risk, where a workload identity might be misused.
 
 ## Federate with an IdP for SSO
 
@@ -178,13 +182,13 @@ Federation is especially important when some tenants want to specify their own i
 
 If you expect tenants to federate with your solution, consider the following factors:
 
-- The process for configuring federation should be clearly defined. Consider whether tenants are able to set it up on their own or if it requires manual configuration and maintenance by your team.
+- Consider the process for configuring the federation for a tenant. Determine if tenants can configure federation themselves or does the process require manual configuration and maintenance by your team?
 
-- Supported federation protocols should be identified and consistently implemented across the solution.  
+- Define which federation protocols your solution will support.
 
-- Safeguards should be in place to prevent misconfigurations that could inadvertently grant access to the wrong tenant.  
+- Establish processes that prevent federation misconfigurations from granting access to unintended tenants.  
 
-- In some cases, a single tenant's IdP might need to be connected to multiple tenants within your solution. For instance, organizations that use separate training and production tenants might require access through the same IdP.
+- Plan for whether a single tenant's IdP will need to be federated to more than one tenant in your solution. For example, if customers have both a training and a production tenant, they might need to federate the same IdP with each tenant.
 
 ## Authorization models
 
@@ -206,15 +210,15 @@ The application code or a dedicated entitlements system typically tracks and enf
 
 As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Consider the following factors:
 
-- The user directory should be able to scale as the number of users increases.  
+- Assess whether the user directory will scale to support the required number of users.  
 
-- The authentication system needs to handle growing volumes of sign-in and sign-up traffic as the solution expands.  
+- Evaluate whether the authentication process will handle the expected number of sign-ins and sign-ups.
 
-- Spikes in authentication activity can occur at predictable times. For example, a large number of users might sign in simultaneously at the start of the workday in a specific region. These surges are often known as *login storms*.  
+- Determine whether there will be spikes that the authentication system can't handle. For example, at 9am PST, everyone in the western United States might start work and sign in to your solution, which creates a spike in sign-in requests. These scenarios are sometimes called *login storms*.
 
-- Dependencies between authentication and other services can affect performance under load. If authentication relies on other components such as an API layer, high traffic could cause delays or failures across the system.  
+- Determine whether high load in other parts of your solution can affect the performance of the authentication process. For example, if authentication requires calling into an application-tier API, a surge in authentication requests could affect overall system performance.
 
-- The availability of the IdP becomes increasingly important. If the provider goes offline, a fallback authentication method can help maintain access and minimize disruption.
+- Define how your solution will behave if the IdP becomes unavailable. Include whether a backup authentication service is in place to maintain business continuity when the IdP is unavailable.
 
 ## Contributors
 
