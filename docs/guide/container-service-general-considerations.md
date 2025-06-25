@@ -111,7 +111,7 @@ When you integrate applications into virtual networks, you need to plan IP addre
 
 | | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| **Dedicated subnets** | - Consumption plan: optional<br><br> - Dedicated plan: required | Required | Optional |
+| **Dedicated subnets** | - Consumption plan: optional<br><br> - Dedicated plan: required | - Required | - Optional |
 | **IP address requirements** | - Consumption plan. See [Consumption-only environment](/azure/container-apps/networking#subnet).<br><br> - Dedicated plan. See [Workload profiles environment](/azure/container-apps/networking#subnet). | - See [Azure virtual networks for AKS](/azure/aks/concepts-network). | - See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
 
 AKS requirements depend on your chosen network plug-in. Some network plug-ins for AKS require broader IP address reservations. That information is beyond the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
@@ -155,7 +155,7 @@ The following table incorporates the previous subnet planning section to define 
 
 | | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| **The number of ingress IP addresses** | - One | - Many | - App Service environment: One<br><br> - No App Service environment: Many |
+| **The number of ingress IP addresses** | - One | - Many| - App Service environment: One<br><br> - No App Service environment: Many |
 
 Container Apps supports one IP address for each environment, either public or private. AKS supports any number of public or private IP addresses. Web App for Containers, when used outside an App Service environment, allows one public IP address for each App Service plan and multiple distinct private IP addresses via Azure private endpoints.
 
@@ -292,7 +292,7 @@ Most Azure services, including Container Apps, AKS, and Web App for Containers, 
 
 Of the services in this guide, AKS provides the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options.
 
-AKS Automatic clusters come with a hardened default configuration, and have many cluster, application, and networking security settings enabled by default. These initial configurations don't only reduce deployment time, but also give users a standardized configuration that is prevalidated and thus gives users a solid foundation for day 2 operational responsibilities. This foundation helps shorten the learning curve of long-term cluster management for teams that are new to the technology.
+AKS Automatic clusters come with a hardened default configuration, and have many cluster, application, and networking security settings enabled by default. These initial configurations don't only reduce deployment time, but also give users a standardized configuration that is prevalidated. This configuration gives users a solid foundation for day-2 operational responsibilities. This foundation helps shorten the learning curve of long-term cluster management for teams that are new to the technology.
 
 For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
 
@@ -491,7 +491,7 @@ Scaling of infrastructure and applications is typically triggered by resource co
 
 | | Container Apps | AKS | Web App for Containers |
 |---|--|--|--|
-| **Container scale out** | -[HTTP, TCP, or metrics-based (CPU, memory, event-driven)](/azure/container-apps/scale-app) | - [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | - [Manual, metrics-based](/azure/app-service/manage-scale-up#scale-instance-count-manually-or-by-schedule), or [automatic (preview)](/azure/app-service/manage-automatic-scaling). |
+| **Container scale out** | -[HTTP, TCP, or metrics-based (CPU, memory, event-driven)](/azure/container-apps/scale-app) | - [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | - [Manual, metrics-based](/azure/app-service/manage-scale-up#scale-instance-count-manually-or-by-schedule), or [automatic (preview)](/azure/app-service/manage-automatic-scaling) |
 | **Event-driven scalability** | - Yes. Cloud-native. | - Yes. Cloud-native. Extra configuration required. | - Yes. Azure-resource specific. |
 
 AKS Automatic enables the horizontal pod autoscaler, KEDA, and vertical pod autoscaler by default.
@@ -536,7 +536,7 @@ Azure Monitor is the key logging and metrics service in Azure that integrates wi
 | **Metric collection and monitoring** | - Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | - Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | - Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | - Metrics via Azure Monitor |
 | **Preconfigured Prometheus and Grafana** | ❌ | - Requires manual setup. | ✅ - Managed Prometheus and Managed Grafana are preconfigured by default. | ❌   |
 
-Consider the following services:
+Consider metrics and logs for the following services:
 
 - **Container Apps** abstracts all of its internal Kubernetes logs into two categories: console logs, which contain workload container logs, and system logs, which contain all platform-related logs. For metrics, Container Apps integrates with Azure Monitor to collect standard metrics and supports custom metrics through Dapr integration for advanced scenarios.
 
