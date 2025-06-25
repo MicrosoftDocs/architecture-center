@@ -245,7 +245,7 @@ Web Apps for Containers provides public ingress (north-south communication) FQDN
 
 Container Apps also provides public ingress FQDNs. However, Container Apps goes further by allowing the app FQDN to be exposed and [restricting traffic only within the environment](/azure/container-apps/networking). This functionality makes it easier to manage east-west communication and enable components like Dapr.
 
-Kubernetes deployments are not inherently discoverable from within or outside the cluster. To expose applications to the network in an addressable way, you must define and create Kubernetes services as specified by the Kubernetes API.
+Kubernetes deployments aren't inherently discoverable from within or outside the cluster. To expose applications to the network in an addressable way, you must define and create Kubernetes services as specified by the Kubernetes API.
 
 > [!IMPORTANT]
 > Only Container Apps and AKS provide service discovery through internal DNS schemes within their respective environments. This functionality can simplify DNS configurations across dev/test and production environments. For example, you can create these environments with arbitrary service names that have to be unique only within the environment or cluster, so they can be the same across dev/test and production. With Web App for Containers, service names must be unique across different environments to avoid conflicts with Azure DNS.
