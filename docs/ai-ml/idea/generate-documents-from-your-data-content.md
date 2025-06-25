@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates an AI-powered document generation solution that enables organizations to create intelligent document templates grounded in their enterprise data. The solution uses Azure OpenAI Service and Azure AI Search to identify relevant documents, summarize unstructured information, and generate contextual document templates. Users can chat with their data, generate templates based on organizational knowledge, and export documents in standard formats like DOCX.
+This architecture demonstrates an AI-powered document generation solution that enables organizations to create intelligent form-based templates grounded in their enterprise data. The solution uses Azure OpenAI Service and Azure AI Search to identify relevant documents, summarize unstructured information, and generate contextual form-based templates. Users can generate form-based templates based on organizational knowledge, and export form-based templates in the Microsoft Word format.
 
-This architecture shows how to build a simple system for generating document templates using AI. It combines retrieval, summarization, and generation to support faster document drafting. The system enables user interaction through natural language and helps embed organizational knowledge directly into document workflows.
+This architecture shows how to build a simple system for generating form-based templates using AI. It combines retrieval, summarization, and generation to support faster form-based drafting. The system enables user interaction through natural language and helps embed organizational knowledge directly into document processing workflows.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/generate-documents-from-your-data.png" alt-text="Diagram that shows a document generation solution architecture using Azure AI services." lightbox="./_images/generate-documents-from-your-data.png":::
-   Document generation architecture showing the flow from sample data through Azure services to the web frontend for document template generation and export.
+   Document generation architecture showing the flow from sample data through Azure services to the web frontend for form-based template generation and export.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/generate-documents-from-your-data.vsdx) of this architecture.*
@@ -24,27 +24,25 @@ The following workflow corresponds to the preceding diagram:
 
 4. Azure AI Search creates searchable indexes from the processed documents, enabling semantic search capabilities and rapid information retrieval for document generation.
 
-5. Azure OpenAI Service utilizes the indexed content to power conversational interactions and generate contextual document templates based on user queries and organizational data.
+5. Azure OpenAI Service utilizes the indexed content to power conversational interactions and generate contextual form-based templates based on user queries and organizational data.
 
-6. App Service hosts the web frontend where users interact with the system to chat with their data, generate document templates, and export finished documents in DOCX format.
+6. App Service hosts the web frontend where users interact with the system to generate form-based templates, and export finished documents in DOCX format.
 
-7. Azure Cosmos DB stores conversation history, generated templates, and user interactions to maintain context and enable continuous improvement of the document generation process.
+7. Azure Cosmos DB stores conversation history and user interactions to maintain context and enable continuous improvement of the document generation process.
 
-8. Azure Key Vault manages all security credentials and configuration settings, ensuring secure communication between all system components.
-
-9. Container Registry maintains versioned container images for the web application, enabling consistent deployment and rollback capabilities.
+8. Container Registry maintains versioned container images for the web application, enabling consistent deployment and rollback capabilities.
 
 ### Components
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web frontend interface where users interact with their enterprise data through chat functionality. The interface also enables document template generation and DOCX export capabilities, providing a responsive and intuitive user experience.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web frontend interface where users interact with their enterprise data through chat functionality. The interface also enables form-based template generation and DOCX export capabilities, providing a responsive and intuitive user experience.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI Service powers the conversational interface and document generation capabilities, utilizing GPT models to understand user queries, summarize content, and generate contextual document templates based on enterprise data.
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI Service powers the conversational interface and document generation capabilities, utilizing GPT models to understand user queries, summarize content, and generate contextual form-based templates based on enterprise data.
 
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over diverse content types. In this architecture, Azure AI Search enables retrieval-augmented generation (RAG) by creating semantic search indexes of enterprise documents, allowing the system to quickly identify and retrieve relevant information for document template generation.
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over diverse content types. In this architecture, Azure AI Search enables retrieval-augmented generation (RAG) by creating semantic search indexes of enterprise documents, allowing the system to quickly identify and retrieve relevant information for form-based template generation.
 
 - [Azure AI Services](/azure/ai-services/) provides a collection of AI services for processing and understanding various types of content. In this architecture, Azure AI Services processes enterprise documents to extract text, understand structure, and prepare content for indexing and generation workflows.
 
-- [Azure Storage Account](/azure/well-architected/service-guides/azure-blob-storage)is Microsoft's object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Azure Storage Account stores enterprise documents, sample data, and generated templates. This provides durable and scalable storage for the document creation process.
+- [Azure Storage Account](/azure/well-architected/service-guides/azure-blob-storage)is Microsoft's object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Azure Storage Account stores enterprise documents and sample data. This provides durable and scalable storage for the document creation process.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores chat history, user actions, document details, and system data. This maintains context across sessions and enables custom document creation.
 
@@ -56,7 +54,7 @@ The following workflow corresponds to the preceding diagram:
 
 This document generation solution addresses the common challenge organizations face when creating consistent, high-quality documents that use institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts who could be focusing on higher-value activities.
 
-The solution enables organizations to put their enterprise data to work by providing an intelligent document generation assistant that can quickly draft templates for various document types including invoices, contracts, purchase orders, investment proposals, and grant submissions. The system grounds all generated content in the organization's actual data, reducing hallucination risks while providing transparency through reference links to source materials.
+The solution enables organizations to put their enterprise data to work by providing an intelligent document generation assistant that can quickly draft form-based templates for various document types including invoices, contracts, purchase orders, investment proposals, and grant submissions. The system grounds all generated content in the organization's actual data, reducing hallucination risks while providing transparency through reference links to source materials.
 
 ### Potential use cases
 
@@ -100,7 +98,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** This solution uses Azure OpenAI Service with custom prompt engineering and RAG patterns to generate documents grounded in enterprise data. The system maintains full control over the generation process, including content filtering, template customization, and output formatting.
 
-**Alternative approach:** Use Azure AI Foundry's Document Intelligence service combined with pre-built document templates. This approach provides out-of-the-box document processing capabilities with less customization but faster initial deployment.
+**Alternative approach:** Use Azure AI Foundry's Document Intelligence service combined with pre-built form-based templates. This approach provides out-of-the-box document processing capabilities with less customization but faster initial deployment.
 
 Consider this alternative if your workload has the following characteristics:
 
