@@ -34,6 +34,8 @@ The following workflow corresponds to the previous diagram:
 
 9. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
 
+10. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
+
 ### Components
 
 - [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps host the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code running on here is custom coded by your software engineering team.
