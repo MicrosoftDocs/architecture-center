@@ -3,7 +3,7 @@ title: Considerations for updating a multitenant solution
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -27,7 +27,7 @@ In this article, we provide guidance for technical decision-makers about the app
 Customers often have explicit or implicit requirements that can affect how your system is updated. Consider the following aspects to build up a picture of any points of concern that customers might raise:
 
 - **Expectations and requirements:** Uncover any expectations or requirements that customers might have about when their solution can be updated. These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
-- **Maintenance windows:** Understand whether your customers expect service-defined or even self-defined maintenance windows. They might need to communicate to their users about any potential outages, or they might need to test important aspects of your service after the update is complete.
+- **Maintenance windows:** Understand whether your customers expect service-defined or even self-defined maintenance windows. They might need to communicate to their users about any potential outages, or they might expect to be able to test important aspects of your service after the update is complete.
 - **Regulations:** Clarify whether customers have any regulatory concerns that require additional approval before updates can be applied. For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
 - **Sensitivity:** Understand whether any of your customers are particularly sensitive or resistant to having updates applied. If they are, try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
 - **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
@@ -38,12 +38,12 @@ Customers often have explicit or implicit requirements that can affect how your 
 You also need to consider the following questions from your own perspective:
 
 - **Control you're willing to provide:** Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer might be yes. However, if you're building a consumer-focused solution, it's unlikely you'll give any control over how you upgrade or operate your solution.
-- **Versions:** How many versions of your solution can you reasonably maintain at one time? Remember that if you find a bug and need to hotfix it, you might need to apply the hotfix to all of the versions in use.
+- **Versions:** How many versions of your solution can you reasonably maintain at one time? If you find a bug or security vulnerability and need to apply a hotfix, you might need to do so to all of the versions in use.
 - **Consequences of old versions:** What's the impact of letting customers fall too far behind the current version? If you release new features on a regular basis, will old versions become obsolete quickly? Also, depending on your upgrade strategy and the types of changes, you might need to maintain separate infrastructures for each version of your solution. So, there might be both operational and financial costs, as you maintain support for older versions.
 - **Rollback:** Can your deployment strategy support rollbacks to previous versions? Is this something you want to enable?
 
 > [!NOTE]
-> Consider whether you need to take your solution offline for updates or maintenance. Generally, outage windows are seen as an outdated practice, and modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. However, you need to design for zero-downtime deployments, so it's important to consider your update process when you plan your solution architecture.
+> Consider whether you need to take your solution offline for updates or maintenance. Generally, outage windows are seen as an outdated practice for software as a service (SaaS), and modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. However, you need to design for zero-downtime deployments, so it's important to consider your update process when you plan your solution architecture.
 >
 > Even if you don't plan for outages during your update process, you might still consider defining a regular maintenance window. A window can help to communicate to your customers that changes happen during specific times.
 >
@@ -62,7 +62,7 @@ Another approach can be to allow tenants to initiate their own updates, at a tim
 > [!WARNING]
 > Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it requires significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called *live-site incidents*) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Recommendations for designing and creating a monitoring system](/azure/well-architected/operational-excellence/observability).
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called *live-site incidents*) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. To learn more about live-site incident management in SaaS workloads, see TODO.
 
 ## Communicate with your customers
 
@@ -92,7 +92,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.yml) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings. You can use these approaches independently, or you can combine them together to meet more complex requirements.
 
-In all cases, ensure that you have sufficient reporting and visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated with those states.
+In all cases, ensure that you have sufficient reporting and visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated with those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.yml).
 
 ### Deployment Stamps pattern
 
@@ -113,11 +113,11 @@ You can embed feature flag support into your application by writing code yoursel
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to progressively roll out updates across a set of tenants or deployment stamps. You can assign a subset of tenants to each ring.
+[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to progressively roll out updates across a set of tenants or deployment stamps. You can assign a subset of tenants to each on the 
 
 You can determine how many rings to create and what each ring means for your own solution. Commonly, organizations use the following rings:
 
-- **Canary:** A canary ring includes your own test tenants and customers who want to have updates as soon as they are available, with the understanding that they may receive more frequent updates, and that updates might not have been through as comprehensive a validation process as in the other things.
+- **Canary:** A canary ring includes your own test tenants and customers who want to have updates as soon as they are available. Anybody on the canary ring should understand that they may receive more frequent updates, and that updates might not have been through as comprehensive a validation process as in the other things.
 - **Early adopter:** An early adopter ring contains tenants who are slightly more risk-averse, but who are still prepared to receive regular updates.
 - **Users:** Most of your tenants will belong to the *users* ring, which receives less frequent and more highly tested updates.
 
