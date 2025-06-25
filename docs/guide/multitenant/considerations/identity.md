@@ -196,4 +196,4 @@ Other contributors:
 
 ## Next steps
 
-Review [Architectural approaches for identity in multitenant solutions](../approaches/identity.md).
+- [Architectural approaches for identity in multitenant solutions](../approaches/identity.md).
