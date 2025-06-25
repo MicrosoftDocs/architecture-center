@@ -11,7 +11,7 @@ This architecture includes the benefits of standard hub-spoke network topology a
 
 - **Improved security** through centrally managed secure hubs that use Azure Firewall and Virtual WAN to minimize security risks related to misconfiguration
 
-- **Separation of concerns** between central IT such as SecOps and InfraOps and workloads such as DevOps
+- **Separation of concerns** between central IT such as security and infrastructure operations and workloads such as development operations.
 
 ## Architecture
 
@@ -27,11 +27,11 @@ The architecture uses the following networking components:
 
 - **VPN device:** A device or service that provides external connectivity to the on-premises network.
 
-- **VPN virtual network gateway or ExpressRoute gateway:** A virtual network gateway connects the virtual network to the VPN device or [ExpressRoute](/azure/expressroute/expressroute-introduction) circuit that you use for on-premises connectivity.
+- **VPN virtual network gateway or ExpressRoute gateway:** A virtual network gateway that connects the virtual network to the VPN device or [ExpressRoute](/azure/expressroute/expressroute-introduction) circuit that you use for on-premises connectivity.
 
 - **Virtual WAN hub:** The [Virtual WAN](/azure/virtual-wan/virtual-wan-about) serves as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network. It hosts services for workloads in the spoke virtual networks.
 
-- **Secured virtual hub:** This Virtual WAN hub includes security and routing policies that Azure Firewall Manager configures. A secured virtual hub includes built-in routing, so you don't need to configure user-defined routes.
+- **Secured virtual hub:** This Virtual WAN hub includes security and routing policies that Azure Firewall Manager configures. A secured virtual hub includes built-in routing, so you don't need to configure user-defined routes (UDRs).
 
 - **Gateway subnet:** This subnet contains the virtual network gateways.
 
@@ -58,7 +58,7 @@ The following workflow describes how traffic flows through the hub-spoke Virtual
 * [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides isolated and secure network environments for workloads. Virtual networks connect to the Virtual WAN hub via virtual network connections. These connections allow workloads in the spokes to communicate securely with each other, on-premises networks, or the internet via centralized services.
 
 * [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service. It provides a unified global transit network architecture that connects virtual networks, branches, and remote users. In this architecture, it serves as the central control plane and data plane. Virtual WAN manages and routes traffic across hubs, spokes, and external networks, which enables global connectivity through a common framework.
-* [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using IPsec tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
+* [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) enables encrypted communication between on-premises networks and Azure by using Internet Protocol Security (IPsec) tunnels. In this architecture, VPN Gateway operates within the hub to securely connect branch offices or datacenters to the Azure network via Virtual WAN.
 * [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private, high-throughput connectivity between on-premises infrastructure and Azure. When integrated with Virtual WAN, it provides a reliable and fast alternative to VPN connections for mission-critical workloads.
 * [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)  is a cloud-native, stateful network security service that provides threat protection for network traffic. In this architecture, it runs in the Virtual WAN hub to inspect and filter both outbound internet traffic and private traffic between virtual networks or from on-premises environments.
 
@@ -77,19 +77,19 @@ You can use this architecture for the following use cases:
 ## Advantages
 
 :::image type="complex" border="false" source="_images/hub-spoke-virtual-wan-architecture-2.svg" alt-text="Diagram that shows the advantages of a hub-spoke reference architecture." lightbox="_images/hub-spoke-virtual-wan-architecture-2.svg":::
-The diagram shows Virtual WAN in the center. It has three connected regions. Each region contains multiple virtual networks. Region 1 contains Arrows illustrate various types of connectivity, including branch-to-Azure, branch-to-branch, network-to-network, and user VPN connections. The diagram highlights the use of both VPN and ExpressRoute for hybrid connectivity. DDoS Protection is in the top left corner.
+The diagram shows Virtual WAN in the center. It has three connected regions. Each region contains multiple virtual networks. Arrows illustrate various types of connectivity, including branch-to-Azure, branch-to-branch, network-to-network, and user VPN connections. The diagram highlights the use of both VPN and ExpressRoute for hybrid connectivity. DDoS Protection is in the top left corner.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-virtual-wan-architecture-2.vsdx) of this architecture.* 
 
 The previous diagram shows advantages that this architecture provides:
 
-* A full meshed hub among Azure virtual networks
-* Branch-to-Azure connectivity
-* Branch-to-branch connectivity
-* Mixed use of VPN and ExpressRoute
-* Mixed use of user VPN to the site
-* Virtual network-to-virtual network connectivity
+- A full meshed hub among Azure virtual networks
+- Branch-to-Azure connectivity
+- Branch-to-branch connectivity
+- Mixed use of VPN and ExpressRoute
+- Mixed use of user VPN to the site
+- Virtual network-to-virtual network connectivity
 
 ## Recommendations
 
@@ -175,7 +175,7 @@ Virtual WAN supports the following routing intents:
 
 Route maps in Virtual WAN provide fine-grained control over advertised and received routes. Use route maps to filter, modify, or control Border Gateway Protocol (BGP) route propagation between Virtual WAN hubs and external networks, such as branches, partner networks, or SD-WAN connections. Route maps control which routes are advertised or accepted over a BGP connection.
 
-You can attach route maps to connections, such as VPN sites, ExpressRoute circuits, or virtual network connections. Each route map contains one or more rules that have conditions, such as match statements, and actions, such as permit, deny, or set. Azure evaluates rules in order, and the first match determines the outcome for that route. You can apply route maps in either the inbound or outbound direction.
+You can attach route maps to connections, such as VPN sites, ExpressRoute circuits, or virtual network connections. Each route map consists of one or more rules. These rules include conditions such as match statements and actions such as permit, deny, or set. Azure evaluates rules in order, and the first match determines the outcome for that route. You can apply route maps in either the inbound or outbound direction.
 
 Route maps support scalable and controlled hybrid connectivity and ensure compliance with routing policies and network segmentation. They help prevent routing loops or route leaks in large environments.
 
@@ -185,7 +185,7 @@ To support network-wide shared tools, like Domain Name System (DNS) resources, c
 
 #### Spoke connectivity and shared services
 
-Virtual WAN provides connectivity among spokes. But user-defined routes (UDRs) in the spoke traffic help isolate virtual networks. You can also host shared services on the same Virtual WAN as a spoke.
+Virtual WAN provides connectivity among spokes. But UDRs in the spoke traffic help isolate virtual networks. You can also host shared services on the same Virtual WAN as a spoke.
 
 ## Considerations
 
@@ -203,7 +203,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 You can convert hubs in Virtual WAN to secure hubs by using Azure Firewall. UDRs remain effective for enforcing network isolation. Virtual WAN also encrypts traffic between on-premises networks and Azure virtual networks through an ExpressRoute connection.
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced mitigation against distributed denial-of-service (DDoS) attacks. Enable [DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced mitigation against distributed denial-of-service (DDoS) attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 
 ### Cost Optimization
 
@@ -213,7 +213,7 @@ Use the [Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/v
 
 1. **Deployment hours:** Charges for the deployment and use of Virtual WAN hubs.
 
-1. **Scale unit:** Fees based on the bandwidth capacity in megabits per second (Mbps) or gigabits per second (Gbps) for scaling site-to-site or  point-to-site VPN and ExpressRoute gateways.
+1. **Scale unit:** Fees based on the bandwidth capacity in megabits per second (Mbps) or gigabits per second (Gbps) for scaling site-to-site or point-to-site VPN and ExpressRoute gateways.
 1. **Connection unit:** Costs for each connection to VPN, ExpressRoute, or remote users.
 1. **Data processed unit:** Charges per gigabyte (GB) for data processed through the hub.
 1. **Routing infrastructure unit:** Costs for routing capabilities in the hub.
@@ -258,7 +258,6 @@ Principal author:
 - [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [ExpressRoute overview](/azure/expressroute/expressroute-introduction)
 - [Extend an on-premises network by using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
-
 
 ## Related resources
 
