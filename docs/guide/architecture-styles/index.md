@@ -41,7 +41,7 @@ N-tier is a natural fit for migrating existing applications that already use a l
 
 For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.yml)** architecture. In this style, the application has a web front end that handles HTTP requests and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue.
 
-Web-queue-worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, Web-queue-worker can reduce the frequency of updates and limit innovation.
+Web-Queue-Worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, Web-Queue-Worker can reduce the frequency of updates and limit innovation.
 
 ### Microservices
 
@@ -59,7 +59,7 @@ Each service can be built by a small, focused development team. Individual servi
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with low latency, such as IoT solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
 
-### Big Data, Big Compute
+### Big data, big compute
 
 ![Logical diagram of a big data architecture style.](./images/big-data-logical.svg)
 
@@ -79,14 +79,14 @@ By adhering to these constraints, what emerges is a system where services can be
 
 Each architecture style has its own trade-offs. Therefore, before choosing any architectural style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but doesn't achieve the full potential of that style. You need to pay attention more to why you're choosing a certain architectural style than to how to implement it. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
 
-Choosing an appropriate architectural style should be done ideally with a consensus of informed workload stakeholders. The workload team should firstly identify the nature of the problem they are trying to solve. Then they should identify business drivers and corresponding architecture characteristics (also known as nonfunctional requirements) then prioritize them. For example, if they need shorter time to market, they might prioritize maintainability, testability, and reliable by rapid deployment capabilities. Or if the workload team's budget is constrained, they might prioritize feasibility and simplicity. Choosing and maintaining an architectural style isn't a one-off activity but a continuous approach: the architecture should be continuously measured, validated, and fine-tuned over time. Usually, there's significant cost involved in switching architectural style, so more effort up front can be justified for long term team efficiency and risk mitigation.
+Choosing an appropriate architectural style should be done ideally with a consensus of informed workload stakeholders. The workload team should firstly identify the nature of the problem they are trying to solve. Then they should identify business drivers and corresponding architecture characteristics (also known as nonfunctional requirements) then prioritize them. For example, if they need shorter time to market, they might prioritize maintainability, testability, and reliability by rapid deployment capabilities. Or if the workload team's budget is constrained, they might prioritize feasibility and simplicity. Choosing and maintaining an architectural style isn't a one-off activity but a continuous approach: the architecture should be continuously measured, validated, and fine-tuned over time. Usually, there's significant cost involved in switching architectural style, so more effort up front can be justified for long term team efficiency and risk mitigation.
 
 The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
 
 | Architecture style | Dependency management | Domain type |
 |--------------------|------------------------|-------------|
 | [N-tier][n-tier] | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
-| [Web-queue-worker](./web-queue-worker.yml) | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
+| [Web-Queue-Worker](./web-queue-worker.yml) | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
 | [Microservices][microservices] | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
 | [Event-driven architecture](./event-driven.yml) | Producer/consumer. Independent view per subsystem. | IoT and real-time systems. |
 | [Big data](./big-data.yml) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |

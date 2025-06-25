@@ -56,7 +56,7 @@ Using a DDD approach will help you to design microservices so that every service
 
 Before writing any code, you need a bird's eye view of the system that you're creating. DDD starts by modeling the business domain and creating a *domain model*. The domain model is an abstract model of the business domain. It distills and organizes domain knowledge, and provides a common language for developers and domain experts.
 
-Start by mapping all of the business functions and their connections. This effort will likely be a collaboration that involves domain experts, software architects, and other stakeholders. You don't need to use any particular formalism.  Sketch a diagram or draw on whiteboard.
+Start by mapping all of the business functions and their connections. This effort will likely be a collaboration that involves domain experts, software architects, and other stakeholders. You don't need to use any particular formalism. Sketch a diagram or draw on whiteboard.
 
 As you fill in the diagram, you may start to identify discrete subdomains. Which functions are closely related? Which functions are core to the business, and which provide ancillary services? What is the dependency graph? During this initial phase, you aren't concerned with technologies or implementation details. That said, you should note the place where the application needs to integrate with external systems, such as CRM, payment processing, or billing systems.
 

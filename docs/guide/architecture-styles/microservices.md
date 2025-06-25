@@ -39,13 +39,13 @@ In addition to the services themselves, some other components appear in a typica
 
 **Management/orchestration.** This management component is responsible for microservices orchestration, ensuring efficient scheduling and deployment of services across nodes, detecting and recovering from failures, and enabling autoscaling based on demand. Typically, this functionality is provided by a container orchestration platform like Kubernetes. In cloud-native environments, solutions like Azure Container Apps offer managed container orchestration with built-in scaling, simplifying deployment and operational overhead. 
 
-**API Gateway.** The API gateway is the entry point for clients. Instead of calling services directly, clients call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway handles common cross-cutting concerns like authentication, logging, and load balancing. In a cloud-native microservices architecture, lightweight service proxies like Envoy and Nginx might also be used for internal service-to-service communication, also known as East/West traffic to enable advanced routing and traffic control.
+**API Gateway.** The API gateway is the entry point for clients. Instead of calling services directly, clients call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway handles common cross-cutting concerns like authentication, logging, and load balancing. In a cloud-native microservices architecture, lightweight service proxies like Envoy and Nginx might also be used for internal service-to-service communication, also known as east-west traffic to enable advanced routing and traffic control.
 
 **Message-oriented middleware (MOM).** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, allowing services to react to events in real-time and also communicate via async messaging. 
 
 **Observability.** Having an effective observability strategy is crucial in microservices, enabling teams to maintain system reliability and quickly resolve problems. Centralized logging consolidates logs for easier diagnostics, while real-time monitoring via APM agents and open-source observability frameworks like OpenTelemetry (OTel) provides visibility into system health and performance. Distributed tracing is also essential for tracking requests across service boundaries, helping identify bottlenecks and optimize performance. 
 
-**Data management.** A well-designed database architecture is critical for microservices, supporting autonomy and scalability. Microservices often adopt polyglot persistence, using different types of databases like SQL and NoSQL based on each service's specific needs. This aligns with the principle of Domain Driven Design (DDD)/Bounded Context, where each service owns its data and schema, reducing cross-service dependencies and enabling independent evolution. This decentralized approach enhances flexibility, performance optimization, and resilience across the system.  
+**Data management.** A well-designed database architecture is critical for microservices, supporting autonomy and scalability. Microservices often adopt polyglot persistence, using different types of databases like SQL and NoSQL based on each service's specific needs. This aligns with the principle of domain-driven design (DDD)/bounded context, where each service owns its data and schema, reducing cross-service dependencies and enabling independent evolution. This decentralized approach enhances flexibility, performance optimization, and resilience across the system.  
 
 ## Benefits
 
@@ -57,7 +57,7 @@ In addition to the services themselves, some other components appear in a typica
 
 - **Mix of technologies.** Teams can pick the technology that best fits their service, using a mix of technology stacks as appropriate.
 
-- **Fault isolation.** If an individual microservice becomes unavailable, it doesn't disrupt the entire application, as long as any upstream microservices are designed to handle faults correctly. For example, you can implement the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), or you can design your solution so that the microservices communicate with each other using [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
+- **Fault isolation.** If an individual microservice becomes unavailable, it doesn't disrupt the entire application, as long as any upstream microservices are designed to handle faults correctly. For example, you can implement the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker), or you can design your solution so that the microservices communicate with each other using [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 - **Scalability.** Services can be scaled independently, letting you scale out subsystems that require more resources, without scaling out the entire application. Using an orchestrator such as Kubernetes, you can pack a higher density of services onto a single host, which allows for more efficient utilization of resources.
 
@@ -75,7 +75,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - **Network congestion and latency.** The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the extra latency can become a problem. You need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../../patterns/queue-based-load-leveling.yml).
 
-- **Data integrity.** Each microservice is responsible for its own data persistence. As a result, data consistency across multiple services can be a challenge. Different services persist data at different times, using different technology, and with potentially different levels of success. When more than one microservice is involved in persisting new or changed date, it's unlikely that the complete data change could be considered an ACID transaction. Instead, the technique is more aligned to BASE (Basically Available, Soft state, and Eventually consistent). Embrace eventual consistency where possible.
+- **Data integrity.** Each microservice is responsible for its own data persistence. As a result, data consistency across multiple services can be a challenge. Different services persist data at different times, using different technology, and with potentially different levels of success. When more than one microservice is involved in persisting new or changed date, it's unlikely that the complete data change could be considered an atomic, consistent, isolated, and durable (ACID) transaction. Instead, the technique is more aligned to Basically Available, Soft State, Eventual Consistency (BASE). Embrace eventual consistency where possible.
 
 - **Management.** To be successful with microservices requires a mature DevOps culture. Correlated logging across services can be challenging. Typically, logging must correlate multiple service calls for a single user operation.
 
@@ -115,7 +115,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 ## Antipatterns for microservices
 
-When designing and implementing microservices, certain pitfalls frequently arise that can undermine the benefits of this architectural style. Recognizing these anti-patterns helps teams avoid costly mistakes and build more resilient, maintainable systems. The following are some key anti-patterns to avoid:
+When designing and implementing microservices, certain pitfalls frequently arise that can undermine the benefits of this architectural style. Recognizing these antipatterns helps teams avoid costly mistakes and build more resilient, maintainable systems. The following are some key antipatterns to avoid:
 
 - Implementing microservices without a deep understanding of the business domain leads to poorly aligned service boundaries and undermines the intended benefits.
 
@@ -123,7 +123,7 @@ When designing and implementing microservices, certain pitfalls frequently arise
 
 - Using database entities as events exposes internal service details and often fails to convey the correct business intent, leading to tightly coupled and unclear integrations.
 
-- Avoiding data duplication at all costs is an anti-pattern. Using patterns like materialized views to maintain local copies improves service autonomy and reduces cross-service dependencies.
+- Avoiding data duplication at all costs is an antipattern. Using patterns like materialized views to maintain local copies improves service autonomy and reduces cross-service dependencies.
 
 - Using generic events forces consumers to interpret and filter messages, adding unnecessary complexity and reducing clarity in event-driven communication.
 

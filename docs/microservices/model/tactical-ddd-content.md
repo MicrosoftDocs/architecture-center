@@ -33,7 +33,7 @@ Traditional applications have often used database transactions to enforce consis
 
 **Domain events**. Domain events can be used to notify other parts of the system when something happens. As the name suggests, domain events should mean something within the domain. For example, "a record was inserted into a table" isn't a domain event. "A delivery was canceled" is a domain event. Domain events are especially relevant in a microservices architecture. Because microservices are distributed and don't share data stores, domain events provide a way for microservices to coordinate with each other. The article [Interservice communication](../design/interservice-communication.yml) discusses asynchronous messaging in more detail.
 
-There are a few other DDD patterns not listed here, including factories, repositories, and modules. These patterns can be useful when you're implementing a microservice, but they're less relevant when designing the boundaries between microservice.
+There are a few other DDD patterns not listed here, including factories, repositories, and modules. These patterns can be useful when you're implementing a microservice, but they're less relevant when designing the boundaries between microservices.
 
 ## Drone delivery: Applying the patterns
 
@@ -45,7 +45,7 @@ We start with the scenarios that the Shipping bounded context must handle.
 - When a customer schedules a delivery, the system provides an ETA based on route information, weather conditions, and historical data.
 - When the drone is in flight, a user can track the current location and the latest ETA.
 - Until a drone has picked up the package, the customer can cancel a delivery.
-- The customer isn'tified when the delivery is completed.
+- The customer is notified when the delivery is completed.
 - The sender can request delivery confirmation from the customer, in the form of a signature or finger print.
 - Users can look up the history of a completed delivery.
 
