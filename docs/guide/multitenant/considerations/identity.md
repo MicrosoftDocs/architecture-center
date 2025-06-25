@@ -80,13 +80,13 @@ Consider the following options for storing identity information:
 
 Multitenant solutions often allow a user or workload identity to access application resources across multiple tenants. When this approach is required, consider the following factors:
 
-- A decision must be made between using a single identity for each person or creating separate identities for each tenant-user combination.  
+- Decide whether to create a single user identity for each person or create separate identities for each tenant-user combination.
 
-  - Using a single identity for each person is typically recommended. It simplifies account management for both the solution provider and end users. It also enables modern threat protection capabilities that depend on a unified identity.  
+  - Using a single identity for each person is typically recommended. It simplifies account management for both the solution provider and end users. Also, many of the intelligent threat protections that modern IdP provides rely on each person having a single user account.  
 
-  - In some cases, multiple distinct identities might be necessary. This might apply when users need to separate work and personal activity, or when tenants require isolation because of regulatory or geographic data requirements.  
+  - In some scenarios, multiple distinct identities might be necessary. For example, if people use your system both for work and personal purposes, they might want to separate their user accounts. Or if your tenants have strict regulatory or geographical data storage requirements, they might require a person to have multiple identities so that they can comply with regulations or laws.
 
-- If the solution uses identities for each tenant, credentials shouldn't be stored redundantly. Instead, credentials should be tied to a single identity, and features such as guest accounts can be used to associate that identity with multiple tenant records.
+- If you use per-tenant identities, avoid storing credentials multiple times. Users should have their credentials stored against a single identity, and you should use features like guest identities to refer to the same user credentials from multiple tenants' identity records.
 
 ## Grant users access to tenant data
 
@@ -94,11 +94,11 @@ Consider how users will be mapped to a tenant. For example, during the sign-up p
 
 If your solution is designed so that a single user is only ever going to access the data for a single tenant, then consider the following decisions:
 
-- The IdP must determine which tenant the user is trying to access. This is typically based on user input, such as the domain name or selection during sign-in.  
+- Determine how the IdP detects which tenant a user is accessing.
 
-- The IdP needs to communicate the tenant identifier to the application. This communication is often done by including a tenant ID claim in the authentication token.  
+- Explain how the IdP communicates the tenant identifier to the application. Typically, a tenant identifier claim is added to the token.
 
-When users require access to multiple tenants, several important considerations emerge:
+If a single user needs to be granted access to multiple tenants, consider the following decisions:
 
 - The solution must support logic for identifying users and assigning appropriate permissions across tenants. For example, a user might have administrative rights in one tenant but limited access in another.
 
@@ -106,15 +106,15 @@ When users require access to multiple tenants, several important considerations 
 
 - Workload identities must specify which tenant they are authorized to access. This requirement might include embedding tenant-specific context in authentication requests or configuration metadata.
 
-- The identity system must prevent tenant-specific data from being unintentionally shared across tenants. For instance, identity attributes enriched by one tenant should remain isolated from other tenants unless explicitly shared.
+- Consider whether tenant-specific information stored in a user's identity record could unintentionally leak between tenants. For example, if a user signs up with a social identity and gains access to two tenants, and Tenant A enriches the user profile, determine whether Tenant B should have access to that enriched information.
 
 ## User sign-up process for local identities or social identities
 
 Some tenants might need to allow users to sign themselves up for an identity in your solution. Self-service sign-up might be required if you don't require federation with a tenant's IdP. If a self-sign up process is needed, then you should consider the following factors:
 
-- Allowed identity sources for user sign-up should be defined. This might include support for local identities, social IdPs, or both.
+- Define which identity sources users are allowed to sign up from. For example, determine whether users can create a local identity and also use a social identity provider.
 
-- If only local identities are permitted, tenants might choose to restrict sign-up to specific email domains. For example, access could be limited to users that have verified corporate email addresses.  
+- Specify whether only specific email domains will be allowed if local identities are used. For example, determine if a tenant can restrict sign-ups to users with an `@contoso.com` email address.
 
 - The user principal name (UPN) used for identifying local identities must be clearly established. Common UPNs include email addresses, usernames, phone numbers, or membership identifiers. Because UPNs can change, it's advisable to reference the underlying immutable unique identifier for authorization and auditing. An example is the object ID in Microsoft Entra ID.
 
@@ -122,15 +122,15 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 - Some solutions might require tenant administrators to approve user sign-ups. This approval process allows for administrative control over who joins a tenant.  
 
-- A tenant-specific sign-up experience or URL might be necessary. This could include displaying custom branding during sign-up or allowing tenants to intercept and validate sign-up requests before they proceed.
+- Decide whether tenants require a tenant-specific sign-up experience or URL. For example, determine if your tenants require a branded sign-up experience when users sign up, or the ability to intercept a sign-up request and perform extra validation before it proceeds.
 
 ### Tenant access for self sign-up users
 
 When users are allowed to sign themselves up for an identity, there usually needs to be a process for them to be granted access to a tenant. The sign-up flow might include an access grant process, or it could be automated, based on the information about the users, such as their email addresses. It's important to plan for this process and consider the following factors:
 
-- The sign-up flow should include logic that determines which tenant a user should be granted access to. This mapping might rely on attributes such as domain, invitation tokens, or referral links.  
+- Define how the sign-up flow will determine that a user should be granted access to a specific tenant.
 
-- Access revocation mechanisms must be in place to remove users who no longer require access to a tenant. This might include automated processes or administrative workflows that respond to events such as offboarding or access expiration.  
+- Define whether your solution will automatically revoke user access to a tenant when appropriate. For example, when users leave an organization, there should be a manual or automated process in place to remove their access.
 
 - A user audit capability is often needed so that tenants can review which users have access to their environment and understand their assigned permissions.
 
@@ -138,7 +138,7 @@ When users are allowed to sign themselves up for an identity, there usually need
 
 A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and off-boarding. Open protocols, such as [system for cross-domain identity management (SCIM)](/entra/architecture/sync-scim), provide an industry-standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. Consider the following questions when you implement automated account life cycle management in a multitenant solution:
 
-- An automated user life cycle process might be required for each tenant. This could include creating and managing user identities across multiple tenants, each with its own set of permissions.  
+- An automated user life cycle process might be required for each tenant. For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions.  
 
 - A decision should be made between implementing SCIM or offering federation. Federation allows tenants to retain control over user management by keeping the source of truth within their own systems instead of managing local users in your solution.
 
@@ -146,13 +146,13 @@ A common requirement for corporate or enterprise customers of a solution is a se
 
 When a user signs into a multitenant application, your identity system authenticates the user. Consider the following factors when you plan your authentication process:
 
-- Tenants might require the ability to configure their own MFA policies. Requirements can vary widely across industries, with some needing stricter enforcement than others.
+- Tenants might require the ability to configure their own MFA policies. For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
 
-- The option to define custom conditional access (CA) rules might be important for tenants. These rules could address security needs such as restricting sign-ins from specific regions.
+- The option to define custom conditional access (CA) rules might be important for tenants. For example, different tenants might need to block sign-in attempts from specific geographic regions.
 
-- Sign-in process customization can be necessary. This process might include displaying a tenant's branding or enriching user identity information with data from external systems.  
+- Determine whether tenants need to customize the sign-in process individually. For example, do you need to show a customer's logo? Or does user information, such as a rewards number, need to be retrieved from another system and returned to the identity provider to enrich the user profile?
 
-- Some users might need to impersonate other users. This functionality is often used by support personnel to investigate problems without requiring direct access to the user's credentials.  
+- Some users might need to impersonate other users. For example, a support team member might wish to investigate a problem that another user has by impersonating their user account without having to authenticate as the user.  
 
 - API access might be required for some users or external applications. These scenarios might include calling the solution's APIs directly, which bypasses standard user authentication flows.
 
@@ -164,15 +164,15 @@ Workload identities are similar to user identities, but usually they require dif
 
 If your tenants expect to be able to enable workload identity access to your multitenant solution, then you should consider the following factors:
 
-- Workload identity creation and management should be clearly defined for each tenant. Determine how workload identities will be created and managed in each tenant.
+- Determine how workload identities will be created and managed in each tenant.
 
-- Requests made by workload identities need to be properly scoped so that each request aligns with the specific tenant's access boundaries. Determine how workload identity requests will be scoped to the tenant.
+- Decide how workload identity requests will be scoped to the tenant.
 
-- It might be necessary to place limits on the number of workload identities that a tenant can create to avoid resource overuse or mismanagement. Determine if you need to limit the number of workload identities that each tenant creates.
+- Evaluate if you need to limit the number of workload identities that each tenant creates.
 
-- Determine if CA controls are required for workload identities in each tenant. For example, a tenant might want to ensure that workload identities can only be authenticated from specific geographic regions.
+- Determine if CA controls are required for workload identities in each tenant. For example, a tenant might want to limit a workload identity from being authenticated from outside a specific region.
 
-- Determine which security controls you will provide to tenants to ensure that workload identities are secured. For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring are all methods of reducing the risk, where a workload identity might be misused.
+- Identify which security controls you will provide to tenants to ensure that workload identities remain secure. For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring are all methods of reducing the risk, where a workload identity might be misused.
 
 ## Federate with an IdP for SSO
 
@@ -182,7 +182,7 @@ Federation is especially important when some tenants want to specify their own i
 
 If you expect tenants to federate with your solution, consider the following factors:
 
-- Consider the process for configuring the federation for a tenant. Determine if tenants can configure federation themselves or does the process require manual configuration and maintenance by your team?
+- Consider the process for configuring the federation for a tenant. Determine if tenants can configure federation themselves or if the process requires manual configuration and maintenance by your team.
 
 - Define which federation protocols your solution will support.
 
