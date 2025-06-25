@@ -337,7 +337,7 @@ The following networking features can be used to control access to, from, and wi
 
 #### Network policies for intra-cluster traffic security
 
-Some security postures require network traffic segregation *within* an environment. For example, this segregation is often necessary when you use multitenant environments to host multiple or multiple-tiered applications. In these scenarios, select AKS and implement [network policies](/azure/aks/use-network-policies), which are a cloud-native features that enable granular configuration of Layer 4 networking within Kubernetes clusters.
+Some security postures require network traffic segregation *within* an environment. For example, this segregation is often necessary when you use multitenant environments to host multiple or multiple-tiered applications. In these scenarios, select AKS and implement [network policies](/azure/aks/use-network-policies), which are cloud-native features that enable granular configuration of Layer 4 networking within Kubernetes clusters.
 
 | Network policy support | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
