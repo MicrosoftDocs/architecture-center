@@ -180,7 +180,7 @@ For workloads that require strict Layer 4 private networking for both ingress an
 |---|---|---|---|
 | Private ingress into a virtual network | ✅ | ✅ | Via [private endpoint](/azure/app-service/networking/private-endpoint) |
 | Private egress from a virtual network | ✅ | ✅ | Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
-| Fully suppressed public endpoint | ✅ | ✅ | [App Service environment only](/azure/app-service/environment/networking#addresses) |
+| Fully suppressed public endpoint | ✅ | ✅ | [An App Service environment only](/azure/app-service/environment/networking#addresses) |
 
 ##### Private networking with Web App for Containers
 
