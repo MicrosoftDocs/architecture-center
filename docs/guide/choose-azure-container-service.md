@@ -26,7 +26,7 @@ This guide includes this introduction article and another article about [conside
 
 This introductory article outlines the Azure container services covered in this guide and compares their service models based on configurability and predefined solutions, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to assess the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
 
-This guide helps you evaluate trade-offs based on your workload’s technical requirements, size, and complexity. It also considers the expertise of your team to ensure informed decision-making.
+This guide helps you evaluate trade-offs based on your workload's technical requirements, size, and complexity. It also considers the expertise of your team to ensure informed decision-making.
 
 ## Azure container services in scope for this guide
 
