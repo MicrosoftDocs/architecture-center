@@ -112,7 +112,7 @@ If you need to host disparate, potentially unrelated application components or w
 
 AKS provides the most configurability, but that configurability requires more operational effort compared to the other services. Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft-managed features. Web App for Containers focuses on simplicity to serve its target audience, which is existing App Service customers who are familiar with the interface.
 
-### Rule of thumb
+### Best practices
 
 Services that provide more simplicity usually suit customers who focus on feature development instead of infrastructure management. Services that provide more control usually suit customers who need configurability and have the skills, resources, and business justification to manage their own infrastructure.
 
