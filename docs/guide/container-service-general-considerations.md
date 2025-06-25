@@ -56,7 +56,7 @@ The considerations in this article are divided into the following four categorie
 - Horizontal infrastructure scalability
 - Application scalability
 - Observability
-- Well-Architected Framework for Operational Excellence
+- Well-Architected Framework for operational excellence
 
 [Reliability considerations](#reliability)
 
@@ -85,11 +85,11 @@ These considerations aren't specific to Well-Architected Framework pillars. Howe
 
 Most containerized applications run in Linux containers, which all Azure container services support. However, options are more limited for workload components that require Windows containers.
 
-| |  Container Apps | AKS | AKS Automatic | Web App for Containers |
-|---|--|--|--|--|
-| **Linux support**      | ✅ | ✅ | ✅ | ✅  |
-| **Windows support**    | ❌ | ✅ | ❌ | ✅  |
-| **Mixed OS support**   | ❌ | ✅ | ❌ | ❌* |
+| Feature | Container Apps | AKS | AKS Automatic | Web App for Containers |
+|---|---|---|---|---|
+| Linux support      | ✅ | ✅ | ✅ | ✅  |
+| Windows support    | ❌ | ✅ | ❌ | ✅  |
+| Mixed OS support   | ❌ | ✅ | ❌ | ❌* |
 
 *Requires separate Azure App Service plans for Windows and Linux
 
@@ -111,8 +111,8 @@ When you integrate applications into virtual networks, you need to plan IP addre
 
 | Feature or requirement | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| **Dedicated subnets** | - Consumption plan: optional<br><br> - Dedicated plan: required | Required | Optional |
-| **IP address requirements** | - Consumption plan. See [Consumption-only environment](/azure/container-apps/networking#subnet).<br><br> - Dedicated plan. See [Workload profiles environment](/azure/container-apps/networking#subnet). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
+| Dedicated subnets | - Consumption plan: optional <br><br> - Dedicated plan: required | Required | Optional |
+| IP address requirements | - Consumption plan. See [Consumption-only environment](/azure/container-apps/networking#subnet).<br><br> - Dedicated plan. See [Workload profiles environment](/azure/container-apps/networking#subnet). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service subnet requirements](/azure/app-service/overview-vnet-integration). |
 
 AKS requirements depend on your chosen network plug-in. Some network plug-ins for AKS require broader IP address reservations. That information is beyond the scope of this article. For more information, see [Networking concepts for AKS](/azure/aks/concepts-network).
 
@@ -132,8 +132,8 @@ The following sections describe various networking constraints. These constraint
 
 A subnet must be large enough to include application instances, but capacity isn't the only factor that determines the network footprint for deploying these workloads.
 
-| Capability |  Container Apps | AKS | Web App for Containers |
-|---|--|--|---|
+| Capability | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
 | Support for colocated workloads within a subnet* | ❌* | ✅ | Not available* |
 
 *A best practice, not a technical limitation
@@ -155,7 +155,7 @@ The following table incorporates the previous subnet planning section to define 
 
 | Capability | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| The number of ingress IP addresses | One | Many| - App Service environment: One<br><br> - No App Service environment: Many |
+| The number of ingress IP addresses | One | Many | - App Service environment: One<br><br> - No App Service environment: Many |
 
 Container Apps supports one IP address for each environment, either public or private. AKS supports any number of public or private IP addresses. Web App for Containers, when used outside an App Service environment, allows one public IP address for each App Service plan and multiple distinct private IP addresses via Azure private endpoints.
 
@@ -168,19 +168,19 @@ If a workload requires UDRs and NAT gateway capabilities for granular networking
 AKS and Web App for Containers implement these two networking features through standard virtual network functionality or virtual network integration, respectively. AKS node pools and Web App for Containers in an App Service environment are already direct virtual network resources. Web App for Containers that aren't in an App Service environment support UDRs and NAT gateway via [virtual network integration](/azure/app-service/overview-vnet-integration). With virtual network integration, the resource technically doesn't reside directly in the virtual network. However, all of its outbound access flows through the virtual network, and the network's associated rules affect traffic as expected.
 
 | Capability | Container Apps | AKS | Web App for Containers |
-|---|---|--|--|
-| **UDR support** | - Consumption-only plan: ❌<br><br> - Workload profile plan: ✅ | ✅ | ✅ |
-| **NAT gateway support** | - Consumption-only plan: ❌<br><br> - Workload profile plan: ✅ | ✅ | ✅ |
+|---|---|---|---|
+| UDR support | - Consumption-only plan: ❌<br><br> - Workload profile plan: ✅ | ✅ | ✅ |
+| NAT gateway support | - Consumption-only plan: ❌<br><br> - Workload profile plan: ✅ | ✅ | ✅ |
 
 ### Private networking integration
 
 For workloads that require strict Layer 4 private networking for both ingress and egress, you should consider Container Apps, AKS, and the single-tenant App Service environment SKU, where workloads are deployed into a self-managed virtual network. This deployment provides customary granular private networking controls.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|---|
-| **Private ingress into a virtual network** | ✅ | ✅ | - Via [private endpoint](/azure/app-service/networking/private-endpoint) |
-| **Private egress from a virtual network** | ✅ | ✅ | - Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
-| **Fully suppressed public endpoint** | ✅ | ✅ | - [App Service environment only](/azure/app-service/environment/networking#addresses) |
+| Networking capability | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Private ingress into a virtual network | ✅ | ✅ | Via [private endpoint](/azure/app-service/networking/private-endpoint) |
+| Private egress from a virtual network | ✅ | ✅ | Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
+| Fully suppressed public endpoint | ✅ | ✅ | [App Service environment only](/azure/app-service/environment/networking#addresses) |
 
 ##### Private networking with Web App for Containers
 
@@ -195,11 +195,11 @@ If you want a PaaS solution and prefer networking concepts that are shared acros
 
 An important consideration for the hosting platform is the networking protocols that are supported for incoming application requests (ingress). Web App for Containers is the strictest option and only [supports HTTP and HTTPS](/azure/app-service/networking-features#app-service-ports). Container Apps also [allows incoming Transmission Control Protocol (TCP) connections](/azure/container-apps/ingress-overview). AKS is the most flexible and supports unconstrained use of TCP and User Datagram Protocol (UDP) on self-selected ports.
 
-| | Container Apps| AKS | Web App for Containers |
-|---|--|--|--|
-| **Protocol and port support** | - HTTP (port 80)* <br><br> - HTTPS (port 443)*<br><br> - TCP (ports 1 to 65535, except 80 and 443) | - TCP (any port)<br><br> - UDP (any port) | - HTTP (port 80)<br><br>- HTTPS (port 443) |
-| **WebSocket support** | ✅ | ✅ | ✅ |
-| **HTTP/2 support** | ✅ | ✅ | ✅ |
+| Network and protocol support | Container Apps| AKS | Web App for Containers |
+|---|---|---|---|
+| Protocol and port support | - HTTP (port 80)* <br><br> - HTTPS (port 443)*<br><br> - TCP (ports 1 to 65535, except 80 and 443) | - TCP (any port)<br><br> - UDP (any port) | HTTP (port 80)<br><br>- HTTPS (port 443) |
+| WebSocket support | ✅ | ✅ | ✅ |
+| HTTP/2 support | ✅ | ✅ | ✅ |
 
 *In the Container Apps environment, [HTTP or HTTPS can be exposed on any port](/azure/container-apps/ingress-overview#additional-tcp-ports) for intra-cluster communication. In that scenario, built-in Container Apps HTTP features like cross-origin resource sharing and session affinity don't apply.
 
@@ -211,10 +211,10 @@ With Container Apps and Web App for Containers, Azure fully abstracts the Layer 
 
 In contrast, AKS uses a shared responsibility model. In this model, Azure manages the underlying Azure infrastructure that the workload team configures by interfacing with the Kubernetes API. For Layer 7 load balancing in AKS, you can choose an Azure-managed option, such as the [AKS-managed application routing add-on](/azure/aks/app-routing), [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), or deploy and self-manage an ingress controller of your choice.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Layer 4 load balancer** | - Azure-managed | - Shared responsibility | - Azure-managed |
-| **Layer 7 load balancer** | - Azure-managed | - Shared or self-managed | - Azure-managed |
+| Load balancer | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Layer 4 load balancer | Azure-managed | Shared responsibility | Azure-managed |
+| Layer 7 load balancer | Azure-managed | Shared or self-managed | Azure-managed |
 
 ### Advanced Container Networking Services for AKS
 
@@ -237,9 +237,9 @@ For more information, see the following resources:
 
 In cloud architectures, runtimes can be removed and recreated at any time to rebalance resources, so instance IP addresses regularly change. These architectures use FQDNs for reliable and consistent communication.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Service discovery** | - Azure-managed FQDN | - Kubernetes configurable | - Azure-managed FQDN |
+| Service discovery mechanism | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Service discovery | Azure-managed FQDN | Kubernetes configurable | Azure-managed FQDN |
 
 Web App for Containers provides public ingress (north-south communication) FQDNs by default. No extra DNS configuration is required. However, there's no built-in mechanism to facilitate or restrict traffic between other apps (east-west communication).
 
@@ -254,11 +254,11 @@ Kubernetes deployments aren't inherently discoverable from within or outside the
 
 Both Container Apps and Web App for Containers provide built-in solutions for custom domains and certificate management.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Configure custom domains** | Default feature | - Bring your own (BYO) | Default feature |
-| **Managed TLS for Azure FQDNs** | Default feature | Not available | Default feature |
-| **Managed TLS for custom domains** | Default feature | - BYO | Default feature or BYO |
+| Custom domain and TLS support | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Configure custom domains | Default feature | Bring your own (BYO) | Default feature |
+| Managed TLS for Azure FQDNs | Default feature | Not available | Default feature |
+| Managed TLS for custom domains | Default feature | BYO | Default feature or BYO |
 
 AKS users are responsible for managing DNS, cluster configurations, and TLS certificates for their custom domains. AKS doesn't provide managed TLS, but customers can use software from the Kubernetes ecosystem, such as [cert-manager](https://www.cncf.io/projects/cert-manager/), to manage TLS certificates.
 
@@ -268,7 +268,7 @@ Another alternative for restricting incoming traffic is mTLS. This security prot
 
 Web App for Containers has built-in mTLS support for incoming client connections. However, the application needs to validate the certificate by [accessing the `X-ARR-ClientCert` HTTP header](/azure/app-service/app-service-web-configure-tls-mutual-auth#access-the-client-certificate) that the App Service platform forwards.
 
-Container Apps also has built-in support for mTLS. It forwards the client certificate to the application in the HTTP header [X-Forwarded-Client-Cert](/azure/container-apps/client-certificate-authorization). You can also easily enable [automatic mTLS for internal communication between apps](/azure/container-apps/networking#mtls) in a single environment.
+Container Apps also has built-in support for mTLS. It forwards the client certificate to the application in the HTTP header [X-Forwarded-Client-Cert](/azure/container-apps/client-certificate-authorization). You can also easily enable [automatic mTLS for internal communication between apps](/azure/container-apps/mtls) in a single environment.
 
 You can implement mTLS in AKS through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about). This add-on includes mTLS capabilities for incoming client connections and intra-cluster communication between services. Workload teams can also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
 
@@ -277,7 +277,6 @@ You can implement mTLS in AKS through the [Istio-based service mesh as a managed
 The preceding sections describe some of the most common considerations to take into account for network design. For more information about networking features that are specific to individual Azure container services, see the following articles:
 
 - [Networking in Container Apps](/azure/container-apps/networking)
-- [Networking concepts for AKS](/azure/aks/concepts-network)
 - [App Service networking features](/azure/app-service/networking-features)
 
 The preceding sections focus on network design. Continue to the next section to learn more about networking security and securing network traffic.
@@ -309,9 +308,9 @@ You're responsible for securing identity-based access to the API. Kubernetes pro
 
 To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
-| | Container Apps | AKS |
-|---|--|--|
-| **Kubernetes API access controls** | - No access | - Full access |
+| Kubernetes API access | Container Apps | AKS |
+|---|---|---|
+| Kubernetes API access controls | No access | Full access |
 
 You don't have access to the Kubernetes API if you use Container Apps. Microsoft provides security for this API.
 
@@ -321,9 +320,9 @@ If you want to restrict network access to the Kubernetes control plane, you need
 
 There are consequences to implementing network-restricted access to the Kubernetes API. Most notably, management can be performed only from within the private network. Typically, you need to deploy self-hosted agents for Azure DevOps or GitHub Actions. To learn about other limitations, see the product-specific documentation.
 
-| | Container Apps | AKS |
-|---|--|--|
-| **Kubernetes API network security** | - Not configurable in PaaS | - Configurable by using a public or private IP address |
+| Kubernetes API access control | Container Apps | AKS |
+|---|---|---|
+| Kubernetes API network security | Not configurable in PaaS | Configurable by using a public or private IP address |
 
 ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring that only traffic to trusted domains is allowed.
 
@@ -340,9 +339,9 @@ The following networking features can be used to control access to, from, and wi
 
 Some security postures require network traffic segregation *within* an environment. For example, this segregation is often necessary when you use multitenant environments to host multiple or multiple-tiered applications. In these scenarios, select AKS and implement [network policies](/azure/aks/use-network-policies), which are a cloud-native features that enable granular configuration of Layer 4 networking within Kubernetes clusters.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Network policies** | - Consumption plan: ❌<br><br> - Dedicated plan: ❌ | ✅ | ❌ |
+| Network policy support | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Network policies | Consumption plan: ❌<br><br> Dedicated plan: ❌ | ✅ | ❌ |
 
 Of the three Azure services described in this article, AKS is the only service that supports further workload isolation within the cluster. Network policies aren't supported in Container Apps or Web App for Containers.
 
@@ -350,18 +349,18 @@ Of the three Azure services described in this article, AKS is the only service t
 
 In all scenarios, you can regulate networking communication within the wider virtual network by using NSGs. This approach enables you to use Layer 4 traffic rules that regulate both ingress and egress at the virtual network level.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **NSGs** | - Consumption plan: ✅<br><br> - Dedicated plan: ✅ | ✅ | ✅ - Virtual network-integrated apps, egress only |
+| NSG support | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| NSGs | - Consumption plan: ✅<br><br> - Dedicated plan: ✅ | ✅ | ✅ Virtual network-integrated apps, egress only |
 
 #### Built-in IP address restrictions for ingress
 
 Container Apps and Web App for Containers provide built-in source IP address restrictions for ingress traffic for individual applications. AKS can achieve the same functionality but requires Kubernetes-native functionality through the [Kubernetes service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for *loadBalancerSourceRanges*.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Built-in ingress IP address restrictions** | ✅ | ❌* | ✅ |
-| **Resource consumption** | - | - Consumes cluster resources | - |
+| Network access control and resource impact | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Built-in ingress IP address restrictions | ✅ | ❌* | ✅ |
+| Resource consumption | - | Consumes cluster resources | - |
 
 > [!NOTE]
 > AKS supports ingress IP address restrictions, but you use Kubernetes-native features to implement this capability rather than Azure-native controls, unlike other Azure services.
@@ -376,9 +375,9 @@ It's a best practice to store and manage secrets, keys, and certificates in a ke
 
 Key Vault integration enables application developers to focus on their application code. All three of the Azure container services described in this article can automatically synchronize secrets from the Key Vault service and provide them to the application, typically as environment variables or mounted files.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Key Vault integration** | ✅ | ✅ | ✅ |
+| Secrets integration | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Key Vault integration | ✅ | ✅ | ✅ |
 
 For more information, see the following resources:
 
@@ -390,11 +389,11 @@ For more information, see the following resources:
 
 Applications can use managed identities to authenticate to Microsoft Entra ID protected services without having to use keys or secrets. Container Apps and Web App for Container provide built-in, Azure-native support for application-level managed identity. Application-level managed identity support for AKS is achieved through [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview). AKS also requires infrastructure-related managed identity to allow cluster operations for the Kubelet, control plane, and various AKS add-ons.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Infrastructure-managed identity support** | Not available | ✅ | Not available |
-| **Container-pull managed identity support** | ✅ | ✅ | ✅ |
-| **Application-managed identity support** | ✅ | ✅ | ✅ |
+| Managed identity report | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Infrastructure-managed identity support | Not available | ✅ | Not available |
+| Container-pull managed identity support | ✅ | ✅ | ✅ |
+| Application-managed identity support | ✅ | ✅ | ✅ |
 
 For more information, see the following resources:
 
@@ -409,9 +408,9 @@ Threat protection against vulnerabilities is also important. It's a best practic
 
 As AKS exposes the native Kubernetes API, cluster security can also be evaluated with Kubernetes-specific security tooling from the Kubernetes ecosystem.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Runtime threat protection** | ❌ | ✅ | ❌ |
+| Security features | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Runtime threat protection | ❌ | ✅ | ❌ |
 
 For more information, see [Containers support matrix in Microsoft Defender for Cloud](/azure/defender-for-cloud/support-matrix-defender-for-containers).
 
@@ -446,11 +445,11 @@ As a managed Kubernetes service, AKS provides the updated images for the node OS
 
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so you can avoid the complexity of AKS upgrade management.
 
-| | Container Apps | AKS | AKS Automatic | Web App for Containers |
-|---|--|--|--|--|
-| **Control plane updates** | - Platform | - [Customer](/azure/aks/upgrade-cluster) | - Platform | - Platform |
-| **Host updates and patches** | - Platform | - [Customer](/azure/aks/node-image-upgrade) | - Platform | - Platform |
-| **Container image updates and patches** | - Customer | - Customer | - Customer | - Customer |
+| Update responsibility | Container Apps | AKS | AKS Automatic | Web App for Containers |
+|---|---|---|---|---|
+| Control plane updates | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform | Platform |
+| Host updates and patches | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform | Platform |
+| Container image updates and patches | Customer | Customer | Customer | Customer |
 
 ### Container image updates
 
@@ -477,10 +476,10 @@ The following articles provide details about SKU offerings for Container Apps an
 
 Scaling out and in includes rebalancing instances, so it creates a risk of downtime. The risk is smaller than the corresponding risk with vertical scaling. Regardless, you're responsible for ensuring that your applications can handle failure. You're also responsible for implementing graceful startups and shutdowns of your applications to avoid downtime.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Infrastructure scale-in and scale-out** | - Consumption plan: Not available<br><br> - Dedicated plan: Configurable | - Configurable | - Configurable |
-| **Flexible hardware provisioning** | - Consumption plan: Not available <br><br> - Dedicated plan: Abstracted with workload profiles | - Any VM SKU | - Abstracted, see [App Service plan](/azure/app-service/overview-hosting-plans) |
+| Infrastructure flexibility | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Infrastructure scale-in and scale-out | - Consumption plan: Not available<br><br> - Dedicated plan: Configurable | Configurable | Configurable |
+| Flexible hardware provisioning | - Consumption plan: Not available <br><br> - Dedicated plan: Abstracted with workload profiles | - Any VM SKU | Abstracted, see [App Service plan](/azure/app-service/overview-hosting-plans) |
 
 > [!IMPORTANT]
 > The hardware provisioning options available through the Container Apps Dedicated plan (workload profiles) and Web App for Containers (App Service plans) aren't as flexible as AKS. You need to familiarize yourself with the SKUs available in each service to ensure that your needs are met.
@@ -489,10 +488,10 @@ Scaling out and in includes rebalancing instances, so it creates a risk of downt
 
 Scaling of infrastructure and applications is typically triggered by resource consumption, such as CPU and memory. Some container solutions can also scale the number of container instances based on application-specific metrics, such as HTTP requests. For example, AKS and Container Apps can scale container instances based on message queues via Kubernetes event-driven autoscaling (KEDA) and many other metrics via its [scalers](https://keda.sh/docs/2.12/scalers/). These capabilities provide flexibility when you choose the scalability strategy for your application. Web App for Containers relies on the scalability options that Azure provides. Web App for Containers doesn't support custom scaler configurations like KEDA.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Container scale-out** | -[HTTP, TCP, or metrics-based (CPU, memory, or event-driven)](/azure/container-apps/scale-app) | - [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | - [Manual, metrics-based](/azure/app-service/manage-scale-up#scale-instance-count-manually-or-by-schedule), or [automatic](/azure/app-service/manage-automatic-scaling) |
-| **Event-driven scalability** | - Yes. Cloud-native. | - Yes. Cloud-native. Extra configuration required. | - Yes. Azure-resource specific. |
+| Scalability model | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Container scale-out | [HTTP, TCP, or metrics-based (CPU, memory, or event-driven)](/azure/container-apps/scale-app) | [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale) | [Manual, metrics-based](/azure/app-service/manage-scale-up#scale-instance-count-manually-or-by-schedule), or [automatic](/azure/app-service/manage-automatic-scaling) |
+| Event-driven scalability | Yes. Cloud-native. | Yes. Cloud-native. Extra configuration required. | Yes. Azure-resource specific. |
 
 AKS Automatic enables the horizontal pod autoscaler, KEDA, and vertical pod autoscaler by default.
 
@@ -506,11 +505,11 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 
 - **Manual instrumentation:** Minimal code changes required to integrate and configure the SDK and client
 
-  | | Container Apps | AKS | Web App for Containers |
-  |---|--|--|--|
-  | **Automatic instrumentation via platform** | ❌ | ❌ | - Partial support* |
-  | **Automatic instrumentation via agent** | ❌ | - Partial support* | Not available |
-  | **Manual instrumentation** | - Via SDK or OpenTelemetry | - Via SDK or OpenTelemetry | - Via SDK or OpenTelemetry |
+  | Instrumentation method | Container Apps | AKS | Web App for Containers |
+  |---|---|---|---|
+  | Automatic instrumentation via platform | ❌ | ❌ | Partial support* |
+  | Automatic instrumentation via agent | ❌ | Partial support* | Not available |
+  | Manual instrumentation | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry |
 
 *AKS and Web App for Containers support automatic instrumentation for specific configurations of Linux and Windows workloads, depending on the application language. For more information, see the following articles:
 
@@ -528,13 +527,13 @@ All Azure container services provide application and platform log and metric fun
 
 Azure Monitor is the key logging and metrics service in Azure that integrates with these services. Azure Monitor uses [resource logs](/azure/azure-monitor/essentials/resource-logs) to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to review the resource log categories and available metrics for each of the services.
 
-|| Container Apps | AKS | AKS Automatic | Web App for Containers |
+| Observability features | Container Apps | AKS | AKS Automatic | Web App for Containers |
 | --- | --- | --- | --- | --- |
-| **Support for log streaming** | ✅   | ✅   | ✅   | ✅   |
-| **Support for Azure Monitor** | ✅   | ✅   | ✅   | ✅   |
-| **Azure Monitor resource logs** | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | - [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | - Same as AKS | - [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
-| **Metric collection and monitoring** | - Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | - Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | - Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | - Metrics via Azure Monitor |
-| **Preconfigured Prometheus and Grafana** | ❌ | - Requires manual setup. | - Managed Prometheus and Managed Grafana are preconfigured by default. | ❌   |
+| Support for log streaming | ✅   | ✅   | ✅   | ✅   |
+| Support for Azure Monitor | ✅   | ✅   | ✅   | ✅   |
+| Azure Monitor resource logs | [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
+| Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
+| Preconfigured Prometheus and Grafana | ❌ | Requires manual setup. | Managed Prometheus and Managed Grafana are preconfigured by default. | ❌ |
 
 Consider metrics and logs for the following services:
 
@@ -590,8 +589,8 @@ When you use multiple Azure services, [composite service-level objectives](/azur
 Azure has availability zones in every country or region in which it operates a datacenter region. To allow multiple instances of containers to cross availability zones, be sure to select SKUs, service tiers, and regions that provide availability zone support.
 
 | Feature | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Availability zone support** | - Full | - Full | - Full |
+|---|---|---|---|
+| Availability zone support | Full | Full | Full |
 
 For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To fully use availability zone support, you should deploy workloads that have a minimum configuration of three instances of the container, spread across zones.
 
@@ -611,13 +610,13 @@ Another important consideration is how often those health checks are requested f
 
 Most applications support health checks via the HTTP or HTTPS protocol. However, some applications might need other protocols, like TCP or gRPC, to perform those checks. Keep this consideration in mind when you design your health check system.
 
-| | [Container Apps](/azure/container-apps/health-probes) | AKS | [Web App for Containers](/azure/app-service/monitor-instances-health-check) |
-|---|--|--|--|
-| **Startup probes** | ✅ | ✅ | - Partial support |
-| **Readiness probes** | ✅ | ✅ | ❌ |
-| **Liveness probes** | ✅ | ✅ | ✅ |
-| **Interval granularity** | - Seconds | - Seconds | - 1 minute |
-| **Protocol support** | - HTTP and HTTPS<br><br> - TCP | - HTTP and HTTPS<br><br> - TCP<br><br> - gRPC | HTTP and HTTPS |
+| Health check capabilities | [Container Apps](/azure/container-apps/health-probes) | AKS | [Web App for Containers](/azure/app-service/monitor-instances-health-check) |
+|---|---|---|---|
+| Startup probes | ✅ | ✅ | Partial support |
+| Readiness probes | ✅ | ✅ | ❌ |
+| Liveness probes | ✅ | ✅ | ✅ |
+| Interval granularity | Seconds | Seconds | 1 minute |
+| Protocol support | - HTTP and HTTPS <br><br> - TCP | - HTTP and HTTPS <br><br> - TCP<br><br> - gRPC | HTTP and HTTPS |
 
 Health checks are easiest to [implement in Web App for Containers](/azure/app-service/monitor-instances-health-check#enable-health-check). Consider the following factors:
 
@@ -647,19 +646,19 @@ Identifying a bad container instance and stopping traffic to it is only the star
 
 The ability to deploy and replace applications without causing any downtime for users is crucial for a reliable workload. All three of the container services that are described in this article support zero-downtime deployments but in different ways.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Zero-downtime strategy** | - [Rolling update](/azure/container-apps/revisions#zero-downtime-deployment) | - [Rolling update, plus all other Kubernetes strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) | - [Deployment slots](/azure/app-service/deploy-staging-slots) |
+| Deployment strategy | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Zero-downtime strategy | [Rolling update](/azure/container-apps/revisions#zero-downtime-deployment) | [Rolling update, plus all other Kubernetes strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) | [Deployment slots](/azure/app-service/deploy-staging-slots) |
 
-The application architectures must also support zero-downtime deployment. For more information, see [Well-Architected Framework](/azure/well-architected/).
+The application architectures must also support zero-downtime deployment.
 
 ### Resource limits
 
 Another important component of a reliable shared environment is your control over the resource usage, like CPU or memory, of your containers. You need to avoid scenarios in which a single application uses all the resources and leaves other applications in a bad state.
 
-| | Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Resource limits (CPU or memory)** | - For each app and container | - For each app, container, and namespace | - For each App Service plan |
+| Resource scoping | Container Apps | AKS | Web App for Containers |
+|---|---|---|---|
+| Resource limits (CPU or memory) | For each app and container | For each app, container, and namespace | For each App Service plan |
 
 - **Web App for Containers:** You can host multiple applications (containers) in a single App Service plan. For example, you might allocate a plan with two CPU cores and 4 gibibyte (GiB) of RAM in which you can run multiple web apps in containers. However, you can't restrict one of the apps to a specific amount of CPU or memory. They all compete for the same App Service plan resources. If you want to isolate your application resources, you need to create extra App Service plans.
 
