@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 9. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
 
-10. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, make corrections to any inaccuracies, add comments for context or feedback, and save the final validated results back to the system.
+10. The Content processor monitor website feeds processing metrics and user feedback data directly into Power BI dashboards. Additionally, processed data and metadata from Azure Cosmos DB provides comprehensive analytics showing processing KPIs, success rates, document type breakdowns, confidence score trends, user correction patterns, and operational metrics to enable data-driven optimization of the content processing pipeline.
 
 ### Components
 
@@ -52,7 +52,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages versioned container images for the processing pipeline components, ensuring consistent deployment and rollback capabilities.
 
-- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) enables storing large numbers of messages and accessing them from anywhere via HTTPS. In this architecture, Queue Storage stores the messages used in the event-driven processing workflows.
+- [Power BI](/power-bi/fundamentals/power-bi-service-overview) Power BI is a collection of software services, apps, and connectors that work together to help you create, share, and consume business insights in the way that serves you and your business most effectively.In this architecture, Power BI connects to Azure Cosmos DB and receives real-time processing metrics from the monitoring web application to deliver comprehensive analytics on document processing performance, user feedback patterns, and operational KPIs.
 
 ## Scenario details
 
