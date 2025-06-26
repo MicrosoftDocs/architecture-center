@@ -72,7 +72,7 @@ The letters "A" through "I" in the diagram indicate design areas for the Virtual
 >
 > [Virtual Desktop design areas](/azure/well-architected/azure-virtual-desktop/overview#what-are-the-key-design-areas): These areas represent the architectural principles and best practices for designing and operating Virtual Desktop workloads. They cover aspects such as application delivery, infrastructure design, security, and cost optimization. Each area aligns with Azure best practices to ensure an optimal and cost-effective Virtual Desktop implementation.
 
-### Design principles in this architecture
+### Design principles
 
 Like other landing zones, the Virtual Desktop landing zone follows the core [Azure landing zone design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and aligns with common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
@@ -145,7 +145,7 @@ The accelerator uses resource naming automation based on the following recommend
 
 Before you proceed with the deployment scenarios, familiarize yourself with the accelerator's Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md).
 
-:::image type="complex" source="./media/virtual-desktop-accelerator-resource-organization-naming.svg" alt-text="Diagram that shows Virtual Desktop resource organization and naming." border="false" lightbox="./media/virtual-desktop-accelerator-resource-organization-naming.svg":::
+:::image type="complex" source="./media/virtual-desktop-accelerator-resource-organization-naming.svg" alt-text="Diagram that shows Virtual Desktop resource organization and naming." lightbox="./media/virtual-desktop-accelerator-resource-organization-naming.svg":::
 The diagram shows two subscriptions that support Virtual Desktop. The left section shows an example structure that uses resource groups to organize Virtual Desktop components when you deploy with the Virtual Desktop accelerator. The naming convention and resource organization presented are for reference purposes. Key components include host pools, RemoteApp groups, workspaces, and scaling plans.
 
 The right section represents shared resources that support Virtual Desktop, such as image templates, image galleries for session host provisioning, monitoring tools, and automation accounts.
