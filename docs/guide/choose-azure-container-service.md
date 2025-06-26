@@ -3,7 +3,7 @@ title: Choose an Azure container service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.  
 author: cmaclaughlin
 ms.author: cmaclaughlin
-ms.date: 12/06/2025
+ms.date: 06/12/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
