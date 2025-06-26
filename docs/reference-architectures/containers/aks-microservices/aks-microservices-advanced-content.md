@@ -50,7 +50,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller.
+**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. The other ingress options include [application routing add-on](/azure/aks/app-routing) and [Istio gateway add-on](/aks/istio-deploy-ingress). 
 
 **[Azure Bastion](/azure/bastion/bastion-overview)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
@@ -84,10 +84,10 @@ The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-
 
 ### Potential use cases
 
-Adopt the best practices from the scenario and reference architecture to architect complex microservices-based applications in AKS:
+Adopt the best practices from the scenario and reference architecture to architect microservices-based applications in AKS. The guidelines in this artcle applies to:
 
 - Complex web applications
-- Business logic developed by using microservice design principles
+- Business logic developed using microservice design principles
 
 ## Recommendations
 
@@ -95,9 +95,9 @@ Implement these recommendations when deploying advanced AKS microservices archit
 
 ### Application Gateway Ingress Controller (AGIC)
 
-API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
+API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](/azure/architecture/microservices/design/gateway). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
 
-Routing client requests to the correct backend services provides a single endpoint for clients and help decouple clients from services.
+- Routing client requests to the correct backend services provides a single endpoint for clients and help decouple clients from services.
 - Aggregating multiple requests into a single request to reduce chatter between the client and the backend.
 - Offloading functionality like SSL termination, authentication, IP restrictions, and client rate-limiting or throttling from the backend services.
 
@@ -157,7 +157,7 @@ Azure provides three Network Policy engines for [enforcing network policies](/az
 - Azure Network Policy Manager.
 - Calico, an open-source network and network security solution 
 
-Cilium is our recommended Network Policy engine.
+[Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended Network Policy engine.
 
 ### Resource quotas
 
@@ -224,7 +224,7 @@ The following lines in the Bicep template set example minimum and maximum nodes 
 "maxCount": 5,
 ```
 
-#### Pod autoscaling
+#### Horizontal Pod autoscaling
 
 The *Horizontal Pod Autoscaler (HPA)* scales pods based on observed CPU, memory, or custom metrics. To configure horizontal pod scaling, you specify target metrics and the minimum and the maximum number of replicas in the Kubernetes deployment pod spec. Load test your services to determine these numbers.
 
@@ -255,6 +255,14 @@ HPA looks at actual resources consumed or other metrics from running pods, but t
 
 Please refer to [/azure/aks/concepts-scale](scaling options for applications in AKS) for more information on autoscaling options in AKS.
 
+#### Vertical Pod autoscaling
+
+The [Vertical Pod Autoscaler (VPA)](/azure/aks/use-vertical-pod-autoscaler) automatically adjusts the CPU and memory requests for your pods to match the usage patterns of your workloads. When configured, the VPA automatically sets resource requests and limits on containers per workload based on past usage. The VPA frees up CPU and Memory for other pods and helps ensure effective utilization of your AKS clusters. 
+
+#### Kubernetes Event Driven Autoscaler (KEDA)
+
+The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enablesevent-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA autoscaler can scale up microservices when the number of messages in the service bus queue increases above certain thresholds. In the Fabricam drone delivery example, the KEDA autoscaler can scale up the workflow microservice depending on the queue depth on service bus queue, based on the ingestion microservice output. For the list of KEDA scalers for azure services, please see [/azure/aks/keda-integrations](Integrations with KEDA on AKS).
+
 ### Health probes
 
 Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement.
@@ -277,20 +285,12 @@ Microservices should expose endpoints in their code that facilitate health probe
 
 In a microservices application, *Application Performance Management (APM)* monitoring is critical for detecting anomalies, diagnosing issues, and quickly understanding the dependencies between services. [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is part of Azure Monitor, provides APM monitoring for live applications written in .NET Core, Node.js, Java, and many other application languages.
 
-Application Insights:
-
-- Logs HTTP requests, including latency and result code.
-- Enables distributed tracing by default.
-- Includes an operation ID in traces, so you can match all traces for a particular operation.
-- Often includes additional contextual information in traces.
+Azure provides various mechanisms for monitoring microservice workloads: 
+- [Managed Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) for metric collection. Use Prometheus to monitor and alert on the performance of infrastructure and workloads.
+- Azure Monitor managed service for Prometheus and Container Insights work together for complete monitoring of your Kubernetes environment.
+- [Managed Grafana](/azure/managed-grafana/overview) for cluster and microservice visualization.  
 
 To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with Azure Kubernetes Service [without code changes](/azure/azure-monitor/app/kubernetes-codeless).  
-
-The following diagram shows an example of the application dependency map that Application Insights generates for an AKS microservices telemetry trace:
-
-![Example of an Application Insights dependency map for an AKS microservices application.](images/application-map.png)
-
-For more information on options for instrumenting common languages for application insights integration, see [Application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
 ## Considerations
 
@@ -302,6 +302,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider the following points when planning for security.
 
+- Use [deployment safeguards](/azure/aks/deployment-safeguards) in the AKS cluster. Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
+
 - An AKS pod authenticates itself by using a *workload identity* stored in Microsoft Entra ID. Using a workload identity is preferable because it doesn't require a client secret.
 
 - With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
@@ -312,7 +314,9 @@ Consider the following points when planning for security.
 
 - Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
-- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver)
+- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver).
+
+- If the microservice needs to communicate to resources outside cluster (such as external URLs), control the access through Azure Firewall. If there are no outbound calls to be made, use [network isolated clusters](/azure/aks/network-isolated). 
 
 ### Cost Optimization
 
@@ -321,6 +325,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
+
+- Consider leveraging free tier of AKS for development workloads, and leveraging [standard and premium tiers](/azure/aks/free-standard-pricing-tiers) for critical workloads. 
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
@@ -351,9 +357,11 @@ Consider the following points when planning for scalability.
   - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
   - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
 
-- You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
-
+- If there are a large number of outbound flows from the microservice, consider using [NAT gateways](/azure/aks/nat-gateway) to avoid SNAT port exhaustion.
+  
 - Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+
+- Consider using [CNI with overlay networking](/azure/aks/concepts-network-cni-overview) to conserve VNET address space. 
 
 ## Next steps
 
