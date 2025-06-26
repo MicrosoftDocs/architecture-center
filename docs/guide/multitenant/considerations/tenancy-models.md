@@ -63,7 +63,9 @@ Deployments are sometimes referred to as *supertenants* or *stamps*.
 
 When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as shown in the following diagram:
 
-![Diagram that shows the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png)
+:::image type="complex" border="false" source="media/tenancy-models/map-logical-physical.png" alt-text="Diagram that shows the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments." lightbox="media/tenancy-models/map-logical-physical.png":::
+   The diagram is divided into three main sections, tenants, your solution, and tenant ID and deployment ID. Arrows point from Tenants A, B, C, and D to a box labeled tenant mapping inside the your solution section. That section also includes a web server and database for deployment 1 and deployment 2. Another arrow points from the tenant mapping box to the section that contains the tenant and deployment IDs. Tenants A and B have a deployment ID of 1, and tenants C and D have deployment IDs of 2.
+:::image-end:::
 
 For more information, see [Map requests to tenants](map-requests.yml).
 
@@ -79,7 +81,9 @@ One of the biggest considerations in multitenant architecture design is the leve
 
 Instead of viewing isolation as a discrete property, consider it a spectrum. You can deploy components of your architecture that are more isolated or less isolated than other components in the same architecture, depending on your requirements. The following diagram demonstrates a continuum of isolation:
 
-![Diagram that shows a continuum of isolation. It ranges from fully isolated, which means that nothing is shared, to fully shared, which means that everything is shared.](media/tenancy-models/isolated-shared.png)
+:::image type="complex" border="false" source="media/tenancy-models/isolated-shared.png" alt-text="Diagram that shows a continuum of isolation. It ranges from fully isolated, which means that nothing is shared, to fully shared, which means that everything is shared." lightbox="media/tenancy-models/isolated-shared.png":::
+   The diagram shows an arrow from fully isolated (shared nothing) to fully shared (shared everything). On the fully isolated side, blue boxes contain separate compute, separate databases, separate networking, and separate domain names. In the middle of the arrow, green boxes contain shared compute, shared networking, and shared domain names. A blue box contains separate databases. On the fully shared side, green boxes contain shared compute, shared database, shared networking, and shared domain names.
+:::image-end:::
 
 The level of isolation affects many aspects of your architecture:
 
@@ -111,7 +115,9 @@ After you establish your requirements, evaluate them against some common tenancy
 
 In an automated single-tenant deployment model, you deploy a dedicated set of infrastructure for each tenant, as shown in the following example:
 
-![Diagram that shows three tenants, each with separate deployments.](media/tenancy-models/automated-single-tenant-deployments.png)
+:::image type="complex" border="false" source="media/tenancy-models/automated-single-tenant-deployments.png" alt-text="Diagram that shows three tenants, each with separate deployments." lightbox="media/tenancy-models/automated-single-tenant-deployments.png":::
+   The diagram is divided into three sections, one for Tenant A, one for Tenant B, and one for Tenant C. An arrow points from Tenant A to a box labeled Deployment A. That box contains a web server for tenant A. Another arrow points from Tenant B to a box labeled Deployment B. That box contains a web server for tenant B. Another arrow points from Tenant C to a box labeled Deployment C. That box contains a web server for tenant C.
+:::image-end:::
 
 Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically, solutions that use this model use infrastructure as code or the Azure Resource Manager APIs extensively. You might use this approach when you need to provision entirely separate infrastructures for each of your customers. Consider using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) when you plan your deployment.
 
@@ -123,7 +129,9 @@ Your application is responsible for initiating and coordinating the deployment o
 
 At the opposite extreme, you can consider a fully multitenant deployment in which all components are shared. You have only one set of infrastructure to deploy and maintain, and all tenants use it, as shown in the following diagram:
 
-![Diagram that shows three tenants that all use a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
+:::image type="complex" border="false" source="media/tenancy-models/fully-multitenant-deployments.png" alt-text="Diagram that shows three tenants that all use a single shared deployment." lightbox="media/tenancy-models/fully-multitenant-deployments.png":::
+   In this diagram, arrows point from boxes labeled Tenant A, Tenant B, and Tenant C to a box that's labeled as shared resources. That box contains a web server for tenants A, B, and C.
+:::image-end:::
 
 **Benefits:** This model is appealing because operating a solution that has shared components is less expensive than using individual resources for each tenant. Even if you need to deploy higher tiers or SKUs of resources to account for the increased load, the overall deployment cost is often still lower than the cost of a set of single-tenant resources. Also, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and you might not have to migrate data between two separate deployments.
 
@@ -149,7 +157,9 @@ You don't have to choose one of the extremes of these scales. Instead, you can v
 
 Here's an example that illustrates a shared deployment for some tenants and a single-tenant deployment for another:
 
-![Diagram that shows three tenants. Tenants A and B share a deployment. Tenant C has a dedicated deployment.](media/tenancy-models/vertically-partitioned-deployments.png)
+:::image type="complex" border="false" source="media/tenancy-models/vertically-partitioned-deployments.png" alt-text="Diagram that shows three tenants. Tenants A and B share a deployment. Tenant C has a dedicated deployment." lightbox="media/tenancy-models/vertically-partitioned-deployments.png":::
+   In this diagram, arrows point from Tenant A and Tenant B to a box that's labeled Deployment 1. That box contains a web server for tenants A and B. Another arrow points from Tenant C to a box labeled Deployment 2. That box contains a web server for Tenant C.
+:::image-end:::
 
 **Benefits:** Because you still share some of your infrastructure, you can gain some of the cost benefits of using shared multitenant deployments. You can deploy less expensive shared resources for specific customers, like customers who are evaluating your service by using a trial. You can even charge customers a higher rate to use a single-tenant deployment, which helps you recover some of your costs.
 
@@ -159,7 +169,9 @@ Here's an example that illustrates a shared deployment for some tenants and a si
 
 You can also horizontally partition your deployments. In a horizontal deployment, you have some shared components but maintain other components with single-tenant deployments. For example, you can build a single application tier and then deploy individual databases for each tenant, as shown in this diagram:
 
-![Diagram that shows three tenants that each use a dedicated database and a single shared web server.](media/tenancy-models/horizontally-partitioned-deployments.png)
+:::image type="complex" border="false" source="media/tenancy-models/horizontally-partitioned-deployments.png" alt-text="Diagram that shows three tenants that each use a dedicated database and a single shared web server." lightbox="media/tenancy-models/horizontally-partitioned-deployments.png":::
+   In this diagram, arrows point from boxes labeled Tenant A, Tenant B, and Tenant C to a box that contains a web server that tenants A, B, and C share.
+:::image-end:::
 
 **Benefits:** Horizontally partitioned deployments can help you mitigate a noisy neighbor problem. If you identify that specific components cause most of the load on your system, then you can deploy separate components for each tenant. For example, your databases might absorb most of your system's load because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases and shared components, like the application tier, remain unaffected.
 
