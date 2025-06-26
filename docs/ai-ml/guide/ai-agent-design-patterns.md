@@ -62,6 +62,10 @@ Avoid this pattern when:
 
 **Investment research analysis**: A financial services firm deploys concurrent agents where fundamental, technical, sentiment, and ESG agents simultaneously analyze the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
 
+### Implement concurrent orchestration
+
+For Semantic Kernel based implementations, see [Concurrent Orchestration in Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent).
+
 ## Sequential orchestration
 
 The sequential orchestration pattern chains agents together in a predefined order, where each agent processes the output from the previous agent in the sequence, creating a pipeline of specialized transformations.
@@ -97,6 +101,10 @@ Avoid this pattern when:
 **Legal contract drafting**: A law firm's document management software uses sequential agents where each stage requires the complete output from the previous stage: template creation, clause customization, regulatory compliance review, risk assessment. Each agent builds upon the work of the previous agent to create a comprehensive contract.
 
 **Personalized curriculum development**: An educational technology company uses sequential agents to build individualized training programs: learning assessment, content mapping, pedagogical sequencing, student task scheduling. Each step depends on the complete output from the previous stage to create an effective learning experience.
+
+### Implement sequential orchestration
+
+For Semantic Kernel based implementations, see [Concurrent Orchestration in Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/sequential).
 
 ## Group chat orchestration
 
