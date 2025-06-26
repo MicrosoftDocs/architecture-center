@@ -51,7 +51,7 @@ items:
         - name: Approaches
           items:
           - name: Overview
-            href: ../multitenant/approaches/overview.yml
+            href: ../multitenant/approaches/overview.md
           - name: Resource organization
             href: ../multitenant/approaches/resource-organization.yml
           - name: Governance and compliance
