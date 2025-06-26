@@ -1,18 +1,18 @@
 ---
-title: AI agent design patterns
-description: Learn about six fundamental design patterns for AI agent architectures, including concurrent, sequential, handoff, supervisor, network, and maker-checker patterns.
+title: AI agent orchestration patterns
+description: Learn about fundamental orchestration patterns for AI agent architectures, including concurrent, sequential, group chat, handoff, magnetic, and network patterns.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 06/23/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
 ---
 
-# AI agent design patterns
+# AI agent orchestration patterns
 
-AI agent systems are becoming increasingly sophisticated, moving beyond single-agent implementations to multi-agent orchestrations that can handle complex, collaborative tasks. This guide examines six fundamental design patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
+AI agent systems are becoming increasingly sophisticated, moving beyond single-agent implementations to multi-agent orchestrations that can handle complex, collaborative tasks. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
 
 ## Overview
 
@@ -23,21 +23,21 @@ Using multiple AI agents enables you to break down complex problems into special
 - **Resilience**: Failure in one agent doesn't necessarily break the entire workflow, unless you've deemed it critical
 - **Maintainability**: Smaller surface area to test and debug
 
-The patterns described in this guide represent proven approaches to orchestrating multiple agents, each optimized for different types of coordination requirements. These AI agent patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components in AI-driven workload capabilities.
+The patterns described in this guide represent proven approaches to orchestrating multiple agents, each optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components in AI-driven workload capabilities.
 
-## Concurrent agents pattern
+## Concurrent orchestration
 
-The concurrent agents pattern executes multiple agents simultaneously on the same task, allowing each agent to provide independent analysis or processing from their unique perspective or specialization.
+The concurrent orchestration pattern executes multiple agents simultaneously on the same task, allowing each agent to provide independent analysis or processing from their unique perspective or specialization.
 
-:::image type="complex" source="_images/concurrent-pattern.svg" alt-text="Diagram showing the concurrent agents pattern where multiple agents process the same task simultaneously." lightbox="_images/concurrent-pattern.svg":::
-The diagram illustrates the concurrent agents pattern with an input task box at the top center, followed by three parallel agent boxes labeled Agent A, Agent B, and Agent C positioned horizontally below the input. Each agent connects directly to the input task via arrows, indicating simultaneous processing. Below the agents, three output boxes show the results from each agent (Output A, Output B, Output C), connected by arrows from their respective agents. All three outputs then converge with arrows pointing to a final aggregated result box at the bottom center, demonstrating how multiple agents process the same task concurrently and their results are combined into a unified output.
+:::image type="complex" source="_images/concurrent-pattern.svg" alt-text="Diagram showing concurrent orchestration where multiple agents process the same input task simultaneously and their results are aggregated." lightbox="_images/concurrent-pattern.svg":::
+The diagram illustrates concurrent orchestration with a single input task at the top center. Three agent boxes (Agent A - Security Specialist, Agent B - Performance Analyst, Agent C - Documentation Expert) are positioned horizontally below the input, each connected to the input task with parallel arrows showing simultaneous processing. Each agent produces its specialized output (Security Assessment, Performance Analysis, Documentation Review), shown as output boxes below each agent. All three outputs converge through arrows into a central Aggregation Component, which produces a final Combined Result at the bottom. This demonstrates how diverse agent specializations work in parallel on the same task to provide comprehensive analysis.
 :::image-end:::
 
 This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, reducing overall execution time while providing comprehensive coverage of the problem space. This pattern is similar to the fan-out/fan-in cloud design pattern.
 
-### When to use the concurrent agents pattern
+### When to use concurrent orchestration
 
-Consider the concurrent agents pattern when you have:
+Consider the concurrent orchestration pattern when you have:
 
 - Tasks that benefit from multiple independent perspectives
 - Agents with different specializations that can all contribute to the same problem
@@ -45,7 +45,7 @@ Consider the concurrent agents pattern when you have:
 - Validation requirements where multiple agents can cross-check results
 - Analysis tasks requiring diverse expertise (technical, business, creative, and so on)
 
-### When to avoid the concurrent agents pattern
+### When to avoid concurrent orchestration
 
 Avoid this pattern when:
 
@@ -56,25 +56,25 @@ Avoid this pattern when:
 - There is no clear conflict resolution strategy to handle conflicting or contradictory results from each agent
 - Result aggregation logic would be too complex or would lower the quality of the results
 
-### Concurrent agents pattern examples
+### Concurrent orchestration examples
 
 **Code review validation**: A software development platform uses concurrent agents where security, performance, style, and documentation agents simultaneously analyze the same code submission. Each provides independent assessments that are aggregated into a comprehensive review dashboard, reducing overall processing time while ensuring thorough coverage.
 
 **Investment research analysis**: A financial services firm deploys concurrent agents where fundamental, technical, sentiment, and ESG agents simultaneously analyze the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
 
-## Sequential agents pattern
+## Sequential orchestration
 
-The sequential agents pattern chains agents together in a predefined order, where each agent processes the output from the previous agent in the sequence, creating a pipeline of specialized transformations.
+The sequential orchestration pattern chains agents together in a predefined order, where each agent processes the output from the previous agent in the sequence, creating a pipeline of specialized transformations.
 
-:::image type="complex" source="_images/sequential-pattern.svg" alt-text="Diagram showing the sequential agents pattern where agents process tasks in a predefined order." lightbox="_images/sequential-pattern.svg":::
-The diagram shows a vertical flow representing the sequential agents pattern. Starting from the top, an input task box connects via an arrow to Agent A below it. Agent A then connects to Agent B through a downward arrow, and Agent B connects to Agent C in the same manner. Finally, Agent C connects via an arrow to the output box at the bottom. This linear arrangement demonstrates how the task flows through each agent in a predetermined sequence, with each agent processing the output from the previous agent before passing it to the next one.
+:::image type="complex" source="_images/sequential-pattern.svg" alt-text="Diagram showing sequential orchestration where agents process tasks in a defined pipeline order with output flowing from one agent to the next." lightbox="_images/sequential-pattern.svg":::
+The diagram shows a vertical pipeline representing sequential orchestration. At the top, an input document flows into Agent A (Document Summarizer), which processes it and passes its output downward to Agent B (Language Translator). Agent B then processes the summary and passes its translated output to Agent C (Quality Reviewer) at the bottom. Each agent is represented as a processing box with clear input/output arrows showing the linear flow. The final output emerges from Agent C, demonstrating how each agent builds upon the previous agent's work in a predetermined sequence to progressively refine and enhance the result.
 :::image-end:::
 
 This pattern solves problems that require step-by-step processing, where each stage builds upon the previous one. It's ideal for workflows with clear dependencies and where the output quality improves through progressive refinement. This pattern is similar to the [Pipes and Filters](/azure/architecture/patterns/pipes-and-filters) cloud design pattern, but with AI agents rather than custom-coded processing components.
 
-### When to use the sequential agents pattern
+### When to use sequential orchestration
 
-Consider the sequential agents pattern when you have:
+Consider the sequential orchestration pattern when you have:
 
 - Multi-stage processes with clear dependencies and predictable workflow progression
 - Data transformation pipelines, where each stage adds specific value that the next stage depends on
@@ -82,7 +82,7 @@ Consider the sequential agents pattern when you have:
 - Need to add a human-in-the-loop quality gate between steps in a process
 - A system where the availability and performance characteristics of every agent in the pipeline is understood. Failures or delays in one agent's processing are tolerable for the pipeline.
 
-### When to avoid the sequential agents pattern
+### When to avoid sequential orchestration
 
 Avoid this pattern when:
 
@@ -92,23 +92,75 @@ Avoid this pattern when:
 - The workflow requires backtracking or iteration
 - Dynamic routing based on intermediate results is needed
 
-### Sequential agents pattern examples
+### Sequential orchestration examples
 
 **Legal contract drafting**: A law firm's document management software uses sequential agents where each stage requires the complete output from the previous stage: template creation, clause customization, regulatory compliance review, risk assessment. Each agent builds upon the work of the previous agent to create a comprehensive contract.
 
 **Personalized curriculum development**: An educational technology company uses sequential agents to build individualized training programs: learning assessment, content mapping, pedagogical sequencing, student task scheduling. Each step depends on the complete output from the previous stage to create an effective learning experience.
 
-## Agent handoff pattern
+## Group chat orchestration
 
-The agent handoff pattern enables dynamic delegation of tasks between agents, where each agent can assess the task at hand and decide whether to handle it themselves or transfer it to a more appropriate agent based on the context and requirements.
+The group chat orchestration enables multiple agents to participate in a shared conversation thread, where agents collaborate through discussion to solve problems, make decisions, or validate work. A chat manager coordinates the flow, determining which agent should respond next and managing different interaction modes from collaborative brainstorming to structured quality gates.
 
-:::image type="complex" source="_images/handoff-pattern.svg" alt-text="Diagram showing the agent handoff pattern where a triage agent routes tasks to appropriate specialists." lightbox="_images/handoff-pattern.svg":::
-The diagram depicts a agent handoff pattern with an input task at the top connecting to a triage agent below it. The triage agent sits at the center and has three arrows extending from it to three specialist agents positioned horizontally: Specialist Agent A on the left, Specialist Agent B in the center, and Specialist Agent C on the right. Each specialist agent connects downward to its respective output box (Output A, Output B, Output C). This arrangement shows how the triage agent analyzes the incoming task and routes it to the most appropriate specialist agent based on the task requirements, with only one specialist handling each specific task.
+:::image type="complex" source="_images/group-chat-pattern.svg" alt-text="Diagram showing group chat orchestration where multiple agents participate in a managed conversation with a central chat manager coordinating the discussion flow." lightbox="_images/group-chat-pattern.svg":::
+The diagram illustrates group chat orchestration with a central shared conversation thread at the top, represented as a chat bubble or message area. Below it, a Group Chat Manager is positioned centrally as the orchestration hub. Four participants are arranged around the manager: Agent A (Market Research), Agent B (Financial Analysis), Agent C (Risk Assessment), and a Human Participant (Strategy Director). Bidirectional arrows connect each participant to the chat manager, showing how the manager coordinates turn-taking and message flow. Speech bubbles or message indicators show the collaborative nature of the conversation, with the chat manager ensuring orderly discussion flow and determining when each participant should contribute to the shared conversation thread.
+:::image-end:::
+
+This pattern addresses scenarios requiring multi-agent discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. It supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
+
+### When to use group chat orchestration
+
+Consider group chat orchestration when you have any of the following scenarios.
+
+#### Collaborative scenarios
+
+- Creative brainstorming sessions where agents build on each other's ideas
+- Decision-making processes that benefit from debate and consensus-building
+- Complex analysis requiring iterative refinement through discussion
+- Multi-disciplinary problems requiring cross-functional dialogue
+
+#### Validation and quality control scenarios
+
+- Quality assurance requirements with structured review processes
+- Compliance and regulatory validation requiring multiple expert perspectives
+- Financial or high-risk decisions needing approval workflows with clear audit trails
+- Content creation requiring editorial review with separation of concerns between creation and validation
+
+#### General discussion scenarios
+
+- Scenarios where human oversight or participation is needed within agent collaboration
+- Problems requiring multiple expert perspectives to converge through conversation
+- Situations where the decision-making process itself needs to be transparent and auditable
+
+### When to avoid group chat orchestration
+
+Avoid this pattern when:
+
+- Simple task delegation or linear pipeline processing is sufficient
+- Single agent processing can adequately handle the requirements
+- Real-time processing requirements make discussion overhead unacceptable
+- Clear hierarchical decision-making without discussion is more appropriate
+- Communication overhead would overwhelm the benefits
+- Managing conversation flow and preventing infinite loops would be too complex
+- Deterministic workflows are required without any iterative discussion
+
+### Group chat orchestration examples
+
+**Collaborative business strategy planning**: A consulting firm uses group chat orchestration where market research, financial analysis, and competitive intelligence agents collaborate in a shared discussion to develop comprehensive business strategies. The agents build on each other's insights, debate different market approaches, and iteratively refine strategic recommendations through open conversation, with a human strategy director participating to provide industry expertise and guide the collaborative process.
+
+**Financial transaction approval workflow**: An investment bank uses group chat orchestration for high-value transactions where a deal structuring agent presents proposed arrangements, while risk assessment and compliance agents participate in a structured discussion. The chat manager enforces a formal approval workflow where each reviewing agent must explicitly approve or reject with detailed reasoning, ensuring no transaction proceeds without proper validation and creating full audit trails for regulatory compliance.
+
+## Handoff orchestration
+
+The handoff orchestration enables dynamic delegation of tasks between agents, where each agent can assess the task at hand and decide whether to handle it themselves or transfer it to a more appropriate agent based on the context and requirements.
+
+:::image type="complex" source="_images/handoff-pattern.svg" alt-text="Diagram showing handoff orchestration where a triage agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
+The diagram depicts handoff orchestration with an input task at the top flowing into a central Triage Agent (Router). The triage agent analyzes the incoming task and has decision pathways leading to three specialist agents positioned horizontally below: Specialist Agent A (Technical Support), Specialist Agent B (Billing Resolution), and Specialist Agent C (Network Diagnostics). Each specialist connects to its respective output area. Decision indicators or routing symbols show how the triage agent evaluates task requirements and selects the most appropriate specialist. Only the selected specialist agent is highlighted or activated for each specific task, demonstrating intelligent dynamic routing based on content analysis rather than predetermined rules.
 :::image-end:::
 
 This pattern addresses scenarios where the optimal agent for a task isn't known upfront, or where the task requirements become clear only during processing. It enables intelligent routing and ensures tasks reach the most capable agent.
 
-### When to use the agent handoff pattern
+### When to use handoff orchestration
 
 Consider the agent handoff pattern when you have:
 
@@ -116,7 +168,7 @@ Consider the agent handoff pattern when you have:
 - Scenarios where expertise requirements emerge during processing resulting in dynamic task routing based on content analysis
 - Multi-domain problems requiring different specialists
 
-### When to avoid the agent handoff pattern
+### When to avoid handoff orchestration
 
 Avoid this pattern when:
 
@@ -132,56 +184,57 @@ Avoid this pattern when:
 
 **Dynamic customer service escalation**: A telecommunications CRM solution uses handoff agents where a general support agent begins helping customers but discovers specialized expertise needs through conversation. Network issues get handed off to technical infrastructure agents, billing disputes to financial resolution agents, with handoffs occurring when the current agent recognizes capability limits.
 
-## Agent supervisor pattern
+## Magnetic orchestration
 
-The agent supervisor pattern employs a central coordinating agent that manages and directs multiple worker agents, making high-level decisions about task distribution, progress monitoring, and result integration.
+The magnetic orchestration pattern combines the flexibility of autonomous agent collaboration with the structure of a central orchestrator. A lead agent (the "magnetizer") coordinates and directs specialized agents while allowing them to communicate directly with each other when needed, creating a dynamic balance between centralized control and distributed collaboration.
 
-:::image type="complex" source="_images/supervisor-pattern.svg" alt-text="Diagram showing the agent supervisor pattern where a central agent coordinates multiple worker agents." lightbox="_images/supervisor-pattern.svg":::
-The diagram illustrates the agent supervisor pattern with an input task at the top connecting to a supervisor agent positioned at the center. From the supervisor agent, bidirectional arrows extend to three worker agents arranged horizontally below: Worker Agent A on the left, Worker Agent B in the center, and Worker Agent C on the right. Each worker agent connects downward to its corresponding output (Output A, Output B, Output C). The bidirectional arrows between the supervisor and workers indicate ongoing coordination and communication, demonstrating how the supervisor manages task distribution, monitors progress, and coordinates the work of multiple agents.
+:::image type="complex" source="_images/magnetic-pattern.svg" alt-text="Diagram showing magnetic orchestration where a lead agent coordinates specialized agents while allowing flexible direct communication between specialists." lightbox="_images/magnetic-pattern.svg":::
+The diagram illustrates magnetic orchestration with a Lead Agent (Magnetizer) positioned at the top center as the primary coordinator. Below it, three specialist agents are arranged horizontally: Agent A (Customer Data), Agent B (Technical Systems), and Agent C (Business Logic). The lead agent has bidirectional coordination arrows connecting to each specialist, showing its oversight role. Additionally, direct communication lines connect the specialists to each other, forming a hybrid mesh structure. An input task flows to the lead agent, which can dynamically activate and coordinate the specialists. Each specialist produces specialized outputs while maintaining the ability to collaborate directly with peers when beneficial. This demonstrates the balance between centralized coordination and distributed collaboration that characterizes the magnetic pattern.
 :::image-end:::
 
-This pattern solves coordination challenges in complex multi-agent systems by providing centralized decision-making and oversight. It enables sophisticated orchestration while maintaining clear responsibility boundaries. This pattern draws inspiration from the [Scheduler Agent Supervisor](/azure/architecture/patterns/scheduler-agent-supervisor) cloud design pattern, extending it with AI capabilities for intelligent coordination and decision-making.
+This pattern addresses complex scenarios where you need both strategic coordination and tactical flexibility. The lead agent maintains overall direction and can intervene when needed, while specialized agents can collaborate directly for efficiency. This pattern is inspired by Microsoft's MagneticOne framework and balances the benefits of centralized coordination with the agility of peer-to-peer collaboration.
 
-### When to use the agent supervisor pattern
+### When to use magnetic orchestration
 
-Consider the agent supervisor pattern when you have:
+Consider magnetic orchestration when you have:
 
-- Complex workflows requiring centralized coordination and decision-making
-- Need for dynamic task distribution based on agent availability with strategic oversight of overall progress
-- Quality control and oversight requirements with validation capabilities
-- Resource management and load balancing needs
-- Scenarios requiring strategic planning and tactical execution
-- Integration of results from multiple specialized agents with clear hierarchical structure and responsibilities
+- Complex workflows requiring both centralized coordination and flexible agent collaboration
+- Need for dynamic task distribution with intelligent agent selection based on task requirements
+- Scenarios where specialized agents benefit from direct communication while maintaining overall coordination
+- Quality control requirements that benefit from both oversight and peer validation
+- Tasks requiring adaptive collaboration patterns that can't be predetermined
+- Systems where agent capabilities and availability change dynamically
 
-### When to avoid the agent supervisor pattern
+### When to avoid magnetic orchestration
 
 Avoid this pattern when:
 
-- Simple peer-to-peer collaboration is sufficient
-- Centralized control creates bottlenecks or the supervisor agent becomes a single point of failure
-- Overhead of coordination exceeds benefits or added complexity in supervisor logic is unacceptable
-- Agent autonomy is more important than coordination
-- Risk of over-centralization reducing agent autonomy or potential bottleneck for all communications would impact performance
+- Simple sequential or concurrent processing is sufficient for your requirements
+- Strict hierarchical control is required without any peer-to-peer communication
+- The overhead of managing both centralized and distributed coordination exceeds benefits
+- Agent interactions are predictable and don't require dynamic collaboration patterns
+- Real-time constraints make the coordination overhead unacceptable
+- Simple supervisor or handoff patterns adequately address your coordination needs
 
-### Agent supervisor pattern examples
+### Magnetic orchestration examples
 
-**Customer data integration platform**: A retail company's CRM system uses a supervisor agent that coordinates data processing across customer touchpoints by distributing validation and enrichment tasks to specialized workers based on priorities and capacity. The supervisor monitors processing queues, reallocates resources during volume spikes, and integrates insights to maintain comprehensive customer views.
+**Intelligent customer support platform**: A customer service system uses magnetic orchestration where an orchestrator agent analyzes incoming support requests and dynamically selects appropriate specialist agents. Simple billing questions activate only the billing agent, while complex technical issues might activate network, security, and account management agents together. The specialist agents can collaborate directly when needed (like security consulting with network specialists), while the orchestrator maintains overall case management and ensures resolution quality.
 
-**Enterprise security operations center**: A cybersecurity firm uses a supervisor agent that orchestrates threat response by coordinating specialized security agents based on evolving landscapes and resource availability. The supervisor dynamically adjusts priorities based on threat severity, balances workloads, and maintains comprehensive visibility requiring strategic coordination.
+**Research analysis platform**: A scientific research platform uses magnetic orchestration where the orchestrator evaluates research papers and dynamically assembles relevant specialist agents. Statistical analysis papers activate methodology and data validation agents, while experimental biology papers activate domain expertise, ethical review, and replication analysis agents. The specialist agents can collaborate directly on cross-cutting concerns while the orchestrator ensures comprehensive coverage and maintains research quality standards.
 
-## Network-of-agents pattern
+## Network orchestration
 
-The network-of-agents pattern creates interconnected agents that can communicate directly with multiple other agents, forming a mesh of collaborative relationships without strict hierarchical constraints.
+The network orchestration creates interconnected agents that can communicate directly with multiple other agents, forming a mesh of collaborative relationships without strict hierarchical constraints.
 
-:::image type="complex" source="_images/network-pattern.svg" alt-text="Diagram showing the network-of-agents pattern where agents communicate directly with each other in a mesh topology." lightbox="_images/network-pattern.svg":::
-The diagram shows a network-of-agents pattern with three agents arranged in a triangular formation. Agent A is positioned at the top, with Agent B at the bottom left and Agent C at the bottom right. Bidirectional arrows connect all three agents to each other, forming a mesh topology where Agent A connects to both Agent B and Agent C, and Agent B also connects directly to Agent C. An input task box at the top connects to Agent A, and output boxes are positioned below each agent (Output A, Output B, Output C). This interconnected structure demonstrates how agents can communicate and collaborate directly with each other without requiring central coordination.
+:::image type="complex" source="_images/network-pattern.svg" alt-text="Diagram showing network orchestration where agents form a fully connected mesh allowing any agent to communicate directly with any other agent without central coordination." lightbox="_images/network-pattern.svg":::
+The diagram shows network orchestration with four agents arranged in a diamond or square formation: Agent A (Research Lead), Agent B (Data Analyst), Agent C (Design Specialist), and Agent D (Innovation Catalyst). Every agent connects to every other agent with bidirectional communication lines, creating a complete mesh topology. An input task can enter through any agent, and multiple output streams emerge from different agents. The interconnected structure shows no central authority, with all agents having equal ability to initiate communications and form dynamic coalitions. Communication indicators or data flow symbols demonstrate how information and insights can flow freely between any agents as needed, enabling emergent collaboration patterns and innovative solutions.
 :::image-end:::
 
 This pattern addresses scenarios requiring flexible, peer-to-peer collaboration where agents need to share information, coordinate activities, or collaborate on complex problems without rigid structural constraints. This pattern shares similarities with the [Choreography](/azure/architecture/patterns/choreography) cloud design pattern, where components coordinate workflow among themselves without centralized control.
 
-### When to use the network-of-agents pattern
+### When to use network orchestration
 
-Consider the network-of-agents pattern when you have:
+Consider network orchestration when you have:
 
 - Collaborative problem-solving requiring peer interaction with maximum flexibility in agent interactions
 - Scenarios where any agent might need to communicate with any other with natural collaboration and knowledge sharing
@@ -190,7 +243,7 @@ Consider the network-of-agents pattern when you have:
 - Complex interdependencies between agent capabilities that are resilient to individual agent failures
 - Innovation scenarios requiring creative collaboration
 
-### When to avoid the network-of-agents pattern
+### When to avoid network orchestration
 
 Avoid this pattern when:
 
@@ -201,116 +254,39 @@ Avoid this pattern when:
 - Deterministic workflows are required or behavior is difficult to predict or control
 - Potential for communication loops or deadlocks is unacceptable
 
-### Network-of-agents pattern examples
+### Network orchestration examples
 
 **Collaborative research discovery**: A pharmaceutical research consortium uses network agents where a molecular analysis agent discovers compounds and directly shares findings with drug interaction, clinical trial design, and regulatory pathway agents. Each agent freely collaborates with any other relevant agent as discoveries emerge, enabling rapid knowledge transfer and innovative solutions that couldn't be predicted through predetermined workflows.
 
 **Creative content generation**: A multimedia production company uses network agents where concept, visual design, music, and narrative agents dynamically collaborate and share insights based on emerging artistic directions. All agents can form coalitions and adapt to the creative process rather than being forced through rigid structures, fostering innovation through flexible peer-to-peer collaboration.
 
-## Maker-checker pattern
+## Combining orchestration patterns
 
-The maker-checker pattern implements a two-stage workflow where one agent (maker) creates or executes work, and another agent (checker) reviews, validates, or approves the output before final completion.
+Applications often require combining multiple orchestration patterns to address complex requirements. Here are common pattern combinations:
 
-:::image type="complex" source="_images/maker-checker-pattern.svg" alt-text="Diagram showing the maker-checker pattern where one agent creates work and another reviews it." lightbox="_images/maker-checker-pattern.svg":::
-The diagram illustrates the maker-checker pattern with an input task at the top connecting to a maker agent positioned on the left side. The maker agent produces output that flows to a checker agent positioned on the right side. The checker agent has two possible outputs: an approved result that flows downward to a final output box, and a feedback loop that connects back to the maker agent, indicated by an arrow labeled "Feedback for revision." This arrangement demonstrates the iterative process where the maker creates work, the checker reviews it, and either approves the work or provides feedback for revision until the work meets quality standards.
-:::image-end:::
+### Sequential orchestration with concurrent stages
 
-This pattern addresses quality assurance, compliance, and risk management requirements by ensuring that no single agent has complete control over critical processes. It provides built-in validation and error detection.
-
-### When to use the maker-checker pattern
-
-Consider the maker-checker pattern when you have:
-
-- Quality assurance requirements with built-in error detection
-- Compliance and regulatory constraints requiring risk reduction through dual control
-- Financial or high-risk transactions needing clear accountability and audit trails
-- Content creation requiring editorial review with separation of concerns between creation and validation
-- Code development with mandatory peer review
-- Critical decisions requiring validation
-
-### When to avoid the maker-checker pattern
-
-Avoid this pattern when:
-
-- Speed is more important than accuracy
-- Single agent review is sufficient or overhead of dual processing isn't justified
-- Checker agent lacks domain expertise to effectively validate
-- Real-time processing requirements preclude review delays or doubled processing time and resources are unacceptable
-- Potential bottlenecks in the review stage would impact performance
-- Risk of checker agent becoming rubber stamp or coordination overhead between maker and checker is excessive
-- Possible conflicts requiring resolution mechanisms would be too complex
-
-### Maker-checker pattern examples
-
-**High-value financial transactions**: An investment bank uses maker-checker agents for merger and acquisition transactions where a deal structuring agent (maker) creates complex financial arrangements while an independent validation agent (checker) reviews every aspect against compliance frameworks and risk policies before approval, ensuring no single agent can authorize transactions worth hundreds of millions of dollars.
-
-**Pharmaceutical regulatory submissions**: A biotech company uses maker-checker agents where a clinical data analysis agent (maker) compiles drug approval packages while a regulatory compliance agent (checker) independently validates every component against FDA guidelines and safety requirements, providing mandatory dual control for submissions that determine whether medications reach patients.
-
-## Custom pattern
-
-The custom pattern represents tailored agent architectures designed for specific use cases that don't fit neatly into standard patterns. These implementations combine elements from multiple patterns or introduce novel interaction models.
-
-:::image type="complex" source="_images/custom-pattern.svg" alt-text="Diagram showing the custom pattern with domain-specific agent arrangements and interactions." lightbox="_images/custom-pattern.svg":::
-The diagram represents a custom pattern with a complex arrangement of interconnected agents. At the top, an input task connects to Agent A, which has bidirectional connections to both Agent B positioned to its right and Agent D positioned below it. Agent B connects unidirectionally to Agent C on its right. Agent D has a bidirectional connection to Agent E, which is positioned to its right. Agent C connects downward to a final output box at the bottom right. This intricate network of connections demonstrates how custom patterns can combine elements from multiple standard patterns, creating specialized workflows tailored to specific domain requirements and business logic.
-:::image-end:::
-
-This pattern addresses unique requirements that standard patterns can't accommodate effectively, enabling optimization for specific domains, constraints, or innovative approaches that haven't been standardized yet.
-
-### When to use the custom pattern
-
-Consider the custom pattern when you have:
-
-- Unique requirements not addressed by standard patterns with perfect fit for specific requirements
-- Domain-specific constraints requiring specialized approaches for optimal performance in targeted scenarios
-- Performance requirements demanding custom optimization
-- Innovative use cases requiring novel interaction models with innovation opportunities and competitive advantage
-- Legacy system integration requiring adapted patterns with complete control over agent interactions
-- Regulatory or security requirements necessitating custom controls with ability to incorporate domain-specific optimizations
-
-### When to avoid the custom pattern
-
-Avoid this pattern when:
-
-- Standard patterns adequately address your needs
-- Development and maintenance costs outweigh benefits or high development and maintenance overhead is unacceptable
-- Team lacks expertise to design and maintain custom orchestration or increased complexity and debugging difficulty would be problematic
-- Simplicity and maintainability are priorities
-- Future scalability requires standard pattern compatibility or limited reusability across different scenarios is a concern
-- Documentation and knowledge transfer challenges or risk of over-engineering simple problems
-
-### Custom pattern examples
-
-**Autonomous drone swarm coordination**: An aerospace company creates custom agents for search and rescue operations where drone agents must simultaneously coordinate flight paths, share environmental data, form dynamic sub-swarms, and maintain communication relays. The custom pattern combines network communication, supervisor behavior, and handoff capabilities to address unique constraints of autonomous flight operations that no standard pattern can accommodate.
-
-**Real-time language translation platform**: A global communications company implements custom agents for multilingual video conferences where translation, cultural context, audio synchronization, and quality assurance agents work together. The custom pattern requires specialized protocols for handling overlapping speech, cultural sensitivity validation, temporal synchronization, and graceful degradation due to complex linguistic, cultural, and technical constraints.
-
-## Combining patterns
-
-Applications often require combining multiple patterns to address complex requirements. Here are common pattern combinations:
-
-### Sequential agents with concurrent stages
-
-Implement a Sequential pipeline where individual stages use Concurrent processing. For example, a content creation workflow might have sequential stages (research, writing, review), but each stage could use concurrent agents with different specializations.
+Implement sequential orchestration where individual stages use concurrent processing. For example, a content creation workflow might have sequential stages (research, writing, review), but each stage could use concurrent agents with different specializations.
 
 **When to use**: Multi-stage processes where individual stages benefit from parallel processing but overall workflow must be sequential.
 
 **Example**: Software development pipeline where the testing stage concurrently runs unit tests, integration tests, and security scans before proceeding to deployment.
 
-### Handoff with maker-checker validation
+### Group chat with validation workflows
 
-Combine Handoff routing with maker-checker validation at specialist endpoints. Tasks are routed to appropriate specialists who then follow maker-checker protocols for quality assurance.
+Combine group chat orchestration with structured approval workflows where multiple agents participate in discussion but follow formal validation protocols. The chat manager enforces specific roles and approval gates while maintaining the collaborative benefits of group discussion.
 
-**When to use**: Systems requiring both intelligent routing and mandatory validation, such as financial services or healthcare applications.
+**When to use**: Systems requiring both collaborative analysis and mandatory validation, such as financial services or healthcare applications where expertise and compliance must be balanced.
 
-**Example**: Insurance claims processing where a triage agent routes claims to appropriate specialists (auto, home, health), and each specialist follows maker-checker validation before final approval.
+**Example**: Insurance claims processing where multiple specialist agents (medical, legal, financial) discuss complex claims in a group chat format, but the chat manager enforces that each specialist must provide explicit approval with reasoning before final claim resolution.
 
-### Supervisor coordinating mixed patterns
+### Magnetic orchestration coordinating mixed patterns
 
-Use a Supervisor to orchestrate different pattern types for different workload categories. Some tasks might follow Sequential processing while others use Concurrent or Network-of-agents patterns.
+Use magnetic orchestration to coordinate different pattern types for different workload categories. The lead agent can dynamically select appropriate orchestration approaches - some tasks might follow sequential processing while others use concurrent or network orchestration patterns.
 
-**When to use**: Complex systems handling diverse workload types that require different coordination approaches.
+**When to use**: Complex systems handling diverse workload types that require different coordination approaches with intelligent pattern selection.
 
-**Example**: Manufacturing quality control where a supervisor coordinates sequential testing for safety-critical components, concurrent analysis for routine inspections, and network collaboration for complex failure investigations.
+**Example**: Manufacturing quality control where a magnetic orchestrator coordinates sequential testing for safety-critical components, concurrent analysis for routine inspections, and network collaboration for complex failure investigations, adapting the coordination approach based on the specific quality requirements and available specialist agents.
 
 ## Implementation considerations
 
@@ -366,17 +342,17 @@ Depending on the level of control you have in your agent implementation, conside
 
 ### Common pitfalls and anti-patterns
 
-Avoid these common mistakes when implementing agent patterns:
+Avoid these common mistakes when implementing agent orchestration patterns:
 
 #### Over-orchestration
 
 - Creating unnecessary coordination complexity
-- Using agent supervisor patterns when simple sequential or concurrent agents patterns suffice
+- Using magnetic orchestration when simple sequential or concurrent orchestration suffices
 - Adding agents that don't provide meaningful specialization
 
 #### Communication overhead
 
-- Implementing full Network-of-agents patterns when simpler coordination works
+- Implementing full network orchestration when simpler coordination works
 - Creating chatty interfaces between agents
 - Not considering latency impacts of multi-hop communication
 
@@ -386,29 +362,29 @@ Avoid these common mistakes when implementing agent patterns:
 - Not handling eventual consistency in distributed scenarios
 - Assuming synchronous updates across agent boundaries
 
-#### Pattern misalignment
+#### Orchestration pattern misalignment
 
 - Using deterministic patterns for inherently non-deterministic workflows
-- Applying rigid sequential agents patterns to collaborative scenarios
-- Choosing Network-of-agents patterns for simple linear processing
+- Applying rigid sequential orchestration to collaborative scenarios
+- Choosing network orchestration for simple linear processing
 
 #### Scalability blind spots
 
 - Not considering agent granularity for scaling requirements
-- Creating bottlenecks in Supervisor or Handoff routing logic
-- Ignoring resource constraints when choosing Concurrent agents patterns
+- Creating bottlenecks in Magnetic or Handoff routing logic
+- Ignoring resource constraints when choosing concurrent orchestration
 
 ## Relationship to cloud design patterns
 
-AI agent design patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. While cloud design patterns focus on structural and behavioral concerns in distributed systems, AI agent patterns specifically address the orchestration of components with reasoning capabilities, learning behaviors, and non-deterministic outputs.
+AI agent orchestration patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. While cloud design patterns focus on structural and behavioral concerns in distributed systems, AI agent orchestration patterns specifically address the coordination of components with reasoning capabilities, learning behaviors, and non-deterministic outputs.
 
 ## Next steps
 
 To begin implementing AI agent design patterns:
 
-1. **Assess your requirements** using the pattern selection guide
-2. **Start simple** with proven patterns before considering custom implementations
-3. **Prototype and measure** different patterns for your specific use case
+1. **Assess your requirements** using the orchestration pattern selection guide
+2. **Start simple** with proven orchestration patterns before considering custom implementations
+3. **Prototype and measure** different orchestration patterns for your specific use case
 4. **Implement proper observability** from the beginning
 5. **Plan for evolution** as your requirements and understanding mature
 

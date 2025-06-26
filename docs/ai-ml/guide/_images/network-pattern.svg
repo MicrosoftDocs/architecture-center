@@ -1,58 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="220" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="400" height="220" fill="#f8f9fa"/>
-  
-  <!-- Title -->
-  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Network Pattern</text>
-  
-  <!-- Input Task -->
-  <rect x="20" y="90" width="60" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
-  <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Task</text>
-  
-  <!-- Network Agents -->
-  <circle cx="150" cy="80" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="150" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Agent A</text>
-  
-  <circle cx="250" cy="80" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="250" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Agent B</text>
-  
-  <circle cx="150" cy="140" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="150" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Agent C</text>
-  
-  <circle cx="250" cy="140" r="18" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="250" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Agent D</text>
-  
-  <!-- Results -->
-  <rect x="320" y="90" width="60" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
-  <text x="350" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Result</text>
-  
-  <!-- Task input arrows -->
-  <path d="M 80 110 L 132 90" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 80 110 L 132 130" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Network interconnections -->
-  <path d="M 168 80 L 232 80" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
-  <path d="M 232 80 L 168 80" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
-  
-  <path d="M 150 98 L 150 122" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
-  <path d="M 150 122 L 150 98" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
-  
-  <path d="M 250 98 L 250 122" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
-  <path d="M 250 122 L 250 98" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
-  
-  <path d="M 168 140 L 232 140" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
-  <path d="M 232 140 L 168 140" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
-  
-  <!-- Diagonal connections -->
-  <path d="M 168 90 L 232 130" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="2,2" marker-end="url(#arrowhead-green)"/>
-  <path d="M 232 90 L 168 130" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="2,2" marker-end="url(#arrowhead-green)"/>
-  
-  <!-- Result arrows -->
-  <path d="M 268 90 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 268 130 L 320 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Arrow marker definitions -->
+<svg width="480" height="280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
@@ -62,9 +9,73 @@
     </marker>
   </defs>
   
-  <!-- Pattern indicator -->
-  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Peer-to-Peer Collaboration</text>
+  <!-- Background -->
+  <rect width="480" height="280" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="240" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Network Orchestration Pattern</text>
+  <text x="240" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Peer-to-peer collaboration with shared context</text>
+  
+  <!-- Input Task -->
+  <rect x="30" y="120" width="70" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="65" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Complex Task</text>
+  
+  <!-- Network Agents with generic labels -->
+  <circle cx="180" cy="80" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="180" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Agent A</text>
+  
+  <circle cx="300" cy="80" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="300" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Agent B</text>
+  
+  <circle cx="180" cy="200" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="180" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Agent C</text>
+  
+  <circle cx="300" cy="200" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="300" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Agent D</text>
+  
+  <!-- Central coordination space -->
+  <circle cx="240" cy="140" r="15" fill="#a29bfe" stroke="#6c5ce7" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="240" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#6c5ce7">Shared</text>
+  
+  <!-- Results -->
+  <rect x="380" y="120" width="70" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="415" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Solution</text>
+  
+  <!-- Task input arrows to all agents -->
+  <path d="M 100 130 L 158 95" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 100 145 L 158 185" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 100 135 L 278 95" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 100 150 L 278 185" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Full network interconnections (all agents can communicate) -->
+  <path d="M 202 80 L 278 80" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <path d="M 278 80 L 202 80" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
+  
+  <path d="M 180 102 L 180 178" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <path d="M 180 178 L 180 102" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
+  
+  <path d="M 300 102 L 300 178" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <path d="M 300 178 L 300 102" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
+  
+  <path d="M 202 200 L 278 200" stroke="#00b894" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <path d="M 278 200 L 202 200" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- Diagonal connections -->
+  <path d="M 195 95 L 285 185" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="2,2" marker-end="url(#arrowhead-green)"/>
+  <path d="M 285 95 L 195 185" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="2,2" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- Connections to shared space -->
+  <path d="M 202 95 L 225 125" stroke="#a29bfe" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 278 95 L 255 125" stroke="#a29bfe" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 202 185 L 225 155" stroke="#a29bfe" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 278 185 L 255 155" stroke="#a29bfe" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  
+  <!-- Result arrows from all agents -->
+  <path d="M 322 95 L 380 130" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 322 185 L 380 150" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 202 95 L 380 135" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 202 185 L 380 145" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
   
   <!-- Communication label -->
-  <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#00b894">All agents can communicate directly</text>
+  <text x="240" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#00b894">All agents communicate directly and share context dynamically</text>
 </svg>

@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="400" height="200" fill="#f8f9fa"/>
-  
-  <!-- Title -->
-  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Concurrent Pattern</text>
-  
-  <!-- Input Task -->
-  <rect x="20" y="80" width="80" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
-  <text x="60" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Task</text>
-  
-  <!-- Agents -->
-  <circle cx="200" cy="70" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="200" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent A</text>
-  
-  <circle cx="200" cy="120" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="200" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent B</text>
-  
-  <circle cx="200" cy="170" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
-  <text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent C</text>
-  
-  <!-- Results -->
-  <rect x="300" y="80" width="80" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
-  <text x="340" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Results</text>
-  
-  <!-- Arrows from Task to Agents -->
-  <path d="M 100 100 L 175 80" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 100 100 L 175 120" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 100 100 L 175 160" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Arrows from Agents to Results -->
-  <path d="M 225 80 L 300 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 225 120 L 300 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 225 160 L 300 100" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Arrow marker definition -->
+<svg width="480" height="280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
     </marker>
   </defs>
   
-  <!-- Parallel execution indicator -->
-  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Parallel Execution</text>
+  <!-- Background -->
+  <rect width="480" height="280" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="240" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Concurrent Orchestration Pattern</text>
+  <text x="240" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Parallel processing with result aggregation</text>
+  
+  <!-- Input Task -->
+  <rect x="190" y="60" width="100" height="35" rx="8" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="240" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Input Task</text>
+  
+  <!-- Three Agents processing in parallel -->
+  <circle cx="120" cy="150" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="120" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Agent A</text>
+  
+  <circle cx="240" cy="150" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="240" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Agent B</text>
+  
+  <circle cx="360" cy="150" r="25" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="360" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Agent C</text>
+  
+  <!-- Individual Outputs -->
+  <rect x="70" y="200" width="100" height="30" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="120" y="219" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1976d2">Output A</text>
+  
+  <rect x="190" y="200" width="100" height="30" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="240" y="219" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1976d2">Output B</text>
+  
+  <rect x="310" y="200" width="100" height="30" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="360" y="219" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1976d2">Output C</text>
+  
+  <!-- Aggregation Component -->
+  <ellipse cx="240" cy="255" rx="60" ry="18" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="240" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Aggregation</text>
+  
+  <!-- Input arrows to agents -->
+  <path d="M 215 95 L 145 125" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 240 95 L 240 125" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 265 95 L 335 125" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Agent to output arrows -->
+  <path d="M 120 175 L 120 200" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 240 175 L 240 200" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 360 175 L 360 200" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Output to aggregation arrows -->
+  <path d="M 145 230 L 200 245" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 240 230 L 240 237" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 335 230 L 280 245" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 </svg>

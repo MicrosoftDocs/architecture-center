@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0, 8 2.5, 0 5" fill="#e17055"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="480" height="300" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="240" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Group Chat Orchestration Pattern</text>
+  <text x="240" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Managed conversation with turn-taking coordination</text>
+  
+  <!-- Shared Conversation Space -->
+  <ellipse cx="240" cy="80" rx="120" ry="30" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="240" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1976d2">Shared Conversation</text>
+  
+  <!-- Chat Manager -->
+  <circle cx="240" cy="160" r="25" fill="#e17055" stroke="#d63031" stroke-width="2"/>
+  <text x="240" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Chat</text>
+  <text x="240" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Manager</text>
+  
+  <!-- Agent A -->
+  <circle cx="120" cy="220" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="120" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent A</text>
+  
+  <!-- Agent B -->
+  <circle cx="240" cy="240" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="240" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent B</text>
+  
+  <!-- Agent C -->
+  <circle cx="360" cy="220" r="22" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="360" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent C</text>
+  
+  <!-- Human Participant -->
+  <rect x="380" y="140" width="60" height="40" rx="8" fill="#a29bfe" stroke="#6c5ce7" stroke-width="2"/>
+  <text x="410" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Human</text>
+  
+  <!-- Coordination arrows from Chat Manager -->
+  <path d="M 225 175 L 135 205" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 240 185 L 240 218" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 255 175 L 345 205" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 265 160 L 380 160" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  
+  <!-- Connections to shared space -->
+  <path d="M 240 135 L 240 110" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <path d="M 135 205 L 180 95" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <path d="M 345 205 L 300 95" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <path d="M 395 140 L 320 95" stroke="#636e72" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  
+  <!-- Communication label -->
+  <text x="240" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e17055">Chat manager coordinates discussion flow between participants</text>
+</svg>

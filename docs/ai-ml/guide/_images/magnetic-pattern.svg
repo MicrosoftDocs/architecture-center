@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0, 8 2.5, 0 5" fill="#e17055"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="480" height="300" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="240" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">Magnetic Orchestration Pattern</text>
+  <text x="240" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72" font-style="italic">Centralized coordination with flexible peer collaboration</text>
+  
+  <!-- User Input -->
+  <rect x="30" y="130" width="70" height="40" rx="5" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="65" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Input Task</text>
+  
+  <!-- Central Magnetic Agent (larger, prominent) -->
+  <circle cx="240" cy="150" r="30" fill="#e17055" stroke="#d63031" stroke-width="3"/>
+  <text x="240" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Lead</text>
+  <text x="240" y="159" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Agent</text>
+  
+  <!-- Specialized Agents around the magnetic agent -->
+  <circle cx="170" cy="80" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="170" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent A</text>
+  
+  <circle cx="310" cy="80" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="310" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent B</text>
+  
+  <circle cx="340" cy="150" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="340" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent C</text>
+  
+  <circle cx="310" cy="220" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="310" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent D</text>
+  
+  <circle cx="170" cy="220" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="170" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent E</text>
+  
+  <circle cx="140" cy="150" r="20" fill="#00b894" stroke="#00a085" stroke-width="2"/>
+  <text x="140" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Agent F</text>
+  
+  <!-- Output -->
+  <rect x="380" y="130" width="70" height="40" rx="5" fill="#fd79a8" stroke="#e84393" stroke-width="2"/>
+  <text x="415" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Response</text>
+  
+  <!-- Input arrow -->
+  <path d="M 100 150 L 210 150" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Magnetic agent coordination arrows (bidirectional) -->
+  <path d="M 220 130 L 185 95" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 180 100 L 215 135" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <path d="M 260 130 L 295 95" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 300 100 L 265 135" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <path d="M 270 150 L 320 150" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 325 150 L 275 150" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <path d="M 260 170 L 295 205" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 300 200 L 265 165" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <path d="M 220 170 L 185 205" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 180 200 L 215 165" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <path d="M 210 150 L 160 150" stroke="#e17055" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 155 150 L 205 150" stroke="#e17055" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#arrowhead-red)"/>
+  
+  <!-- Peer-to-peer connections (lighter, showing optional direct communication) -->
+  <path d="M 185 95 L 295 95" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <path d="M 185 205 L 295 205" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <path d="M 155 165 L 155 185" stroke="#00b894" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Output arrow -->
+  <path d="M 270 150 L 380 150" stroke="#636e72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Communication label -->
+  <text x="240" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e17055">Lead agent coordinates while specialists can collaborate directly</text>
+</svg>
