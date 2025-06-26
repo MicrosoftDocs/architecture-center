@@ -19,7 +19,7 @@ When you consider the various models of multitenancy, it's helpful to first cons
 
 ## Define a tenant
 
-You need to first define a *tenant* for your organization. Consider who your customer is or who recieves your services. There are two common models:
+You need to first define a *tenant* for your organization. Consider who your customer is or who receives your services. There are two common models:
 
 - **Business to business:** If your customers are other organizations, you likely map your tenants to those customers. However, consider whether your customers have divisions, like teams or departments, and whether they have a presence in multiple countries or regions. You might need to map a single customer to multiple tenants if there are different requirements for these subgroups. Similarly, a customer might want to maintain two instances of your service so that they can keep their development and production environments separated from each other. A single tenant typically has multiple users. For example, all of the customer's employees are users within a single tenant.
 
