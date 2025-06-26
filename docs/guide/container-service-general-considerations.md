@@ -359,7 +359,7 @@ Container Apps and Web App for Containers provide built-in source IP address res
 
 | Network access control and resource impact | Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
-| Built-in ingress IP address restrictions | ✅ | ❌* | ✅ |
+| Built-in ingress IP address restrictions | ✅ | ❌ | ✅ |
 | Resource consumption | - | Consumes cluster resources | - |
 
 > [!NOTE]
