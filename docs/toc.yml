@@ -503,18 +503,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-      - name: Monitor Azure Databricks jobs
-        items:
-        - name: Overview
-          href: databricks-monitoring/index.md
-        - name: Send Databricks application logs
-          href: databricks-monitoring/application-logs.md
-        - name: Use dashboards to visualize Databricks
-          href: databricks-monitoring/dashboards.md
-        - name: Troubleshoot performance bottlenecks
-          href: databricks-monitoring/performance-troubleshooting.md
-        - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
