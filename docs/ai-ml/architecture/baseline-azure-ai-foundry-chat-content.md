@@ -500,6 +500,8 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 The following operational excellence guidance doesn't include the front-end application elements, which remain the same as the [baseline highly available zone-redundant web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#deployment-flow).
 
+When planning your experimentation, testing, and production environments, establish distinct and isolated AI Foundry resources, including dependencies.
+
 #### Agent compute
 
 Microsoft fully manages the serverless compute platform for Azure AI Agent REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.

@@ -3,7 +3,7 @@ title: Architectural approaches for governance and compliance in multitenant sol
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -56,14 +56,14 @@ Consider whether your tenants' requirements restrict the personnel who can work 
 
 ### Aggregation of data from multiple tenants
 
-Consider whether you need to combine or aggregate data from multiple tenants. For example, do you analyze the aggregated data, or train machine learning models that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
+Consider whether you need to combine or aggregate data from multiple tenants. For example, do you analyze the aggregated data, train machine learning models, or provide AI grounding data that could be applied to other tenants? Ensure your tenants understand the ways in which you use their data. Include any use of aggregated or anonymized data.
 
 ### Compliance requirements
 
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
 - You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
-- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
+- You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with the [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 - You purchase a cyberinsurance policy to mitigate the risk of breaches. Cyberinsurance providers might require that you follow their standards and apply specific controls for your policy to be valid.
 
 > [!IMPORTANT]
@@ -118,8 +118,8 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 ## Antipatterns to avoid
 
 - **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within.
-- **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, you should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
-- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you'll likely need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture against a general baseline, such as the [CIS Microsoft Foundations Benchmark](/azure/governance/policy/samples/cis-azure-2-0-0), even before you have an explicit requirement to do so.
+- **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, you should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so. You also ensure you're better protected against a variety of security threats and risks.
+- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you'll likely need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture against a general baseline, such as the [CIS Microsoft Azure Foundations Benchmark](/azure/governance/policy/samples/cis-azure-2-0-0), even before you have an explicit requirement to do so.
 - **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools, such as the Azure CLI, Azure PowerShell, Azure Resource Graph, and the Azure Resource Manager APIs.
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.
 - **Failing to plan your access control strategy.** Azure RBAC provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Microsoft Entra groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.

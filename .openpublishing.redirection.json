@@ -2706,6 +2706,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databricks-monitoring/index.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/application-logs.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/dashboards.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/performance-troubleshooting.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/databricks-observability.yml",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-science-process/prepare-data.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
