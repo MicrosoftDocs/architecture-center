@@ -233,7 +233,7 @@ CA and HPA work well together, so enable both autoscaler options in your AKS clu
 The following example sets resource metrics for HPA:
 
 ```yaml
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: delivery-hpa
@@ -244,12 +244,9 @@ spec:
     name: delivery
   minReplicas: 2
   maxReplicas: 5
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 60
+  targetCPUUtilizationPercentage: 50
 ```
+
 
 HPA looks at actual resources consumed or other metrics from running pods, but the CA provisions nodes for pods that aren't scheduled yet. Therefore, CA looks at the requested resources, as specified in the pod spec. Use load testing to fine-tune these values.
 
@@ -322,13 +319,13 @@ Consider the following points when planning for security.
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
+- The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations.
 
-- AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario. 
+
+- In the free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
 - Consider leveraging free tier of AKS for development workloads, and leveraging [standard and premium tiers](/azure/aks/free-standard-pricing-tiers) for critical workloads. 
-
-- To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
 - Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
