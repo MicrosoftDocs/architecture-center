@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel
-  description: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Semantic Kernel and Azure Container Apps for enterprise-grade tasks.
+  title: Build a Conversation Knowledge Mining Solution with Azure AI Services
+  description: Learn how to design a scalable conversation analytics system that extracts actionable insights from large volumes of conversational data using Azure AI Content Understanding, Azure AI Search, and Azure OpenAI Service through event-driven workflows and natural language processing.
   author: gpickett
   ms.author: gpickett
   ms.date: 6/16/2025
@@ -15,8 +15,8 @@ products:
   - ai-services
   - azure-cosmos-db
   - semantic-kernel
-name: Build a multiple-agent workflow automation solution with Semantic Kernel
-summary: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Semantic Kernel and Azure Container Apps for enterprise-grade tasks.
-thumbnailUrl: /azure/architecture/browse/thumbs/multiple-agent-workflow-automation.png
+name: Build a conversation knowledge mining solution with Azure AI services
+summary: Learn how to design a scalable conversation analytics system that extracts actionable insights from large volumes of conversational data using Azure AI Content Understanding, Azure AI Search, and Azure OpenAI Service through event-driven workflows and natural language processing.
+thumbnailUrl: /azure/architecture/browse/thumbs/unlock-insights-from-conversational-data.png
 content: |
-  [!INCLUDE[](multiple-agent-workflow-automation-content.md)]
+  [!INCLUDE[](unlock-insights-from-conversational-data-content.md)]

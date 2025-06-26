@@ -6,11 +6,11 @@ The architecture demonstrates how to build scalable conversation analytics pipel
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/conversation-knowledge-mining.png" alt-text="Diagram that shows a conversation knowledge mining architecture." lightbox="./_images/conversation-knowledge-mining.png":::
+:::image type="complex" border="false" source="./_images/unlock-insights-from-conversational-data.png" alt-text="Diagram that shows a conversation knowledge mining architecture." lightbox="./_images/unlock-insights-from-conversational-data.png":::
    The diagram shows the flow from call audio files and transcripts through Azure AI Content Understanding for entity extraction, to Azure AI Search for vectorized storage, and finally to an interactive web frontend powered by Azure OpenAI Service and Semantic Kernel for natural language exploration of conversation insights.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/conversation-knowledge-mining.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/unlock-insights-from-conversational-data.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -140,15 +140,6 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/67c83432524440d98ccb8c92ebd3e2f7).
 
 Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, some services such as Azure Container Registry have fixed daily costs per registry, and services like Azure SQL Database and Cosmos DB may incur baseline charges when provisioned regardless of actual usage.
-
-Key cost considerations include:
-
-- **Azure OpenAI Service costs** scale with token usage and model complexity, with GPT-4 models being more expensive than GPT-3.5 alternatives
-- **Azure AI Search pricing** depends on the chosen tier and scales with document count, queries per second, and storage requirements
-- **Azure AI Content Understanding** charges based on the number of documents processed and analysis complexity
-- **Data storage costs** accumulate over time as conversation archives grow in Azure Storage and database services
-
-To optimize costs, consider implementing conversation data retention policies, using lower-cost models for initial processing, and leveraging consumption-based pricing tiers where possible.
 
 ## Deploy this scenario
 
