@@ -17,7 +17,7 @@ Typical use cases for this architecture include:
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
-Here's a summary of the architecture:on 
+Here's a summary of the architecture:
 
 - Users access virtual networks from a branch.
 - Azure ExpressRoute extends the on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
