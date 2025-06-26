@@ -13,11 +13,11 @@ Typical use cases for this architecture include:
 
 ## Architecture
 
-:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
+:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending on the department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
-Here's a summary of the architecture:
+Here's a summary of the architecture:on 
 
 - Users access virtual networks from a branch.
 - Azure ExpressRoute extends the on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
