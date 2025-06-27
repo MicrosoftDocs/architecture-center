@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure Container Service 
+title: Choose an Azure Container Service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.
 author: cmaclaughlin
 ms.author: cmaclaughlin
