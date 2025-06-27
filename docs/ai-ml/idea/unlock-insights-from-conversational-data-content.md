@@ -18,25 +18,25 @@ The following workflow corresponds to the preceding diagram:
 
 1. **Data ingestion**: Call audio files and call transcripts are uploaded to Azure Storage Account as the initial data sources. Audio files undergo speech-to-text conversion while text transcripts are directly processed for content analysis.
 
-2. **Content processing**: Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data.
+2. **Content processing**: Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data, including call-specific elements such as resolution status, customer satisfaction indicators, and compliance markers.
 
-3. **Data storage and indexing**: Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries. Simultaneously, Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus.
+3. **Data storage and indexing**: Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries. Simultaneously, Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
 4. **Orchestration layer**: Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. The orchestration layer uses Semantic Kernel integrated with Azure OpenAI Service and Azure AI Services for intelligent processing and response generation.
 
-5. **Interactive frontend**: Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base.
+5. **Interactive frontend**: Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
 
 6. **Supporting infrastructure**: Azure Container Registry manages container images for consistent deployment, while Azure Cosmos DB stores chat history and session data. Azure AI Services provides additional topic modeling capabilities to enhance conversation analysis.
 
 ### Components
 
-- [Azure Storage Account](/azure/storage/common/storage-account-overview) is a scalable cloud storage service that provides secure and durable storage for various data types. In this architecture, Storage Account serves as the primary ingestion point for call audio files and transcripts, providing a reliable foundation for the conversation analysis pipeline.
+- [Azure Storage Account](/azure/storage/common/storage-account-overview) is a scalable cloud storage service that provides secure and durable storage for various data types. In this architecture, Storage Account serves as the primary ingestion point for call audio files and transcripts, providing a reliable foundation for the conversation analysis pipeline with support for hot, cool, and archive storage tiers to optimize costs for long-term conversation data retention.
 
-- [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is an AI service that extracts insights from unstructured content including audio and text. In this architecture, AI Content Understanding processes conversational data to identify entities, relationships, and key themes, transforming raw dialogue into structured, analyzable information.
+- [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is an AI service that extracts insights from unstructured content including audio and text. In this architecture, AI Content Understanding processes conversational data to identify entities, relationships, and key themes, transforming raw dialogue into structured, analyzable information including call center-specific insights such as resolution indicators, escalation triggers, and compliance markers.
 
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over user-generated content. In this architecture, AI Search creates and manages vectorized representations of call transcripts, enabling semantic search and retrieval-augmented generation (RAG) patterns for intelligent conversation exploration.
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over user-generated content. In this architecture, AI Search creates and manages vectorized representations of call transcripts, enabling semantic search and retrieval-augmented generation (RAG) patterns for intelligent conversation exploration, with optimized indexing strategies for handling millions of conversation records efficiently.
 
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed relational database service that provides high availability and scalability. In this architecture, SQL Database stores extracted entities, conversation metadata, and structured insights, enabling efficient querying and analysis of conversation intelligence data.
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed relational database service that provides high availability and scalability. In this architecture, SQL Database stores extracted entities, conversation metadata, and structured insights, enabling efficient querying and analysis of conversation intelligence data including call metrics, agent performance data, and customer satisfaction scores.
 
 - [Azure App Service](/azure/app-service/overview) is a platform-as-a-service offering for building and hosting web applications. In this architecture, App Service hosts both the orchestration APIs that coordinate data processing workflows and the interactive web frontend that enables users to explore conversation insights through natural language interaction.
 
@@ -62,33 +62,17 @@ The solution leverages advanced AI capabilities to automatically process audio r
 
 **Contact center quality improvement:** Analyze customer support calls to identify common issues, measure resolution effectiveness, and discover training opportunities for support agents across different product lines and service categories.
 
+**Agent performance evaluation:** Analyze conversation patterns to identify top-performing agents' techniques, common resolution strategies, and coaching opportunities while tracking first-call resolution rates and escalation patterns.
+
 **Customer sentiment analysis:** Extract emotional indicators and satisfaction patterns from customer interactions to improve service delivery, identify at-risk accounts, and enhance overall customer experience strategies.
 
 **Support ticket correlation:** Connect conversation themes with support ticket outcomes to optimize routing, reduce resolution times, and proactively address recurring customer pain points.
 
+**Quality scoring automation:** Extract conversation elements that correlate with customer satisfaction scores and automate quality assurance processes for consistent evaluation across all interactions.
+
 ### Sales and marketing intelligence
 
 **Sales conversation analysis:** Extract insights from sales calls to identify successful conversation patterns, objection handling techniques, and competitive intelligence for improving sales effectiveness and training programs.
-
-**Market research acceleration:** Process focus group recordings and customer interview transcripts to rapidly identify market trends, product feedback, and customer preference patterns for strategic planning.
-
-**Lead qualification optimization:** Analyze prospect conversations to refine qualification criteria, improve lead scoring models, and enhance sales funnel conversion rates.
-
-### Healthcare and compliance
-
-**Patient consultation analysis:** Extract clinical insights from patient-provider conversations to support care quality improvement, treatment protocol adherence, and patient satisfaction enhancement while maintaining privacy compliance.
-
-**Regulatory compliance monitoring:** Analyze recorded conversations for compliance violations, risk indicators, and training needs across regulated industries such as financial services and healthcare.
-
-**Clinical trial feedback processing:** Process participant feedback and consultation recordings to identify safety signals, protocol adherence issues, and participant experience improvements.
-
-### Operational intelligence
-
-**Meeting insights extraction:** Transform recurring meeting recordings into actionable insights about team productivity, decision-making patterns, and operational bottlenecks for organizational improvement.
-
-**Training program effectiveness:** Analyze training session recordings and participant feedback to optimize curriculum design, identify knowledge gaps, and measure learning outcomes.
-
-**Process improvement identification:** Extract operational insights from team conversations and process discussions to identify inefficiencies, automation opportunities, and workflow optimizations.
 
 ## Alternatives
 
@@ -137,7 +121,7 @@ Consider this alternative if your workload has the following characteristics:
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/67c83432524440d98ccb8c92ebd3e2f7).
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/041278866a314de0a9046088b3eb1bde).
 
 Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, some services such as Azure Container Registry have fixed daily costs per registry, and services like Azure SQL Database and Cosmos DB may incur baseline charges when provisioned regardless of actual usage.
 
