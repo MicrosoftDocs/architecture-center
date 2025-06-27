@@ -331,7 +331,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - In the free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
-- Consider leveraging free tier of AKS for development workloads, and leveraging [standard and premium tiers](/azure/aks/free-standard-pricing-tiers) for critical workloads. 
+- Consider using the free tier of AKS for development workloads, and using the [standard and premium tiers](/azure/aks/free-standard-pricing-tiers) for production workloads. 
 
 - Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
