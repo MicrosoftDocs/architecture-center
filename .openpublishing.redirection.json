@@ -3922,12 +3922,12 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/multimodal-content-processing",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/multimodal-content-processing",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
       "redirect_document_id": false
     },
     {  
