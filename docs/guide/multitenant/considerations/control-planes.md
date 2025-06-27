@@ -14,15 +14,17 @@ ms.custom:
 
 A multitenant solution has multiple *planes*, and each plane has its own responsibilities. The *data plane* enables users and clients to interact with a system. The *control plane* manages higher-level tasks, like access control, provisioning, and system maintenance, across all tenants to support platform administrators' tasks.
 
-:::image type="content" source="media/control-planes/control-planes.png" alt-text="Diagram that shows a logical system design. A single control plane provides management across multiple tenant-specific data planes." lightbox="media/control-planes/control-planes.png" border="false":::
+:::image type="complex" source="media/control-planes/control-planes.png" alt-text="Diagram that shows a logical system design. A single control plane provides management across multiple tenant-specific data planes." lightbox="media/control-planes/control-planes.png" border="false":::
+The diagram has several tenant data planes. A control plan spans all tenant data planes. Tenant onboarding and management takes place in the control plane. Application access takes place in the tenant data planes.
+:::image-end:::
 
 This article provides information about the responsibilities of control planes and how to design a control plane that meets your needs.
 
-For example, consider a bookkeeping system for managing financial records. Multiple tenants store their financial records in the system. When users access the system to view and enter their financial records, they use the data plane. The data plane is likely the primary application component for your solution. Your tenants probably think of it as the way to use the system for its intended purpose.
+For example, consider a bookkeeping system for managing financial records. Multiple tenants store their financial records in the system. When users access the system to view and enter their financial records, they use the data plane. The data plane is likely the primary application component for your solution. Tenants typically view it as the main interface for using the system as intended.
 
-In contrast, the control plane onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. Without a control plane, administrators must rely on manual processes. In some cases, data plane and control plane tasks become entangled, which overcomplicates the solution.
+In contrast, the control plane onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. Without a control plane, administrators must rely on manual processes. In some cases, data plane and control plane tasks become entangled, which overcomplicates solutions.
 
-Many complex systems include control planes. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that deploy and configure Azure resources. And the [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
+Many complex systems include a control plane. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that deploy and configure Azure resources. And the [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
 
 When you design multitenant solutions, you need to consider control planes. The following sections describe how to scope and design a control plane.
 
@@ -36,25 +38,25 @@ In general, a control plane might have many of the following core responsibiliti
 
 - **Resource configuration:** It [reconfigures shared resources](#manage-shared-components) to recognize new tenants. For example, the control plane might configure network routing to ensure that incoming traffic [reaches the correct tenant's resources](map-requests.yml), or you might need to scale your resource capacity.
 - **Tenant configuration:** It stores and manages the configuration of each tenant.
-- **Tenant lifecycle management:** It handles [tenant life cycle events](tenant-lifecycle.md), including onboarding, relocating, and offboarding tenants.
+- **Tenant life cycle management:** It handles [tenant life cycle events](tenant-lifecycle.md), including onboarding, relocating, and offboarding tenants.
 - **Telemetry:** It tracks each tenant's use of your features and the performance of the system.
 - **Consumption tracking:** It [measures and aggregates each tenant's resource consumption](measure-consumption.md). Consumption metrics might inform your billing systems or support resource governance.
 
-If you use the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments) and don't deploy tenant-specific resources, a basic control plane might only track tenants and their associated metadata. For example, when a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system can serve the new tenant's requests.
+If you use the [fully multitenant model](tenancy-models.md#fully-multitenant-deployments) and don't deploy tenant-specific resources, a basic control plane might only track tenants and their associated metadata. For example, when a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system can serve the new tenant's requests.
 
-In contrast, if your solution uses a deployment model that requires tenant-specific infrastructure, like the [automated single-tenant model](tenancy-models.yml#automated-single-tenant-deployments), your control plane might have more responsibilities. It might need to deploy or reconfigure Azure infrastructure when you onboard a new tenant. In this scenario, the control plane likely interacts with the control planes for other tools, like Azure Resource Manager or the Kubernetes control plane.
+In contrast, if your solution uses a deployment model that requires tenant-specific infrastructure, like the [automated single-tenant model](tenancy-models.md#automated-single-tenant-deployments), your control plane might have more responsibilities. It might need to deploy or reconfigure Azure infrastructure when you onboard a new tenant. In this scenario, the control plane likely interacts with the control planes for other tools, like Resource Manager or the Kubernetes control plane.
 
 Advanced control planes might take on more responsibilities:
 
 - **Automated maintenance operations:** It performs common maintenance operations, including deleting or archiving old data, creating and managing database indexes, and rotating secrets and cryptographic certificates.
 
-- **Tenant placement:** It allocates tenants to existing deployments or stamps based on criteria such as stamp usage targets, tenant requirements, and [bin packing strategies](../approaches/resource-organization.yml#bin-packing).
+- **Tenant placement:** It allocates tenants to existing deployments or stamps based on criteria such as stamp usage targets, tenant requirements, and [bin-packing strategies](../approaches/resource-organization.yml#bin-packing).
 - **Tenant rebalancing:** It rebalances existing tenants across deployment stamps as their usage changes.
 - **Customer activity tracking:** It integrates with external customer management solutions, like Dynamics 365, to track customer activity. 
 
 ## Scope a control plane
 
-Carefully consider how much effort to spend on building a control plane for your solution. A control planes doesn't directly provide immediate customer value, which can make it difficult to justify engineering effort on designing and building a high-quality control plane. However, as your system grows and scales, you increasingly need automated management and operations to keep up with your growth.
+Carefully consider how much effort to spend on building a control plane for your solution. A control plane doesn't directly provide immediate customer value, which can make it difficult to justify engineering effort on designing and building a high-quality control plane. However, as your system grows and scales, you increasingly need automated management and operations to keep up with your growth.
 
 In certain situations, you might not need a full control plane. This approach might work if your system has fewer than 10 tenants. Your team can take on the control plane's responsibilities and use manual operations and processes to onboard and manage tenants. However, you should still have a process and maintain a central location to track your tenants and their configurations.
 
@@ -64,7 +66,7 @@ In certain situations, you might not need a full control plane. This approach mi
 > - Document your processes thoroughly.
 > - Create and reuse scripts for your management operations when possible.
 > 
-> If you need to automate the processes in the future, your documentation and scripts can form the basis of your control plane.
+> If you need to automate processes in the future, your documentation and scripts can form the basis of your control plane.
 
 As you grow beyond a few tenants, you can benefit from tracking each tenant and applying monitoring across your fleet of resources and tenants. You might notice that your team spends an increasing amount of time and effort on tenant management. Or you might notice bugs or operational problems because of inconsistencies in how team members perform management tasks. If these situations occur, consider building a more comprehensive control plane to take on these responsibilities.
 
@@ -121,11 +123,11 @@ Like other parts of your solution, you should deploy nonproduction instances of 
 
 Also plan how to govern your team's access to your control plane. Grant only the permissions that team members need to perform their duties. This approach helps prevent security incidents and reduce the effect of accidental misconfiguration.
 
-#### Components
+## Components
 
 There's no single template for building a control plane. The components that you design and build depend on your requirements. Most control planes consist of APIs and background worker components. In some solutions, a control plane also includes a user interface, which your team or even your customers might use.
 
-#### Isolate your control plane from tenant workloads
+### Isolate your control plane from tenant workloads
 
 You should separate your control plane's resources from resources that serve your tenants' data planes. For example, use separate database servers, application servers, and other components. Keep control plane resources in a dedicated Azure resource group, separate from tenant-specific resources.
 
@@ -133,11 +135,11 @@ Control plane isolation provides the following advantages:
 
 - You can configure scaling separately. For example, your control plane might have consistent resource requirements, and your tenants' resources might scale elastically depending on their needs.
 
-- A clear separation creates a [bulkhead](../../../patterns/bulkhead.yml) between your control planes and data planes, which helps to prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading across your solution.
+- A clear separation creates a [bulkhead](../../../patterns/bulkhead.yml) between your control planes and data planes, which helps prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading across your solution.
 - Control planes are typically highly privileged systems that have high levels of access. Control plane isolation reduces the likelihood of a security vulnerability allowing attackers to elevate their permissions across your entire system.
 - You can deploy separate networking and firewall configurations. Data planes and control planes usually require different types of network access.
 
-#### Orchestrate sequences of long-running operations
+## Orchestrate sequences of long-running operations
 
 Control planes often perform long-running operations that require coordination between multiple systems. These operations can also have complex failure modes, so you must choose technologies that support long-running operations or workflows.
 
@@ -148,7 +150,7 @@ For example, when you onboard a new tenant, your control plane might run the fol
 1. **Update your tenant metadata catalog.** This action might involve running a command against an Azure SQL database.
 1. **Send a welcome email to the new tenant.** This action invokes a non-Microsoft API to send the email.
 1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a non-Microsoft API that occasionally fails.
-1. **Update your customer relationship management system to track the new tenant.** This action invokes a non-Microsoft API.
+1. **Update your customer relationship management (CRM) system to track the new tenant.** This action invokes a non-Microsoft API.
 
 If any step in the sequence fails, consider how to respond:
 
@@ -167,7 +169,7 @@ Some shared components require reconfiguration when tenants are added or removed
 
 Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
 
-You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
+You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
 
 When your control plane manages shared components, it's important to be aware of race conditions, which can occur when multiple operations happen in parallel. For example, if you onboard a new tenant at the same time that you offboard a different tenant, you need to ensure that your ultimate end state is consistent and meets your scaling requirements.
 
@@ -176,11 +178,11 @@ When your control plane manages shared components, it's important to be aware of
 In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
 
 > [!TIP]
-> Coordinating across multiple control planes add complexity, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
+> Coordinating across multiple control planes adds complexity, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
 
 ### Global control planes
 
-A global control plane typically handles the overall management and tracking of tenants. A global control plane might have the following responsibilities:
+A global control plane typically handles the overall management and tracking of tenants. A global control plane can have the following responsibilities:
 
 - **Tenant placement:** The global control plane determines which stamp a tenant should use. It might make this determination based on factors, like the tenant's region, each stamp's capacity usage, and the tenant's service-level requirements.
 
@@ -188,31 +190,35 @@ A global control plane typically handles the overall management and tracking of 
 
 ### Stamp control planes
 
-Each deployment stamp includes its own stamp control plane, which manages the tenants and resources allocated to that stamp. A stamp control plane might have the following responsibilities:
+Each deployment stamp includes its own stamp control plane, which manages the tenants and resources allocated to that stamp. A stamp control plane can have the following responsibilities:
 
-- **Creating and managing tenant-specific resources within the stamp**, like databases and storage containers.
+- **Tenant resource provisioning:** It creates and manages tenant-specific resources within the stamp, like databases and storage containers.
 
-- **Managing shared resources**, including monitoring the consumption of [shared resources](#manage-shared-components) and deploying new instances when they approach their maximum capacity.
-- **Performing maintenance operations within the stamp**, like database index management and cleanup operations.
+- **Shared resource management:** It monitors the consumption of [shared resources](#manage-shared-components) and deploys new instances when they approach their maximum capacity.
+- **Maintenance operations:** It handles tasks within the stamp, like database index management and cleanup operations.
 
 Each stamp's control plane coordinates with the global control plane. For example, if a new tenant signs up, the global control plane might initially select a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
 
 The following diagram shows how two control planes might coexist in a single system.
 
-:::image type="content" source="media/control-planes/global-stamp-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane and stamp control planes." lightbox="media/control-planes/global-stamp-control-planes.png" border="false":::
+:::image type="complex" source="media/control-planes/global-stamp-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane and stamp control planes." lightbox="media/control-planes/global-stamp-control-planes.png" border="false":::
+The diagram has three stamps with control planes. Each stamp has three tenant data planes. A global control plan span all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. And application access takes place in the tenant data planes.
+:::image-end:::
 
 ### Tenant control planes
 
-Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane might have the following responsibilities:
+Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane can have the following responsibilities:
 
-- **Management of tenant-specific configuration**, like user access.
+- **Configuration management:** It handles tenant-specific configuration, like user access.
 
-- **Tenant-initiated maintenance operations**, like backing up data or downloading a previous backup.
-- **Update management**, if you allow tenants to [control their own updates to their applications](updates.md).
+- **Tenant-initiated maintenance operations:** It supports operations like backing up data or downloading previous backups.
+- **Update management:** It performs updates if you allow tenants to [control their own updates to their applications](updates.md).
 
-The following diagram shows a complex system that has a global control plane, stamp control planes, and a control plane for each tenant.
+The following diagram shows a complex system that has a global control plane, stamp control planes, and tenant control planes.
 
-:::image type="content" source="media/control-planes/global-stamp-tenant-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane, stamp control planes, and a control plane for each tenant." lightbox="media/control-planes/global-stamp-tenant-control-planes.png" border="false":::
+:::image type="complex" source="media/control-planes/global-stamp-tenant-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane, stamp control planes, and tenant control planes." lightbox="media/control-planes/global-stamp-tenant-control-planes.png" border="false":::
+The diagram has three stamps with control planes. Each stamp has three tenant data planes and three tenant control planes. A global control plan span all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. Tenant configuration takes place in the tenant control planes. And application access takes place in the tenant data planes.
+:::image-end:::
 
 ## Contributors
 
@@ -226,7 +232,7 @@ Other contributors:
 
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
  * [Bohdan Cherchyk](https://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
- * [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer, FastTrack for Azure
+ * [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, FastTrack for Azure
  * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
  * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
