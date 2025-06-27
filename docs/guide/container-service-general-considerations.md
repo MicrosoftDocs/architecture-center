@@ -1,13 +1,12 @@
 ---
-title: Architectural Considerations for Choosing an Azure Container Service 
-description: Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series. 
+title: Architectural Considerations for Choosing an Azure Container Service
+description: Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.
 author: r-kayongo
 ms.author: rkayongo
-ms.date: 04/28/2025
+ms.date: 06/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - arb-containers
+ms.custom: arb-containers
 ---
 
 # Architectural considerations for choosing an Azure container service
