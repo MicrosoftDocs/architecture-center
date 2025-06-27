@@ -63,7 +63,7 @@ The network specifications are defined as [logical networks][] in Azure Local. B
 
 ### Storage requirements
 
-For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached serial advanced technology attachment, serial attached SCSI, nonvolatile memory express, or persistent memory drives that are physically attached to one server each. For cluster volumes, HCI uses software-defined storage technology like Storage Spaces Direct to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in AKS on Azure Local often expect the following storage options to be available:
+For every server in the cluster, use the same types of drives that are the same size and model. Azure Local works with direct-attached serial advanced technology attachment, serial attached small computer system interface, nonvolatile memory express, or persistent memory drives that are physically attached to one server each. For cluster volumes, HCI uses software-defined storage technology like Storage Spaces Direct to combine the physical drives in the storage pool for fault tolerance, scalability, and performance. Applications that run in AKS on Azure Local often expect the following storage options to be available:
 
 - **Volumes** represent a way to store, retrieve, and persist data across pods and through the application life cycle.
 
