@@ -315,7 +315,7 @@ Consider the following points when planning for security.
 
 - Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
-- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver).
+- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver). We recommend maintaining separate key vaults for each microservices. The reference implementation uses separate key vaults for each microservice.  
 
 - If the microservice needs to communicate to resources outside cluster (such as external URLs), control the access through Azure Firewall. If there are no outbound calls to be made, use [network isolated clusters](/azure/aks/network-isolated). 
 
