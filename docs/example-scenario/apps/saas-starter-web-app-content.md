@@ -1,6 +1,6 @@
 Software as a Service (SaaS) is a complex topic with many points to consider. Independent software vendors (ISVs) who build their SaaS solutions on Azure need to solve problems and make decisions such as:
 
-- Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) should I use?
+- Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.md) should I use?
 - How do I set up an identity solution for use in a multitenant architecture?
 - How do I handle onboarding new customers?
 
@@ -163,7 +163,7 @@ This architecture uses the following Azure services:
 
 ### Alternatives
 
-The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. The following are some examples of alternative approaches that you can follow when you implement this solution:
+The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.md) that you intend for your SaaS application to support. The following are some examples of alternative approaches that you can follow when you implement this solution:
 
 - The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/).
 

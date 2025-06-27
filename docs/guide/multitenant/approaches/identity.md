@@ -85,7 +85,7 @@ Determine which parts of your solution should handle authorization requests. Eva
 
 A common approach is for your identity system to embed a tenant identifier claim into a token. This approach enables your application to inspect the claim and verify that the users are working with the tenant that they're allowed to access. If you use the role-based security model, you might extend the token to include information about the user's role within the tenant.
 
-However, if a single user is allowed to access multiple tenants, you might need a way for your users to signal which tenant they plan to work with during the sign-in process. After the user selects their active tenant, the IdP can issue a token that include the correct tenant identifier claim and role for that tenant. You also need to consider how users can switch between tenants, which requires issuing a new token.
+However, if a single user is allowed to access multiple tenants, you might need a way for your users to signal which tenant they plan to work with during the sign-in process. After the user selects their active tenant, the IdP can issue a token that includes the correct tenant identifier claim and role for that tenant. You also need to consider how users can switch between tenants, which requires issuing a new token.
 
 #### Application-based authorization
 
@@ -133,7 +133,7 @@ It's important to clearly consider how your solution defines a user and a tenant
 
 Ensure that you have a clear process for tracking tenant context within your application and requests. In some scenarios, this process requires you to include a tenant identifier in every access token and validate it on each request. In other cases, tenant authorization information is stored separately from user identities. This approach requires a more complex authorization system to manage which users can perform specific operations within each tenant.
 
-Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.yml) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
+Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.md) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
 
 ### Conflating role and resource authorization
 

@@ -56,7 +56,7 @@ Advanced control planes might take on more responsibilities:
 
 Carefully consider how much effort to spend on building a control plane for your solution. A control planes doesn't directly provide immediate customer value, which can make it difficult to justify engineering effort on designing and building a high-quality control plane. However, as your system grows and scales, you increasingly need automated management and operations to keep up with your growth.
 
-In certain situations, you might not need a full control plane. This approach might work if your system has less than 10 tenants. Your team can take on the control plane's responsibilities and use manual operations and processes to onboard and manage tenants. However, you should still have a process and maintain a central location to track your tenants and their configurations.
+In certain situations, you might not need a full control plane. This approach might work if your system has fewer than 10 tenants. Your team can take on the control plane's responsibilities and use manual operations and processes to onboard and manage tenants. However, you should still have a process and maintain a central location to track your tenants and their configurations.
 
 > [!TIP]
 > If you don't create a full control plane, you should still apply a systematic approach to your management procedures:
@@ -66,7 +66,7 @@ In certain situations, you might not need a full control plane. This approach mi
 > 
 > If you need to automate the processes in the future, your documentation and scripts can form the basis of your control plane.
 
-As you grow beyond a few tenants, you'll likely benefit from tracking each tenant and applying monitoring across your fleet of resources and tenants. You might notice that your team spends an increasing amount of time and effort on tenant management. Or you might notice bugs or operational problems because of inconsistencies in how team members perform management tasks. If these situations occur, consider building a more comprehensive control plane to take on these responsibilities.
+As you grow beyond a few tenants, you can benefit from tracking each tenant and applying monitoring across your fleet of resources and tenants. You might notice that your team spends an increasing amount of time and effort on tenant management. Or you might notice bugs or operational problems because of inconsistencies in how team members perform management tasks. If these situations occur, consider building a more comprehensive control plane to take on these responsibilities.
 
 > [!NOTE]
 > If you provide self-service tenant management, you need a control plane early in your journey. You might choose to create a basic control plane and automate only some of the most commonly used functionality. You can progressively add more capabilities over time.
@@ -96,7 +96,7 @@ Consider the impact of a control plane outage. In extreme cases, an outage might
 - You can't disable or reconfigure a tenant in response to a security incident.
 - Maintenance debt accumulates, which results in long-term damage to the system. For example, if your solution requires nightly cleanup of old data, your disks could get full or your performance could degrade.
 
-Define [service-level objectives](/azure/well-architected/reliability/metrics) for your control plane, including availability targets, the recovery time objective (RTO), and the recovery point objective (RPO). The objectives that you set for your control plane might differ from those that you offer your customers.
+Define [service-level objectives](/azure/well-architected/reliability/metrics) for your control plane, including availability targets, the recovery time objective (RTO), and the recovery point objective (RPO). The objectives that you set for your control plane might differ from objectives that you offer your customers.
 
 ### Security
 
@@ -147,7 +147,7 @@ For example, when you onboard a new tenant, your control plane might run the fol
 
 1. **Update your tenant metadata catalog.** This action might involve running a command against an Azure SQL database.
 1. **Send a welcome email to the new tenant.** This action invokes a non-Microsoft API to send the email.
-1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a non-Microsoft API that occassionally fails.
+1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a non-Microsoft API that occasionally fails.
 1. **Update your customer relationship management system to track the new tenant.** This action invokes a non-Microsoft API.
 
 If any step in the sequence fails, consider how to respond:
@@ -165,7 +165,9 @@ A control plane needs to recognize any components that are shared rather than de
 
 Some shared components require reconfiguration when tenants are added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant that has a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
 
-Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool. You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
+Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
+
+You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
 
 When your control plane manages shared components, it's important to be aware of race conditions, which can occur when multiple operations happen in parallel. For example, if you onboard a new tenant at the same time that you offboard a different tenant, you need to ensure that your ultimate end state is consistent and meets your scaling requirements.
 

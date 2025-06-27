@@ -90,7 +90,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 ## Deployment strategies to support updates
 
-Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.yml) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings. You can use these approaches independently, or you can combine them together to meet more complex requirements.
+Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings. You can use these approaches independently, or you can combine them together to meet more complex requirements.
 
 In all cases, ensure that you have sufficient reporting and visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated with those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.md).
 
