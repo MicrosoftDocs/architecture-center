@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop Landing Zone Design Guide
-description: Design considerations for using Azure Virtual Desktop in a landing zone.
+description: Learn about the design areas in the Azure landing zone architecture for Azure Virtual Desktop, including resource organization and networking.
 author: roarrioj
 ms.author: roarrioj
 ms.date: 06/20/2025
@@ -44,7 +44,7 @@ When you design Virtual Desktop to run from an application landing zone, follow 
 :::image type="complex" source="./media/virtual-desktop-accelerator-enterprise-landing-zone.svg" alt-text="Diagram that shows the reference architecture required for Virtual Desktop landing zone implementations." border="false" lightbox="./media/virtual-desktop-accelerator-enterprise-landing-zone.svg":::
 The diagram illustrates a comprehensive Azure architecture for managing subscriptions and workloads. At the top, the Enterprise Agreement and Microsoft Customer Agreement section connects to Microsoft Entra ID and Active Directory Domain Services, which represents identity and access management. Below, the Management subscription includes dashboards and tools for governance and monitoring. The management group and subscription organization section shows a hierarchy of management groups, including platform, identity, connectivity, and landing zone subscriptions, with connections to DevOps processes.
 
-The Identity subscription contains virtual networks labeled region 1 and region N. Each virtual network contains DNS, UDRs, NSGs or ASGs, resource groups, and recovery services vaults. The Connectivity subscription includes Azure DNS private zones, ExpressRoute, and Azure Firewall. Virtual network peering connects this subscription to other subscriptions. The Virtual Desktop landing zone subscriptions feature details virtual network configurations and peering. The Sandbox subscription contains applications and management tools. A legend at the bottom provides definitions for icons and connections in the diagram.
+The Identity subscription contains virtual networks labeled region 1 and region N. Each virtual network contains DNS, UDRs, NSGs or ASGs, resource groups, and recovery services vaults. The Connectivity subscription includes Azure DNS private zones, ExpressRoute, and Azure Firewall. Virtual network peering connects this subscription to other subscriptions. The Virtual Desktop landing zone subscriptions show details about virtual network configurations and peering. The Sandbox subscription contains applications and management tools. A legend at the bottom provides definitions for icons and connections in the diagram.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-desktop-accelerator-enterprise-landing-zone.vsdx) of this architecture.*
@@ -81,7 +81,7 @@ This architecture uses the following key principles:
 - **Subscription democratization:** Teams manage their own resources within a controlled framework.
 
 - **Policy-driven governance:** Centralized policies and controls enforce compliance and governance.
-- **Application-centric service model:** The architecture supports application-centric organizations.
+- **Application-focused service model:** The architecture supports organizations structured around applications.
 - **Single control and management plane:** Centralized resource management maintains oversight and control.
 
 ### Reference implementation
@@ -99,7 +99,7 @@ The Virtual Desktop landing zone implementation provides your organization with 
 >
 > Review the Virtual Desktop [prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md#prerequisites) before you start the [deployment](https://github.com/Azure/avdaccelerator?tab=readme-ov-file#azure-virtual-desktop---lza-baseline).
 
-This architecture is based on multiple subscriptions, each dedicated to specific purposes:
+This architecture is based on multiple subscriptions that are each dedicated to specific purposes:
 
 - **Virtual Desktop subscription:** This subscription, or multiple subscriptions depending on environment scale, deploys the Virtual Desktop resources that are specific to individual workloads, not shared across workloads. These resources include virtual machines, storage accounts, key vaults, and private endpoints. This subscription is considered part of the application landing zone.
 
@@ -113,7 +113,7 @@ This architecture is based on multiple subscriptions, each dedicated to specific
    - **Identity subscription:** This subscription handles identity and access management services required to support domain-joined Virtual Desktop session hosts. In this architecture, this subscription provides the Virtual Desktop application landing zone with domain services. These services include Microsoft Entra Domain Services or self-managed Active Directory domain controllers hosted in Azure. These services enable session hosts to join a domain and authenticate users securely, enforce group policies, and support legacy authentication scenarios that some applications require.
 
 :::image type="complex" source="./media/virtual-desktop-accelerator-baseline.svg" alt-text="Diagram that shows the Virtual Desktop reference architecture." border="false" lightbox="./media/virtual-desktop-accelerator-baseline.svg":::
-The diagram illustrates a Virtual Desktop architecture with interconnected components distributed across multiple subscriptions. Within this setup, identity synchronization occurs between the customer network and Microsoft Entra ID through Microsoft Entra Connect, which communicates over the internet. This synchronization process allows identities from the on-premises Active Directory Domain Services (AD DS) to be replicated in Microsoft Entra ID. Users from noncorporate networks access the Virtual Desktop control plane directly over the internet without requiring VPN or ExpressRoute. Additionally, the connection between the customer network and the connectivity subscription is established via VPN or ExpressRoute, which ensures secure communication for internal Azure resources.
+The diagram illustrates a Virtual Desktop architecture with interconnected components distributed across multiple subscriptions. Within this setup, identity synchronization occurs between the customer network and Microsoft Entra ID through Microsoft Entra Connect, which communicates over the internet. This synchronization process allows identities from the on-premises Active Directory Domain Services (AD DS) to be replicated in Microsoft Entra ID. Users from noncorporate networks access the Virtual Desktop control plane directly over the internet without requiring VPN or ExpressRoute. Also, the connection between the customer network and the connectivity subscription is established via VPN or ExpressRoute, which ensures secure communication for internal Azure resources.
 
 The identity subscription in Region A hosts AD DS and other identity management resources. Adjacent to this subscription, the management subscription provides tools for monitoring, automation, and database management, which support operational governance. The Virtual Desktop landing zone subscription is organized into two areas: the management plane, which includes workspaces, application groups, and session hosts, and the shared services landing zone, which contains the Azure shared image gallery and other resources for image management. Arrows throughout the diagram indicate the flow of data and dependencies between components. A legend at the bottom explains the symbols and connections.
 :::image-end:::
@@ -187,7 +187,7 @@ When you're ready for deployment, do the following steps:
 
 1. Optionally, review the **Custom image build deployment** tab to build an updated image for your Virtual Desktop host sessions.
 
-1. Do the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md). If you created a custom Azure Compute Gallery image in the previous step, on the **Session hosts** page, choose "Compute Gallery" as the **OS selection source**. Then select the correct **Image**.
+1. Do the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md). If you created a custom Azure Compute Gallery image in the previous step, on the **Session hosts** page, choose *Compute Gallery* as the **OS selection source**. Then select the correct **Image**.
 
 :::image type="complex" source="./media/portal-session-hosts-os-selection.png" lightbox="./media/portal-session-hosts-os-selection.png" alt-text="Screenshot that shows the OS selection for the Virtual Desktop deployment.":::
    Screenshot of the deployment user interface for the Virtual Desktop Landing Zone Accelerator baseline. This screenshot shows the session hosts tab of the deployment where the OS selection is highlighted. The source under OS selection is set to Compute Gallery.
