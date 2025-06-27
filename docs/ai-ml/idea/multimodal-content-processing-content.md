@@ -6,11 +6,11 @@ This architecture shows how to build scalable systems for processing content. Th
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/multi-modal-content-processing.png" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/multi-modal-content-processing.png":::
-   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI in Foundry Models. The other line reads Extract and points to Azure AI Content Understanding. The next line in this section reads Task results and points to Blob Storage. The next line reads Task history or results and points to Azure Cosmos DB. An arrow that reads En (De) Queue points to Storage Queue. An arrow that reads Enqueue points from Content processor API to Storage Queue. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
+:::image type="complex" border="false" source="./_images/multimodal-content-processing.svg" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/multimodal-content-processing.svg":::
+   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI in Foundry Models. The other line reads Extract and points to Azure AI Content Understanding. The next line in this section reads Task results and points to Blob Storage. The next line reads Task history or results and points to Azure Cosmos DB. An arrow that reads Dequeue points to Storage Queue. An arrow that reads Enqueue points from Content processor API to Storage Queue. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/multi-modal-content-processing.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/multimodal-content-processing.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -20,7 +20,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The Container App website receives the content upload request and invokes the processing API hosted in Container Apps. Both components are custom-coded solutions tailored for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
-1. Container Apps manages the processing workflow. They connect Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI in Foundry Models. These models map schemas and convert the extracted data into structured formats.
+1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI in Foundry Models. These models map schemas and convert the extracted data into structured formats.
 
 1. Content Understanding performs machine learning-based OCR for efficient text extraction from various content formats, including images, tables, and graphs.
 

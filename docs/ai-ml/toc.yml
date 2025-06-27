@@ -21,7 +21,7 @@ items:
       - name: Document processing and enrichment
         items:
         - name: Extract and map information from unstructured content
-          href: idea/multi-modal-content-processing.yml
+          href: idea/multimodal-content-processing.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
         - name: Extract text using Power Automate
