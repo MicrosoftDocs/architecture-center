@@ -287,7 +287,8 @@ Microservices should expose endpoints in their code that facilitate health probe
 
 In a microservices application, *Application Performance Management (APM)* monitoring is critical for detecting anomalies, diagnosing issues, and quickly understanding the dependencies between services. [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is part of Azure Monitor, provides APM monitoring for live applications written in .NET Core, Node.js, Java, and many other application languages.
 
-Azure provides various mechanisms for monitoring microservice workloads: 
+Azure provides various mechanisms for monitoring microservice workloads:
+
 - [Managed Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) for metric collection. Use Prometheus to monitor and alert on the performance of infrastructure and workloads.
 - Azure Monitor managed service for Prometheus and Container Insights work together for complete monitoring of your Kubernetes environment.
 - [Managed Grafana](/azure/managed-grafana/overview) for cluster and microservice visualization.  
