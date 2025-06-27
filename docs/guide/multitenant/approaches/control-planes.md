@@ -7,9 +7,7 @@ ms.date: 06/12/2025
 ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 --- 
 
 # Architectural approaches for control planes in multitenant solutions
@@ -175,4 +173,4 @@ Other contributors:
 ## Related resources
 
 - [Architectural considerations for control planes in a multitenant solution](../considerations/control-planes.yml)
-- [Architectural approaches for a multitenant solution](../approaches/overview.yml)
+- [Architectural approaches for a multitenant solution](../approaches/overview.md)

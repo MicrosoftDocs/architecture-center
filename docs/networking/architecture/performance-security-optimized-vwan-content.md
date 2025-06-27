@@ -13,7 +13,7 @@ Typical use cases for this architecture include:
 
 ## Architecture
 
-:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
+:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending on the department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
@@ -166,5 +166,5 @@ Principal author:
 
 ## Related resources
 
-- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture)
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)

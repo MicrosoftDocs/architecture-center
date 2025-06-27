@@ -193,7 +193,7 @@ Principal authors:
 
 Other contributor:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -7,14 +7,6 @@ ms.reviewer: tozimmergren
 ms.date: 04/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-keywords:
-  - Innovation toolkit
-  - responsible innovation
-  - innovation best practices
-  - threat modeling
-  - engagement-fy23
 ---
 
 # Responsible engineering overview

@@ -78,6 +78,7 @@
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
       "ms.service": "azure-architecture-center",
+      "ms.update-cycle": "365-days",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "MSDN.azure-architecture-center",
@@ -115,7 +116,9 @@
       },
       "ms.update-cycle": {
         "guide/multitenant/considerations/*.md": "1095-days",
-        "guide/multitenant/considerations/*.yml": "1095-days"
+        "guide/multitenant/considerations/*.yml": "1095-days",
+        "ai-ml/**/*.md": "180-days",
+        "ai-ml/**/*.yml": "180-days"
       }
     },
     "template": [

@@ -119,15 +119,15 @@ Before you enable container insights, estimate costs and understand how to contr
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Cloud Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
+- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402/) | Senior Customer Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Senior Cloud Solution Architect
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

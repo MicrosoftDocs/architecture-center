@@ -6,9 +6,6 @@ ms.author: pnp
 ms.date: 8/21/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - fcp
-  - guide
 ---
 
 # Architecture for startups

@@ -9,8 +9,6 @@ ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
-ms.custom:
-  - article
 ---
 
 # Compare AWS and Azure accounts

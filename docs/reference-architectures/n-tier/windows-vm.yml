@@ -9,9 +9,6 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
     - compute
-  ms.custom:
-    - reference-architecture
-    - internal-intro
 name: Run a Windows VM on Azure
 azureCategories:
   - compute
@@ -24,4 +21,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/single-vm-diagram.png
 content: |
-   [!include[](windows-vm-content.md)]
+   [!INCLUDE[](windows-vm-content.md)]

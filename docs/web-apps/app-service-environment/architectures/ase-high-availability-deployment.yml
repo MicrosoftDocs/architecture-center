@@ -10,9 +10,7 @@ metadata:
   ms.category:
     - management-and-governance
     - featured
-  ms.custom:
-    - reference-architecture
-    - arb-web
+  ms.custom: arb-web
 name: High availability enterprise deployment using App Service Environment
 azureCategories:
   - management-and-governance
@@ -26,4 +24,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment-high-availability.png
 content: |
-   [!include[](ase-high-availability-deployment-content.md)]
+   [!INCLUDE[](ase-high-availability-deployment-content.md)]

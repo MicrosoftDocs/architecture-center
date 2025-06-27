@@ -7,9 +7,7 @@ ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -137,14 +135,16 @@ For more information, see the following resources:
 
 #### AI and Machine learning reference architectures for Azure
 
-- [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/azure-openai-baseline-landing-zone.yml)
+- [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
 - [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
-- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-openai-e2e-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
-  :::image type="complex" source="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" border="false" lightbox="./architecture/_images/ai-foundry-end-to-end-baseline-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
-      The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
-      Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Azure AI Foundry integration, Azure AI Agent integration, Bastion, Jump box, Build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, AI Foundry, AI Search, CosmosDB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
-      To the far right, a separate box represents Azure AI Foundry, which includes an account and a project. Managed identities are used to connect the Azure AI Agent Service to the Azure AI Foundry project, which in turn accesses an Azure OpenAI Model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to AI services and storage, with dependencies clearly grouped and labeled.
+  :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
+  The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
+    
+  Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Azure AI Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Azure AI Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
+
+  To the far right, a separate box represents Azure AI Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Azure AI Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
   :::image-end:::
 
 ### Automated machine learning
@@ -412,7 +412,7 @@ For more information, see the following resources:
 
 - [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
-- [Baseline AI Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+- [Baseline AI Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat)
 
 ### Azure AI services for custom AI
 

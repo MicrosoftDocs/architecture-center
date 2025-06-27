@@ -6,9 +6,6 @@ ms.author: fnazaret
 ms.date: 11/05/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - microservices
-  - guide
 ---
 
 # Choose an Azure compute option for microservices

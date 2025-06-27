@@ -70,7 +70,7 @@ Principal author:
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure

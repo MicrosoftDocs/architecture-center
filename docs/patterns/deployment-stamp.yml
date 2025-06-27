@@ -3,7 +3,7 @@ metadata:
   title: Deployment Stamps pattern
   description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
   ms.author: pnp
-  author: RobBagby
+  author: claytonsiemens77
   ms.date: 12/13/2023
   ms.topic: design-pattern
   ms.subservice: design-pattern

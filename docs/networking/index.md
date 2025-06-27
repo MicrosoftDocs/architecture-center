@@ -1,7 +1,7 @@
 ---
 title: Networking architecture design
 description: Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -79,7 +79,7 @@ The following sections, organized by category, provide links to sample networkin
 ### Hub-and-spoke topology
 
 - [Hub-and-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
-- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
+- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
 ### Virtual WAN
 
@@ -89,7 +89,7 @@ The following sections, organized by category, provide links to sample networkin
 - [SD-WAN connectivity architecture with Azure Virtual WAN](/azure/virtual-wan/sd-wan-connectivity-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Virtual WAN network topology (Microsoft-managed)](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Virtual WAN architecture optimized for department-specific requirements](../networking/architecture/performance-security-optimized-vwan.yml)
-- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
+- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
 ### Multi-region networking
 
@@ -112,7 +112,6 @@ These are some additional sample networking architectures:
 - [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications](../example-scenario/security/trusted-internet-connections.yml)
-- [Update route tables by using Azure Route Server](../networking/architecture/manage-routing-azure-route-server.yml)
 
 ### AWS or Google Cloud professionals
 

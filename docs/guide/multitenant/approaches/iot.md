@@ -7,7 +7,6 @@ ms.date: 12/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
-  - guide
   - arb-saas
   - arb-iot
 ---
@@ -180,7 +179,7 @@ Because you share a multitenant data tier in this model, you need to implement r
 |---|---|---|
 | Service provider's subscription | Horizontally partitioned | Deployment Stamp |
 
-A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.yml#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
+A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
 
 Within an IoT solution, there are many components that can be horizontally partitioned. The horizontally partitioned subsystems are typically arranged using a [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp) which integrates with the greater solution.
 

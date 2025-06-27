@@ -6,9 +6,7 @@ ms.author: pnp
 ms.date: 09/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Guidance for using Azure Key Vault in a multitenant solution
@@ -57,7 +55,7 @@ If your tenants configure network access controls on their vaults, make sure you
 
 You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is simplest, but it provides the least data isolation and performance isolation.
 
-You might also choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
+You might also choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
 
 - To avoid cross-region traffic latency when working with the data in your vault.
 - To support data residency requirements.

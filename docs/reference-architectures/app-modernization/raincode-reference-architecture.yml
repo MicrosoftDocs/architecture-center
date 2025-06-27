@@ -10,9 +10,6 @@ metadata:
   ms.category:
     - integration
     - databases
-  ms.custom:
-    - reference-architecture
-    - fcp
 name: Rehost mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration
@@ -26,4 +23,4 @@ products:
   - azure-load-balancer
 thumbnailUrl: /azure/architecture/browse/thumbs/raincode-reference-architecture-02.png
 content: |
-   [!include[](raincode-reference-architecture-content.md)]
+   [!INCLUDE[](raincode-reference-architecture-content.md)]

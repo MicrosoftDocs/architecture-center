@@ -503,18 +503,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-      - name: Monitor Azure Databricks jobs
-        items:
-        - name: Overview
-          href: databricks-monitoring/index.md
-        - name: Send Databricks application logs
-          href: databricks-monitoring/application-logs.md
-        - name: Use dashboards to visualize Databricks
-          href: databricks-monitoring/dashboards.md
-        - name: Troubleshoot performance bottlenecks
-          href: databricks-monitoring/performance-troubleshooting.md
-        - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -541,10 +529,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
-      - name: Azure Data Explorer solutions
-        items:
-        - name: Big data analytics with Data Explorer
-          href: solution-ideas/articles/big-data-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Modern analytics with Azure Databricks
@@ -1134,7 +1118,7 @@ items:
     - name: Guides
       items:
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
+        href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures

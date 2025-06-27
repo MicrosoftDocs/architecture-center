@@ -6,8 +6,6 @@ ms.author: rduddugunta
 ms.date: 03/26/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
 ---
 
 # Choose an analytical data store in Azure
