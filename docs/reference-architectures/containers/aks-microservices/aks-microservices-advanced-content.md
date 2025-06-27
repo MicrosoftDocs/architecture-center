@@ -52,23 +52,21 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. 
 
-**[Azure Bastion](/azure/bastion/bastion-overview)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
-
-**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In the reference implementation, outbound communications from microservices to other resources / URLs are controlled by Azure Firewall. 
 
 **External storage and other components:**
 
-**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for AKS services.
+**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for Azure services.
 
-**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this scenario, the container images for microservices are stored in Azure Container Registry. 
 
 **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB, PostgreSQL and Cassandra. The reference implementation uses Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) as data stores or places to store state.
 
-**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. 
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. In this scenario, Azure Service Bus is used as the asynchronous queueing layer between ingestion and workflow microservices. 
 
-**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads. In the reference implementation, Azure Cache for Redis is used as the state store by delivery microservice. 
 
-**[Azure Monitor](/azure/azure-monitor/overview)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+**[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. 
 
 **Other operations support system (OSS) components:**
 
