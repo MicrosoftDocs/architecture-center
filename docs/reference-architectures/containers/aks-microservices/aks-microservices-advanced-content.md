@@ -238,7 +238,7 @@ CA and HPA work well together, so enable both autoscaler options in your AKS clu
 The following example sets resource metrics for HPA:
 
 ```yaml
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: delivery-hpa
