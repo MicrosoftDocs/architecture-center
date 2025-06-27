@@ -6,7 +6,7 @@ metadata:
   ms.author: pnp
   ms.date: 01/16/2025
   ms.topic: conceptual
-  ms.update-cycle: 365-days #Excluding this article from the 730-day freshness tier applied to other best-practices articles, due to AKS-specific configurations.
+  ms.update-cycle: 365-days # Excluding this article from the 730-day freshness tier applied to other best-practices articles, due to product-specific configurations.
   ms.subservice: architecture-guide
   ms.custom: arb-web
 azureCategories:
