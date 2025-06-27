@@ -816,7 +816,7 @@
 				<v:ud v:nameU="visNavOrder" v:val="VT0(6000):26"/>
 			</v:userDefs>
 			<title>00022 Automation Accounts</title>
-			<desc>Automation Accounts</desc>
+			<desc>Automation accounts</desc>
 			<g id="shape335-260" v:mID="335" v:groupContext="shape">
 				<title>Sheet.335</title>
 				<path d="M48.52 941.47 L48.52 936.01 L47.7 935.74 L41.71 933.83 L40.07 930.02 L43.34 923.47 L39.25 919.66 L38.44
@@ -838,11 +838,11 @@
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="24.5409" cy="979.312" width="77.59" height="48.5209"/>
 				<text x="-12.13" y="975.11" class="st24" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Automation <tspan
-							x="-3.81" dy="1.2em" class="st28">Accounts</tspan></text>			</g>
+							x="-2.85" dy="1.2em" class="st28">accounts</tspan></text>			</g>
 		</g>
 		<g id="shape371-271" v:mID="371" v:groupContext="shape" transform="translate(216.321,-347.01)">
 			<title>Rectangle.371</title>
-			<desc>Arc Resources Bridge (ARB)</desc>
+			<desc>Azure Arc resource bridge</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(14000):26"/>
@@ -850,7 +850,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="151.686" cy="493.958" width="299.63" height="34.9364"/>
 			<rect x="0" y="517.785" width="301.5" height="445.215" class="st38"/>
-			<text x="48.04" y="498.76" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Arc Resources Bridge (ARB)</text>		</g>
+			<text x="53.84" y="498.76" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Arc resource bridge</text>		</g>
 		<g id="shape409-274" v:mID="409" v:groupContext="shape" transform="translate(215.036,-767.963)">
 			<title>Sheet.409</title>
 			<v:userDefs>
