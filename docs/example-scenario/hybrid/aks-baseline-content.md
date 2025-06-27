@@ -135,7 +135,7 @@ Focus on the entire stack by securing both the host and its containers.
 
 #### Application security
 
-- Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Local to further protect your secrets that different applications use by storing them in Key Vault.
+- Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Local instance to further protect your secrets that different applications use by storing them in Key Vault.
 
 - Use [Azure Policy for Kubernetes][] to enforce cluster security policies such as no privileged pods.
 
@@ -228,7 +228,7 @@ Other contributor:
   [Azure RBAC]: /azure/role-based-access-control/
   [Azure role-based access control (Azure RBAC)]: /azure/aks/aksarc/azure-rbac-23h2
   [Azure verified modules]: /community/content/azure-verified-modules
-  [containerized]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+  [containerized]: /azure/azure-arc/kubernetes/tutorial-use-gitops-flux2
   [cost optimization]: /azure/well-architected/cost-optimization/principles
   [Flux v2 configurations and Azure Policy for Kubernetes]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
   [hybrid container service module]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
