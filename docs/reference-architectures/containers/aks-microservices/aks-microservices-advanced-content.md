@@ -82,7 +82,7 @@ The AKS infrastructure features used in this architecture include:
 
 Instead of using Azure Application Gateway ingress controller, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), [application routing add-on](/azure/aks/app-routing) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in Azure Kubernetes Service](/azure/aks/concepts-network-ingress). Azure Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing. 
 
-Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as a cluster extensions. 
+Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions. 
 
 ## Scenario details
 
