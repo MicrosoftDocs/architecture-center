@@ -62,9 +62,9 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB, PostgreSQL and Cassandra.
+**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB, PostgreSQL and Cassandra. The reference implementation uses Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) as data stores or places to store state.
 
-**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. 
 
 **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
