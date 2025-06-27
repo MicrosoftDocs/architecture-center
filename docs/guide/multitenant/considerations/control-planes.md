@@ -79,7 +79,7 @@ After you determine the requirements and the scope of your control plane, you ne
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-A control plane functions as its own system, so you should consider all five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) when you design one. The following sections highlight particular areas to focus on.
+A control plane functions as its own system, so you should consider all five pillars of the [Well-Architected Framework](/azure/well-architected/) when you design one. The following sections highlight particular areas to focus on.
 
 ### Reliability
 
@@ -104,98 +104,98 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Control planes are often highly privileged systems. Security problems within a control plane can have catastrophic consequences. Depending on its design and functionality, a control plane might be vulnerable to many different types of attacks, including the following types:
 
-- A control plane might have access to keys and secrets for all tenants. An attacker who has access to your control plane might be able to gain access to any tenant's data or resources.
+- **Unauthorized access to secrets:** A control plane might have access to keys and secrets for all tenants. An attacker who has access to your control plane could gain access to any tenant's data or resources.
 
-- A control plane can often deploy new resources to Azure. Attackers might be able to exploit your control plane to deploy their own resources into your subscriptions, potentially incurring extensive charges.
-- If an attacker successfully brings your control plane offline, there can be immediate and long-term damage to your system and to your business. See [Reliability](#reliability) for example consequences of a control plane being unavailable.
+- **Abuse of deployment capabilities:** A control plane can often deploy new resources to Azure. Attackers could exploit your control plane to deploy their own resources into your subscriptions and potentially incur extensive charges.
+- **Denial of service:** If an attacker successfully disables your control plane, immediate and long-term damage to your system and business can occur. For potential consequences of control plane downtime, see [Reliability](#reliability).
 
-When you design and implement a control plane, it's essential that you follow security best practices and create a comprehensive threat model to document and mitigate potential threats and security problems in your solution. For more information, see the [Azure Well-Architected Framework guidance for building secure solutions](/azure/well-architected/security/).
+When you design and implement a control plane, you must follow security best practices and create a comprehensive threat model. This model should identify and mitigate potential threats and security problems in your solution.
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Because a control plane is a critical component, you should carefully consider how you deploy and operate it in production.
+A control plane is a critical component, so you should carefully consider how you deploy and operate it in production.
 
-Like other parts of your solution, you should deploy non-production instances of your control plane so that you can thoroughly test its functionality. If your control plane performs deployment operations, consider how your non-production control planes interact with your Azure environment, and which Azure subscription you deploy non-production resources to. Also, plan how you clean up test resources quickly so that they don't accumulate charges accidentally.
+Like other parts of your solution, you should deploy nonproduction instances of your control plane so that you can thoroughly test their functionality. If your control plane performs deployment operations, consider how your nonproduction control planes interact with your Azure environment and which Azure subscription to deploy nonproduction resources to. Plan how to clean up test resources quickly so that they don't accumulate charges accidentally.
 
-You should also plan how you govern your team's access to your control plane. Follow best practices for granting only the permissions that team members need to perform their duties. In addition to helping to avoid security incidents, this approach helps to reduce the effect of accidental misconfiguration.
+Also plan how to govern your team's access to your control plane. Grant only the permissions that team members need to perform their duties. This approach helps prevent security incidents and reduce the effect of accidental misconfiguration.
 
-### Components
+#### Components
 
-There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions, a control plane might also include a user interface, which your team or even your customers might use.
+There's no single template for building a control plane. The components that you design and build depend on your requirements. Most control planes consist of APIs and background worker components. In some solutions, a control plane also includes a user interface, which your team or even your customers might use.
 
 #### Isolate your control plane from tenant workloads
 
-It's a good practice to separate your control plane's resources from those used to serve your tenants' data planes. For example, you should consider using separate database servers, application servers, and other components. It's often a good idea to keep your control plane's resources in a separate Azure resource group from those that contain tenant-specific resources.
+You should separate your control plane's resources from resources that serve your tenants' data planes. For example, use separate database servers, application servers, and other components. Keep control plane resources in a dedicated Azure resource group, separate from tenant-specific resources.
 
-By isolating your control plane from tenants' workloads, you gain several advantages:
+Control plane isolation provides the following advantages:
 
 - You can configure scaling separately. For example, your control plane might have consistent resource requirements, and your tenants' resources might scale elastically depending on their needs.
 
-- There's a [bulkhead](../../../patterns/bulkhead.yml) between your control and data planes, which helps to prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading between the planes of your solution.
-- Control planes are typically highly privileged systems that have high levels of access. By separating the control plane from data planes, you reduce the likelihood that a security vulnerability might allow attackers to elevate their permissions across your entire system.
+- A clear separation creates a [bulkhead](../../../patterns/bulkhead.yml) between your control planes and data planes, which helps to prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading across your solution.
+- Control planes are typically highly privileged systems that have high levels of access. Control plane isolation reduces the likelihood of a security vulnerability allowing attackers to elevate their permissions across your entire system.
 - You can deploy separate networking and firewall configurations. Data planes and control planes usually require different types of network access.
 
 #### Orchestrate sequences of long-running operations
 
-The operations that a control plane performs are often long-running and involve coordination between multiple systems. The operations can also have complex failure modes. When you design your control plane, it's important to use a suitable technology for coordinating long-running operations or workflows.
+Control planes often perform long-running operations that require coordination between multiple systems. These operations can also have complex failure modes, so you must choose technologies that support long-running operations or workflows.
 
-For example, suppose that, when you onboard a new tenant, your control plane runs the following actions in sequence:
+For example, when you onboard a new tenant, your control plane might run the following actions in sequence:
 
-1. **Deploy a new database.** This action is an Azure deployment operation. It might take several minutes to complete.
+1. **Deploy a new database.** This Azure deployment operation might take several minutes to complete.
 
 1. **Update your tenant metadata catalog.** This action might involve running a command against an Azure SQL database.
-1. **Send a welcome email to the new tenant.** This action invokes a third-party API to send the email.
-1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a third-party API. You've noticed that it intermittently fails.
-1. **Update your customer relationship management (CRM) system to track the new tenant.** This action invokes a third-party API.
+1. **Send a welcome email to the new tenant.** This action invokes a non-Microsoft API to send the email.
+1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a non-Microsoft API that occassionally fails.
+1. **Update your customer relationship management system to track the new tenant.** This action invokes a non-Microsoft API.
 
-If any step in the sequence fails, you need to consider what to do, such as:
+If any step in the sequence fails, consider how to respond:
 
 - Retry the failed operation. For example, if your Azure SQL command in step 2 fails with a transient error, you could retry it.
 
-- Continue to the next step. For example, you might decide that it's acceptable if the update to your billing system fails, because your sales team can manually add the customer later.
+- Continue to the next step. For example, you might decide that you can allow the update to your billing system to fail because your sales team can manually add the customer later.
 - Abandon the workflow and trigger a manual recovery process.
 
-You also need to consider what the user experience is like for each failure scenario.
+Also consider the user experience for each failure scenario.
 
 ## Manage shared components
 
-A control plane needs to be aware of any components that aren't dedicated to specific tenants, but instead are shared. Some components might be shared among all tenants within a stamp. Other components might be shared among all stamps in a region, or even shared globally across all regions and stamps. Whenever a tenant is onboarded, reconfigured, or offboarded, your control plane needs to know what to do with these shared components.
+A control plane needs to recognize any components that are shared rather than dedicated to specific tenants. Some components might be shared among all tenants within a stamp. Other components might be shared among all stamps in a region, or even shared globally across all regions and stamps. When you onboard, reconfigure, or offboard a tenant, your control plane needs to know how to handle these shared components.
 
-Some shared components might need to be reconfigured whenever a tenant is added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant with a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
+Some shared components require reconfiguration when tenants are added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant that has a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
 
-Shared components might have complex scaling rules that your control plane needs to follow. For example, suppose that you follow a [bin packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases. When a new tenant is onboarded, you add a new Azure SQL database for that tenant, and then you assign it to an Azure SQL elastic pool. You might have determined that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane needs to take responsibility for managing each of these shared components, scaling and reconfiguring them whenever something changes.
+Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool. You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
 
 When your control plane manages shared components, it's important to be aware of race conditions, which can occur when multiple operations happen in parallel. For example, if you onboard a new tenant at the same time that you offboard a different tenant, you need to ensure that your ultimate end state is consistent and meets your scaling requirements.
 
 ## Use multiple control planes
 
-In a complex environment, you might need to use multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you use this pattern, you might create separate control planes for global and stamp responsibilities.
+In a complex environment, you might need to use multiple control planes that manage different areas. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. In this pattern, you might create separate control planes for global and stamp responsibilities.
 
 > [!TIP]
-> Coordinating across multiple control planes is complex, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
+> Coordinating across multiple control planes add complexity, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
 
 ### Global control planes
 
-A global control plane is typically responsible for the overall management and tracking of tenants. A global control plane might have the following responsibilities:
+A global control plane typically handles the overall management and tracking of tenants. A global control plane might have the following responsibilities:
 
-- **Tenant placement.** The global control plane determines which stamp a tenant should use. It might make this determination based on factors like the tenant's region, each stamp's capacity utilization, and the tenant's service level requirements.
+- **Tenant placement:** The global control plane determines which stamp a tenant should use. It might make this determination based on factors, like the tenant's region, each stamp's capacity usage, and the tenant's service-level requirements.
 
-- **Tenant onboarding and life cycle management.** These responsibilities include tracking all tenants across all deployments.
+- **Tenant onboarding and life cycle management:** These responsibilities include tracking all tenants across deployments.
 
 ### Stamp control planes
 
-A stamp control plane is deployed into each deployment stamp and is responsible for the tenants and resources allocated to that stamp. A stamp control plane might have these responsibilities:
+Each deployment stamp includes its own stamp control plane, which manages the tenants and resources allocated to that stamp. A stamp control plane might have the following responsibilities:
 
 - **Creating and managing tenant-specific resources within the stamp**, like databases and storage containers.
 
-- [**Managing shared resources**](#manage-shared-components), including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
+- **Managing shared resources**, including monitoring the consumption of [shared resources](#manage-shared-components) and deploying new instances when they approach their maximum capacity.
 - **Performing maintenance operations within the stamp**, like database index management and cleanup operations.
 
-Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
+Each stamp's control plane coordinates with the global control plane. For example, if a new tenant signs up, the global control plane might initially select a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
 
-The following diagram shows an example of how the two control planes might coexist in a single system:
+The following diagram shows how two control planes might coexist in a single system.
 
 :::image type="content" source="media/control-planes/global-stamp-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane and stamp control planes." lightbox="media/control-planes/global-stamp-control-planes.png" border="false":::
 
@@ -208,7 +208,7 @@ Tenants might use a tenant-level control plane to manage their own logical or ph
 - **Tenant-initiated maintenance operations**, like backing up data or downloading a previous backup.
 - **Update management**, if you allow tenants to [control their own updates to their applications](updates.md).
 
-The following diagram shows a complex system that has a global control plane, stamp control planes, and a control plane for each tenant:
+The following diagram shows a complex system that has a global control plane, stamp control planes, and a control plane for each tenant.
 
 :::image type="content" source="media/control-planes/global-stamp-tenant-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane, stamp control planes, and a control plane for each tenant." lightbox="media/control-planes/global-stamp-tenant-control-planes.png" border="false":::
 
@@ -232,7 +232,7 @@ Other contributors:
 
 ## Next step
 
-- [Azure Well-Architected Framework](/azure/well-architected/)
+- [Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources 
 
