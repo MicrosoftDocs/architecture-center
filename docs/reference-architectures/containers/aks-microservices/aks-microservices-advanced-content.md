@@ -287,7 +287,7 @@ Azure provides various mechanisms for monitoring microservice workloads:
 - Azure Monitor managed service for Prometheus and Container Insights work together for complete monitoring of your Kubernetes environment.
 - [Managed Grafana](/azure/managed-grafana/overview) for cluster and microservice visualization.  
 
-To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with Azure Kubernetes Service [without code changes](/azure/azure-monitor/app/kubernetes-codeless).  
+To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with Azure Kubernetes Service [without code changes](/azure/azure-monitor/app/kubernetes-codeless).
 
 ## Considerations
 
