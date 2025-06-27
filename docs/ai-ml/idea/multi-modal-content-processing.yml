@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build scalable, accurate multi-modal content processing systems with human-in-the-loop validation for enterprise documents.
-  description: Learn to build scalable systems that handle various content formats. These systems process text, images, tables, and graphs while providing quality checks and human review for professional document workflows.
+  title: Extract and Map Information from Unstructured Content
+  description: Learn how to build scalable systems for processing text, images, tables, and graphs with quality checks and human review for professional content workflows.
   author: gpickett
   ms.author: gpickett
   ms.date: 6/16/2025
@@ -14,8 +14,8 @@ products:
   - ai-services
   - azure-cosmos-db
   - azure-container-apps
-name: Build scalable, accurate multi-modal content processing systems with human-in-the-loop validation for enterprise documents.
-summary: Learn to build scalable systems that handle various content formats. These systems process text, images, tables, and graphs while providing quality checks and human review for professional document workflows.
+name: Extract and map information from unstructured content
+summary: Learn how to build scalable systems for processing text, images, tables, and graphs with quality checks and human review for professional content workflows.
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-modal-content-processing.png
 content: |
   [!INCLUDE[](multi-modal-content-processing-content.md)]
