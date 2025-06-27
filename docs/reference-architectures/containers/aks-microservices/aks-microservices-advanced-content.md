@@ -357,7 +357,7 @@ Consider the following points when planning for scalability.
 - If there are a large number of outbound flows from the microservice, consider using [NAT gateways](/azure/aks/nat-gateway) to avoid SNAT port exhaustion.
 - Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
-- Consider using [CNI with overlay networking](/azure/aks/concepts-network-cni-overview) to conserve VNET address space. 
+- Consider using [CNI with overlay networking](/azure/aks/concepts-network-cni-overview) to conserve network address space. 
 
 ## Next steps
 
