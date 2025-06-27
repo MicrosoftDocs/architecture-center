@@ -50,7 +50,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vaults from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. Using [Application gateway for containers](/azure/application-gateway/for-containers/overview) is an option as well, which provides additional features such as traffic splitting and weighted round-robin load balancing. The other ingress options include [application routing add-on](/azure/aks/app-routing) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). 
+**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. 
 
 **[Azure Bastion](/azure/bastion/bastion-overview)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
@@ -77,6 +77,12 @@ The AKS infrastructure features used in this architecture include:
 **[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
 
 **[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
+
+### Alternatives
+
+Instead of using Azure Application Gateway ingress controller, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), [application routing add-on](/azure/aks/app-routing) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in Azure Kubernetes Service](/azure/aks/concepts-network-ingress). Azure Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing. 
+
+Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as a cluster extensions. 
 
 ## Scenario details
 
