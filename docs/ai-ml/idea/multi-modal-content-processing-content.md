@@ -62,7 +62,7 @@ This solution uses advanced AI services to automatically extract, transform, and
 
 ### Potential use cases
 
-### Financial services processing
+#### Financial services processing
 
 **Claims processing automation:** Extract policy details, damage assessments, and cost estimates from insurance claims documents, photos, and adjuster reports by using automated validation and compliance checking.
 
@@ -70,7 +70,7 @@ This solution uses advanced AI services to automatically extract, transform, and
 
 **Regulatory document analysis:** Process regulatory filings, compliance reports, and audit documentation to extract key metrics and ensure adherence to financial regulations and reporting requirements.
 
-### Healthcare documentation
+#### Healthcare documentation
 
 **Clinical document processing:** Extract patient information, diagnoses, treatment plans, and medication information from medical records, lab reports, and clinical notes for electronic health record integration.
 
@@ -78,7 +78,7 @@ This solution uses advanced AI services to automatically extract, transform, and
 
 **Research data extraction:** Analyze clinical trial documents, research papers, and patient consent forms to extract study parameters, outcomes, and compliance data for medical research workflows.
 
-### Legal and compliance
+#### Legal and compliance
 
 **Contract analysis and extraction:** Process legal contracts, agreements, and amendments to extract key terms, obligations, dates, and parties for contract management and compliance monitoring.
 
@@ -86,7 +86,7 @@ This solution uses advanced AI services to automatically extract, transform, and
 
 **Compliance documentation:** Process regulatory submissions, audit reports, and compliance certificates to extract requirements, findings, and corrective actions for governance workflows.
 
-### Manufacturing and supply chain
+#### Manufacturing and supply chain
 
 **Quality documentation processing:** Extract inspection results, test data, and certification details from quality control documents and certificates for compliance tracking and process improvement.
 
@@ -129,7 +129,7 @@ Consider this alternative if your workload has the following characteristics:
 
 ## Cost Optimization
 
-Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 For more information about the costs to run this scenario, see the preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/46ff2147f30f40dcb61a5a3f2e405117).
 
