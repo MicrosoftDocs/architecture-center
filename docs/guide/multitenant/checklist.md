@@ -75,7 +75,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Use automation to manage the [tenant life cycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
 
-- Understand the differences between [control planes](./considerations/control-planes.yml) and data planes in your multitenant solution.  
+- Understand the differences between [control planes](./considerations/control-planes.md) and data planes in your multitenant solution.  
 
 - Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.  
 

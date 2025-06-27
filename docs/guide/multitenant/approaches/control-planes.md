@@ -21,7 +21,7 @@ Control planes are an important part of software as a service (SaaS) and multite
   - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to
 - Processes for managing changes to the environment, which are triggered by [tenant lifecycle events](../considerations/tenant-lifecycle.md). Examples include tenant onboarding, tenant offboarding, and required regular maintenance.
 
-A control plane functions as an application. You must design your control plane with the same rigor and care that you apply to other parts of your solution. For more information about what a control plane is, why it matters, and design considerations, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
+A control plane functions as an application. You must design your control plane with the same rigor and care that you apply to other parts of your solution. For more information about what a control plane is, why it matters, and design considerations, see [Considerations for multitenant control planes](../considerations/control-planes.md).
 
 This article describes approaches that you can use to design and create a control plane. Each approach is valid, but a different architecture outside this guidance might better suit your specific scenario.
 
@@ -45,7 +45,7 @@ You don't always need to build a fully automated control plane, especially when 
 You might keep your tenant catalog in a central location, such as an Excel workbook or a JSON file that's stored in a location that your team can access. Regardless of the format, you should store the information in a structured way so that you can easily work with the data programmatically.
 
 > [!NOTE]
-> A manual control plane works well as a starting point for managing your multitenant application, but it's only suitable for less than 10 tenants. The administrative overhead and the risk of inconsistencies increase with each manually onboarded tenant. Use this approach only if you have a few tenants and don't require automated or self-service onboarding.
+> A manual control plane works well as a starting point for managing your multitenant application, but it's only suitable for less than 10 tenants. The administrative overhead and risk of inconsistencies increase with each manually onboarded tenant. Use this approach only if you have a few tenants and don't require automated or self-service onboarding.
 
 Consider the following factors for processes like tenant onboarding and maintenance activities:
 
@@ -55,7 +55,9 @@ Consider the following factors for processes like tenant onboarding and maintena
 
 The following diagram shows a manual process approach for an initial control plane.
 
-:::image type="content" source="media/control-plane/control-plane-approaches-manual.svg" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.svg" border="false":::
+:::image type="complex" source="media/control-plane/control-plane-approaches-manual.svg" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.svg" border="false":::
+The diagram has two main sections, a control plan and a data plane. The control plane contains a web application, a salesperson, an Excel file, an engineer, and a script. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by speaking to a salesperson. The salesperson inserts the tenant information into an Excel file. An engineer reads the tenant information and runs a deployment script. The script reads the information and deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-manual.vsdx) of this architecture.*
 
@@ -94,7 +96,7 @@ This approach also supports self-service sign-up for your customers. Your web ap
 The following diagram shows how to create a control plane with self-service sign-up by using Microsoft Power Platform.
 
 :::image type="complex" source="media/control-plane/control-plane-approaches-low-code.svg" alt-text="Diagram that shows how to use Power Automate and Dataverse as a low-code control plane." lightbox="media/control-plane/control-plane-approaches-low-code.svg" border="false":::
-The diagram has two main section, a control plan and a data plane. The control plan contains a web application, a Dataverse table, and a Power Automate workflow. The data plan contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app inserts the tenant information into a Dataverse table. These changes trigger the Power Automate workflow, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
+The diagram has two main sections, a control plan and a data plane. The control plane contains a web application, a Dataverse table, and a Power Automate workflow. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app inserts the tenant information into a Dataverse table. These changes trigger the Power Automate workflow, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-low-code.vsdx) of this architecture.*
@@ -134,7 +136,7 @@ Like the low-code approach, this approach enables you to provide self-service si
 The following diagram shows how to create a basic custom control plane that provides self-service sign-up.
 
 :::image type="complex" source="media/control-plane/control-plane-approaches-custom.svg" alt-text="Diagram that illustrates a control plane created with Durable Functions, a SQL database, and a service bus." lightbox="media/control-plane/control-plane-approaches-custom.svg" border="false":::
-This diagram has two main sections, a control plane and a data plane. The control plan contains a web application, Azure Service Bus, Durable Functions, and SQL Database. The data plan contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app stores the tenant information in Azure SQL Database and send a notification to Service Bus. This notification triggers Durable Functions, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane. Durable Functions stores the new tenant environment metadata in SQL Database.
+This diagram has two main sections, a control plane and a data plane. The control plane contains a web application, Azure Service Bus, Durable Functions, and SQL Database. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app stores the tenant information in Azure SQL Database and send a notification to Service Bus. This notification triggers Durable Functions, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane. Durable Functions stores the new tenant environment metadata in SQL Database.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-custom.vsdx) of this architecture.*
@@ -187,5 +189,5 @@ Other contributors:
 
 ## Related resources
 
-- [Architectural considerations for control planes in a multitenant solution](../considerations/control-planes.yml)
+- [Architectural considerations for control planes in a multitenant solution](../considerations/control-planes.md)
 - [Architectural approaches for a multitenant solution](../approaches/overview.md)
