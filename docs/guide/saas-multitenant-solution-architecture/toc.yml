@@ -31,7 +31,7 @@ items:
           - name: Overview
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
-            href: ../multitenant/considerations/tenancy-models.yml
+            href: ../multitenant/considerations/tenancy-models.md
           - name: Tenant lifecycle
             href: ../multitenant/considerations/tenant-lifecycle.md
           - name: Pricing models

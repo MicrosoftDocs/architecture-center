@@ -38,7 +38,7 @@ Refer to the baseline architecture that deploys Data Factory instances for data 
 
 To comply with common enterprise security and governance nonfunctional requirements (NFRs) for production workloads, you should add enterprise hardening patterns to the baseline architecture. For example, an NFR might require the solution to use federated resources that central teams manage. To avoid service disruptions, it's crucial to communicate your requirements effectively with those teams.
 
-Refer to this architecture that deploys an enterprise-hardened implementation. This implementation extends the [hub-and-spoke topology](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) according to [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) principles.
+Refer to this architecture that deploys an enterprise-hardened implementation. This implementation extends the [hub-and-spoke topology](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture) according to [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) principles.
 
 > [!div class="nextstepaction"]
 > [Reference architecture: Enterprise-hardened workload with Data Factory](azure-data-factory-enterprise-hardened.yml)

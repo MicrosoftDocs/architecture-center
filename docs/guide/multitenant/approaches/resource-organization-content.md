@@ -4,7 +4,7 @@ Azure provides many options for organizing your resources. In a multitenant solu
 
 ### Tenant isolation requirements
 
-When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and trade-offs for many categories of resources. In general, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml) for more guidance about how to decide on your isolation model.
+When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and trade-offs for many categories of resources. In general, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more guidance about how to decide on your isolation model.
 
 ### Scale
 
@@ -41,7 +41,7 @@ As an illustration of the shared resource approach, suppose Contoso is building 
 
 #### Separate resources in a resource group
 
-You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants while other components are dedicated to a specific tenant. This approach is known as [horizontal partitioning](../considerations/tenancy-models.yml#horizontally-partitioned-deployments).
+You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants while other components are dedicated to a specific tenant. This approach is known as [horizontal partitioning](../considerations/tenancy-models.md#horizontally-partitioned-deployments).
 
 We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
 

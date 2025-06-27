@@ -159,4 +159,4 @@ Other contributors:
 
 - [Architect multitenant solutions on Azure](overview.md)
 - [Architectural considerations for a multitenant solution](../considerations/overview.yml)
-- [Tenancy models for a multitenant solution](../considerations/tenancy-models.yml)
+- [Tenancy models for a multitenant solution](../considerations/tenancy-models.md)
