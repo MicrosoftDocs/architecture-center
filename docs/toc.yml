@@ -860,7 +860,7 @@ items:
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS enable by Azure Arc)
+          - name: AKS on Azure Local (AKS enabled by Azure Arc)
             items:
             - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
