@@ -258,7 +258,7 @@ The [Vertical Pod Autoscaler (VPA)](/azure/aks/use-vertical-pod-autoscaler) auto
 
 #### Kubernetes Event Driven Autoscaler (KEDA)
 
-The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enablesevent-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA autoscaler can scale up microservices when the number of messages in the service bus queue increases above certain thresholds. In the Fabricam drone delivery example, the KEDA autoscaler can scale up the workflow microservice depending on the queue depth on service bus queue, based on the ingestion microservice output. For the list of KEDA scalers for azure services, please see [/azure/aks/keda-integrations](Integrations with KEDA on AKS).
+The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enablesevent-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA autoscaler can scale up microservices when the number of messages in the service bus queue increases above certain thresholds. In the Fabricam drone delivery example, the KEDA autoscaler can scale up the workflow microservice depending on the queue depth on service bus queue, based on the ingestion microservice output. For the list of KEDA scalers for Azure services, please see [/azure/aks/keda-integrations](Integrations with KEDA on AKS).
 
 ### Health probes
 
