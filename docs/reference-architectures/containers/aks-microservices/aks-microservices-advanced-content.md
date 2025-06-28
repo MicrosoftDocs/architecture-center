@@ -307,6 +307,8 @@ Consider the following points when planning for security.
 
 - Use [deployment safeguards](/azure/aks/deployment-safeguards) in the AKS cluster. Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
 
+- Integrate security scanning into the microservice build and deployment pipelines. Manage your DevOps environment using [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction), and utilize both [agentless code scanning](/azure/defender-for-cloud/agentless-code-scanning) and [run static code analysis tools](/azure/defender-for-cloud/cli-cicd-integration) as part of CI/CD pipelines so that the microservice code vulnerabilities are identified and addressed as part of both the build and deployment processes. 
+
 - An AKS pod authenticates itself by using a *workload identity* stored in Microsoft Entra ID. Using a workload identity is preferable because it doesn't require a client secret.
 
 - With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
