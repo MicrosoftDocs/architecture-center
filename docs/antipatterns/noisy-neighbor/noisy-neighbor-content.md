@@ -44,7 +44,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Enable tenants to purchase pre-provisioned or reserved capacity.** This approach gives tenants greater confidence that your solution can reliably handle their workloads.
 
-- **Smooth out tenants' resource usage.** For example, you might try one of the following approaches:
+- **Balance tenant resource usage.** For example, you might try one of the following approaches:
 
   - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and complementary usage patterns across multiple stamps to flatten the peaks in their usage.
   
