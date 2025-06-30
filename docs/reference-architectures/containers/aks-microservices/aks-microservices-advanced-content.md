@@ -52,7 +52,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. 
 
-**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, outbound communications from microservices to other resources / URLs are controlled by Azure Firewall.
+**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, outbound communications from microservices to  resources outside of the virtual network are controlled by Azure Firewall.
 
 **External storage and other components:**
 
@@ -64,7 +64,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. In this scenario, Azure Service Bus is used as the asynchronous queueing layer between the ingestion and workflow microservices.
 
-**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads. In this architecture, Azure Cache for Redis is used as the state store by delivery microservice.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads. In this architecture, Azure Cache for Redis is used as the state store and [side-cache](/azure/architecture/patterns/cache-aside) by the delivery microservice.
 
 **[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
@@ -72,7 +72,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
-**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
+**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In the reference implementation, CosmosDB credentials, Azure cache for Redis credentials etc. are stored in Azure Key Vaults. 
 
 **[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
@@ -85,13 +85,6 @@ Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/az
 ## Scenario details
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
-
-### Potential use cases
-
-Adopt the best practices from the scenario and reference architecture to architect microservices-based applications in AKS. The guidelines in this artcle applies to:
-
-- Complex web applications
-- Business logic developed using microservice design principles
 
 ## Recommendations
 
@@ -204,29 +197,29 @@ The *cluster autoscaler (CA)* scales the number of nodes. Suppose pods can't be 
 The following example shows the CA configuration from the Bicep template:
 
 ```json
-"autoScalerProfile": {
-    "scan-interval": "10s",
-    "scale-down-delay-after-add": "10m",
-    "scale-down-delay-after-delete": "20s",
-    "scale-down-delay-after-failure": "3m",
-    "scale-down-unneeded-time": "10m",
-    "scale-down-unready-time": "20m",
-    "scale-down-utilization-threshold": "0.5",
-    "max-graceful-termination-sec": "600",
-    "balance-similar-node-groups": "false",
-    "expander": "random",
-    "skip-nodes-with-local-storage": "true",
-    "skip-nodes-with-system-pods": "true",
-    "max-empty-bulk-delete": "10",
-    "max-total-unready-percentage": "45",
-    "ok-total-unready-count": "3"
-},
+    autoScalerProfile: {
+      'scan-interval': '10s'
+      'scale-down-delay-after-add': '10m'
+      'scale-down-delay-after-delete': '20s'
+      'scale-down-delay-after-failure': '3m'
+      'scale-down-unneeded-time': '10m'
+      'scale-down-unready-time': '20m'
+      'scale-down-utilization-threshold': '0.5'
+      'max-graceful-termination-sec': '600'
+      'balance-similar-node-groups': 'false'
+      expander: 'random'
+      'skip-nodes-with-local-storage': 'true'
+      'skip-nodes-with-system-pods': 'true'
+      'max-empty-bulk-delete': '10'
+      'max-total-unready-percentage': '45'
+      'ok-total-unready-count': '3'
+    }
 ```
 The following lines in the Bicep template set example minimum and maximum nodes for the cluster autoscaler:
 
 ```json
-"minCount": 2,
-"maxCount": 5,
+        minCount: 2
+        maxCount: 5
 ```
 
 #### Horizontal Pod autoscaling
@@ -249,12 +242,18 @@ spec:
     name: delivery
   minReplicas: 2
   maxReplicas: 5
-  targetCPUUtilizationPercentage: 50
+  metrics:
+  - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
 ```
 
 HPA looks at actual resources consumed or other metrics from running pods, but the CA provisions nodes for pods that aren't scheduled yet. Therefore, CA looks at the requested resources, as specified in the pod spec. Use load testing to fine-tune these values.
 
-Please refer to [/azure/aks/concepts-scale](scaling options for applications in AKS) for more information on autoscaling options in AKS.
+Please refer to [scaling options for applications in AKS](/azure/aks/concepts-scale) for more information on autoscaling options in AKS.
 
 #### Vertical Pod autoscaling
 
@@ -326,7 +325,7 @@ Consider the following points when planning for security.
 
 - If the microservice needs to communicate to resources outside cluster (such as external URLs), control the access through Azure Firewall. If there are no outbound calls to be made, use [network isolated clusters](/azure/aks/network-isolated).
 
-- Enable [Microsoft defender for containers](/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, run-time threat protection and other security features. 
+- Enable [Microsoft defender for containers](/azure/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, run-time threat protection and other security features. 
 
 ### Cost Optimization
 
@@ -334,7 +333,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations.
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario. 
+- Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=kubernetes-service) to estimate costs for your specific scenario. 
 
 - In the free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
