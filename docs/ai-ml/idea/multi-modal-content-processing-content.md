@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding, Azure OpenAI in Azure AI Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
 
 This architecture shows how to build scalable systems for processing content. The systems handle text, images, tables, and graphs and include automatic quality checks and human review for business document workflows.
 
@@ -18,13 +18,13 @@ The following workflow corresponds to the previous diagram:
 
 1. Users upload multi-modal content, like documents, images, contracts, and invoices, through the web front-end interface. Content is submitted with specific processing requirements and target schemas.
 
-1. The Container App website receives the content upload request and invokes the processing API hosted in Container Apps. Both components are custom-coded solutions tailored for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
+1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. Both components are custom-coded solutions tailored for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
 1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI in Foundry Models. These models map schemas and convert the extracted data into structured formats.
 
 1. Content Understanding performs machine learning-based OCR for efficient text extraction from various content formats, including images, tables, and graphs.
 
-1. Azure OpenAI in Foundry Models with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates structured JSON output with confidence scoring.
+1. Azure OpenAI in Foundry Models with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
 
 1. The orchestration code in Container Apps stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement in Azure Cosmos DB.
 
@@ -32,13 +32,13 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure Queue Storage manages event-driven processing workflows between this solution's services. This management ensures reliable message handling and processing coordination across the pipeline components.
 
-1. The Content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, correct any inaccuracies, add comments for context or feedback, and save the final validated results to the system.
+1. The content processor monitor website displays the processed results to users through the web interface. Users can review the structured JSON output, correct any inaccuracies, add comments for context or feedback, and save the final validated results to the system.
 
-1. The Content processor monitor website feeds processing metrics and user feedback data directly into Power BI dashboards. Processed data and metadata stored in Azure Cosmos DB provide comprehensive analytics on the content processing pipeline. These insights include KPIs, success rates, document type distributions, confidence score trends, user correction patterns, and other operational metrics that support data-driven optimization of the content processing pipeline.
+1. The content processor monitor website feeds processing metrics and user feedback data directly into Power BI dashboards. Processed data and metadata stored in Azure Cosmos DB provide comprehensive analytics on the content processing pipeline. These insights include KPIs, success rates, document type distributions, confidence score trends, user correction patterns, and other operational metrics that support data-driven optimization of the content processing pipeline.
 
 ### Components
 
-- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code that runs is custom coded by your software engineering team.
+- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that you can use to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code that runs is custom coded by your software engineering team.
 
 - [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
 
@@ -102,30 +102,33 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** This solution uses Content Understanding for advanced OCR and content extraction combined with Azure OpenAI for schema mapping and transformation. This approach provides high accuracy for complex multi-modal content with flexible schema customization.
 
-**Alternative approach:** Use Azure AI Document Intelligence for document processing with prebuilt models for common document types like invoices, receipts, and forms. This approach provides faster implementation for standard document types but with less flexibility for custom schemas.
+**Alternative approach:** Use Azure AI Document Intelligence for document processing by using prebuilt models for common document types like invoices, receipts, and forms. This approach provides faster implementation for standard document types but less flexibility for custom schemas.
 
 Consider this alternative if your workload has the following characteristics:
 
 - You primarily process standard document types that have well-defined formats.
+
 - You need faster time-to-market with prebuilt extraction models.
+
 - Your schema requirements align with standard document intelligence models.
+
 - You have limited custom development resources for schema mapping.
 
 ### Processing orchestration
 
-**Current approach:** This solution uses Azure Container Apps to host custom processing logic that orchestrates the content analysis pipeline. This approach provides maximum control over processing workflows, error handling, and custom business logic integration.
+**Current approach:** This solution uses Container Apps to host custom processing logic that orchestrates the content analysis pipeline. This approach provides maximum control over processing workflows, error handling, and custom business logic integration.
 
-**Alternative approach:** Use Azure Logic Apps or Azure Functions for workflow orchestration with built-in connectors to AI services. This approach provides visual workflow design and managed service benefits but with less control over processing logic.
+**Alternative approach:** Use Azure Logic Apps or Azure Functions for workflow orchestration with built-in connectors to AI services. This approach provides visual workflow design and managed service benefits but less control over processing logic.
 
 Consider this alternative if your workload has the following characteristics:
 
 - You prefer visual workflow design over custom code development.
 
-- Your processing workflows are relatively simple with standard conditional logic.
+- Your processing workflows are relatively simple and use standard conditional logic.
 
 - You want to minimize infrastructure management overhead.
 
-- Your team has more expertise in low-code and no-code solutions than containerized applications.
+- Your team has more expertise in low-code and no-code solutions than in containerized applications.
 
 ## Cost Optimization
 
