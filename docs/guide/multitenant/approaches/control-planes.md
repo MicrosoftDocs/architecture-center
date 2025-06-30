@@ -127,7 +127,7 @@ You can choose to create a fully customized control plane. This option provides 
 
 The tenant catalog is usually stored in a database. You don't directly work with the catalog. Instead, you manage it through an administrative interface, such as a custom application or a system like your organization's customer relationship management (CRM) application.
 
-You typically create a set of control plane components that support your tenant administrative functions. These components can include an administrative portal or other user interface, an API, and background processing components. If you need to deploy code or infrastructure when tenant life cycle events occur, you can also add deployment pipelines to your control plane.
+You typically create a set of control plane components to support your tenant administrative functions. These components can include an administrative portal or other user interface, an API, and background processing components. If you need to deploy code or infrastructure when tenant life cycle events occur, you can also add deployment pipelines to your control plane.
 
 Ensure that long-running processing uses appropriate tooling. For example, you might use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) or [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for components that orchestrate tenant onboarding, manage deployments, or require communication with external systems.
 
