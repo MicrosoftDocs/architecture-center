@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Create an AD DS resource forest
-  description: Understand how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises AD forest.
+  title: Create an Active Directory Domain Service Resource Forest in Azure
+  description: Learn how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises AD forest.
   author: justinha
   ms.author: justinha
   ms.date: 06/05/2025
@@ -11,10 +11,7 @@ metadata:
     - identity
     - hybrid
   ms.custom: e2e-hybrid
-name: Create an AD DS resource forest in Azure
-azureCategories:
-  - identity
-  - hybrid
+name: Create an Active Directory Domain Service resource forest in Azure
 summary: How to create a trusted Active Directory domain in Azure.
 products:
   - entra-id
@@ -24,4 +21,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/adds-forest.png
 content: |
-   [!include[](adds-forest-content.md)]
+   [!INCLUDE[](adds-forest-content.md)]

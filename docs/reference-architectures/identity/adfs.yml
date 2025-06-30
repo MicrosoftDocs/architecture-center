@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extend on-premises AD FS to Azure
+  title: Extend On-Premises AD FS to Azure
   description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
   author: justinha
   ms.author: justinha
@@ -22,4 +22,4 @@ products:
   - azure-load-balancer
 thumbnailUrl: /azure/architecture/browse/thumbs/adfs.png
 content: |
-   [!include[](adfs-content.md)]
+   [!INCLUDE[](adfs-content.md)]
