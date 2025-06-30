@@ -22,7 +22,7 @@ The following workflow corresponds to the previous diagram:
 
 - **Active Directory subnet:** The Active Directory Domain Services (AD DS) servers are hosted in a separate subnet. Network security group (NSG) rules help protect the AD DS servers and provide a firewall against traffic from unexpected sources.
 
-- **Azure VPN Gateway and Active Directory synchronization:** VPN Gateway provides a connection between the on-premises network and Azure Virtual Network. This connection can be a [VPN connection][azure-vpn-gateway] or via [Azure ExpressRoute][azure-expressroute]. All synchronization requests between the Active Directory servers in the cloud and on-premises pass through the gateway. User-defined routes (UDRs) handle routing for on-premises traffic that passes to Azure.
+- **Azure VPN Gateway and Active Directory synchronization:** VPN Gateway provides a connection between the on-premises network and Azure Virtual Network. This connection can be a [VPN connection][azure-vpn-gateway] or via [Azure ExpressRoute][azure-expressroute]. All synchronization requests between the Active Directory servers in the cloud and on-premises pass through the gateway. User-defined routes handle routing for on-premises traffic that passes to Azure.
 
 ### Components
 
@@ -48,9 +48,9 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 ### VM recommendations
 
-Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines that host AD DS on-premises as a starting point and match them with the Azure VM sizes. After you deploy your application, monitor utilization and scale up or down based on the actual load on the VMs. For more information, see [Capacity planning for AD DS][capacity-planning-for-adds].
+Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines that host AD DS on-premises as a starting point and match them with the Azure VM sizes. After you deploy your application, monitor usage and scale up or down based on the actual load on the VMs. For more information, see [Capacity planning for AD DS][capacity-planning-for-adds].
 
-Create a separate virtual data disk to store the database, logs, and sysvol folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM by using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
+Create a separate virtual data disk to store the database, logs, and system volume (sysvol) folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM by using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
 
 Deploy at least two VMs that run AD DS as domain controllers and add them to different [availability zones](/azure/reliability/availability-zones-overview). If availability zones aren't available in the region, deploy the VMs in an [availability set][availability-set].
 
@@ -59,9 +59,9 @@ Deploy at least two VMs that run AD DS as domain controllers and add them to dif
 Configure the VM network interface (NIC) for each domain controller with a static private IP address instead of using Dynamic Host Configuration Protocol (DHCP). By assigning a static IP address directly to the VM, clients can continue to contact the domain controller even if the DHCP service is unavailable. For more information, see [Create a VM that uses a static private IP address][set-a-static-ip-address].
 
 > [!NOTE]
-> Don't configure the VM NIC for any AD DS with a public IP address. For more information, see [Security considerations][security-considerations].
+> Don't configure the VM NIC for any AD DS by using a public IP address. For more information, see [Security considerations][security-considerations].
 
-The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For more information, see [How to configure a firewall for Active Directory domains and trusts][ad-ds-ports].
+The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For more information, see [Configure a firewall for Active Directory domains and trusts][ad-ds-ports].
 
 If the new domain controller VMs also have the role of Domain Name System (DNS) servers, we recommend that you configure them as custom DNS servers at the virtual network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). You should apply this configuration for the virtual network that hosts the new domain controllers and peered networks where other VMs must resolve Active Directory domain names. For more information, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
@@ -69,23 +69,23 @@ For the initial configuration, you might need to adjust the NIC of one of your d
 
 The inclusion of its IP address in the list of DNS servers improves performance and increases the availability of DNS servers. However, a start-up delay can happen if the DNS server is also a domain controller and points only to itself or points to itself first for name resolution. 
 
-For this reason, be cautious when you configure the loopback address on an adapter if the server is also a domain controller. You might need to overwrite the NIC DNS settings in Azure to point towards another domain controller hosted in Azure or on-premises for the primary DNS server. The loopback address should be configured only as a secondary or tertiary DNS server on a domain controller.
+For this reason, be cautious when you configure the loopback address on an adapter if the server is also a domain controller. You might need to overwrite the NIC DNS settings in Azure to point toward another domain controller hosted in Azure or on-premises for the primary DNS server. The loopback address should be configured only as a secondary or tertiary DNS server on a domain controller.
 
 ### Active Directory site
 
 In AD DS, a site represents a physical location, network, or collection of devices. Use AD DS sites to manage AD DS database replication by grouping AD DS objects that are located close to one another and connected by a high-speed network. AD DS includes logic to select the best strategy for replicating the AD DS database between sites.
 
-We recommend creating an AD DS site, including the subnets defined for your application in Azure. Then, you can configure a site link between your on-premises AD DS sites. AD DS automatically performs the most efficient database replication possible. This database replication requires little work beyond the initial configuration.
+We recommend that you create an AD DS site, including the subnets defined for your application in Azure. Then, you can configure a site link between your on-premises AD DS sites. AD DS automatically performs the most efficient database replication possible. This database replication doesn't require much work beyond the initial configuration.
 
 ### Active Directory operations master
 
-You can assign the operations master role to AD DS domain controllers to support consistency when they check between instances of replicated AD DS databases. The five operations master roles are schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information, see [Planning operations master role placement][ad-ds-operations-masters]. 
+You can assign the operations master role to AD DS domain controllers to support consistency when they check between instances of replicated AD DS databases. The five operations master roles are schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information, see [Plan operations master role placement][ad-ds-operations-masters]. 
 
 We also recommend that you give at least two of the new Azure domain controllers the global catalog (GC) role. For more information, see [Plan GC server placement](/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement).
 
 ### Monitoring
 
-Monitor the resources of the domain controller VMs and AD DS and create a plan to correct any problems quickly. For more information, see [Monitor Active Directory][monitoring_ad]. You can also install tools like [Microsoft Systems Center][microsoft_systems_center] on the monitoring server to help perform these tasks.
+Monitor the resources of the domain controller VMs and AD DS and create a plan to correct any problems quickly. For more information, see [Monitor Active Directory][monitoring-ad]. You can also install tools like [Microsoft Systems Center][microsoft-systems-center] on the monitoring server to help perform these tasks.
 
 ## Considerations
 
@@ -101,11 +101,11 @@ Deploy the VMs that run AD DS into at least two [availability zones](/azure/reli
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-AD DS servers provide authentication services and are an appealing target for attacks. To help secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG as a firewall. Close all ports on the AD DS servers except the ports that are necessary for authentication, authorization, and server synchronization. For more information, see [How to configure a firewall for Active Directory domains and trusts][ad-ds-ports].
+AD DS servers provide authentication services and are an appealing target for attacks. To help secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG as a firewall. Close all ports on the AD DS servers except the ports that are necessary for authentication, authorization, and server synchronization. For more information, see [Configure a firewall for Active Directory domains and trusts][ad-ds-ports].
 
 Use either BitLocker or Azure disk encryption to encrypt the disk that hosts the AD DS database.
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to help defend against DDoS attacks. You should enable [DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to help defend against DDoS attacks. You should enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Cost Optimization
 
@@ -149,7 +149,7 @@ You can configure AD DS on VMs by using VM extensions and other tools, such as [
 
 For more information, see the DevOps section in [Well-Architected Framework][AAF-devops].
 
-#### Manageability 
+#### Manageability
 
 Perform regular AD DS backups. Don't just copy the Virtual Hard Disk (VHD) files of domain controllers because the AD DS database file on the VHD might not be consistent when copied, which makes it impossible to restart the database.
 
@@ -163,7 +163,7 @@ The first problem is relatively benign. Repeated resetting of the `invocationID`
 
 The second problem can contribute to RID pool exhaustion in the domain, especially if the RID pool size is configured to be larger than the default. If the domain exists for a long time or is used for workflows that require repetitive account creation and deletion, it might already be nearing RID pool exhaustion. Monitoring the domain for RID pool exhaustion warning events is a good practice. For more information, see [Manage RID issuance](/windows-server/identity/ad-ds/manage/managing-rid-issuance).
 
-The third problem is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they're all simultaneously shut down and deallocated, then each domain controller fails to find an authoritative replica when you restart them. Fixing this condition requires manual intervention. For more information, see [How to force authoritative and nonauthoritative synchronization for DFSR-replicated sysvol replication](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization).
+The third problem is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they're all simultaneously shut down and deallocated, then each domain controller fails to find an authoritative replica when you restart them. Fixing this condition requires manual intervention. For more information, see [Force authoritative and nonauthoritative synchronization for DFSR-replicated sysvol replication](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization).
 
 ### Performance Efficiency
 
@@ -177,7 +177,7 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 - [Azure DevOps][az-devops]
 - [Azure Pipelines][az-pipelines]
 - [Azure Monitor][azure-monitor]
-- [How to configure a firewall for Active Directory domains and trusts][ad-ds-ports]
+- [Configure a firewall for Active Directory domains and trusts][ad-ds-ports]
 - [DSC overview][dsc-overview]
 - [Configure ExpressRoute and site-to-site coexisting connections by using PowerShell](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
@@ -208,8 +208,8 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
-[monitoring_ad]: /windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
+[microsoft-systems-center]: https://www.microsoft.com/download/details.aspx?id=50013
+[monitoring-ad]: /windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
 [security-considerations]: #security
 [set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
 [visio-download]: https://arch-center.azureedge.net/identity-architecture-adds.vsdx
