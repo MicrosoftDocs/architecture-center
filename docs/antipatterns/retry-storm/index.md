@@ -2,17 +2,10 @@
 title: Retry Storm antipattern
 description: Understand the Retry Storm antipattern, so you can avoid retrying failed requests to a service too often.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 08/06/2021
 ms.topic: design-pattern
 ms.subservice: best-practice
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
-ms.custom:
-  - article
 ---
 
 # Retry Storm antipattern

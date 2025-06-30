@@ -314,7 +314,7 @@ Other contributors:
 ## Next steps
 
 - [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
-- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
@@ -322,7 +322,7 @@ Other contributors:
 
 ## Related resources
 
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)
 - [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 [azure-monitor]: https://azure.microsoft.com/services/monitor

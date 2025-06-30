@@ -3,16 +3,10 @@ title: Tenant lifecycle considerations in a multitenant solution
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/13/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Tenant lifecycle considerations in a multitenant solution
@@ -63,7 +57,7 @@ For example, if you provide a solution to retailers, you might expect that certa
 
 You might need to move tenants between infrastructure for a number of reasons, such as:
 
-- **Rebalancing:** You follow a [vertically partitioned approach](tenancy-models.yml#vertically-partitioned-deployments) to map your tenants to infrastructure, and you need to move a tenant to a different deployment in order to rebalance your load.
+- **Rebalancing:** You follow a [vertically partitioned approach](tenancy-models.md#vertically-partitioned-deployments) to map your tenants to infrastructure, and you need to move a tenant to a different deployment in order to rebalance your load.
 - **Upgrades:** A tenant upgrades their SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
 - **Migrations:** A tenant requests their data be moved to a dedicated data store.
 - **Region moves:** A tenant requires their data be moved to a new geographic region. This requirement might occur during a company acquisition, or when laws or geopolitical situations change.
@@ -103,13 +97,13 @@ Deactivation is separate to offboarding in that it's intended to be a temporary 
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

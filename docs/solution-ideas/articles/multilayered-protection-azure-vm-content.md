@@ -64,7 +64,7 @@ This solution uses the following components:
 
 - [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. In production environments that use this solution, deploy your workloads on Azure VMs. Then eliminate unnecessary exposure to your VMs and Azure assets.
 
-- [Microsoft Entra ID][Azure AD] is a cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
 - [PIM][Privileged Identity Management (PIM)] is a Microsoft Entra service that manages, controls, and monitors access to important resources. In this solution, this service:
 
@@ -81,7 +81,7 @@ This solution uses the following components:
   - Requesting JIT VM access in Defender for Cloud.
   - Reading or listing VMs.
 
-- [Microsoft Entra Conditional Access][Azure AD Conditional Access] is a tool that Microsoft Entra ID uses to control access to resources. Conditional Access policies support the [zero trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
+- [Microsoft Entra Conditional Access][Microsoft Entra Conditional Access] is a tool that Microsoft Entra ID uses to control access to resources. Conditional Access policies support the [Zero Trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
 
 - [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use Microsoft Edge or another internet browser for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
 
@@ -110,19 +110,19 @@ Principal author:
 
 - [Azure Virtual Machines baseline architecture][Azure Virtual Machines baseline]
 
-[Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-[Azure AD]: https://azure.microsoft.com/services/active-directory
-[Azure AD Conditional Access]: /azure/active-directory/conditional-access/overview
-[Azure Bastion]: /azure/bastion
-[Azure Key Vault]: /azure/key-vault
+[Activate my Azure resource roles in Privileged Identity Management]: /entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles
+[Microsoft Entra ID]:/entra/fundamentals/whatis
+[Microsoft Entra Conditional Access]: /entra/identity/conditional-access/overview
+[Azure Bastion]: /azure/bastion/bastion-overview
+[Azure Key Vault]: /azure/key-vault/general/overview
 [Azure RBAC]: /azure/role-based-access-control/overview
 [Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
-[Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
+[Privileged Identity Management (PIM)]: /entra/id-governance/privileged-identity-management/
 [Understanding just-in-time (JIT) VM access]: /azure/security-center/just-in-time-explained
-[Secure user sign-in events with Azure AD Multi-Factor Authentication]: /azure/active-directory/authentication/tutorial-enable-azure-mfa
+[Secure user sign-in events with Microsoft Entra multifactor authentication]: /entra/identity/authentication/tutorial-enable-azure-mfa
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1880866-multilayered-protection-azure-vm-architecture-diagram.vsdx
-[Zero Trust]: https://www.microsoft.com/security/business/zero-trust
+[Zero Trust]: /security/zero-trust/zero-trust-overview
 [Azure Virtual Machines baseline]: /azure/architecture/virtual-machines/baseline

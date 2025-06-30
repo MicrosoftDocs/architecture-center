@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: DevSecOps for infrastructure as code (IaC)
-  description: Learn how to use DevSecOps for IaC to securely deploy cloud infrastructure into a new Azure landing zone.
+  title: DevSecOps for Infrastructure as Code (IaC)
+  description: Learn how to use DevSecOps for IaC to more securely and efficiently deploy cloud infrastructure into a new Azure landing zone.
   author: yeeshian
   ms.author: yeeshianlee
-  ms.date: 06/07/2024
+  ms.date: 06/05/2025
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.custom: arb-devops
@@ -16,7 +16,7 @@ products:
   - azure-monitor
   - github
 name: DevSecOps for infrastructure as code (IaC)
-summary: Learn how to use DevSecOps for IaC to securely deploy cloud infrastructure into a new Azure landing zone.
+summary: Learn how to use DevSecOps for IaC to more securely and efficiently deploy cloud infrastructure into a new Azure landing zone.
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-for-iac-diagram.png
 content: |
-  [!include[](devsecops-infrastructure-as-code-content.md)]
+  [!INCLUDE[](devsecops-infrastructure-as-code-content.md)]

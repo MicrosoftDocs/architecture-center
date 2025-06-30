@@ -6,10 +6,6 @@ ms.author: dascottr
 ms.date: 04/29/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ms.custom:
   - arb-saas
 ---
@@ -25,7 +21,7 @@ The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. The
 
 **Startups are businesses in an early stage of their life cycle.** Many software startups build SaaS solutions, but some might provide software in other ways. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
-**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. You can also use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.yml#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.yml#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
+**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. You can also use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.md#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.md#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
 
 > [!NOTE]
 > This series uses the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. The guidance can help you build your own multitenant software solutions on top of the Azure platform.
@@ -48,6 +44,6 @@ The key difference between the two diagrams is the business model, which affects
 
 ## Related resources
 
-- [Plan your own journey to SaaS](../saas/plan-journey-saas.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)
+- [Software as a service (SaaS) Workload Documentation - Azure Well-Architected Framework](/azure/well-architected/saas/)

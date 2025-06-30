@@ -2,20 +2,12 @@
 title: Operations for mission-critical workloads on Azure
 description: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure. 
 author: asudbring
-categories: networking
 ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom: arb-containers
-ms.category:
-  - management-and-governance
-azureCategories:
-  - management-and-governance  
 summary: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure.  
-products:
-  - azure
-  - azure-devops
 ---
 
 # Operations for mission-critical workloads on Azure
@@ -154,13 +146,13 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors wrote this article.* 
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
- - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer
- - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
- 
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

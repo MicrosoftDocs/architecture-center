@@ -7,14 +7,7 @@ ms.reviewer: dburkhardt
 ms.date: 02/21/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-traffic-manager
-  - azure-front-door
-categories:
-  - networking
-ms.custom:
-  - checklist
-  - guide
+ms.custom: guide
 ---
 
 # Mission-critical global content delivery

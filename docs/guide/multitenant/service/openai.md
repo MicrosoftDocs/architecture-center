@@ -54,7 +54,7 @@ Sharing an Azure OpenAI resource doesn't provide security segmentation for each 
 
 Sharing an instance of Azure OpenAI among multiple tenants can also lead to a [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem. It can cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge your customers for the consumption cost of a shared Azure OpenAI instance, implement the logic to keep track of the total number of tokens for each tenant in your application.
 
-You can also deploy multiple shared Azure OpenAI instances. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), deploy a shared Azure OpenAI instance in each stamp. If you deploy a solution in multiple regions, you should deploy Azure OpenAI in each region to:
+You can also deploy multiple shared Azure OpenAI instances. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern), deploy a shared Azure OpenAI instance in each stamp. If you deploy a solution in multiple regions, you should deploy Azure OpenAI in each region to:
 
 - Avoid cross-region traffic latency.
 - Support data residency requirements.
@@ -102,7 +102,7 @@ In some scenarios, your tenants might create the Azure OpenAI instance in their 
 
 - Tenants require a component in their environment to process and send data through their customer-managed Azure OpenAI instance for processing.
 
-To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). The following workflow outlines this approach:
+To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/entra/identity-platform/single-and-multi-tenant-apps). The following workflow outlines this approach:
 
 1. The tenant registers the multitenant Microsoft Entra application in its own Microsoft Entra tenant.
 

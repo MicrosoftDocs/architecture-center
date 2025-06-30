@@ -3,17 +3,10 @@ title: Guidance for using Azure NAT Gateway in a multitenant solution
 description: This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/09/2024
+ms.date: 06/13/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-virtual-network
-categories:
-  - networking
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Guidance for using Azure NAT Gateway in a multitenant solution
@@ -32,7 +25,7 @@ SNAT ports are allocated when your application makes multiple concurrent outboun
 In most applications, SNAT port exhaustion indicates that your application is incorrectly handling HTTP connections or TCP ports. However, some multitenant applications are at particular risk of exceeding SNAT port limits, even if they reuse connections appropriately. For example, this situation can occur when your application connects to many tenant-specific databases behind the same database gateway.
 
 > [!TIP]
-> If you observe SNAT port exhaustion in a multitenant application, you should verify whether [your application follows good practices](/azure/load-balancer/troubleshoot-outbound-connection#connectionreuse). Ensure you reuse HTTP connections and don't recreate new connections every time you connect to an external service. You might be able to deploy a NAT Gateway to work around the problem, but if your code doesn't follow the best practices, you could encounter the problem again in the future.
+> If you observe SNAT port exhaustion in a multitenant application, you should first verify whether [your application follows good practices](/azure/load-balancer/troubleshoot-outbound-connection#connectionreuse). Ensure you reuse HTTP connections and don't recreate new connections every time you connect to an external service. You might be able to deploy a NAT Gateway to work around the problem, but if your code doesn't follow the best practices, you could encounter the problem again in the future.
 
 The issue is exacerbated when you work with Azure services that share SNAT port allocations between multiple customers, such as [Azure App Service and Azure Functions](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
@@ -65,13 +58,13 @@ Review [Architectural approaches for networking in multitenant solutions](../app
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- - [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Program Manager 2, Azure NAT Gateway
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- - [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
+ - [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Senior Program Manager, Azure NAT Gateway
+ - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+ - [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Principal Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

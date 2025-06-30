@@ -9,10 +9,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-products:
-  - azure-kubernetes-service
-categories:
-  - containers
 ---
 
 # Troubleshoot network problems in AKS clusters

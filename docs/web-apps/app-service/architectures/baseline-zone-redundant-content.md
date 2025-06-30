@@ -1,7 +1,7 @@
 This baseline architecture is based on the [Basic web application architecture](./basic-web-app.yml) and extends it to provide detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure PaaS services such as Azure Key Vault and Azure SQL Database.
 
 > [!IMPORTANT]
-> ![GitHub logo](../../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+> :::image type="icon" source="../../../_images/github.svg"::: The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 #### Inbound flow
 
 1. The user issues a request to the Application Gateway public IP. 
-2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requester if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
+2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requestor if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
 3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 
@@ -90,7 +90,7 @@ The network in this architecture has separate subnets for the Application Gatewa
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
-| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.AppServices`: Allow outbound access to AppServicesSubnet<br><br>`AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 | snet-PrivateEndpoints | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
 | snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
@@ -100,7 +100,7 @@ Consider the following points when implementing virtual network segmentation and
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
-An example of a Virtual subnet schema could be:
+An example of a network schema could be:
 
 | Type            | Name                   | Address Range |
 | --------------- | ---------------------- | ------------- |
@@ -180,7 +180,7 @@ Consider the following recommendations when configuring data-in-transit encrypti
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
-- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
+- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
 - [Enable end to end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the backend pool for the application gateway. When you configure the backend setting for the backend pool, use the HTTPS protocol over the backend port 443.
 
 ##### Data at rest
@@ -216,7 +216,7 @@ The App Service baseline configures authentication and authorization for user id
 ##### Workload identities
 
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
-- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources//managed-identity-best-practice-recommendations).
 
 ### Operational Excellence
 
@@ -236,9 +236,9 @@ Deployment for the baseline App Service application follows the guidance in [CI/
 3. The self-hosted deployment agent uploads the zip file to the storage account through the storage account's private endpoint.
 4. The pipeline continues, and a managed agent picks up a subsequent job. The managed agent [makes a CLI call to update the appSetting](/cli/azure/webapp/config/appsettings) WEBSITE_RUN_FROM_PACKAGE to the name of the new publish zip file for the staging slot.
 
-    ```bash
-    az webapp config appsettings set -g MyResourceGroupName -n MyUniqueApp --slot staging --settings WEBSITE_RUN_FROM_PACKAGE=UriToNewZip
-    ```
+   ```bash
+   az webapp config appsettings set -g MyResourceGroupName -n MyUniqueApp --slot staging --settings WEBSITE_RUN_FROM_PACKAGE=UriToNewZip
+   ```
 
 5. Azure App Service pulls the new publish zip file from storage via the storage account private endpoint. The staging instance restarts with the new package because WEBSITE_RUN_FROM_PACKAGE was set to a different file name.
 6. The pipeline resumes and runs any smoke tests or waits for approval. If the tests pass or approval is given, the pipeline swaps the staging and production slots.

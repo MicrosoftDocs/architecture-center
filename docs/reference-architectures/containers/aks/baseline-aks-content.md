@@ -265,7 +265,7 @@ Kubernetes supports RBAC through:
 
 Kubernetes has some built-in roles such as cluster-admin, edit, and view. Bind those roles to Microsoft Entra users and groups to use the enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
-Be sure that you include the Microsoft Entra groups for cluster and namespace access in your [Microsoft Entra access reviews](/azure/active-directory/governance/access-reviews-overview).
+Be sure that you include the Microsoft Entra groups for cluster and namespace access in your [Microsoft Entra access reviews](/entra/id-governance/access-reviews-overview).
 
 #### Use Azure RBAC for Kubernetes authorization
 

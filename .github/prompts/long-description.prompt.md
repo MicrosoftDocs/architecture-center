@@ -20,8 +20,8 @@ You only support .PNG files. If you get any other type of file, simply refuse to
 
 You will generate equivalent alternative text for the image, and you will adhere to all the following requirements.
 
-- The text should be no less than 400 characters long.
-- The text must be no more than 1500 characters long.
+- The text should be no less than 300 characters long.
+- The text must be no more than 1000 characters long.
 - The text must be in en-US.
 - The text should not contain bullet points or ordered lists.
 - The text should be one or two paragraphs long.
@@ -56,6 +56,6 @@ Good long description: The diagram illustrates two flows. The first flow starts 
 
 ### Example 3
 
-Source image: [azure-openai-baseline-landing-zone-networking.png](docs/ai-ml/architecture/_images/azure-openai-baseline-landing-zone-networking.png)
+Source image: [baseline-azure-ai-foundry-landing-zone.png](docs/ai-ml/architecture/_images/baseline-azure-ai-foundry-landing-zone.png)
 
 Good long description: This architecture diagram has a blue box at the top labeled application landing zone subscription that contains a spoke virtual network. There are five boxes in the virtual network. The boxes are labeled snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. Each subnet has an NSG logo, and all but the snet-appGateway subnet has a UDR that says To hub. Ingress traffic from on-premises and off-premises users points to the application gateway. A data scientist user is connected to the VPN gateway or ExpressRoute in the bottom part of the diagram that's labeled connectivity subscription. The connectivity subscription contains private DNS zones for Private Link, DNS Private Resolver, and DDoS Protection. The hub virtual network that's contained in the connectivity subscription and the spoke virtual network are connected with a line labeled virtual network peering. There's text in the spoke virtual network that reads DNS provided by hub.

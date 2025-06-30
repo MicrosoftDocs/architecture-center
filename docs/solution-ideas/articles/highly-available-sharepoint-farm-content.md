@@ -31,14 +31,14 @@ This solution address the capability to deliver highly available intranet capabi
 
 ### Components
 
-* [Azure Resource Group](https://azure.microsoft.com/features/resource-manager): Container that holds related resources for an Azure solution
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
-* [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
-* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Azure resource group](/azure/azure-resource-manager/management/overview#resource-groups): Container that holds related resources for an Azure solution
+* [Virtual Network](/azure/well-architected/service-guides/virtual-network): Provision private networks, optionally connect to on-premises datacenters
+* [Storage accounts](/azure/storage/common/storage-introduction): Durable, highly available, and massively scalable cloud storage
+* [Microsoft Entra ID](/entra/fundamentals/whatis): Synchronize on-premises directories and enable single sign-on
 * SharePoint Server: Microsoft's collaboration server product
-* Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server) apps in the cloud
-* [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): Dedicated private network fiber connections to Azure
+* Host enterprise [SQL Server](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) apps in the cloud
+* [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer): Deliver high availability and network performance to your applications
+* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): Dedicated private network fiber connections to Azure
 
 ## Next steps
 

@@ -6,14 +6,7 @@ ms.author: pnp
 ms.date: 03/18/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-sql-database
-categories:
-  - data
-ms.custom:
-  - arb-saas
-  - guide
+ms.custom: arb-saas
 ---
 
 # Multitenancy and Azure SQL Database

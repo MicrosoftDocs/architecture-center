@@ -4,8 +4,6 @@ items:
   items:
       - name: SaaS
         items:
-        - name: Plan your journey to SaaS
-          href: ../saas/plan-journey-saas.md
         - name: Case studies
           items:
           - name: Dynamics 365
@@ -33,7 +31,7 @@ items:
           - name: Overview
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
-            href: ../multitenant/considerations/tenancy-models.yml
+            href: ../multitenant/considerations/tenancy-models.md
           - name: Tenant lifecycle
             href: ../multitenant/considerations/tenant-lifecycle.md
           - name: Pricing models
@@ -53,7 +51,7 @@ items:
         - name: Approaches
           items:
           - name: Overview
-            href: ../multitenant/approaches/overview.yml
+            href: ../multitenant/approaches/overview.md
           - name: Resource organization
             href: ../multitenant/approaches/resource-organization.yml
           - name: Governance and compliance

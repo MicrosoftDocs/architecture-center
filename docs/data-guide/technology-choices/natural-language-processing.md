@@ -4,23 +4,11 @@ description: Choose a natural language processing service for sentiment analysis
 author: FreddyAyala
 ms.author: freddyayala
 ms.date: 02/10/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-products:
-  - ai-services
-  - azure-databricks
-  - azure-hdinsight
-  - azure-synapse-analytics
-categories:
-  - ai-machine-learning
-  - analytics
-  - compute
-ms.custom:
-  - fcp
-  - build-2023
-  - build-2023-dataai
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # Natural language processing technology

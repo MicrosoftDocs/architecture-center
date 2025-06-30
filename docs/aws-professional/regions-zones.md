@@ -9,10 +9,6 @@ ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Regions and zones on Azure

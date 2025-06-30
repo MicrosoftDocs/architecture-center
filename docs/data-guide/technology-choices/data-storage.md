@@ -3,19 +3,9 @@ title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: nabilshams
 ms.author: nasiddi
-categories: azure
 ms.date: 10/04/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-storage
-  - azure-data-lake-storage
-  - azure-cosmos-db
-  - azure-data-explorer
-  - microsoft-fabric
-ms.custom:
-  - guide
-  - internal-intro
 ---
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
@@ -149,7 +139,7 @@ The following tables summarize the key differences in capabilities.
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Microsoft Entra identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
+| Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
 | Authentication protocol | Open Authorization (OAuth) 2.0. Calls must contain a valid JWT (JSON web token) issued by Microsoft Entra ID | Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |

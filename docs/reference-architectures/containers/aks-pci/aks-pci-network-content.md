@@ -346,7 +346,7 @@ Install personal firewall software or equivalent functionality on any portable c
 
 ##### Your responsibilities
 
-The private cluster is managed by the AKS control plane. You don't have access to nodes directly. For doing administrative tasks you'll need to use management tools such as kubectl from a separate compute resource. An option is to use an air-gapped jump box where you can run the commands. Also inbound and outbound traffic from the jump box must be restricted and secure. If VPN is used for access, make sure the client machine is managed by corporate policy and all conditional access policies are in place.
+The private cluster is managed by the AKS control plane. You don't have access to nodes directly. For doing administrative tasks you'll need to use management tools such as kubectl from a separate compute resource. An option is to use an air-gapped jump box where you can run the commands. Also inbound and outbound traffic from the jump box must be restricted and secure. If VPN is used for access, make sure the client machine is managed by corporate policy and all Conditional Access policies are in place.
 
 In this architecture, that jump box is in a separate subnet in the spoke network. Inbound access to the jump box is restricted by using an NSG that only allows access through Azure Bastion over SSH.
 

@@ -37,12 +37,12 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 
 ### Components
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) parses and scores streaming messages from various sources, including on-premises systems, and provides real-time information.
-- [Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates data pipelines for ingestion, preparation, and transformation of all your data at any scale.
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) brings together streaming and batch data, including structured, unstructured, and semi-structured data like logs, files, and media.
-- [Azure Databricks](/azure/azure-databricks) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
-- [IoT Hub](https://azure.microsoft.com/services/iot-hub) gives you highly secure and reliable communication between your IoT application and devices.
-- [Delta Lake](https://delta.io) on Data Lake Storage supports ACID transactions for reliability and is optimized for efficient ingestion, processing, and queries.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) parses and scores streaming messages from various sources, including on-premises systems, and provides real-time information.
+- [Data Factory](/azure/data-factory/introduction) orchestrates data pipelines for ingestion, preparation, and transformation of all your data at any scale.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) brings together streaming and batch data, including structured, unstructured, and semi-structured data like logs, files, and media.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
+- [IoT Hub](/azure/well-architected/service-guides/iot-hub) gives you highly secure and reliable communication between your IoT application and devices.
+- [Delta Lake](/azure/databricks/delta/) on Data Lake Storage supports ACID transactions for reliability and is optimized for efficient ingestion, processing, and queries.
 
 ## Scenario details
 
@@ -74,4 +74,4 @@ Guides and fully deployable architectures:
 
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)
