@@ -11,23 +11,23 @@ ms.custom: fcp
 
 # Microservices architecture style
 
-Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. A successful microservices architecture requires a complete mindset shift. It's not just about breaking an architecture into smaller services. You also need to rethink how you design, deploy, and operate systems. 
+Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. A successful microservices architecture requires a complete mindset shift. It's not only about breaking an architecture into smaller services. You also need to rethink how you design, deploy, and operate systems.
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
 :::image type="complex" border="false" source="./images/microservices-logical.svg" alt-text="Logical diagram of microservices architecture style." lightbox="./images/microservices-logical.svg":::
-   The diagram illustrates a microservices architecture deployed on Microsoft Azure. It's organized into eight labeled sections that each represent a key architectural component. The layout flows from left to right and top to bottom. On the far left, icons labeled clients represent users or external systems that initiate requests to the application. An arrow points from the clients to API Gateway. Requests flow through API Gateway and on to the appropriate microservices. Arrows point from API Gateway to a box labeled microservices. This box contains two icons for domain services, one icon for composition services, and one icon for service. Arrows point from the microservices to another box that's labeled data persistence. This box contains icons that represent SQL DB, NoSQL DB, and SQL DB. Arrows also point from microservices to a box that represents event streaming and messaging services. The diagram also includes boxes that represent observability, management and orchestration, and DevOps.
+   The diagram illustrates a microservices architecture deployed on Microsoft Azure. It's organized into eight labeled sections that each represent a key architectural component. The layout flows from left to right and top to bottom. On the far left, icons labeled clients represent users or external systems that initiate requests to the application. An arrow points from the clients to API Gateway. Requests flow through API Gateway and on to the appropriate microservices. Arrows point from API Gateway to a box labeled microservices. This box contains two icons for domain services: one icon for composition services and one icon for service. Arrows point from the microservices to another box that's labeled data persistence. This box contains icons that represent SQL DB, NoSQL DB, and SQL DB. Arrows also point from microservices to a box that represents event streaming and messaging services. The diagram also includes boxes that represent observability, management and orchestration, and DevOps.
 :::image-end:::
 
 ## What are microservices?
 
 - Microservices are small, independent, and loosely coupled. A single small team of developers can write and maintain a service.
 
-- Each service is a separate codebase, which can be managed by a small development team.
+- Each service is a separate codebase, which a small development team can manage.
 
 - Services can be deployed independently. A team can update an existing service without rebuilding and redeploying the entire application.
 
-- Services are responsible for persisting their own data or external state. This approach differs from the traditional model, where a separate data layer handles data persistence.
+- Services are responsible for persisting their own data or external state. This approach differs from the traditional model where a separate data layer handles data persistence.
 
 - Services communicate with each other by using well-defined APIs. Internal implementation details of each service are hidden from other services.
 
@@ -35,15 +35,15 @@ A microservices architecture consists of a collection of small, autonomous servi
 
 ## Components
 
-In addition to the services themselves, some other components appear in a typical microservices architecture:
+In addition to the services themselves, other components appear in a typical microservices architecture:
 
-**Management/orchestration.** This management component is responsible for microservices orchestration, ensuring efficient scheduling and deployment of services across nodes, detecting and recovering from failures, and enabling autoscaling based on demand. Typically, this functionality is provided by a container orchestration platform like Kubernetes. In cloud-native environments, solutions like Azure Container Apps offer managed container orchestration with built-in scaling, simplifying deployment and operational overhead. 
+**Management/orchestration.** This management component is responsible for microservices orchestration, ensuring efficient scheduling and deployment of services across nodes, detecting and recovering from failures, and enabling autoscaling based on demand. Typically, this functionality is provided by a container orchestration platform like Kubernetes. In cloud-native environments, solutions like Azure Container Apps offer managed container orchestration with built-in scaling, simplifying deployment and operational overhead.
 
 **API Gateway.** The API gateway is the entry point for clients. Instead of calling services directly, clients call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway handles common cross-cutting concerns like authentication, logging, and load balancing. In a cloud-native microservices architecture, lightweight service proxies like Envoy and Nginx might also be used for internal service-to-service communication, also known as east-west traffic to enable advanced routing and traffic control.
 
-**Message-oriented middleware (MOM).** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, allowing services to react to events in real-time and also communicate via async messaging. 
+**Message-oriented middleware (MOM).** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, allowing services to react to events in real-time and also communicate via async messaging.
 
-**Observability.** Having an effective observability strategy is crucial in microservices, enabling teams to maintain system reliability and quickly resolve problems. Centralized logging consolidates logs for easier diagnostics, while real-time monitoring via APM agents and open-source observability frameworks like OpenTelemetry (OTel) provides visibility into system health and performance. Distributed tracing is also essential for tracking requests across service boundaries, helping identify bottlenecks and optimize performance. 
+**Observability.** Having an effective observability strategy is crucial in microservices, enabling teams to maintain system reliability and quickly resolve problems. Centralized logging consolidates logs for easier diagnostics, while real-time monitoring via APM agents and open-source observability frameworks like OpenTelemetry (OTel) provides visibility into system health and performance. Distributed tracing is also essential for tracking requests across service boundaries, helping identify bottlenecks and optimize performance.
 
 **Data management.** A well-designed database architecture is critical for microservices, supporting autonomy and scalability. Microservices often adopt polyglot persistence, using different types of databases like SQL and NoSQL based on each service's specific needs. This aligns with the principle of domain-driven design (DDD)/bounded context, where each service owns its data and schema, reducing cross-service dependencies and enabling independent evolution. This decentralized approach enhances flexibility, performance optimization, and resilience across the system.  
 
@@ -105,7 +105,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service requires updating the other service. Overly chatty communication between two services might be a symptom of tight coupling and low cohesion.
 
-- Use CI/CD pipelines to automate testing and deployment. Deploy services independently and monitor rollout health.
+- Use continuous integration and continuous deployment (CI/CD) pipelines to automate testing and deployment. Deploy services independently and monitor rollout health.
 
 - Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns](/azure/well-architected/reliability/design-patterns) and [Designing reliable applications](/azure/well-architected/reliability/principles).
 
@@ -115,7 +115,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 ## Antipatterns for microservices
 
-When designing and implementing microservices, certain pitfalls frequently arise that can undermine the benefits of this architectural style. Recognizing these antipatterns helps teams avoid costly mistakes and build more resilient, maintainable systems. The following are some key antipatterns to avoid:
+When you design and implement microservices, specific pitfalls frequently occur that can undermine the benefits of this architectural style. Recognizing these antipatterns helps teams avoid costly mistakes and build more resilient, maintainable systems. Avoid the following antipatterns:
 
 - Implementing microservices without a deep understanding of the business domain leads to poorly aligned service boundaries and undermines the intended benefits.
 
@@ -129,7 +129,7 @@ When designing and implementing microservices, certain pitfalls frequently arise
 
 - Sharing common libraries or dependencies between microservices creates tight coupling, making changes risky and widespread, and goes against the principle of self-contained services.
 
-- Exposing microservices directly to consumers leads to tight coupling, scalability issues, and security risks. Using an API Gateway provides a clean, manageable, and secure entry point.
+- Exposing microservices directly to consumers results in tight coupling, scalability problems, and security risks. Using an API Gateway provides a clean, manageable, and secure entry point.
 
 - Keeping configuration values inside microservices tightly couples them to specific environments, making deployments harder. However, externalizing configuration promotes flexibility and environment portability.
 
