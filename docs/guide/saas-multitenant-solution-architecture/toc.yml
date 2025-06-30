@@ -47,7 +47,7 @@ items:
           - name: Identity
             href: ../multitenant/considerations/identity.md
           - name: Domain names
-            href: ../multitenant/considerations/domain-names.yml
+            href: ../multitenant/considerations/domain-names.md
         - name: Approaches
           items:
           - name: Overview

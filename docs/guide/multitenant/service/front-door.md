@@ -49,7 +49,7 @@ Wildcard domains simplify the configuration of Domain Name System (DNS) records 
 
 Azure Front Door supports creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Azure Front Door profile's configuration.
 
-Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
+Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
 
 Azure Front Door doesn't issue managed TLS certificates for [wildcard domains](/azure/frontdoor/front-door-wildcard-domain), so you need to purchase and supply your own certificate.
 
@@ -59,7 +59,7 @@ Acquiring and installing TLS certificates can be a complex and error prone proce
 
 Your origin application might be hosted on another Azure service that also provides managed TLS certificates, like Azure App Service. Azure Front Door transparently works with the other service to synchronize your TLS certificates.
 
-If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on your tenants' behalf. For more information about multitenancy, see [TLS and SSL certificates in multitenant solutions](../considerations/domain-names.yml#tlsssl-certificates). For more information about Azure Front Door, see [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
+If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on your tenants' behalf. For more information about multitenancy, see [TLS and SSL certificates in multitenant solutions](../considerations/domain-names.md#tlsssl-certificates). For more information about Azure Front Door, see [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
 
 ### Routing
 

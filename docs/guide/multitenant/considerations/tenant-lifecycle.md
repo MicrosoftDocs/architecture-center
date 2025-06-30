@@ -1,6 +1,6 @@
 ---
-title: Tenant lifecycle considerations in a multitenant solution
-description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
+title: Tenant Life Cycle Considerations in a Multitenant Solution
+description: This article describes the different stages of a tenant life cycle, and considerations for each stage.
 author: johndowns
 ms.author: pnp
 ms.date: 06/13/2025
@@ -9,37 +9,39 @@ ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
 
-# Tenant lifecycle considerations in a multitenant solution
+# Tenant life cycle considerations in a multitenant solution
 
-When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle. On this page, we provide guidance for technical decision-makers about the stages of the lifecycle and the important considerations for each stage.
+When you design a multitenant architecture, you must account for each stage in a tenant's life cycle. This article provides guidance for technical decision-makers about the important considerations for each stage.
 
 ## Trial tenants
 
-When you build a SaaS solution, consider that many customers request or require trials before they commit to purchase a solution.
+Many customers request or require trials before they commit to purchase a software as a service (SaaS) solution.
 
-Trials bring along the following unique considerations:
+Trials introduce the following unique considerations:
 
-- **Service requirements:** Should trials be subject to the same data security, performance, and service-level requirements as the data for full customers?
-- **Infrastructure:** Should you use the same infrastructure for trial tenants as for full customers, or should you have dedicated infrastructure for trial tenants?
-- **Migration:** If customers purchase your service after a trial, how will they migrate the data from their trial tenants into their paid tenants?
-- **Request process:** Are there limits around who can request a trial? How can you prevent abuse of your solution? Do you allow automated creation of trial tenants or does your team get involved in each request?
-- **Limits:** What limits do you want or need to place on trial customers, such as time limits, feature restrictions, or limitations around performance?
+- **Service requirements:** Decide whether trials should meet the same data security, performance, and service-level requirements as the data for full customers.
 
-In some situations, a [freemium pricing model](pricing-models.md#freemium-pricing) can be an alternative to providing trials.
+- **Infrastructure:** Determine whether to use the same infrastructure for trial tenants as for full customers or use dedicated infrastructure for trial tenants.
+- **Migration:** Plan how to migrate data from a trial tenant to a paid tenant if a customer purchases your service after a trial.
+- **Request process:** Define who can request a trial, how to prevent abuse of your solution, and whether to automate the trial creation or involve your team for each request.
+- **Limits:** Set appropriate limits on trial customers, such as time limits, feature restrictions, or performance caps.
+
+In some situations, a [freemium pricing model](pricing-models.md#freemium-pricing) can serve as an alternative to providing trials.
 
 ## Onboard new tenants
 
-When onboarding a new tenant, consider the following questions:
+When you onboard a new tenant, consider the following factors:
 
-- **Process:** Will onboarding be a self-service, automated, or manual process?
-- **Data residency:** Does the tenant have any specific requirements for data residency? For example, are there data sovereignty regulations in effect?
-- **Compliance:** Does the tenant have to meet any compliance standards (such as PCI DSS, HIPAA, and so on)?
-- **Disaster recovery:** Does the tenant have any specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO)? Are these different from the guarantees that you provide to other tenants?
-- **Information:** What information do you require, to be able to fully onboard the tenant? For example, do you need to know their organization's legal name? Do you need their company logo to brand the application, and if so, what file size and format do you need?
-- **Billing:** Does the platform provide different pricing options and billing models?
-- **Environments:** Does the tenant require pre-production environments? And are there set expectations on availability for that environment? Is it transient (on-demand) or always available?
+- **Process:** Decide whether to make onboarding a self-service, automated, or manual process.
 
-After tenants have been onboarded, they move into a 'business as usual' state. However, there are still several important lifecycle events that can occur, even when they are in this state.
+- **Data residency:** Determine whether the tenant has any specific requirements for data residency, such as compliance with data sovereignty regulations.
+- **Compliance:** Identify compliance standards, such as PCI DSS, or HIPAA, that the tenant must meet.
+- **Disaster recovery:** Confirm whether the tenant has specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO). Determine whether these guarantees differ from the ones that you provide to other tenants.
+- **Information:** Determine what information you need to fully onboard the tenant. For example, you might need their organization's legal name or their company logo to brand the application. You might also need the file size and format.
+- **Billing:** Determine whether the platform provides different pricing options and billing models.
+- **Environments:** Identify whether the tenant requires preproduction environments. Clarify whether the environment must be always available or can be provisioned on demand.
+
+After you onboard tenants, they move into a business-as-usual state. However, several important life cycle events can still occur during this state.
 
 ## Update tenants' infrastructure
 

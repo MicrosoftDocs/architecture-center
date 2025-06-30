@@ -1,20 +1,20 @@
 ---
-  title: Considerations for Domain Names in Multitenant Solutions
-  description: This article describes the considerations you need to give to domain names when building multitenant web applications.
-  author: johndowns
-  ms.author: pnp
-  ms.date: 06/13/2025
-  ms.topic: conceptual
-  ms.subservice: architecture-guide
-  ms.custom:
-    - arb-saas
+title: Considerations for Domain Names in Multitenant Solutions
+description: This article describes the considerations you need to give to domain names when building multitenant web applications.
+author: johndowns
+ms.author: pnp
+ms.date: 06/13/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+ - arb-saas
 ---
 
 # Considerations for domain names in multitenant solutions
 
 In many multitenant web applications, you can use a domain name to provide the following capabilities:
 
-- A way to identify a tenant
+- To distinguish one tenant from another
 - To help with routing requests to the correct infrastructure
 - To provide a branded experience to your customers
 
@@ -33,7 +33,7 @@ This article refers to these regional domains as *stem domains*. Each customer g
 
 ### Manage your domain namespace
 
-When you create subdomains under your own domain name, you could have multiple customers with similar names. They share a single stem domain, so the first customer that gets a particular domain gets their preferred name. Subsequent customers have to use alternate subdomain names because full domain names must remain globally unique.
+When you create subdomains under your own domain name, you could have multiple customers with similar names. They share a single stem domain, so the first customer to claim a particular domain receives their preferred name. Subsequent customers have to use alternate subdomain names because full domain names must remain globally unique.
 
 ### Wildcard DNS
 
@@ -116,7 +116,7 @@ To prevent this problem, especially within a self-service or automated process, 
 
 ### Dangling DNS and subdomain takeover attacks
 
-When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). This attack occurs when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a non-existent resource and is vulnerable to a takeover.
+When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). This attack occurs when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a nonexistent resource and is vulnerable to a takeover.
 
 Consider how Fabrikam's relationship with Contoso might change:
 
@@ -133,41 +133,40 @@ Use the following strategies to protect against dangling DNS attacks:
 
 - Require that the CNAME record is deleted *before* the domain name can be removed from the tenant's account.
 
-- Prohibit the reuse of tenant identifiers, and also require that the tenant create a TXT record with a name matching the domain name and a randomly generated value, which changes for each onboarding attempt.
+- Prohibit the reuse of tenant identifiers. And require each tenant to create a TXT record with a name that matches the domain name and a randomly generated value that changes for each onboarding attempt.
 
 ## TLS and SSL certificates
 
-TLS is an essential component when working with modern applications. It provides trust and security to your web applications. The ownership and management of TLS certificates is something that needs careful consideration for multitenant applications.
+TLS is an essential component of modern applications. It provides trust and security to your web applications. Carefully consider the ownership and management of TLS certificates for multitenant applications.
 
-Typically, the owner of a domain name is responsible for issuing and renewing its certificates. For example, Contoso is responsible for issuing and renewing TLS certificates for `us.contoso.com`, as well as a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam would generally be responsible for managing any records for the `fabrikam.com` domain, including `invoices.fabrikam.com`.
+Typically, the owner of a domain name issues and renews its certificates. For example, Contoso issues and renews TLS certificates for `us.contoso.com` and a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam manages records for the `fabrikam.com` domain, including `invoices.fabrikam.com`.
 
-The CAA (Certificate Authority Authorization) DNS record type can be used by a domain owner. CAA records ensure that only specific authorities can create certificates for the domain.
+A domain owner can use the Certificate Authority Authorization (CAA) DNS record type. CAA records ensure that only specific authorities can create certificates for the domain.
 
-If you plan to allow customers to bring their own domains, consider whether you plan to issue the certificate on the customer's behalf, or whether the customers must bring their own certificates. Each option has benefits and drawbacks:
+If you allow customers to bring their own domains, consider whether you plan to issue certificates on their behalf or require them to bring their own. Each option has benefits and drawbacks:
 
-- **If you issue a certificate for a customer,** you can handle the renewal of the certificate, so the customer doesn't have to remember to keep it updated. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
-- **If you expect customers to issue and provide you with their own certificates,** you are responsible for receiving and managing the private keys in a secure manner, and you might have to remind your customers to renew the certificate before it expires, to avoid an interruption in their service.
+- **If you issue a certificate for a customer**, you can handle the certificate renewal, so the customer doesn't need to maintain it. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
+- **If customers issue and provide you with their own certificates**, you securely receive and manage the private keys. To avoid an interruption in their service, you might need to remind your customers to renew the certificate before it expires.
 
-Several Azure services support automatic management of certificates for custom domains. For example, Azure Front Door and App Service provide certificates for custom domains, and they automatically handle the renewal process. This removes the burden of managing certificates, from your operations team. However, you still need to consider the question of ownership and authority, such as whether CAA records are in effect and configured correctly. Also, you need to ensure your customers' domains are configured to allow the certificates that are managed by the platform.
+Several Azure services support automatic management of certificates for custom domains. For example, Azure Front Door and App Service provide certificates for custom domains, and they automatically handle the renewal process. This feature removes the burden of managing certificates from your operations team. However, you still need to consider ownership and authority. Confirm that CAA records are in place and configured correctly. Also ensure that your customers' domains allow the certificates that the platform manages.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-> [!TIP]
-> Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md).
+Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md)
 
-Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+Return to the [architectural considerations overview](overview.yml). Or review the [Azure Well-Architected Framework](/azure/well-architected/).

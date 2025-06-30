@@ -15,7 +15,7 @@ There are multiple ways you can identify the tenant for an incoming request. Eac
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.yml), it's likely that requests can be easily mapped to tenants by using the `Host` header, the `X-Forwarded-Host` header, or another HTTP header that includes the original hostname for each request.
+If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, the `X-Forwarded-Host` header, or another HTTP header that includes the original hostname for each request.
 
 However, consider the following questions:
 
@@ -149,4 +149,4 @@ Other contributors:
 
 ## Next steps
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.yml).
+Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
