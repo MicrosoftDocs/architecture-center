@@ -64,7 +64,7 @@ This solution uses advanced AI services to automatically extract, transform, and
 
 #### Financial services processing
 
-**Claims processing automation:** Extract policy details, damage assessments, and cost estimates from insurance claims documents, photos, and adjuster reports by using automated validation and compliance checking.
+**Claims processing automation:** Extract policy details, damage assessments, and cost estimates from insurance claims documents, photos, and adjuster reports by using automated validation and compliance checks.
 
 **Invoice and contract processing:** Automatically extract vendor information, line items, terms, and conditions from invoices and contracts, and map them to enterprise systems by using confidence scoring for approval workflows.
 
