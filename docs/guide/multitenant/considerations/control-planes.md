@@ -184,7 +184,7 @@ In a complex environment, you might need to use multiple control planes that man
 
 A global control plane typically handles the overall management and tracking of tenants. A global control plane can have the following responsibilities:
 
-- **Tenant placement:** The global control plane determines which stamp a tenant should use. It might make this determination based on factors, like the tenant's region, each stamp's capacity usage, and the tenant's service-level requirements.
+- **Tenant placement:** The global control plane determines which stamp a tenant should use. It might make this determination based on factors like the tenant's region, each stamp's capacity usage, and the tenant's service-level requirements.
 
 - **Tenant onboarding and life cycle management:** These responsibilities include tracking all tenants across deployments.
 
@@ -197,12 +197,12 @@ Each deployment stamp includes its own stamp control plane, which manages the te
 - **Shared resource management:** It monitors the consumption of [shared resources](#manage-shared-components) and deploys new instances when they approach their maximum capacity.
 - **Maintenance operations:** It handles tasks within the stamp, like database index management and cleanup operations.
 
-Each stamp's control plane coordinates with the global control plane. For example, if a new tenant signs up, the global control plane might initially select a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
+Each stamp's control plane coordinates with the global control plane. For example, if a new tenant signs up, the global control plane might initially select a stamp for the tenant's resources. Then the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
 
 The following diagram shows how two control planes might coexist in a single system.
 
 :::image type="complex" source="media/control-planes/global-stamp-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane and stamp control planes." lightbox="media/control-planes/global-stamp-control-planes.png" border="false":::
-The diagram has three stamps with control planes. Each stamp has three tenant data planes. A global control plan span all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. And application access takes place in the tenant data planes.
+The diagram has three stamps with control planes. Each stamp has three tenant data planes. A global control plane spans all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. And application access takes place in the tenant data planes.
 :::image-end:::
 
 ### Tenant control planes
@@ -217,7 +217,7 @@ Tenants might use a tenant-level control plane to manage their own logical or ph
 The following diagram shows a complex system that has a global control plane, stamp control planes, and tenant control planes.
 
 :::image type="complex" source="media/control-planes/global-stamp-tenant-control-planes.png" alt-text="Diagram that shows a logical system design. The design has a global control plane, stamp control planes, and tenant control planes." lightbox="media/control-planes/global-stamp-tenant-control-planes.png" border="false":::
-The diagram has three stamps with control planes. Each stamp has three tenant data planes and three tenant control planes. A global control plan span all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. Tenant configuration takes place in the tenant control planes. And application access takes place in the tenant data planes.
+The diagram has three stamps with control planes. Each stamp has three tenant data planes and three tenant control planes. A global control plane spans all three stamps. Tenant placement takes place in the global control plane. Tenant onboarding takes place in the stamp control planes. Tenant configuration takes place in the tenant control planes. And application access takes place in the tenant data planes.
 :::image-end:::
 
 ## Contributors

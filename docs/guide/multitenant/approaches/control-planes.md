@@ -49,21 +49,21 @@ You can keep your tenant catalog in a central location, such as an Excel workboo
 
 Consider the following factors for processes like tenant onboarding and maintenance activities:
 
-- **Create scripts or automated pipelines wherever possible, even if you run them manually.** Scripts or pipelines help the steps run consistently for each tenant.
+- **Create scripts or automated pipelines when possible, even if you run them manually.** Scripts or pipelines help the steps run consistently for each tenant.
 
 - **For tasks that you can't script initially, document the process in clear, detailed steps.** Explain the *how* and the *why*. This information helps others automate the task in the future.
 
 The following diagram shows a manual process approach for an initial control plane.
 
 :::image type="complex" source="media/control-plane/control-plane-approaches-manual.svg" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.svg" border="false":::
-The diagram has two main sections, a control plan and a data plane. The control plane contains a web application, a salesperson, an Excel file, an engineer, and a script. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by speaking to a salesperson. The salesperson inserts the tenant information into an Excel file. An engineer reads the tenant information and runs a deployment script. The script reads the information and deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
+The diagram has two main sections, a control plane and a data plane. The control plane contains a web application, a salesperson, an Excel file, an engineer, and a script. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by speaking to a salesperson. The salesperson inserts the tenant information into an Excel file. An engineer reads the tenant information and runs a deployment script. The script reads the information and deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-manual.vsdx) of this architecture.*
 
 #### Advantages of a manual approach
 
-- **Lightweight:** Documentation, scripts, and pipelines are easy to develop and modify. This flexibility makes them ideal when you're still figuring out your processes because you can rapidly iterate and evolve them.
+- **Lightweight:** Documentation, scripts, and pipelines are easy to develop and modify. This flexibility makes them ideal when you're figuring out your processes because you can rapidly iterate and evolve them.
 
 - **Low cost:** Maintaining and running a manual approach is inexpensive.
 - **Process validation:** A manual approach serves as a proof of concept. It allows you to test and confirm your maintenance strategy before you commit time and resources to building full automation.
@@ -72,7 +72,7 @@ The diagram has two main sections, a control plan and a data plane. The control 
 
 - **Lack of control:** This approach relies on everybody involved doing the correct thing. Somebody might deviate from the prescribed processes, either accidentally or intentionally. Every variation in process increases the risk of inconsistency in your environment, which makes ongoing management difficult.
 
-- **Access-control challenges:** This approach often requires broadly scoped, highly permissive access to operators of your solution. Such access makes it difficult to enforce [access segmentation](/azure/well-architected/security/segmentation) best practices.
+- **Access-control challenges:** This approach often requires broadly scoped, highly permissive access to operators of your solution. This access makes it difficult to enforce [access segmentation](/azure/well-architected/security/segmentation) best practices.
 - **Scalability:** The work required to run manual processes scales with the number of tenants that you need to manage. 
 - **Testability:** Manual processes are difficult to validate and test.
 
@@ -89,14 +89,14 @@ A low-code or no-code control plane uses a platform designed to automate busines
 
 If you use Microsoft Power Platform, you can store your tenant catalog in Dynamics 365, Dataverse, or Microsoft 365. You can also keep the same tenant catalog that you use for your manual processes if you don't want to fully commit to automating everything at first.
 
-For tenant onboarding and maintenance, you can use Power Automate to run workflows that perform tenant management, configure tenants, and trigger pipelines or API calls. Power Automate can monitor for changes to your tenant catalog, provided it has access to the data. If you use a manual tenant catalog, you can trigger Power Automate workflows manually. Include manual approval steps in your workflows when you need a team member to verify or complete tasks that you can't fully automate.
+For tenant onboarding and maintenance, you can use Power Automate to run workflows that perform tenant management, configure tenants, and trigger pipelines or API calls. Power Automate can monitor for changes to your tenant catalog if it has access to the data. If you use a manual tenant catalog, you can trigger Power Automate workflows manually. Include manual approval steps in your workflows when you need a team member to verify or complete tasks that you can't fully automate.
 
 This approach also supports self-service sign-up for your customers. Your web application can create tenant catalog entries automatically without human involvement.
 
 The following diagram shows how to use Microsoft Power Platform to create a control plane that has self-service sign-up.
 
 :::image type="complex" source="media/control-plane/control-plane-approaches-low-code.svg" alt-text="Diagram that shows how to use Power Automate and Dataverse as a low-code control plane." lightbox="media/control-plane/control-plane-approaches-low-code.svg" border="false":::
-The diagram has two main sections, a control plan and a data plane. The control plane contains a web application, a Dataverse table, and a Power Automate workflow. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app inserts the tenant information into a Dataverse table. These changes trigger the Power Automate workflow, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
+The diagram has two main sections, a control plane and a data plane. The control plane contains a web application, a Dataverse table, and a Power Automate workflow. The data plane contains two existing tenants and one new tenant. Each tenant has an application and a SQL database. The flow starts with an external customer who signs up by using a web app. The web app inserts the tenant information into a Dataverse table. These changes trigger the Power Automate workflow, which deploys and configures the environment in Azure Resource Manager. Resource Manager points to the new tenant in the data plane.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-low-code.vsdx) of this architecture.*
