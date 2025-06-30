@@ -3,7 +3,8 @@ title: Architectural approaches for tenant integration and data access
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/22/2024
+ms.date: 06/30/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
