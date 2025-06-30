@@ -1009,14 +1009,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network"/>
-        <updated>2025-04-28T15:53:37.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication"/>
