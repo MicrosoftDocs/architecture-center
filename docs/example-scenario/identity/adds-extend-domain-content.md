@@ -17,15 +17,21 @@ This architecture extends the hybrid network architecture shown in [Connect an o
 The following workflow corresponds to the previous diagram:
 
 - **On-premises network:** The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
+
 - **Active Directory servers:** These servers are domain controllers that implement directory services that run as virtual machines (VMs) in the cloud. They can provide authentication of components that run in your Azure virtual network.
+
 - **Active Directory subnet:** The Active Directory Domain Services (AD DS) servers are hosted in a separate subnet. Network security group (NSG) rules help protect the AD DS servers and provide a firewall against traffic from unexpected sources.
+
 - **Azure VPN Gateway and Active Directory synchronization:** VPN Gateway provides a connection between the on-premises network and Azure Virtual Network. This connection can be a [VPN connection][azure-vpn-gateway] or via [Azure ExpressRoute][azure-expressroute]. All synchronization requests between the Active Directory servers in the cloud and on-premises pass through the gateway. User-defined routes (UDRs) handle routing for on-premises traffic that passes to Azure.
 
 ### Components
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and Microsoft Entra Conditional Access.
+
 - [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a service that uses virtual network gateways to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet.
+
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that you can use to extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider.
+
 - [Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks on Azure. You can use it to enable Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks.
 
 ## Scenario details 
@@ -73,7 +79,9 @@ We recommend creating an AD DS site, including the subnets defined for your appl
 
 ### Active Directory operations master
 
-You can assign the operations master role to AD DS domain controllers to support consistency when they check between instances of replicated AD DS databases. The five operations master roles are schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information, see [Planning operations master role placement][ad-ds-operations-masters]. We also recommend that you give at least two of the new Azure domain controllers the global catalog (GC) role. For more information, see [Plan GC server placement](/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement).
+You can assign the operations master role to AD DS domain controllers to support consistency when they check between instances of replicated AD DS databases. The five operations master roles are schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information, see [Planning operations master role placement][ad-ds-operations-masters]. 
+
+We also recommend that you give at least two of the new Azure domain controllers the global catalog (GC) role. For more information, see [Plan GC server placement](/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement).
 
 ### Monitoring
 
