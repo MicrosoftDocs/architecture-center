@@ -543,14 +543,14 @@
 			<text x="6.63" y="456.58" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Enqueue</text>		</g>
 		<g id="shape48-120" v:mID="48" v:groupContext="shape" transform="translate(425.001,-229.9)">
 			<title>Sheet.48</title>
-			<desc>Storage Queue</desc>
+			<desc>Queue Storage</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(40000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="36.3367" cy="454.183" width="72.68" height="13.4617"/>
 			<rect x="0" y="447.452" width="72.6734" height="13.4617" class="st2"/>
-			<text x="4.91" y="456.88" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Storage Queue  </text>		</g>
+			<text x="4.91" y="456.88" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Queue Storage</text>		</g>
 		<g id="shape49-123" v:mID="49" v:groupContext="shape" transform="translate(264.613,-203.634)">
 			<title>Sheet.49</title>
 			<desc>Content processor monitor web</desc>
