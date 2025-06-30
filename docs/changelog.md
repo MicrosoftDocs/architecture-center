@@ -1,9 +1,10 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: claytonsiemens77
-ms.date: 06/23/2025
+author: RobBagby
+ms.date: 06/30/2025
 ms.topic: whats-new
+ms.service: azure-architecture-center
 ms.author: pnp
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
@@ -22,6 +23,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Tenancy Models for a Multitenant Solution](./guide/multitenant/considerations/tenancy-models.md)
+- [Hub-Spoke Network Topology That Uses Azure Virtual WAN](./networking/architecture/hub-spoke-virtual-wan-architecture.yml)
+- [Windows 365 Azure Network Connection](./guide/virtual-desktop/windows-365-azure-network-connection.md)
+- [Architectural Approaches for a Multitenant Solution](./guide/multitenant/approaches/overview.md)
 - [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md)
 - [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)
 - [Implement SMA OpCon in Azure](./example-scenario/integration/sma-opcon-azure.yml)
@@ -30,9 +35,21 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#2607b97c53](https://github.com/MicrosoftDocs/architecture-center/commit/2607b97c53))
+- [Deploy and Operate Apps with AKS Enabled by Azure Arc on Azure Local](./example-scenario/hybrid/aks-hybrid-azure-local.yml)  ([#2607b97c53](https://github.com/MicrosoftDocs/architecture-center/commit/2607b97c53))
+- [Azure Virtual Desktop Landing Zone Design Guide](./landing-zones/azure-virtual-desktop/design-guide.md)  ([#c08914da3f](https://github.com/MicrosoftDocs/architecture-center/commit/c08914da3f))
+- [Service-Specific Guidance for a Multitenant Solution](./guide/multitenant/service/overview.md)  ([#f77a9eb614](https://github.com/MicrosoftDocs/architecture-center/commit/f77a9eb614))
 - [Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml)  ([#044ad95c35](https://github.com/MicrosoftDocs/architecture-center/commit/044ad95c35))
 - [AI Architecture Design](./ai-ml/index.md)  ([#67e00137ce](https://github.com/MicrosoftDocs/architecture-center/commit/67e00137ce))
 - [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md)  ([#28af09d05c](https://github.com/MicrosoftDocs/architecture-center/commit/28af09d05c))
+- [Choose an Azure Container Service](./guide/choose-azure-container-service.md)  ([#c7dde0a13f](https://github.com/MicrosoftDocs/architecture-center/commit/c7dde0a13f))
+- [Architectural Considerations for Choosing an Azure Container Service](./guide/container-service-general-considerations.md)  ([#c7dde0a13f](https://github.com/MicrosoftDocs/architecture-center/commit/c7dde0a13f))
+- [Azure Kubernetes Service (AKS) - planning](./reference-architectures/containers/aks-start-here.md)  ([#869ea8c700](https://github.com/MicrosoftDocs/architecture-center/commit/869ea8c700))
+- [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#ccfa7b6a50](https://github.com/MicrosoftDocs/architecture-center/commit/ccfa7b6a50))
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#d005fb7b98](https://github.com/MicrosoftDocs/architecture-center/commit/d005fb7b98))
+- [DevSecOps for Infrastructure as Code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml)  ([#3b64332719](https://github.com/MicrosoftDocs/architecture-center/commit/3b64332719))
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#a8ae8f2059](https://github.com/MicrosoftDocs/architecture-center/commit/a8ae8f2059))
+- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml)  ([#a8ae8f2059](https://github.com/MicrosoftDocs/architecture-center/commit/a8ae8f2059))
 - [Azure Resource Manager Considerations for Multitenancy](./guide/multitenant/service/resource-manager.md)  ([#ca7914beff](https://github.com/MicrosoftDocs/architecture-center/commit/ca7914beff))
 - [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)  ([#0c7aa6c9bf](https://github.com/MicrosoftDocs/architecture-center/commit/0c7aa6c9bf))
 - [Deploy Microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#2bf20fb4ab](https://github.com/MicrosoftDocs/architecture-center/commit/2bf20fb4ab))
@@ -63,11 +80,9 @@ The following new and updated articles have recently been published in the Azure
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Kubernetes Workload Identity and Access](./aws-professional/eks-to-aks/workload-identity.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
-- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution](./guide/multitenant/service/aks.yml)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Messaging Bridge pattern](./patterns/messaging-bridge.yml)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
-- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#91443f679e](https://github.com/MicrosoftDocs/architecture-center/commit/91443f679e))
 - [Architectural Approaches for Identity in Multitenant Solutions](./guide/multitenant/approaches/identity.md)  ([#6d6acc32ed](https://github.com/MicrosoftDocs/architecture-center/commit/6d6acc32ed))
 - [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#5cd73dc642](https://github.com/MicrosoftDocs/architecture-center/commit/5cd73dc642))
 - [Scale out an Azure IoT Hub-based solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)  ([#54c99a236d](https://github.com/MicrosoftDocs/architecture-center/commit/54c99a236d))
@@ -164,8 +179,8 @@ The following new and updated articles have recently been published in the Azure
 - [SQL Server on Azure Virtual Machines with Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server](./example-scenario/hybrid/aks-hybrid-azure-local.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
+- [Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
+- [Deploy and Operate Apps with AKS Enabled by Azure Arc on Azure Local](./example-scenario/hybrid/aks-hybrid-azure-local.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
 - [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
@@ -191,7 +206,6 @@ The following new and updated articles have recently been published in the Azure
 - [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure](./example-scenario/mainframe/deploy-ibm-power-workloads.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Hub-spoke network topology with Azure Virtual WAN](./networking/architecture/hub-spoke-vwan-architecture.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Massive-scale VWAN architecture design](./networking/architecture/massive-scale-azure-architecture.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
 - [Implement TIC 3.0 compliance](./networking/architecture/trusted-internet-connections.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
