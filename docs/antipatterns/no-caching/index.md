@@ -2,16 +2,10 @@
 title: No Caching antipattern
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
 ms.author: pnp
-author: RobBagby
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-categories:
-  - databases
-products:
-  - azure-cache-redis
-ms.custom:
-  - article
 keywords:
   - antipattern
   - anti-pattern
@@ -54,8 +48,6 @@ public class PersonRepository : IPersonRepository
     }
 }
 ```
-
-You can find the complete sample [here][sample-app].
 
 This antipattern typically occurs because:
 
@@ -218,7 +210,6 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.yml
 [circuit-breaker]: ../../patterns/circuit-breaker.md

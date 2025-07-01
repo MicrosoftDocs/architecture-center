@@ -2,7 +2,7 @@
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Summary
   description: Summary of a well-architected design of a PCI-DSS 3.2.1 infrastructure as a tenant on the AKS environment.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 12/13/2021
   ms.topic: reference-architecture

@@ -7,9 +7,6 @@ ms.date: 02/06/2025
 ms.topic: solution-idea
 ms.subservice: solution-idea
 ms.custom: arb-iot
-categories: azure
-products:
-- load-testing
 ---
 
 # Azure Load Testing with custom plugins for Event Hubs and IoT Hub

@@ -4,16 +4,13 @@ metadata:
   description: Understand how to create a separate Active Directory domain in Azure that's trusted by domains in your on-premises AD forest.
   author: justinha
   ms.author: justinha
-  ms.date: 06/07/2024
+  ms.date: 06/05/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
     - identity
     - hybrid
-  ms.custom:
-    - identity
-    - reference-architecture
-    - e2e-hybrid
+  ms.custom: e2e-hybrid
 name: Create an AD DS resource forest in Azure
 azureCategories:
   - identity

@@ -4,17 +4,14 @@ metadata:
   description: Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.
   author: justinha
   ms.author: justinha
-  ms.date: 06/07/2024
+  ms.date: 06/05/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
     - identity
     - hybrid
   ms.custom:
-    - identity
-    - reference-architecture
     - e2e-hybrid
-    - 2021-refresh
     - has-azure-ad-ps-ref
 name: Integrate on-premises Active Directory domains with Microsoft Entra ID
 azureCategories:

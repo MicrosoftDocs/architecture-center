@@ -6,9 +6,7 @@ ms.author: dascottr
 ms.date: 02/05/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Considerations for using Azure Container Apps in a multitenant solution
@@ -100,7 +98,7 @@ In Container Apps, you manage certificates at the environment level. [Ingress](/
 
 Container Apps can [validate authentication tokens on behalf of your app](/azure/container-apps/authentication#feature-architecture). If a request doesn't contain a token, the token isn't valid, or the request isn't authorized, you can configure Container Apps to either block the request or redirect the request to your identity provider so that the user can sign in.
 
-If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) to validate user tokens. This approach ensures that users' tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
+If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) to validate user tokens. This approach ensures that users' tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
 
 You can also integrate Container Apps with Microsoft Entra External ID for user authentication via partner identity providers.
 
@@ -143,8 +141,8 @@ Principal authors:
 
 Other contributors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Microsoft
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
 - [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer, FastTrack for Azure
 - [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Container Apps

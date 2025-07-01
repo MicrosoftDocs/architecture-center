@@ -24,7 +24,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 > [!NOTE]
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
-1. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
 1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
@@ -254,7 +254,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 - Use Activity logs to monitor actions on AKS resources to view all activity and their status. Determine what operations were performed on the resources and by whom.
 - Enable [DNS query logging](/azure/aks/coredns-custom) by applying documented configuration in your CoreDNS custom ConfigMap.
 - Monitor attempts to access deactivated credentials.
-  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
+  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](    /entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
 
 #### Best Practice – Enable diagnostics on your Azure Resources
 
@@ -272,7 +272,7 @@ Other contributors:
 
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Program Manager 2
 - [Ahmed Bham](https://www.linkedin.com/in/ahmedbham-solutionsarchitect/) | Sr. Cloud Solution Architect
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
 - [John Poole](https://www.linkedin.com/in/johnrpoole/) | Sr. Cloud Solution Architect
 - [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Sr. Solution Architect
 - [Abed Sau](https://www.linkedin.com/in/abed-sau/) | Sr. Cloud Solution Architect

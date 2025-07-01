@@ -6,16 +6,6 @@ ms.author: pnp
 ms.date: 8/21/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - fcp
-  - guide
-categories:
-  - developer-tools
-  - devops
-  - management-and-governance
-  - web
-products:
-  - azure-app-service
 ---
 
 # Architecture for startups

@@ -42,7 +42,7 @@ Other advanced Microsoft Entra features can provide extra layers of control for 
 
 - **Advanced Identity Protection** increases Microsoft Entra sign-in security by monitoring user or session risk. User risk defines the potential of the credentials being compromised, such as the user ID and password appearing in a publicly released breach list. Session risk determines whether the sign-in activity comes from a risky location, IP address, or other indicator of compromise. Both detection types draw on Microsoft's comprehensive threat intelligence capabilities.
 
-  For more information about Advanced Identity Protection, see the [Microsoft Entra ID Protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
+  For more information about Advanced Identity Protection, see the [Microsoft Entra ID Protection security overview](/entra/id-protection/overview-identity-protection).
 
 - **Microsoft Defender for Identity** protects identities and services running on Active Directory domain controllers by monitoring all activity and threat signals. Defender for Identity identifies threats based on real-life experience from investigations of customer breaches. Defender for Identity monitors user behavior and recommends attack surface reductions to prevent advanced attacks like reconnaissance, lateral movement, and domain dominance.
 
@@ -109,7 +109,7 @@ Clearly understand and review other AWS IAM account components for appropriate m
 
 - *IAM policies* provide delegated access rights to AWS account resources. AWS provides over 750 unique IAM policies, and customers can also define custom policies.
 
-- *IAM roles* attach specific policies to identities. Roles are the way to administer *role-based access control (RBAC)*. The current solution uses [External Identities](/azure/active-directory/external-identities/) to implement Microsoft Entra identities by assuming IAM roles.
+- *IAM roles* attach specific policies to identities. Roles are the way to administer *role-based access control (RBAC)*. The current solution uses [External Identities](/entra/external-id/) to implement Microsoft Entra identities by assuming IAM roles.
 
 - *IAM groups* are also a way to administer RBAC. Instead of assigning IAM policies directly to individual IAM users, create an IAM group, assign permissions by attaching one or more IAM policies, and add IAM users to the group to inherit the appropriate access rights to resources.
 
@@ -200,7 +200,7 @@ This procedure covers the following steps:
 
 The following links provide full detailed implementation steps and troubleshooting:
 
-- [Microsoft tutorial: Microsoft Entra SSO integration with AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
+- [Microsoft tutorial: Microsoft Entra SSO integration with AWS](/entra/identity/saas-apps/amazon-web-service-tutorial)
 - [AWS tutorial: Microsoft Entra ID to AWS SSO using the SCIM protocol](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
 
 <a name='add-an-aws-app-to-your-azure-ad-enterprise-applications'></a>
@@ -209,7 +209,7 @@ The following links provide full detailed implementation steps and troubleshooti
 
 AWS administrators and developers use an enterprise application to sign in to Microsoft Entra ID for authentication, then redirect to AWS for authorization and access to AWS resources. The simplest method to see the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides easy access.
 
-Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/azure/active-directory/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application. These instructions will let you know what AWS app to add to your Microsoft Entra enterprise applications.
+Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application. These instructions will let you know what AWS app to add to your Microsoft Entra enterprise applications.
 
 If there's more than one AWS account to administer, such as DevTest and Production, use a unique name for the enterprise application that includes an identifier for the company and specific AWS account.
 
@@ -221,9 +221,9 @@ If there's more than one AWS account to administer, such as DevTest and Producti
 
 Follow the steps below to configure Microsoft Entra SSO for AWS:
 
-1. On **Azure Portal**, follow the steps on [Configure Microsoft Entra SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
+1. On **Azure Portal**, follow the steps on [Configure Microsoft Entra SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
 
-1. On **AWS Console**, follow the steps on [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you'll create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
+1. On **AWS Console**, follow the steps on [Configure AWS SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you'll create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
 - Make it easy to identify the components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
 - Be sure to document all new items.
@@ -264,7 +264,7 @@ On **AWS Console**, follow the steps below to create more roles.
    - **Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
    - **Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
 
-1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It can take up to one hour to complete the first provisioning cycle.
+1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/entra/identity/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It can take up to one hour to complete the first provisioning cycle.
 
 ### How to update role mapping
 
@@ -348,7 +348,7 @@ To create a new Conditional Access policy that requires MFA:
 
 You might need to create several Conditional Access policies to meet business needs for strong authentication. Consider the naming convention you use when creating the policies to ensure ease of identification and ongoing maintenance. Also, unless MFA is already widely deployed, make sure the policy is scoped to affect only the intended users. Other policies should cover other user groups' needs.
 
-Once you enable Conditional Access, you can impose other controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Microsoft Entra ID](/azure/active-directory/app-provisioning/user-provisioning).
+Once you enable Conditional Access, you can impose other controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Microsoft Entra ID](/entra/identity/app-provisioning/user-provisioning).
 
 If you have Defender for Cloud Apps, you can use Conditional Access to configure Defender for Cloud Apps session policies. For more information, see [Configure Microsoft Entra session policies for AWS activities](../../guide/aws/aws-azure-security-solutions.yml#microsoft-defender-for-cloud-apps).
 
@@ -356,11 +356,11 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
-- For full details of how to implement and manage Microsoft Entra ID, see [Securing Azure environments with Microsoft Entra ID](/azure/active-directory/fundamentals/secure-with-azure-ad-introduction).
+- For full details of how to implement and manage Microsoft Entra ID, see [Securing Azure environments with Microsoft Entra ID](/entra/architecture/secure-introduction).
 - [AWS tutorial: Microsoft Entra ID with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
-- [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
-- [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
-- [Identity protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview)
+- [Microsoft tutorial: SSO for AWS](/entra/identity/saas-apps/amazon-web-service-tutorial)
+- [PIM deployment plan](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
+- [Identity protection overview](/entra/id-protection/overview-identity-protection)
 - [What is Microsoft Defender for Identity?](/defender-for-identity/what-is)
 - [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security)
 - [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws)
@@ -370,10 +370,9 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - [Identity on Azure and AWS](../../aws-professional/security-identity.md)
 - [Defender for Cloud Apps and Microsoft Sentinel for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
-- [Onboard an AWS account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws)
-- [AWS single-account access](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
-- [AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial)
-- [Configure AWS Single Sign-On](/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial)
-- [AWS multiple accounts](/azure/active-directory/saas-apps/aws-multi-accounts-tutorial)
-- [AWS ClientVPN](/azure/active-directory/saas-apps/aws-clientvpn-tutorial)
-- [Attach and detach policies](/azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions)
+- [Onboard an AWS account](/entra/permissions-management/onboard-aws)
+- [AWS single-account access](/entra/identity/saas-apps/amazon-web-service-tutorial)
+- [AWS Single Sign-on](/entra/identity/saas-apps/aws-single-sign-on-tutorial)
+- [Configure AWS Single Sign-On](/entra/identity/saas-apps/aws-single-sign-on-provisioning-tutorial)
+- [AWS ClientVPN](/entra/identity/saas-apps/aws-clientvpn-tutorial)
+- [Attach and detach policies](/entra/permissions-management/how-to-attach-detach-permissions)

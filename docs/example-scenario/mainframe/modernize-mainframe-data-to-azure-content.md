@@ -203,7 +203,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Be aware of the differences between on-premises client identities and client identities in Azure. You need to compensate for any differences.
 
-- Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for component-to-component data flows.
+- Use [managed identities](/entra/identity/managed-identities-azure-resources/overview) for component-to-component data flows.
 
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files security and protection](/host-integration-server/core/data-providers-for-host-files-security-and-protection).
 

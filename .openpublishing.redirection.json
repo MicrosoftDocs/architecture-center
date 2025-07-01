@@ -2446,6 +2446,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/architecture/baseline-openai-e2e-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/basic-openai-e2e-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/azure-openai-baseline-landing-zone.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/industries/manufacturing/predictive-maintenance-overview.yml",
       "redirect_url": "/industry/manufacturing/",
       "redirect_document_id": false
@@ -2616,6 +2631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/architecture/hub-spoke-vwan-architecture.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
       "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
       "redirect_document_id": true
@@ -2688,6 +2708,31 @@
     {
       "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
       "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/index.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/application-logs.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/dashboards.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/performance-troubleshooting.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/databricks-observability.yml",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
       "redirect_document_id": false
     },
     {
@@ -3241,6 +3286,11 @@
       "redirect_document_id": true
     },
     {
+    "source_path": "docs/example-scenario/hybrid/aks-network.yml",
+      "redirect_url": "/azure/aks/aksarc/aks-hci-network-system-requirements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
       "redirect_document_id": true
@@ -3443,6 +3493,11 @@
     {
       "source_path": "docs/reference-architectures/enterprise-integration/ase-standard-deployment.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sma-opcon-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/integration/sma-opcon-azure",
       "redirect_document_id": true
     },
     {
@@ -3816,6 +3871,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/big-data-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
       "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
       "redirect_document_id": false
@@ -3897,10 +3957,15 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
@@ -4189,6 +4254,11 @@
       "source_path": "docs/reference-architectures/data/profisee-master-data-management-purview.yml",
       "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-adf.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
@@ -4831,7 +4901,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -4968,6 +5038,11 @@
       "source_path": "docs/example-scenario/networking/manage-routing-azure-route-server.yml",
       "redirect_url": "/azure/architecture/networking/architecture/manage-routing-azure-route-server",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/architecture/manage-routing-azure-route-server.yml",
+      "redirect_url": "/azure/route-server/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/networking/hub-spoke-vwan-architecture.yml",
@@ -5157,6 +5232,11 @@
     {
       "source_path": "docs/solution-ideas/articles/video-analytics.yml",
       "redirect_url": "/azure/architecture/networking/idea/video-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/guide/ipv4-exhaustion.md",
+      "redirect_url": "/azure/architecture/networking/guide/internet-protocol-version-4-exhaustion",
       "redirect_document_id": true
     },
     {
@@ -6116,7 +6196,7 @@
     },
     {
       "source_path": "docs/ai-ml/openai/guide/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -7346,7 +7426,12 @@
     },
     {
       "source_path": "docs/guide/multitenant/service/azure-ad-b2c.md",
-      "redirect_url": "/azure/architecture//guide/multitenant/approaches/identity",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/plan-journey-saas.md",
+      "redirect_url": "/azure/well-architected/saas/",
       "redirect_document_id": false
     }
   ]

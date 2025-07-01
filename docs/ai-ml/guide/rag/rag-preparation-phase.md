@@ -1,20 +1,13 @@
 ---
 title: Develop a RAG Solution - Preparation Phase
 description: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.
-author: robbagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/15/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-categories:
-  - ai-machine-learning
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
 ---
 
 # RAG preparation phase
@@ -244,8 +237,6 @@ Like with text, you should gather a diverse set of questions that involve using 
 > [!div class="nextstepaction"]
 > [Chunking phase](./rag-chunking-phase.md)
 
-## Related resources
-
-- [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence)
+## Related resource
 
 - [Get started with the chat by using your own data sample for Python](/azure/developer/python/get-started-app-chat-template)

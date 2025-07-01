@@ -6,10 +6,6 @@ ms.author: adamcerini
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
-categories:
-  - storage
-products:
-  - azure-storage
 ms.collection: 
  - migration
  - aws-to-azure

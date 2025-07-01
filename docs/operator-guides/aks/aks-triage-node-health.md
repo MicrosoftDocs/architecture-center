@@ -9,11 +9,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-categories:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Examine node and pod health

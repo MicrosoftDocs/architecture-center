@@ -6,7 +6,7 @@ Microsoft Entra ID is a cloud-based directory and identity service. This referen
 
 :::image type="content" source="./images/azure-ad.png" alt-text="Diagram of a hybrid cloud identity architecture that uses Microsoft Entra ID." lightbox="./images/azure-ad.png" border="false" :::
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Integrating%20On-Prem%20AD%20domains%20with%20Azure%20AD&templateid=TM11735520) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file][visio-download] of this architecture (see Visio tab "Microsoft Entra ID").*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?templatetitle=Integrating%20On-Prem%20AD%20domains%20with%20Azure%20AD&templateid=TM11735520) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file][visio-download] of this architecture (see Visio tab "Microsoft Entra ID").*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Microsoft Entra ID, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Microsoft Entra ID. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
@@ -115,7 +115,7 @@ For more information about these topologies, see [Topologies for Microsoft Entra
 
 By default, the Microsoft Entra Connect Sync server configures password hash synchronization between the on-premises domain and Microsoft Entra ID. The Microsoft Entra service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this strategy is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/entra/identity/hybrid/connect/how-to-connect-pta).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
 - Your organization might already have Active Directory Federation Services (AD FS) or a third-party federation provider deployed. You can configure Microsoft Entra ID to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 
@@ -178,7 +178,7 @@ For additional considerations about achieving high availability of the Microsoft
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Use conditional access control to deny authentication requests from unexpected sources:
+Use Conditional Access control to deny authentication requests from unexpected sources:
 
 - Trigger [Microsoft Entra multifactor authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from an untrusted location such as across the Internet instead of a trusted network.
 
@@ -188,7 +188,7 @@ Use conditional access control to deny authentication requests from unexpected s
 
 - Control user access to resources based on group membership. Use [Microsoft Entra dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
 
-- Use conditional access risk policies with Microsoft Entra ID Protection to provide advanced protection based on unusual sign-in activities or other events.
+- Use Conditional Access risk-based policies with Microsoft Entra ID Protection to provide advanced protection based on unusual sign-in activities or other events.
 
 For more information, see [Microsoft Entra Conditional Access][aad-conditional-access].
 
@@ -256,9 +256,8 @@ Principal author:
 
 ## Next steps
 
-- Review the [Microsoft Entra Hybrid Identity Design Considerations][hybrid-identity-design], which includes further information on making decisions regarding hybrid identity.
 - Review [Topologies for Microsoft Entra Connect][aad-topologies] to ensure the hybrid topology for Microsoft Entra Connect is deployed in a supported configuration.
-- Learn about using conditional access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
+- Learn about using Conditional Access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
 - Review [Microsoft Entra application proxy][aad-application-proxy] if you intend on providing Microsoft Entra integrations with on-premises or cloud IaaS applications.
 - Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices].
@@ -274,55 +273,55 @@ Principal author:
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 
-[aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
+[aad-agent-installation]: /entra/identity/hybrid/connect/how-to-connect-health-agent-install
 
-[aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
+[aad-application-proxy]: /entra/identity/app-proxy/application-proxy-add-on-premises-application
 
-[aad-conditional-access]: /azure/active-directory//active-directory-conditional-access
+[aad-conditional-access]: /entra/id-protection/concept-identity-protection-policies
 
-[aad-connect-sync-default-rules]: /azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration
+[aad-connect-sync-default-rules]: /entra/identity/hybrid/connect/concept-azure-ad-connect-sync-default-configuration
 
-[aad-connect-sync-operational-tasks]: /azure/active-directory/hybrid/how-to-connect-sync-operations
+[aad-connect-sync-operational-tasks]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server
 
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
 
-[aad-dynamic-membership-rules]: /azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
+[aad-dynamic-membership-rules]: /entra/identity/users/groups-dynamic-membership
 
-[aad-filtering]: /azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
+[aad-filtering]: /entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering
 
-[aad-health]: /azure/active-directory/active-directory-aadconnect-health-sync
+[aad-health]: /entra/identity/hybrid/connect/how-to-connect-health-sync
 
-[aad-health-adds]: /azure/active-directory/active-directory-aadconnect-health-adds
+[aad-health-adds]: /entra/identity/hybrid/connect/how-to-connect-health-adds
 
-[aad-health-adfs]: /azure/active-directory/active-directory-aadconnect-health-adfs
+[aad-health-adfs]: /entra/identity/hybrid/connect/how-to-connect-health-adfs
 
-[aad-identity-protection]: /azure/active-directory/active-directory-identityprotection
+[aad-identity-protection]: /entra/id-protection/overview-identity-protection
 
-[aad-password-management]: /azure/active-directory/active-directory-passwords-customize
+[aad-password-management]: /entra/identity/authentication/howto-sspr-customization
 
 [aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
 
 [microsoft-graph-powershell]: /powershell/module/?view=graph-powershell-1.0
 
-[aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
+[aad-reporting-guide]: /entra/identity/monitoring-health/overview-monitoring-health
 
-[aad-scalability]: /azure/active-directory/fundamentals/active-directory-architecture
+[aad-scalability]: /entra/architecture/architecture
 
-[aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
+[aad-sync-best-practices]: /entra/identity/hybrid/connect/how-to-connect-sync-best-practices-changing-default-configuration
 
-[aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
+[aad-sync-disaster-recovery]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server#disaster-recovery
 
-[aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
+[aad-sync-requirements]: /entra/identity/hybrid/
 
-[aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
+[aad-topologies]: /entra/identity/hybrid/connect/plan-connect-topologies
 
-[aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[aad-user-sign-in]: /entra/identity/hybrid/connect/plan-connect-user-signin
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
 
-[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+[azure-active-directory]: /entra/identity/domain-services/overview
 
-[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-ad-connect]: /entra/identity/hybrid/whatis-hybrid-identity
 
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 
@@ -336,9 +335,7 @@ Principal author:
 
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 
-[hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
-
-[aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
+[aad-ca-plan]: /entra/identity/conditional-access/plan-conditional-access
 
 [adds-azure-design]: ./index.yml
 
@@ -348,4 +345,4 @@ Principal author:
 
 [security-compass]:/security/compass/compass
 
-[azure-ad-connect-cloud-sync]:/azure/active-directory/cloud-sync/what-is-cloud-sync
+[azure-ad-connect-cloud-sync]:/entra/identity/hybrid/cloud-sync/what-is-cloud-sync

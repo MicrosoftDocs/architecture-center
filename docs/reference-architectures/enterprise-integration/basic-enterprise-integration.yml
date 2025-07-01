@@ -13,11 +13,7 @@ metadata:
     - integration
     - developer-tools
     - management-and-governance
-  ms.custom:
-    - integration-services
-    - reference-architecture
-    - internal-intro
-    - arb-integrations
+  ms.custom: arb-integrations
 name: Basic enterprise integration on Azure
 azureCategories:
   - integration
@@ -32,4 +28,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/simple-enterprise-integration.png
 content: |
-   [!include[](basic-enterprise-integration-content.md)]
+   [!INCLUDE[](basic-enterprise-integration-content.md)]

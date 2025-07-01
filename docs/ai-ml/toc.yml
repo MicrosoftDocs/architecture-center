@@ -12,36 +12,38 @@ items:
         items:
         - name: Customer order forecasting
           href: idea/next-order-forecasting.yml
-      - name: Document enrichment
-        items:
-        - name: Use AI enrichment with Azure AI Search
-          href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
         - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
-      - name: Document processing
+      - name: Document processing and enrichment
         items:
+        - name: Extract and map information from unstructured content
+          href: idea/multi-modal-content-processing.yml
+        - name: Use AI enrichment with Azure AI Search
+          href: ../solution-ideas/articles/ai-search-skillsets.yml
         - name: Extract text using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
+      - name: Workflow automation
+        items:
+        - name: Build a multiple-agent workflow automation solution with Semantic Kernel
+          href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
       - name: Chat bots
         items:
-        - name: Azure OpenAI chat basic architecture
-          href: architecture/basic-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline architecture
-          href: architecture/baseline-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline in an Azure landing zone
-          href: architecture/azure-openai-baseline-landing-zone.yml
+        - name: Basic Azure AI Foundry chat reference architecture
+          href: architecture/basic-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat reference architecture
+          href: architecture/baseline-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
+          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
       - name: Document processing
         items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
-        - name: Automate document processing
-          href: architecture/automate-document-processing-azure-ai-document-intelligence.yml
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models
@@ -110,12 +112,12 @@ items:
       items:
       - name: Design architectures
         items:
-        - name: Azure OpenAI chat basic architecture
-          href: architecture/basic-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline architecture
-          href: architecture/baseline-openai-e2e-chat.yml
-        - name: Azure OpenAI chat baseline in an Azure landing zone
-          href: architecture/azure-openai-baseline-landing-zone.yml
+        - name: Basic Azure AI Foundry chat reference architecture
+          href: architecture/basic-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat reference architecture
+          href: architecture/baseline-azure-ai-foundry-chat.yml
+        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
+          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
       - name: Apply guidance

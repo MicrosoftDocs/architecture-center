@@ -503,18 +503,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-      - name: Monitor Azure Databricks jobs
-        items:
-        - name: Overview
-          href: databricks-monitoring/index.md
-        - name: Send Databricks application logs
-          href: databricks-monitoring/application-logs.md
-        - name: Use dashboards to visualize Databricks
-          href: databricks-monitoring/dashboards.md
-        - name: Troubleshoot performance bottlenecks
-          href: databricks-monitoring/performance-troubleshooting.md
-        - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -541,10 +529,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
-      - name: Azure Data Explorer solutions
-        items:
-        - name: Big data analytics with Data Explorer
-          href: solution-ideas/articles/big-data-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Modern analytics with Azure Databricks
@@ -811,6 +795,9 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
+    items:
+    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
+      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
@@ -861,13 +848,11 @@ items:
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS hybrid)
+          - name: AKS on Azure Local (AKS enabled by Azure Arc)
             items:
             - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: AKS on Azure Local network architecture
-              href: example-scenario/hybrid/aks-network.yml
-            - name: Deploy apps with AKS on Azure Local
+            - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
@@ -1131,7 +1116,7 @@ items:
     - name: Guides
       items:
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
+        href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures

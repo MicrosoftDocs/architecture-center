@@ -2,7 +2,7 @@
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Policy management
   description: Guidance for documenting security policies as per Requirement 12 of PCI-DSS 3.2.1.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 05/11/2021
   ms.topic: reference-architecture

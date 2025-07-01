@@ -102,7 +102,7 @@ Principal author:
 
 ## Next steps
 
-- Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
+- Review [Databases architecture design](../../databases/index.yml).
 
 - Learn more about the services used in this scenario:
    - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
@@ -110,7 +110,7 @@ Principal author:
    - [What is dedicated SQL pool in Azure Synapse Analytics?](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
    - [Azure Analysis Services documentation](/azure/analysis-services)
    - [Power BI documentation](/power-bi)
-   - [Microsoft Entra documentation](/azure/active-directory)
+   - [Microsoft Entra documentation](/entra/identity)
 
 <!-- links -->
 

@@ -6,13 +6,6 @@ ms.date: 10/05/2024
 ms.author: pnp
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - identity
-products:
-  - entra-id
-  - entra-external-id
-ms.custom:
-  - guide
 ---
 
 # Use an Identity as a Service platform

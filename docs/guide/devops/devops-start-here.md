@@ -1,19 +1,11 @@
 ---
 title: DevOps architecture design
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
-author: brandonmartinez
-ms.author: brmar
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-categories:
-  - devops
-  - containers
-products:
-  - azure-devops
-  - azure-monitor
-  - azure-pipelines
-  - azure-devtest-labs
 ms.custom: arb-devops
 ---
 
