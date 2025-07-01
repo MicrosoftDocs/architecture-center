@@ -196,7 +196,7 @@ For maximum security, require HTTPS throughout the request pipeline:
 
 - **Static website hosting**. Enable the "[Secure transfer required][storage-https]" option on the Storage account. When this option is enabled, the storage account only allows requests from secure HTTPS connections.
 
-- **API Management**. Configure the APIs to use HTTPS protocol only. You can configure this in the Azure portal or through a Resource Manager template:
+- **API Management**. Configure the APIs to use HTTPS protocol only. You can configure this in the Azure portal or through a Resource Manager template.
 
 - **Azure Functions**. Enable the "[HTTPS Only][functions-https]" setting.
 
