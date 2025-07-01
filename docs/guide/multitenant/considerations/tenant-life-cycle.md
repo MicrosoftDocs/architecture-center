@@ -21,9 +21,9 @@ Trials introduce the following unique considerations:
 
 - **Service requirements:** Decide whether trials should meet the same data security, performance, and service-level requirements as the data for full customers.
 
-- **Infrastructure:** Determine whether to use the same infrastructure for trial tenants as for full customers or use dedicated infrastructure for trial tenants.
+- **Infrastructure:** Determine whether to host trial tenants on the same infrastructure as full customers or use dedicated infrastructure.
 - **Migration:** Plan how to migrate data from a trial tenant to a paid tenant if a customer purchases your service after a trial.
-- **Request process:** Define who can request a trial, how to prevent abuse of your solution, and whether to automate the trial creation or involve your team for each request.
+- **Request process:** Define who can request a trial, how to prevent abuse of your solution, and whether to automate the trial creation or involve your team.
 - **Limits:** Set appropriate limits on trial customers, such as time limits, feature restrictions, or performance caps.
 
 In some situations, a [free pricing model that has limited functionality](pricing-models.md#freemium-pricing) can serve as an alternative to providing trials.
@@ -35,9 +35,9 @@ When you onboard a new tenant, consider the following factors:
 - **Process:** Decide whether to make onboarding a self-service, automated, or manual process.
 
 - **Data residency:** Determine whether the tenant has any specific requirements for data residency, such as compliance with data sovereignty regulations.
-- **Compliance:** Identify compliance standards that the tenant must meet. These standards might include the Payment Card Industry Data Security Standard (PCI DSS) and the Heath Insurance Portability and Accountability Act (HIPAA).
+- **Compliance:** Identify compliance standards that the tenant must meet. These standards might include the Payment Card Industry Data Security Standard (PCI DSS) or the Heath Insurance Portability and Accountability Act (HIPAA).
 - **Disaster recovery:** Confirm whether the tenant has specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO). Determine whether these guarantees differ from the ones that you provide to other tenants.
-- **Information:** Determine what information you need to fully onboard the tenant. For example, you might need their organization's legal name or their company logo to brand the application. You might also need the file size and format.
+- **Information:** Define what information you need to fully onboard the tenant. For example, you might need their organization's legal name or their company logo, including the file size and format.
 - **Billing:** Determine whether the platform provides different pricing options and billing models.
 - **Environments:** Identify whether the tenant requires preproduction environments. Clarify whether the environment must be always available or can be provisioned on demand.
 
@@ -47,7 +47,7 @@ After you onboard tenants, they move into a business-as-usual state. But importa
 
 Consider how to apply updates to your tenants' infrastructure. Different tenants might receive updates at different times.
 
-For more information, see [Updates](updates.md).
+For more information, see [Considerations for updating a multitenant solution](updates.md).
 
 ## Scale tenants' infrastructure
 
@@ -56,7 +56,9 @@ Determine whether your tenants experience seasonal business patterns or other fl
 For example, if you provide a solution to retailers, you might expect traffic spikes during certain times of the year in some geographic regions, while other periods remain quiet. Consider whether this seasonality affects the way that you design and scale your solution. Be aware of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), where a sudden increase in load from one subset of tenants degrades performance for others.
 
 Consider applying the following mitigations:
+
 - Scale individual tenants' infrastructure.
+
 - Move tenants between deployments.
 - Provision a sufficient level of capacity to handle spikes and dips in traffic.
 
@@ -98,9 +100,9 @@ Sometimes you need to remove tenants from your solution. In a multitenant soluti
 
 You might need to deactive or reactive a customer's account. Consider the following examples:
 
-- The customer requests deactivation. In a consumer system, a customer might choose to unsubscribe.
+- A customer requests deactivation. In a consumer system, a customer might choose to unsubscribe.
 
-- The customer can't be billed, and you need to deactivate the subscription.
+- A customer can't be billed, and you need to deactivate the subscription.
 
 Deactivation differs from offboarding because it's intended to be a temporary state. However, after a period of time, you might choose to offboard a deactivated tenant.
 

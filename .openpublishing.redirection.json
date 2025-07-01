@@ -4022,7 +4022,7 @@
     },
     {
       "source_path": "docs/guide/multitenant/considerations/tenant-lifecycle.md",
-      "redirect_url": "/azure/architecture/guide/multitenant/considertions/tenant-life-cycle",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/tenant-life-cycle",
       "redirect_document_id": true
     },
     {

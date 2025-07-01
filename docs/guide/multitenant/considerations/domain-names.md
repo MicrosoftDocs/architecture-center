@@ -15,6 +15,7 @@ ms.custom:
 In many multitenant web applications, you can use a domain name to provide the following capabilities:
 
 - To distinguish one tenant from another
+
 - To help with routing requests to the correct infrastructure
 - To provide a branded experience to your customers
 
@@ -37,12 +38,12 @@ When you create subdomains under your own domain name, you could have multiple c
 
 ### Wildcard DNS
 
-Use wildcard Domain Name System (DNS) entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com` or `adventureworks.contoso.com`, you could create a wildcard entry for `*.contoso.com`. Direct all subdomains to single IP address by using an A record, or to a canonical name by using a CNAME record. If you use regional stem domains, you might need multiple wildcard entries, such as `*.us.contoso.com` and `*.eu.contoso.com`.
+Use wildcard Domain Name System (DNS) entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com` or `adventureworks.contoso.com`, you could create a wildcard entry for `*.contoso.com`. Direct all subdomains to single IP address by using an A record or to a canonical name by using a CNAME record. If you use regional stem domains, you might need multiple wildcard entries, such as `*.us.contoso.com` and `*.eu.contoso.com`.
 
 > [!NOTE]
 > Make sure that your web-tier services support wildcard DNS if you plan to use this feature. Many Azure services, including Azure Front Door and Azure App Service, support wildcard DNS entries.
 
-### Subdomains with multiple-part stem domains
+### Subdomains based on multiple-part stem domains
 
 Many multitenant solutions span multiple physical deployments. This approach is common when you need to comply with data residency requirements or improve performance by deploying resources geographically closer to the users.
 
@@ -50,11 +51,13 @@ Even within a single region, you might spread your tenants across independent de
 
 For example, Contoso publishes a multitenant application for its four customers. Adventure Works and Tailwind Traders are in the United States, and their data is stored on a shared US instance of the Contoso platform. Fabrikam and Worldwide Importers are in Europe, and their data is stored on a European instance.
 
-If Contoso uses a single stem domain, **contoso.com**, for all their customers, it might look like the following diagram.
+The following diagram shows an example of Contoso using the single-stem domain **contoso.com** for all their customers.
 
-:::image type="content" source="media/domain-names/subdomains-single-stem.png" alt-text="Diagram that shows US and EU deployments of a web app, with a single stem domain for each customer's subdomain." lightbox="media/domain-names/subdomains-single-stem.png" border="false":::
+:::image type="complex" source="media/domain-names/subdomains-single-stem.png" alt-text="Diagram that shows US and Europe deployments of a web app, with a single stem domain for each customer's subdomain." lightbox="media/domain-names/subdomains-single-stem.png" border="false":::
+For web app 1, adventureworks.us.contoso.com and tailwind.us.contoso.com point to us.contoso.com, which points to web app 1. For web app 2, fabrikam.contoso.com and worldwideimporters.contoso.com point to eu.contoso.com, which points to web app 2.
+:::image-end:::
 
-Contoso might use the following DNS entries to support this configuration:
+Contoso can use the following DNS entries to support this configuration.
 
 | Subdomain | CNAME to |
 |-|-|
@@ -67,7 +70,9 @@ Each new onboarded customer requires a new subdomain, and the number of subdomai
 
 Alternatively, Contoso could use deployment-specific or region-specific stem domains.
 
-:::image type="content" source="media/domain-names/subdomains-multiple-stem.png" alt-text="Diagram that shows US and EU deployments of a web app, with multiple stem domains." lightbox="media/domain-names/subdomains-multiple-stem.png" border="false":::
+:::image type="complex" source="media/domain-names/subdomains-multiple-stem.png" alt-text="Diagram that shows US and EU deployments of a web app, with multiple-stem domains." lightbox="media/domain-names/subdomains-multiple-stem.png" border="false":::
+For web app 1, adventureworks.us.contoso.com and tailwind.us.contoso.com point to us.contoso.com, which points to web app 1. For web app 2, fabrikam.eu.contoso.com and worldwideimporters.eu.contoso.com point to eu.contoso.com, which points to web app 2.
+:::image-end:::
 
 By using wildcard DNS, the DNS entries for this deployment might look like the following entries.
 
@@ -78,9 +83,9 @@ By using wildcard DNS, the DNS entries for this deployment might look like the f
 
 Contoso doesn't need to create subdomain records for every customer. Instead, a single wildcard DNS record for each geography's deployment allows new customers underneath that stem to automatically inherit the CNAME record.
 
-Each approach has benefits and drawbacks. When you use a single stem domain, you must create a DNS record for each tenant that you onboard, which increases operational overhead. However, you have more flexibility to move tenants between deployments. You can change the CNAME record to direct their traffic to another deployment. This change doesn't affect any other tenants.
+Each approach has benefits and drawbacks. When you use a single-stem domain, you must create a DNS record for each tenant that you onboard, which increases operational overhead. However, you have more flexibility to move tenants between deployments. You can change the CNAME record to direct their traffic to another deployment. This change doesn't affect any other tenants.
 
-Multiple stem domains have a lower management overhead. You can reuse customer names across multiple regional stem domains because each stem domain effectively represents its own namespace.
+Multiple-stem domains have a lower management overhead. You can reuse customer names across multiple regional stem domains because each stem domain effectively represents its own namespace.
 
 ## Custom domain names
 
@@ -90,7 +95,7 @@ You might want to enable your customers to bring their own domain names. Some cu
 
 Ultimately, each domain name must resolve to an IP address. As shown earlier, the name resolution process depends on whether you deploy a single instance or multiple instances of your solution.
 
-To revisit the example, one of Contoso's customers, Fabrikam, asks to use `invoices.fabrikam.com` as their custom domain name to access Contoso's service. Contoso has multiple deployments of their multitenant platform, so they decide to use subdomains and CNAME records to achieve their routing requirements. Contoso and Fabrikam configure the following DNS records.
+To revisit the example, one of Contoso's customers, Fabrikam, requests to use `invoices.fabrikam.com` as their custom domain name to access Contoso's service. Contoso has multiple deployments of their multitenant platform, so they decide to use subdomains and CNAME records to achieve their routing requirements. Contoso and Fabrikam configure the following DNS records.
 
 | Name | Record type | Value | Configured by |
 |-|-|-|-|
@@ -110,15 +115,15 @@ You can also rewrite host headers so that regardless of the incoming request's `
 
 You must validate the ownership of custom domains before you onboard them. Otherwise, a customer could accidentally or maliciously claim a domain name, which is sometimes referred to as *parking* a domain name.
 
-Consider Contoso's onboarding process for Adventure Works, who requested to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the *s*. So, they set it up as `invoices.adventurework.com`. As a result, traffic fails to flow correctly for Adventure Works. But when another company named *Adventure Work* tries to add their custom domain to Contoso's platform, they're told that the domain name is already in use.
+Consider Contoso's onboarding process for Adventure Works, who requested to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the *s*. So they set it up as `invoices.adventurework.com`. As a result, traffic fails to flow correctly for Adventure Works. But when another company named *Adventure Work* tries to add their custom domain to Contoso's platform, they're told that the domain name is already in use.
 
 To prevent this problem, especially within a self-service or automated process, you can require a domain verification step. You might require that the customer creates a CNAME record before the domain can be added. Alternatively, you might generate a random string and ask the customer to add a DNS TXT record that includes the string value. The domain name can't be added until the verification succeeds.
 
 ### Dangling DNS and subdomain takeover attacks
 
-When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). This attack occurs when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a nonexistent resource and is vulnerable to a takeover.
+When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). These attacks occurs when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a nonexistent resource and is vulnerable to a takeover.
 
-Consider how Fabrikam's relationship with Contoso might change:
+Consider how Fabrikam's relationship with Contoso might change if the following scenario occurs:
 
 1. Fabrikam decides to no longer work with Contoso, so they terminate their business relationship.
 
@@ -146,6 +151,7 @@ A domain owner can use the Certificate Authority Authorization (CAA) DNS record 
 If you allow customers to bring their own domains, consider whether you plan to issue certificates on their behalf or require them to bring their own. Each option has benefits and drawbacks:
 
 - **If you issue a certificate for a customer**, you can handle the certificate renewal, so the customer doesn't need to maintain it. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
+
 - **If customers issue and provide you with their own certificates**, you securely receive and manage the private keys. To avoid an interruption in their service, you might need to remind your customers to renew the certificate before it expires.
 
 Several Azure services support automatic management of certificates for custom domains. For example, Azure Front Door and App Service provide certificates for custom domains, and they automatically handle the renewal process. This feature removes the burden of managing certificates from your operations team. However, you still need to consider ownership and authority. Confirm that CAA records are in place and configured correctly. Also ensure that your customers' domains allow the certificates that the platform manages.
@@ -167,6 +173,6 @@ Other contributors:
 
 ## Next steps
 
-Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md)
+Many services use Azure Front Door to manage domain names. For more information, see [Use Azure Front Door in a multitenant solution](../service/front-door.md).
 
 Return to the [architectural considerations overview](overview.yml). Or review the [Azure Well-Architected Framework](/azure/well-architected/).
