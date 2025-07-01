@@ -1,6 +1,6 @@
 ---
 title: Microservices Architecture Style
-description: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
+description: Learn about microservices on Azure. This architectural style builds applications that are resilient, highly scalable, and independently deployable.
 author: RobBagby
 ms.author: robbag
 ms.date: 07/26/2022
@@ -11,7 +11,7 @@ ms.custom: fcp
 
 # Microservices architecture style
 
-Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. A successful microservices architecture requires a complete mindset shift. It's not only about breaking an architecture into smaller services. You also need to rethink how you design, deploy, and operate systems.
+Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Building a successful microservices architecture requires a fundamental shift in mindset. It goes beyond decomposing an application into smaller services. You must also rethink how systems are designed, deployed, and operated.
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
@@ -27,13 +27,13 @@ Microservices are small, independent, and loosely coupled components that a sing
 
 In addition to the services themselves, other components appear in a typical microservices architecture:
 
-- **Management or orchestration:** This management component handles microservices orchestration. It schedules and deploys services across nodes, detects failures, recovers from them, and enables autoscaling based on demand. A container orchestration platform like Kubernetes typically provides this functionality. In cloud-native environments, solutions such as Azure Container Apps provide managed orchestration and built-in scaling. These tools reduce deployment complexity and operational overhead.
+- **Management or orchestration:** This management component handles microservices orchestration. It schedules and deploys services across nodes, detects failures, recovers from failures, and enables autoscaling based on demand. A container orchestration platform like Kubernetes typically provides this functionality. In cloud-native environments, solutions such as Azure Container Apps provide managed orchestration and built-in scaling. These tools reduce deployment complexity and operational overhead.
 
-- **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, allows for advanced routing and traffic control.
+- **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, enables advanced routing and traffic control.
 
-- **Message-oriented middleware:** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, which allows services to react to events in real-time and also communicate via async messaging.
+- **Message-oriented middleware:** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, which allows services to react to events in real-time and also communicate via asynchronous messaging.
 
-- **Observability:** An effective observability strategy is crucial in microservices. It helps teams maintain system reliability and resolve problems quickly. Centralized logging brings logs together to support easier diagnostics. Real-time monitoring with APM agents and frameworks like OpenTelemetry gives visibility into system health and performance. Distributed tracing tracks requests across service boundaries. It helps teams find bottlenecks and improve performance.
+- **Observability:** An effective observability strategy is crucial in microservices. It helps teams maintain system reliability and resolve problems quickly. Centralized logging brings logs together to support easier diagnostics. Real-time monitoring with application performance monitoring agents and frameworks like OpenTelemetry gives visibility into system health and performance. Distributed tracing tracks requests across service boundaries. It helps teams find bottlenecks and improve performance.
 
 - **Data management:** A well-designed database architecture is crucial for microservices. It supports autonomy and scalability. Microservices often use polyglot persistence by choosing different database types, such as SQL or NoSQL, based on each service’s specific needs. This approach aligns with domain-driven design (DDD) and the idea of bounded context. Each service owns its data and schema. This ownership reduces cross-service dependencies and allows services to evolve independently. A decentralized model like this improves flexibility, performance, and system resilience.
 
@@ -43,15 +43,15 @@ In addition to the services themselves, other components appear in a typical mic
 
 - **Small, focused teams:** A microservice should be small enough that a single feature team can build, test, and deploy it. Small team sizes promote greater agility. Large teams tend to be less productive because communication is slower, management overhead goes up, and agility diminishes.
 
-- **Small code base:** In a monolithic application, code dependencies often become tangled over time. Adding a new feature might require changes in many parts of the codebase. A microservices architecture avoids this by not sharing code or data stores. This approach minimizes dependencies and makes it easier to introduce new features.
+- **Small code base:** In a monolithic application, code dependencies often become tangled over time. Adding a new feature might require changes in many parts of the codebase. A microservices architecture avoids this problem by not sharing code or data stores. This approach minimizes dependencies and makes it easier to introduce new features.
 
-- **Mix of technologies:** Teams can pick the technology that best suits their service, using a mix of technology stacks as appropriate.
+- **Mix of technologies:** Teams can pick the technology that best suits their service by using a mix of technology stacks as appropriate.
 
 - **Fault isolation:** If an individual microservice becomes unavailable, it doesn't disrupt the entire application as long as any upstream microservices are designed to handle faults correctly. For example, you can implement the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), or you can design your solution so that the microservices communicate with each other by using [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 - **Scalability:** Services can be scaled independently. This approach lets you scale out subsystems that require more resources without scaling out the entire application. Using an orchestrator such as Kubernetes, you can pack a higher density of services onto a single host, which allows for more efficient usage of resources.
 
-- **Data isolation:** It's easier to perform schema updates, because only a single microservice is affected. In a monolithic application, schema updates can become challenging, because different parts of the application might all touch the same data, making any alterations to the schema risky.
+- **Data isolation:** Updating a schema is simpler in a microservices architecture because only one microservice is affected. In contrast, monolithic applications can complicate schema changes, since multiple components often interact with the same data. This shared access makes any modification potentially risky.
 
 ## Challenges
 
