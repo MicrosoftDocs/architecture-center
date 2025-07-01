@@ -37,7 +37,7 @@ items:
           - name: Pricing models
             href: ../multitenant/considerations/pricing-models.md
           - name: Control planes
-            href: ../multitenant/considerations/control-planes.yml
+            href: ../multitenant/considerations/control-planes.md
           - name: Measure consumption
             href: ../multitenant/considerations/measure-consumption.md
           - name: Deploy updates
