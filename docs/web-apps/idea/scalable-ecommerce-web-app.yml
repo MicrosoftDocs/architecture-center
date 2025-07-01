@@ -9,19 +9,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - web
-  ms.custom:
-    - acom-architecture
-    - ecommerce
-    - scalability
-    - web-app
-    - architect scalable e-commerce web app
-    - web apps
-    - search for products
-    - submits order
-    - process order payment
-    - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/scalable-ecommerce-web-app"
-    - arb-web
+  ms.custom: arb-web
 name: Architect scalable e-commerce web app
 azureCategories:
   - web
@@ -32,4 +20,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-ecommerce-web-app.png
 content: |
-   [!include[](scalable-ecommerce-web-app-content.md)]
+   [!INCLUDE[](scalable-ecommerce-web-app-content.md)]
