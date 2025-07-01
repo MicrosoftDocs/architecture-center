@@ -1,33 +1,35 @@
-This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
+This reference architecture describes several configurations to consider when you run microservices on Azure Kubernetes Service (AKS). This article discusses network policy configuration, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for Azure Kubernetes Service (AKS) infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which Microsoft recommends as the starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
 ## Architecture
 
-:::image type="content" border="false" source="images/aks-production-deployment.png" alt-text="Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses." lightbox="images/aks-production-deployment.png":::
+:::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.svg" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this implementation uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
+   The diagram contains two main sections, spoke and hub, that are connected by an arrow labeled peering. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, and arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, and Azure Cloud Services, and FQDNs. These services and FQDNs are outside of the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
 
-If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
+If you prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 
 ### Workflow
 
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The messaging flow proceeds as follows:
+This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The following workflow corresponds to the previous diagram:
 
-1. An HTTPS request is submitted to schedule a drone pickup. The requests pass through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
+1. An HTTPS request is submitted to schedule a drone pickup. The request passes through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
 
-1. The ingestion web application produces a message and sends it to the Service Bus message queue.
+1. The ingestion web application produces a message and sends it to the Azure Service Bus message queue.
 
-1. The backend system assigns a drone and notifies the user. The workflow microservice:
+1. The back-end system assigns a drone and notifies the user. The workflow microservice:
 
    - Consumes message information from the Service Bus message queue.
-   - Sends an HTTPS request to the Delivery microservice, which passes data to Azure Cache for Redis external data storage.
-   - Sends an HTTPS request to the Drone Scheduler microservice.
-   - Sends an HTTPS request to the Package microservice, which passes data to MongoDB external data storage.
+   - Sends an HTTPS request to the delivery microservice, which passes data to Azure Cache for Redis external data storage.
+   - Sends an HTTPS request to the drone scheduler microservice.
+   - Sends an HTTPS request to the package microservice, which passes data to MongoDB external data storage.
 
-1. An HTTPS GET request is used to return delivery status. This request passes through the Application Gateway into the Delivery microservice.
+1. The architecture uses an HTTPS GET request to return delivery status. This request passes through Application Gateway into the delivery microservice.
 
 1. The delivery microservice reads data from Azure Cache for Redis.
 
@@ -35,55 +37,55 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 This architecture uses the following Azure components:
 
-**[Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
+- **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools.
 
-The AKS infrastructure features used in this architecture include:
+   This architecture uses the following AKS infrastructure features:
 
-- [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-- [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
-- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
-- [Azure Policy Add-on for AKS](/azure/aks/use-azure-policy)
-- [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-- [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview)
-- [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing)
+   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+   - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/enable-authentication-microsoft-entra-id)
+   - [Workload ID](/azure/aks/workload-identity-overview)
+   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy)
+   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
+   - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview)
+   - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing)
 
-**[Azure virtual networks](/azure/well-architected/service-guides/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure Firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
+- **[Azure virtual networks](/azure/well-architected/service-guides/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure Firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Application Gateway subnet.
 
-**[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vaults through the Microsoft backbone network. PaaS services such as Azure Container Registry and Azure Key Vault are accessed over a private endpoint from the AKS system and user node pool subnet.
+- **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Azure Key Vault through the Microsoft backbone network. Platform as a service solutions like Container Registry and Key Vault are accessed over a private endpoint from the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this reference architecture, the ingestion microservice is exposed as a public end point using Azure Application Gateway. 
+- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this reference architecture, Application Gateway exposes the ingestion microservice as a public endpoint.
 
-**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** Azure Firewall is a cloud-native, intelligent network firewall security service that offers threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, outbound communications from microservices to  resources outside of the virtual network are controlled by Azure Firewall.
+- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a cloud-native, intelligent network firewall security service that provides threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, Azure Firewall controls outbound communications from microservices to resources outside of the virtual network.
 
 **External storage and other components:**
 
-**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for Azure services. Secret values, certificates, and keys can be stored and securely managed using Azure Key Vault. In this scenario, credentials for Azure Cosmos DB, Azure Cache for Redis etc. are stored in Azure Key Vaults. 
+- **[Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for Azure services. Secret values, certificates, and keys can be stored and securely managed using Key Vault. In this scenario, credentials for Azure Cosmos DB and Azure Cache for Redis are stored in Azure key vaults.
 
-**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this scenario, the container images for microservices are stored here.
+- **[Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this scenario, the container images for microservices are stored here.
 
-**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB, PostgreSQL and Cassandra. This architecture uses Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) as data stores for each microservice.
+- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB, PostgreSQL and Cassandra. This architecture uses Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) as data stores for each microservice.
 
-**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. In this scenario, Azure Service Bus is used as the asynchronous queueing layer between the ingestion and workflow microservices.
+- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications. In this scenario, Service Bus is used as the asynchronous queueing layer between the ingestion and workflow microservices.
 
-**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads. In this architecture, Azure Cache for Redis is used as the state store and [side-cache](/azure/architecture/patterns/cache-aside) by the delivery microservice.
+- **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads. In this architecture, Azure Cache for Redis is used as the state store and [side-cache](/azure/architecture/patterns/cache-aside) by the delivery microservice.
 
-**[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+- **[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
 **Other operations support system (OSS) components:**
 
-**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this scenario, microservices are packaged deployed to the AKS cluster using helm commands. 
+- **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this scenario, microservices are packaged deployed to the AKS cluster using helm commands. 
 
-**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, the key vault secrets are mounted as a volume in microservice containers, so that credentials for CosmosDB, Azure Cache for Redis, Azure Service Bus etc. can be retrieved by the respective microservices.
+- **[Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Key Vault provider for Secrets Store CSI Driver allows for the integration of a key vault as a secret store with an AKS cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, the key vault secrets are mounted as a volume in microservice containers, so that credentials for CosmosDB, Azure Cache for Redis, Service Bus etc. can be retrieved by the respective microservices.
 
-**[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
+- **[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
 ### Alternatives
 
-Instead of using Application routing add-on, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in Azure Kubernetes Service](/azure/aks/concepts-network-ingress). Azure Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing. 
+Instead of using Application routing add-on, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in AKS](/azure/aks/concepts-network-ingress). Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing. 
 
 Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
 
-Instead of storing credentials for Azure Cosmos DB, Azure Cache for Redis etc. in Key Vaults, it is recommended to connect using Managed identities as password-free authentication mechanisms are more secure. Please find and example of connecting to Cosmos DB using managed identity [here](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos), and an example for connecting to Azure Service Bus using managed identity [here](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Cache for Redis also supports [authentication using managed identity](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication). 
+Instead of storing credentials for Azure Cosmos DB and Azure Cache for Redis in key vaults, it is recommended to connect using Managed identities as password-free authentication mechanisms are more secure. Please find and example of connecting to Cosmos DB using managed identity [here](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos), and an example for connecting to Service Bus using managed identity [here](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Cache for Redis also supports [authentication using managed identity](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication). 
 
 ## Scenario details
 
@@ -103,9 +105,9 @@ API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [micro
 
 Ingress controllers simplify traffic ingestion into AKS clusters, improve safety and performance, and save resources. This architecture uses the [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) for ingress control. 
 
-It is recommended to use the [ingress controller with internal (private) IP address](/azure/aks/create-nginx-ingress-private-controller) and internal load balancer, and integrate to Azure private DNS zones for host name resolution of microservices. The private IP address (or host name) of ingress controller will be configured as the backend pool address in Azure Application Gateway. Azure Application Gateway receives traffic on the public end point, performs WAF inspections, and routes the traffic to ingress private IP address. 
+It is recommended to use the [ingress controller with internal (private) IP address](/azure/aks/create-nginx-ingress-private-controller) and internal load balancer, and integrate to Azure private DNS zones for host name resolution of microservices. The private IP address (or host name) of ingress controller will be configured as the backend pool address in Application Gateway. Application Gateway receives traffic on the public endpoint, performs WAF inspections, and routes the traffic to ingress private IP address. 
 
-The ingress controller should be configured with a [custom domain name and SSL certificate](/azure/aks/app-routing-dns-ssl), so that the traffic is end-to-end encrypted. Application Gateway receives traffic on the HTTPS listener, and after WAF inspections, routes traffic to the HTTPS end point of ingress controller. All microservices should be configured with custom domain names and SSL certificates, so that inter-microservice communication within the AKS cluster is also secured using SSL. 
+The ingress controller should be configured with a [custom domain name and SSL certificate](/azure/aks/app-routing-dns-ssl), so that the traffic is end-to-end encrypted. Application Gateway receives traffic on the HTTPS listener, and after WAF inspections, routes traffic to the HTTPS endpoint of ingress controller. All microservices should be configured with custom domain names and SSL certificates, so that inter-microservice communication within the AKS cluster is also secured using SSL. 
 
 Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers. Application routing add-on supports advanced configurations and customizations including [multiple ingress controllers within the same AKS cluster](/azure/aks/app-routing-nginx-configuration), and configuring ingress resources using annotations. 
 
@@ -298,7 +300,7 @@ Azure provides various mechanisms for monitoring microservice workloads:
 - Azure Monitor managed service for Prometheus and Container Insights work together for complete monitoring of your Kubernetes environment.
 - [Managed Grafana](/azure/managed-grafana/overview) for cluster and microservice visualization.
 
-To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with Azure Kubernetes Service [without code changes](/azure/azure-monitor/app/kubernetes-codeless).
+To contextualize services telemetry with the Kubernetes world, integrate Azure Monitor telemetry with AKS to collect metrics from controllers, nodes, and containers, as well as container and node logs. Application insights can be integrated with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless).
 
 ## Considerations
 
@@ -316,13 +318,13 @@ Consider the following points when planning for security.
 
 - An AKS pod authenticates itself by using a *workload identity* stored in Microsoft Entra ID. Using a workload identity is preferable because it doesn't require a client secret.
 
-- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
+- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Workload ID](/azure/aks/workload-identity-overview).
 
 - Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 
 - In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information on configuring and managing Kubernetes service account, see [Managing Kubernetes Service Accounts](/azure/aks/concepts-identity#kubernetes-service-accounts).
 
-- Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
+- Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Key Vault. Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [secrets-store-csi-driver-provider-azure](/azure/aks/csi-secrets-store-driver). We recommend maintaining separate key vaults for each microservices. The reference implementation uses separate key vaults for each microservice.
 
@@ -376,19 +378,19 @@ Consider the following points when planning for scalability.
 
 ## Next steps
 
-- [Introduction to Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Introduction to AKS](/azure/aks/intro-kubernetes)
 - [What is Azure Virtual Networks?](/azure/virtual-network/virtual-networks-overview)
-- [What is Azure Private Link?](/azure/private-link/private-link-overview)
-- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Private Link?](/azure/private-link/private-link-overview)
+- [What is Application Gateway?](/azure/application-gateway/overview)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
-- [About Azure Key Vault](/azure/key-vault/general/overview)
-- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [About Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
