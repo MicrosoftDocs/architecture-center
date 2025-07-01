@@ -126,7 +126,7 @@ Consider the following questions:
 
 ## Tenant migration
 
-Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-lifecycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
+Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
 
 - If your application uses domain names for mapping requests, then it might also require a DNS change at the time of the migration. The DNS change might take time to propagate to clients, depending on the time-to-live (TTL) of the DNS entries in your DNS service.
 - If your migration changes the addresses of any endpoints during the migration process, then consider temporarily redirecting requests for the tenant to a maintenance page that automatically refreshes.

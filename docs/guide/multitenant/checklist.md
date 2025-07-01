@@ -21,13 +21,13 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Understand the type of solution that you're creating, such as business-to-business (B2B), business-to-consumer (B2C), or your enterprise software, and [how tenants are different from users](./overview.md).  
 
-- [Define your tenants](./considerations/tenancy-models.yml#define-a-tenant). Understand how many tenants you initially support and define your growth plans.  
+- [Define your tenants](./considerations/tenancy-models.md#define-a-tenant). Understand how many tenants you initially support and define your growth plans.  
 
 - [Define your pricing model](./considerations/pricing-models.md) and ensure that it aligns with your [tenants' consumption of Azure resources](./considerations/measure-consumption.md).  
 
 - Understand whether you need to separate your tenants into different [tiers](./considerations/pricing-models.md#feature--and-service-level-based-pricing). Tiers might have different pricing, features, performance promises, and geographic locations.
 
-- Based on your customers' requirements, decide on the [tenancy models](./considerations/tenancy-models.yml) that are appropriate for various parts of your solution.  
+- Based on your customers' requirements, decide on the [tenancy models](./considerations/tenancy-models.md) that are appropriate for various parts of your solution.  
 
 - When you're ready, sell your B2B multitenant solution by using the [Microsoft commercial marketplace](/azure/marketplace/plan-saas-offer).  
 
@@ -51,7 +51,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system or via another method, like application-level tenant authorization.  
 
-- Design for [tenant isolation](./considerations/tenancy-models.yml#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).  
+- Design for [tenant isolation](./considerations/tenancy-models.md#tenant-isolation). Continuously [test your isolation model](./approaches/compute.md#isolation).  
 
 - Ensure that your application code prevents any cross-tenant access or data leakage.  
 
@@ -73,9 +73,9 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Operational Excellence considerations  
 
-- Use automation to manage the [tenant life cycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
+- Use automation to manage the [tenant life cycle](./considerations/tenant-life-cycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
 
-- Understand the differences between [control planes](./considerations/control-planes.yml) and data planes in your multitenant solution.  
+- Understand the differences between [control planes](./considerations/control-planes.md) and data planes in your multitenant solution.  
 
 - Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.  
 

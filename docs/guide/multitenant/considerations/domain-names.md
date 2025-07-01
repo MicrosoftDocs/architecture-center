@@ -1,6 +1,6 @@
 ---
-title: Considerations for Domain Names in Multitenant Solutions
-description: This article describes the considerations you need to give to domain names when building multitenant web applications.
+title: Domain Name Considerations in Multitenant Solutions
+description: This article describes the considerations that you need to give to domain names when you build multitenant web applications.
 author: johndowns
 ms.author: pnp
 ms.date: 06/13/2025
@@ -10,7 +10,7 @@ ms.custom:
  - arb-saas
 ---
 
-# Considerations for domain names in multitenant solutions
+# Domain name considerations in multitenant solutions
 
 In many multitenant web applications, you can use a domain name to provide the following capabilities:
 
@@ -26,7 +26,7 @@ You can assign each tenant a unique subdomain under a common shared domain name 
 
 Consider an example multitenant solution built by Contoso. Customers purchase Contoso's product to help manage their invoice generation. Contoso assigns all tenants their own subdomain under the `contoso.com` domain name. If Contoso uses regional deployments, they might assign subdomains under the `us.contoso.com` and `eu.contoso.com` domains.
 
-This article refers to these regional domains as *stem domains*. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might receive `tailwind.contoso.com`, or Adventure Works might receive `adventureworks.us.contoso.com` in a regional deployment model.
+This article refers to these regional domains as *stem domains*. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might receive `tailwind.contoso.com`. If you use a regional deployment model, Adventure Works might receive `adventureworks.us.contoso.com`.
 
 > [!NOTE]
 > Many Azure services use this approach. For example, when you create an Azure storage account, Azure assigns a set of subdomains, such as `<your account name>.blob.core.windows.net`.
@@ -108,7 +108,7 @@ You can also rewrite host headers so that regardless of the incoming request's `
 
 ### Domain validation
 
-You must validate the ownership of custom domains before you onboard them. Otherwise, a customer could accidentally or maliciously claim a domain name.
+You must validate the ownership of custom domains before you onboard them. Otherwise, a customer could accidentally or maliciously claim a domain name, which is sometimes referred to as *parking* a domain name.
 
 Consider Contoso's onboarding process for Adventure Works, who requested to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the *s*. So, they set it up as `invoices.adventurework.com`. As a result, traffic fails to flow correctly for Adventure Works. But when another company named *Adventure Work* tries to add their custom domain to Contoso's platform, they're told that the domain name is already in use.
 
@@ -135,7 +135,7 @@ Use the following strategies to protect against dangling DNS attacks:
 
 - Prohibit the reuse of tenant identifiers. And require each tenant to create a TXT record with a name that matches the domain name and a randomly generated value that changes for each onboarding attempt.
 
-## TLS and SSL certificates
+## TLS certificates
 
 TLS is an essential component of modern applications. It provides trust and security to your web applications. Carefully consider the ownership and management of TLS certificates for multitenant applications.
 

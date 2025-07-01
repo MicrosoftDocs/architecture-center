@@ -166,5 +166,4 @@ Product documentation:
 ## Related resources
 
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
-- [Automate document processing by using Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)
 - [Image classification on Azure](../../ai-ml/idea/intelligent-apps-image-processing.yml)

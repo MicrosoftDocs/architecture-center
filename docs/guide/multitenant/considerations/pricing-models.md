@@ -30,7 +30,7 @@ There are some key factors that influence your profitability:
 - **Azure service pricing models.** The pricing models of the Azure or third-party services that make up your solution may affect which models are profitable.
 - **Service usage patterns.** Users may only need to access your solution during their working hours or may only have a small percentage of high-volume users. Can you reduce your COGS by reducing the unused capacity when your usage is low?
 - **Storage growth.** Most solutions accumulate data over time. More data means a higher cost to store and protect it, reducing your profitability per tenant. Can you set storage quotas or enforce a data retention period?
-- **Tenant isolation.** The [tenancy model](tenancy-models.yml) you use affects the level of isolation you have between your tenants. If you share your resources, do you need to consider how tenants might over-utilize or abuse the service? How will the level of tenant isolation affect your COGS and performance for everyone?
+- **Tenant isolation.** The [tenancy model](tenancy-models.md) you use affects the level of isolation you have between your tenants. If you share your resources, do you need to consider how tenants might over-utilize or abuse the service? How will the level of tenant isolation affect your COGS and performance for everyone?
 
    Some pricing models aren't profitable without additional controls around resource allocation. For example, you might need to implement service throttling to make a flat-rate pricing model sustainable.
 - **Tenant lifecycle.** For example, solutions with high customer churn rates, or services that require a greater on-boarding effort, may suffer lower profitability&mdash;especially if they're priced using a consumption-based model.
