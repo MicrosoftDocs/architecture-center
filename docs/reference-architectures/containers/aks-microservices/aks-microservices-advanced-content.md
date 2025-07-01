@@ -199,33 +199,33 @@ The *cluster autoscaler (CA)* scales the number of nodes. Suppose pods can't be 
 
 The following example shows the CA configuration from the Bicep template:
 
-```json
-    autoScalerProfile: {
-      'scan-interval': '10s'
-      'scale-down-delay-after-add': '10m'
-      'scale-down-delay-after-delete': '20s'
-      'scale-down-delay-after-failure': '3m'
-      'scale-down-unneeded-time': '10m'
-      'scale-down-unready-time': '20m'
-      'scale-down-utilization-threshold': '0.5'
-      'max-graceful-termination-sec': '600'
-      'balance-similar-node-groups': 'false'
-      expander: 'random'
-      'skip-nodes-with-local-storage': 'true'
-      'skip-nodes-with-system-pods': 'true'
-      'max-empty-bulk-delete': '10'
-      'max-total-unready-percentage': '45'
-      'ok-total-unready-count': '3'
-    }
+```bicep
+autoScalerProfile: {
+  'scan-interval': '10s'
+  'scale-down-delay-after-add': '10m'
+  'scale-down-delay-after-delete': '20s'
+  'scale-down-delay-after-failure': '3m'
+  'scale-down-unneeded-time': '10m'
+  'scale-down-unready-time': '20m'
+  'scale-down-utilization-threshold': '0.5'
+  'max-graceful-termination-sec': '600'
+  'balance-similar-node-groups': 'false'
+  expander: 'random'
+  'skip-nodes-with-local-storage': 'true'
+  'skip-nodes-with-system-pods': 'true'
+  'max-empty-bulk-delete': '10'
+  'max-total-unready-percentage': '45'
+  'ok-total-unready-count': '3'
+}
 ```
 The following lines in the Bicep template set example minimum and maximum nodes for the cluster autoscaler:
 
-```json
-        minCount: 2
-        maxCount: 5
+```bicep
+minCount: 2
+maxCount: 5
 ```
 
-#### Horizontal Pod autoscaling
+#### Horizontal pod autoscaling
 
 The *Horizontal Pod Autoscaler (HPA)* scales pods based on observed CPU, memory, or custom metrics. To configure horizontal pod scaling, you specify target metrics and the minimum and the maximum number of replicas in the Kubernetes deployment pod spec. Load test your services to determine these numbers.
 
@@ -258,7 +258,7 @@ HPA looks at actual resources consumed or other metrics from running pods, but t
 
 Please refer to [scaling options for applications in AKS](/azure/aks/concepts-scale) for more information on autoscaling options in AKS.
 
-#### Vertical Pod autoscaling
+#### Vertical pod autoscaling
 
 The [Vertical Pod Autoscaler (VPA)](/azure/aks/use-vertical-pod-autoscaler) automatically adjusts the CPU and memory requests for your pods to match the usage patterns of your workloads. When configured, the VPA automatically sets resource requests and limits on containers per workload based on past usage. The VPA frees up CPU and Memory for other pods and helps ensure effective utilization of your AKS clusters.
 
