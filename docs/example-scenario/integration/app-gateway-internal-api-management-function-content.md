@@ -76,6 +76,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes your availability and performance.
+- The premium tier is recommended because it supports availability zones and multiregion deployments. This means your services can keep running even if one region or zone goes down. These features help protect your application during outages or disasters.
+- From a disaster recovery standpoint when setting up API Management, use a user-assigned managed identity instead of a system-assigned one. This way, if you redeploy or remove the resource, your identity and its permissions (like access to Key Vault secrets) stay intact, making it easier to restore access. Also, automate your backups with Azure Pipelines and decide if you need to deploy your services in multiple regions for extra reliability.
 - Virtual network peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design ](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
 
 ### Security
@@ -83,6 +85,7 @@ Reliability helps ensure that your application can meet the commitments that you
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These features aren't a replacement for a [Web Application Firewall](/azure/web-application-firewall/overview), but they can provide additional protection against some threats. Adding validation policies can have performance implications, so we recommend you use performance load tests to assess their impact on API throughput.
+- Azure API Management [Workspaces](azure/api-management/workspaces-overview) help you organize and isolate your APIs, making it easier to control who can access and manage them. Each workspace can have its own set of permissions, so you can limit access to only the people or teams who need it. This separation reduces the risk of accidental changes or unauthorized access, supporting a more secure API environment.
 - [Apply named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in APIM policies.
 - Use [Application Gateway for external access of an internal APIM instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance, provide protection against common web application exploits and vulnerabilities using WAF, and to enable hybrid connectivity. 
 - Deploy the API Management gateway in a VNet, to support hybrid connectivity and increased security.
