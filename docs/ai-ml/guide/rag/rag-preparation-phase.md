@@ -237,8 +237,6 @@ Like with text, you should gather a diverse set of questions that involve using 
 > [!div class="nextstepaction"]
 > [Chunking phase](./rag-chunking-phase.md)
 
-## Related resources
-
-- [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence)
+## Related resource
 
 - [Get started with the chat by using your own data sample for Python](/azure/developer/python/get-started-app-chat-template)
