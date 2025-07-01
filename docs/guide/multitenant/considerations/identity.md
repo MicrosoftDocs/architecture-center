@@ -26,7 +26,7 @@ Your customers might also wish to authorize external applications to access thei
 
 Before you define a multitenant identity strategy, first consider the following high-level identity requirements for your service:
 
-- Determine whether users or [workload identities](#workload-identities) access a single application or multiple applications within a product family. Some product families include distinct applications that share the same identity infrastructure, such as point-of-sale systems and inventory management platforms.
+- Determine whether users or [workload identities](#workload-identities) access a single application or multiple applications within a product family. Some product families might include distinct applications that share the same identity infrastructure, such as point-of-sale systems and inventory management platforms.
 
 - Consider whether your solution implements modern authentication and authorization standards, such as OAuth2 and OpenID Connect.
 
@@ -34,13 +34,13 @@ Before you define a multitenant identity strategy, first consider the following 
 
 - Determine whether tenants need to federate with their own IdPs and if multiple IdPs must be supported for each tenant. For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services where each tenant federates with your solution. Identify which federation protocols their IdPs use because those protocols determine what your IdP must support.
 
-- Review any applicable compliance requirements that they meet, such as the [General Data Protection Regulation](/compliance/regulatory/gdpr), that shape your identity strategy.
+- Review any applicable compliance requirements that they need to meet, such as the [General Data Protection Regulation](/compliance/regulatory/gdpr), that shape your identity strategy.
 
 - Determine whether tenants require identity data to be stored in specific geographic regions to meet legal or operational needs.
 
 - Assess whether users access data from one or multiple tenants within the application. You might also need to support seamless tenant switching or provide consolidated views across tenants for specific users.
 
-- Determine whether users of your solution access data from one tenant or from multiple tenants within your application. Also determine whether users quickly switch between tenants or view consolidated information from multiple tenants. For example, users who sign into the Azure portal easily switch between different Microsoft Entra ID directories and subscriptions that they access.
+- Determine whether users of your solution require access to data from one tenant or from multiple tenants within your application. Also determine whether users need to quickly switch between tenants or view consolidated information from multiple tenants. For example, users who sign into the Azure portal can easily switch between different Microsoft Entra ID directories and subscriptions that they have access to.
 
 When you establish your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up and sign-in flows.
 
@@ -132,15 +132,15 @@ If users can sign themselves up for an identity, define a process to grant them 
 
 - Define whether your solution automatically revokes user access to a tenant when appropriate. For example, when users leave an organization, there should be a manual or automated process in place to remove their access.
 
-- Provide a user audit capability so that tenants review which users have access to their environment and understand their assigned permissions.
+- Provide a user audit capability so that tenants can review which users have access to their environment and understand their assigned permissions.
 
 ## Automated account life cycle management
 
 A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and offboarding. Open protocols, such as [System for Cross-Domain Identity Management (SCIM)](/entra/architecture/sync-scim), provide an industry-standard approach to automation. This automated process usually includes the creation and removal of identity records and the management of tenant permissions. Consider the following factors when you implement automated account life cycle management in a multitenant solution:
 
-- Determine whether your customers configure and manage an automated life cycle process for each tenant. For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions.  
+- Determine whether your customers need to configure and manage an automated life cycle process for each tenant. For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions. 
 
-- Determine whether you implement SCIM or offer federation. Federation allows tenants to retain control over user management by keeping the source of truth within their own systems instead of managing local users in your solution.
+- Determine whether you need to implement SCIM or offer federation. Federation allows tenants to retain control over user management by keeping the source of truth within their own systems instead of managing local users in your solution.
 
 ## User authentication process
 
