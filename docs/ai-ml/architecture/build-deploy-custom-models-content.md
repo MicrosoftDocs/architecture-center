@@ -219,4 +219,3 @@ Principal author:
 
 - [Extract text from objects by using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP by using deep learning](../../data-guide/technology-choices/natural-language-processing.md)
-- [Automate document processing by using Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)
