@@ -26,21 +26,21 @@ Your customers might also wish to authorize external applications to access thei
 
 Before you define a multitenant identity strategy, first consider the following high-level identity requirements for your service:
 
-- Determine whether users or [workload identities](#workload-identities) will access a single application or multiple applications within a product family. Some product families might include distinct applications that share the same identity infrastructure, such as point-of-sale systems and inventory management platforms.
+- Determine whether users or [workload identities](#workload-identities) access a single application or multiple applications within a product family. Some product families include distinct applications that share the same identity infrastructure, such as point-of-sale systems and inventory management platforms.
 
-- Consider whether your solution will implement modern authentication and authorization standards, such as OAuth2 and OpenID Connect.  
+- Consider whether your solution implements modern authentication and authorization standards, such as OAuth2 and OpenID Connect.
 
-- Evaluate whether authentication is limited to UI-based applications or if API access will also be provided to tenants and non-Microsoft systems.
+- Evaluate whether authentication is limited to UI-based applications or if API access also applies to tenants and non-Microsoft systems.
 
-- Determine whether tenants will need to federate with their own IdPs and if multiple IdPs need to be supported for each tenant. For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services where each tenant wants to federate with your solution. Identify which federation protocols their IdPs use because those protocols determine what your IdP must support.
+- Determine whether tenants need to federate with their own IdPs and if multiple IdPs must be supported for each tenant. For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services where each tenant federates with your solution. Identify which federation protocols their IdPs use because those protocols determine what your IdP must support.
 
-- Review any applicable compliance requirements that they need to meet, such as the [General Data Protection Regulation](/compliance/regulatory/gdpr), that might shape your identity strategy.  
+- Review any applicable compliance requirements that they meet, such as the [General Data Protection Regulation](/compliance/regulatory/gdpr), that shape your identity strategy.
 
-- Determine whether tenants require identity data to be stored in specific geographic regions to meet legal or operational needs.  
+- Determine whether tenants require identity data to be stored in specific geographic regions to meet legal or operational needs.
 
-- Assess whether users need access to data from one or multiple tenants within the application. You might also need to support seamless tenant switching or provide consolidated views across tenants for specific users.
+- Assess whether users access data from one or multiple tenants within the application. You might also need to support seamless tenant switching or provide consolidated views across tenants for specific users.
 
-- Determine whether users of your solution require access to data from one tenant or from multiple tenants within your application. Also determine whether users need to quickly switch between tenants or view consolidated information from multiple tenants. For example, users who sign into the Azure portal can easily switch between different Microsoft Entra ID directories and subscriptions that they have access to.
+- Determine whether users of your solution access data from one tenant or from multiple tenants within your application. Also determine whether users quickly switch between tenants or view consolidated information from multiple tenants. For example, users who sign into the Azure portal easily switch between different Microsoft Entra ID directories and subscriptions that they access.
 
 When you establish your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up and sign-in flows.
 
@@ -128,19 +128,19 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 If users can sign themselves up for an identity, define a process to grant them access to a tenant. The sign-up flow might include a manual access grant process or an automated process based on the information about the users, such as their email addresses. It's important to plan for this process and consider the following factors:
 
-- Define how the sign-up flow will determine that a user should be granted access to a specific tenant.
+- Define how the sign-up flow determines that a user is granted access to a specific tenant.
 
-- Define whether your solution will automatically revoke user access to a tenant when appropriate. For example, when users leave an organization, there should be a manual or automated process in place to remove their access.
+- Define whether your solution automatically revokes user access to a tenant when appropriate. For example, when users leave an organization, there should be a manual or automated process in place to remove their access.
 
-- Provide a user audit capability so that tenants can review which users have access to their environment and understand their assigned permissions.
+- Provide a user audit capability so that tenants review which users have access to their environment and understand their assigned permissions.
 
 ## Automated account life cycle management
 
 A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and offboarding. Open protocols, such as [System for Cross-Domain Identity Management (SCIM)](/entra/architecture/sync-scim), provide an industry-standard approach to automation. This automated process usually includes the creation and removal of identity records and the management of tenant permissions. Consider the following factors when you implement automated account life cycle management in a multitenant solution:
 
-- Determine whether your customers need to configure and manage an automated life cycle process for each tenant. For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions.  
+- Determine whether your customers configure and manage an automated life cycle process for each tenant. For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions.  
 
-- Determine whether you need to implement SCIM or offer federation. Federation allows tenants to retain control over user management by keeping the source of truth within their own systems instead of managing local users in your solution.
+- Determine whether you implement SCIM or offer federation. Federation allows tenants to retain control over user management by keeping the source of truth within their own systems instead of managing local users in your solution.
 
 ## User authentication process
 
@@ -164,15 +164,15 @@ Workload identities are similar to user identities, but usually they require dif
 
 If your tenants can enable workload identity access to your multitenant solution, then you should consider the following factors:
 
-- Determine how workload identities will be created and managed in each tenant.
+- Determine how workload identities are created and managed in each tenant.
 
-- Decide how workload identity requests will be scoped to the tenant.
+- Decide how workload identity requests are scoped to the tenant.
 
 - Evaluate if you need to limit the number of workload identities that each tenant creates.
 
 - Determine if CA controls are required for workload identities in each tenant. For example, a tenant might want to limit a workload identity from being authenticated from outside a specific region.
 
-- Identify which security controls you will provide to tenants to ensure that workload identities remain secure. For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring help reduce the risk of workload identity misuse.
+- Identify which security controls you provide to tenants to ensure that workload identities remain secure. For example, automated key rolling, key expiration, certificate expiration, and sign-in risk monitoring help reduce the risk of workload identity misuse.
 
 ## Federate with an IdP for SSO
 
@@ -182,13 +182,13 @@ Federation is especially important when some tenants want to specify their own i
 
 If you expect tenants to federate with your solution, consider the following factors:
 
-- Consider the process for configuring the federation for a tenant. Determine if tenants can configure federation themselves or if the process requires manual configuration and maintenance by your team.
+- Consider the process for configuring the federation for a tenant. Determine if tenants configure federation themselves or if the process requires manual configuration and maintenance by your team.
 
-- Define which federation protocols your solution will support.
+- Define which federation protocols your solution supports.
 
-- Establish processes that prevent federation misconfigurations from granting access to unintended tenants.  
+- Establish processes that prevent federation misconfigurations from granting access to unintended tenants.
 
-- Plan for whether a single tenant's IdP will need to be federated to more than one tenant in your solution. For example, if customers have both a training and a production tenant, they might need to federate the same IdP with each tenant.
+- Plan for whether a single tenant's IdP needs to be federated to more than one tenant in your solution. For example, if customers have both a training and a production tenant, they might need to federate the same IdP with each tenant.
 
 ## Authorization models
 
@@ -210,15 +210,15 @@ The application code or a dedicated entitlements system typically tracks and enf
 
 As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Consider the following factors:
 
-- Assess whether the user directory will scale to support the required number of users.  
+- Assess whether the user directory scales to support the required number of users.
 
-- Evaluate whether the authentication process will handle the expected number of sign-ins and sign-ups.
+- Evaluate whether the authentication process handles the expected number of sign-ins and sign-ups.
 
-- Determine whether there will be spikes that the authentication system can't handle. For example, at 9 AM Pacific Time, everyone in the western United States might start work and sign in to your solution, which creates a spike in sign-in requests. These scenarios are sometimes called *login storms*.
+- Determine whether there are spikes that the authentication system can't handle. For example, at 9 AM Pacific Time, everyone in the western United States might start work and sign in to your solution, which creates a spike in sign-in requests. These scenarios are sometimes called *login storms*.
 
-- Determine whether high load in parts of your solution can affect the performance of the authentication process. For example, if authentication requires calling into an application-tier API, a surge in authentication requests could affect overall system performance.
+- Determine whether high load in parts of your solution affects the performance of the authentication process. For example, if authentication requires calling into an application-tier API, a surge in authentication requests could affect overall system performance.
 
-- Define how your solution will behave if the IdP becomes unavailable. Include whether a backup authentication service is in place to maintain business continuity.
+- Define how your solution behaves if the IdP becomes unavailable. Include whether a backup authentication service is in place to maintain business continuity.
 
 ## Contributors
 
