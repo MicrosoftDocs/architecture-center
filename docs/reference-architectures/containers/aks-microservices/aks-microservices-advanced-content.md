@@ -45,18 +45,19 @@ The AKS infrastructure features used in this architecture include:
 - [Azure Policy Add-on for AKS](/azure/aks/use-azure-policy)
 - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
 - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview)
+- [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing)
 
 **[Azure virtual networks](/azure/well-architected/service-guides/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure Firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
-**[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vaults from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
+**[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vaults through the Microsoft backbone network. PaaS services such as Azure Container Registry and Azure Key Vault are accessed over a private endpoint from the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) as the Kubernetes ingress controller. 
+**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this reference architecture, the ingestion microservice is exposed as a public end point using Azure Application Gateway. 
 
-**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, outbound communications from microservices to  resources outside of the virtual network are controlled by Azure Firewall.
+**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** Azure Firewall is a cloud-native, intelligent network firewall security service that offers threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, outbound communications from microservices to  resources outside of the virtual network are controlled by Azure Firewall.
 
 **External storage and other components:**
 
-**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for Azure services.
+**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for Azure services. Secret values, certificates, and keys can be stored and securely managed using Azure Key Vault. In this scenario, credentials for Azure Cosmos DB, Azure Cache for Redis etc. are stored in Azure Key Vaults. 
 
 **[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this scenario, the container images for microservices are stored here.
 
@@ -70,17 +71,19 @@ The AKS infrastructure features used in this architecture include:
 
 **Other operations support system (OSS) components:**
 
-**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
+**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this scenario, microservices are packaged deployed to the AKS cluster using helm commands. 
 
-**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, CosmosDB credentials, Azure cache for Redis credentials, and more are stored in Azure Key Vaults.
+**[Azure Key Vault Secret Store CSI provider](/azure/aks/csi-secrets-store-driver)** The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, the key vault secrets are mounted as a volume in microservice containers, so that credentials for CosmosDB, Azure Cache for Redis, Azure Service Bus etc. can be retrieved by the respective microservices.
 
 **[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)**, an open and extensible continuous delivery solution for Kubernetes, enabling [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
 ### Alternatives
 
-Instead of using Azure Application Gateway ingress controller, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), [application routing add-on](/azure/aks/app-routing) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in Azure Kubernetes Service](/azure/aks/concepts-network-ingress). Azure Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing.
+Instead of using Application routing add-on, you can use alternatives like [Application gateway for containers](/azure/application-gateway/for-containers/overview), and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, please see [Ingress in Azure Kubernetes Service](/azure/aks/concepts-network-ingress). Azure Application Gateway for containers is an evolution of Application Gateway ingress controller and provides additional features such as traffic splitting and weighted round-robin load balancing. 
 
 Instead of Flux v2, ArgoCD can be used the GitOps tool. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
+
+Instead of storing credentials for Azure Cosmos DB, Azure Cache for Redis etc. in Key Vaults, it is recommended to connect using Managed identities as password-free authentication mechanisms are more secure. Please find and example of connecting to Cosmos DB using managed identity [here](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos), and an example for connecting to Azure Service Bus using managed identity [here](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Cache for Redis also supports [authentication using managed identity](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication). 
 
 ## Scenario details
 
@@ -90,7 +93,7 @@ The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-
 
 Implement these recommendations when deploying advanced AKS microservices architectures.
 
-### Application Gateway Ingress Controller (AGIC)
+### Managed NGINX ingress with application routing add-on
 
 API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](/azure/architecture/microservices/design/gateway). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
 
@@ -98,13 +101,13 @@ API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [micro
 - Aggregating multiple requests into a single request to reduce chatter between the client and the backend.
 - Offloading functionality like SSL termination, authentication, IP restrictions, and client rate-limiting or throttling from the backend services.
 
-The state of the AKS cluster is translated to Application Gateway-specific configuration and applied via Azure Resource Manager.
+Ingress controllers simplify traffic ingestion into AKS clusters, improve safety and performance, and save resources. This architecture uses the [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) for ingress control. 
 
-External ingress controllers simplify traffic ingestion into AKS clusters, improve safety and performance, and save resources. This architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control. Using Application Gateway to handle all traffic eliminates the need for an extra load balancer. Because pods establish direct connections against Application Gateway, the number of required hops is reduced, which results in better performance.
+It is recommended to use the [ingress controller with internal (private) IP address](/azure/aks/create-nginx-ingress-private-controller) and internal load balancer, and integrate to Azure private DNS zones for host name resolution of microservices. The private IP address (or host name) of ingress controller will be configured as the backend pool address in Azure Application Gateway. Azure Application Gateway receives traffic on the public end point, performs WAF inspections, and routes the traffic to ingress private IP address. 
 
-Application Gateway has built-in autoscaling capabilities, unlike in-cluster ingress controllers that must be scaled out if they consume an undesired amount of compute resources. Application Gateway can perform layer-7 routing and SSL termination and has end-to-end Transport Layer Security (TLS) integrated with a built-in *web application firewall (WAF)*.
+The ingress controller should be configured with a [custom domain name and SSL certificate](/azure/aks/app-routing-dns-ssl), so that the traffic is end-to-end encrypted. Application Gateway receives traffic on the HTTPS listener, and after WAF inspections, routes traffic to the HTTPS end point of ingress controller. All microservices should be configured with custom domain names and SSL certificates, so that inter-microservice communication within the AKS cluster is also secured using SSL. 
 
-For the [AGIC](/azure/application-gateway/ingress-controller-overview) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
+Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers. Application routing add-on supports advanced configurations and customizations including [multiple ingress controllers within the same AKS cluster](/azure/aks/app-routing-nginx-configuration), and configuring ingress resources using annotations. 
 
 ### Zero-trust network policies
 
