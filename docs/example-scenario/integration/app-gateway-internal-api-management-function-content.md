@@ -38,7 +38,7 @@ The architecture uses the following components:
 
 - **[Azure API Management](/azure/well-architected/service-guides/api-management/reliability)** is a managed service that allows you to manage services across hybrid and multi-cloud environments. API management acts as a facade to abstract the backend architecture, and it provides control and security for API observability and consumption for both internal and external users.
 
-- **[Azure Functions](/azure/well-architected/service-guides/azure-functions-security)** is a serverless solution that allows you to focus more on blocks of code that can be executed with minimal infrastructure management. Functions can be hosted in [various hosting plans](/azure/azure-functions/functions-scale), whereas this reference architecture uses the premium plan, due to the use of private endpoints.
+- **[Azure Functions](/azure/well-architected/service-guides/azure-functions-security)** is a serverless solution that allows you to focus more on blocks of code that can be executed with minimal infrastructure management. Functions can be hosted in [various hosting plans](/azure/azure-functions/functions-scale), wwhereas this reference architecture uses the premium plan. You can also utilize the flex consumption or  Dedicated (App Service) plan as an alternative option.
 
 - **[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that acts as a layer 7 load balancer and [web application firewall](/azure/web-application-firewall/ag/ag-overview). In this scenario, the Application Gateway protects the internal API Management (APIM) instance, enabling the use of both internal and external modes. Application Gateway plays a critical role in the architecture. While API Management focuses on securing APIs, Application Gateway adds complementary capabilities such as Web Application Firewall (WAF).
 
@@ -88,6 +88,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Deploy the API Management gateway in a VNet, to support hybrid connectivity and increased security.
 - VNet peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
 - By utilizing a WAF, you introduce a layer that inspects incoming traffic for malicious behavior, helping to block common threats like SQL injection and cross-site scripting. Additionally, with DDoS protection, Application Gateway helps prevent the APIM instance from being overwhelmed by excessive traffic or connection floods. To review the process of how Application Gateway can protect your api's review the article [here](/azure/architecture/web-apps/api-management/architectures/protect-apis).
+- Utilizing private endpoints for Azure Functions allows you to securely connect to your function apps over a private IP address within your virtual network. This setup prevents exposure of your functions to the public internet, reducing the risk of unauthorized access. By using private endpoints, in this architecture you ensure that only trusted resources within your network can access your Azure Functions.
 
 ### Cost Optimization
 
