@@ -37,15 +37,16 @@ This flow explains how a user can use the tool:
 The automation presented in this scenario consists of the following components:
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and other identity services to protect against cybersecurity threats. In this architecture, its used to provide secure authentication and authorization to the Azure Governance Visualizer's web app to a specific Entra ID group.
+
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots. In this architecture, its used to host the output of the Azure Governance Visualizer to provide secure and smooth access across the organization.
+
 - [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects. In this architecture, its used to host the infrastructure-as-code for the solution and the GitHub actions used to deploy and maintain it.
+
 - [GitHub Actions](/azure/developer/github/github-actions) is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. In this architecture, it provides continuous integration and continuous deployment capabilities to deploy and update the Azure Governance Visualizer.
 
 ## Alternatives
 
-- The Azure Governance Visualizer is a PowerShell script, which can be run directly on a local machine. The visualizer can be configured to run as part of GitHub Actions to receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
-
-- The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective, like [Azure Static Web Apps](/azure/static-web-apps/overview).
+The Azure Governance Visualizer is a PowerShell script, which can be run directly on a local machine. The visualizer can be configured to run as part of GitHub Actions to receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
 
 ## Scenario details
 
@@ -81,7 +82,7 @@ For more information about security controls, see [Azure security baseline for A
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight.
+- The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight. The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective.
 
 - Use the Azure pricing calculator to see a [pricing estimate for this solution](https://aka.ms/azgovvizacceleratorpricing).
 
