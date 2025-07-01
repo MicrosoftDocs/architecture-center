@@ -26,13 +26,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and Microsoft Entra Conditional Access.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and Microsoft Entra Conditional Access. In this architecture, Microsoft Entra ID provides more secure access to cloud applications and services.
 
-- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a service that uses virtual network gateways to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet.
+- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a service that uses virtual network gateways to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet. In this architecture, VPN Gateway allows Active Directory synchronization traffic to flow more securely between environments.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that you can use to extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that you can use to extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. In this architecture, ExpressRoute is an alternative to VPN connections for scenarios that require higher bandwidth and lower latency.
 
-- [Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks on Azure. You can use it to enable Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks.
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks on Azure. You can use it to enable Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network supports domain replication and authentication.
 
 ## Scenario details 
 
