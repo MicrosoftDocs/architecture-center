@@ -22,14 +22,14 @@ This architecture assumes that the policies are in place from the [Azure landing
 This scenario requires a site-to-site or an Azure ExpressRoute connection to your on-premises environment.
 
 1. An on-premises application requires access to an internal API that's served through Azure API Management.
-2. API Management connects to the backend APIs that are hosted on Azure Functions. This connection is through a private endpoint, which is available through the Azure Functions Premium plan, and is hosted in its own subnet.
+2. API Management connects to the backend APIs that are hosted on Azure Functions. This connection is through a private endpoint, which is available through the Azure Functions Premium plan.
 3. The private endpoint securely accesses the internal API that's hosted on Azure Functions.
 
 #### External Access Scenario (black circles)
 
 1. An external application accesses a public IP address or custom FQDN, which is attached to Azure Application Gateway.
 2. Application Gateway acts as the web application firewall, which requires PFX certificates for SSL termination.
-3. API Management connects to the backend APIs, which are hosted on Azure Functions, through a private endpoint. This endpoint is available through the Azure Functions Premium plan and is hosted in its own subnet.
+3. API Management connects to the backend APIs, which are hosted on Azure Functions, through a private endpoint. This endpoint is available through the Azure Functions Premium plan.
 4. The private endpoint securely accesses the externally available API that's hosted on Azure Functions.
 
 ### Components
