@@ -16,39 +16,36 @@ This architecture shows how to build a comprehensive system for generating busin
 
 The following workflow corresponds to the preceding diagram:
 
-1. Enterprise documents and reference materials are stored as foundational knowledge, providing the content base for document generation.
+1. Enterprise documents and reference materials serve as foundational knowledge for document generation and are ingested into the system.
 
-2. Azure Storage Account receives and stores the enterprise documents, making them available for processing and indexing by downstream services.
+2. A synchronization process manages the ingestion and updating of enterprise data from various sources.
 
-3. Data preparation using Azure Search Service to create the index and, optionally, using Document Intelligence for processing PDFs and an embedding model for vector search.
+3. Azure Storage Account receives and stores enterprise documents (including PDF files), making them available for processing and indexing by downstream services. Also stores generated documents.
 
-4. Azure AI Search creates searchable indexes from the processed documents, enabling semantic search capabilities and rapid information retrieval for document generation.
+4. Azure AI Services (specifically Azure Document Intelligence) processes PDFs and other documents, performing enrichment and vectorization to prepare content for indexing.
 
-5. Azure OpenAI Service utilizes the indexed content to power conversational interactions and generate contextual documents based on user queries and organizational data.
+5. Azure AI Search creates searchable indexes from the processed and enriched documents, enabling semantic search capabilities and rapid information retrieval for document generation.
 
-6. App Service hosts the web frontend where users interact with the system through natural language to generate structured and unstructured documents, and export finished documents in DOCX format.
+6. Azure OpenAI Service utilizes the indexed content to power conversational interactions through Chat Completion, Conversation Loop, and JSON Mode via SDK, generating contextual documents based on user queries and organizational data.
 
-7. Azure Cosmos DB stores generated documents, conversation history, and user interactions to cache results and avoid regeneration, while maintaining context for continuous improvement.
+7. App Service hosts the web frontend where users interact with the system through natural language to chat with their own data, generate document templates, and export finished documents.
 
-8. Container Registry maintains versioned container images for the web application, enabling consistent deployment and rollback capabilities.
+8. Azure Cosmos DB conversation history, and user interactions to cache results and avoid regeneration, while maintaining context for continuous improvement.
 
 ### Components
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web frontend interface where users interact with their enterprise data through conversational AI functionality. The interface enables both structured and unstructured document generation and DOCX export capabilities, providing a responsive and intuitive user experience.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI Service powers the conversational interface and document generation capabilities, utilizing GPT models to understand user queries, synthesize content from enterprise data, and generate contextual documents ranging from structured forms to unstructured business content.
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI Service powers the conversational interface and document generation capabilities, utilizing GPT models through Chat Completion, Conversation Loop, and JSON Mode via SDK to understand user queries, synthesize content from enterprise data, and generate contextual documents ranging from structured forms to unstructured business content.
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over diverse content types. In this architecture, Azure AI Search enables retrieval-augmented generation (RAG) by creating semantic search indexes of enterprise documents, allowing the system to quickly identify and retrieve relevant information for contextual document generation and locate previously cached documents.
 
-- [Azure AI Services](/azure/ai-services/) provides a collection of AI services for processing and understanding various types of content. In this architecture, Azure AI Services processes enterprise documents to extract text, understand structure, and prepare content for indexing and generation workflows, supporting both structured and unstructured document creation.
+- [Azure AI Services](/azure/ai-services/) provides a collection of AI services for processing and understanding various types of content. In this architecture, Azure AI Services processes enterprise documents through Azure Document Intelligence to extract text, understand structure, and perform enrichment and vectorization to prepare content for indexing and generation workflows, supporting both structured and unstructured document creation.
 
-- [Azure Storage Account](/azure/well-architected/service-guides/azure-blob-storage) is Microsoft's object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Azure Storage Account stores enterprise documents and reference materials that provide the foundational knowledge base for the document generation process.
+- [Azure Storage Account](/azure/well-architected/service-guides/azure-blob-storage) is Microsoft's object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Azure Storage Account stores enterprise documents and reference materials (including PDF files) that provide the foundational knowledge base for the document generation process. It is also used to store generated documents for caching purposes.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores conversation history, user interactions, and generated documents for caching purposes. This maintains context across sessions, enables intelligent document retrieval, and eliminates regeneration overhead for improved performance.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Cosmos DB stores conversation history and user interactions. This maintains context across sessions, enables intelligent document retrieval, and eliminates regeneration overhead for improved performance.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, keys, and certificates. In this architecture, Key Vault manages all connection strings, API keys, and security credentials for secure communication between Azure services, ensuring strong security throughout the document generation and caching process.
-
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages versioned container images for the web application, ensuring consistent deployment across environments and enabling reliable rollback capabilities for the document generation solution.
 
 ## Scenario details
 
