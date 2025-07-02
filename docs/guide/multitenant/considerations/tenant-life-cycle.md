@@ -23,7 +23,7 @@ Trials introduce the following unique considerations:
 
 - **Infrastructure:** Determine whether to host trial tenants on the same infrastructure as full customers or use dedicated infrastructure.
 - **Migration:** Plan how to migrate data from a trial tenant to a paid tenant if a customer purchases your service after a trial.
-- **Request process:** Define who can request a trial, how to prevent abuse of your solution, and whether to automate the trial creation or involve your team.
+- **Request process:** Define who can request a trial, how to prevent misuse of your solution, and whether to automate the trial creation or involve your team.
 - **Limits:** Set appropriate limits on trial customers, such as time limits, feature restrictions, or performance caps.
 
 In some situations, a [free pricing model that has limited functionality](pricing-models.md#freemium-pricing) can serve as an alternative to providing trials.
@@ -70,9 +70,9 @@ You might need to move tenants between infrastructure for several reasons. Consi
 
 - **Upgrades:** A tenant upgrades their SKU or pricing tier and must move to a single-tenant, dedicated deployment that has higher isolation from other tenants.
 - **Migrations:** A tenant requests to move their data to a dedicated data store.
-- **Region moves:** A tenant requires their data to reside in a different geographic region. This requirement might occur during a company acquisition or changes in legal or geopolitical conditions.
+- **Region moves:** A tenant requires their data to reside in a different geographic region. This requirement might occur during a company acquisition or because of changes in legal or geopolitical conditions.
 
-Consider how you move your tenants' data and how you redirect requests to the new set of infrastructure that hosts their instance. Also consider whether moving a tenant might result in downtime, and make sure tenants fully understand the risk.
+Consider how you move your tenants' data and how you redirect requests to the new set of infrastructure that hosts their instance. Also consider whether moving a tenant might result in downtime, and make sure that tenants fully understand the risk.
 
 ## Merge and split tenants
 

@@ -34,11 +34,11 @@ This article refers to these regional domains as *stem domains*. Each customer g
 
 ### Manage your domain namespace
 
-When you create subdomains under your own domain name, you could have multiple customers with similar names. They share a single stem domain, so the first customer to claim a particular domain receives their preferred name. Subsequent customers have to use alternate subdomain names because full domain names must remain globally unique.
+When you create subdomains under your own domain name, you could have multiple customers with similar names. They share a single stem domain, so the first customer to claim a specific domain receives their preferred name. Subsequent customers have to use alternate subdomain names because full domain names must remain globally unique.
 
 ### Wildcard DNS
 
-Use wildcard Domain Name System (DNS) entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com` or `adventureworks.contoso.com`, you could create a wildcard entry for `*.contoso.com`. Direct all subdomains to single IP address by using an A record or to a canonical name by using a CNAME record. If you use regional stem domains, you might need multiple wildcard entries, such as `*.us.contoso.com` and `*.eu.contoso.com`.
+Use wildcard Domain Name System (DNS) entries to simplify the management of subdomains. Instead of creating DNS entries for `tailwind.contoso.com` or `adventureworks.contoso.com`, you could create a wildcard entry for `*.contoso.com`. Direct all subdomains to a single IP address by using an A record or to a canonical name by using a CNAME record. If you use regional stem domains, you might need multiple wildcard entries, such as `*.us.contoso.com` and `*.eu.contoso.com`.
 
 > [!NOTE]
 > Make sure that your web-tier services support wildcard DNS if you plan to use this feature. Many Azure services, including Azure Front Door and Azure App Service, support wildcard DNS entries.
@@ -66,7 +66,7 @@ Contoso can use the following DNS entries to support this configuration.
 | `fabrikam.contoso.com` | `eu.contoso.com` |
 | `worldwideimporters.contoso.com` | `eu.contoso.com` |
 
-Each new onboarded customer requires a new subdomain, and the number of subdomains grows with each customer.
+Each new onboarded customer requires a new subdomain. The number of subdomains increases with each customer.
 
 Alternatively, Contoso could use deployment-specific or region-specific stem domains.
 
@@ -117,11 +117,11 @@ You must validate the ownership of custom domains before you onboard them. Other
 
 Consider Contoso's onboarding process for Adventure Works, who requested to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the *s*. So they set it up as `invoices.adventurework.com`. As a result, traffic fails to flow correctly for Adventure Works. But when another company named *Adventure Work* tries to add their custom domain to Contoso's platform, they're told that the domain name is already in use.
 
-To prevent this problem, especially within a self-service or automated process, you can require a domain verification step. You might require that the customer creates a CNAME record before the domain can be added. Alternatively, you might generate a random string and ask the customer to add a DNS TXT record that includes the string value. The domain name can't be added until the verification succeeds.
+To prevent this problem, especially within a self-service or automated process, you can require a domain verification step. You might require the customer to create a CNAME record before the domain can be added. Alternatively, you might generate a random string and ask the customer to add a DNS TXT record that includes the string value. The domain name can't be added until the verification succeeds.
 
 ### Dangling DNS and subdomain takeover attacks
 
-When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). These attacks occurs when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a nonexistent resource and is vulnerable to a takeover.
+When you work with custom domain names, you expose your platform to a class of attacks called [*dangling DNS* or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). These attacks occur when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a nonexistent resource and is vulnerable to a takeover.
 
 Consider how Fabrikam's relationship with Contoso might change if the following scenario occurs:
 
@@ -136,7 +136,7 @@ Consider how Fabrikam's relationship with Contoso might change if the following 
 
 Use the following strategies to protect against dangling DNS attacks:
 
-- Require that the CNAME record is deleted *before* the domain name can be removed from the tenant's account.
+- Require the CNAME record to be deleted *before* the domain name can be removed from the tenant's account.
 
 - Prohibit the reuse of tenant identifiers. And require each tenant to create a TXT record with a name that matches the domain name and a randomly generated value that changes for each onboarding attempt.
 
