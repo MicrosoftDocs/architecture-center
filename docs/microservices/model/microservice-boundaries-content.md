@@ -1,4 +1,4 @@
-Defining the right size for a microservice is challenging. Guidance often emphasizes avoiding extremes of too large or too small but that advice can be vague in practice. Starting with a carefully designed domain model helps establish clear service boundaries and makes it easier to reason about how responsibilities should be divided across microservices.
+Defining the right size for a microservice is challenging. Guidance often emphasizes avoiding extremes of too large or too small but that advice can be vague in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
 :::image type="complex" border="false" source="../images/bounded-contexts.png" alt-text="Diagram that shows bounded contexts." lightbox="../images/bounded-contexts.png":::
    The diagram has two key sections. One section labeled Shipping bounded content and contains the following terms: Scheduler, Package, Delivery, and Delivery history. Five arrows point from Scheduler to the following terms: Accounts, Third-party transportation, Drone management, Package, and Delivery. An arrow points from Delivery to Delivery history.
