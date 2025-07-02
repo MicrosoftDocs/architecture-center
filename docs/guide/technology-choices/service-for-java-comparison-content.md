@@ -87,7 +87,7 @@ Containerization is the packaging together of software code with all its necessa
 
 ### CI/CD
 
-Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The main concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][5] or [Jenkins][6].
+Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The key concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][5] or [Jenkins][6].
 
 ### Open-source search engine
 
@@ -95,7 +95,7 @@ Searches are integral parts of any application. If speed, performance, and high 
 
 ### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Apache Kafka][7] on Azure might be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're used to build live data flow pipelines and stream applications. Learn how [Apache Kafka][7] on Azure might be suitable for your needs.
 
 ### Supportability options
 
@@ -109,9 +109,11 @@ Use the following table to identify potential options for your application type.
 | **Containerization**            | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
 | **Azure region availability**   | [Details][1]  | [Details][1] | [Details][1] | [Details][2] | [Details][3] | [Details][4] |
 
-Also, refer to this decision tree.
+Also, refer to the following decision tree.
 
-:::image type="content" source="images/java-application-tree.png" alt-text="Diagram shows a decision tree for Java on Azure services." border="false":::
+:::image type="complex" border="false" source="images/java-application-tree.png" alt-text="Diagram that shows a decision tree for Java on Azure services." lightbox="images/java-application-tree.png":::
+   The diagram has six key sections. A branching line points from Need infrastructure control to a Yes and a No section. These are two separate flows. In the Yes flow, a line points from Have technology preferences to four sections: VMs, Tanzu or PCF, Kubernetes, and OpenShift. Four lines point from these sections to the following sections: Azure IaaS, Tanzu application service on IaaS, Azure Kubernetes Service, and Azure Red Hat OpenShift. In the No flow, a line points to Build and manage your own container images. A line points from this section and splits into two flows. The first flow points from Yes to Azure Container Apps. The second flow points from App server or MicroProfile or Spring. Then it splits into two sections: App Service and Azure Spring Apps. At the bottom of the image, an arrow spans the entire diagram with Control on the far left and Productivity on the far right.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/java-application-tree.vsdx) of this diagram.*
 
