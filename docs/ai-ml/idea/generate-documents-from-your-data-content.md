@@ -20,7 +20,7 @@ The following workflow corresponds to the preceding diagram:
 
 2. Azure Storage Account receives and stores the enterprise documents, making them available for processing and indexing by downstream services.
 
-3. Azure AI Services processes the stored documents, extracting content, understanding context, and preparing data for intelligent search and generation capabilities.
+3. Data preparation using Azure Search Service to create the index and, optionally, using Document Intelligence for processing PDFs and an embedding model for vector search.
 
 4. Azure AI Search creates searchable indexes from the processed documents, enabling semantic search capabilities and rapid information retrieval for document generation.
 
@@ -52,9 +52,9 @@ The following workflow corresponds to the preceding diagram:
 
 ## Scenario details
 
-This document generation solution addresses the challenge organizations face when creating consistent, high-quality business documents that leverage institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts.
+This document generation solution addresses the challenge organizations face when creating consistent, high-quality business documents that leverage institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts. The solution transforms document creation through conversational AI that generates both structured forms (like contracts, invoices, promissory notes) and unstructured documents (like proposals, reports, briefings) grounded in organizational data.
 
-The solution transforms document creation through conversational AI that generates both structured forms (like contracts, invoices, promissory notes) and unstructured documents (like proposals, reports, briefings) grounded in organizational data. The key differentiator is the document caching capability - once generated, documents are stored to avoid regeneration overhead, enabling rapid retrieval and modification of previously created content.
+This architecture supports transactional usage only, with batch processing not supported, ensuring focused, real-time document generation workflows that maintain quality and consistency for individual document requests. Generated documents are available for local download only and are not cached anywhere within the system, ensuring data privacy and security while requiring users to manage their own document storage and version control locally.
 
 ### Potential use cases
 
