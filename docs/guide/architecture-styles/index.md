@@ -31,7 +31,7 @@ This section gives a quick tour of the architecture styles that we've identified
 
 **[N-tier][n-tier]** is a traditional architecture for enterprise applications. Dependencies are managed by dividing the application into *layers* that perform logical functions, such as presentation, business logic, and data access. A layer can only call into layers that sit below it. However, this horizontal layering can be a liability. It can be hard to introduce changes in one part of the application without touching the rest of the application. That makes frequent updates a challenge, limiting how quickly new features can be added.
 
-N-tier is well-suited for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in infrastructure as a service (IaaS) solutions or applications that use a mix of IaaS and managed services.
+N-tier is well-suited for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in infrastructure as a service (IaaS) solutions or applications that use a combination of IaaS and managed services.
 
 ### Web-Queue-Worker
 
@@ -41,7 +41,7 @@ N-tier is well-suited for migrating existing applications that already use a lay
 
 For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.yml)** architecture. In this style, the application has a web front end that handles HTTP requests and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue.
 
-Web-Queue-Worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, Web-Queue-Worker can reduce the frequency of updates and limit innovation.
+Web-Queue-Worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. Managed services simplify deployment and operations. But with complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, Web-Queue-Worker can reduce the frequency of updates and limit innovation.
 
 ### Microservices
 
@@ -51,7 +51,7 @@ Web-Queue-Worker is suitable for relatively simple domains with some resource-in
 
 If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
-Each service can be developed by a small, focused team. Individual services can be deployed with minimal coordination across teams, which supports frequent updates. Compared to N-tier or web-queue-worker architectures, a microservice architecture is more complex to build and operate. It requires a mature development and DevOps culture. However, when done well, it can result in higher release velocity, faster innovation, and a more resilient architecture.
+Each service can be developed by a small, focused team. Individual services can be deployed with minimal coordination across teams, which supports frequent updates. Compared to N-tier or web-queue-worker architectures, a microservice architecture is more complex to build and operate. It requires a mature development and DevOps culture. However, with the right practices in place, this approach can result in higher release velocity, faster innovation, and a more resilient architecture.
 
 ### Event-driven architecture
 
@@ -85,7 +85,7 @@ By adhering to these constraints, what emerges is a system where services can be
 
 Each architecture style has its own trade-offs. Before you choose an architectural style, it's essential to understand the underlying principles and constraints. Without that understanding, you risk creating a design that superficially conforms to the style without realizing its full benefits. Focus more on why you're selecting a specific style than on how to implement it. Be practical. Sometimes it's better to relax a constraint than to chase architectural purity.
 
-Ideally, the choice of architectural style should be made with input from informed workload stakeholders. The workload team should start by identifying the nature of the problem they're solving. Next, they should define the key business drivers and the corresponding architecture characteristics (also known as *nonfunctional requirements*), and then prioritize them. For example, if time to market is critical, the team might prioritize maintainability, testability, and reliability to enable rapid deployment. If the team has tight budget constraints, feasibility and simplicity might take precedence. Selecting and sustaining an architectural style isn't a one-time task. It requires ongoing measurement, validation, and refinement. Because changing architectural direction later can be costly, it's often worthwhile to invest more effort upfront to support long-term efficiency and reduce risks.
+Ideally, the choice of architectural style should be made with input from informed workload stakeholders. The workload team should start by identifying the nature of the problem that they're solving. They should then define the key business drivers and the corresponding architecture characteristics (also known as *nonfunctional requirements*), and prioritize them. For example, if time to market is critical, the team might prioritize maintainability, testability, and reliability to enable rapid deployment. If the team has tight budget constraints, feasibility and simplicity might take precedence. Selecting and sustaining an architectural style isn't a one-time task. It requires ongoing measurement, validation, and refinement. Because changing architectural direction later can be costly, it's often worthwhile to invest more effort upfront to support long-term efficiency and reduce risks.
 
 The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
 
