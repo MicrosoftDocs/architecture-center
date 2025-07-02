@@ -212,7 +212,6 @@ Related hybrid guidance:
 Related architectures:
 
 - [Baseline architecture for AKS on Azure Local](../example-scenario/hybrid/aks-baseline.yml)
-- [Network architecture for AKS on Azure Local](../example-scenario/hybrid/aks-network.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)
 
 [AKS]: /azure/aks

@@ -44,8 +44,6 @@ items:
         items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
-        - name: Automate document processing
-          href: architecture/automate-document-processing-azure-ai-document-intelligence.yml
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models

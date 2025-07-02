@@ -93,7 +93,7 @@ For more information, see [Azure Front Door rules engine](/azure/frontdoor/front
 
 The following example scenarios illustrate how you can configure various multitenant architectures in Azure Front Door, and how the decisions that you make can affect your DNS and TLS configuration.
 
-Many multitenant solutions implement the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Azure Front Door profile and use Azure Front Door to route incoming traffic to the appropriate stamp. This deployment model is the most common one, and scenarios 1 through 4 in this article show how you can use it to meet a range of requirements.
+Many multitenant solutions implement the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Azure Front Door profile and use Azure Front Door to route incoming traffic to the appropriate stamp. This deployment model is the most common one, and scenarios 1 through 4 in this article show how you can use it to meet a range of requirements.
 
 However, in some cases, you might deploy an Azure Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-azure-front-door-profile-for-each-stamp) describes this deployment model.
 
@@ -363,4 +363,4 @@ Other contributors:
 
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
-- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml)
+- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)

@@ -2,7 +2,7 @@ This article is part of a series that builds on the [Baseline AI Foundry chat re
 
 This article describes a generative AI workload architecture that deploys the baseline chat application but uses resources that are outside the workload team's scope. Platform teams centrally manage the resources, and multiple workload teams use them. Shared resources include networking resources for cross-premises connections, identity access management systems, and policies. This guidance helps organizations that use Azure landing zones maintain consistent governance and cost efficiency.
 
-Azure AI Foundry uses accounts and projects to organize AI development and deployment. For example, a landing zone implementation might use an account as a centralized resource and a project as a delegated workload resource. Because of resource organization factors, we don't recommend this topology, and this article doesn't provide guidance about it. Instead, this architecture treats the workload as the owner of the Azure AI Foundry instance.
+Azure AI Foundry uses accounts and projects to organize AI development and deployment. For example, a landing zone implementation might use an account as a centralized resource at a business group level and projects as a delegated resource for each workload in that business group. Because of resource organization factors, and cost allocation limitations, we don't recommend this topology, and this article doesn't provide guidance about it. Instead, this architecture treats the workload as the owner of the Azure AI Foundry instance, which is the recommended approach.
 
 As a workload owner, you delegate shared resource management to platform teams so that you can focus on workload development efforts. This article presents the workload team's perspective and specifies recommendations for the platform team.
 
@@ -11,9 +11,9 @@ As a workload owner, you delegate shared resource management to platform teams s
 >
 > Azure landing zones divide your organization's cloud footprint into two key areas:
 >
->  - An application landing zone is an Azure subscription where a workload runs. An application landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
+> - An application landing zone is an Azure subscription where a workload runs. An application landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
 >
->  - A platform landing zone is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) for platform teams.
+> - A platform landing zone is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) for platform teams.
 >
 > To help you implement this architecture, understand [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone), their [design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles), and their [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
@@ -340,6 +340,10 @@ The following example policies might lead to workload deployment complexities:
 - **Policy:** *AI Search services should use customer-managed keys to encrypt data at rest.*
 
   **Complication:** This architecture doesn't require customer-managed keys. But you can extend the architecture to support them.
+
+- **Policy:** *AI Foundry models should not be preview.*
+
+  **Complication:** You might be in development using a preview model that you anticipate to be generally available by the time you enable the agent capability in your production workload.
 
 Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution.
 

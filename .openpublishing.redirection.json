@@ -2631,6 +2631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/architecture/hub-spoke-vwan-architecture.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
       "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
       "redirect_document_id": true
@@ -2703,6 +2708,31 @@
     {
       "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
       "redirect_url": "/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/index.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/application-logs.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/dashboards.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/performance-troubleshooting.md",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databricks-monitoring/databricks-observability.yml",
+      "redirect_url": "/azure/databricks/lakehouse-monitoring/",
       "redirect_document_id": false
     },
     {
@@ -3254,6 +3284,11 @@
       "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
       "redirect_document_id": true
+    },
+    {
+    "source_path": "docs/example-scenario/hybrid/aks-network.yml",
+      "redirect_url": "/azure/aks/aksarc/aks-hci-network-system-requirements",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
@@ -3922,10 +3957,15 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/multi-modal-content-processing",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
