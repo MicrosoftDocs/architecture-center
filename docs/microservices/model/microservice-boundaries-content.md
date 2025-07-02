@@ -14,14 +14,14 @@ Now we're ready to go from domain model to application design. Here's an approac
 
 1. Start with a bounded context. In general, the functionality in a microservice shouldn't span more than one bounded context. By definition, a bounded context marks the boundary of a specific domain model. If you find that a microservice mixes different domain models together, that's a sign that you might need to go back and refine your domain analysis.
 
-1. Next, look at the aggregates in your domain model. Aggregates are often good candidates for microservices. A well-designed aggregate exhibits many of the characteristics of a well-designed microservice, such as:
+1. Next, look at the aggregates in your domain model. Aggregates are often good candidates for microservices. A well-designed aggregate exhibits many of the characteristics of a well-designed microservice:
 
     - An aggregate is derived from business requirements, rather than technical concerns such as data access or messaging.
     - An aggregate should have high functional cohesion.
     - An aggregate is a boundary of persistence.
     - Aggregates should be loosely coupled.
 
-1. Domain services are also good candidates for microservices. Domain services are stateless operations across multiple aggregates. A typical example is a workflow that involves several microservices. We'll see an example of this in the Drone Delivery application.
+1. Domain services are also good candidates for microservices. Domain services are stateless operations across multiple aggregates. A typical example is a workflow that includes several microservices. We'll see an example of this in the Drone Delivery application.
 
 1. Consider nonfunctional requirements. Look at factors such as team size, data types, technologies, scalability requirements, availability requirements, and security requirements. These factors might cause you to break a microservice into multiple smaller services. In other cases, they might cause you to merge several microservices into a single microservice.
 
