@@ -53,7 +53,7 @@ Before writing any code, it's important to have a high-level understanding of th
 
 Start by mapping all of the business functions and their connections. This effort will likely be a collaboration that includes domain experts, software architects, and other stakeholders. You don't need to use any particular formalism. Sketch a diagram or draw on whiteboard.
 
-As you fill in the diagram, you might start to identify discrete subdomains. Which functions are closely related? You determine which functions are closely related, which are core to the business, and which serve as ancillary services. You also define the dependency graph. During this initial phase, you focus on business concepts instead of technologies or implementation details. At the same time, you identify where the application must integrate with external systems, such as customer relationship management, payment processing, or billing platforms.
+As you fill in the diagram, you might start to identify discrete subdomains. Which functions are closely related? Which functions are core to the business, and which functions provide ancillary services? What is the dependency graph? During this initial phase, you aren't concerned with technologies or implementation details. That said, you should note the place where the application will need to integrate with external systems, such as customer relationship management, payment processing, or billing systems.
 
 ## Example: Drone delivery application
 
