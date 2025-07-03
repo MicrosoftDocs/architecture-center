@@ -98,7 +98,7 @@ If your solution limits each user to accessing data for a single tenant, conside
 
 If a single user needs to be granted access to multiple tenants, consider the following decisions:
 
-- The solution must support logic for identifying users and assigning appropriate permissions across tenants. For example, a user might have administrative rights in one tenant but limited access in another.
+- The solution must support logic for identifying users and granting appropriate permissions across tenants. For example, a user might have administrative rights in one tenant but limited access in another.
 
 - A clear mechanism should allow users to switch between tenants. This approach ensures a smooth user experience and prevents accidental cross-tenant access.
 
