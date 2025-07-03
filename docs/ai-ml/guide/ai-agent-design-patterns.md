@@ -185,7 +185,7 @@ Avoid this pattern when:
 - Task routing is simple and deterministically rule-based, not based on the dynamic context window or dynamic interpretation
 - Decision-making and handoff overhead exceeds the benefits of breaking the task into multiple agents over a single agent with multiple connected knowledge stores and tools
 - Suboptimal routing decisions would lead to poor or frustrating user experience
-- Avoiding an infinite handoff loop between agents will be challenging
+- Avoiding an infinite handoff loop or avoiding excessive bouncing between agents will be challenging
 
 ### Agent handoff pattern example
 
