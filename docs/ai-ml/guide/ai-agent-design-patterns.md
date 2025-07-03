@@ -12,18 +12,18 @@ ms.custom: arb-aiml
 
 # AI agent orchestration patterns
 
-AI agent systems are becoming increasingly sophisticated, moving beyond single-agent implementations to multi-agent orchestrations that can handle complex, collaborative tasks. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
+AI agent systems are becoming increasingly sophisticated, moving beyond single-agent, many-tools implementations to multi-agent, few-tools orchestrations that can handle complex, collaborative tasks in a more reliable way. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
 
 ## Overview
 
-Using multiple AI agents enables you to break down complex problems into specialized components, each handled by dedicated agents with specific capabilities. This approach offers several advantages over monolithic single-agent solutions:
+Using multiple AI agents enables you to decompose complex problems into specialized units of work or knowledge, each handled by dedicated agents with specific capabilities. This approach offers several advantages over monolithic single-agent solutions.
 
-- **Specialization**: Each agent can focus on a specific domain or capability
-- **Scalability**: Add or modify agents without redesigning the entire system
-- **Resilience**: Failure in one agent doesn't necessarily break the entire workflow, unless you've deemed it critical
-- **Maintainability**: Smaller surface area to test and debug
+- Specialization: Each agent can focus on a specific domain or capability, reducing code and prompt complexity.
+- Scalability: Add or modify agents without redesigning the entire system.
+- Maintainability: Each agent has a smaller surface area and tool usage to test and debug.
+- Optimization: Each agent can use distinct models, task-solving approaches, knowledge, and tools to accomplish its outcomes.
 
-The patterns described in this guide represent proven approaches to orchestrating multiple agents, each optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components in AI-driven workload capabilities.
+The patterns described in this guide represent proven approaches to orchestrating multiple agents, each pattern optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components in AI-driven workload capabilities.
 
 ## Concurrent orchestration
 
@@ -160,7 +160,7 @@ Avoid this pattern when:
 
 ## Handoff orchestration
 
-The handoff orchestration enables dynamic delegation of tasks between agents, where each agent can assess the task at hand and decide whether to handle it themselves or transfer it to a more appropriate agent based on the context and requirements.
+The handoff orchestration enables dynamic delegation of tasks between specialized agents, where each agent can assess the task at hand and decide whether to handle it themselves or transfer it to a more appropriate agent based on the context and requirements.
 
 :::image type="complex" source="_images/handoff-pattern.svg" alt-text="Diagram showing handoff orchestration where a triage agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
 The diagram illustrates handoff orchestration with an input task at the top flowing downward into a central Triage Agent positioned in the middle of the diagram. From the Triage Agent, decision pathways branch outward to three specialist agents arranged horizontally below: Specialist Agent A on the left, Specialist Agent B in the center, and Specialist Agent C on the right. Each specialist agent connects downward to its respective output area. The Triage Agent serves as the decision point, evaluating the incoming task and selecting the most appropriate specialist agent based on the task requirements. The routing demonstrates dynamic delegation where only one specialist agent is activated for each specific task, rather than predetermined routing rules.
@@ -172,25 +172,26 @@ This pattern addresses scenarios where the optimal agent for a task isn't known 
 
 Consider the agent handoff pattern when you have:
 
-- Agents with specialized knowledge or tools, but the number of or order of those agents cannot be pre-determined
+- Agents with specialized knowledge or tools, but the number of agents needing to be involved or order of those agents cannot be pre-determined
 - Scenarios where expertise requirements emerge during processing resulting in dynamic task routing based on content analysis
 - Multi-domain problems requiring different specialists
+- Logical relationships and signals that can be pre-determined to inform when one agent has reached its capability limit
 
 ### When to avoid handoff orchestration
 
 Avoid this pattern when:
 
-- The appropriate agent is always known upfront
-- Task routing is simple and rule-based
-- Decision-making and handoff overhead exceeds the benefits of specialization
-- Suboptimal routing decisions would lead to poor user experience
-- The problem could result in infinite handoff loops
+- The appropriate agents and their order are always known upfront
+- Task routing is simple and deterministically rule-based, not based on the dynamic context window or dynamic interpretation
+- Decision-making and handoff overhead exceeds the benefits of breaking the task into multiple agents over a single agent with multiple connected knowledge stores and tools
+- Suboptimal routing decisions would lead to poor or frustrating user experience
+- Avoiding an infinite handoff loop between agents will be challenging
 
-### Agent handoff pattern examples
+### Agent handoff pattern example
 
-**Scientific research analysis**: A research institution uses handoff agents where an initial data processing agent analyzes experimental results but discovers specialized interpretation needs that only emerge during analysis. Statistical anomalies get handed off to methodology validation specialists, unexpected correlations to theoretical modeling agents, demonstrating how the initial agent cannot predetermine which specialist is needed.
+A telecommunications CRM solution uses handoff agents where a general support agent begins helping customers but discovers specialized expertise needs through the conversation. Network issues get handed off to technical infrastructure agents, billing disputes to financial resolution agents, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and is aware of another agent that can support the scenario better. Every agent is capable of completing the conversation if it feels there are no more agents that could further benefit the customer. Likewise, some agents are defined to hand off the user experience to a human support agent in cases that are important to solve, but no AI agents yet have the capabilities to address the problem.
 
-**Dynamic customer service escalation**: A telecommunications CRM solution uses handoff agents where a general support agent begins helping customers but discovers specialized expertise needs through conversation. Network issues get handed off to technical infrastructure agents, billing disputes to financial resolution agents, with handoffs occurring when the current agent recognizes capability limits.
+TODO: IMAGE
 
 ## Magnetic orchestration
 
@@ -300,6 +301,10 @@ Use magnetic orchestration to coordinate different pattern types for different w
 
 When implementing any of these agent design patterns, there are key considerations to address. If your agents are defined defined in a no/low-code environment, you might not have control over these behaviors. If your agents are defined in code using SDKs like Semantic Kernel, then you'll have more control. Consider the risk involved with lack of control in these areas in no-code agent solutions.
 
+### Context window
+
+- Terminate and start anew, carry context forward, etc.
+
 ### Reliability
 
 - Implement appropriate timeout and retry mechanisms
@@ -385,6 +390,18 @@ Avoid these common mistakes when implementing agent orchestration patterns:
 ## Relationship to cloud design patterns
 
 AI agent orchestration patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. While cloud design patterns focus on structural and behavioral concerns in distributed systems, AI agent orchestration patterns specifically address the coordination of components with reasoning capabilities, learning behaviors, and non-deterministic outputs.
+
+## Implementations in Microsoft Semantic Kernel
+
+The Agent Framework within Semantic Kernel provides support for many of these [Agent Orchestration Patterns](/semantic-kernel/frameworks/agent/agent-orchestration/).
+
+- [Concurrent Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
+- [Sequential Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
+- [Group Chat Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
+- [Handoff Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
+- [Magentic Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
+
+Many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html).
 
 ## Next steps
 
