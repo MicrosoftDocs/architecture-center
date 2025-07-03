@@ -126,7 +126,7 @@ For more information about Private Link and multitenancy, see [Multitenancy and 
 
 ### Domain names, subdomains, and TLS
 
-When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.yml).
+When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.md).
 
 ### Gateway Routing and Gateway Offloading patterns
 
@@ -198,7 +198,7 @@ Other contributors:
 
 ## Next steps
 
-- Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
+- Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
 - Review service-specific guidance for your networking services:
   - [Use Azure Front Door in a multitenant solution](../service/front-door.md)
   - [Azure NAT Gateway considerations for multitenancy](../service/nat-gateway.md)

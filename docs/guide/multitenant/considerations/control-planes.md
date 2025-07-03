@@ -38,7 +38,7 @@ In general, a control plane might have many of the following core responsibiliti
 
 - **Resource configuration:** It [reconfigures shared resources](#manage-shared-components) to recognize new tenants. For example, the control plane might configure network routing to ensure that incoming traffic [reaches the correct tenant's resources](map-requests.yml), or you might need to scale your resource capacity.
 - **Tenant configuration:** It stores and manages the configuration of each tenant.
-- **Tenant life cycle management:** It handles [tenant life cycle events](tenant-lifecycle.md), including onboarding, relocating, and offboarding tenants.
+- **Tenant life cycle management:** It handles [tenant life cycle events](tenant-life-cycle.md), including onboarding, relocating, and offboarding tenants.
 - **Telemetry:** It tracks each tenant's use of your features and the performance of the system.
 - **Consumption tracking:** It [measures and aggregates each tenant's resource consumption](measure-consumption.md). Consumption metrics might inform your billing systems or support resource governance.
 
@@ -165,7 +165,7 @@ Also consider the user experience for each failure scenario.
 
 A control plane needs to recognize any components that are shared rather than dedicated to specific tenants. Some components might be shared among all tenants within a stamp. Other components might be shared among all stamps in a region, or even shared globally across all regions and stamps. When you onboard, reconfigure, or offboard a tenant, your control plane needs to know how to handle these shared components.
 
-Some shared components require reconfiguration when tenants are added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant that has a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
+Some shared components require reconfiguration when tenants are added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant that has a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.md#dangling-dns-and-subdomain-takeover-attacks).
 
 Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
 

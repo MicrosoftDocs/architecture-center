@@ -64,7 +64,7 @@ Deployments are sometimes referred to as *supertenants* or *stamps*.
 When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as shown in the following diagram:
 
 :::image type="complex" border="false" source="media/tenancy-models/map-logical-physical.png" alt-text="Diagram that shows the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments." lightbox="media/tenancy-models/map-logical-physical.png":::
-   The diagram is divided into three main sections, tenants, your solution, and tenant ID and deployment ID. Arrows point from Tenants A, B, C, and D to a box labeled tenant mapping inside the your solution section. That section also includes a web server and database for deployment 1 and deployment 2. Another arrow points from the tenant mapping box to the section that contains the tenant and deployment IDs. Tenants A and B have a deployment ID of 1, and tenants C and D have deployment IDs of 2.
+   The diagram is divided into three main sections, tenants, your solution, and tenant ID and deployment ID. Arrows point from Tenants A, B, C, and D to a box labeled tenant mapping inside the solution section. That section also includes a web server and database for deployment 1 and deployment 2. Another arrow points from the tenant mapping box to the section that contains the tenant and deployment IDs. Tenants A and B have a deployment ID of 1, and tenants C and D have deployment IDs of 2.
 :::image-end:::
 
 For more information, see [Map requests to tenants](map-requests.yml).
@@ -199,4 +199,4 @@ Other contributors:
 
 ## Next step
 
-Consider the [life cycle of your tenants](tenant-lifecycle.md).
+Consider the [life cycle of your tenants](tenant-life-cycle.md).
