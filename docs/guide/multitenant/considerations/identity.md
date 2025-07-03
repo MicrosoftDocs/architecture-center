@@ -20,7 +20,7 @@ Identity is an important aspect of any multitenant solution. The identity compon
 Your customers might also wish to authorize external applications to access their data or integrate with your solution. A user's identity determines what information a user or service can access. It's important that you consider your identity requirements to isolate your application and data between tenants.
 
 > [!CAUTION]
-> Authentication and authorization services within multitenant and software as a service (SaaS) applications are typically provided by a third-party identity provider (IdP). An IdP is usually an integral part of a managed identity platform.
+> Authentication and authorization services within multitenant and software as a service (SaaS) applications are typically provided by an external identity provider (IdP). An IdP is usually an integral part of a managed identity platform.
 >
 > Building your own IdP is complex, expensive, and challenging to secure. It's considered an [antipattern](../approaches/identity.md#building-or-running-your-own-identity-system), and we don't recommend it.
 
