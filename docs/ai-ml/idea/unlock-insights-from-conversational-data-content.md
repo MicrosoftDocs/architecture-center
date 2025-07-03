@@ -16,17 +16,19 @@ The architecture demonstrates how to build scalable conversation analytics pipel
 
 The following workflow corresponds to the preceding diagram:
 
-1. **Data ingestion**: Call audio files and call transcripts are uploaded to Azure Storage Account as the initial data sources. Audio files undergo speech-to-text conversion while text transcripts are directly processed for content analysis.
+1. Call audio files and call transcripts are uploaded to Azure Storage Account as the initial data sources. The comprehensive data processing pipeline that analyzes audio/transcript files from customer service calls and creates a searchable knowledge base begins with this ingestion phase, where audio files undergo speech-to-text conversion while text transcripts are directly processed for content analysis. This is curently being triggered manually via script.
 
-2. **Content processing**: Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data, including call-specific elements such as resolution status, customer satisfaction indicators, and compliance markers.
+2. Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data, including call-specific elements such as resolution status, customer satisfaction indicators, and compliance markers.
 
-3. **Data storage and indexing**: Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries. Simultaneously, Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
+3. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
-4. **Orchestration layer**: Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. The orchestration layer uses Semantic Kernel integrated with Azure OpenAI Service and Azure AI Services for intelligent processing and response generation.
+4. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI Service and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow.
 
-5. **Interactive frontend**: Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
+5. Azure Container Registry manages container images for consistent deployment across the solution components, ensuring reliable application delivery to the Azure App Service hosting environment.
 
-6. **Supporting infrastructure**: Azure Container Registry manages container images for consistent deployment, while Azure Cosmos DB stores chat history and session data. Azure AI Services provides additional topic modeling capabilities to enhance conversation analysis.
+6. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
+
+7. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application.
 
 ### Components
 
@@ -36,15 +38,15 @@ The following workflow corresponds to the preceding diagram:
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over user-generated content. In this architecture, AI Search creates and manages vectorized representations of call transcripts, enabling semantic search and retrieval-augmented generation (RAG) patterns for intelligent conversation exploration, with optimized indexing strategies for handling millions of conversation records efficiently.
 
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed relational database service that provides high availability and scalability. In this architecture, SQL Database stores extracted entities, conversation metadata, and structured insights, enabling efficient querying and analysis of conversation intelligence data including call metrics, agent performance data, and customer satisfaction scores.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed relational database service that provides high availability and scalability. In this architecture, SQL Database stores extracted entities, conversation metadata, and structured insights, enabling efficient querying and analysis of conversation intelligence data including call metrics, agent performance data, and customer satisfaction scores.
 
-- [Azure App Service](/azure/app-service/overview) is a platform-as-a-service offering for building and hosting web applications. In this architecture, App Service hosts both the orchestration APIs that coordinate data processing workflows and the interactive web frontend that enables users to explore conversation insights through natural language interaction.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform-as-a-service offering for building and hosting web applications. In this architecture, App Service hosts both the orchestration APIs that coordinate data processing workflows and the interactive web frontend that enables users to explore conversation insights through natural language interaction.
 
-- [Azure OpenAI Service](/azure/ai-services/openai/overview) provides access to advanced language models for natural language processing and generation. In this architecture, OpenAI Service powers the conversational chat interface, enabling users to ask questions about their conversation data and receive contextual responses through the RAG pattern.
+- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) provides access to advanced language models for natural language processing and generation. In this architecture, OpenAI Service powers the conversational chat interface, enabling users to ask questions about their conversation data and receive contextual responses through the RAG pattern.
 
 - [Semantic Kernel](/semantic-kernel/overview/) is an open-source SDK that integrates large language models with conventional programming languages. In this architecture, Semantic Kernel orchestrates the interaction between Azure OpenAI Service and other Azure AI services, managing function calling and intelligent workflow coordination.
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database service with guaranteed low latency. In this architecture, Cosmos DB stores chat history and user session data, providing fast access to conversation context for the interactive frontend experience.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service with guaranteed low latency. In this architecture, Cosmos DB stores chat history and user session data, providing fast access to conversation context for the interactive frontend experience.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service for storing and managing container images. In this architecture, Container Registry manages container images for the application components, ensuring consistent deployment and version control across the solution.
 
