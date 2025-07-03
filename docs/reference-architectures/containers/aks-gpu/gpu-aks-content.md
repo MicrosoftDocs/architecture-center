@@ -124,7 +124,7 @@ To improve machine learning operations, KAITO provides the following capabilitie
 
 - **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
 - **Automatic GPU node provisioning**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
-- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models. For open-source models with MIT or Apache2 licenses that the KAITO repository doesn't support, you can [submit a request](https://github.com/Azure/kaito/blob/main/docs/How-to-add-new-models.md) for new model onboarding.
+- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models. For open-source models with MIT or Apache2 licenses that the KAITO repository doesn't support, you can [submit a request](https://github.com/kaito-project/kaito/tree/main) for new model onboarding.
 
 For more information about KAITO, see the following resources:
 
