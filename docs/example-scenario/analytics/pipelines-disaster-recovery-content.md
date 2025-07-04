@@ -21,10 +21,10 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction)
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines)
-- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
-- [Azure Repos](/azure/devops/repos/get-started/what-is-repos)
+- [Azure Data Factory](/azure/data-factory/introduction) In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) Synapse pipelines, a component of Synapse Analytics, manage data workflows and participate in BCDR by supporting zone-redundancy, integration with Git repositories, and automated or user-managed recovery approaches.
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) In this architecture, it stores pipeline artifacts and enables automated deployment to secondary regions as part of the user-managed recovery strategy.
+- [Azure Repos](/azure/devops/repos/get-started/what-is-repos) It functions similarly to GitHub in this context, providing source control and CI/CD integration for Data Factory and Synapse pipelines to support manual disaster recovery and failover readiness.
 
 ## Scenario details
 
