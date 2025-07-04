@@ -59,7 +59,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Understand your tenants' [compliance requirements](./approaches/governance-compliance.md), including data residency and any compliance or regulatory standards that they require you to meet.  
 
-- Correctly [manage domain names](./considerations/domain-names.yml) and avoid vulnerabilities like [dangling Domain Name System and subdomain takeover attacks](./considerations/domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).  
+- Correctly [manage domain names](./considerations/domain-names.md) and avoid vulnerabilities like [dangling Domain Name System and subdomain takeover attacks](./considerations/domain-names.md#dangling-dns-and-subdomain-takeover-attacks).  
 
 - Follow [service-specific guidance](./service/overview.md) for multitenancy.  
 
@@ -73,7 +73,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Operational Excellence considerations  
 
-- Use automation to manage the [tenant life cycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
+- Use automation to manage the [tenant life cycle](./considerations/tenant-life-cycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
 
 - Understand the differences between [control planes](./considerations/control-planes.md) and data planes in your multitenant solution.  
 
