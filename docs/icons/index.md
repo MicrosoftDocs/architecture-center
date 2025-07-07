@@ -61,7 +61,8 @@ The icons are not provided in Visio stencil format. The icons are provided as ge
 
 ## More icon sets from Microsoft
 
-- [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
+- [Microsoft Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Entra ID architecture icons](/entra/architecture/architecture-icons)
+- [Microsoft Fabric icons](/fabric/fundamentals/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)
