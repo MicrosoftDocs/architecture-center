@@ -7,7 +7,7 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 ## Architecture
 
 :::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.svg" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this implementation uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
-   The diagram contains two main sections, spoke and hub, that are connected by an arrow labeled peering. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, and arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, and Azure Cloud Services, and FQDNs. These services and FQDNs are outside of the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
+   An arrow labeled peering connects the two main sections of the diagram: spoke and hub. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, an arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, Azure Cloud Services, and FQDNs. These services and FQDNs are outside of the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
@@ -22,20 +22,18 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 1. The ingestion web application produces a message and sends it to the Azure Service Bus message queue.
 
-1. The back-end system assigns a drone and notifies the user. The workflow microservice:
+1. The back-end system assigns a drone and notifies the user. The workflow microservice does the following tasks:
 
-   - Consumes message information from the Service Bus message queue.
-   - Sends an HTTPS request to the delivery microservice, which passes data to Azure Cache for Redis external data storage.
-   - Sends an HTTPS request to the drone scheduler microservice.
-   - Sends an HTTPS request to the package microservice, which passes data to MongoDB external data storage.
+   - Consumes message information from the Service Bus message queue
+   - Sends an HTTPS request to the delivery microservice, which passes data to Azure Cache for Redis external data storage
+   - Sends an HTTPS request to the drone scheduler microservice
+   - Sends an HTTPS request to the package microservice, which passes data to MongoDB external data storage
 
 1. The architecture uses an HTTPS GET request to return delivery status. This request passes through Application Gateway into the delivery microservice.
 
 1. The delivery microservice reads data from Azure Cache for Redis.
 
 ### Components
-
-This architecture uses the following Azure components:
 
 - **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools.
 
@@ -49,31 +47,31 @@ This architecture uses the following Azure components:
    - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview)
    - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing)
 
-- **[Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)** provides isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure Firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Application Gateway subnet.
+- **[Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)** provides isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network hosts the Azure Firewall and Azure Bastion subnets. The spoke virtual network contains the AKS system and user node pool subnets and the Application Gateway subnet.
 
-- **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Azure Key Vault through the Microsoft backbone network. Platform as a service solutions like Container Registry and Key Vault are accessed over a private endpoint from the AKS system and user node pool subnet.
+- **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Azure Key Vault through the Microsoft backbone network. Platform as a service solutions like Container Registry and Key Vault are accessed via a private endpoint from the AKS system and user node pool subnet.
 
-- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this reference architecture, Application Gateway exposes the ingestion microservice as a public endpoint.
+- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this architecture, Application Gateway exposes the ingestion microservice as a public endpoint.
 
-- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a cloud-native, intelligent network firewall security service that provides threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, Azure Firewall controls outbound communications from microservices to resources outside of the virtual network.
+- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a cloud-native, intelligent network firewall security service that provides threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, Azure Firewall controls outbound communications from microservices to resources outside the virtual network.
 
-**External storage and other components:**
+#### External storage and other components
 
-- **[Key Vault](/azure/key-vault/general/overview)** stores and manages security keys, secret values, and certificates for Azure services. In this scenario, Azure key vaults store credentials for Azure Cosmos DB and Azure Cache for Redis.
+- **[Key Vault](/azure/key-vault/general/overview)** stores and manages security keys, secret values, and certificates for Azure services. In this architecture, Azure key vaults store credentials for Azure Cosmos DB and Azure Cache for Redis.
 
-- **[Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry by using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this scenario, Container Registry stores the container images for microservices.
+- **[Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry by using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this architecture, Container Registry stores the container images for microservices.
 
-- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database that has open-source APIs for MongoDB, PostgreSQL, and Cassandra. This architecture uses Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) as data stores for each microservice.
+- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB has open-source APIs for MongoDB, PostgreSQL, and Cassandra. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as data stores for each microservice.
 
-- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this scenario, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
+- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
 
 - **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy-traffic loads. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside).
 
 - **[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. In this architecture, you can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-**Other operations support system components:**
+#### Other operations support system components
 
-- **[Helm](https://helm.sh/)** is a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this scenario, use Helm commands to package and deploy microservices to the AKS cluster.
+- **[Helm](https://helm.sh/)** is a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this architecture, use Helm commands to package and deploy microservices to the AKS cluster.
 
 - **[Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver)** The Key Vault provider for Secrets Store CSI Driver allows for the integration of a key vault as a secret store with an AKS cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, the key vault secrets are mounted as a volume in microservice containers so that microservices can retrieve credentials for Azure Cosmos DB, Azure Cache for Redis, and Service Bus.
 
@@ -81,7 +79,7 @@ This architecture uses the following Azure components:
 
 ### Alternatives
 
-Instead of using an application routing add-on, you can use alternatives like [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, see [Ingress in AKS](/azure/aks/concepts-network-ingress). Application Gateway for Containers is an evolution of Application Gateway ingress controller and provides extra features such as traffic splitting and weighted round-robin load balancing.
+Instead of using an application routing add-on, you can use alternatives like [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, see [Ingress in AKS](/azure/aks/concepts-network-ingress). Application Gateway for Containers is an evolution of Application Gateway ingress controller and provides extra features such as traffic splitting and weighted round-robin load balancing.
 
 You can use ArgoCD as the GitOps tool instead of Flux v2. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
 
@@ -89,35 +87,35 @@ Instead of storing credentials for Azure Cosmos DB and Azure Cache for Redis in 
 
 ## Scenario details
 
-The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices that this article describes. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location and see a continuously updated ETA.
+The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices that this article describes. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location and see a continuously updated estimated time of arrival.
 
 ## Recommendations
 
-Implement the following recommendations when you deploy advanced AKS microservices architectures.
+You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Managed NGINX ingress with application routing add-on
 
-API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](/azure/architecture/microservices/design/gateway). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
+API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [microservices design pattern](/azure/architecture/microservices/design/gateway). An API gateway functions as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by performing the following actions:
 
-- Routing client requests to the correct back-end services to provide a single endpoint for clients and help decouple clients from services.
+- Routing client requests to the correct back-end services to provide a single endpoint for clients and help decouple clients from services
 
-- Aggregating multiple requests into a single request to reduce chatter between the client and the back end.
+- Aggregating multiple requests into a single request to reduce chatter between the client and the back end
 
-- Offloading functionality like Secure Sockets Layer (SSL) termination, authentication, IP address restrictions, and client rate-limiting or throttling from the back-end services.
+- Offloading functionality like Secure Sockets Layer (SSL) termination, authentication, IP address restrictions, and client rate-limiting or throttling from the back-end services
 
 Ingress controllers simplify traffic ingestion into AKS clusters, improve safety and performance, and save resources. This architecture uses the [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) for ingress control.
 
 We recommend that you use the [ingress controller with an internal (private) IP address](/azure/aks/create-nginx-ingress-private-controller) and an internal load balancer and integrate to Azure private Domain Name System zones for host name resolution of microservices. Configure the private IP address or host name of the ingress controller as the back-end pool address in Application Gateway. Application Gateway receives traffic on the public endpoint, performs WAF inspections, and routes the traffic to the ingress private IP address.
 
-You should configure the ingress controller with a [custom domain name and SSL certificate](/azure/aks/app-routing-dns-ssl) so that the traffic is end-to-end encrypted. Application Gateway receives traffic on the HTTPS listener and, after WAF inspections, routes traffic to the HTTPS endpoint of the ingress controller. All microservices should be configured with custom domain names and SSL certificates so that inter-microservice communication within the AKS cluster is also secured by using SSL. 
+You should configure the ingress controller with a [custom domain name and SSL certificate](/azure/aks/app-routing-dns-ssl) so that the traffic is end-to-end encrypted. Application Gateway receives traffic on the HTTPS listener. After WAF inspections, Application Gateway routes traffic to the HTTPS endpoint of the ingress controller. All microservices should be configured with custom domain names and SSL certificates so that inter-microservice communication within the AKS cluster is also secured by using SSL. 
 
-Multitenant workloads or a single cluster that supports development and testing environments, might require more ingress controllers. The application routing add-on supports advanced configurations and customizations, including [multiple ingress controllers within the same AKS cluster](/azure/aks/app-routing-nginx-configuration) and using annotations to configure ingress resources. 
+Multitenant workloads or a single cluster that supports development and testing environments might require more ingress controllers. The application routing add-on supports advanced configurations and customizations, including [multiple ingress controllers within the same AKS cluster](/azure/aks/app-routing-nginx-configuration) and using annotations to configure ingress resources. 
 
 ### Zero Trust network policies
 
 Network policies specify how AKS pods are allowed to communicate with each other and with other network endpoints. By default, all ingress and egress traffic is allowed to and from pods. When you design how your microservices communicate with each other and with other endpoints, consider following a *Zero Trust principle*, where access to any service, device, application, or data repository requires explicit configuration.
 
-One strategy to implement a Zero Trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a *deny all policy* that applies to all pods located in the `backend-dev` namespace.
+One strategy to implement a Zero Trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a *deny all* policy that applies to all pods located in the `backend-dev` namespace.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -162,15 +160,15 @@ Azure provides three network policy engines for [enforcing network policies](/az
 - Azure network policy manager
 - Calico, an open-source network and network security solution 
 
-Cilium is the recommended network policy engine.
+We recommend that you use Cilium as the network policy engine.
 
 ### Resource quotas
 
-Administrators use resource quotas to reserve and limit resources across a development team or project. You can set resource quotas on a namespace and use them to set limits on:
+Administrators use resource quotas to reserve and limit resources across a development team or project. You can set resource quotas on a namespace and use them to set limits on the following resources:
 
-- Compute resources, such as CPU and memory, or GPUs.
-- Storage resources, including the number of volumes or amount of disk space for a given storage class.
-- Object count, such as the maximum number of secrets, services, or jobs that can be created.
+- Compute resources, such as CPU and memory, or GPUs
+- Storage resources, including the number of volumes or amount of disk space for a given storage class
+- Object count, such as the maximum number of secrets, services, or jobs that can be created
 
 After the cumulative total of resource requests or limits passes the assigned quota, no further deployments are successful.
 
@@ -195,7 +193,7 @@ For more information about resource quotas, see:
 
 ### Autoscaling
 
-Kubernetes supports *autoscaling* to increase the number of pods allocated to a deployment or to increase the nodes in the cluster to increase the total available compute resources. Autoscaling is a self-correcting autonomous feedback system. You can scale pods and nodes manually, but autoscaling minimizes the chances of services reaching resource limits at high loads. An autoscaling strategy must take both pods and nodes into account.
+Kubernetes supports *autoscaling* to increase the number of pods allocated to a deployment or to increase the nodes in the cluster to increase the total available compute resources. Autoscaling is a self-correcting autonomous feedback system. You can scale pods and nodes manually, but autoscaling minimizes the chances of services reaching resource limits at high loads. An autoscaling strategy must account for both pods and nodes.
 
 #### Cluster autoscaling
 
@@ -258,7 +256,7 @@ spec:
           averageUtilization: 70
 ```
 
-HPA looks at actual resources consumed or other metrics from running pods, but the CA provisions nodes for pods that aren't scheduled yet. Therefore, CA looks at the requested resources, as specified in the pod specification. Use load testing to fine-tune these values.
+HPA looks at actual resources consumed or other metrics from running pods. The CA provisions nodes for pods that aren't scheduled yet. As a result, CA looks at the requested resources, as specified in the pod specification. Use load testing to fine-tune these values.
 
 For more information, see [Scaling options for applications in AKS](/azure/aks/concepts-scale).
 
@@ -272,7 +270,7 @@ In this architecture, VPA increases the CPU and memory requests and limits for m
 
 The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
 
-In the Fabrikam drone delivery example, KEDA scales out the workflow microservice depending on the Service Bus queue depth, based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
+In the Fabrikam drone delivery example, KEDA scales out the workflow microservice depending on the Service Bus queue depth and based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
 
 ### Health probes
 
@@ -286,15 +284,15 @@ Kubernetes defines three types of health probes that a pod can expose:
 
 - The startup probe tells Kubernetes whether the pod is started.
 
-The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which informs Kubernetes to restart the pod.
+The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which alerts Kubernetes to restart the pod.
 
 Sometimes, a pod might not be ready to receive traffic, even though the pod started successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
 
-Microservices should expose endpoints in their code that facilitate health probes, with delay and timeout tailored specifically to the checks they perform. The [HPA formula](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details) relies on the pod's ready phase, so it's critical that health probes exist and are accurate.
+Microservices should expose endpoints in their code that facilitate health probes, with delay and timeout tailored specifically to the checks that they perform. The [HPA formula](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details) relies on the pod's ready phase, so it's crucial that health probes exist and are accurate.
 
 ### Monitoring
 
-In a microservices application, application performance management (APM) monitoring is critical for detecting anomalies, diagnosing problems, and quickly understanding the dependencies between services. [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, provides APM monitoring for live applications written in .NET Core, Node.js, Java, and many other application languages.
+In a microservices application, application performance management (APM) monitoring is crucial for detecting anomalies, diagnosing problems, and quickly understanding the dependencies between services. [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, provides APM monitoring for live applications written in .NET Core, Node.js, Java, and many other application languages.
 
 Azure provides various mechanisms for monitoring microservice workloads:
 
@@ -320,7 +318,7 @@ Consider the following points when you plan for security.
 
 - Integrate security scanning into the microservice build and deployment pipelines. Manage your DevOps environment by using [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction). Use [agentless code scanning](/azure/defender-for-cloud/agentless-code-scanning) and run [static code analysis tools](/azure/defender-for-cloud/cli-cicd-integration) as part of continuous integration and continuous deployment (CI/CD) pipelines so that you can identify and address the microservice code vulnerabilities as part of the build and deployment processes.
 
-- An AKS pod authenticates itself by using a *workload identity* that's stored in Microsoft Entra ID. You should use a workload identity it doesn't require a client secret.
+- An AKS pod authenticates itself by using a *workload identity* that's stored in Microsoft Entra ID. You should use a workload identity because it doesn't require a client secret.
 
 - When you use managed identities, the application can quickly get Azure Resource Manager OAuth 2.0 tokens when it runs. It doesn't need passwords or connection strings. In AKS, you can assign identities to individual pods by using [Workload ID](/azure/aks/workload-identity-overview).
 
@@ -370,7 +368,7 @@ Consider the following points when you plan for scalability.
 
 - Don't combine autoscaling and imperative or declarative management of the number of replicas. Users and an autoscaler both attempting to modify the number of replicas might cause unexpected behavior. When HPA is enabled, reduce the number of replicas to the minimum number that you want to be deployed.
 
-- A side effect of pod autoscaling is that pods might be created or evicted frequently as the application scales in or scales out. To mitigate these effects:
+- A side effect of pod autoscaling is that pods might be created or evicted frequently as the application scales in or scales out. To mitigate these effects, perform the following actions:
 
   - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
   - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
@@ -388,9 +386,9 @@ Consider the following points when you plan for scalability.
 - [What is Private Link?](/azure/private-link/private-link-overview)
 - [What is Application Gateway?](/azure/application-gateway/overview)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
-- [About Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Key Vault](/azure/key-vault/general/overview)
 - [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
-- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 
 ## Related resources
