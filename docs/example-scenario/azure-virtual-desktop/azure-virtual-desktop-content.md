@@ -228,7 +228,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop) lists approved Azure Virtual Desktop partner providers and independent software vendors.
+- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/app-attach-partner-solutions) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 11 Enterprise VDI (virtual desktop infrastructure) environment.
 - For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
