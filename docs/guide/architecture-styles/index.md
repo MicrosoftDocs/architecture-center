@@ -51,7 +51,7 @@ Web-Queue-Worker is suitable for relatively simple domains with some resource-in
 
 If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
-Each service can be developed by a small, focused team. Individual services can be deployed with minimal coordination across teams, which supports frequent updates. Compared to N-tier or web-queue-worker architectures, a microservice architecture is more complex to build and operate. It requires a mature development and DevOps culture. However, with the right practices in place, this approach can result in higher release velocity, faster innovation, and a more resilient architecture.
+Each service can be developed by a small, focused team. Individual services can be deployed with minimal coordination across teams, which supports frequent updates. Compared to N-tier or Web-Queue-Worker architectures, a microservice architecture is more complex to build and operate. It requires a mature development and DevOps culture. However, with the right practices in place, this approach can result in higher release velocity, faster innovation, and a more resilient architecture.
 
 ### Event-driven architecture
 
@@ -69,7 +69,7 @@ Consider an event-driven architecture for applications that ingest and process a
    Two parallel arrows point from the Data sources section in separate flows. The first flow shows an arrow that points from Data sources to Data storage. An arrow points from Batch processing to Analytics and reporting. Another arrow points from Batch processing to Analytical data store and then from Analytical data store to Analytics and reporting. The second flow has an arrow point from Data sources to Real-time message ingestion. An arrow points from the adjacent Stream processing section to Analytics and reporting. An Orchestration section is at the bottom of the diagram.
 :::image-end:::
 
-**[Big data](./big-data.yml)** and **[big compute](./big-compute.yml)** are specialized architecture styles for workloads that match specific profiles. Big data splits a large dataset into chunks and performs parallel processing across the entire set for analysis and reporting. Big compute, also known as *high-performance computing*, performs parallel computations across thousands of cores. Common domains include simulations, modeling, and 3-D rendering.
+**[Big data](./big-data.yml)** and **[big compute](./big-compute.yml)** are specialized architecture styles for workloads that match specific profiles. Big data splits a large dataset into chunks and performs parallel processing across the entire set for analysis and reporting. Big compute, also known as *high-performance computing*, performs parallel computations across thousands of cores. Common domains include simulations, modeling, and 3D rendering.
 
 ## Architecture styles as constraints
 
@@ -85,7 +85,7 @@ By adhering to these constraints, what emerges is a system where services can be
 
 Each architecture style has its own trade-offs. Before you choose an architectural style, it's essential to understand the underlying principles and constraints. Without that understanding, you risk creating a design that superficially conforms to the style without realizing its full benefits. Focus more on why you're selecting a specific style than on how to implement it. Be practical. Sometimes it's better to relax a constraint than to chase architectural purity.
 
-Ideally, the choice of architectural style should be made with input from informed workload stakeholders. The workload team should start by identifying the nature of the problem that they're solving. They should then define the key business drivers and the corresponding architecture characteristics (also known as *nonfunctional requirements*), and prioritize them. For example, if time to market is critical, the team might prioritize maintainability, testability, and reliability to enable rapid deployment. If the team has tight budget constraints, feasibility and simplicity might take precedence. Selecting and sustaining an architectural style isn't a one-time task. It requires ongoing measurement, validation, and refinement. Because changing architectural direction later can be costly, it's often worthwhile to invest more effort upfront to support long-term efficiency and reduce risks.
+Ideally, the choice of architectural style should be made with input from informed workload stakeholders. The workload team should start by identifying the nature of the problem that they're solving. They should then define the key business drivers and the corresponding architecture characteristics, also known as *nonfunctional requirements*, and prioritize them. For example, if time to market is critical, the team might prioritize maintainability, testability, and reliability to enable rapid deployment. If the team has tight budget constraints, feasibility and simplicity might take precedence. Selecting and sustaining an architectural style isn't a one-time task. It requires ongoing measurement, validation, and refinement. Because changing architectural direction later can be costly, it's often worthwhile to invest more effort upfront to support long-term efficiency and reduce risks.
 
 The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
 
@@ -108,7 +108,7 @@ Here are some of the types of challenges to consider when selecting an architect
 
 - **Asynchronous messaging and eventual consistency.** Asynchronous messaging is used to decouple services and improve reliability because messages can be retried. It also enhances scalability. However, asynchronous messaging also creates challenges in handling eventual consistency and the possibility of duplicate messages.
 
-- **Inter-service communication.** Decomposing an application into separate services might increase communication overhead. In microservices architectures, this overhead often results in latency problems or network congestion.
+- **Interservice communication.** Decomposing an application into separate services might increase communication overhead. In microservices architectures, this overhead often results in latency problems or network congestion.
 
 - **Manageability.** Managing the application includes tasks such as monitoring, deploying updates, and maintaining operational health.
 

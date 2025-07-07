@@ -12,7 +12,7 @@ ms.subservice: architecture-guide
 
 One of the biggest challenges of microservices is to define the boundaries of individual services. The general rule is that a service should do only one thing, but putting that rule into practice requires careful thought. There's no mechanical process that produces the correct design. You have to think deeply about your business domain, requirements, architecture characteristics (also known as *nonfunctional requirements*), and goals. Otherwise, you can end up with a haphazard design that exhibits some undesirable characteristics, such as hidden dependencies between services, tight coupling, or poorly designed interfaces. This article shows a domain-driven approach to designing microservices. Evaluating service boundaries is an ongoing effort on evolving workloads. Sometimes the evaluation results in redefined definitions of existing boundaries that require more application development to accommodate the changes.
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
+This article uses a drone delivery service as a running example. For more information about the scenario and the corresponding reference implementation, see [Design a microservices architecture](../design/index.yml).
 
 ## Introduction
 
@@ -43,17 +43,17 @@ In this article, we cover the first three steps, which are primarily concerned w
 
 Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.
 
-This scenario includes a fairly complex domain. Some of the key business concerns include scheduling drones, tracking packages, managing user accounts, and storing and analyzing historical data. Fabrikam also aims to get to market quickly and iterate rapidly, adding new functionality and capabilities. The application must operate at cloud scale and meet a high service-level objective. Also, Fabrikam expects different parts of the system to have varying requirements for data storage and querying. These considerations led Fabrikam to adopt a microservices architecture for the Drone Delivery application.
+This scenario includes a fairly complex domain. Some of the key business concerns include scheduling drones, tracking packages, managing user accounts, and storing and analyzing historical data. Fabrikam also aims to get to market quickly and iterate rapidly, adding new functionality and capabilities. The application must operate at cloud scale and meet a high service-level objective. Also, Fabrikam expects different parts of the system to have varying requirements for data storage and querying. These considerations lead Fabrikam to adopt a microservices architecture for the Drone Delivery application.
 
 ## Analyze the domain
 
-Using a DDD approach will help you to design microservices so that every service forms a natural fit to a functional business requirement. It can help you to avoid the trap of letting organizational boundaries or technology choices dictate your design.
+A DDD approach helps you design microservices so that every service forms a natural fit to a functional business requirement. It can help you to avoid the trap of letting organizational boundaries or technology choices dictate your design.
 
-Before writing any code, it's important to have a high-level understanding of the system that you're building. DDD starts by modeling the business domain and creating a *domain model*. The domain model is an abstract model of the business domain. It distills and organizes domain knowledge, and provides a common language for developers and domain experts.
+Before you write any code, you should have a high-level understanding of the system that you build. DDD starts by modeling the business domain and creating a *domain model*. The domain model is an abstract model of the business domain. It distills and organizes domain knowledge and provides a common language for developers and domain experts.
 
-Start by mapping all of the business functions and their connections. This effort will likely be a collaboration that includes domain experts, software architects, and other stakeholders. You don't need to use any particular formalism. Sketch a diagram or draw on whiteboard.
+Start by mapping all the business functions and their connections. This effort can be a collaboration that includes domain experts, software architects, and other stakeholders. You don't need to use any particular formalism. Sketch a diagram or draw on whiteboard.
 
-As you fill in the diagram, you might start to identify discrete subdomains. Which functions are closely related? Which functions are core to the business, and which functions provide ancillary services? What is the dependency graph? During this initial phase, you aren't concerned with technologies or implementation details. That said, you should note the place where the application will need to integrate with external systems, such as customer relationship management, payment processing, or billing systems.
+As you fill in the diagram, you might start to identify discrete subdomains. Which functions are closely related? Which functions are core to the business, and which functions provide ancillary services? What's the dependency graph? During this initial phase, you aren't concerned with technologies or implementation details. That said, you should note the place where the application needs to integrate with external systems, such as customer relationship management, payment processing, or billing systems.
 
 ## Example: Drone delivery application
 
@@ -74,7 +74,7 @@ After some initial domain analysis, the Fabrikam team came up with a rough sketc
 Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems may involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
 
 > [!NOTE]
-> When an application depends on an external system, there's a risk that the external system's data schema or API will leak into the application. This kind of leakage can compromise the architectural design. It's especially common with legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, it's important to establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) to enforce this boundary.
+> When an application depends on an external system, there's a risk that the external system's data schema or API can leak into the application. This kind of leakage can compromise the architectural design. It's especially common with legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, it's important to establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) to enforce this boundary.
 
 ## Define bounded contexts
 
@@ -84,7 +84,7 @@ For example, subsystems that handle drone repair and predictive analysis will ne
 
 If we tried to create a single model for both of these subsystems, it would be unnecessarily complex. It would also become harder for the model to evolve over time, because any changes will need to satisfy multiple teams working on separate subsystems. Therefore, it's often better to design separate models that represent the same real-world entity (in this case, a drone) in two different contexts. Each model contains only the features and attributes that are relevant within its particular context.
 
-This is where the DDD concept of *bounded contexts* comes into play. A bounded context defines the boundary within a domain where a specific domain model applies. Referring to the previous diagram, you can group functionality based on whether different functions share the same domain model.
+The DDD concept of *bounded contexts* comes into play here. A bounded context defines the boundary within a domain where a specific domain model applies. Referring to the previous diagram, you can group functionality based on whether different functions share the same domain model.
 
 :::image type="complex" border="false" source="../images/ddd2.svg" alt-text="Diagram of bounded contexts." lightbox="../images/ddd2.svg":::
    The diagram is an interconnected web with multiple connecting lines and ovals that contain words. Dotted lines section off various ovals. Drone management is connected to Video surveillance, Shipping, and Third-party transportation. Accounts is connected to Drone sharing, Shipping, and Call center. The third-party transportation and Call center sections are both labeled as External systems.

@@ -93,5 +93,4 @@ Principal author:
 - [Build microservices on Azure](../../guide/architecture-styles/microservices.md)
 - [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.yml)
-- [Microservices architectural style](../../guide/architecture-styles/microservices.md)
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)

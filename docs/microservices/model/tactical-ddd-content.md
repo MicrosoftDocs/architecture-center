@@ -2,7 +2,7 @@ Domain-driven design (DDD) opposes the idea of having a single unified model for
 
 Tactical DDD is when you define your domain models with more precision. The tactical patterns are applied within a single bounded context. In a microservices architecture, where each bounded context is a microservice candidate, the entity and aggregate patterns are of note. Applying these patterns helps identify natural boundaries for the services in your application. For more information, see [Identify microservice boundaries](./microservice-boundaries.yml). As a general principle, a microservice should be no smaller than an aggregate and no larger than a bounded context.
 
-First, we'll review the tactical patterns. Then we'll apply them to the Shipping bounded context in the Drone Delivery application.
+This article reviews the tactical patterns and then applies them to the Shipping bounded context in the Drone Delivery application.
 
 ## Overview of the tactical patterns
 
