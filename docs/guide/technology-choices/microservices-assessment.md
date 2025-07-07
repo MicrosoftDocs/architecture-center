@@ -156,7 +156,7 @@ An API gateway is one of the core components in a microservices architecture. Di
 Take these factors into consideration:
 - Are the services directly consumed by clients?
 - Is there an API gateway that acts as a facade for all the services?
-- Do you implement Backend for Frontend (BFF) patterns for different client types?
+- Do you implement [Backend for Frontend (BFF) patterns](/azure/architecture/patterns/backends-for-frontends) for different client types?
 - Can the API gateway set up policies like quota limits, mocking responses, and filtering of IP addresses?
 - Are you using multiple API gateways to address the needs of various types of clients, like mobile apps, web apps, and partners?
 - Does your API gateway provide a portal where clients can discover and subscribe to services, like a developer portal in [Azure API Management](https://azure.microsoft.com/services/api-management)?
@@ -169,8 +169,8 @@ Distributed transactions facilitate the execution of multiple operations as a si
 Take the following considerations into account:
 - How many distributed transactions are there in the system? 
 - What's your approach to handling distributed transactions? Evaluate the use of the [Saga pattern](/azure/architecture/reference-architectures/saga/saga) with orchestration or choreography.
-- Have you considered event sourcing for maintaining transaction history and state?
-- Do you implement Command Query Responsibility Segregation (CQRS) patterns?
+- Have you considered [event sourcing](/azure/architecture/patterns/event-sourcing) for maintaining transaction history and state?
+- Do you implement [Command Query Responsibility Segregation (CQRS) patterns](/azure/architecture/patterns/cqrs)?
 - How many transactions span multiple services?
 - Are you following an ACID or BASE transaction model to achieve data consistency and integrity?
 - Are you using long-chaining operations for transactions that span multiple services?
@@ -285,7 +285,7 @@ Security concerns are usually handled by the API gateway and the application fir
 Consider these factors:
 
 - Are authentication and authorization required for the service?
-- Have you considered zero-trust architecture principles?
+Have you considered [zero-trust architecture principles](/azure/security/fundamentals/zero-trust)?
 - Do you have secrets management beyond key vaults (rotation, lifecycle management)?
 - Are you using an API gateway to validate tokens and incoming requests?
 - Are you using SSL or mTLS to provide security for service communication?
