@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure Container Service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.
-author: r-kayongo
-ms.author: rkayongo
+author: cmaclaughlin
+ms.author: cmaclaughlin
 ms.date: 06/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -66,9 +66,9 @@ For more information about service model terminology and concepts, including inf
 
 ### Compare the service models of Azure container solutions
 
-#### AKS
+#### Azure Kubernetes Service (AKS)
 
-AKS is a mix of IaaS and PaaS that focuses more on control than simplicity. It uses Kubernetes, which is the standard system for orchestrating containers. AKS streamlines the management of the underlying core infrastructure. However, this virtual machine (VM)-based platform is exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by extra Azure resources that are hosted directly in your subscription, like Azure load balancers.
+AKS is a mix of IaaS and PaaS that focuses more on control than simplicity. It uses Kubernetes, which is the standard system for orchestrating containers. AKS streamlines the management of the underlying core infrastructure. However, this virtual machine (VM)-based platform is exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by extra Azure resources that are hosted directly in your subscription, like Azure load balancers, container registries, or application gateways.
 
 AKS provides access to the Kubernetes API server, which enables you to customize container orchestration and deploy auxiliary applications from the Cloud Native Computing Foundation. As a result, workload teams that are new to Kubernetes face a significant learning curve. If you're unfamiliar with containerized solutions, you must consider this learning curve. The following PaaS solutions provide a lower barrier to entry. You can transition to Kubernetes when your requirements demand it.
 
@@ -170,6 +170,7 @@ Other contributors:
 - [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Customer Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) |  Principal Customer Engineer
 - [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) |  Principal Customer Engineer
+- [Carlos Mestre del Pino](https://www.linkedin.com/in/mestredelpino/) |  Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
