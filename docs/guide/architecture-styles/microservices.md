@@ -31,11 +31,11 @@ In addition to the services themselves, other components appear in a typical mic
 
 - **API gateway:** The API gateway serves as the entry point for clients. Clients send requests to the API gateway instead of calling services directly. The gateway forwards those requests to the appropriate back-end services. It also handles cross-cutting concerns such as authentication, logging, and load balancing. In cloud-native microservices architectures, lightweight service proxies like Envoy and Nginx support internal service-to-service communication. This type of internal traffic, known as east-west traffic, enables advanced routing and traffic control.
 
-- **Message-oriented middleware:** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They're foundational to event-driven architectures, which allows services to react to events in real-time and also communicate via asynchronous messaging.
+- **Message-oriented middleware:** Messaging platforms like Apache Kafka and Azure Service Bus enable asynchronous communication in microservices by promoting loose coupling and supporting high scalability. They form the foundation of event-driven architectures. This approach allows services to react to events in real time and communicate through asynchronous messaging.
 
 - **Observability:** An effective observability strategy helps teams maintain system reliability and resolve problems quickly. Centralized logging brings logs together to support easier diagnostics. Real-time monitoring with application performance monitoring agents and frameworks like OpenTelemetry provides visibility into system health and performance. Distributed tracing tracks requests across service boundaries. It helps teams find bottlenecks and improve performance.
 
-- **Data management:** A well-designed database architecture is crucial for microservices. It supports autonomy and scalability. Microservices often use polyglot persistence by choosing different database types, such as SQL or NoSQL, based on each service’s specific needs. This approach aligns with domain-driven design (DDD) and the idea of bounded context. Each service owns its data and schema. This ownership reduces cross-service dependencies and allows services to evolve independently. A decentralized model like this improves flexibility, performance, and system resilience.
+- **Data management:** A well-designed database architecture supports autonomy and scalability. Microservices often use polyglot persistence by choosing different database types, such as SQL or NoSQL, based on each service’s specific needs. This approach aligns with domain-driven design (DDD) and the idea of bounded context. Each service owns its data and schema. This ownership reduces cross-service dependencies and allows services to evolve independently. This decentralized model improves flexibility, performance, and system resilience.
 
 ## Benefits
 
@@ -87,7 +87,7 @@ The benefits of microservices come with trade-offs. Consider the following chall
 
 - Avoid coupling between services. Causes of coupling include shared database schemas and rigid communication protocols.
 
-- Improve security by using mTLS for service-to-service encryption. Implement role-based access control and use API gateways to enforce policies.
+- Improve security by using mutual Transport Layer Security (mTLS) for service-to-service encryption. Implement role-based access control and use API gateways to enforce policies.
 
 - Offload cross-cutting concerns, such as authentication and Secure Sockets Layer termination, to the gateway. Service meshes and frameworks like Dapr can also help with common cross-cutting concerns like mTLS authentication and resiliency.
 
@@ -109,7 +109,7 @@ When you design and implement microservices, specific pitfalls frequently occur 
 
 - Implementing microservices without a deep understanding of the business domain results in poorly aligned service boundaries and undermines the intended benefits.
 
-- Designing events that depend on past or future events violates the principle of atomic and self-contained messaging. This forces consumers to wait and reduces system reliability.
+- Designing events that depend on past or future events violates the principle of atomic and self-contained messaging. This dependency forces consumers to wait and reduces system reliability.
 
 - Using database entities as events exposes internal service details and often fails to convey the correct business intent, which leads to tightly coupled and unclear integrations.
 

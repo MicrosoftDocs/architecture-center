@@ -45,7 +45,7 @@ Applications that rely only on features provided by the Jakarta EE specification
 
 Use the following table to identify potential platforms for your application type.
 
-|   | App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Virtual Machines |
+|   | Azure App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Azure Virtual Machines |
 |-------------------------------------|---------|---------|----------|----------|------------|----------|
 | **Spring Boot / JAR applications**  | &#x2714; |          | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
 | **Spring Cloud applications**       |          |          |          | &#x2714; | &#x2714; | &#x2714; |
