@@ -30,7 +30,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
 
 - **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
@@ -228,7 +228,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
+- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/app-attach-partner-solutions) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 11 Enterprise VDI (virtual desktop infrastructure) environment.
 - For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
