@@ -104,7 +104,7 @@ Constraints also create challenges, so it's important to understand the trade-of
 
 Here are some of the types of challenges to consider when selecting an architecture style:
 
-- **Complexity.** The architecture’s complexity must match the domain. If it’s too simplistic, it can result in a [big ball of mud][ball-of-mud], where dependencies aren't well managed and the structure breaks down.
+- **Complexity.** The architecture's complexity must match the domain. If it's too simplistic, it can result in a [big ball of mud][ball-of-mud], where dependencies aren't well managed and the structure breaks down.
 
 - **Asynchronous messaging and eventual consistency.** Asynchronous messaging is used to decouple services and improve reliability because messages can be retried. It also enhances scalability. However, asynchronous messaging also creates challenges in handling eventual consistency and the possibility of duplicate messages.
 
