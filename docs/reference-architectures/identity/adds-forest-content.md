@@ -12,7 +12,7 @@ This reference architecture shows how to create a separate Active Directory doma
 
 - **The on-premises network** contains its own Active Directory forest and domains.
 
-- **Active Directory servers** are domain controllers that implement domain services that run as virtual machines (VMs) in the cloud. These servers host a forest that contains one or more domains, separate from domains located on-premises.
+- **Active Directory servers** are domain controllers that implement domain services that run as virtual machines (VMs) in the cloud. These servers host a forest with one or more domains that are distinct from those located on-premises.
 
 - **A one-way trust relationship** enables on-premises users to access resources in the domain in Azure. However, users who belong to the Azure domain can't access resources in the on-premises domain. The example in the diagram shows a one-way trust from the domain in Azure to the on-premises domain.
 
@@ -32,13 +32,13 @@ For more information, see [Choose a solution for integrating on-premises Active 
 
 ## Recommendations
 
-For specific recommendations about how to implement Active Directory in Azure, see [Extend AD DS to Azure][adds-extend-domain].
+For specific recommendations about how to implement Active Directory in Azure, see [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
 ### Trust
 
-The on-premises domains are contained within a different forest from the domains in the cloud. To enable authentication of on-premises users in the cloud, the domains in Azure must trust the logon domain in the on-premises forest. Similarly, if the cloud provides a logon domain for guests, it might be necessary for the on-premises forest to trust the cloud domain.
+The on-premises domains are contained within a different forest from the domains in the cloud. To enable authentication of on-premises users in the cloud, the domains in Azure must trust the logon domain in the on-premises forest. Similarly, if the cloud provides a logon domain for external users, it might be necessary for the on-premises forest to trust the cloud domain.
 
-You can establish trusts at the forest level by [creating forest trusts][creating-forest-trusts], or at the domain level by [creating external trusts][creating-external-trusts]. A forest level trust creates a relationship between all domains in two forests. An external domain-level trust only creates a relationship between two specified domains. You should only create external domain-level trusts between domains in different forests.
+You can establish trusts at the forest level by [creating forest trusts][creating-forest-trusts], or at the domain level by [creating external trusts][creating-external-trusts]. A forest-level trust creates a relationship between all domains in two forests. An external domain-level trust only creates a relationship between two specified domains. You should only create external domain-level trusts between domains in different forests.
 
 Trusts with an on-premises Active Directory are only one way, or *unidirectional*. A one-way trust allows users in one domain or forest, known as the incoming domain or forest, to access resources in another domain or forest, known as the outgoing domain or forest. Users in the outgoing domain can't access resources in the incoming domain.
 
@@ -65,7 +65,7 @@ Consider designating one or more servers in each domain as [standby operations m
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Forest-level trusts are transitive. If you establish a forest-level trust between an on-premises forest and a forest in the cloud, the trust extends to any new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only.
+Forest-level trusts are transitive. If you establish a forest-level trust between an on-premises forest and a forest in the cloud, the trust extends to any new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only. Domain level trusts are non-transitive.
 
 For Active Directory-specific security considerations, see the security considerations section in [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
@@ -97,9 +97,9 @@ For DevOps considerations, see [Operational Excellence](adds-extend-domain.yml#o
 
 #### Manageability
 
-For information about management and monitoring considerations, see [Deploy AD DS in an Azure virtual network][adds-extend-domain].
+For more information about management and monitoring considerations, see [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
-Follow the guidance in [Monitoring Active Directory][monitoring-ad]. You can install tools such as [Microsoft System Center][microsoft-systems-center] on a monitoring server in the management subnet to help perform these tasks.
+Follow the guidance in [Monitor Active Directory][monitoring-ad]. You can install tools such as [Microsoft System Center][microsoft-systems-center] on a monitoring server in the management subnet to help perform these tasks.
 
 ### Performance Efficiency
 

@@ -10,7 +10,7 @@ This reference architecture implements a secure hybrid network that extends your
 
 ### Workflow
 
-- **Active Directory Domain Services (AD DS):** The AD DS servers are contained in their own subnet where network security group (NSG) rules serve as a firewall.
+- **Active Directory Domain Services (AD DS) subnet:** The AD DS servers are contained in their own subnet where network security group (NSG) rules serve as a firewall.
 
 - **AD DS servers:** Domain controllers that run as virtual machines (VMs) in Azure. These servers provide authentication of local identities within the domain.
 
@@ -22,7 +22,7 @@ This reference architecture implements a secure hybrid network that extends your
 
     The application that runs in Azure is known as the *relying party*. The partner federation server must issue claims that the web application understands. The partner federation servers are known as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization. The AD FS servers are known as *resource partners* because they provide access to resources (the web application).
 
-  - Authenticate and authorize incoming requests from guests who access web applications via a browser or device by using AD DS and the [Active Directory Device Registration Service][ADDRS].
+  - Authenticate and authorize incoming requests from external users running a web browser or device that needs access to web applications by using AD DS and the [Active Directory device registration service (DRS)][ADDRS].
 
   The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers aren't exposed directly to the internet. All internet traffic is filtered through AD FS WAP servers and a demilitarized zone (DMZ), also known as a *perimeter network*.
 
@@ -30,7 +30,7 @@ This reference architecture implements a secure hybrid network that extends your
 
 - **AD FS proxy subnet:** The AD FS proxy servers can be contained within their own subnet and use NSG rules for protection. The servers in this subnet are exposed to the internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the internet.
 
-- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers serve as a filter between external requests and the AD FS servers. They block direct internet access to the federation infrastructure. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers.
+- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter that shields the AD FS servers from direct access from the internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers.
 
   > [!NOTE]
   > For more information, see [Install and configure the WAP server][install-and-configure-the-web-application-proxy-server].
@@ -90,7 +90,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Networking recommendations
 
-Configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
+Configure the network interface for each of the VMs hosting AD FS and WAP servers that have static private IP addresses.
 
 Don't give the AD FS VMs public IP addresses. For more information, see the [Security considerations](#security) section.
 
@@ -98,15 +98,15 @@ Set the IP address of the preferred and secondary domain name service (DNS) serv
 
 ### AD FS installation
 
-The article [Deploying a Federation Server Farm][deploy-a-federation-server-farm] provides detailed instructions for installing and configuring AD FS. Perform the following tasks before configuring the first AD FS server in the farm:
+The article [Deploy a federation server farm][deploy-a-federation-server-farm] provides detailed instructions for how to install and configure AD FS. Perform the following tasks before you configure the first AD FS server in your farm:
 
-1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name clients use to access the federation service. This identifier can be the DNS name registered for the load balancer, for example, `adfs.contoso.com` (avoid using wildcard names such as `*.contoso.com`, for security reasons). Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own.
+1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name that clients use to access the federation service. This identifier can be the DNS name registered for the load balancer, such as `adfs.contoso.com`. Avoid using wildcard names such as `*.contoso.com` for security reasons. Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services, you can create your own.
 
-    The *subject alternative name* is used by the device registration service (DRS) to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
+    The *subject alternative name* is used by the DRS to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
 
-    For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS][adfs_certificates].
+    For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS][adfs-certificates].
 
-1. On the domain controller, generate a new root key for the Key Distribution Service. Set the effective time to the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support creating the group service account that is used to run the AD FS service. The following PowerShell command demonstrates how to generate a new KDS root key with a time offset:
+1. On the domain controller, generate a new root key for the Key Distribution Service (KDS). Set the effective time to the current time minus 10 hours. This configuration reduces the delay that can occur in distributing and synchronizing keys across the domain. This step is necessary to support creation of the group service account that's used to run the AD FS service. The following PowerShell command demonstrates how to generate a new KDS root key with a time offset:
 
     ```powershell
     Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
@@ -115,11 +115,11 @@ The article [Deploying a Federation Server Farm][deploy-a-federation-server-farm
 1. Add each AD FS server VM to the domain.
 
 > [!NOTE]
-> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation role for the domain must be running and accessible from the AD FS VMs.
+> To install AD FS, the domain controller that runs the primary domain controller emulator flexible single master operation role for the domain must be running and accessible from the AD FS VMs.
 
 ### AD FS trust
 
-Establish federation trust between your AD FS installation, and the federation servers of any partner organizations. Configure any claims filtering and mapping required.
+Establish federation trust between your AD FS installation and the federation servers of any partner organizations. Configure any required claims filtering and mapping.
 
 - DevOps staff at each partner organization must add a relying party trust for the web applications accessible through your AD FS servers.
 
@@ -127,11 +127,11 @@ Establish federation trust between your AD FS installation, and the federation s
 
 - DevOps staff in your organization must also configure AD FS to pass claims on to your organization's web applications.
 
-For more information, see [Establish Federation Trust][establish-federation-trust].
+For more information, see [Establish a federation trust][establish-federation-trust].
 
-Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
+Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish applications by using AD FS preauthentication][publish-applications-by-using-AD-FS-preauthentication]
 
-AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. With AD FS, when you set up the trust relationships, you can:
+AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. With AD FS, when you set up the trust relationships, you can do the following tasks:
 
 - Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
 
@@ -139,15 +139,15 @@ AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't
 
 ### AD FS monitoring
 
-The [Microsoft System Center Management Pack for AD FS 2012 R2][oms-adfs-pack] provides both proactive and reactive monitoring of your AD FS deployment for the federation server. This management pack monitors:
+The [Microsoft System Center Management Pack for AD FS 2012 R2][oms-adfs-pack] provides both proactive and reactive monitoring of your AD FS deployment for the federation server. This management pack monitors the following aspects of your AD FS deployment:
 
-- Events that the AD FS service records in its event logs.
+- Events that the AD FS service records in its event logs
 
-- The performance data that the AD FS performance counters collect.
+- The performance data that the AD FS performance counters collect
 
-- The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
+- The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical problems and warnings
 
-Another option is [Monitor AD FS using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Microsoft Entra Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
+Another option is to [monitor AD FS by using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. It also makes the key data points about these components easily accessible.
 
 ## Considerations
 
@@ -157,36 +157,36 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Create an AD FS farm with at least two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account doesn't make the entire farm inaccessible.
+Create an AD FS farm with a minimum of two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account doesn't make the entire farm inaccessible.
 
-Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. Each availability set must have at least two update domains and two fault domains.
+Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are a minimum of two VMs in each set. Each availability set must have a minimum of two update domains and two fault domains.
 
-Configure the load balancers for the AD FS VMs and WAP VMs as follows:
+Configure the load balancers for the AD FS VMs and WAP VMs by doing the following steps:
 
-- Use an Azure load balancer to provide external access to the WAP VMs, and an internal load balancer to distribute the load across the AD FS servers in the farm.
+- Use an Azure load balancer to provide external access to the WAP VMs and an internal load balancer to distribute the load across the AD FS servers in the farm.
 
-- Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
+- Only pass traffic that appears on port 443 (HTTPS) to the AD FS or WAP servers.
 
 - Give the load balancer a static IP address.
 
-- Create a health probe using HTTP against `/adfs/probe`. For more information, see [Create a custom HTTP/HTTPS health probe for Azure Load Balancer](/azure/load-balancer/create-custom-http-health-probe-howto).
+- Create a health probe by using HTTP against `/adfs/probe`. For more information, see [Create a custom HTTP/HTTPS health probe for Azure Load Balancer](/azure/load-balancer/create-custom-http-health-probe-howto).
 
   > [!NOTE]
-  > AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
+  > AD FS servers use the Server Name Indication protocol, which causes HTTPS endpoint probes from the load balancer to fail.
 
-- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer, and give it a name in the domain, such as `adfs.contoso.com`. This DNS record is the name that clients and the WAP servers use to access the AD FS server farm.
+- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer and give it a name in the domain, such as `adfs.contoso.com`. This DNS record is the name that clients and the WAP servers use to access the AD FS server farm.
 
-You can use either SQL Server or the Windows Internal Database to hold AD FS configuration information. The Windows Internal Database provides basic redundancy. Changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability using failover clustering or mirroring.
+You can use either SQL Server or the Windows Internal Database to hold AD FS configuration information. The Windows Internal Database provides basic redundancy. Changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability by using failover clustering or mirroring.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-AD FS uses HTTPS, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet containing the AD FS servers.
+AD FS uses HTTPS, so make sure that the NSG rules for the subnet that contain the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets that contain the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet that contains the AD FS servers.
 
 Prevent direct exposure of the AD FS servers to the internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from guests not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
 
-Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define firewall rules. All firewalls should allow traffic on port 443 (HTTPS).
+Place AD FS servers and WAP servers in separate subnets that have their own firewalls. You can use NSG rules to define firewall rules. All firewalls should allow traffic on port 443 (HTTPS).
 
 Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Don't join the WAP servers to the domain.
 
@@ -195,8 +195,6 @@ Consider using a set of network virtual appliances that logs detailed informatio
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-Here are cost considerations for the services used in this architecture.
 
 #### AD Domain Services
 
@@ -214,13 +212,13 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 DevOps staff should be prepared to perform the following tasks:
 
-- Manage the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates that the federation services use.
+- Manage the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates that the federation services use
 
-- Manage the WAP servers, including managing the WAP farm and certificates.
+- Manage the WAP servers, including managing the WAP farm and certificates
 
-- Manage web applications including configuring relying parties, authentication methods, and claims mappings.
+- Manage web applications including configuring relying parties, authentication methods, and claims mappings
 
-- Back up AD FS components.
+- Back up AD FS components
 
 For other DevOps considerations, see [Deploy AD DS in an Azure virtual network](adds-extend-domain.yml#devops-considerations).
 
@@ -230,15 +228,15 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 The following considerations, summarized from the article [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
 
-- If you have fewer than 1,000 users, don't create dedicated servers, but instead install AD FS on each of the Active Directory DS servers in the cloud. Make sure that you have at least two Active Directory DS servers to maintain availability. Create a single WAP server.
+- If you have fewer than 1,000 users, don't create dedicated servers. Instead, install AD FS on each of the Active Directory DS servers in the cloud. Make sure that you have at least two Active Directory DS servers to maintain availability. Create a single WAP server.
 
-- If you have between 1000 and 15,000 users, create two dedicated AD FS servers and two dedicated WAP servers.
+- If you have between 1,000 and 15,000 users, create two dedicated AD FS servers and two dedicated WAP servers.
 
 - If you have between 15,000 and 60,000 users, create between three and five dedicated AD FS servers and at least two dedicated WAP servers.
 
 These considerations assume that you're using dual quad-core VM (Standard D4_v2, or better) sizes in Azure.
 
-If you use the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you anticipate that you need more in the future, use SQL Server. For more information, see [The Role of the AD FS Configuration Database][adfs-configuration-database].
+If you use the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you think that you might need more in the future, use SQL Server. For more information, see [The role of the AD FS configuration database][adfs-configuration-database].
 
 ## Contributors
 
@@ -269,14 +267,14 @@ Principal author:
 [microsoft-entra-domain-services-pricing]: https://azure.microsoft.com/pricing/details/microsoft-entra-ds/
 [ADDRS]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486831(v=ws.11)
 [plan-your-adfs-deployment]: /previous-versions/azure/azure-services/dn151324(v=azure.100)
-[adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
+[adfs-certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
 [adfs-configuration-database]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913581(v=ws.11)
 [active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
 [active-directory-federation-services-overview]: /windows-server/identity/active-directory-federation-services
-[establish-federation-trust]: /archive/blogs/alextch/establishing-federation-trust
+[establish-federation-trust]: /exchange/manage-a-federation-trust-exchange-2013-help
 [deploy-a-federation-server-farm]: /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
 [install-and-configure-the-web-application-proxy-server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
-[publish_applications_using_AD_FS_preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
+[publish-applications-by-using-AD-FS-preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
 [oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=54526
 [adfs-intro]: /entra/identity/hybrid/whatis-hybrid-identity
 [considerations]: ./index.yml

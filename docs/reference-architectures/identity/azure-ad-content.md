@@ -61,10 +61,10 @@ If you have multiple on-premises domains in a forest, we recommend storing and s
 
 Use filtering so that only necessary data is stored in Microsoft Entra ID. For example, your organization might not want to store information about inactive accounts in Microsoft Entra ID. Filtering can be group-based, domain-based, organization unit (OU)-based, or attribute-based. You can combine filters to generate more complex rules. For example, you could synchronize objects held in a domain that have a specific value in a selected attribute. For more information, see [Microsoft Entra Connect Sync: Configure filtering][aad-filtering].
 
-To implement high availability for the AD Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
+To implement high availability for the Active Directory Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
 
   > [!NOTE]
-  > **[Microsoft Entra Connect cloud sync][azure-ad-connect-cloud-sync]** is an offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. With Microsoft Entra Connect cloud sync, provisioning from AD to Microsoft Entra ID is orchestrated in Microsoft 365.
+  > **[Microsoft Entra Connect cloud sync][azure-ad-connect-cloud-sync]** is an offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. With Microsoft Entra Connect cloud sync, provisioning from Active Directory to Microsoft Entra ID is orchestrated in Microsoft 365.
 
 ### Validate security configuration and policy
 
@@ -117,7 +117,7 @@ By default, the Microsoft Entra Connect Sync server configures password hash syn
 
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
 
-- Your organization might already have Active Directory Federation Services (AD FS) or a non-Microsoft federation provider deployed. You can configure Microsoft Entra ID to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
+- Your organization might already have Active Directory Federation Services (AD FS) or a non-Microsoft federation provider deployed. You can configure Microsoft Entra ID to use this infrastructure to implement authentication and SSO instead of by using password information held in the cloud.
 
 For more information, see [Microsoft Entra Connect user sign-on options][aad-user-sign-in].
 
@@ -141,7 +141,7 @@ The default configuration for Microsoft Entra Connect synchronizes objects from 
 
 - User objects must have a *sAMAccountName* attribute and can't start with the text *Azure AD_* or *MSOL_*.
 
-Microsoft Entra Connect applies several rules to User, Contact, Group, ForeignSecurityPrincipal, and Computer objects. Use the Synchronization Rules Editor installed with Microsoft Entra Connect if you need to modify the default set of rules. For more information, see [Microsoft Entra Connect Sync: Understanding the default configuration][aad-connect-sync-default-rules].
+Microsoft Entra Connect applies several rules to the User, Contact, Group, ForeignSecurityPrincipal, and Computer objects. Use the Synchronization Rules Editor that's installed with Microsoft Entra Connect if you need to modify the default set of rules. For more information, see [Microsoft Entra Connect Sync: Understanding the default configuration][aad-connect-sync-default-rules].
 
 You can also define your own filters to limit the objects to be synchronized by domain or OU. Alternatively, you can implement more complex [custom filtering][aad-filtering].
 
@@ -172,7 +172,7 @@ The Microsoft Entra service is geo-distributed and runs in multiple datacenters 
 
 Consider provisioning a second instance of Microsoft Entra Connect Sync server in staging mode to increase availability, as discussed in the topology recommendations section.
 
-If you aren't using the SQL Server Express LocalDB instance that comes with Microsoft Entra Connect, consider using SQL clustering to achieve high availability. Microsoft Entra Connect doesn't connect solutions such as mirroring and Always On.
+If you aren't using the SQL Server Express LocalDB instance that comes with Microsoft Entra Connect, consider using SQL clustering to achieve high availability. Microsoft Entra Connect doesn't support solutions such as mirroring and Always On.
 
 For other considerations about achieving high availability of the Microsoft Entra Connect Sync server and also how to recover after a failure, see [Microsoft Entra Connect Sync: Operational tasks and considerations - Disaster recovery][aad-sync-disaster-recovery].
 
@@ -237,13 +237,13 @@ Microsoft Entra Connect installs the following tools to maintain Microsoft Entra
 
 #### DevOps
 
-For DevOps considerations, see Operational Excellence in [Extend Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
+For DevOps considerations, see Operational Excellence in [Deploy AD DS in an Azure virtual network](adds-extend-domain.yml#operational-excellence).
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The Microsoft Entra service supports scalability using replicas. It has a single primary replica that handles write operations and multiple read-only secondary replicas. Microsoft Entra ID transparently redirects attempted writes made to secondary replicas to the primary replica and maintains eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales effectively because most operations performed against Microsoft Entra ID are reads instead of writes. For more information, see [Microsoft Entra architecture][aad-scalability].
+The Microsoft Entra service supports scalability based on replicas. It has a single primary replica that handles write operations and multiple read-only secondary replicas. Microsoft Entra ID transparently redirects attempted writes made to secondary replicas to the primary replica and maintains eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales effectively because most operations performed against Microsoft Entra ID are reads instead of writes. For more information, see [Microsoft Entra architecture][aad-scalability].
 
 For the Microsoft Entra Connect Sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Microsoft Entra Connect. If you have a larger number of objects, install a production version of SQL Server. Then perform a custom installation of Microsoft Entra Connect and specify that it should use an existing SQL Server instance.
 
