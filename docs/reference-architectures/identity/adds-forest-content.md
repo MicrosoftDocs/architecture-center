@@ -109,7 +109,7 @@ Active Directory is automatically scalable for domain controllers that are part 
 
 ## Related resources
 
-- Learn the best practices for how to [extend your on-premises AD DS domain to Azure][adds-extend-domain]
+- Learn the best practices for how to [extend your on-premises AD DS domain to Azure][adds-extend-domain].
 - Learn the best practices for how to [create an AD FS infrastructure][adfs] in Azure.
 
 <!-- links -->
