@@ -30,7 +30,7 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
 - [API Management](/azure/api-management/api-management-key-concepts) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
-- [Azure Static Web Apps](/azure/static-web-apps/overview) is a service that automatically builds and deploys full-stack web apps to Azure from a code repository. Deployments are triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
+- [Static Website Hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) uses Blob Storage and is ideal for providing static website hosting support in cases where you don't require a web server to render content.
 
 ## Scenario details
 
@@ -44,9 +44,9 @@ Storing the cookie in an `HttpOnly` cookie helps to protect the token from XSS a
 
 Because this architecture uses a `SameSite=Strict` cookie, the domain of the API Management gateway must be the same as the domain of the single-page application. That's because a cookie is sent to the API Management gateway only when the API request comes from a site in the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 
-You can configure this architecture without using custom domains for the API Management instance and static web app, but then you'd need to use `SameSite=None` for the cookie setting. This implementation results in a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway. For more information, see [SameSite cookies](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
+You can configure this architecture without using custom domains for the API Management instance and static website hosting, but then you'd need to use `SameSite=None` for the cookie setting. This implementation results in a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway. For more information, see [SameSite cookies](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
-To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](/azure/static-web-apps/custom-domain) and [Configure a custom domain name for your Azure API Management instance](/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](/azure/dns/dns-operations-dnszones-portal).
+To learn more about using custom domains for Azure resources, see [Map a custom domain to an Azure Blob Storage endpoint](/azure/storage/blobs/storage-custom-domain-name) and [Configure a custom domain name for your Azure API Management instance](/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](/azure/dns/dns-operations-dnszones-portal).
 
 ## Authentication flow
 
@@ -181,7 +181,7 @@ This solution isn't production-ready. It's meant to demonstrate what you can do 
 
 Principal author:
 
-- [Ira Rainey](https://www.linkedin.com/in/ira-rainey) | Senior Software Engineer
+- [Ira Rainey](https://www.linkedin.com/in/ira-rainey) | Principal Software Engineer
 
 Other contributor:
  
@@ -196,7 +196,7 @@ Other contributor:
 - [How to set or edit Azure API Management policies](/azure/api-management/set-edit-policies)
 - [Use named values in Azure API Management policies](/azure/api-management/api-management-howto-properties)
 - [OAuth 2.0 authentication with Microsoft Entra ID](/entra/architecture/auth-oauth2)
-- [What is Azure Static Web Apps?](/azure/static-web-apps/overview)
+- [Host a static website in Azure Storage](/azure/storage/blobs/storage-blob-static-website-how-to)
 
 ## Related resource
 
