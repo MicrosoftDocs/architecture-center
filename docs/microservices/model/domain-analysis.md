@@ -59,7 +59,7 @@ As you fill in the diagram, you might start to identify discrete subdomains. Whi
 
 After some initial domain analysis, the Fabrikam team came up with a rough sketch that depicts the Drone Delivery domain.
 
-:::image type="complex" border="false" source="../images/ddd1.svg" alt-text="Diagram of the Drone Delivery domain." lightbox="../images/ddd1.svg":::
+:::image type="complex" border="false" source="../images/ddd1.svg" alt-text="Diagram that shows the Drone Delivery domain." lightbox="../images/ddd1.svg":::
    The diagram is an interconnected web with multiple connecting lines and ovals that contain words. Shipping connects to Drone management, Third party, Call center, Accounts, Invoicing, and Returns. Accounts connects to Call center, Shipping, Invoicing, User rating, and Loyalty. Drone management connects to Drone sharing, Predictive analysis, Drone repair, ETA analysis, Third party, and Shipping.
 :::image-end:::
 
@@ -86,7 +86,7 @@ If we tried to create a single model for both of these subsystems, it would be u
 
 The DDD concept of *bounded contexts* comes into play here. A bounded context defines the boundary within a domain where a specific domain model applies. Referring to the previous diagram, you can group functionality based on whether different functions share the same domain model.
 
-:::image type="complex" border="false" source="../images/ddd2.svg" alt-text="Diagram of bounded contexts." lightbox="../images/ddd2.svg":::
+:::image type="complex" border="false" source="../images/ddd2.svg" alt-text="Diagram that shows multiple bounded contexts." lightbox="../images/ddd2.svg":::
    The diagram is an interconnected web with multiple connecting lines and ovals that contain words. Dotted lines section off various ovals. Drone management is connected to Video surveillance, Shipping, and Third-party transportation. Accounts is connected to Drone sharing, Shipping, and Call center. The third-party transportation and Call center sections are both labeled as External systems.
 :::image-end:::
 
