@@ -32,8 +32,8 @@ items:
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
             href: ../multitenant/considerations/tenancy-models.md
-          - name: Tenant lifecycle
-            href: ../multitenant/considerations/tenant-lifecycle.md
+          - name: Tenant life cycle
+            href: ../multitenant/considerations/tenant-life-cycle.md
           - name: Pricing models
             href: ../multitenant/considerations/pricing-models.md
           - name: Control planes
@@ -47,7 +47,7 @@ items:
           - name: Identity
             href: ../multitenant/considerations/identity.md
           - name: Domain names
-            href: ../multitenant/considerations/domain-names.yml
+            href: ../multitenant/considerations/domain-names.md
         - name: Approaches
           items:
           - name: Overview

@@ -97,7 +97,7 @@ For more information, see [Topic filters and actions](/azure/service-bus-messagi
 
 ### Suspend and reactivate messaging entities
 
-You can temporarily suspend message entities. Suspension puts the messaging entity into a disabled state, and all messages are maintained in storage. The ability to deactivate messaging entities is useful when handling your [tenant life cycle](../considerations/tenant-lifecycle.md). For example, if a tenant unsubscribes from your product, you could disable the queues that are specific to that specific tenant.
+You can temporarily suspend message entities. Suspension puts the messaging entity into a disabled state, and all messages are maintained in storage. The ability to deactivate messaging entities is useful when handling your [tenant life cycle](../considerations/tenant-life-cycle.md). For example, if a tenant unsubscribes from your product, you could disable the queues that are specific to that specific tenant.
 
 For more information, see [Suspend and reactivate messaging entities (disable)](/azure/service-bus-messaging/entity-suspend).
 

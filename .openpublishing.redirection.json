@@ -4021,6 +4021,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/multitenant/considerations/tenant-lifecycle.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/tenant-life-cycle",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/ai/network-security-mlops.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/network-security-mlops",
       "redirect_document_id": true

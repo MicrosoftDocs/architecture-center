@@ -19,7 +19,7 @@ Control planes are an important part of software as a service (SaaS) and multite
   - Tenant configuration
   - SKUs deployed for tenant resources
   - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to
-- Processes that manage changes to the environment. [Tenant life cycle events](../considerations/tenant-lifecycle.md) trigger these processes. Examples include tenant onboarding, tenant offboarding, and required regular maintenance.
+- Processes that manage changes to the environment. [Tenant life cycle events](../considerations/tenant-life-cycle.md) trigger these processes. Examples include tenant onboarding, tenant offboarding, and required regular maintenance.
 
 A control plane functions as an application. You must design your control plane with the same rigor and care that you apply to other parts of your solution. For more information about what a control plane is, why it matters, and design considerations, see [Considerations for multitenant control planes](../considerations/control-planes.md).
 
