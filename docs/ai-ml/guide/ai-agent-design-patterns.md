@@ -64,7 +64,10 @@ A law firm's document management software uses sequential agents for contract ge
 TODO
 :::image-end:::
 
-First, the template selection agent receives client specifications (contract type, jurisdiction, parties involved) and selects the appropriate base template from the firm's library. Next, the clause customization agent takes the selected template and modifies standard clauses based on negotiated business terms, including payment schedules and liability limitations. The regulatory compliance agent then reviews the customized contract against applicable laws and industry-specific regulations. Finally, the risk assessment agent performs comprehensive analysis of the complete contract, evaluating liability exposure and dispute resolution mechanisms while providing risk ratings and protective language recommendations.
+1. First, the *template selection agent* receives client specifications (contract type, jurisdiction, parties involved) and selects the appropriate base template from the firm's library.
+1. Then, the *clause customization agent* takes the selected template and modifies standard clauses based on negotiated business terms, including payment schedules and liability limitations.
+1. Next, the *regulatory compliance agent* then reviews the customized contract against applicable laws and industry-specific regulations.
+1. Finally, the *risk assessment agent* performs comprehensive analysis of the complete contract, evaluating liability exposure and dispute resolution mechanisms while providing risk ratings and protective language recommendations.
 
 ## Concurrent orchestration
 
@@ -104,13 +107,20 @@ Avoid this pattern when:
 
 ### Concurrent orchestration example
 
-A financial services firm has an intelligent application that uses concurrent agents that specialize in fundamental, technical, sentiment, and ESG (environmental, social, and governance) agents simultaneously analyze the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
+A financial services firm has an intelligent application that uses concurrent agents that specialize in different analyses to simultaneously evaluate the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
 
 :::image type="complex" source="_images/concurrent-pattern-example.svg" alt-text="Diagram showing concurrent orchestration to evaluate a stock." lightbox="_images/concurrent-pattern-example.svg":::
 TODO
 :::image-end:::
 
-The system processes stock analysis requests by dispatching the same ticker symbol to four specialized agents running in parallel. The fundamental analysis agent evaluates financial statements, revenue trends, and competitive positioning to assess intrinsic value. The technical analysis agent examines price patterns, volume indicators, and momentum signals to identify trading opportunities. The sentiment analysis agent processes news articles, social media mentions, and analyst reports to gauge market sentiment and investor confidence. The ESG agent reviews environmental impact, social responsibility, and governance practice reports to evaluate sustainability risks and opportunities. The aggregation system combines independent results into a comprehensive investment recommendation which enables portfolio managers to make informed decisions quickly.
+The system processes stock analysis requests by dispatching the same ticker symbol to four specialized agents running in parallel.
+
+- The *fundamental analysis agent* evaluates financial statements, revenue trends, and competitive positioning to assess intrinsic value.
+- The *technical analysis agent* examines price patterns, volume indicators, and momentum signals to identify trading opportunities.
+- The *sentiment analysis agent* processes news articles, social media mentions, and analyst reports to gauge market sentiment and investor confidence.
+- The *ESG (environmental, social, and governance) agent* reviews environmental impact, social responsibility, and governance practice reports to evaluate sustainability risks and opportunities.
+
+These independent results are then combined into a comprehensive investment recommendation which enables portfolio managers to make informed decisions quickly.
 
 ## Group chat orchestration
 
