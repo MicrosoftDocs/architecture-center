@@ -3,7 +3,7 @@ title: Microservices Architecture Style
 description: Learn about microservices on Azure. This architectural style builds applications that are resilient, highly scalable, and independently deployable.
 author: RobBagby
 ms.author: robbag
-ms.date: 07/26/2022
+ms.date: 06/30/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
