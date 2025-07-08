@@ -2,8 +2,8 @@ This reference architecture shows how to create a separate Active Directory doma
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/adds-forest.svg" alt-text="Diagram that shows secure hybrid network architecture with separate Active Directory domains." lightbox="./images/adds-forest.svg":::
-   The image has two key sections: an on-premises network and a virtual network. The on-premises network contains contoso.com, a gateway, and Active Directory servers. The virtual network section includes a gateway subnet, an application subnet, a management subnet, and Active Directory Domain Services subnets. The gateway subnet has a gateway. The application subnet contains network security groups (NSGs) and virtual machines (VMs). The management subnet contains NSGs, a VM, and a jump box. The Active Directory Domain Services section contains NSGs and servers. In a separate section, an arrow points from a public IP address to the VM in the management subnet section.
+:::image type="complex" border="false" source="./images/adds-forest.svg" alt-text="Diagram that shows a secure hybrid network architecture with separate Active Directory domains." lightbox="./images/adds-forest.svg":::
+   The image has two key sections: an on-premises network and a virtual network. The on-premises network contains contoso.com, a gateway, and Active Directory servers. The virtual network section includes a gateway subnet, an application subnet, a management subnet, and Active Directory Domain Services subnets. The gateway subnet has a gateway. The application subnet contains network security groups (NSGs) and virtual machines (VMs). The management subnet contains NSGs, a VM, and a jump box. The AD DS section contains NSGs and servers. In a separate section, an arrow points from a public IP address to the VM in the management subnet section.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/identity-architectures.vsdx) of this architecture.*
@@ -32,7 +32,7 @@ For more information, see [Choose a solution for integrating on-premises Active 
 
 ## Recommendations
 
-For specific recommendations about how to implement Active Directory in Azure, see [Extend Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
+For specific recommendations about how to implement Active Directory in Azure, see [Extend AD DS to Azure][adds-extend-domain].
 
 ### Trust
 
@@ -42,7 +42,7 @@ You can establish trusts at the forest level by [creating forest trusts][creatin
 
 Trusts with an on-premises Active Directory are only one way, or *unidirectional*. A one-way trust allows users in one domain or forest, known as the incoming domain or forest, to access resources in another domain or forest, known as the outgoing domain or forest. Users in the outgoing domain can't access resources in the incoming domain.
 
-The following table summarizes trust configurations for some simple scenarios:
+The following table summarizes trust configurations for simple scenarios:
 
 | Scenario | On-premises trust | Cloud trust |
 | :--- | :--- | :--- |
@@ -57,7 +57,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Provision a minimum of two domain controllers for each domain. This approach enables automatic replication between servers. Create an availability set for the VMs acting as Active Directory servers handling each domain. Put at least two servers in this availability set.
+Provision a minimum of two domain controllers for each domain. This approach enables automatic replication between servers. Create an availability set for the VMs that act as Active Directory servers handling each domain. Put at least two servers in this availability set.
 
 Consider designating one or more servers in each domain as [standby operations masters][standby-operations-masters] if connectivity to a server acting as a flexible single master operation role fails.
 
@@ -67,17 +67,17 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Forest-level trusts are transitive. If you establish a forest-level trust between an on-premises forest and a forest in the cloud, the trust extends to any new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only.
 
-For Active Directory-specific security considerations, see the security considerations section in [Extend Active Directory to Azure][adds-extend-domain].
+For Active Directory-specific security considerations, see the security considerations section in [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs for the services used in this architecture. Other considerations are described in the **Cost Optimization** section in [Well-Architected Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs for the services used in this architecture. Other considerations are described in the cost optimization section in [Well-Architected Framework][aaf-cost].
 
-#### Microsoft Entra Domain Services
+#### AD Domain Services
 
-Consider having Microsoft Entra Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Microsoft Entra Domain Services pricing][ADDS-pricing].
+Consider having Active Directory Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
 
 #### Azure VPN Gateway
 
@@ -93,13 +93,13 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### DevOps
 
-For DevOps considerations, see Operational Excellence in [Extend Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
+For DevOps considerations, see [Operational Excellence](adds-extend-domain.yml#operational-excellence).
 
 #### Manageability
 
-For information about management and monitoring considerations, see [Extend Active Directory to Azure][adds-extend-domain].
+For information about management and monitoring considerations, see [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
-Follow the guidance in [Monitoring Active Directory][monitoring_ad]. You can install tools such as [Microsoft Systems Center][microsoft-systems-center] on a monitoring server in the management subnet to help perform these tasks.
+Follow the guidance in [Monitoring Active Directory][monitoring-ad]. You can install tools such as [Microsoft System Center][microsoft-systems-center] on a monitoring server in the management subnet to help perform these tasks.
 
 ### Performance Efficiency
 
@@ -116,7 +116,7 @@ Active Directory is automatically scalable for domain controllers that are part 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/microsoft-entra-ds
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
@@ -126,5 +126,5 @@ Active Directory is automatically scalable for domain controllers that are part 
 [creating-external-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816837(v=ws.10)
 [creating-forest-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816810(v=ws.10)
 [microsoft-systems-center]: https://microsoft.com/cloud-platform/system-center
-[monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
+[monitoring-ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
 [standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)

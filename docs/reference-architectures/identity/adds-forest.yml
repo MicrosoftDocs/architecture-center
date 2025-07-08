@@ -7,6 +7,10 @@ metadata:
   ms.date: 06/05/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
+  ms.category:
+    - identity
+    - hybrid
+  ms.custom: e2e-hybrid
 azureCategories:
   - identity
   - hybrid
