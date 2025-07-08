@@ -7438,6 +7438,11 @@
       "source_path": "docs/guide/saas/plan-journey-saas.md",
       "redirect_url": "/azure/well-architected/saas/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
+      "redirect_document_id": false
     }
   ]
 }

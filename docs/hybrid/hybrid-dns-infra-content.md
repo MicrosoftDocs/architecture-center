@@ -164,10 +164,7 @@ Learn more about the component technologies:
 
 ## Related resources
 
-Explore related architectures:
-
-- [Azure enterprise cloud file share](./azure-files-private.yml)
-- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
+Explore related architecture: [Azure enterprise cloud file share](./azure-files-private.yml)
 
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction
