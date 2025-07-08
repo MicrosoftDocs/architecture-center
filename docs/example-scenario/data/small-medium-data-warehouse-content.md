@@ -117,8 +117,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 Principal author:
 
 - [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
-- Bhaskar Sharma](https://www.linkedin.com/in/bhaskar-sharma-00991555/) | Senior Program Manager
-- 
+- [Bhaskar Sharma](https://www.linkedin.com/in/bhaskar-sharma-00991555/) | Senior Program Manager
+  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
