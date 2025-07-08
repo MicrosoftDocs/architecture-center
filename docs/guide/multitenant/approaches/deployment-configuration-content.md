@@ -19,7 +19,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 - Collection of the information that you need to configure your system for the new tenant.
 - Manual approval steps, for example, to prevent fraud or abuse of your service.
 - The provisioning of resources in Azure.
-- [Creating or configuring domain names](../considerations/domain-names.yml).
+- [Creating or configuring domain names](../considerations/domain-names.md).
 - Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmitting its credentials to the tenant.
 - Manual configuration changes, such as DNS record changes.
 
@@ -54,7 +54,7 @@ In some multitenant solutions, you deploy dedicated Azure resources for each ten
 Each of these models requires you to deploy and manage resources in different ways, and you must consider how you will deploy and manage the lifecycle of the resources that you provision. Two common approaches are as follows:
 
 - To treat tenants as *configuration* of the resources that you deploy, and use your deployment pipelines to deploy and configure those resources.
-- To treat tenants as *data*, and have a [control plane](../considerations/control-planes.yml) provision and configure infrastructure for your tenants.
+- To treat tenants as *data*, and have a [control plane](../considerations/control-planes.md) provision and configure infrastructure for your tenants.
 
 Further discussion of these approaches is provided below.
 
@@ -94,7 +94,7 @@ You can consider the following two approaches when you deploy resources in a mul
 - **Use an automated deployment pipeline to deploy every resource.** As new tenants are added, reconfigure your pipeline to provision the resources for each tenant.
 - **Use an automated deployment pipeline to deploy shared resources that don't depend on the number of tenants.** For resources that are deployed for each tenant, create them within your application.
 
-When considering the two approaches, you should distinguish between treating your tenant list as a *configuration* or as *data*. This distinction is also important when you consider how to build a [control plane](../considerations/control-planes.yml) for your system.
+When considering the two approaches, you should distinguish between treating your tenant list as a *configuration* or as *data*. This distinction is also important when you consider how to build a [control plane](../considerations/control-planes.md) for your system.
 
 ### Tenant list as configuration
 
@@ -129,7 +129,7 @@ By doing this, you can provision resources for new tenants without redeploying y
 
 However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
 
-For more information on this approach, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
+For more information on this approach, see [Considerations for multitenant control planes](../considerations/control-planes.md).
 
 > [!NOTE]
 > Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
