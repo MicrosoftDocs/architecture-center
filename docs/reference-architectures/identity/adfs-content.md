@@ -2,7 +2,7 @@ This reference architecture implements a secure hybrid network that extends your
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/adfs.svg" alt-text="Diagram that shows an example of a secure hybrid network architecture with AD FS." lightbox="./images/adfs.svg":::
+:::image type="complex" border="false" source="./images/active-directory-federation-services.svg" alt-text="Diagram that shows an example of a secure hybrid network architecture with AD FS." lightbox="./images/active-directory-federation-services.svg":::
    The image contains four key sections. The on-premises network section contains contoso.com and a gateway. A dotted line labeled DDoS Protection encloses a section that contains five subsections. The jump box section contains a network security group (NSG). The gateway section connects to the gateway in the on-premises network. The AD FS proxy subnet section contains an NSG, AD FS WAP, and virtual machines (VMs). The AD FS subnet contains an NSG, AD FS servers, and two VMs. The AD DS subnet contains an NSG, AD DS servers, and two VMs. A dotted line points from AD FS subnet to the Federation server section. The Federation server section contains the partner network. An arrow labeled Federated authentication request points from the partner network to the public IP address section.
 :::image-end:::
 
