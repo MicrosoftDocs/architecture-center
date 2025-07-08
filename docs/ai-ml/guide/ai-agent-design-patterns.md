@@ -71,20 +71,25 @@ First, the template selection agent receives client specifications (contract typ
 The concurrent orchestration pattern executes multiple agents simultaneously on the same task, allowing each agent to provide independent analysis or processing from their unique perspective or specialization.
 
 :::image type="complex" source="_images/concurrent-pattern.svg" alt-text="Diagram showing concurrent orchestration where multiple agents process the same input task simultaneously and their results are aggregated." lightbox="_images/concurrent-pattern.svg":::
-The diagram shows concurrent orchestration with an input task positioned at the top center. Below the input, three agents are arranged horizontally: Agent A on the left, Agent B in the center, and Agent C on the right. Parallel arrows connect the input task to each agent, indicating simultaneous processing. Each agent produces a specialized output positioned directly below it. At the bottom center, an aggregation component receives arrows from all three agent outputs and produces a final combined result. The visual flow demonstrates how multiple agents work in parallel on the same input, with their diverse outputs converging into a unified result through the aggregation process.
+TODO
 :::image-end:::
 
-This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, reducing overall execution time while providing comprehensive coverage of the problem space. This pattern is similar to the fan-out/fan-in cloud design pattern.
+This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, reducing overall execution time while providing comprehensive coverage of the problem space. This pattern is similar to the fan-out/fan-in cloud design pattern. Often the results of each agent are aggregated to return a final result, but this is not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or update different data stores in parallel.
+
+Agents operate independently, and do not hand off results to each other. Agents might invoke additional agents, using their own orchestration approach, as part of their own independent processing. The available agents for processing must be made known to the initiator agent. This pattern supports both deterministically calling all registered agents or allows the initiator agent to dynamically choose among the available agents which ones to invoke.
 
 ### When to use concurrent orchestration
 
 Consider the concurrent orchestration pattern when you have:
 
-- Tasks that benefit from multiple independent perspectives
-- Agents with different specializations that can all contribute to the same problem
+- Tasks that can be done in parallel, either as a fixed set of agents or dynamically chosen based on the given task requirements
+- Tasks that benefit from multiple independent perspectives or different specializations (technical, business, creative, and so on) that can all contribute to the same problem. This is typically found in scenarios that feature:
+
+  - Brainstorming
+  - Ensemble reasoning
+  - Quorum and voting based decisions
+
 - Time-sensitive scenarios where parallel processing reduces latency
-- Validation requirements where multiple agents can cross-check results
-- Analysis tasks requiring diverse expertise (technical, business, creative, and so on)
 
 ### When to avoid concurrent orchestration
 
@@ -93,19 +98,19 @@ Avoid this pattern when:
 - Agents need to build upon each other's work or each other's cumulative context sequentially
 - The task requires a specific order of operations or deterministic, reproducible results from being run in specific sequence
 - Resource constraints, such as model quota, make parallel execution inefficient or impossible
-- Agents cannot reliable coordinate changes to shared state as they run simultaneously
+- Agents cannot reliably coordinate changes to shared state or external systems as they run simultaneously
 - There is no clear conflict resolution strategy to handle conflicting or contradictory results from each agent
 - Result aggregation logic would be too complex or would lower the quality of the results
 
-### Concurrent orchestration examples
+### Concurrent orchestration example
 
-**Code review validation**: A software development platform uses concurrent agents where security, performance, style, and documentation agents simultaneously analyze the same code submission. Each provides independent assessments that are aggregated into a comprehensive review dashboard, reducing overall processing time while ensuring thorough coverage.
+A financial services firm has an intelligent application that uses concurrent agents that specialize in fundamental, technical, sentiment, and ESG (environmental, social, and governance) agents simultaneously analyze the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
 
-**Investment research analysis**: A financial services firm deploys concurrent agents where fundamental, technical, sentiment, and ESG agents simultaneously analyze the same stock from their specialized perspectives, providing diverse, time-sensitive insights for rapid investment decisions.
+:::image type="complex" source="_images/concurrent-pattern-example.svg" alt-text="Diagram showing concurrent orchestration to evaluate a stock." lightbox="_images/concurrent-pattern-example.svg":::
+TODO
+:::image-end:::
 
-### Implement concurrent orchestration
-
-For Semantic Kernel based implementations, see [Concurrent Orchestration in Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent).
+The system processes stock analysis requests by dispatching the same ticker symbol to four specialized agents running in parallel. The fundamental analysis agent evaluates financial statements, revenue trends, and competitive positioning to assess intrinsic value. The technical analysis agent examines price patterns, volume indicators, and momentum signals to identify trading opportunities. The sentiment analysis agent processes news articles, social media mentions, and analyst reports to gauge market sentiment and investor confidence. The ESG agent reviews environmental impact, social responsibility, and governance practice reports to evaluate sustainability risks and opportunities. The aggregation system combines independent results into a comprehensive investment recommendation which enables portfolio managers to make informed decisions quickly.
 
 ## Group chat orchestration
 
