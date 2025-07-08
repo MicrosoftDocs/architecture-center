@@ -28,9 +28,9 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [API Management](/azure/api-management/api-management-key-concepts) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
-- [Static Website Hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) uses Blob Storage and is ideal for providing static website hosting support in cases where you don't require a web server to render content.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads. In this architecture, Microsoft Entra ID is used to authenticate users and to issue access tokens.
+- [API Management](/azure/api-management/api-management-key-concepts) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services. In this architecture, API Management is used to implement a Backends for Frontends pattern that acquires access tokens from Microsoft Entra ID and proxies API calls.
+- [Static Website Hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) uses Blob Storage and is ideal for providing static website hosting support in cases where you don't require a web server to render content. In this architecture, static website hosting is used to host the single-page application. The single-page application is a JavaScript application that runs in the browser and calls the API Management gateway to access the backend API.
 
 ## Scenario details
 
