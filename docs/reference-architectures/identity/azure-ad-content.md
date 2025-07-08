@@ -290,7 +290,7 @@ Principal author:
 [aad-reporting-guide]: /entra/identity/monitoring-health/overview-monitoring-health
 [aad-scalability]: /entra/architecture/architecture
 [aad-sync-best-practices]: /entra/identity/hybrid/connect/how-to-connect-sync-best-practices-changing-default-configuration
-[aad-sync-disaster-recovery]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-serverhow-to-connect-sync-staging-server#disaster-recovery
+[aad-sync-disaster-recovery]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server#disaster-recovery
 [aad-sync-requirements]: /entra/identity/hybrid/
 [aad-topologies]: /entra/identity/hybrid/connect/plan-connect-topologies
 [aad-user-sign-in]: /entra/identity/hybrid/connect/plan-connect-user-signin
