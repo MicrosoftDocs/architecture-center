@@ -124,49 +124,43 @@ These independent results are then combined into a comprehensive investment reco
 
 ## Group chat orchestration
 
-The group chat orchestration enables multiple agents to participate in a shared conversation thread, where agents collaborate through discussion to solve problems, make decisions, or validate work. A chat manager coordinates the flow, determining which agent should respond next and managing different interaction modes from collaborative brainstorming to structured quality gates.
+The group chat orchestration enables multiple agents to to solve problems, make decisions, or validate work through participating in a shared conversation thread, where agents collaborate through discussion. A chat manager coordinates the flow, determining which agents can respond next and managing different interaction modes from collaborative brainstorming to structured quality gates.
 
 :::image type="complex" source="_images/group-chat-pattern.svg" alt-text="Diagram showing group chat orchestration where multiple agents participate in a managed conversation with a central chat manager coordinating the discussion flow." lightbox="_images/group-chat-pattern.svg":::
-The diagram shows group chat orchestration with a shared conversation thread at the top center of the image. Below the conversation thread, a Group Chat Manager is positioned centrally, acting as the coordination hub. Four participants are arranged around the manager in a roughly circular pattern: Agent A positioned to the upper left, Agent B to the upper right, Agent C to the lower left, and a Human Participant to the lower right. Bidirectional arrows connect each participant to the central Group Chat Manager, demonstrating how the manager facilitates communication flow between all participants. The arrangement illustrates how the manager coordinates turn-taking and ensures orderly participation in the shared conversation, enabling collaborative problem-solving through managed group discussion.
+TODO
 :::image-end:::
 
-This pattern addresses scenarios requiring multi-agent discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. It supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
+This pattern addresses scenarios that are best done through group discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. The pattern supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
+
+This pattern works particularly well with human-in-the-loop scenarios where humans can optionally assume chat manager responsibilities or guide conversations toward productive outcomes.
 
 ### When to use group chat orchestration
 
-Consider group chat orchestration when you have any of the following scenarios.
+Consider group chat orchestration when your situation might be able to be solved through spontaneous or guided collaboration or iterative maker-checker loops. And all of these can support real-time human oversight or participation. Because all of the agents are emitting output into a single thread, the pattern provides a good means for transparency and auditability.
 
 #### Collaborative scenarios
 
-- Creative brainstorming sessions where agents build on each other's ideas
-- Decision-making processes that benefit from debate and consensus-building
-- Complex analysis requiring iterative refinement through discussion
+- Creative brainstorming sessions where agents with different forced perspectives and knowledge sources build on each other's ideas
+- Decision-making processes that benefit from debate and consensus-building on shared ideas
+- Decision making requiring iterative refinement through discussion
 - Multi-disciplinary problems requiring cross-functional dialogue
 
 #### Validation and quality control scenarios
 
-- Quality assurance requirements with structured review processes
+- Quality assurance requirements with structured review processes and iteration
 - Compliance and regulatory validation requiring multiple expert perspectives
-- Financial or high-risk decisions needing approval workflows with clear audit trails
 - Content creation requiring editorial review with separation of concerns between creation and validation
-
-#### General discussion scenarios
-
-- Scenarios where human oversight or participation is needed within agent collaboration
-- Problems requiring multiple expert perspectives to converge through conversation
-- Situations where the decision-making process itself needs to be transparent and auditable
 
 ### When to avoid group chat orchestration
 
 Avoid this pattern when:
 
 - Simple task delegation or linear pipeline processing is sufficient
-- Single agent processing can adequately handle the requirements
 - Real-time processing requirements make discussion overhead unacceptable
-- Clear hierarchical decision-making without discussion is more appropriate
+- Clear hierarchical decision-making or deterministic workflows without discussion is more appropriate
 - Communication overhead would overwhelm the benefits
-- Managing conversation flow and preventing infinite loops would be too complex
-- Deterministic workflows are required without any iterative discussion
+
+Managing conversation flow and preventing infinite loops requires careful attention as control becomes harder to maintain with more agents. Consider limiting group chat orchestration to three or fewer agents to maintain effective control.
 
 ### Group chat orchestration examples
 
