@@ -1,9 +1,9 @@
 ---
 title: AI agent orchestration patterns
-description: Learn about fundamental orchestration patterns for AI agent architectures, including concurrent, sequential, group chat, handoff, magnetic, and network patterns.
+description: Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 06/26/2025
+ms.date: 07/08/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -12,7 +12,7 @@ ms.custom: arb-aiml
 
 # AI agent orchestration patterns
 
-AI agent systems are becoming increasingly sophisticated, moving beyond single-agent, many-tools implementations to multi-agent, few-tools orchestrations that can handle complex, collaborative tasks in a more reliable way. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
+AI agent systems are sophisticated and are often pushing the limits of what single-agent with access to many tools can provide. These systems instead use multi-agent orchestrations that can handle complex, collaborative tasks in a reliable way. This guide examines a few fundamental orchestration patterns for multi-agent architectures, so you can choose the correct approach for your specific requirements.
 
 ## Overview
 
@@ -21,9 +21,50 @@ Using multiple AI agents enables you to decompose complex problems into speciali
 - Specialization: Each agent can focus on a specific domain or capability, reducing code and prompt complexity.
 - Scalability: Add or modify agents without redesigning the entire system.
 - Maintainability: Each agent has a smaller surface area and tool usage to test and debug.
-- Optimization: Each agent can use distinct models, task-solving approaches, knowledge, and tools to accomplish its outcomes.
+- Optimization: Each agent can use distinct models, task-solving approaches, knowledge, tools, and even compute to accomplish its outcomes.
 
-The patterns described in this guide represent proven approaches to orchestrating multiple agents, each pattern optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components in AI-driven workload capabilities.
+The patterns described in this guide represent proven approaches to orchestrating multiple agents, each pattern optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating autonomous components in AI-driven workload capabilities.
+
+## Sequential orchestration
+
+The sequential orchestration pattern chains agents together in a predefined, linear order, where each agent processes the output from the previous agent in the sequence, creating a pipeline of specialized transformations.
+
+:::image type="complex" source="_images/sequential-pattern.svg" alt-text="Diagram showing sequential orchestration where agents process tasks in a defined pipeline order with output flowing from one agent to the next." lightbox="_images/sequential-pattern.svg":::
+TODO
+:::image-end:::
+
+This pattern solves problems that require step-by-step processing, where each stage builds upon the previous one. It's ideal for workflows with clear dependencies and where the output quality improves through progressive refinement. This pattern is similar to the [Pipes and Filters](/azure/architecture/patterns/pipes-and-filters) cloud design pattern, but with AI agents rather than custom-coded processing components. The choice of which agent invoked next deterministically defined as part of the workflow and is not a choice given to agents in the process.
+
+### When to use sequential orchestration
+
+Consider the sequential orchestration pattern when you have:
+
+- Multi-stage processes with clear linear dependencies and predictable workflow progression
+- Data transformation pipelines, where each stage adds specific value that the next stage depends on
+- Stages that cannot be parallelized
+- Progressive refinement requirements, like "draft, review, polish" workflows
+- A system where the availability and performance characteristics of every agent in the pipeline is understood. Failures or delays in one agent's processing are tolerable for the overall task to be accomplished.
+
+### When to avoid sequential orchestration
+
+Avoid this pattern when:
+
+- Stages could be parallelized without impact to quality results or shared state contention
+- Process that involves a only a few stages
+- Early stages might fail or produce low-quality output and there is no reasonable way to prevent future steps from processing against accumulated errors
+- Agents need to collaborate rather than hand off work
+- The workflow requires backtracking or iteration
+- Dynamic routing based on intermediate results is needed
+
+### Sequential orchestration example
+
+A law firm's document management software uses sequential agents for contract generation. The intelligent application processes requests through a pipeline of four specialized agents. The sequential and pre-defined pipeline steps ensures that each agent works with the complete output from the previous stage.
+
+:::image type="complex" source="_images/sequential-pattern-example.svg" alt-text="Diagram showing sequential orchestration where a document creation pipeline is implemented with agents." lightbox="_images/sequential-pattern-example.svg":::
+TODO
+:::image-end:::
+
+First, the template selection agent receives client specifications (contract type, jurisdiction, parties involved) and selects the appropriate base template from the firm's library. Next, the clause customization agent takes the selected template and modifies standard clauses based on negotiated business terms, including payment schedules and liability limitations. The regulatory compliance agent then reviews the customized contract against applicable laws and industry-specific regulations. Finally, the risk assessment agent performs comprehensive analysis of the complete contract, evaluating liability exposure and dispute resolution mechanisms while providing risk ratings and protective language recommendations.
 
 ## Concurrent orchestration
 
@@ -65,46 +106,6 @@ Avoid this pattern when:
 ### Implement concurrent orchestration
 
 For Semantic Kernel based implementations, see [Concurrent Orchestration in Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent).
-
-## Sequential orchestration
-
-The sequential orchestration pattern chains agents together in a predefined order, where each agent processes the output from the previous agent in the sequence, creating a pipeline of specialized transformations.
-
-:::image type="complex" source="_images/sequential-pattern.svg" alt-text="Diagram showing sequential orchestration where agents process tasks in a defined pipeline order with output flowing from one agent to the next." lightbox="_images/sequential-pattern.svg":::
-The diagram displays a vertical pipeline with an input document at the top flowing downward through three agents arranged in sequence. Agent A receives the input document and processes it, sending its output via a downward arrow to Agent B positioned below. Agent B receives Agent A's output, processes it further, and sends its result through another downward arrow to Agent C at the bottom. Agent C produces the final output shown below it. Each processing stage is connected by clear directional arrows that demonstrate the linear flow of information from one agent to the next, illustrating how each agent builds upon the work of the previous agent in the chain.
-:::image-end:::
-
-This pattern solves problems that require step-by-step processing, where each stage builds upon the previous one. It's ideal for workflows with clear dependencies and where the output quality improves through progressive refinement. This pattern is similar to the [Pipes and Filters](/azure/architecture/patterns/pipes-and-filters) cloud design pattern, but with AI agents rather than custom-coded processing components.
-
-### When to use sequential orchestration
-
-Consider the sequential orchestration pattern when you have:
-
-- Multi-stage processes with clear dependencies and predictable workflow progression
-- Data transformation pipelines, where each stage adds specific value that the next stage depends on
-- Progressive refinement requirements, like "draft, review, polish" workflows
-- Need to add a human-in-the-loop quality gate between steps in a process
-- A system where the availability and performance characteristics of every agent in the pipeline is understood. Failures or delays in one agent's processing are tolerable for the pipeline.
-
-### When to avoid sequential orchestration
-
-Avoid this pattern when:
-
-- Stages could be parallelized without impact to quality results
-- Early stages might fail or produce low-quality output and there is no reasonable way to prevent future steps from processing against on accumulated errors
-- Agents need to collaborate rather than hand off work
-- The workflow requires backtracking or iteration
-- Dynamic routing based on intermediate results is needed
-
-### Sequential orchestration examples
-
-**Legal contract drafting**: A law firm's document management software uses sequential agents where each stage requires the complete output from the previous stage: template creation, clause customization, regulatory compliance review, risk assessment. Each agent builds upon the work of the previous agent to create a comprehensive contract.
-
-**Personalized curriculum development**: An educational technology company uses sequential agents to build individualized training programs: learning assessment, content mapping, pedagogical sequencing, student task scheduling. Each step depends on the complete output from the previous stage to create an effective learning experience.
-
-### Implement sequential orchestration
-
-For Semantic Kernel based implementations, see [Concurrent Orchestration in Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/sequential).
 
 ## Group chat orchestration
 
@@ -395,8 +396,8 @@ AI agent orchestration patterns extend and complement traditional [cloud design 
 
 The Agent Framework within Semantic Kernel provides support for many of these [Agent Orchestration Patterns](/semantic-kernel/frameworks/agent/agent-orchestration/).
 
-- [Concurrent Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
 - [Sequential Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
+- [Concurrent Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
 - [Group Chat Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
 - [Handoff Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
 - [Magentic Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
