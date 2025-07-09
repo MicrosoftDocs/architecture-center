@@ -4,7 +4,7 @@ metadata:
   description: Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.
   author: irarainey
   ms.author: irarainey
-  ms.date: 07/09/2024
+  ms.date: 07/08/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom:
@@ -17,9 +17,8 @@ azureCategories:
 products:
   - azure-api-management
   - entra-id
-  - static-web-apps
 name: Protect access tokens in a single-page application by using Azure API Management 
 summary: Implement a No Token in the Browser architecture for a JavaScript single-page application by using API Management.
 thumbnailUrl: /azure/architecture/browse/thumbs/no-token.png
 content: |
-  [!include[](secure-single-page-application-authorization-content.md)]
+  [!INCLUDE[](secure-single-page-application-authorization-content.md)]

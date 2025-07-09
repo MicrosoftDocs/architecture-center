@@ -79,7 +79,7 @@ The following sections, organized by category, provide links to sample networkin
 ### Hub-and-spoke topology
 
 - [Hub-and-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
-- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
+- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
 ### Virtual WAN
 
@@ -89,7 +89,7 @@ The following sections, organized by category, provide links to sample networkin
 - [SD-WAN connectivity architecture with Azure Virtual WAN](/azure/virtual-wan/sd-wan-connectivity-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Virtual WAN network topology (Microsoft-managed)](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Virtual WAN architecture optimized for department-specific requirements](../networking/architecture/performance-security-optimized-vwan.yml)
-- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
+- [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
 ### Multi-region networking
 

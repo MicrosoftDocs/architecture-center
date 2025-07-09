@@ -49,7 +49,7 @@ Wildcard domains simplify the configuration of Domain Name System (DNS) records 
 
 Azure Front Door supports creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Azure Front Door profile's configuration.
 
-Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
+Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
 
 Azure Front Door doesn't issue managed TLS certificates for [wildcard domains](/azure/frontdoor/front-door-wildcard-domain), so you need to purchase and supply your own certificate.
 
@@ -59,7 +59,7 @@ Acquiring and installing TLS certificates can be a complex and error prone proce
 
 Your origin application might be hosted on another Azure service that also provides managed TLS certificates, like Azure App Service. Azure Front Door transparently works with the other service to synchronize your TLS certificates.
 
-If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on your tenants' behalf. For more information about multitenancy, see [TLS and SSL certificates in multitenant solutions](../considerations/domain-names.yml#tlsssl-certificates). For more information about Azure Front Door, see [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
+If your tenants can provide their own custom domains and you want Azure Front Door to issue certificates for these domain names, your tenants shouldn't configure Certification Authority Authorization (CAA) records on their DNS servers. These records might block Azure Front Door from issuing certificates on your tenants' behalf. For more information about multitenancy, see [TLS and SSL certificates in multitenant solutions](../considerations/domain-names.md#tls-certificates). For more information about Azure Front Door, see [TLS encryption with Azure Front Door](/azure/frontdoor/end-to-end-tls).
 
 ### Routing
 
@@ -93,7 +93,7 @@ For more information, see [Azure Front Door rules engine](/azure/frontdoor/front
 
 The following example scenarios illustrate how you can configure various multitenant architectures in Azure Front Door, and how the decisions that you make can affect your DNS and TLS configuration.
 
-Many multitenant solutions implement the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Azure Front Door profile and use Azure Front Door to route incoming traffic to the appropriate stamp. This deployment model is the most common one, and scenarios 1 through 4 in this article show how you can use it to meet a range of requirements.
+Many multitenant solutions implement the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Azure Front Door profile and use Azure Front Door to route incoming traffic to the appropriate stamp. This deployment model is the most common one, and scenarios 1 through 4 in this article show how you can use it to meet a range of requirements.
 
 However, in some cases, you might deploy an Azure Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-azure-front-door-profile-for-each-stamp) describes this deployment model.
 
@@ -363,4 +363,4 @@ Other contributors:
 
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
-- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml)
+- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)
