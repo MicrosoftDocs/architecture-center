@@ -255,71 +255,11 @@ Avoid this pattern when:
 
 **Research analysis platform**: A scientific research platform uses magnetic orchestration where the orchestrator evaluates research papers and dynamically assembles relevant specialist agents. Statistical analysis papers activate methodology and data validation agents, while experimental biology papers activate domain expertise, ethical review, and replication analysis agents. The specialist agents can collaborate directly on cross-cutting concerns while the orchestrator ensures comprehensive coverage and maintains research quality standards.
 
-## Network orchestration
-
-The network orchestration creates interconnected agents that can communicate directly with multiple other agents, forming a mesh of collaborative relationships without strict hierarchical constraints.
-
-:::image type="complex" source="_images/network-pattern.svg" alt-text="Diagram showing network orchestration where agents form a fully connected mesh allowing any agent to communicate directly with any other agent without central coordination." lightbox="_images/network-pattern.svg":::
-The diagram illustrates network orchestration with four agents arranged in a diamond formation: Agent A at the top, Agent B on the right, Agent C at the bottom, and Agent D on the left. Every agent connects to every other agent through bidirectional communication lines, creating a complete mesh topology where each agent has direct connections to all other agents. Multiple input tasks can enter through any of the agents, and output streams emerge from different agents based on their processing. The interconnected structure demonstrates a fully distributed system with no central authority, where all agents have equal capability to initiate communications and coordinate with any other agent. The mesh configuration enables dynamic collaboration patterns and information flow between any combination of agents as needed for the task at hand.
-:::image-end:::
-
-This pattern addresses scenarios requiring flexible, peer-to-peer collaboration where agents need to share information, coordinate activities, or collaborate on complex problems without rigid structural constraints. This pattern shares similarities with the [Choreography](/azure/architecture/patterns/choreography) cloud design pattern, where components coordinate workflow among themselves without centralized control.
-
-### When to use network orchestration
-
-Consider network orchestration when you have:
-
-- Collaborative problem-solving requiring peer interaction with maximum flexibility in agent interactions
-- Scenarios where any agent might need to communicate with any other with natural collaboration and knowledge sharing
-- Dynamic coalition formation for specific tasks that supports emergent behaviors and innovation
-- Distributed decision-making requirements across the network
-- Complex interdependencies between agent capabilities that are resilient to individual agent failures
-- Innovation scenarios requiring creative collaboration
-
-### When to avoid network orchestration
-
-Avoid this pattern when:
-
-- Clear hierarchical structures are more appropriate
-- Simple linear or parallel processing suffices
-- Communication overhead would overwhelm the benefits or high communication overhead is unacceptable
-- Coordination complexity becomes unmanageable or complex coordination and synchronization would be challenging to debug and troubleshoot
-- Deterministic workflows are required or behavior is difficult to predict or control
-- Potential for communication loops or deadlocks is unacceptable
-
-### Network orchestration examples
-
-**Collaborative research discovery**: A pharmaceutical research consortium uses network agents where a molecular analysis agent discovers compounds and directly shares findings with drug interaction, clinical trial design, and regulatory pathway agents. Each agent freely collaborates with any other relevant agent as discoveries emerge, enabling rapid knowledge transfer and innovative solutions that couldn't be predicted through predetermined workflows.
-
-**Creative content generation**: A multimedia production company uses network agents where concept, visual design, music, and narrative agents dynamically collaborate and share insights based on emerging artistic directions. All agents can form coalitions and adapt to the creative process rather than being forced through rigid structures, fostering innovation through flexible peer-to-peer collaboration.
-
 ## Combining orchestration patterns
 
-Applications often require combining multiple orchestration patterns to address complex requirements. Here are common pattern combinations:
+Applications sometimes require combining multiple orchestration patterns to address complex requirements.
 
-### Sequential orchestration with concurrent stages
-
-Implement sequential orchestration where individual stages use concurrent processing. For example, a content creation workflow might have sequential stages (research, writing, review), but each stage could use concurrent agents with different specializations.
-
-**When to use**: Multi-stage processes where individual stages benefit from parallel processing but overall workflow must be sequential.
-
-**Example**: Software development pipeline where the testing stage concurrently runs unit tests, integration tests, and security scans before proceeding to deployment.
-
-### Group chat with validation workflows
-
-Combine group chat orchestration with structured approval workflows where multiple agents participate in discussion but follow formal validation protocols. The chat manager enforces specific roles and approval gates while maintaining the collaborative benefits of group discussion.
-
-**When to use**: Systems requiring both collaborative analysis and mandatory validation, such as financial services or healthcare applications where expertise and compliance must be balanced.
-
-**Example**: Insurance claims processing where multiple specialist agents (medical, legal, financial) discuss complex claims in a group chat format, but the chat manager enforces that each specialist must provide explicit approval with reasoning before final claim resolution.
-
-### Magnetic orchestration coordinating mixed patterns
-
-Use magnetic orchestration to coordinate different pattern types for different workload categories. The lead agent can dynamically select appropriate orchestration approaches - some tasks might follow sequential processing while others use concurrent or network orchestration patterns.
-
-**When to use**: Complex systems handling diverse workload types that require different coordination approaches with intelligent pattern selection.
-
-**Example**: Manufacturing quality control where a magnetic orchestrator coordinates sequential testing for safety-critical components, concurrent analysis for routine inspections, and network collaboration for complex failure investigations, adapting the coordination approach based on the specific quality requirements and available specialist agents.
+TODO
 
 ## Implementation considerations
 
@@ -381,6 +321,8 @@ Depending on the level of control you have in your agent implementation, conside
 
 Avoid these common mistakes when implementing agent orchestration patterns:
 
+TODO
+
 #### Over-orchestration
 
 - Creating unnecessary coordination complexity
@@ -389,7 +331,6 @@ Avoid these common mistakes when implementing agent orchestration patterns:
 
 #### Communication overhead
 
-- Implementing full network orchestration when simpler coordination works
 - Creating chatty interfaces between agents
 - Not considering latency impacts of multi-hop communication
 
@@ -403,7 +344,6 @@ Avoid these common mistakes when implementing agent orchestration patterns:
 
 - Using deterministic patterns for inherently non-deterministic workflows
 - Applying rigid sequential orchestration to collaborative scenarios
-- Choosing network orchestration for simple linear processing
 
 #### Scalability blind spots
 
