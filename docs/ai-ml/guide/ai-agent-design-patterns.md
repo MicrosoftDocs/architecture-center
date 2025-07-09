@@ -124,7 +124,7 @@ These independent results are then combined into a comprehensive investment reco
 
 ## Group chat orchestration
 
-The group chat orchestration enables multiple agents to to solve problems, make decisions, or validate work through participating in a shared conversation thread, where agents collaborate through discussion. A chat manager coordinates the flow, determining which agents can respond next and managing different interaction modes from collaborative brainstorming to structured quality gates.
+The group chat orchestration pattern enables multiple agents to solve problems, make decisions, or validate work by participating in a shared conversation thread where agents collaborate through discussion. A chat manager coordinates the flow, determining which agents can respond next and managing different interaction modes from collaborative brainstorming to structured quality gates.
 
 :::image type="complex" source="_images/group-chat-pattern.svg" alt-text="Diagram showing group chat orchestration where multiple agents participate in a managed conversation with a central chat manager coordinating the discussion flow." lightbox="_images/group-chat-pattern.svg":::
 TODO
@@ -136,11 +136,11 @@ This pattern works particularly well with human-in-the-loop scenarios where huma
 
 ### When to use group chat orchestration
 
-Consider group chat orchestration when your situation might be able to be solved through spontaneous or guided collaboration or iterative maker-checker loops. And all of these can support real-time human oversight or participation. Because all of the agents are emitting output into a single accumulating thread, the pattern provides a good means for transparency and auditability.
+Consider group chat orchestration when your situation can be solved through spontaneous or guided collaboration or iterative maker-checker loops. All of these approaches support real-time human oversight or participation. Because all agents and humans in the loop emit output into a single accumulating thread, the pattern provides transparency and auditability.
 
 #### Collaborative scenarios
 
-- Creative brainstorming sessions where agents with different forced perspectives and knowledge sources build on each other's contributions to the chat
+- Creative brainstorming sessions where agents with different perspectives and knowledge sources build on each other's contributions to the chat
 - Decision-making processes that benefit from debate and consensus-building
 - Decision making requiring iterative refinement through discussion
 - Multi-disciplinary problems requiring cross-functional dialogue
@@ -156,9 +156,9 @@ Consider group chat orchestration when your situation might be able to be solved
 Avoid this pattern when:
 
 - Simple task delegation or linear pipeline processing is sufficient
-- Real-time processing requirements make discussion overhead unacceptable and overwhelm the benefits
-- Clear hierarchical decision-making or deterministic workflows without discussion is more appropriate
-- The chat manager has no objective way to know if the task is solved
+- Real-time processing requirements make discussion overhead unacceptable
+- Clear hierarchical decision-making or deterministic workflows without discussion are more appropriate
+- The chat manager has no objective way to determine if the task is complete
 
 Managing conversation flow and preventing infinite loops requires careful attention as control becomes harder to maintain with more agents. Consider limiting group chat orchestration to three or fewer agents to maintain effective control.
 
@@ -168,7 +168,7 @@ The maker-checker loop is a specific type of group chat orchestration where one 
 
 ### Group chat orchestration example
 
-A city parks and recreation department uses software that includes group chat orchestration for evaluating new park development proposals. The software reads the draft proposal and multiple specialist agents debate different community impact perspectives and work toward consensus on the proposal. This process is done before the proposal is opened for community review to help anticipate the feedback the proposal will face.
+A city parks and recreation department uses software that includes group chat orchestration for evaluating new park development proposals. The software reads the draft proposal, and multiple specialist agents debate different community impact perspectives and work toward consensus on the proposal. This process occurs before the proposal is opened for community review to help anticipate the feedback the proposal will receive.
 
 :::image type="complex" source="_images/group-chat-pattern-example.svg" alt-text="Diagram showing group chat orchestration for municipal park planning with specialist city planning agents." lightbox="_images/group-chat-pattern-example.svg":::
 TODO
@@ -180,7 +180,7 @@ The system processes park development proposals by initiating a group consultati
 - The *environmental planning agent* assesses ecological impact, sustainability measures, native vegetation displacement, and environmental regulations compliance.
 - The *budget and operations agent* analyzes construction costs, ongoing maintenance expenses, staffing requirements, and long-term operational sustainability.
 
-The chat manager facilitates a structured debate where agents challenge each other's recommendations and defend their reasoning. The parks department employee participates in the chat thread to add insight and respond to knowledge requests made by the agents in real time. This process enables the employee to update the original proposal to address identified concerns and prepare for community feedback.
+The chat manager facilitates structured debate where agents challenge each other's recommendations and defend their reasoning. The parks department employee participates in the chat thread to add insight and respond to knowledge requests made by the agents in real time. This process enables the employee to update the original proposal to address identified concerns and better prepare for community feedback.
 
 ## Handoff orchestration
 
