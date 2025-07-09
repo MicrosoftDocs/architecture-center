@@ -135,5 +135,4 @@ Principal author:
 
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)
-- [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Enterprise business intelligence](../analytics/enterprise-bi-synapse.yml)
