@@ -98,7 +98,7 @@ Consider the concurrent orchestration pattern when you have:
 
 Avoid this pattern when:
 
-- Agents need to build upon each other's work or each other's cumulative context sequentially
+- Agents need to build upon each other's work or the cumulative context sequentially
 - The task requires a specific order of operations or deterministic, reproducible results from being run in specific sequence
 - Resource constraints, such as model quota, make parallel execution inefficient or impossible
 - Agents cannot reliably coordinate changes to shared state or external systems as they run simultaneously
@@ -130,18 +130,18 @@ The group chat orchestration enables multiple agents to to solve problems, make 
 TODO
 :::image-end:::
 
-This pattern addresses scenarios that are best done through group discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. The pattern supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
+This pattern addresses scenarios that are best accomplished through group discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. The pattern supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
 
-This pattern works particularly well with human-in-the-loop scenarios where humans can optionally assume chat manager responsibilities or guide conversations toward productive outcomes.
+This pattern works particularly well with human-in-the-loop scenarios where humans can optionally assume dynamic chat manager responsibilities and guide conversations toward productive outcomes.
 
 ### When to use group chat orchestration
 
-Consider group chat orchestration when your situation might be able to be solved through spontaneous or guided collaboration or iterative maker-checker loops. And all of these can support real-time human oversight or participation. Because all of the agents are emitting output into a single thread, the pattern provides a good means for transparency and auditability.
+Consider group chat orchestration when your situation might be able to be solved through spontaneous or guided collaboration or iterative maker-checker loops. And all of these can support real-time human oversight or participation. Because all of the agents are emitting output into a single accumulating thread, the pattern provides a good means for transparency and auditability.
 
 #### Collaborative scenarios
 
-- Creative brainstorming sessions where agents with different forced perspectives and knowledge sources build on each other's ideas
-- Decision-making processes that benefit from debate and consensus-building on shared ideas
+- Creative brainstorming sessions where agents with different forced perspectives and knowledge sources build on each other's contributions to the chat
+- Decision-making processes that benefit from debate and consensus-building
 - Decision making requiring iterative refinement through discussion
 - Multi-disciplinary problems requiring cross-functional dialogue
 
@@ -156,17 +156,26 @@ Consider group chat orchestration when your situation might be able to be solved
 Avoid this pattern when:
 
 - Simple task delegation or linear pipeline processing is sufficient
-- Real-time processing requirements make discussion overhead unacceptable
+- Real-time processing requirements make discussion overhead unacceptable and overwhelm the benefits
 - Clear hierarchical decision-making or deterministic workflows without discussion is more appropriate
-- Communication overhead would overwhelm the benefits
 
 Managing conversation flow and preventing infinite loops requires careful attention as control becomes harder to maintain with more agents. Consider limiting group chat orchestration to three or fewer agents to maintain effective control.
 
-### Group chat orchestration examples
+### Group chat orchestration example
 
-**Collaborative business strategy planning**: A consulting firm uses group chat orchestration where market research, financial analysis, and competitive intelligence agents collaborate in a shared discussion to develop comprehensive business strategies. The agents build on each other's insights, debate different market approaches, and iteratively refine strategic recommendations through open conversation, with a human strategy director participating to provide industry expertise and guide the collaborative process.
+A city parks and recreation department uses software that includes group chat orchestration for evaluating new park development proposals. The software reads the draft proposal and multiple specialist agents debate different community impact perspectives and work toward consensus on the proposal. This process is done before the proposal is opened for community review to help anticipate the feedback the proposal will face.
 
-**Financial transaction approval workflow**: An investment bank uses group chat orchestration for high-value transactions where a deal structuring agent presents proposed arrangements, while risk assessment and compliance agents participate in a structured discussion. The chat manager enforces a formal approval workflow where each reviewing agent must explicitly approve or reject with detailed reasoning, ensuring no transaction proceeds without proper validation and creating full audit trails for regulatory compliance.
+:::image type="complex" source="_images/group-chat-pattern-example.svg" alt-text="Diagram showing group chat orchestration for municipal park planning with specialist city planning agents." lightbox="_images/group-chat-pattern-example.svg":::
+TODO
+:::image-end:::
+
+The system processes park development proposals by initiating a group consultation with specialized municipal agents who engage in the task from multiple civic perspectives.
+
+- The *community engagement agent* evaluates accessibility requirements, anticipated resident feedback, and usage patterns to ensure equitable community access.
+- The *environmental planning agent* assesses ecological impact, sustainability measures, native vegetation displacement, and environmental regulations compliance.
+- The *budget and operations agent* analyzes construction costs, ongoing maintenance expenses, staffing requirements, and long-term operational sustainability.
+
+The chat manager facilitates a structured debate where agents challenge each other's recommendations and defend their reasoning. The parks department employee participates in the chat thread to add insight and respond to knowledge requests made by the agents in real time. This process enables the employee to update the original proposal to address identified concerns and prepare for community feedback.
 
 ## Handoff orchestration
 
