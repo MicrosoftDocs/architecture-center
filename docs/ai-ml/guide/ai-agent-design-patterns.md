@@ -49,8 +49,8 @@ Consider the sequential orchestration pattern when you have:
 
 Avoid this pattern when:
 
-- Stages could be parallelized without impacting quality results or creating shared state contention
-- Processes that involve only a few stages
+- Stages are [embarrassingly parallel](https://wikipedia.org/wiki/Embarrassingly_parallel); they can be parallelized without compromising quality nor creating shared state contention
+- Processes that involve only a few stages that a single agent could effectively accomplish
 - Early stages might fail or produce low-quality output, and there's no reasonable way to prevent future steps from processing using accumulated error output
 - Agents need to collaborate rather than hand off work
 - The workflow requires backtracking or iteration
@@ -237,19 +237,15 @@ TODO
 
 TODO
 
-### Magentic orchestration examples
-
-TODO
-
-## Combining orchestration patterns
-
-Applications sometimes require combining multiple orchestration patterns to address complex requirements.
+### Magentic orchestration example
 
 TODO
 
 :::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
 TODO
 :::image-end:::
+
+TODO
 
 ## Implementation considerations
 
@@ -311,6 +307,10 @@ Avoid these common mistakes when implementing agent orchestration patterns:
 - Using non-deterministic patterns for inherently deterministic workflows.
 - Ignoring resource constraints when choosing concurrent orchestration.
 - Excessive model consumption due to growing context windows as agents accumulate more information and consult their model to make progress on their task.
+
+### Combining orchestration patterns
+
+Applications sometimes require combining multiple orchestration patterns to address their requirements. For example, you might use sequential orchestration for the initial data processing stages, then switch to concurrent orchestration for parallelizable analysis tasks. Don't try to make one workflow fit into a single pattern when different stages of your workload have different characteristics and could benefit from each stage being a different pattern.
 
 ## Relationship to cloud design patterns
 
