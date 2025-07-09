@@ -98,7 +98,7 @@ Sometimes you need to remove tenants from your solution. In a multitenant soluti
 
 ## Deactivate and reactivate tenants
 
-You might need to deactive or reactive a customer's account. Consider the following examples:
+You might need to deactivate or reactivate a customer's account. Consider the following examples:
 
 - A customer requests deactivation. In a consumer system, a customer might choose to unsubscribe.
 
