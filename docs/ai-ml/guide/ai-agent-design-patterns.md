@@ -217,19 +217,19 @@ A telecommunications CRM solution uses handoff agents where a general support ag
 
 TODO: IMAGE
 
-## Magnetic orchestration
+## Magentic orchestration
 
-The magnetic orchestration pattern combines the flexibility of autonomous agent collaboration with the structure of a central orchestrator. A lead agent (the "magnetizer") coordinates and directs specialized agents while allowing them to communicate directly with each other when needed, creating a dynamic balance between centralized control and distributed collaboration.
+The magentic orchestration pattern combines the flexibility of autonomous agent collaboration with the structure of a central orchestrator. A lead agent (the "magnetizer") coordinates and directs specialized agents while allowing them to communicate directly with each other when needed, creating a dynamic balance between centralized control and distributed collaboration.
 
-:::image type="complex" source="_images/magnetic-pattern.svg" alt-text="Diagram showing magnetic orchestration where a lead agent coordinates specialized agents while allowing flexible direct communication between specialists." lightbox="_images/magnetic-pattern.svg":::
-The diagram displays magnetic orchestration with a Lead Agent positioned at the top center as the primary coordinator. Below the Lead Agent, three specialist agents are arranged horizontally: Agent A on the left, Agent B in the center, and Agent C on the right. Bidirectional coordination arrows connect the Lead Agent to each of the three specialist agents, demonstrating the oversight and coordination relationship. Additionally, direct communication lines connect each specialist agent to the other specialists, forming a mesh of peer-to-peer connections. An input task enters through the Lead Agent, which dynamically coordinates the specialists while allowing them to collaborate directly with each other. Each specialist agent produces its own specialized output, illustrating the hybrid structure that combines centralized coordination with distributed collaboration.
+:::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration where a lead agent coordinates specialized agents while allowing flexible direct communication between specialists." lightbox="_images/magentic-pattern.svg":::
+The diagram displays magentic orchestration with a Lead Agent positioned at the top center as the primary coordinator. Below the Lead Agent, three specialist agents are arranged horizontally: Agent A on the left, Agent B in the center, and Agent C on the right. Bidirectional coordination arrows connect the Lead Agent to each of the three specialist agents, demonstrating the oversight and coordination relationship. Additionally, direct communication lines connect each specialist agent to the other specialists, forming a mesh of peer-to-peer connections. An input task enters through the Lead Agent, which dynamically coordinates the specialists while allowing them to collaborate directly with each other. Each specialist agent produces its own specialized output, illustrating the hybrid structure that combines centralized coordination with distributed collaboration.
 :::image-end:::
 
-This pattern addresses complex scenarios where you need both strategic coordination and tactical flexibility. The lead agent maintains overall direction and can intervene when needed, while specialized agents can collaborate directly for efficiency. This pattern is inspired by Microsoft's MagneticOne framework and balances the benefits of centralized coordination with the agility of peer-to-peer collaboration.
+This pattern addresses complex scenarios where you need both strategic coordination and tactical flexibility. The lead agent maintains overall direction and can intervene when needed, while specialized agents can collaborate directly for efficiency. This pattern is inspired by Microsoft's MagenticOne framework and balances the benefits of centralized coordination with the agility of peer-to-peer collaboration.
 
-### When to use magnetic orchestration
+### When to use magentic orchestration
 
-Consider magnetic orchestration when you have:
+Consider magentic orchestration when you have:
 
 - Complex workflows requiring both centralized coordination and flexible agent collaboration
 - Need for dynamic task distribution with intelligent agent selection based on task requirements
@@ -238,7 +238,7 @@ Consider magnetic orchestration when you have:
 - Tasks requiring adaptive collaboration patterns that can't be predetermined
 - Systems where agent capabilities and availability change dynamically
 
-### When to avoid magnetic orchestration
+### When to avoid magentic orchestration
 
 Avoid this pattern when:
 
@@ -249,11 +249,11 @@ Avoid this pattern when:
 - Real-time constraints make the coordination overhead unacceptable
 - Simple supervisor or handoff patterns adequately address your coordination needs
 
-### Magnetic orchestration examples
+### Magentic orchestration examples
 
-**Intelligent customer support platform**: A customer service system uses magnetic orchestration where an orchestrator agent analyzes incoming support requests and dynamically selects appropriate specialist agents. Simple billing questions activate only the billing agent, while complex technical issues might activate network, security, and account management agents together. The specialist agents can collaborate directly when needed (like security consulting with network specialists), while the orchestrator maintains overall case management and ensures resolution quality.
+**Intelligent customer support platform**: A customer service system uses magentic orchestration where an orchestrator agent analyzes incoming support requests and dynamically selects appropriate specialist agents. Simple billing questions activate only the billing agent, while complex technical issues might activate network, security, and account management agents together. The specialist agents can collaborate directly when needed (like security consulting with network specialists), while the orchestrator maintains overall case management and ensures resolution quality.
 
-**Research analysis platform**: A scientific research platform uses magnetic orchestration where the orchestrator evaluates research papers and dynamically assembles relevant specialist agents. Statistical analysis papers activate methodology and data validation agents, while experimental biology papers activate domain expertise, ethical review, and replication analysis agents. The specialist agents can collaborate directly on cross-cutting concerns while the orchestrator ensures comprehensive coverage and maintains research quality standards.
+**Research analysis platform**: A scientific research platform uses magentic orchestration where the orchestrator evaluates research papers and dynamically assembles relevant specialist agents. Statistical analysis papers activate methodology and data validation agents, while experimental biology papers activate domain expertise, ethical review, and replication analysis agents. The specialist agents can collaborate directly on cross-cutting concerns while the orchestrator ensures comprehensive coverage and maintains research quality standards.
 
 ## Combining orchestration patterns
 
