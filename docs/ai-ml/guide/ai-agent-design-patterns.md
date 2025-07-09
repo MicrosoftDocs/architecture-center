@@ -158,8 +158,13 @@ Avoid this pattern when:
 - Simple task delegation or linear pipeline processing is sufficient
 - Real-time processing requirements make discussion overhead unacceptable and overwhelm the benefits
 - Clear hierarchical decision-making or deterministic workflows without discussion is more appropriate
+- The chat manager has no objective way to know if the task is solved
 
 Managing conversation flow and preventing infinite loops requires careful attention as control becomes harder to maintain with more agents. Consider limiting group chat orchestration to three or fewer agents to maintain effective control.
+
+### Maker-checker loops
+
+The maker-checker loop is a specific type of group chat orchestration where one agent (the "maker") creates or proposes something, and another agent (the "checker") provides critical feedback. This pattern is iterative with the checker agent pushing the conversation back to the maker agent to make updates and go through the process again. While the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop does require a formal turn-based sequence driven by the chat manager.
 
 ### Group chat orchestration example
 
