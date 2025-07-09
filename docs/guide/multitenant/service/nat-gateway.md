@@ -1,5 +1,5 @@
 ---
-title: Use Azure NAT Gateway in a Multitenant Solution
+title: How to Use Azure NAT Gateway in a Multitenant Solution
 description: Learn about Azure NAT Gateway features that are useful when you work with multitenant systems. See examples of how to use these features.
 author: johndowns
 ms.author: pnp
@@ -22,14 +22,14 @@ The following sections describe Azure NAT Gateway features that you can use in m
 
 ### High-scale SNAT ports
 
-SNAT ports are allocated when your application makes multiple concurrent outbound connections to the same public IP address on the same port. SNAT ports are a finite resource within [load balancers](/azure/load-balancer/load-balancer-outbound-connections). If your application opens large numbers of separate connections to the same host, it can consume all of the available SNAT ports. This situation is called *SNAT port exhaustion*.
+SNAT ports are allocated when your application makes multiple concurrent outbound connections to the same public IP address on the same port. SNAT ports are a finite resource within [load balancers](/azure/load-balancer/load-balancer-outbound-connections). If your application opens large numbers of separate connections to the same host, it can consume all of the available SNAT ports. This scenario is called *SNAT port exhaustion*.
  
-In most applications, SNAT port exhaustion indicates that your application incorrectly handles HTTP connections or Transmission Control Protocol (TCP) ports. However, some multitenant applications are at particular risk of exceeding SNAT port limits, even if they reuse connections appropriately. For example, this situation can occur when your application connects to many tenant-specific databases behind the same database gateway.
+In most applications, SNAT port exhaustion indicates that your application incorrectly handles HTTP connections or Transmission Control Protocol (TCP) ports. However, some multitenant applications are especially at risk of exceeding SNAT port limits, even if they reuse connections appropriately. For example, this scenario can occur when your application connects to many tenant-specific databases behind the same database gateway.
 
 > [!TIP]
 > If you observe SNAT port exhaustion in a multitenant application, you should first verify whether [your application follows good practices](/azure/load-balancer/troubleshoot-outbound-connection). Ensure that you reuse HTTP connections and don't re-create new connections every time you connect to an external service. You might be able to deploy a network address translation (NAT) gateway to work around the problem, but if your code doesn't follow the best practices, you might encounter the problem again in the future.
 
-SNAT port exhaustion is exacerbated when you work with Azure services, such as Azure App Service and Azure Functions, that share SNAT port allocations between multiple customers. For more information, see [Troubleshoot intermittent outbound connection errors in App Service](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+SNAT port exhaustion worsens when you work with Azure services, such as Azure App Service and Azure Functions, that share SNAT port allocations between multiple customers. For more information, see [Troubleshoot intermittent outbound connection errors in App Service](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 If you determine that your application experiences SNAT port exhaustion and that your application code correctly handles your outbound connections, consider implementing [Azure NAT Gateway integration](/azure/app-service/networking/nat-gateway-integration). Customers who deploy multitenant solutions that are built on App Service and Azure Functions often use this approach.
 
@@ -48,7 +48,7 @@ Outbound IP address control can be useful in multitenant applications if you hav
 When an Azure NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP address that's associated with the NAT gateway.
 
 > [!NOTE]
-> When you associate multiple public IP addresses with a single NAT gateway, your outbound traffic can come from any of those IP addresses. You might need to configure firewall rules at the destination. You should either allow each IP address, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) resource to use a set of public IP addresses in the same range.
+> When you associate multiple public IP addresses with a single NAT gateway, your outbound traffic can come from any of those IP addresses. You might need to configure firewall rules at the destination. Either allow each IP address individually, or use a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) resource to define a set of public IP addresses within the same range.
 
 ## Isolation models
 
