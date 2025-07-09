@@ -186,20 +186,20 @@ The chat manager facilitates structured debate where agents challenge each other
 
 The handoff orchestration enables dynamic delegation of tasks between specialized agents, where each agent can assess the task at hand and decide whether to handle it themselves or transfer it to a more appropriate agent based on the context and requirements.
 
-:::image type="complex" source="_images/handoff-pattern.svg" alt-text="Diagram showing handoff orchestration where a triage agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
-The diagram illustrates handoff orchestration with an input task at the top flowing downward into a central Triage Agent positioned in the middle of the diagram. From the Triage Agent, decision pathways branch outward to three specialist agents arranged horizontally below: Specialist Agent A on the left, Specialist Agent B in the center, and Specialist Agent C on the right. Each specialist agent connects downward to its respective output area. The Triage Agent serves as the decision point, evaluating the incoming task and selecting the most appropriate specialist agent based on the task requirements. The routing demonstrates dynamic delegation where only one specialist agent is activated for each specific task, rather than predetermined routing rules.
+:::image type="complex" source="_images/handoff-pattern.svg" alt-text="Diagram showing handoff orchestration where an agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
+TODO
 :::image-end:::
 
-This pattern addresses scenarios where the optimal agent for a task isn't known upfront, or where the task requirements become clear only during processing. It enables intelligent routing and ensures tasks reach the most capable agent.
+This pattern addresses scenarios where the optimal agent for a task isn't known upfront, or where the task requirements become clear only during processing. It enables intelligent routing and ensures tasks reach the most capable agent. Agents in this pattern do not typically work in parallel, full control is transfered from agent to agent.
 
 ### When to use handoff orchestration
 
 Consider the agent handoff pattern when you have:
 
-- Agents with specialized knowledge or tools, but the number of agents needing to be involved or order of those agents cannot be pre-determined
+- Tasks that require specialized knowledge or tools, but the number of tasks needing to be involved or order of those tasks cannot be pre-determined.
 - Scenarios where expertise requirements emerge during processing resulting in dynamic task routing based on content analysis
-- Multi-domain problems requiring different specialists
-- Logical relationships and signals that can be pre-determined to inform when one agent has reached its capability limit
+- Multi-domain problems requiring different specialists that can operate one at a time
+- Logical relationships and signals that can be pre-determined to inform when one agent has reached its capability limit and which agent should next handle the task
 
 ### When to avoid handoff orchestration
 
@@ -207,53 +207,41 @@ Avoid this pattern when:
 
 - The appropriate agents and their order are always known upfront
 - Task routing is simple and deterministically rule-based, not based on the dynamic context window or dynamic interpretation
-- Decision-making and handoff overhead exceeds the benefits of breaking the task into multiple agents over a single agent with multiple connected knowledge stores and tools
 - Suboptimal routing decisions would lead to poor or frustrating user experience
+- Multiple operations should be running concurrently to address the task
 - Avoiding an infinite handoff loop or avoiding excessive bouncing between agents will be challenging
 
 ### Agent handoff pattern example
 
-A telecommunications CRM solution uses handoff agents where a general support agent begins helping customers but discovers specialized expertise needs through the conversation. Network issues get handed off to technical infrastructure agents, billing disputes to financial resolution agents, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and is aware of another agent that can support the scenario better. Every agent is capable of completing the conversation if it feels there are no more agents that could further benefit the customer. Likewise, some agents are defined to hand off the user experience to a human support agent in cases that are important to solve, but no AI agents yet have the capabilities to address the problem.
+A telecommunications CRM solution uses handoff agents in their customer support web portal. A initial agent begins helping customers but discovers specialized expertise needs through the conversation, and hands the conversation to the most likely agent to address the customer concern. Only one agent at a time is operating on the original input.
 
-TODO: IMAGE
+:::image type="complex" source="_images/handoff-pattern-example.svg" alt-text="Diagram showing handoff orchestration where a triage agent intelligently routes questions to appropriate specialist agents based on dynamic analysis." lightbox="_images/group-chat-pattern-example.svg":::
+TODO
+:::image-end:::
+
+In this system, the *triage support agent* interprets the request and tries to handle common problems itself. When it's reached its limits, the agent hands network issues to a *technical infrastructure agent*, billing disputes to a *financial resolution agent*, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and is aware of another agent that can support the scenario better. Every agent is capable of completing the conversation if it feels it reached customer success or if it feels there are no more agents that could further benefit the customer. Likewise, some agents are defined to hand off the user experience to a human support agent in cases that are important to solve but no AI agents yet have the capabilities to address the problem.
 
 ## Magentic orchestration
 
-The magentic orchestration pattern combines the flexibility of autonomous agent collaboration with the structure of a central orchestrator. A lead agent (the "magnetizer") coordinates and directs specialized agents while allowing them to communicate directly with each other when needed, creating a dynamic balance between centralized control and distributed collaboration.
+TODO
 
-:::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration where a lead agent coordinates specialized agents while allowing flexible direct communication between specialists." lightbox="_images/magentic-pattern.svg":::
-The diagram displays magentic orchestration with a Lead Agent positioned at the top center as the primary coordinator. Below the Lead Agent, three specialist agents are arranged horizontally: Agent A on the left, Agent B in the center, and Agent C on the right. Bidirectional coordination arrows connect the Lead Agent to each of the three specialist agents, demonstrating the oversight and coordination relationship. Additionally, direct communication lines connect each specialist agent to the other specialists, forming a mesh of peer-to-peer connections. An input task enters through the Lead Agent, which dynamically coordinates the specialists while allowing them to collaborate directly with each other. Each specialist agent produces its own specialized output, illustrating the hybrid structure that combines centralized coordination with distributed collaboration.
+:::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
+TODO
 :::image-end:::
 
-This pattern addresses complex scenarios where you need both strategic coordination and tactical flexibility. The lead agent maintains overall direction and can intervene when needed, while specialized agents can collaborate directly for efficiency. This pattern is inspired by Microsoft's MagenticOne framework and balances the benefits of centralized coordination with the agility of peer-to-peer collaboration.
+TODO
 
 ### When to use magentic orchestration
 
-Consider magentic orchestration when you have:
-
-- Complex workflows requiring both centralized coordination and flexible agent collaboration
-- Need for dynamic task distribution with intelligent agent selection based on task requirements
-- Scenarios where specialized agents benefit from direct communication while maintaining overall coordination
-- Quality control requirements that benefit from both oversight and peer validation
-- Tasks requiring adaptive collaboration patterns that can't be predetermined
-- Systems where agent capabilities and availability change dynamically
+TODO
 
 ### When to avoid magentic orchestration
 
-Avoid this pattern when:
-
-- Simple sequential or concurrent processing is sufficient for your requirements
-- Strict hierarchical control is required without any peer-to-peer communication
-- The overhead of managing both centralized and distributed coordination exceeds benefits
-- Agent interactions are predictable and don't require dynamic collaboration patterns
-- Real-time constraints make the coordination overhead unacceptable
-- Simple supervisor or handoff patterns adequately address your coordination needs
+TODO
 
 ### Magentic orchestration examples
 
-**Intelligent customer support platform**: A customer service system uses magentic orchestration where an orchestrator agent analyzes incoming support requests and dynamically selects appropriate specialist agents. Simple billing questions activate only the billing agent, while complex technical issues might activate network, security, and account management agents together. The specialist agents can collaborate directly when needed (like security consulting with network specialists), while the orchestrator maintains overall case management and ensures resolution quality.
-
-**Research analysis platform**: A scientific research platform uses magentic orchestration where the orchestrator evaluates research papers and dynamically assembles relevant specialist agents. Statistical analysis papers activate methodology and data validation agents, while experimental biology papers activate domain expertise, ethical review, and replication analysis agents. The specialist agents can collaborate directly on cross-cutting concerns while the orchestrator ensures comprehensive coverage and maintains research quality standards.
+TODO
 
 ## Combining orchestration patterns
 
@@ -261,95 +249,70 @@ Applications sometimes require combining multiple orchestration patterns to addr
 
 TODO
 
+:::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
+TODO
+:::image-end:::
+
 ## Implementation considerations
 
-When implementing any of these agent design patterns, there are key considerations to address. If your agents are defined defined in a no/low-code environment, you might not have control over these behaviors. If your agents are defined in code using SDKs like Semantic Kernel, then you'll have more control. Consider the risk involved with lack of control in these areas in no-code agent solutions.
+When implementing any of these agent design patterns, there are many considerations to address. Reviewing these considerations can help you avoid common pitfalls and ensure your agent orchestration is robust, secure, and maintainable.
+
+### Single agent, multi-tool
+
+Some problems can be addressed without the use of a orchestration of agents if one agent can be given enough access to tools and knowledge sources. As the number of knowledge sources and tools increasing, providing a predictable experience with the agent can be hard to achieve. If you situation can be reliably solved with a single agent, consider approaching your solution from that perspective. Decision-making and flow control overhead can often exceed the benefits of breaking the task into multiple agents. However, security boundaries, network line of sight, and other considerations might make a single agent approach still ultimately infeasible
+
+### Deterministic routing
+
+Some of these patterns require routing the flow between agents in a deterministic way while others depend on the agents to make their own routing choices. If your agents are defined defined in a no/low-code environment, you might not have control over these behaviors. If your agents are defined in code using SDKs like Semantic Kernel, then you'll have more control.
 
 ### Context window
 
-- Terminate and start anew, carry context forward, etc.
+AI agents often have limited context windows, which can impact their ability to process complex tasks. When you implement these patterns decide what context is required for the next agent in the orchestration to be effective. In some scenarios, you might need the full, raw context gathered up to this point. In some scenarios, a summarized or truncated version of the context is more appropriate. If your agent can work off of no accumulated context, just a new instruction set prefer that approach instead of providing context that will not be helpful to accomplishing the agent's task.
 
 ### Reliability
 
-- Implement appropriate timeout and retry mechanisms
-- Design graceful degradation when one or more agents within a pattern fail
-- Consider circuit breaker patterns for agent dependencies
+These patterns all require properly operating agents and reliable transitions between the agents. These patterns often result in classical distributed systems problems: node failures, network partitions, message loss, cascading errors. It's important to have mitigation strategies in place. Agents and their orchestrators should:
+
+- Implement timeout and retry mechanisms.
+- Have a graceful degradation implementation to handle one or more agents within a pattern faulting.
+- Never hide errors, but instead surface them so downstream agents and orchestrator logic can respond appropriately.
+- Consider circuit breaker patterns for agent dependencies.
+- Be designed so agents are as isolated as practicable from each other, with single points of failure not shared between agents. For example consider:
+  - Compute isolation between agents
+  - How usage of a single models-as-a-service (MaaS) model or a single knowledge store could result in rate limiting when agents are concurrently running.
+- Use checkpoint features available in your SDK to help recover from an interrupted orchestration, such as from a fault or from a new code deployment.
 
 ### Security
 
-- Implement authentication and use secure networking between agents
-- Consider data privacy implications of agent communications
-- Design audit trails for compliance requirements
+TODO, intro
 
-### Operational excellence
+- Implement authentication and use secure networking between agents.
+- Consider data privacy implications of agent communications.
+- Design audit trails for compliance requirements.
+- Design agents and their orchestrators to follow the principle of least privilege.
+- Consider how the end user's identity should be handled across agents. Agents must themselves have broad access to knowledge stores to handle the requests from all users but agents should not return data that should be inaccessible to the user. Security trimming must be implemented in every agent in the pattern.
 
-- Instrument agent interactions and handoffs
-- Track performance metrics for each agent
-- Monitor per agent resource utilization and bottlenecks
-- Design testable interfaces for individual agents
-- Implement integration tests for multi-agent workflows
+### Observability and testing
 
-### Additional design area considerations
+TODO, intro
 
-Depending on the level of control you have in your agent implementation, consider these design areas in your architecture.
-
-#### Agent communication
-
-- Synchronous API calls between agents
-- Event-driven architectures for loose coupling
-
-#### State management
-
-- Prefer stateless agents for easier scaling and recovery
-- Centralized state stores for shared context
-- Distributed caching for performance optimization
-
-#### System boundaries
-
-- Define clear interfaces between agents and external systems
-- Implement proper abstraction layers for technology independence
-- Plan for agent lifecycle management (start, stop, updates, scale)
-
-#### Data flow patterns
-
-- Request-response for synchronous interactions
-- Publish-subscribe for event-driven coordination
-- Streaming for continuous data processing
-- Batch processing for high-volume scenarios
+- Instrument all agent operations and handoffs. Troubleshooting distributed systems is a computer science challenge, and orchestrated AI agents are no exception.
+- Track performance and resource utilization metrics for each agent so you can baseline, find bottlenecks, and optimize.
+- Design testable interfaces for individual agents.
+- Implement integration tests for multi-agent workflows.
 
 ### Common pitfalls and anti-patterns
 
 Avoid these common mistakes when implementing agent orchestration patterns:
 
-TODO
-
-#### Over-orchestration
-
-- Creating unnecessary coordination complexity
-- Using magnetic orchestration when simple sequential or concurrent orchestration suffices
-- Adding agents that don't provide meaningful specialization
-
-#### Communication overhead
-
-- Creating chatty interfaces between agents
-- Not considering latency impacts of multi-hop communication
-
-#### State synchronization issues
-
-- Sharing mutable state between concurrent agents
-- Not handling eventual consistency in distributed scenarios
-- Assuming synchronous updates across agent boundaries
-
-#### Orchestration pattern misalignment
-
-- Using deterministic patterns for inherently non-deterministic workflows
-- Applying rigid sequential orchestration to collaborative scenarios
-
-#### Scalability blind spots
-
-- Not considering agent granularity for scaling requirements
-- Creating bottlenecks in Magnetic or Handoff routing logic
-- Ignoring resource constraints when choosing concurrent orchestration
+- Creating unnecessary coordination complexity by using a complex pattern when a simple sequential or concurrent orchestration suffices.
+- Adding agents that don't provide meaningful specialization.
+- Not considering latency impacts of multi-hop communication.
+- Sharing mutable state between concurrent agents that can result in transactionally inconsistent data due to assuming synchronous updates across agent boundaries.
+- Using deterministic patterns for inherently non-deterministic workflows.
+- Using non-deterministic patterns for inherently deterministic workflows.
+- Ignoring resource constraints when choosing concurrent orchestration.
+- Excessive model consumption due to growing context windows as agents accumulate more information and consult their model to make progress on their task.
 
 ## Relationship to cloud design patterns
 
@@ -371,10 +334,10 @@ Many of these patterns can also be found in [AutoGen](https://microsoft.github.i
 
 To begin implementing AI agent design patterns:
 
-1. **Assess your requirements** using the orchestration pattern selection guide
-2. **Start simple** with proven orchestration patterns before considering custom implementations
-3. **Prototype and measure** different orchestration patterns for your specific use case
-4. **Implement proper observability** from the beginning
-5. **Plan for evolution** as your requirements and understanding mature
+1. Assess your requirements using this orchestration pattern selection guide.
+1. Start simple with proven orchestration patterns before considering custom implementations.
+1. Prototype and measure different orchestration patterns for your specific use case.
+1. Implement proper observability from the beginning.
+1. Plan for evolution as your requirements and understanding mature.
 
-For hands-on implementation, explore the [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) that demonstrate these patterns in practice.
+For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice.
