@@ -18,8 +18,8 @@ Many multitenant solutions on Azure use the open-source relational database mana
 
 There are three deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
-- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
-- [Azure Database for PostgreSQL - Flexible Server with Elastic Clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) - Provides horizontal scaling within a managed service, suitable for multitenant applications that need to be future-proofed to be able to scale from a few tenants to high numbers of tenants. This is in preview, so while it's not recommended for production use yet, you can begin to evaluate it for future implementation.
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This deployment approach is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
+- [Azure Database for PostgreSQL - Flexible Server with Elastic Clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) - Provides horizontal scaling within a managed service, suitable for multitenant applications that need to be future-proofed to be able to scale from a few tenants to high numbers of tenants. This feature is in preview and isn't recommended for production use yet. However, you can begin to evaluate it for future implementation.
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ More information:
 
 ### Elastic clusters (preview)
 
-Elastic clusters is a feature of Azure Database for PostgreSQL Flexible Server, which provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
+Elastic clusters are a feature of Azure Database for PostgreSQL Flexible Server, which provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
 
 In multitenant solutions, elastic clusters enable sharding tenant data across multiple nodes. You can distribute tables by tenant ID to ensure tenant data colocation on specific nodes, which can improve query performance for tenant-specific queries.
 
