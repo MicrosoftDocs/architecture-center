@@ -55,13 +55,13 @@ The Microsoft Entra Connect Sync service ensures that identity information store
 
 Before you implement Microsoft Entra Connect Sync, determine the synchronization requirements of your organization. For example, consider what to synchronize, which domains to include, and how often synchronization should occur.
 
-You can run the Microsoft Entra Connect Sync service on a VM or a computer hosted on-premises. Depending on the volatility of the information in your Active Directory directory, the load on the Microsoft Entra Connect Sync service is unlikely to be high after the initial synchronization with Microsoft Entra ID. Running the service on a VM makes it easier to scale the server if needed. Monitor the activity on the VM as described in the Monitoring considerations section to determine whether scaling is necessary.
+You can run the Microsoft Entra Connect Sync service on a VM or a computer hosted on-premises. Depending on the volatility of the information in your Active Directory directory, the load on the Microsoft Entra Connect Sync service is unlikely to be high after the initial synchronization with Microsoft Entra ID. Running the service on a VM makes it easier to scale the server if needed. Monitor the activity on the VM as described in the [Monitoring considerations](#configure-monitoring-agents) section to determine whether scaling is necessary.
 
 If you have multiple on-premises domains in a forest, we recommend that you store and synchronize information for the entire forest to a single Microsoft Entra tenant. Filter information for identities that occur in more than one domain so that each identity appears only one time in Microsoft Entra ID instead of being duplicated. Duplication can result in inconsistencies when data is synchronized. For more information, see the [Validate network topology](#validate-network-topology) section.
 
 Use filtering so that only necessary data is stored in Microsoft Entra ID. For example, your organization might not want to store information about inactive accounts in Microsoft Entra ID. Filtering can be group-based, domain-based, organization unit (OU)-based, or attribute-based. You can combine filters to generate more complex rules. For example, you can synchronize objects held in a domain that have a specific value in a selected attribute. For more information, see [Microsoft Entra Connect Sync: Configure filtering][aad-filtering].
 
-To implement high availability for the Active Directory Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
+To implement high availability for the Active Directory Connect sync service, run a secondary staging server. For more information, see [Staging mode][staging-mode].
 
   > [!NOTE]
   > **[Microsoft Entra cloud sync][azure-ad-connect-cloud-sync]** is an offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. With Microsoft Entra cloud sync, provisioning from Active Directory to Microsoft Entra ID is orchestrated in Microsoft 365.
@@ -170,7 +170,7 @@ The Microsoft Entra service is geo-distributed and runs in multiple datacenters 
 > [!NOTE]
 > The service-level agreement (SLA) for the Microsoft 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There's no SLA for the Free tier of Microsoft Entra ID. For more information, see [SLA for Microsoft Entra ID][sla-aad].
 
-Consider provisioning a second instance of Microsoft Entra Connect Sync server in staging mode to increase availability, as discussed in the topology recommendations section.
+Consider provisioning a second instance of Microsoft Entra Connect Sync server in staging mode to increase availability.
 
 If you aren't using the SQL Server Express LocalDB instance that comes with Microsoft Entra Connect, consider using SQL clustering to achieve high availability. Microsoft Entra Connect doesn't support solutions such as mirroring and Always On.
 
@@ -305,3 +305,4 @@ Principal author:
 [microsoft-graph-powershell]: /powershell/module/?view=graph-powershell-1.0
 [security-compass-paw]: /security/compass/overview
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
+[staging-mode]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server
