@@ -29,7 +29,7 @@ The following workflow corresponds to the previous diagram:
 
   The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers aren't exposed directly to the internet. All internet traffic is filtered through AD FS web application proxy (WAP) servers and a demilitarized zone (DMZ), also known as a *perimeter network*.
 
-  For more information, see [AD FS overview][active-directory-federation-services-overview]. The article [AD FS deployment in Azure][adfs-intro] includes a detailed step-by-step introduction to implementation.
+  For more information, see [AD FS overview][active-directory-federation-services-overview]. 
 
 - **AD FS proxy subnet:** The AD FS proxy servers can be contained within their own subnet and use NSG rules for protection. The servers in this subnet are exposed to the internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the internet.
 
