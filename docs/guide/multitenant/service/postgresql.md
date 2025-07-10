@@ -92,9 +92,9 @@ More information:
 
 ### Confidential Computing (preview)
 
-[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) supports Azure Confidential Computing through Trusted Execution Environments (TEEs), which provide hardware-based protection for data in use. This feature protects tenant data from unauthorized access by the operating system, hypervisor, or other applications.
+Support for Azure Confidential Computing is available in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) through Trusted Execution Environments (TEEs), which provide hardware-based protection for data in use. This feature protects tenant data from unauthorized access by the operating system, hypervisor, or other applications.
 
-For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. This is applicable when tenants have strict data protection requirements or regulatory compliance needs.
+For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. This is applicable when tenants have strict data protection requirements or regulatory compliance needs, or when you need to ensure that tenant data is not accessible to the application provider.
 
 > [!NOTE]
 > Confidential Computing is currently in preview and requires specific virtual machine SKUs (Dcadsv5, Dcedsv5, Ecadsv5, Ecedsv5).
@@ -105,7 +105,7 @@ More information:
 
 ### Encryption
 
-[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) provides several encryption capabilities that are useful for multitenant solutions. All data is encrypted at rest by default using Microsoft-managed keys, but you can also use customer-managed keys for additional control.
+Data stored in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) is encrypted at rest by default using Microsoft-managed keys, but you can also use customer-managed keys to allow tenants to specify their own encryption keys.
 
 When you use [customer-managed keys (CMK)](/azure/postgresql/flexible-server/concepts-data-encryption), you can provide your own encryption keys stored in [Azure Key Vault](/azure/key-vault/general/overview). In multitenant environments, this enables you to use different encryption keys for different tenants, even when their data is stored in the same database server. This capability also allows tenants to have control over their own encryption keys, and if they need to deactivate their account, deleting the encryption key ensures their data is no longer accessible.
 
