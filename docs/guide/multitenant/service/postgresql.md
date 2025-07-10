@@ -18,7 +18,7 @@ Many multitenant solutions on Azure use the open-source relational database mana
 There are three deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
-- [Azure Database for PostgreSQL - Flexible Server with Elastic Clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) - Provides horizontal scaling within a managed service, suitable for multitenant applications that need to be future-proofed to be able to support a few tenants to high numbers of tenants with varying requirements using the same architecture.
+- [Azure Database for PostgreSQL - Flexible Server with Elastic Clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) - Provides horizontal scaling within a managed service, suitable for multitenant applications that need to be future-proofed to be able to scale from a few tenants to high numbers of tenants. This is in preview, so while it's not recommended for production use yet, you can evaluate it.
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
