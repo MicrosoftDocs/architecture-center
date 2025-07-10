@@ -33,10 +33,7 @@ The following workflow corresponds to the previous diagram:
 
 - **AD FS proxy subnet:** The AD FS proxy servers can be contained within their own subnet and use NSG rules for protection. The servers in this subnet are exposed to the internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the internet.
 
-- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter that shields the AD FS servers from direct access from the internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers.
-
-  > [!NOTE]
-  > For more information, see [Install and configure the WAP server][install-and-configure-the-web-application-proxy-server].
+- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter that shields the AD FS servers from direct access from the internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers. For more information, see [Install and configure the WAP server][install-and-configure-the-web-application-proxy-server].
 
 - **Partner organization:** A partner organization runs a web application that requests access to a web application running in Azure. The federation server at the partner organization authenticates requests locally and submits security tokens that contain claims to AD FS running in Azure. AD FS in Azure validates the security tokens. If the tokens are valid, AD FS can pass the claims to the web application running in Azure to authorize them.
 
@@ -67,13 +64,13 @@ The previous diagram shows the following scenarios:
 
 - Application code from a partner organization accesses a web application hosted inside your Azure virtual network.
 
-- An external, registered user with credentials stored inside Active Directory Domain Services (DS) accesses a web application hosted inside your Azure virtual network.
+- An external, registered user with credentials stored inside Active Directory Domain Services (AD DS) accesses a web application hosted inside your Azure virtual network.
 
 - A user connected to your virtual network using an authorized device runs a web application hosted inside your Azure virtual network.
 
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign-in information when the application starts. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
-For other considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
+For other considerations, see [Integrate on-premises Active Directory domains with Microsoft Entra ID][considerations].
 
 ### Potential use cases
 
@@ -89,7 +86,7 @@ Typical uses for this architecture include:
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Networking recommendations
 
