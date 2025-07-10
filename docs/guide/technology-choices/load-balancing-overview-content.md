@@ -35,7 +35,7 @@ The following table summarizes the Azure load-balancing services.
 
 Here are the main load-balancing services currently available in Azure:
 
-- [Azure API Management](/azure/api-management/api-management-overview) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
+- [Azure API Management](/azure/api-management/api-management-key-concepts) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
 
 - [Application Gateway](/azure/application-gateway/overview) provides application delivery controller as a service, offering various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
