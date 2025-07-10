@@ -63,7 +63,7 @@ The following flowchart helps you choose a load-balancing solution for your appl
 > [!TIP]
 > You can use Azure Copilot in the Azure portal to help guide you through this decision similar to the flowchart. In Azure Copilot, enter **Help me choose a load balancer.** By answering the questions from Copilot, you can narrow down your load balancing options.
 
-Treat this flowchart or Azure Copilot's recommendation as a starting point. Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation.
+Every application has unique requirements not captured in simple decision trees. Treat this flowchart or Azure Copilot's recommendation as a starting point. Then perform a more detailed evaluation.
 
 ![Diagram that shows a decision tree for load balancing in Azure.](./images/load-balancing-decision-tree.png)
 
