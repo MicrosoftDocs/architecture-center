@@ -188,7 +188,7 @@ Use Microsoft Entra Conditional Access control to deny authentication requests f
 
 - Record the enabled or disabled state of users' devices. Incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen, it should be recorded as disabled to prevent it from being used to gain access.
 
-- Control user access to resources based on group membership. Use [Microsoft Entra dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For more information, see [Introduction to dynamic memberships for groups][aad-dynamic-memberships].
+- Control user access to resources based on group membership. Use [Microsoft Entra dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration.
 
 - Use Conditional Access risk-based policies with ID Protection to provide advanced protection based on unusual sign-in activities or other events.
 
@@ -280,7 +280,6 @@ Principal author:
 [aad-connect-sync-default-rules]: /entra/identity/hybrid/connect/concept-azure-ad-connect-sync-default-configuration
 [aad-connect-sync-operational-tasks]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server
 [aad-dynamic-membership-rules]: /entra/identity/users/groups-dynamic-membership
-[aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
 [aad-filtering]: /entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering
 [aad-health]: /entra/identity/hybrid/connect/how-to-connect-health-sync
 [aad-health-adds]: /entra/identity/hybrid/connect/how-to-connect-health-adds
