@@ -15,7 +15,7 @@
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st2 {fill:none;stroke:none;stroke-width:0.25}
-		.st3 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st3 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
 		.st4 {fill:none;stroke:#0078d7;stroke-dasharray:0.01,3;stroke-width:1}
 		.st5 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st6 {fill:#ffffff;stroke:none;stroke-width:0.25}
@@ -40,9 +40,9 @@
 		.st25 {fill:#0072c6;stroke:none;stroke-linecap:butt;stroke-width:12.24}
 		.st26 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st27 {fill:#6bb9f2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st28 {fill:url(#grad0-311);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st28 {fill:url(#grad0-308);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st29 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st30 {fill:url(#grad0-370);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st30 {fill:url(#grad0-367);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st31 {fill:#e6e6e6;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st32 {fill:#003067;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st33 {fill:none;stroke:none;stroke-width:0.75}
@@ -57,14 +57,14 @@
 	</style>
 
 	<defs id="Patterns_And_Gradients">
-		<linearGradient id="grad0-311" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+		<linearGradient id="grad0-308" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
 			<stop offset="0" stop-color="#5ea0ef" stop-opacity="1"/>
 			<stop offset="0.18" stop-color="#559cec" stop-opacity="1"/>
 			<stop offset="0.47" stop-color="#3c91e5" stop-opacity="1"/>
 			<stop offset="0.84" stop-color="#1380da" stop-opacity="1"/>
 			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-370" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+		<linearGradient id="grad0-367" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
 			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
 			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
 		</linearGradient>
@@ -120,7 +120,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="58.5" cy="312.398" width="117" height="14.5"/>
 			<rect x="0" y="305.148" width="117" height="14.5" class="st2"/>
-			<text x="10.96" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises network</text>		</g>
+			<text x="15.71" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises network</text>		</g>
 		<g id="shape296-6" v:mID="296" v:groupContext="shape" transform="translate(348.272,-97.8983)">
 			<title>Virtual Network Box</title>
 			<desc>Management subnet</desc>
@@ -130,8 +130,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="160.384" cy="220.648" width="320.77" height="198"/>
 			<path d="M0 319.65 L320.77 319.65 L320.77 121.65 L0 121.65 L0 319.65 Z" class="st4"/>
-			<rect v:rectContext="textBkgnd" x="114.573" y="214.648" width="91.6221" height="12.0001" class="st5"/>
-			<text x="114.57" y="223.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Management subnet</text>		</g>
+			<rect v:rectContext="textBkgnd" x="119.154" y="215.249" width="82.459" height="10.7998" class="st5"/>
+			<text x="119.15" y="223.35" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Management subnet</text>		</g>
 		<g id="group303-10" transform="translate(642.04,-93.3983)" v:mID="303" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(3000):26"/>
@@ -168,16 +168,16 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape311-24" v:mID="311" v:groupContext="shape" transform="translate(542.25,-99.1483)">
+		<g id="shape311-24" v:mID="311" v:groupContext="shape" transform="translate(551.988,-99.1483)">
 			<title>Sheet.311</title>
 			<desc>Azure virtual network</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(4000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="55.8816" cy="312.398" width="111.77" height="14.5"/>
-			<rect x="0" y="305.148" width="111.763" height="14.5" class="st2"/>
-			<text x="8.95" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure virtual network</text>		</g>
+			<v:textRect cx="51.0125" cy="312.398" width="102.03" height="14.5"/>
+			<rect x="0" y="305.148" width="102.025" height="14.5" class="st2"/>
+			<text x="8.77" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure virtual network</text>		</g>
 		<g id="shape322-27" v:mID="322" v:groupContext="shape" transform="translate(354.59,-281.398)">
 			<title>Sheet.322</title>
 			<desc>Web tier</desc>
@@ -187,7 +187,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="45.9388" cy="312.398" width="91.88" height="14.5"/>
 			<rect x="0" y="305.148" width="91.8777" height="14.5" class="st2"/>
-			<text x="27.09" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web tier</text>		</g>
+			<text x="28.97" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web tier</text>		</g>
 		<g id="shape323-30" v:mID="323" v:groupContext="shape" transform="translate(458.872,-281.398)">
 			<title>Sheet.323</title>
 			<desc>Business tier</desc>
@@ -197,7 +197,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="51.0125" cy="312.398" width="102.03" height="14.5"/>
 			<rect x="0" y="305.148" width="102.025" height="14.5" class="st2"/>
-			<text x="23.67" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Business tier</text>		</g>
+			<text x="26.4" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Business tier</text>		</g>
 		<g id="shape324-33" v:mID="324" v:groupContext="shape" transform="translate(566.894,-281.018)">
 			<title>Sheet.324</title>
 			<desc>Data tier</desc>
@@ -207,7 +207,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="48.0027" cy="312.398" width="96.01" height="14.5"/>
 			<rect x="0" y="305.148" width="96.0054" height="14.5" class="st2"/>
-			<text x="29.09" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data tier</text>		</g>
+			<text x="30.98" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data tier</text>		</g>
 		<g id="shape327-36" v:mID="327" v:groupContext="shape" transform="translate(355.092,-170.333)">
 			<title>Sheet.327</title>
 			<v:userDefs>
@@ -840,24 +840,24 @@
 			</v:userDefs>
 			<path d="M0 319.65 L40.48 319.65" class="st10"/>
 		</g>
-		<g id="shape423-177" v:mID="423" v:groupContext="shape" transform="translate(245.046,-182)">
+		<g id="shape423-177" v:mID="423" v:groupContext="shape" transform="translate(252,-179.898)">
 			<title>Sheet.423</title>
 			<desc>Microsoft Entra tenant</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(20000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="36.3006" cy="302.648" width="72.61" height="34"/>
-			<rect x="0" y="285.648" width="72.6011" height="34" class="st2"/>
-			<text x="15.31" y="299.65" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
-						x="9.39" dy="1.2em" class="st12">Entra</tspan><tspan class="st12" v:langID="1033"> </tspan><tspan
+			<v:textRect cx="29.6471" cy="302.648" width="59.3" height="34"/>
+			<rect x="0" y="285.648" width="59.2941" height="34" class="st2"/>
+			<text x="10.76" y="299.95" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
+						x="5.43" dy="1.2em" class="st12">Entra</tspan><tspan class="st12" v:langID="1033"> </tspan><tspan
 						class="st12" v:langID="1033">tenant</tspan></text>		</g>
 		<g id="shape426-183" v:mID="426" v:groupContext="shape" transform="translate(356.29,-107.898)">
 			<title>Sheet.426</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(21000):26"/>
 			</v:userDefs>
-			<rect x="0" y="273.508" width="111.763" height="46.1406" class="st8"/>
+			<rect x="0" y="275.648" width="91.8777" height="44" class="st8"/>
 		</g>
 		<g id="group432-185" transform="translate(400.75,-120.445)" v:mID="432" v:groupContext="group">
 			<v:userDefs>
@@ -872,9 +872,9 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,2,4,2)"/>
-			<v:textRect cx="36.3006" cy="309.648" width="72.61" height="20"/>
-			<rect x="0" y="299.648" width="72.6011" height="20" class="st13"/>
-			<text x="6.07" y="312.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Bastion</text>		</g>
+			<v:textRect cx="29.6471" cy="309.648" width="59.3" height="20"/>
+			<rect x="0" y="299.648" width="59.2941" height="20" class="st13"/>
+			<text x="2.44" y="312.35" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Bastion</text>		</g>
 		<g id="shape436-189" v:mID="436" v:groupContext="shape" transform="translate(356.29,-151.898)">
 			<title>Sheet.436</title>
 			<desc>Management subnet</desc>
@@ -882,19 +882,19 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(24000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="55.8816" cy="312.398" width="111.77" height="14.5"/>
-			<rect x="0" y="305.148" width="111.763" height="14.5" class="st2"/>
-			<text x="10.07" y="315.4" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Management subnet</text>		</g>
-		<g id="shape281-192" v:mID="281" v:groupContext="shape" transform="translate(68.2368,-155.273)">
+			<v:textRect cx="45.7234" cy="312.398" width="91.45" height="14.5"/>
+			<rect x="0" y="305.148" width="91.4468" height="14.5" class="st2"/>
+			<text x="4.49" y="315.1" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Management subnet</text>		</g>
+		<g id="shape281-192" v:mID="281" v:groupContext="shape" transform="translate(76.5,-155.273)">
 			<title>Sheet.281</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(26000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(25000):26"/>
 			</v:userDefs>
-			<rect x="0" y="188.023" width="111.763" height="131.625" class="st8"/>
+			<rect x="0" y="188.023" width="108" height="131.625" class="st8"/>
 		</g>
 		<g id="group287-194" transform="translate(143.641,-257.193)" v:mID="287" v:groupContext="group" v:layerMember="0">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(27000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(26000):26"/>
 			</v:userDefs>
 			<title>Computer.227</title>
 			<g id="shape288-195" v:mID="288" v:groupContext="shape" v:layerMember="0" transform="translate(3.65086,-1.13687E-13)">
@@ -911,7 +911,7 @@
 		</g>
 		<g id="group290-199" transform="translate(112.681,-184.58)" v:mID="290" v:groupContext="group" v:layerMember="0">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(28000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(27000):26"/>
 			</v:userDefs>
 			<title>Computer.230</title>
 			<g id="shape291-200" v:mID="291" v:groupContext="shape" v:layerMember="0" transform="translate(3.65086,-1.13687E-13)">
@@ -930,35 +930,35 @@
 			<title>Sheet.406</title>
 			<desc>Domain controller</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(29000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(28000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="29.6471" cy="306.596" width="59.3" height="26.1053"/>
 			<rect x="0" y="293.543" width="59.2941" height="26.1053" class="st2"/>
-			<text x="12.32" y="303.6" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Domain <tspan x="8.44"
-						dy="1.2em" class="st12">controller</tspan></text>		</g>
-		<g id="shape408-208" v:mID="408" v:groupContext="shape" transform="translate(90,-152.898)">
+			<text x="14.05" y="303.9" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Domain <tspan
+						x="10.56" dy="1.2em" class="st12">controller</tspan></text>		</g>
+		<g id="shape408-208" v:mID="408" v:groupContext="shape" transform="translate(94.897,-152.898)">
 			<title>Sheet.408</title>
 			<desc>On-premises client</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(30000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(29000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="33.9105" cy="302.648" width="67.83" height="34"/>
-			<rect x="0" y="285.648" width="67.8209" height="34" class="st2"/>
-			<text x="5.64" y="299.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises <tspan
-						x="22.04" dy="1.2em" class="st12">client</tspan></text>		</g>
+			<v:textRect cx="29.6471" cy="302.648" width="59.3" height="34"/>
+			<rect x="0" y="285.648" width="59.2941" height="34" class="st2"/>
+			<text x="4.21" y="299.95" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises <tspan
+						x="18.96" dy="1.2em" class="st12">client</tspan></text>		</g>
 		<g id="shape409-212" v:mID="409" v:groupContext="shape" transform="translate(567.091,50.5928) rotate(90)">
 			<title>Sheet.409</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(30000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L17.83 319.65" class="st15"/>
 		</g>
 		<g id="shape410-218" v:mID="410" v:groupContext="shape" transform="translate(109.284,-268.928) rotate(-0.425396)">
 			<title>Sheet.410</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(32000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L25.38 319.65" class="st15"/>
 		</g>
@@ -966,51 +966,51 @@
 			<title>Sheet.411</title>
 			<desc>Sync</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(33000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="45.7234" cy="309.412" width="91.45" height="20.4732"/>
 			<rect x="0" y="299.175" width="91.4468" height="20.4732" class="st2"/>
-			<text x="35.51" y="312.41" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sync</text>		</g>
+			<text x="36.53" y="312.11" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sync</text>		</g>
 		<g id="shape413-226" v:mID="413" v:groupContext="shape" transform="translate(209.657,-227.961)">
 			<title>Sheet.413</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(34000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(33000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L16.06 319.65" class="st17"/>
 		</g>
-		<g id="shape414-232" v:mID="414" v:groupContext="shape" transform="translate(176.519,-161.371)">
+		<g id="shape414-232" v:mID="414" v:groupContext="shape" transform="translate(181.912,-161.371)">
 			<title>Sheet.414</title>
 			<desc>Requests from on-premises users</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(35000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(34000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="36.3006" cy="302.648" width="72.61" height="34"/>
-			<rect x="0" y="285.648" width="72.6011" height="34" class="st2"/>
-			<text x="4.46" y="293.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Requests from <tspan
-						x="8.87" dy="1.2em" class="st12">on</tspan>-premises <tspan x="24.87" dy="1.2em" class="st12">users</tspan></text>		</g>
+			<v:textRect cx="33.1242" cy="302.648" width="66.25" height="34"/>
+			<rect x="0" y="285.648" width="66.2483" height="34" class="st2"/>
+			<text x="4.47" y="294.55" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Requests from <tspan
+						x="8.44" dy="1.2em" class="st12">on</tspan>-premises <tspan x="22.84" dy="1.2em" class="st12">users</tspan></text>		</g>
 		<g id="shape440-237" v:mID="440" v:groupContext="shape" transform="translate(164.647,-121.898)">
 			<title>Sheet.440</title>
 			<desc>Requests from external users</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="40.5" cy="309.412" width="81" height="20.4732"/>
 			<rect x="0" y="299.175" width="81" height="20.4732" class="st2"/>
-			<text x="8.66" y="306.41" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Requests from <tspan
-						x="10.16" dy="1.2em" class="st12">external users</tspan></text>		</g>
+			<text x="11.84" y="306.71" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Requests from <tspan
+						x="13.2" dy="1.2em" class="st12">external users</tspan></text>		</g>
 		<g id="shape441-241" v:mID="441" v:groupContext="shape" transform="translate(167.367,-269.056) rotate(1.37396E-05)">
 			<title>Sheet.441</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(37000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L80.08 319.65" class="st19"/>
 		</g>
 		<g id="group284-244" transform="translate(87.931,-257.193)" v:mID="284" v:groupContext="group" v:layerMember="0">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(38000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(37000):26"/>
 			</v:userDefs>
 			<title>Computer.224</title>
 			<g id="shape285-245" v:mID="285" v:groupContext="shape" v:layerMember="0" transform="translate(3.65086,-1.13687E-13)">
@@ -1028,34 +1028,34 @@
 		<g id="shape442-249" v:mID="442" v:groupContext="shape" transform="translate(136.407,-197.056)">
 			<title>Sheet.442</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(39000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(38000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L73.24 319.65" class="st20"/>
 		</g>
 		<g id="shape443-252" v:mID="443" v:groupContext="shape" transform="translate(-110.001,122.492) rotate(-89.9819)">
 			<title>Sheet.443</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(40000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(39000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L30.91 319.65" class="st20"/>
 		</g>
-		<g id="shape444-255" v:mID="444" v:groupContext="shape" transform="translate(-71.9744,200.781) rotate(-90.14)">
+		<g id="shape444-255" v:mID="444" v:groupContext="shape" transform="translate(-71.9169,200.781) rotate(-90.14)">
 			<title>Sheet.444</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(41000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(40000):26"/>
 			</v:userDefs>
 			<path d="M0 319.65 L87.68 319.65" class="st17"/>
 		</g>
-		<g id="shape445-260" v:mID="445" v:groupContext="shape" transform="translate(161.441,-119.649)">
+		<g id="shape445-260" v:mID="445" v:groupContext="shape" transform="translate(160.701,-119.649)">
 			<title>Sheet.445</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(42000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(41000):26"/>
 			</v:userDefs>
-			<path d="M0 319.65 L86.23 319.65" class="st20"/>
+			<path d="M0 319.65 L86.97 319.65" class="st20"/>
 		</g>
-		<g id="group452-263" transform="translate(108.74,-106.898)" v:mID="452" v:groupContext="group">
+		<g id="group452-263" transform="translate(108,-106.898)" v:mID="452" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(43000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(42000):26"/>
 			</v:userDefs>
 			<title>Sheet.452</title>
 			<g id="group415-264" transform="translate(1.39888E-14,-14.5714)" v:mID="415" v:groupContext="group">
@@ -1102,61 +1102,56 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape458-274" v:mID="458" v:groupContext="shape" transform="translate(425.185,-77.4976)">
+		<g id="shape458-274" v:mID="458" v:groupContext="shape" transform="translate(447.5,-76.8063)">
 			<title>Sheet.458</title>
 			<desc>Network security group</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(44000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(43000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="40.7311" cy="314.735" width="81.47" height="9.82733"/>
-			<rect x="0" y="309.821" width="81.4622" height="9.82733" class="st2"/>
-			<text x="21.92" y="311.73" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Network <tspan
-						x="9.04" dy="1.2em" class="st12">security group</tspan></text>		</g>
-		<g id="group465-278" transform="translate(349.63,-72.2874)" v:mID="465" v:groupContext="group">
+			<v:textRect cx="58.5" cy="314.735" width="117" height="9.82733"/>
+			<rect x="0" y="309.821" width="117" height="9.82733" class="st2"/>
+			<text x="11.81" y="317.43" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Network security group</text>		</g>
+		<g id="group460-277" transform="translate(349.63,-72.2874)" v:mID="460" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
+			</v:userDefs>
+			<title>Azure load balancer.460</title>
+			<g id="group461-278" transform="translate(1.48217,-1.48093)" v:mID="461" v:groupContext="group">
+				<title>Sheet.461</title>
+				<g id="shape462-279" v:mID="462" v:groupContext="shape">
+					<title>Sheet.462</title>
+					<path d="M15.96 310.13 L9.29 303.29 C8.99 302.99 8.63 302.82 8.21 302.82 C7.82 302.82 7.42 302.99 7.13 303.29
+								 L0.46 310.13 C0.16 310.43 0 310.8 0 311.23 C0 311.64 0.16 312.04 0.46 312.34 L7.13 319.18 C7.42
+								 319.48 7.78 319.65 8.21 319.65 C8.6 319.65 8.99 319.48 9.29 319.18 L15.96 312.34 C16.25 312.04 16.42
+								 311.67 16.42 311.23 C16.39 310.8 16.22 310.4 15.96 310.13 ZM12.79 313.31 L12.79 311.77 L10.5 311.77
+								 C10.27 312.58 9.65 313.21 8.86 313.45 L8.86 315.02 C9.19 315.26 9.68 315.79 9.68 316.36 C9.68 317.2
+								 9.03 317.87 8.21 317.87 C7.39 317.87 6.74 317.2 6.74 316.36 C6.74 315.76 7.23 315.26 7.55 315.02
+								 L7.55 313.48 C6.77 313.25 6.15 312.61 5.92 311.8 L3.63 311.8 L3.63 313.38 L1.47 311.17 L3.63 308.96
+								 L3.63 310.5 L5.92 310.5 C6.15 309.69 6.77 309.06 7.55 308.82 L7.55 306.58 L6.05 306.58 L8.21 304.36
+								 L10.37 306.58 L8.86 306.58 L8.86 308.82 C9.65 309.06 10.27 309.69 10.5 310.5 L12.79 310.5 L12.79
+								 308.92 L14.95 311.13 L12.79 313.31 Z" class="st7"/>
+				</g>
+				<g id="shape463-281" v:mID="463" v:groupContext="shape" transform="translate(6.47559,-6.77117)">
+					<title>Sheet.463</title>
+					<path d="M1.73 316.1 C0.78 316.1 0 316.9 0 317.87 C-0 318.84 0.78 319.65 1.73 319.65 C2.68 319.65 3.47 318.84
+								 3.47 317.87 C3.47 316.9 2.68 316.1 1.73 316.1 Z" class="st7"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape464-283" v:mID="464" v:groupContext="shape" transform="translate(365.752,-76.7897)">
+			<title>Sheet.464</title>
+			<desc>Load balancer</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="33.1242" cy="314.735" width="66.25" height="9.82733"/>
+			<rect x="0" y="309.821" width="66.2483" height="9.82733" class="st2"/>
+			<text x="5.34" y="317.43" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Load balancer</text>		</g>
+		<g id="group491-286" transform="translate(401.336,-118.219)" v:mID="491" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(45000):26"/>
 			</v:userDefs>
-			<title>Sheet.465</title>
-			<g id="group460-279" v:mID="460" v:groupContext="group">
-				<title>Azure load balancer.460</title>
-				<g id="group461-280" transform="translate(1.48217,-1.48093)" v:mID="461" v:groupContext="group">
-					<title>Sheet.461</title>
-					<g id="shape462-281" v:mID="462" v:groupContext="shape">
-						<title>Sheet.462</title>
-						<path d="M15.96 310.13 L9.29 303.29 C8.99 302.99 8.63 302.82 8.21 302.82 C7.82 302.82 7.42 302.99 7.13 303.29
-									 L0.46 310.13 C0.16 310.43 0 310.8 0 311.23 C0 311.64 0.16 312.04 0.46 312.34 L7.13 319.18 C7.42
-									 319.48 7.78 319.65 8.21 319.65 C8.6 319.65 8.99 319.48 9.29 319.18 L15.96 312.34 C16.25 312.04
-									 16.42 311.67 16.42 311.23 C16.39 310.8 16.22 310.4 15.96 310.13 ZM12.79 313.31 L12.79 311.77
-									 L10.5 311.77 C10.27 312.58 9.65 313.21 8.86 313.45 L8.86 315.02 C9.19 315.26 9.68 315.79 9.68
-									 316.36 C9.68 317.2 9.03 317.87 8.21 317.87 C7.39 317.87 6.74 317.2 6.74 316.36 C6.74 315.76
-									 7.23 315.26 7.55 315.02 L7.55 313.48 C6.77 313.25 6.15 312.61 5.92 311.8 L3.63 311.8 L3.63 313.38
-									 L1.47 311.17 L3.63 308.96 L3.63 310.5 L5.92 310.5 C6.15 309.69 6.77 309.06 7.55 308.82 L7.55
-									 306.58 L6.05 306.58 L8.21 304.36 L10.37 306.58 L8.86 306.58 L8.86 308.82 C9.65 309.06 10.27
-									 309.69 10.5 310.5 L12.79 310.5 L12.79 308.92 L14.95 311.13 L12.79 313.31 Z" class="st7"/>
-					</g>
-					<g id="shape463-283" v:mID="463" v:groupContext="shape" transform="translate(6.47559,-6.77117)">
-						<title>Sheet.463</title>
-						<path d="M1.73 316.1 C0.78 316.1 0 316.9 0 317.87 C-0 318.84 0.78 319.65 1.73 319.65 C2.68 319.65 3.47 318.84
-									 3.47 317.87 C3.47 316.9 2.68 316.1 1.73 316.1 Z" class="st7"/>
-					</g>
-				</g>
-			</g>
-			<g id="shape464-285" v:mID="464" v:groupContext="shape" transform="translate(16.6409,-4.50232)">
-				<title>Sheet.464</title>
-				<desc>Load balancer</desc>
-				<v:textBlock v:margins="rect(4,4,4,4)"/>
-				<v:textRect cx="24.2193" cy="314.735" width="48.44" height="9.82733"/>
-				<rect x="0" y="309.821" width="48.4387" height="9.82733" class="st2"/>
-				<text x="13.45" y="311.73" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Load <tspan
-							x="5.49" dy="1.2em" class="st12">balancer</tspan></text>			</g>
-		</g>
-		<g id="group491-289" transform="translate(406.8,-118.219)" v:mID="491" v:groupContext="group">
-			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
-			</v:userDefs>
 			<title>Sheet.491</title>
-			<g id="shape434-290" v:mID="434" v:groupContext="shape">
+			<g id="shape434-287" v:mID="434" v:groupContext="shape">
 				<title>Sheet.434</title>
 				<path d="M37.91 287.92 L1.75 287.92 C0.79 287.92 0 288.71 0 289.67 L0 317.9 C0 318.87 0.79 319.65 1.75 319.65 L37.91
 							 319.65 C38.88 319.65 39.66 318.87 39.66 317.9 L39.66 289.67 C39.66 288.71 38.88 287.92 37.91 287.92
@@ -1193,33 +1188,33 @@
 							 12.19 294.13 12.72 294.13 L28.24 294.13 C28.77 294.13 29.19 294.57 29.19 295.1 L29.19 305.67 L29.19
 							 305.67 Z" class="st23"/>
 			</g>
-			<g id="group485-292" transform="translate(14.6325,-13.4095)" v:mID="485" v:groupContext="group">
+			<g id="group485-289" transform="translate(14.6325,-13.4095)" v:mID="485" v:groupContext="group">
 				<title>Sheet.485</title>
-				<g id="shape486-293" v:mID="486" v:groupContext="shape" transform="translate(5.4956E-14,-0.0877932)">
+				<g id="shape486-290" v:mID="486" v:groupContext="shape" transform="translate(5.4956E-14,-0.0877932)">
 					<title>Sheet.486</title>
 					<path d="M10.75 308.89 L10.75 319.43 L0.22 319.43 L0.22 308.89 L10.75 308.89 ZM10.97 308.67 L0 308.67 L0 319.65
 								 L10.97 319.65 L10.97 308.67 Z" class="st24"/>
 				</g>
-				<g id="shape487-295" v:mID="487" v:groupContext="shape">
+				<g id="shape487-292" v:mID="487" v:groupContext="shape">
 					<title>Sheet.487</title>
 					<path d="M4.89 316.77 C3.47 317.76 1.19 319.28 0.97 319.45 C0.68 319.65 0.26 319.56 0.13 319.38 C0 319.19 0 318.77
 								 0.29 318.57 C0.46 318.46 3.47 316.42 4.39 315.79 L4.92 316.36 C5.16 316.6 4.89 316.77 4.89 316.77
 								 Z" class="st25"/>
 				</g>
-				<g id="shape488-297" v:mID="488" v:groupContext="shape" transform="translate(1.60223,-3.2703)">
+				<g id="shape488-294" v:mID="488" v:groupContext="shape" transform="translate(1.60223,-3.2703)">
 					<title>Sheet.488</title>
 					<path d="M3.23 318.66 C3.23 318.66 0.59 315.83 0.29 315.52 C0 315.19 0.26 314.82 0.42 314.69 C0.57 314.56 1.03
 								 314.36 1.27 314.6 C1.51 314.84 4.46 318 4.67 318.24 C4.89 318.49 4.87 318.86 4.5 319.12 C4.43 319.17
 								 4.26 319.3 3.99 319.47 C3.97 319.49 3.86 319.58 3.75 319.65 C3.75 319.65 3.99 319.47 3.82 319.28
 								 L3.23 318.66 Z" class="st25"/>
 				</g>
-				<g id="shape489-299" v:mID="489" v:groupContext="shape" transform="translate(6.4967,-2.39237)">
+				<g id="shape489-296" v:mID="489" v:groupContext="shape" transform="translate(6.4967,-2.39237)">
 					<title>Sheet.489</title>
 					<path d="M0.22 315.92 C1.4 317.19 3.25 319.19 3.45 319.38 C3.69 319.65 4.1 319.65 4.28 319.49 C4.46 319.34 4.54
 								 318.95 4.3 318.68 C4.17 318.53 1.69 315.87 0.94 315.06 L0.31 315.5 C0 315.68 0.22 315.92 0.22 315.92
 								 Z" class="st25"/>
 				</g>
-				<g id="shape490-301" v:mID="490" v:groupContext="shape" transform="translate(5.33344,-6.56254)">
+				<g id="shape490-298" v:mID="490" v:groupContext="shape" transform="translate(5.33344,-6.56254)">
 					<title>Sheet.490</title>
 					<path d="M1.65 318.79 C1.65 318.79 4.83 316.58 5.18 316.31 C5.53 316.05 5.36 315.63 5.22 315.48 C5.09 315.32
 								 4.7 315.02 4.41 315.21 C4.13 315.41 0.59 317.87 0.33 318.07 C0.07 318.27 0 318.62 0.33 318.97 C0.37
@@ -1228,195 +1223,195 @@
 				</g>
 			</g>
 		</g>
-		<g id="group498-303" transform="translate(421.242,-75.4711)" v:mID="498" v:groupContext="group">
+		<g id="group498-300" transform="translate(444.48,-75.4711)" v:mID="498" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(47000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
 			</v:userDefs>
 			<title>Icon-networking-67.498</title>
-			<g id="shape499-304" v:mID="499" v:groupContext="shape">
+			<g id="shape499-301" v:mID="499" v:groupContext="shape">
 				<title>Sheet.499</title>
 				<path d="M11.04 312.45 C11.04 316.08 6.65 319.01 5.7 319.6 a0.345 0.345 0 0 1 -0.36 0 C4.39 319.01 0 316.08 0 312.45
 							 L0 308.09 a0.345 0.345 0 0 1 0.3375 -0.345 C3.75 307.65 2.96 306.15 5.52 306.15 C8.08 306.15 7.29 307.65
 							 10.7 307.74 a0.345 0.345 0 0 1 0.3375 0.345 L11.04 312.45 Z" class="st26"/>
 			</g>
-			<g id="shape500-306" v:mID="500" v:groupContext="shape" transform="translate(0.4575,-0.560273)">
+			<g id="shape500-303" v:mID="500" v:groupContext="shape" transform="translate(0.4575,-0.560273)">
 				<title>Sheet.500</title>
 				<path d="M10.12 313.05 C10.12 316.38 6.11 319.05 5.23 319.6 a0.3225 0.3225 0 0 1 -0.33 0 C4.02 319.06 0 316.38 0
 							 313.05 L0 309.04 a0.315 0.315 0 0 1 0.3075 -0.315 C3.44 308.65 2.72 307.27 5.06 307.27 C7.41 307.27
 							 6.69 308.65 9.82 308.73 a0.315 0.315 0 0 1 0.3075 0.315 L10.12 313.05 Z" class="st27"/>
 			</g>
-			<g id="shape501-308" v:mID="501" v:groupContext="shape" transform="translate(0.48,-0.560679)">
+			<g id="shape501-305" v:mID="501" v:groupContext="shape" transform="translate(0.48,-0.560679)">
 				<title>Sheet.501</title>
 				<path d="M5.04 313.46 L5.04 307.27 C7.39 307.27 6.67 308.65 9.8 308.73 a0.3225 0.3225 0 0 1 0.3075 0.3225 L10.1 313.06
 							 A3.6675 3.6675 0 0 1 10.1 313.46 L5.04 313.46 ZM5.04 313.46 L0 313.46 C0.3 316.6 4.04 319.09 4.88 319.6
 							 a0.2925 0.2925 -180 0 0 0.135 0.045 L5.04 319.65 L5.04 313.46 Z" class="st28"/>
 			</g>
-			<g id="shape502-312" v:mID="502" v:groupContext="shape" transform="translate(0.474405,-6.74818)">
+			<g id="shape502-309" v:mID="502" v:groupContext="shape" transform="translate(0.474405,-6.74818)">
 				<title>Sheet.502</title>
 				<path d="M0.29 314.92 C3.42 314.83 2.7 313.46 5.05 313.46 L5.05 319.65 L0.01 319.65 A3.6675 3.6675 0 0 1 0.01 319.24
 							 L0.01 315.24 a0.3225 0.3225 0 0 1 0.285 -0.3225 Z" class="st29"/>
 			</g>
-			<g id="shape503-314" v:mID="503" v:groupContext="shape" transform="translate(5.52,-0.560679)">
+			<g id="shape503-311" v:mID="503" v:groupContext="shape" transform="translate(5.52,-0.560679)">
 				<title>Sheet.503</title>
 				<path d="M5.04 313.46 L0 313.46 L0 319.65 a0.2925 0.2925 -180 0 0 0.135 -0.045 C1 319.09 4.74 316.6 5.04 313.46 Z"
 						class="st29"/>
 			</g>
 		</g>
-		<g id="group504-316" transform="translate(361.803,-260.039)" v:mID="504" v:groupContext="group">
+		<g id="group504-313" transform="translate(361.803,-260.039)" v:mID="504" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(48000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(47000):26"/>
 			</v:userDefs>
 			<title>Icon-networking-67.504</title>
-			<g id="shape505-317" v:mID="505" v:groupContext="shape">
+			<g id="shape505-314" v:mID="505" v:groupContext="shape">
 				<title>Sheet.505</title>
 				<path d="M14.34 310.3 C14.34 315.01 8.64 318.81 7.41 319.58 a0.448242 0.448242 0 0 1 -0.467731 0 C5.7 318.81 0 315.01
 							 0 310.3 L0 304.62 a0.448242 0.448242 0 0 1 0.438498 -0.448242 C4.87 304.06 3.85 302.11 7.17 302.11 C10.49
 							 302.11 9.47 304.06 13.91 304.18 a0.448242 0.448242 0 0 1 0.438498 0.448242 L14.34 310.3 Z"
 						class="st26"/>
 			</g>
-			<g id="shape506-319" v:mID="506" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
+			<g id="shape506-316" v:mID="506" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
 				<title>Sheet.506</title>
 				<path d="M13.15 311.07 C13.15 315.4 7.93 318.87 6.79 319.59 a0.419009 0.419009 0 0 1 -0.428753 0 C5.22 318.89 0 315.4
 							 0 311.07 L0 305.87 a0.409265 0.409265 0 0 1 0.39952 -0.409265 C4.46 305.35 3.53 303.57 6.58 303.57 C9.63
 							 303.57 8.69 305.35 12.76 305.46 a0.409265 0.409265 0 0 1 0.39952 0.409265 L13.15 311.07 Z"
 						class="st27"/>
 			</g>
-			<g id="shape507-321" v:mID="507" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
+			<g id="shape507-318" v:mID="507" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
 				<title>Sheet.507</title>
 				<path d="M6.55 311.61 L6.55 303.57 C9.6 303.57 8.66 305.35 12.73 305.46 a0.419009 0.419009 0 0 1 0.39952 0.419009
 							 L13.13 311.08 A4.76501 4.76501 0 0 1 13.13 311.61 L6.55 311.61 ZM6.55 311.61 L0 311.61 C0.39 315.68
 							 5.24 318.92 6.33 319.59 a0.380031 0.380031 -180 0 0 0.175399 0.0584664 L6.55 319.65 L6.55 311.61 Z"
 						class="st28"/>
 			</g>
-			<g id="shape508-324" v:mID="508" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
+			<g id="shape508-321" v:mID="508" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
 				<title>Sheet.508</title>
 				<path d="M0.38 313.5 C4.44 313.39 3.51 311.61 6.56 311.61 L6.56 319.65 L0.01 319.65 A4.76501 4.76501 0 0 1 0.01 319.12
 							 L0.01 313.92 a0.419009 0.419009 0 0 1 0.370287 -0.419009 Z" class="st29"/>
 			</g>
-			<g id="shape509-326" v:mID="509" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
+			<g id="shape509-323" v:mID="509" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
 				<title>Sheet.509</title>
 				<path d="M6.55 311.61 L0 311.61 L0 319.65 a0.380031 0.380031 -180 0 0 0.175399 -0.0584664 C1.31 318.92 6.16 315.68
 							 6.55 311.61 Z" class="st29"/>
 			</g>
 		</g>
-		<g id="group510-328" transform="translate(467.975,-258.951)" v:mID="510" v:groupContext="group">
+		<g id="group510-325" transform="translate(467.975,-258.951)" v:mID="510" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(49000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(48000):26"/>
 			</v:userDefs>
 			<title>Icon-networking-67.510</title>
-			<g id="shape511-329" v:mID="511" v:groupContext="shape">
+			<g id="shape511-326" v:mID="511" v:groupContext="shape">
 				<title>Sheet.511</title>
 				<path d="M14.34 310.3 C14.34 315.01 8.64 318.81 7.41 319.58 a0.448242 0.448242 0 0 1 -0.467731 0 C5.7 318.81 0 315.01
 							 0 310.3 L0 304.62 a0.448242 0.448242 0 0 1 0.438498 -0.448242 C4.87 304.06 3.85 302.11 7.17 302.11 C10.49
 							 302.11 9.47 304.06 13.91 304.18 a0.448242 0.448242 0 0 1 0.438498 0.448242 L14.34 310.3 Z"
 						class="st26"/>
 			</g>
-			<g id="shape512-331" v:mID="512" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
+			<g id="shape512-328" v:mID="512" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
 				<title>Sheet.512</title>
 				<path d="M13.15 311.07 C13.15 315.4 7.93 318.87 6.79 319.59 a0.419009 0.419009 0 0 1 -0.428753 0 C5.22 318.89 0 315.4
 							 0 311.07 L0 305.87 a0.409265 0.409265 0 0 1 0.39952 -0.409265 C4.46 305.35 3.53 303.57 6.58 303.57 C9.63
 							 303.57 8.69 305.35 12.76 305.46 a0.409265 0.409265 0 0 1 0.39952 0.409265 L13.15 311.07 Z"
 						class="st27"/>
 			</g>
-			<g id="shape513-333" v:mID="513" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
+			<g id="shape513-330" v:mID="513" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
 				<title>Sheet.513</title>
 				<path d="M6.55 311.61 L6.55 303.57 C9.6 303.57 8.66 305.35 12.73 305.46 a0.419009 0.419009 0 0 1 0.39952 0.419009
 							 L13.13 311.08 A4.76501 4.76501 0 0 1 13.13 311.61 L6.55 311.61 ZM6.55 311.61 L0 311.61 C0.39 315.68
 							 5.24 318.92 6.33 319.59 a0.380031 0.380031 -180 0 0 0.175399 0.0584664 L6.55 319.65 L6.55 311.61 Z"
 						class="st28"/>
 			</g>
-			<g id="shape514-336" v:mID="514" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
+			<g id="shape514-333" v:mID="514" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
 				<title>Sheet.514</title>
 				<path d="M0.38 313.5 C4.44 313.39 3.51 311.61 6.56 311.61 L6.56 319.65 L0.01 319.65 A4.76501 4.76501 0 0 1 0.01 319.12
 							 L0.01 313.92 a0.419009 0.419009 0 0 1 0.370287 -0.419009 Z" class="st29"/>
 			</g>
-			<g id="shape515-338" v:mID="515" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
+			<g id="shape515-335" v:mID="515" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
 				<title>Sheet.515</title>
 				<path d="M6.55 311.61 L0 311.61 L0 319.65 a0.380031 0.380031 -180 0 0 0.175399 -0.0584664 C1.31 318.92 6.16 315.68
 							 6.55 311.61 Z" class="st29"/>
 			</g>
 		</g>
-		<g id="group516-340" transform="translate(577.803,-258.793)" v:mID="516" v:groupContext="group">
+		<g id="group516-337" transform="translate(577.803,-258.793)" v:mID="516" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(50000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(49000):26"/>
 			</v:userDefs>
 			<title>Icon-networking-67.516</title>
-			<g id="shape517-341" v:mID="517" v:groupContext="shape">
+			<g id="shape517-338" v:mID="517" v:groupContext="shape">
 				<title>Sheet.517</title>
 				<path d="M14.34 310.3 C14.34 315.01 8.64 318.81 7.41 319.58 a0.448242 0.448242 0 0 1 -0.467731 0 C5.7 318.81 0 315.01
 							 0 310.3 L0 304.62 a0.448242 0.448242 0 0 1 0.438498 -0.448242 C4.87 304.06 3.85 302.11 7.17 302.11 C10.49
 							 302.11 9.47 304.06 13.91 304.18 a0.448242 0.448242 0 0 1 0.438498 0.448242 L14.34 310.3 Z"
 						class="st26"/>
 			</g>
-			<g id="shape518-343" v:mID="518" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
+			<g id="shape518-340" v:mID="518" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
 				<title>Sheet.518</title>
 				<path d="M13.15 311.07 C13.15 315.4 7.93 318.87 6.79 319.59 a0.419009 0.419009 0 0 1 -0.428753 0 C5.22 318.89 0 315.4
 							 0 311.07 L0 305.87 a0.409265 0.409265 0 0 1 0.39952 -0.409265 C4.46 305.35 3.53 303.57 6.58 303.57 C9.63
 							 303.57 8.69 305.35 12.76 305.46 a0.409265 0.409265 0 0 1 0.39952 0.409265 L13.15 311.07 Z"
 						class="st27"/>
 			</g>
-			<g id="shape519-345" v:mID="519" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
+			<g id="shape519-342" v:mID="519" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
 				<title>Sheet.519</title>
 				<path d="M6.55 311.61 L6.55 303.57 C9.6 303.57 8.66 305.35 12.73 305.46 a0.419009 0.419009 0 0 1 0.39952 0.419009
 							 L13.13 311.08 A4.76501 4.76501 0 0 1 13.13 311.61 L6.55 311.61 ZM6.55 311.61 L0 311.61 C0.39 315.68
 							 5.24 318.92 6.33 319.59 a0.380031 0.380031 -180 0 0 0.175399 0.0584664 L6.55 319.65 L6.55 311.61 Z"
 						class="st28"/>
 			</g>
-			<g id="shape520-348" v:mID="520" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
+			<g id="shape520-345" v:mID="520" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
 				<title>Sheet.520</title>
 				<path d="M0.38 313.5 C4.44 313.39 3.51 311.61 6.56 311.61 L6.56 319.65 L0.01 319.65 A4.76501 4.76501 0 0 1 0.01 319.12
 							 L0.01 313.92 a0.419009 0.419009 0 0 1 0.370287 -0.419009 Z" class="st29"/>
 			</g>
-			<g id="shape521-350" v:mID="521" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
+			<g id="shape521-347" v:mID="521" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
 				<title>Sheet.521</title>
 				<path d="M6.55 311.61 L0 311.61 L0 319.65 a0.380031 0.380031 -180 0 0 0.175399 -0.0584664 C1.31 318.92 6.16 315.68
 							 6.55 311.61 Z" class="st29"/>
 			</g>
 		</g>
-		<g id="group522-352" transform="translate(362.647,-129.013)" v:mID="522" v:groupContext="group">
+		<g id="group522-349" transform="translate(362.647,-129.013)" v:mID="522" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(51000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(50000):26"/>
 			</v:userDefs>
 			<title>Icon-networking-67.522</title>
-			<g id="shape523-353" v:mID="523" v:groupContext="shape">
+			<g id="shape523-350" v:mID="523" v:groupContext="shape">
 				<title>Sheet.523</title>
 				<path d="M14.34 310.3 C14.34 315.01 8.64 318.81 7.41 319.58 a0.448242 0.448242 0 0 1 -0.467731 0 C5.7 318.81 0 315.01
 							 0 310.3 L0 304.62 a0.448242 0.448242 0 0 1 0.438498 -0.448242 C4.87 304.06 3.85 302.11 7.17 302.11 C10.49
 							 302.11 9.47 304.06 13.91 304.18 a0.448242 0.448242 0 0 1 0.438498 0.448242 L14.34 310.3 Z"
 						class="st26"/>
 			</g>
-			<g id="shape524-355" v:mID="524" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
+			<g id="shape524-352" v:mID="524" v:groupContext="shape" transform="translate(0.594408,-0.727936)">
 				<title>Sheet.524</title>
 				<path d="M13.15 311.07 C13.15 315.4 7.93 318.87 6.79 319.59 a0.419009 0.419009 0 0 1 -0.428753 0 C5.22 318.89 0 315.4
 							 0 311.07 L0 305.87 a0.409265 0.409265 0 0 1 0.39952 -0.409265 C4.46 305.35 3.53 303.57 6.58 303.57 C9.63
 							 303.57 8.69 305.35 12.76 305.46 a0.409265 0.409265 0 0 1 0.39952 0.409265 L13.15 311.07 Z"
 						class="st27"/>
 			</g>
-			<g id="shape525-357" v:mID="525" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
+			<g id="shape525-354" v:mID="525" v:groupContext="shape" transform="translate(0.623641,-0.728463)">
 				<title>Sheet.525</title>
 				<path d="M6.55 311.61 L6.55 303.57 C9.6 303.57 8.66 305.35 12.73 305.46 a0.419009 0.419009 0 0 1 0.39952 0.419009
 							 L13.13 311.08 A4.76501 4.76501 0 0 1 13.13 311.61 L6.55 311.61 ZM6.55 311.61 L0 311.61 C0.39 315.68
 							 5.24 318.92 6.33 319.59 a0.380031 0.380031 -180 0 0 0.175399 0.0584664 L6.55 319.65 L6.55 311.61 Z"
 						class="st28"/>
 			</g>
-			<g id="shape526-360" v:mID="526" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
+			<g id="shape526-357" v:mID="526" v:groupContext="shape" transform="translate(0.616372,-8.76759)">
 				<title>Sheet.526</title>
 				<path d="M0.38 313.5 C4.44 313.39 3.51 311.61 6.56 311.61 L6.56 319.65 L0.01 319.65 A4.76501 4.76501 0 0 1 0.01 319.12
 							 L0.01 313.92 a0.419009 0.419009 0 0 1 0.370287 -0.419009 Z" class="st29"/>
 			</g>
-			<g id="shape527-362" v:mID="527" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
+			<g id="shape527-359" v:mID="527" v:groupContext="shape" transform="translate(7.17188,-0.728463)">
 				<title>Sheet.527</title>
 				<path d="M6.55 311.61 L0 311.61 L0 319.65 a0.380031 0.380031 -180 0 0 0.175399 -0.0584664 C1.31 318.92 6.16 315.68
 							 6.55 311.61 Z" class="st29"/>
 			</g>
 		</g>
-		<g id="group528-364" transform="translate(342.434,-97.1686)" v:mID="528" v:groupContext="group">
+		<g id="group528-361" transform="translate(342.434,-97.1686)" v:mID="528" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(52000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(51000):26"/>
 			</v:userDefs>
 			<title>DDoS Protection Plans</title>
-			<g id="shape529-365" v:mID="529" v:groupContext="shape">
+			<g id="shape529-362" v:mID="529" v:groupContext="shape">
 				<title>Sheet.529</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1425,7 +1420,7 @@
 							 L0 308.09 a0.345 0.345 0 0 1 0.3375 -0.345 C3.75 307.65 2.96 306.15 5.52 306.15 C8.08 306.15 7.29 307.65
 							 10.7 307.74 a0.345 0.345 0 0 1 0.3375 0.345 L11.04 312.45 Z" class="st26"/>
 			</g>
-			<g id="shape530-367" v:mID="530" v:groupContext="shape" transform="translate(0.4575,-0.560273)">
+			<g id="shape530-364" v:mID="530" v:groupContext="shape" transform="translate(0.4575,-0.560273)">
 				<title>Sheet.530</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1434,7 +1429,7 @@
 							 313.05 L0 309.04 a0.315 0.315 0 0 1 0.3075 -0.315 C3.44 308.65 2.72 307.27 5.06 307.27 C7.41 307.27
 							 6.69 308.65 9.82 308.73 a0.315 0.315 0 0 1 0.3075 0.315 L10.12 313.05 Z" class="st30"/>
 			</g>
-			<g id="shape531-371" v:mID="531" v:groupContext="shape" transform="translate(3.42,-3.74818)">
+			<g id="shape531-368" v:mID="531" v:groupContext="shape" transform="translate(3.42,-3.74818)">
 				<title>Sheet.531</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1442,7 +1437,7 @@
 				<path d="M4.2 319.29 a0.36 0.36 0 0 1 -0.36 0.36 L0.36 319.65 a0.36 0.36 0 0 1 -0.36 -0.36 L0 312.85 a0.36 0.36 0
 							 0 1 0.36 -0.3675 L3.84 312.49 a0.36 0.36 0 0 1 0.36 0.3675 L4.2 319.29 Z" class="st31"/>
 			</g>
-			<g id="shape532-373" v:mID="532" v:groupContext="shape" transform="translate(4.02,-9.29068)">
+			<g id="shape532-370" v:mID="532" v:groupContext="shape" transform="translate(4.02,-9.29068)">
 				<title>Sheet.532</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1450,14 +1445,14 @@
 				<path d="M0 319.19 a0.45 0.45 0 0 1 0.45 -0.45 L2.55 318.74 a0.45 0.45 0 0 1 0.45 0.45 a0.45 0.45 0 0 1 -0.45 0.4575
 							 L0.45 319.65 a0.45 0.45 0 0 1 -0.45 -0.4575 Z" class="st32"/>
 			</g>
-			<g id="shape533-375" v:mID="533" v:groupContext="shape" transform="translate(4.185,-9.44818)">
+			<g id="shape533-372" v:mID="533" v:groupContext="shape" transform="translate(4.185,-9.44818)">
 				<title>Sheet.533</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<ellipse cx="0.3075" cy="319.341" rx="0.3075" ry="0.3075" class="st29"/>
 			</g>
-			<g id="shape534-377" v:mID="534" v:groupContext="shape" transform="translate(4.02,-7.86568)">
+			<g id="shape534-374" v:mID="534" v:groupContext="shape" transform="translate(4.02,-7.86568)">
 				<title>Sheet.534</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1465,7 +1460,7 @@
 				<path d="M0 319.19 a0.4575 0.4575 0 0 1 0.45 -0.4575 L2.55 318.73 a0.4575 0.4575 0 0 1 0.45 0.4575 a0.45 0.45 0 0
 							 1 -0.45 0.4575 L0.45 319.65 a0.45 0.45 0 0 1 -0.45 -0.4575 Z" class="st32"/>
 			</g>
-			<g id="shape535-379" v:mID="535" v:groupContext="shape" transform="translate(4.185,-8.01568)">
+			<g id="shape535-376" v:mID="535" v:groupContext="shape" transform="translate(4.185,-8.01568)">
 				<title>Sheet.535</title>
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -1473,33 +1468,32 @@
 				<ellipse cx="0.3075" cy="319.341" rx="0.3075" ry="0.3075" class="st29"/>
 			</g>
 		</g>
-		<g id="shape537-381" v:mID="537" v:groupContext="shape" transform="translate(288.272,-100.212)">
+		<g id="shape537-378" v:mID="537" v:groupContext="shape" transform="translate(288.272,-100.212)">
 			<title>Sheet.537</title>
 			<desc>DDoS Protection</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(53000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(52000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,2,4,2)"/>
 			<v:textRect cx="26.0322" cy="314.969" width="52.07" height="9.35771"/>
 			<rect x="0" y="310.291" width="52.0643" height="9.35771" class="st1"/>
-			<text x="13.43" y="311.97" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DDoS <tspan x="3.28"
+			<text x="14.69" y="312.27" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DDoS <tspan x="5.56"
 						dy="1.2em" class="st12">Protection</tspan></text>		</g>
-		<g id="shape538-385" v:mID="538" v:groupContext="shape" transform="translate(120.899,-209.828)">
+		<g id="shape538-382" v:mID="538" v:groupContext="shape" transform="translate(120.899,-209.828)">
 			<title>Sheet.538</title>
 			<desc>Microsoft Entra Connect Sync</desc>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(54000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(53000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="33.1242" cy="296.578" width="66.25" height="46.1406"/>
 			<rect x="0" y="273.508" width="66.2483" height="46.1406" class="st33"/>
-			<text x="12.14" y="281.58" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
-						x="21.79" dy="1.2em" class="st12">Entra </tspan><tspan x="14.82" dy="1.2em" class="st12">Connect </tspan><tspan
-						x="22.91" dy="1.2em" class="st12">Sync</tspan></text>		</g>
-		<g id="shape1-391" v:mID="1" v:groupContext="shape" transform="translate(-0.740011,1.55811)">
+			<text x="14.23" y="288.48" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
+						x="5.22" dy="1.2em" class="st12">Entra Connect </tspan><tspan x="23.93" dy="1.2em" class="st12">Sync</tspan></text>		</g>
+		<g id="shape1-387" v:mID="1" v:groupContext="shape" transform="translate(-0.740011,1.55811)">
 			<title>Sheet.1</title>
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:val="VT0(55000):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(54000):26"/>
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="264.09" width="99.74" height="55.5581" class="st33"/>
 			<image x="0" y="264.09" width="99.74" height="55.5581" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -1999,40 +1993,40 @@
 						fGJTzqgLnIwAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="264.09" width="99.74" height="55.5581" class="st33"/>
 		</g>
-		<g id="group539-395" transform="translate(231.641,-216)" v:mID="539" v:groupContext="group">
+		<g id="group539-391" transform="translate(231.641,-216)" v:mID="539" v:groupContext="group">
 			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(55000):26"/>
 			</v:userDefs>
 			<title>Sheet.539</title>
-			<g id="shape540-396" v:mID="540" v:groupContext="shape" transform="translate(6.68835,0)">
+			<g id="shape540-392" v:mID="540" v:groupContext="shape" transform="translate(6.68835,0)">
 				<title>Sheet.540</title>
 				<path d="M0 314.72 C0.64 315.12 1.72 315.57 2.85 315.57 C3.88 315.57 4.84 315.27 5.63 314.76 C5.63 314.76 5.63 314.76
 							 5.63 314.76 L8.63 312.89 L8.63 319.65 C8.16 319.65 7.68 319.52 7.26 319.26 L0 314.72 Z" class="st34"/>
 			</g>
-			<g id="shape541-398" v:mID="541" v:groupContext="shape" transform="translate(0,-4.07976)">
+			<g id="shape541-394" v:mID="541" v:groupContext="shape" transform="translate(0,-4.07976)">
 				<title>Sheet.541</title>
 				<path d="M13.41 298 L0.96 312.05 C0 313.14 0.25 314.78 1.5 315.56 C1.5 315.56 6.11 318.44 6.69 318.8 C7.33 319.2
 							 8.4 319.65 9.54 319.65 C10.57 319.65 11.53 319.35 12.32 318.84 C12.32 318.84 12.32 318.84 12.32 318.84
 							 L15.32 316.96 L8.07 312.44 L15.32 304.26 L15.32 297.16 C15.32 297.16 15.32 297.16 15.32 297.16 C14.62
 							 297.16 13.91 297.44 13.42 298 L13.41 298 Z" class="st35"/>
 			</g>
-			<g id="shape542-400" v:mID="542" v:groupContext="shape" transform="translate(8.07318,-6.76307)">
+			<g id="shape542-396" v:mID="542" v:groupContext="shape" transform="translate(8.07318,-6.76307)">
 				<title>Sheet.542</title>
 				<path d="M0 315.12 L0.09 315.17 L7.25 319.65 L7.25 319.65 L7.25 306.94 L7.25 306.94 L0 315.12 Z" class="st36"/>
 			</g>
-			<g id="shape543-402" v:mID="543" v:groupContext="shape" transform="translate(15.3211,-0.00166046)">
+			<g id="shape543-398" v:mID="543" v:groupContext="shape" transform="translate(15.3211,-0.00166046)">
 				<title>Sheet.543</title>
 				<path d="M13.82 311.48 C15.07 310.7 15.32 309.06 14.36 307.97 L6.19 298.75 C5.53 298.45 4.79 298.27 4.01 298.27 C2.47
 							 298.27 1.1 298.93 0.18 299.98 L0 300.18 C0 300.18 7.25 308.36 7.25 308.36 C7.25 308.36 7.25 308.36 7.25
 							 308.36 L0 312.89 L0 319.65 C0.48 319.65 0.95 319.52 1.37 319.26 L13.82 311.48 L13.82 311.48 Z"
 						class="st37"/>
 			</g>
-			<g id="shape544-404" v:mID="544" v:groupContext="shape" transform="translate(15.3194,-19.469)">
+			<g id="shape544-400" v:mID="544" v:groupContext="shape" transform="translate(15.3194,-19.469)">
 				<title>Sheet.544</title>
 				<path d="M0 312.55 L0 319.65 C0 319.65 0.18 319.44 0.18 319.44 C1.1 318.4 2.47 317.74 4.01 317.74 C4.79 317.74 5.53
 							 317.92 6.19 318.22 L1.9 313.39 C1.41 312.83 0.7 312.55 0 312.55 L0 312.55 Z" class="st38"/>
 			</g>
-			<g id="shape545-406" v:mID="545" v:groupContext="shape" transform="translate(15.3211,-6.76473)">
+			<g id="shape545-402" v:mID="545" v:groupContext="shape" transform="translate(15.3211,-6.76473)">
 				<title>Sheet.545</title>
 				<path d="M7.25 315.12 L0 306.95 L0 319.65 L7.25 315.12 Z" class="st39"/>
 			</g>
