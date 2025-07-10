@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Patterns for inter-spoke networking
-  description: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.
+  title: Patterns for Inter-Spoke Networking
+  description: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.
   author: erjosito
   ms.author: jomore
   ms.date: 06/16/2025
@@ -9,17 +9,17 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - fcp
-name: Spoke-to-spoke networking
+name: Patterns for inter-spoke networking
+summary: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.
 azureCategories:
   - networking
   - security
-summary: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.
 products:
+  - azure-expressroute
   - azure-firewall
   - azure-virtual-network
   - azure-virtual-wan
   - azure-vpn-gateway
-  - azure-expressroute
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-network-manager-connectivity-options.png
 content: |
-   [!include[](spoke-to-spoke-networking-content.md)]
+   [!INCLUDE[](spoke-to-spoke-networking-content.md)]
