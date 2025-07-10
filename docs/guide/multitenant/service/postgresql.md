@@ -36,7 +36,7 @@ When you're building a multitenant application using Azure Database for PostgreS
 
 Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying *row security policies* to tables to restrict access to rows by tenant.
 
-There maybe a slight performance impact when implementing row-level security on a table. Therefore, additional indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. It is recommended to use performance testing techniques to validate that your workload meets your baseline performance requirements when row-level security is enabled.
+There maybe a slight performance impact when implementing row-level security on a table. Therefore, other indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. When you use row-level security, it's important touse performance testing techniques to validate that your workload meets your baseline performance requirements.
 
 More information:
 
@@ -46,7 +46,7 @@ More information:
 
 The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to scale your workload across multiple databases or database servers.
 
-Solutions that need a very high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using *distributed tables* in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
+Solutions that need a high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using *distributed tables* in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
 
 > [!NOTE]
 > From October 2022, Azure Database for PostgreSQL Hyperscale (Citus) has been rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
@@ -73,7 +73,7 @@ More information:
 
 ### Connection pooling
 
-Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which will negatively impact the performance of the Postgres server.
+Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which negatively impacts the performance of the Postgres server.
 
 Connection pooling via PgBouncer is installed by default in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server).
 
@@ -95,7 +95,7 @@ More information:
 
 Support for Azure Confidential Computing is available in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) through Trusted Execution Environments (TEEs), which provide hardware-based protection for data in use. This feature protects tenant data from unauthorized access by the operating system, hypervisor, or other applications.
 
-For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. This is applicable when tenants have strict data protection requirements or regulatory compliance needs, or when you need to ensure that tenant data is not accessible to the application provider.
+For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. It's appropriate when tenants have strict data protection requirements or regulatory compliance needs, or when you need to ensure that tenant data is not accessible to the application provider.
 
 > [!NOTE]
 > Confidential Computing is currently in preview and requires specific virtual machine SKUs.
