@@ -94,7 +94,7 @@ Configure the network interface for each of the VMs hosting AD FS and WAP server
 
 Don't give the AD FS VMs public IP addresses. For more information, see the [Security considerations](#security) section.
 
-Set the IP address of the preferred and secondary domain name service (DNS) servers for the network interfaces for each AD FS and WAP VM to reference the Active Directory DS VMs. The Active Directory DS VMs should be running DNS. This step is necessary to enable each VM to join the domain.
+Set the IP address of the preferred and secondary domain name service (DNS) servers for the network interfaces for each AD FS and WAP VM to reference the AD DS VMs. The AD DS VMs should be running DNS. This step is necessary to enable each VM to join the domain.
 
 ### AD FS installation
 
@@ -133,7 +133,7 @@ Publish your organization's web applications and make them available to external
 
 AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. By using AD FS, when you set up the trust relationships, you can do the following tasks:
 
-- Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
+- Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that AD DS can authorize in your organization.
 
 - Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.1 if your application only supports SAML 1.1 claims.
 
@@ -228,7 +228,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 The following considerations, summarized from the article [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
 
-- If you have fewer than 1,000 users, don't create dedicated servers. Instead, install AD FS on each of the Active Directory DS servers in the cloud. Make sure that you have at least two Active Directory DS servers to maintain availability. Create a single WAP server.
+- If you have fewer than 1,000 users, don't create dedicated servers. Instead, install AD FS on each of the AD DS servers in the cloud. Make sure that you have at least two AD DS servers to maintain availability. Create a single WAP server.
 
 - If you have between 1,000 and 15,000 users, create two dedicated AD FS servers and two dedicated WAP servers.
 
