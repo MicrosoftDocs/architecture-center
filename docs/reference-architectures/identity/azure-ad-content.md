@@ -19,12 +19,12 @@ Microsoft Entra ID is a cloud-based directory and identity service. This referen
 
 - **Web tier subnet:** This subnet hosts virtual machines (VMs) that run a web application. Microsoft Entra ID serves as an identity broker for this application.
 
-- **On-premises AD DS server:** An on-premises directory and identity service. The AD DS directory can be synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
+- **On-premises Active Directory Domain Services (AD DS) server:** An on-premises directory and identity service. The AD DS directory can be synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
 
 - **Microsoft Entra Connect Sync server:** An on-premises computer that runs the [Microsoft Entra Connect][azure-ad-connect] synchronization service. This service synchronizes information stored in the on-premises Active Directory with Microsoft Entra ID. For example, provisioning or deprovisioning users and groups on-premises automatically synchronizes those changes to Microsoft Entra ID.
 
   > [!NOTE]
-  > For security reasons, Microsoft Entra ID stores user passwords as hashes. If a user requires a password reset, the reset must be performed on-premises, and the updated hash must be sent to Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions include features that allow password changes to be initiated in the cloud and then written back to the on-premises Active Directory Domain Services (AD DS).
+  > For security reasons, Microsoft Entra ID stores user passwords as hashes. If a user requires a password reset, the reset must be performed on-premises, and the updated hash must be sent to Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions include features that allow password changes to be initiated in the cloud and then written back to the on-premises AD DS.
 
 - **VMs for N-tier applications:** VMs that support scalable, resilient, and secure applications by separating workloads into individual tiers such as web, business logic, and data. For more information about these resources, see [N-tier architecture on VMs](/azure/architecture/guide/architecture-styles/n-tier#n-tier-architecture-on-virtual-machines).
 
@@ -36,7 +36,7 @@ Consider the following typical uses for this reference architecture:
 
 - Web applications deployed in Azure that provide access to remote users who belong to your organization.
 
-- Implementing self-service capabilities for end-users, such as resetting their passwords and delegating group management. This functionality requires Microsoft Entra ID P1 or P2 edition.
+- Implementing self-service capabilities for customers, such as resetting their passwords and delegating group management. This functionality requires Microsoft Entra ID P1 or P2 edition.
 
 - Architectures in which the on-premises network and the application's Azure virtual network aren't connected by using a VPN tunnel or Azure ExpressRoute circuit.
 
@@ -57,24 +57,24 @@ Before you implement Microsoft Entra Connect Sync, determine the synchronization
 
 You can run the Microsoft Entra Connect Sync service on a VM or a computer hosted on-premises. Depending on the volatility of the information in your Active Directory directory, the load on the Microsoft Entra Connect Sync service is unlikely to be high after the initial synchronization with Microsoft Entra ID. Running the service on a VM makes it easier to scale the server if needed. Monitor the activity on the VM as described in the Monitoring considerations section to determine whether scaling is necessary.
 
-If you have multiple on-premises domains in a forest, we recommend storing and synchronizing information for the entire forest to a single Microsoft Entra tenant. Filter information for identities that occur in more than one domain so that each identity appears only one time in Microsoft Entra ID instead of being duplicated. Duplication can result in inconsistencies when data is synchronized. For more information, see the [Validate network topology](#validate-network-topology) section.
+If you have multiple on-premises domains in a forest, we recommend that you store and synchronize information for the entire forest to a single Microsoft Entra tenant. Filter information for identities that occur in more than one domain so that each identity appears only one time in Microsoft Entra ID instead of being duplicated. Duplication can result in inconsistencies when data is synchronized. For more information, see the [Validate network topology](#validate-network-topology) section.
 
-Use filtering so that only necessary data is stored in Microsoft Entra ID. For example, your organization might not want to store information about inactive accounts in Microsoft Entra ID. Filtering can be group-based, domain-based, organization unit (OU)-based, or attribute-based. You can combine filters to generate more complex rules. For example, you could synchronize objects held in a domain that have a specific value in a selected attribute. For more information, see [Microsoft Entra Connect Sync: Configure filtering][aad-filtering].
+Use filtering so that only necessary data is stored in Microsoft Entra ID. For example, your organization might not want to store information about inactive accounts in Microsoft Entra ID. Filtering can be group-based, domain-based, organization unit (OU)-based, or attribute-based. You can combine filters to generate more complex rules. For example, you can synchronize objects held in a domain that have a specific value in a selected attribute. For more information, see [Microsoft Entra Connect Sync: Configure filtering][aad-filtering].
 
 To implement high availability for the Active Directory Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
 
   > [!NOTE]
-  > **[Microsoft Entra Connect cloud sync][azure-ad-connect-cloud-sync]** is an offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. With Microsoft Entra Connect cloud sync, provisioning from Active Directory to Microsoft Entra ID is orchestrated in Microsoft 365.
+  > **[Microsoft Entra cloud sync][azure-ad-connect-cloud-sync]** is an offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID. With Microsoft Entra cloud sync, provisioning from Active Directory to Microsoft Entra ID is orchestrated in Microsoft 365.
 
 ### Validate security configuration and policy
 
-**User password management:** The Microsoft Entra ID P1 or P2 editions support password writeback. This feature enables your on-premises users to perform self-service password resets from within the Azure portal. This feature should be enabled only after you review your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customize password management to fit your organization's needs][aad-password-management].
+**User password management.** The Microsoft Entra ID P1 or P2 editions support password writeback. This feature enables your on-premises users to perform self-service password resets from within the Azure portal. This feature should be enabled only after you review your organization's password security policy. For example, you can restrict which users can change their passwords, and you can customize the password management experience. For more information, see [Customize the user experience for Microsoft Entra self-service password reset].
 
-**Protect on-premises applications that can be accessed externally.** Use the Microsoft Entra application proxy to provide controlled access to on-premises web applications to users from outside your network through Microsoft Entra ID. Only users that have valid credentials in your Azure directory have permission to use the application. For more information, see [Enable application proxy in the Azure portal][aad-application-proxy].
+**Protect on-premises applications that can be accessed externally.** Use the Microsoft Entra application proxy to provide controlled access to on-premises web applications to users from outside your network through Microsoft Entra ID. Only users who have valid credentials in your Azure directory have permission to use the application. For more information, see [Enable application proxy in Microsoft Entra ID][aad-application-proxy].
 
 **Actively monitor Microsoft Entra ID for signs of suspicious activity.** Consider using Microsoft Entra ID P2 edition, which includes Microsoft Entra ID Protection. ID Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that might indicate that an identity has been compromised. For example, it can detect potentially unusual activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that might be infected. Identity Protection uses this data to generate reports and alerts that enable you to investigate these risk events and take appropriate action. For more information, see [ID Protection][aad-identity-protection].
 
-You can use the reporting feature of Microsoft Entra ID in the Azure portal to monitor security-related activities that occur in your system. For more information about how to use these reports, see [Microsoft Entra ID reporting guide][aad-reporting-guide].
+You can use the reporting feature of Microsoft Entra ID in the Azure portal to monitor security-related activities that occur in your system. For more information about how to use these reports, see [Microsoft Entra monitoring and health][aad-reporting-guide].
 
 ### Validate network topology
 
@@ -93,7 +93,7 @@ Configure Microsoft Entra Connect to implement a topology that most closely matc
 - **Multiple forests, separate topologies:** This topology merges identity information from separate forests into a single Microsoft Entra tenant and treats all forests as separate entities. This topology is useful if you combine forests from different organizations and the identity information for each user is held in only one forest.
 
   > [!NOTE]
-  > If the global address lists in each forest are synchronized, a user in one forest might be present in another as a contact. This behavior can occur if your organization has implemented GALSync with Forefront Identity manager 2010 or Microsoft Identity Manager 2016. In this scenario, you can specify that users should be identified by their *Mail* attribute. You can also match identities by using the *ObjectSID* and *msExchMasterAccountSID* attributes. This approach is useful if you have one or more resource forests with disabled accounts.
+  > If the global address lists in each forest are synchronized, a user in one forest might be present in another as a contact. This behavior can occur if your organization has implemented GALSync with Forefront Identity manager 2010 or Microsoft Identity Manager 2016. In this scenario, you can specify that users should be identified by their *Mail* attribute. You can also match identities by using the *ObjectSID* and *msExchMasterAccountSID* attributes. This approach is useful if you have one or more resource forests that have disabled accounts.
 
 - **Staging server:** In this configuration, you run a second instance of the Microsoft Entra Connect Sync server in parallel with the first. This structure supports the following scenarios:
 
@@ -119,7 +119,7 @@ By default, the Microsoft Entra Connect Sync server configures password hash syn
 
 - Your organization might already have Active Directory Federation Services (AD FS) or a non-Microsoft federation provider deployed. You can configure Microsoft Entra ID to use this infrastructure to implement authentication and SSO instead of by using password information held in the cloud.
 
-For more information, see [Microsoft Entra Connect user sign-on options][aad-user-sign-in].
+For more information, see [Microsoft Entra Connect user sign-in options][aad-user-sign-in].
 
 <a name='configure-azure-ad-application-proxy'></a>
 
@@ -135,7 +135,7 @@ For more information, see [Publish applications by using Microsoft Entra applica
 
 ### Configure Microsoft Entra object synchronization
 
-The default configuration for Microsoft Entra Connect synchronizes objects from your local Active Directory directory based on the rules specified in [Microsoft Entra Connect Sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Consider the following example rules:
+The default configuration for Microsoft Entra Connect synchronizes objects from your local Active Directory directory based on the rules specified in [Microsoft Entra Connect Sync: Understand the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Consider the following example rules:
 
 - User objects must have a unique *sourceAnchor* attribute and the *accountEnabled* attribute must be populated.
 
@@ -151,7 +151,7 @@ The following agents installed on-premises perform health monitoring:
 
 - Microsoft Entra Connect installs an agent that captures information about synchronization operations. Use the Microsoft Entra Connect Health blade in the Azure portal to monitor its health and performance. For more information, see [Use Microsoft Entra Connect Health for sync][aad-health].
 
-- To monitor the health of the Azure AD DS domains and directories from Azure, install the Microsoft Entra Connect Health for Azure AD DS agent on a machine within the on-premises domain. Use the Microsoft Entra Connect Health blade in the Azure portal for health monitoring. For more information, see [Use Microsoft Entra Connect Health with Azure AD DS][aad-health-adds].
+- To monitor the health of the AD DS domains and directories from Azure, install the Microsoft Entra Connect Health for AD DS agent on a machine within the on-premises domain. Use the Microsoft Entra Connect Health blade in the Azure portal for health monitoring. For more information, see [Use Microsoft Entra Connect Health with AD DS][aad-health-adds].
 
 - Install the Microsoft Entra Connect Health for AD FS agent to monitor the health of services that run on on-premises, and use the Microsoft Entra Connect Health blade in the Azure portal to monitor AD FS. For more information, see [Use Microsoft Entra Connect Health with AD FS][aad-health-adfs].
 
@@ -180,9 +180,9 @@ For other considerations about achieving high availability of the Microsoft Entr
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Use Conditional Access control to deny authentication requests from unexpected sources:
+Use Microsoft Entra Conditional Access control to deny authentication requests from unexpected sources:
 
-- Trigger [Microsoft Entra multifactor authentication][azure-multifactor-authentication] if a user attempts to connect from an untrusted location such as across the internet instead of a trusted network.
+- Trigger [Microsoft Entra multifactor authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from an untrusted location, such as from across the internet instead of a trusted network.
 
 - Use the device platform type of the user, like iOS, Android, or Windows, to determine access policy to applications and features.
 
@@ -192,7 +192,7 @@ Use Conditional Access control to deny authentication requests from unexpected s
 
 - Use Conditional Access risk-based policies with ID Protection to provide advanced protection based on unusual sign-in activities or other events.
 
-For more information, see [Microsoft Entra Conditional Access][aad-conditional-access].
+For more information, see [Risk-based access policies][aad-conditional-access].
 
 ### Cost Optimization
 
@@ -229,11 +229,11 @@ Microsoft Entra ID provides the following options for managing domains and direc
 
 Microsoft Entra Connect installs the following tools to maintain Microsoft Entra Connect Sync services from your on-premises machines:
 
-- **Microsoft Entra Connect console** allows you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. You can enable Active Directory FS sign-in using your on-premises infrastructure.
+- **Microsoft Entra Connect console** allows you to modify the configuration of the Microsoft Entra Connect Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. You can enable AD FS sign-in by using your on-premises infrastructure.
 
 - **Synchronization Service Manager** uses the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually by using this tool. The *Connectors* tab enables you to control the connections for the domains that the synchronization engine is attached to.
 
-- **Synchronization rules editor** allows you to customize how objects are transformed when they're copied between an on-premises directory and Microsoft Entra ID. This tool enables you to specify extra attributes and objects for synchronization, then implements filters to determine which objects should or shouldn't be synchronized. For more information, see [Microsoft Entra Connect Sync: Understanding the default configuration][aad-connect-sync-default-rules] and [Microsoft Entra Connect Sync: Best practices for changing the default configuration][aad-sync-best-practices].
+- **Synchronization rules editor** allows you to customize how objects are transformed when they're copied between an on-premises directory and Microsoft Entra ID. This tool enables you to specify extra attributes and objects for synchronization. Then it implements filters to determine which objects should or shouldn't be synchronized. For more information, see [Microsoft Entra Connect Sync: Understand the default configuration][aad-connect-sync-default-rules] and [Microsoft Entra Connect Sync: Best practices for changing the default configuration][aad-sync-best-practices].
 
 #### DevOps
 
@@ -245,7 +245,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 The Microsoft Entra service supports scalability based on replicas. It has a single primary replica that handles write operations and multiple read-only secondary replicas. Microsoft Entra ID transparently redirects attempted writes made to secondary replicas to the primary replica and maintains eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales effectively because most operations performed against Microsoft Entra ID are reads instead of writes. For more information, see [Microsoft Entra architecture][aad-scalability].
 
-For the Microsoft Entra Connect Sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Microsoft Entra Connect. If you have a larger number of objects, install a production version of SQL Server. Then perform a custom installation of Microsoft Entra Connect and specify that it should use an existing SQL Server instance.
+For the Microsoft Entra Connect Sync server, determine how many objects you're likely to synchronize from your local directory. If you have fewer than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Microsoft Entra Connect. If you have a larger number of objects, install a production version of SQL Server. Then perform a custom installation of Microsoft Entra Connect and specify that it should use an existing SQL Server instance.
 
 ## Contributors
 
@@ -261,7 +261,7 @@ Principal author:
 
 - Review [Topologies for Microsoft Entra Connect][aad-topologies] to ensure that the hybrid topology for Microsoft Entra Connect is deployed in a supported configuration.
 - Learn how to use [Conditional Access deployment][aad-ca-plan] to protect access to your applications.
-- Review [Integrating on-premises AD with Azure][adds-azure-design] for more information about providing AD DS in Azure as infrastructure.
+- Review [Integrate on-premises AD with Microsoft Entra ID][adds-azure-design] for more information about providing AD DS in Azure as infrastructure.
 - Review [Microsoft Entra application proxy][aad-application-proxy] if you intend on providing Microsoft Entra integrations with on-premises or cloud infrastructure as a service applications.
 - Review [Identity management best practices][identity-best-practices] because identity is the new control plane for security.
 - Review [Secure privileged access][security-compass-paw] because deploying this solution requires highly privileged accounts.

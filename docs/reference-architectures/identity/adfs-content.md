@@ -10,6 +10,9 @@ This reference architecture implements a secure hybrid network that extends your
 
 ### Workflow
 
+The following workflow corresponds to the previous diagram:
+
+
 - **Active Directory Domain Services (AD DS) subnet:** The AD DS servers are contained in their own subnet where network security group (NSG) rules serve as a firewall.
 
 - **AD DS servers:** Domain controllers that run as virtual machines (VMs) in Azure. These servers provide authentication of local identities within the domain.
@@ -24,7 +27,7 @@ This reference architecture implements a secure hybrid network that extends your
 
   - Authenticate and authorize incoming requests from external users running a web browser or device that needs access to web applications by using AD DS and the [Active Directory device registration service (DRS)][ADDRS].
 
-  The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers aren't exposed directly to the internet. All internet traffic is filtered through AD FS WAP servers and a demilitarized zone (DMZ), also known as a *perimeter network*.
+  The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers aren't exposed directly to the internet. All internet traffic is filtered through AD FS web application proxy (WAP) servers and a demilitarized zone (DMZ), also known as a *perimeter network*.
 
   For more information, see [AD FS overview][active-directory-federation-services-overview]. The article [AD FS deployment in Azure][adfs-intro] includes a detailed step-by-step introduction to implementation.
 
@@ -35,10 +38,10 @@ This reference architecture implements a secure hybrid network that extends your
   > [!NOTE]
   > For more information, see [Install and configure the WAP server][install-and-configure-the-web-application-proxy-server].
 
-- **Partner organization:** A partner organization running a web application that requests access to a web application running in Azure. The federation server at the partner organization authenticates requests locally, and submits security tokens containing claims to AD FS running in Azure. AD FS in Azure validates the security tokens, and if valid can pass the claims to the web application running in Azure to authorize them.
+- **Partner organization:** A partner organization runs a web application that requests access to a web application running in Azure. The federation server at the partner organization authenticates requests locally and submits security tokens that contain claims to AD FS running in Azure. AD FS in Azure validates the security tokens. If the tokens are valid, AD FS can pass the claims to the web application running in Azure to authorize them.
 
   > [!NOTE]
-  > You can also configure a VPN tunnel by using Azure gateway to provide direct access to AD FS for trusted partners. Requests received from these partners don't pass through the WAP servers.
+  > You can also configure a VPN tunnel by using an Azure gateway to provide direct access to AD FS for trusted partners. Requests received from these partners don't pass through the WAP servers.
 
 ### Components
 
@@ -48,11 +51,11 @@ This architecture extends the implementation described in [Deploy AD DS in an Az
 
 - **[AD DS servers](/windows-server/identity/ad-ds/plan/ad-ds-design-and-planning)** are domain controllers that host Active Directory Domain Services. They provide centralized authentication, policy enforcement, and directory data replication across enterprise networks.
 
-- **[An AD FS subnet](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs#steps-to-deploy-ad-fs-in-azure)** is a defined IP address range within the network or virtual infrastructure that hosts AD FS servers or WAP servers. This IP range enables secure traffic flow and site-aware authentication.
+- **[An AD FS subnet](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs#template-for-deploying-ad-fs-in-azure)** is a defined IP address range within the network or virtual infrastructure that hosts AD FS servers or WAP servers. This IP address range enables secure traffic flow and site-aware authentication.
 
-- **[AD FS servers](/defender-for-identity/active-directory-federation-services#server-specifications)** are internal federation servers that issue security tokens and handle authentication requests by using claims-based identity protocols.
+- **[AD FS servers](/defender-for-identity/active-directory-federation-services)** are internal federation servers that issue security tokens and handle authentication requests by using claims-based identity protocols.
 
-- **[An AD FS proxy subnet](/windows-server/identity/ad-fs/overview/ad-fs-requirements#BKMK_3)** is a network segment, typically in a DMZ, that hosts WAP servers. It enables secure relay of external authentication traffic to internal AD FS servers.
+- **[An AD FS proxy subnet](/windows-server/identity/ad-fs/overview/ad-fs-requirements)** is a network segment, typically in a DMZ, that hosts WAP servers. It enables secure relay of external authentication traffic to internal AD FS servers.
 
 - **[AD FS WAP servers](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)** are reverse proxy servers deployed in perimeter networks that preauthenticate external user requests and securely forward them to AD FS for federated access.
 
@@ -68,7 +71,7 @@ The previous diagram shows the following scenarios:
 
 - A user connected to your virtual network using an authorized device runs a web application hosted inside your Azure virtual network.
 
-This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
+This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign-in information when the application starts. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
 For other considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
 
@@ -102,7 +105,7 @@ The article [Deploy a federation server farm][deploy-a-federation-server-farm] p
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name that clients use to access the federation service. This identifier can be the DNS name registered for the load balancer, such as `adfs.contoso.com`. Avoid using wildcard names such as `*.contoso.com` for security reasons. Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services, you can create your own.
 
-    The *subject alternative name* is used by the DRS to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
+    The DRS  uses the *subject alternative name* to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
 
     For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS][adfs-certificates].
 
@@ -129,9 +132,9 @@ Establish federation trust between your AD FS installation and the federation se
 
 For more information, see [Establish a federation trust][establish-federation-trust].
 
-Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish applications by using AD FS preauthentication][publish-applications-by-using-AD-FS-preauthentication]
+Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish applications by using AD FS preauthentication][publish-applications-by-using-AD-FS-preauthentication].
 
-AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. With AD FS, when you set up the trust relationships, you can do the following tasks:
+AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. By using AD FS, when you set up the trust relationships, you can do the following tasks:
 
 - Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
 
@@ -145,9 +148,9 @@ The [Microsoft System Center Management Pack for AD FS 2012 R2][oms-adfs-pack] p
 
 - The performance data that the AD FS performance counters collect
 
-- The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical problems and warnings
+- The overall health of the AD FS system and web applications (relying parties) and for critical problems and warnings
 
-Another option is to [monitor AD FS by using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. It also makes the key data points about these components easily accessible.
+Another option is to [monitor AD FS by using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft online services. It achieves this reliability by providing monitoring capabilities for your key identity components. It also makes the key data points about these components easily accessible.
 
 ## Considerations
 
@@ -184,19 +187,19 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 AD FS uses HTTPS, so make sure that the NSG rules for the subnet that contain the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets that contain the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet that contains the AD FS servers.
 
-Prevent direct exposure of the AD FS servers to the internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from guests not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
+Prevent direct exposure of the AD FS servers to the internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from guests not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to place a federation server proxy][where-to-place-an-fs-proxy].
 
 Place AD FS servers and WAP servers in separate subnets that have their own firewalls. You can use NSG rules to define firewall rules. All firewalls should allow traffic on port 443 (HTTPS).
 
-Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Don't join the WAP servers to the domain.
+Restrict direct sign-in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Don't join the WAP servers to the domain.
 
-Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
+Consider using a set of network virtual appliances that log detailed information about traffic traversing the edge of your virtual network for auditing purposes.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-#### AD Domain Services
+#### Microsoft Entra Domain Services
 
 Consider having Microsoft Entra Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Domain Services pricing][microsoft-entra-domain-services-pricing].
 
@@ -204,7 +207,7 @@ Consider having Microsoft Entra Domain Services as a shared service that multipl
 
 #### AD FS
 
-For information about the editions that Microsoft Entra ID provides, see [Microsoft Entra pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
+For information about the editions that Microsoft Entra ID provides, see [Microsoft Entra pricing][Azure-AD-pricing]. The AD FS feature is available in all editions.
 
 ### Operational Excellence
 

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Extend On-Premises Active Directory Federation Services to Azure
-  description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization and identity federation in Azure.
+  description: Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.
   author: justinha
   ms.author: justinha
   ms.date: 06/05/2025
@@ -19,7 +19,7 @@ products:
   - entra
   - entra-id
 name: Extend on-premises Active Directory Federation Services to Azure
-summary: Implement a secure hybrid network architecture with Active Directory Federation Service authorization and identity federation in Azure.
+summary: Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/adfs.png
 content: |
    [!INCLUDE[](adfs-content.md)]

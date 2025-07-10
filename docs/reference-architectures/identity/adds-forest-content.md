@@ -3,7 +3,7 @@ This reference architecture shows how to create a separate Active Directory doma
 ## Architecture
 
 :::image type="complex" border="false" source="./images/adds-forest.svg" alt-text="Diagram that shows a secure hybrid network architecture with separate Active Directory domains." lightbox="./images/adds-forest.svg":::
-   The image has two key sections: an on-premises network and a virtual network. The on-premises network contains contoso.com, a gateway, and Active Directory servers. The virtual network section includes a gateway subnet, an application subnet, a management subnet, and Active Directory Domain Services subnets. The gateway subnet has a gateway. The application subnet contains network security groups (NSGs) and virtual machines (VMs). The management subnet contains NSGs, a VM, and a jump box. The AD DS section contains NSGs and servers. In a separate section, an arrow points from a public IP address to the VM in the management subnet section.
+   The image has two key sections: an on-premises network and a virtual network. The on-premises network contains contoso.com, a gateway, and Active Directory servers. The virtual network section includes a gateway subnet, an application subnet, a management subnet, and Active Directory Domain Services (AD DS) subnets. The gateway subnet has a gateway. The application subnet contains network security groups (NSGs) and virtual machines (VMs). The management subnet contains NSGs, a VM, and a jump box. The AD DS section contains NSGs and servers. In a separate section, an arrow points from a public IP address to the VM in the management subnet section.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/identity-architectures.vsdx) of this architecture.*
@@ -16,19 +16,19 @@ This reference architecture shows how to create a separate Active Directory doma
 
 - **A one-way trust relationship** enables on-premises users to access resources in the domain in Azure. However, users who belong to the Azure domain can't access resources in the on-premises domain. The example in the diagram shows a one-way trust from the domain in Azure to the on-premises domain.
 
-- **Active Directory subnet** is a separate network segment that hosts the AD DS servers. Network security group rules protect these servers and provide a firewall against traffic from unexpected sources.
+- **Active Directory subnet** is a separate network segment that hosts the Active Directory Domain Services (AD DS) servers. Network security group rules protect these servers and provide a firewall against traffic from unexpected sources.
 
-- **Azure gateway** provides a connection between the on-premises network and the Azure virtual network. This type of connection can be a [VPN connection][azure-vpn-gateway] or [Azure ExpressRoute][azure-expressroute]. For more information, see [Connect an on-premises network to Azure by using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
+- **Azure gateway** provides a connection between the on-premises network and the Azure virtual network. This type of connection can be a [VPN connection][azure-vpn-gateway] or [Azure ExpressRoute][azure-expressroute]. For more information, see [Configure ExpressRoute and site-to-site coexisting connections by using PowerShell](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 ## Scenario details
 
-Active Directory Domain Services (AD DS) stores identity information in a hierarchical structure. The top node in the hierarchical structure is known as a *forest*. A forest contains domains, and domains contain other types of objects. This reference architecture creates an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that doesn't exist on-premises. Because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.
+AD DS stores identity information in a hierarchical structure. The top node in the hierarchical structure is known as a *forest*. A forest contains domains, and domains contain other types of objects. This reference architecture creates an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that doesn't exist on-premises. Because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.
 
 ### Potential use cases
 
-Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud. It also includes migrating individual domains from on-premises to the cloud.
+Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud. They also include migrating individual domains from on-premises to the cloud.
 
-For more information, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
+For more information, see [Integrate on-premises Active Directory domains with Microsoft Entra ID][considerations].
 
 ## Recommendations
 
@@ -38,7 +38,7 @@ For specific recommendations about how to implement Active Directory in Azure, s
 
 The on-premises domains are contained within a different forest from the domains in the cloud. To enable authentication of on-premises users in the cloud, the domains in Azure must trust the logon domain in the on-premises forest. Similarly, if the cloud provides a logon domain for external users, it might be necessary for the on-premises forest to trust the cloud domain.
 
-You can establish trusts at the forest level by [creating forest trusts][creating-forest-trusts], or at the domain level by [creating external trusts][creating-external-trusts]. A forest-level trust creates a relationship between all domains in two forests. An external domain-level trust only creates a relationship between two specified domains. You should only create external domain-level trusts between domains in different forests.
+You can establish trusts at the forest level by [creating forest trusts][creating-forest-trusts] or at the domain level by [creating external trusts][creating-external-trusts]. A forest-level trust creates a relationship between all domains in two forests. An external domain-level trust only creates a relationship between two specified domains. You should only create external domain-level trusts between domains in different forests.
 
 Trusts with an on-premises Active Directory are only one way, or *unidirectional*. A one-way trust allows users in one domain or forest, known as the incoming domain or forest, to access resources in another domain or forest, known as the outgoing domain or forest. Users in the outgoing domain can't access resources in the incoming domain.
 
@@ -65,7 +65,7 @@ Consider designating one or more servers in each domain as [standby operations m
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Forest-level trusts are transitive. If you establish a forest-level trust between an on-premises forest and a forest in the cloud, the trust extends to any new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only. Domain level trusts are non-transitive.
+Forest-level trusts are transitive. If you establish a forest-level trust between an on-premises forest and a forest in the cloud, the trust extends to any new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only. Domain-level trusts are non-transitive.
 
 For Active Directory-specific security considerations, see the security considerations section in [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
@@ -110,7 +110,7 @@ Active Directory is automatically scalable for domain controllers that are part 
 ## Related resources
 
 - Learn the best practices for how to [extend your on-premises AD DS domain to Azure][adds-extend-domain].
-- Learn the best practices for how to [create an AD FS infrastructure][adfs] in Azure.
+- Learn the best practices for how to [create an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 
 <!-- links -->
 
