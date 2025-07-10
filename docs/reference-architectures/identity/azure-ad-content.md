@@ -45,7 +45,7 @@ Consider the following typical uses for this reference architecture:
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 <a name='configure-azure-ad-connect-sync-service'></a>
 
@@ -53,7 +53,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 The Microsoft Entra Connect Sync service ensures that identity information stored in the cloud is consistent with the identity information stored on-premises. You install this service by using the Microsoft Entra Connect software.
 
-Before you implement Microsoft Entra Connect Sync, determine the synchronization requirements of your organization. For example, consider what to synchronize, which domains to include, and how often synchronization should occur. For more information, see [Determine directory synchronization requirements][aad-sync-requirements].
+Before you implement Microsoft Entra Connect Sync, determine the synchronization requirements of your organization. For example, consider what to synchronize, which domains to include, and how often synchronization should occur.
 
 You can run the Microsoft Entra Connect Sync service on a VM or a computer hosted on-premises. Depending on the volatility of the information in your Active Directory directory, the load on the Microsoft Entra Connect Sync service is unlikely to be high after the initial synchronization with Microsoft Entra ID. Running the service on a VM makes it easier to scale the server if needed. Monitor the activity on the VM as described in the Monitoring considerations section to determine whether scaling is necessary.
 
@@ -103,7 +103,7 @@ Configure Microsoft Entra Connect to implement a topology that most closely matc
 
   - Introducing a new server and decommissioning an old configuration
 
-    In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database but doesn't pass the data to Microsoft Entra ID. If you disable staging mode, the server starts writing data to Microsoft Entra ID. It also starts performing password write-backs into the on-premises directories where appropriate. For more information, see [Microsoft Entra Connect Sync: Operational tasks and considerations][aad-connect-sync-operational-tasks].
+    In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database but doesn't pass the data to Microsoft Entra ID. If you disable staging mode, the server starts writing data to Microsoft Entra ID. It also starts performing password writebacks into the on-premises directories where appropriate. For more information, see [Microsoft Entra Connect Sync: Operational tasks and considerations][aad-connect-sync-operational-tasks].
 
 - **Multiple Microsoft Entra directories:** You typically create a single Microsoft Entra directory for an organization. But there might be scenarios where you need to partition information across separate Microsoft Entra directories. In this case, avoid synchronization and password write-back problems by ensuring that each object from the on-premises forest appears in only one Microsoft Entra directory. To implement this scenario, configure separate Microsoft Entra Connect Sync servers for each Microsoft Entra directory, and use filtering so that each Microsoft Entra Connect Sync server operates on a mutually exclusive set of objects.
 
@@ -141,7 +141,7 @@ The default configuration for Microsoft Entra Connect synchronizes objects from 
 
 - User objects must have a *sAMAccountName* attribute and can't start with the text *Azure AD_* or *MSOL_*.
 
-Microsoft Entra Connect applies several rules to the User, Contact, Group, ForeignSecurityPrincipal, and Computer objects. Use the Synchronization Rules Editor that's installed with Microsoft Entra Connect if you need to modify the default set of rules. For more information, see [Microsoft Entra Connect Sync: Understanding the default configuration][aad-connect-sync-default-rules].
+Microsoft Entra Connect applies several rules to the User, Contact, Group, ForeignSecurityPrincipal, and Computer objects. Use the Synchronization Rules Editor that's installed with Microsoft Entra Connect if you need to modify the default set of rules.
 
 You can also define your own filters to limit the objects to be synchronized by domain or OU. Alternatively, you can implement more complex [custom filtering][aad-filtering].
 
@@ -165,7 +165,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The Microsoft Entra service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Microsoft Entra ID ensures that your directory data is available for instance access in a minimum of two more regionally dispersed datacenters.
+The Microsoft Entra service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Microsoft Entra ID ensures that your directory data is available for instance access in a minimum of two more geographically distributed datacenters.
 
 > [!NOTE]
 > The service-level agreement (SLA) for the Microsoft 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There's no SLA for the Free tier of Microsoft Entra ID. For more information, see [SLA for Microsoft Entra ID][sla-aad].
