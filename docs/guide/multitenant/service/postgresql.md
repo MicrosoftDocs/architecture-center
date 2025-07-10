@@ -57,18 +57,18 @@ More information:
 - Choosing a [distribution column](/azure/cosmos-db/postgresql/howto-choose-distribution-column) in a distributed table.
 - A guide to using [Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html).
 
-### Elastic Clusters (preview)
+### Elastic clusters (preview)
 
-Elastic Clusters is a feature of Azure Database for PostgreSQL - Flexible Server, which provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
+Elastic clusters is a feature of Azure Database for PostgreSQL Flexible Server, which provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
 
-In multitenant solutions, Elastic Clusters enable sharding tenant data across multiple nodes. You can distribute tables by tenant ID to ensure tenant data colocation on specific nodes, which can improve query performance for tenant-specific queries.
+In multitenant solutions, elastic clusters enable sharding tenant data across multiple nodes. You can distribute tables by tenant ID to ensure tenant data colocation on specific nodes, which can improve query performance for tenant-specific queries.
 
 > [!NOTE]
-> Elastic Clusters is currently in preview and available only in Azure Database for PostgreSQL - Flexible Server.
+> Elastic clusters are currently in preview and available only in Azure Database for PostgreSQL - Flexible Server.
 
 More information:
 
-- [Elastic Clusters for Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-elastic-clusters)
+- [Elastic clusters for Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/concepts-elastic-clusters)
 
 ### Connection pooling
 
@@ -90,14 +90,14 @@ More information:
 - [Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
 - [Connect with managed identity to Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-connect-with-managed-identity)
 
-### Confidential Computing (preview)
+### Azure Confidential Computing (preview)
 
 Support for Azure Confidential Computing is available in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) through Trusted Execution Environments (TEEs), which provide hardware-based protection for data in use. This feature protects tenant data from unauthorized access by the operating system, hypervisor, or other applications.
 
 For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. This is applicable when tenants have strict data protection requirements or regulatory compliance needs, or when you need to ensure that tenant data is not accessible to the application provider.
 
 > [!NOTE]
-> Confidential Computing is currently in preview and requires specific virtual machine SKUs (Dcadsv5, Dcedsv5, Ecadsv5, Ecedsv5).
+> Confidential Computing is currently in preview and requires specific virtual machine SKUs.
 
 More information:
 
