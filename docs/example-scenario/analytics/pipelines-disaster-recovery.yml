@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: BCDR for Azure Data Factory and Azure Synapse Analytics pipelines
-  description: See automated and user-managed methods to achieve business continuity and disaster recovery (BCDR) for Data Factory and Azure Synapse pipelines.
+  title: BCDR for Azure Data Factory and Azure Synapse Analytics Pipelines
+  description: Learn about automated and user-managed business continuity and disaster recovery (BCDR) methods for Azure Data Factory and Synapse Analytics pipelines.
   author: ssabat
   ms.author: susabat
   ms.date: 06/26/2025
@@ -19,7 +19,7 @@ products:
   - azure-synapse-analytics
   - github
 name: BCDR for Azure Data Factory and Azure Synapse Analytics pipelines
-summary: See automated and user-managed methods to achieve business continuity and disaster recovery (BCDR) for Data Factory and Azure Synapse pipelines.
+summary: Learn about automated and user-managed business continuity and disaster recovery (BCDR) methods for Azure Data Factory and Synapse Analytics pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/pipelines-disaster-recovery.png
 content: |
   [!INCLUDE[](pipelines-disaster-recovery-content.md)]

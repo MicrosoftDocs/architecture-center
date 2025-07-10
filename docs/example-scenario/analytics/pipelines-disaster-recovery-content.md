@@ -1,10 +1,12 @@
 Disasters can be hardware failures, natural disasters, or software failures. The process of preparing for and recovering from a disaster is called disaster recovery (DR). This article discusses recommended practices to achieve business continuity and disaster recovery (BCDR) for Azure Data Factory and Azure Synapse Analytics pipelines.
 
-BCDR strategies include availability zone redundancy, automated recovery provided by Azure disaster recovery, and user-managed recovery by using continuous integration and continuous delivery (CI/CD).
+BCDR strategies include availability zone redundancy, automated recovery provided by Azure DR, and user-managed recovery by using continuous integration and continuous delivery (CI/CD).
 
 ## Architecture
 
-[ ![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.svg)](media/pipelines-disaster-recovery.svg#lightbox)
+:::image type="complex" border="false" source="media/pipelines-disaster-recovery.svg" alt-text="Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR." lightbox="media/pipelines-disaster-recovery.svg":::
+   The image shows two regions. The first region is labeled Git repo with CI/CD. It contains three availability zones. A large section in the center of these zones contains four icons: Data Factory, Azure Synapse Pipelines, Azure Repos, and GitHub. The second region is an exact duplicate of the first region. An arrow labeled To meet business continuity and recovery goals points from the first region to the second region.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure_synapse_data_factory.vsdx) of this architecture.*
 
@@ -13,18 +15,24 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 1. Data Factory and Azure Synapse pipelines achieve resiliency by using Azure regions and Azure availability zones.
 
    - Each Azure region has a set of datacenters that are deployed within a latency-defined perimeter.
+
    - Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures.
+
    - All Azure regions and availability zones are connected through a dedicated, regional low-latency network and by a high-performance network.
+
    - All availability zone-enabled regions have at least three separate availability zones to ensure resiliency.
 
 1. When a datacenter, part of a datacenter, or an availability zone in a region goes down, failover happens with zero downtime for zone-resilient Data Factory and Azure Synapse pipelines.
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+- [Azure Data Factory](/azure/data-factory/introduction) is WHAT. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) and [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) Synapse pipelines, a component of Synapse Analytics, manage data workflows and participate in BCDR by supporting zone-redundancy, integration with Git repositories, and automated or user-managed recovery approaches.
-- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) In this architecture, it stores pipeline artifacts and enables automated deployment to secondary regions as part of the user-managed recovery strategy.
-- [Azure Repos](/azure/devops/repos/get-started/what-is-repos) It functions similarly to GitHub in this context, providing source control and CI/CD integration for Data Factory and Synapse pipelines to support manual disaster recovery and failover readiness.
+
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is In this architecture, it stores pipeline artifacts and enables automated deployment to secondary regions as part of the user-managed recovery strategy.
+
+- [Azure Repos](/azure/devops/repos/get-started/what-is-repos) is a set of version control tools that you can use to manage your code. In this architecture, it functions similarly to GitHub by providing source control and CI/CD integration for Data Factory and Synapse pipelines to support manual DR and failover readiness.
 
 ## Scenario details
 
@@ -44,15 +52,15 @@ Data Factory and Azure Synapse pipelines store artifacts that include the follow
   - Triggers
   - Activity runs
 
-Disasters can strike in different ways, such as hardware failures, natural disasters, or software failures that result from human error or cyberattack. Depending on the types of failures, their geographical impact can be regional or global. When planning a disaster recovery strategy, consider both the nature of the disaster and its geographic impact.
+Disasters can strike in different ways, such as hardware failures, natural disasters, or software failures that result from human error or cyber attack. Depending on the types of failures, their geographical impact can be regional or global. When planning a DR strategy, consider both the nature of the disaster and its geographic impact.
 
 BCDR in Azure works on a shared responsibility model. Many Azure services require customers to explicitly set up their DR strategy, while Azure provides the baseline infrastructure and platform services as needed.
 
 You can use the following recommended practices to achieve BCDR for Data Factory and Azure Synapse pipelines under various failure scenarios. For implementation, see [Deploy this scenario](#deploy-this-scenario).
 
-### Automated recovery with Azure disaster recovery
+### Automated recovery with Azure DR
 
-With automated recovery provided backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
+With automated recovery provided backup and DR, when there's a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
 In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
@@ -60,7 +68,7 @@ The Azure Global team conducts regular BCDR drills, and Azure Data Factory and A
 
 ### User-managed redundancy with CI/CD
 
-To achieve BCDR in the event of an entire region failure, you need a data factory or an Azure Synapse workspace in the secondary region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover the pipelines manually.
+To achieve BCDR if an entire region failure occurs, you need a data factory or an Azure Synapse workspace in the secondary region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover the pipelines manually.
 
 Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but they aren't provisioned.
 
@@ -110,13 +118,15 @@ Take the following actions to set up automated or user-managed DR for Data Facto
 
 In Data Factory, you can set the Azure integration runtime (IR) region for your activity execution or dispatch in the **Integration runtime setup**. To enable automatic failover in the event of a complete regional outage, set the **Region** to **Auto Resolve**.
 
-[ ![Screenshot that shows selecting Auto Resolve to enable automatic failover in the Integration runtime setup.](media/integration-runtime.png)](media/integration-runtime.png#lightbox)
+:::image type="complex" border="false" source="media/integration-runtime.png" alt-text="Screenshot that shows how to select Auto Resolve to enable automatic failover in the Integration runtime setup." lightbox="media/integration-runtime.png":::
+   The image shows a screenshot of Auto Resolve in Azure Data Factory. The top of the page shows Integration runtime setup. There are three tabs: Settings, Virtual Network, and Data flow runtime. The page is toggled to Settings. A short description reads as the following: The Data Factory manages the integration runtime in Azure to connect to required data source/destination or external compute in public network. The compute resource is elastic allocated based on performance requirement of activities. Beneath this description are four sections: Name, Description, Type, and Region.
+:::image-end:::
 
 In the context of the integration runtimes, IR fails over automatically to the paired region when you select **Auto Resolve** as the IR region. For other specific location regions, you can create a secondary data factory in another region, and use CI/CD to provision your data factory from the Git repository.
 
 - For managed virtual networks, users need to manually switch to the secondary region.
 
-- Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR), because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
+- Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR) because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
 
 - To configure BCDR for Azure-SSIS IR, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](/azure/data-factory/configure-bcdr-azure-ssis-integration-runtime).
 
@@ -164,7 +174,7 @@ In general, you need to design your pipelines to include activities, like fail a
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -176,11 +186,11 @@ Other contributors:
 - [Mario Zimmermann](https://www.linkedin.com/in/mario-zimmermann-11614755) | Principal Software Engineering Manager - Azure Data Factory team
 - [Wee Hyong Tok](https://www.linkedin.com/in/weehyongtok) | Principal Director of PM - Azure Data Factory team
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [What are business continuity, high availability, and disaster recovery?](/azure/reliability/concept-business-continuity-high-availability-disaster-recovery)
+- [What are business continuity, high availability, and DR?](/azure/reliability/concept-business-continuity-high-availability-disaster-recovery)
 - [Reliability in Azure](/azure/reliability/overview)
 - [What are Azure regions?](/azure/reliability/regions-overview)
 - [What are Azure availability zones?](/azure/reliability/availability-zones-overview)
@@ -196,4 +206,4 @@ Other contributors:
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Business continuity and DR for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
