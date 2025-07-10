@@ -10,7 +10,7 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 
 ### Global vs. regional
 
-- **Global:** These load-balancing services distribute traffic across regional back-ends, clouds, or hybrid on-premises services. These services provide a single control plane that routes end-user traffic to available back ends globally. They react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions or geographies.
+- **Global:** These load-balancing services distribute traffic across regional back ends, clouds, or hybrid on-premises services. These services provide a single control plane that routes end-user traffic to available back ends globally. They react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions or geographies.
 - **Regional:** These load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
 
 ### HTTP(S) vs. non-HTTP(S)
@@ -21,7 +21,7 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 The following table summarizes the Azure load-balancing services.
 
 | Service                   | Global/Regional    | Recommended traffic |
-| :------------------       | :----------------- | :------------------ |
+| :------------------------ | :----------------- | :------------------ |
 | Azure API Management      | Regional or Global | HTTP(S) APIs        |
 | Azure Application Gateway | Regional           | HTTP(S)             |
 | Azure Front Door          | Global             | HTTP(S)             |
@@ -78,11 +78,11 @@ When your workload involves several services that require load balancing, assess
 - **Global or deployed in multiple regions:** If this load balancer should have a single, highly available control plane that routes traffic to public endpoints on your globally distributed application. This can support either active-active or active-passive topologies across regions.
 
   > [!NOTE]
-  > You can use a regional service, such as Application Gateway or API Management, to load balance across back-ends spanning multiple regions and control routing through a single control plane. That architecture is possible by using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IPs of services in other regions.
+  > You can use a regional service, such as Application Gateway or API Management, to load balance across back ends spanning multiple regions and control routing through a single control plane. That architecture is possible by using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IPs of services in other regions.
   >
   > This scenario isn't the primary point of this decision.
   >
-  > Using a regional resource as a router for globally distributed back-ends introduces a regional single point of failure and incurs additional latency as traffic is forced through one region before going to another and then back again.
+  > Using a regional resource as a router for globally distributed back ends introduces a regional single point of failure and incurs additional latency as traffic is forced through one region before going to another and then back again.
 
 - **Platform as a service (PaaS)** provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service &ndash; Scalability](./compute-decision-tree.yml#scalability).
 
@@ -92,7 +92,7 @@ When your workload involves several services that require load balancing, assess
 
 - **Application-layer processing** refers to special routing within a virtual network. Examples include path-based routing across VMs or virtual machine scale sets. For more information, see [When should I deploy an Application Gateway behind Azure Front Door?](/azure/frontdoor/front-door-faq#when-should-i-deploy-an-application-gateway-behind-front-door-)
 
-- **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, you should consider Azure API Management to load balance traffic across API back-ends that aren't already load balanced through another mechanism.
+- **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, you should consider Azure API Management to load balance traffic across API back ends that aren't already load balanced through another mechanism.
 
 - **Performance acceleration** refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). You can gain the benefits of both features with or without Application Gateway in the architecture.
 
@@ -102,9 +102,9 @@ Each load balancing service also has capability support or implementation detail
 
 - WebSockets support
 - Server-sent events support
-- HTTP/2 support (both receiving and continuing to backend nodes)
+- HTTP/2 support (both receiving and continuing to back-end nodes)
 - Sticky session support
-- Backend node health monitoring mechanism
+- Back-end node health monitoring mechanism
 - Client experience or delay between unhealthy node detection and removal from routing logic.
 
 ### Offload capabilities to your load balancer
@@ -115,13 +115,13 @@ Some load balancing options in Azure allow you to offload capabilities from the 
 
 The following table lists various articles based on the load-balancing services used in the solution.
 
-| Services | Article | Description |
-| :------- | :------ | :---------- |
-|Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
-|Traffic Manager   | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)        |      Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
-| Application Gateway + API Management | [Azure API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Use Application Gateway to offload WAF and TLS. Use API Management to load balance across API back ends. |
-|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-|Traffic Manager + Application Gateway    | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)          |   Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure.      |
+| Services        | Article | Description |
+| :-------------- | :------ | :---------- |
+| Load Balancer   | [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) | Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. |
+| Traffic Manager | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) | Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region. |
+| Application Gateway + API Management   | [Azure API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Use Application Gateway to offload WAF and TLS. Use API Management to load balance across API back ends. |
+| Azure Front Door + Application Gateway | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs. |
+| Traffic Manager + Application Gateway  | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml) | Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure. |
 
 ## Next steps
 
