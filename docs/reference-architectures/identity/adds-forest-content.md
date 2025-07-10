@@ -32,6 +32,8 @@ For more information, see [Integrate on-premises Active Directory domains with M
 
 ## Recommendations
 
+You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+
 For specific recommendations about how to implement Active Directory in Azure, see [Deploy AD DS in an Azure virtual network][adds-extend-domain].
 
 ### Trust
