@@ -35,11 +35,11 @@ The following table summarizes the Azure load-balancing services.
 
 Here are the main load-balancing services currently available in Azure:
 
-- [Azure API Management](/azure/api-management/api-management-key-concepts) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
+- [API Management](/azure/api-management/api-management-key-concepts) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
 
 - [Application Gateway](/azure/application-gateway/overview) provides application delivery controller as a service, offering various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
-- [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It offers Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
+- [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It offers Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
 - [Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
 
