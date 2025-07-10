@@ -162,12 +162,9 @@ Learn more about the component technologies:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
 
-## Related resources
+## Related resource
 
-Explore related architectures:
-
-- [Azure enterprise cloud file share](./azure-files-private.yml)
-- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
+[Azure enterprise cloud file share](./azure-files-private.yml)
 
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction
