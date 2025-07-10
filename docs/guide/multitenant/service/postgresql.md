@@ -101,7 +101,7 @@ For multitenant solutions handling sensitive data, Confidential Computing provid
 
 More information:
 
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Azure Confidential Computing for Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-confidential-computing)
 
 ### Encryption
 
