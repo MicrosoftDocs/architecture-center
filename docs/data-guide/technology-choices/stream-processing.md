@@ -88,7 +88,7 @@ Consider the following factors:
 
 - [Event Grid](/azure/well-architected/service-guides/event-grid/operational-excellence) is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.
 
-- [Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed Apache Kafka service for real-time data ingestion and processing at scale. Use this service to capture and store streaming data from various sources, such as IoT devices, application logs, and social media feeds. This service provides extra control of a Kakfa configuration on a managed infrastructure.
+- [Kafka on Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed Apache Kafka service for real-time data ingestion and processing at scale. Use this service to capture and store streaming data from various sources, such as IoT devices, application logs, and social media feeds. This service provides extra control of a Kafka configuration on a managed infrastructure.
 
 - [Apache Kafka on Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview) is a fully managed Apache Kafka service for real-time data ingestion. It integrates with Azure to simplify deployment and scaling. This solution includes features like schema registry, ksqlDB for stream queries, and enterprise-grade security. Use this option if you use Confluent's extended ecosystem of connectors and stream processing tools.
 
