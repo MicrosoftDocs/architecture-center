@@ -67,11 +67,11 @@ Treat this flowchart or Azure Copilot's recommendation as a starting point. Ever
 
 ![Diagram that shows a decision tree for load balancing in Azure.](./images/load-balancing-decision-tree.png)
 
-When your workload involves several services that require load balancing, assess each service individually. An effective setup often uses more than one type of load-balancing solution. You might incorporate these solutions at different places in your workload's architecture, each serving a unique function or role.
+When your workload involves several services that require load balancing, assess each service individually. An effective setup often uses more than one type of load-balancing solution. You might incorporate these solutions at different places in your workload's architecture, each serving a unique function, or role.
 
 ### Definitions
 
-- **Web application (HTTP/HTTPS):** This refers to needing the capability to make a routing decision for Layer 7 data such as URL path, support the inspection of the communication payload (such as an HTTP request body), or handle TLS functionality.
+- **Web application (HTTP/HTTPS):** This designation refers to needing the capability to make a routing decision for Layer 7 data such as URL path, support the inspection of the communication payload (such as an HTTP request body), or handle TLS functionality.
 
 - **Internet facing application:** Applications that are publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and DDoS protection.
 
