@@ -102,7 +102,7 @@ The article [Deploy a federation server farm][deploy-a-federation-server-farm] p
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name that clients use to access the federation service. This identifier can be the DNS name registered for the load balancer, such as `adfs.contoso.com`. Avoid using wildcard names such as `*.contoso.com` for security reasons. Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services, you can create your own.
 
-    The DRS  uses the *subject alternative name* to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
+    The DRS uses the *subject alternative name* to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
 
     For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS][adfs-certificates].
 
