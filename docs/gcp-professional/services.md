@@ -139,7 +139,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Architecture | Description |
 |----|----|
 | [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
-| [Intelligent product search engine for e-commerce](/azure/architecture/databases/architecture/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 

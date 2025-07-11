@@ -42,10 +42,6 @@ items:
         items:
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Relational
-        items:
-        - name: Intelligent search engine for e-commerce
-          href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
         - name: Disaster recovery for data analytics pipelines

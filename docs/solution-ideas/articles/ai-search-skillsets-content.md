@@ -121,7 +121,3 @@ Read product documentation:
 Try the learning path:
 
 - [Implement knowledge mining with AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search)
-
-## Related resources
-
-- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)
