@@ -467,6 +467,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/microservices/index.yml",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/microservices/domain-analysis.md",
       "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
       "redirect_document_id": true
@@ -2045,8 +2050,8 @@
     },
     {
       "source_path": "docs/microservices/introduction.md",
-      "redirect_url": "/azure/architecture/microservices/",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/data/enterprise-bi-sqldw.md",
@@ -3078,6 +3083,11 @@
     {
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/ecommerce-search.yml",
+      "redirect_url": "/azure/search/search-pagination-page-layout",
       "redirect_document_id": false
     },
     {
@@ -7437,6 +7447,11 @@
     {
       "source_path": "docs/guide/saas/plan-journey-saas.md",
       "redirect_url": "/azure/well-architected/saas/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
       "redirect_document_id": false
     }
   ]

@@ -82,4 +82,4 @@ Learn about design patterns that can help mitigate some common challenges in a m
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.yml)
 - [Design APIs for microservices](api-design.yml)
-- [Microservices architecture design](../../microservices/index.yml)
+- [Microservices architecture design](../../guide/architecture-styles/microservices.md)

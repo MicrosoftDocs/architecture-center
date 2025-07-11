@@ -38,9 +38,7 @@ items:
     - name: Microservices
       items:
       - name: Get started
-        href: microservices/index.yml
-      - name: Microservice architecture style
-        href: guide/architecture-styles/microservices.yml
+        href: guide/architecture-styles/microservices.md
       - name: Guides
         items:
           - name: Microservices assessment and readiness

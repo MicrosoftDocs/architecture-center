@@ -4,13 +4,14 @@ metadata:
   description: Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 06/28/2024
+  ms.date: 07/10/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
 azureCategories:
   - web
   - compute
 products:
+  - azure-api-management
   - azure-load-balancer
   - azure-front-door
   - azure-application-gateway
