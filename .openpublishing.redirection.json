@@ -3086,6 +3086,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/architecture/ecommerce-search.yml",
+      "redirect_url": "/azure/search/search-pagination-page-layout",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/multitenant-identity/adfs.yml",
       "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
       "redirect_document_id": false
