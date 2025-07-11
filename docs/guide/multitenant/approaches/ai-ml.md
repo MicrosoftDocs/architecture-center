@@ -140,7 +140,7 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 ## ML operational model
 
-When adopting AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review the [MLOps Maturity Model](../../../ai-ml/guide/mlops-maturity-model.yml) and [LLMOps Maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) documents for further guidance. 
+When adopting AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review the [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.yml) and [Generative AI Operations (GenAIOps) maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) documents for further guidance.
 
 ## Antipatterns to avoid
 
@@ -153,15 +153,15 @@ When adopting AI and machine learning, including generative AI practices, it's a
 
 Principal author:
 
- * [Kevin Ashley](https://linkedin.com/in/kashlik) | Senior Customer Engineer, FastTrack for Azure
- 
+- [Kevin Ashley](https://www.linkedin.com/in/kashlik/) | Senior Customer Engineer, FastTrack for Azure
+
 Other contributors:
 
- * [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
+- [Paul Burpo](https://www.linkedin.com/in/paul-burpo/) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
 
 ## Next steps
 

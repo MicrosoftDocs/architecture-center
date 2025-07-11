@@ -121,7 +121,7 @@ You can experiment on multiple dimensions for prompt engineering solutions, incl
 
 As described in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 
-Just like in your existing MLOps environment, you can take advantage of frameworks such as Machine Learning pipelines. Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these pipeline features and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
+Just like in your existing MLOps environment, you can take advantage of frameworks such as Machine Learning pipelines. Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these pipeline features.
 
 ### Evaluation and experimentation
 
@@ -149,7 +149,7 @@ The experimentation process remains consistent, regardless of the use case for y
 
 Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompt engineering and managing grounding data. Because prompt engineering and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompt engineering and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
 
-Investing in generative AI solutions helps alleviate some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics in tools like prompt flow. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
+Investing in generative AI solutions helps alleviate some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
 ### Deployment
 
@@ -161,7 +161,7 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. For more information about how to deploy prompt flow to online endpoints that Machine Learning manages or to Azure App Service, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml). To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container. This practice increases portability and consistency across different environments.
+For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like Semantic Kernel. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -215,7 +215,7 @@ You can also explore the benefits and trade-offs of introducing new tools into y
 
 ## MLOps and GenAIOps maturity models
 
-You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
+You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [Generative AI Operations (GenAIOps) maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
 
 Use the [GenAIOps Maturity Model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
 
