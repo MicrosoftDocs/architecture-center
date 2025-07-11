@@ -15,7 +15,7 @@ ms.custom: arb-web
 
 This article describes how to implement Zero Trust security for web apps for inspection and end-to-end encryption. The Zero Trust paradigm includes many other concepts, such as constant verification of the identity of the actors and minimizing the size of the implicit trust areas. 
 
-This article focuses on the encryption and inspection component of a Zero Trust architecture for inbound traffic from the public internet. For information about other aspects of deploying your application securely, such as authentication and authorization, see the [Zero Trust documentation][Zero Trust documentation]. For the purpose of this article, a multilayered approach works best. In a multilayered approach, network security makes up one of the layers of the Zero Trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
+This article focuses on the encryption and inspection component of a Zero Trust architecture for inbound traffic from the public internet. For information about other aspects of deploying your application securely, such as authentication and authorization, see the [Zero Trust documentation][Zero Trust documentation]. The example in this article uses a multilayered approach. In a multilayered approach, network security makes up one of the layers of the Zero Trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
 
 Typically, different types of network appliances inspect different aspects of network packets:
 
@@ -28,7 +28,7 @@ This architecture focuses on a common pattern for maximizing security, in which 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/application-gateway-before-azure-firewall-architecture.svg" alt-text="Architecture diagram that shows the packet flow in a web app network that uses Application Gateway in front of Azure Firewall Premium." lightbox="./images/application-gateway-before-azure-firewall-architecture.svg":::
-   In this diagram, an arrow labeled HTTPS points from an icon that represents clients to icons that represent Application Gateway and Azure Web Application Firewall. Another arrow labeled HTTPS points from these icons to an Azure Firewall Premium icon. Two arrows point from the Azure Fireall Premium icon. One arrow is labeled domain name system (DNS) and points to a DNS server or private zone. The other arrow is labeled HTTPS and points to an icon that represents Azure Virtual Machines.
+   In this diagram, an arrow labeled HTTPS points from an icon that represents clients to icons that represent Application Gateway and Azure Web Application Firewall. Another arrow labeled HTTPS points from these icons to an Azure Firewall Premium icon. Two arrows point from the Azure Firewall Premium icon. One arrow is labeled domain name system (DNS) and points to a DNS server or private zone. The other arrow is labeled HTTPS and points to an icon that represents Azure Virtual Machines.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/application-gateway-before-azure-firewall.vsdx) of this architecture.*
@@ -41,14 +41,14 @@ This architecture uses the Transport Layer Security (TLS) protocol to encrypt tr
 
 1. Azure Firewall Premium runs the following security checks:
 
-  - [TLS inspection][TLS inspection] decrypts and examines the packets.
-  - [Intrusion detection and prevention system (IDPS)][IDPS] features check the packets for malicious intent.
+   - [TLS inspection][TLS inspection] decrypts and examines the packets.
+   - [Intrusion detection and prevention system (IDPS)][IDPS] features check the packets for malicious intent.
 
 1. If the packets pass the tests, Azure Firewall Premium takes these steps:
 
-  - It encrypts the packets.
-  - It uses a Domain Name System (DNS) service to determine the application virtual machine (VM).
-  - It forwards the packets to the application VM.
+   - It encrypts the packets.
+   - It uses a Domain Name System (DNS) service to determine the application virtual machine (VM).
+   - It forwards the packets to the application VM.
 
 Various inspection engines in this architecture ensure traffic integrity:
 
@@ -64,7 +64,7 @@ This architecture supports the following types of network design, which this art
 
 ## Azure Firewall Premium and name resolution
 
-When Azure Firewall Premium checks for malicious traffic, it verifies that the HTTP Host header matches the packet IP address and TCP port. For example, suppose Application Gateway sends web packets to the IP address 172.16.1.4 and TCP port 443. The value of the HTTP Host header should resolve to that IP address.
+When Azure Firewall Premium checks for malicious traffic, it verifies that the HTTP Host header matches the packet IP address and Transmission Control Protocol (TCP) port. For example, suppose Application Gateway sends web packets to the IP address 172.16.1.4 and TCP port 443. The value of the HTTP Host header should resolve to that IP address.
 
 HTTP Host headers usually don't contain IP addresses. Instead, the headers contain names that match the server's digital certificate. In this case, Azure Firewall Premium uses DNS to resolve the Host header name to an IP address. The network design determines which DNS solution works best.
 
@@ -79,7 +79,7 @@ HTTP Host headers usually don't contain IP addresses. Instead, the headers conta
 The following diagram shows the common names (CNs) and certificate authorities (CAs) that this architecture's TLS sessions and certificates use:
 
 :::image type="complex" border="false" source="./images/application-gateway-before-azure-firewall-certificates.svg" alt-text="Diagram that shows the CNs and CAs that a web app network uses when a load balancer is in front of a firewall." lightbox="./images/application-gateway-before-azure-firewall-certificates.svg":::
-   In this diagram, an arrow labeled HTTPS points from an icon that represents clients to icons that represent Application Gateway and Azure Web Application Firewall. On the left side of these icons are the CN, myapp.contoso.com and the CA, DigiCert. On the right side of these icons is the Azure Firewall root CA in HTTP settings. Another arrow labeled HTTPS points from these icons to an Azure Firewall Premium icon. On the left side of this icon is the CN, myapp.contoso.com, and the CA, Azure Firewall CA. Another arrow labeled HTTPS points to an icon that represents Azure Virtual Machines. On the left side of this icon is the CN, myapp.contoso.com, and the CA, DigiCert. 
+   In this diagram, an arrow labeled HTTPS points from an icon that represents clients to icons that represent Application Gateway and Azure Web Application Firewall. On the left side of these icons are the CN, myapp.contoso.com, and the CA, DigiCert. On the right side of these icons is the Azure Firewall root CA in HTTP settings. Another arrow labeled HTTPS points from these icons to an Azure Firewall Premium icon. On the left side of this icon is the CN, myapp.contoso.com, and the CA, Azure Firewall CA. Another arrow labeled HTTPS points to an icon that represents Azure Virtual Machines. On the left side of this icon is the CN, myapp.contoso.com, and the CA, DigiCert. 
 :::image-end:::
 
 Azure Firewall dynamically generates its own certificates. This capability is one of the main reasons why it's placed behind Application Gateway. Otherwise, the application client is confronted with self-generated certificates that are flagged as a security risk.
@@ -122,7 +122,7 @@ The following sections describe some of the most common topologies that you can 
 
 ### Hub and spoke topology
 
-A hub and spoke design typically deploys shared network components in the hub virtual network and application-specific components in the spokes. In most systems, Azure Firewall Premium is a shared resource. Azure Web Application Firewall can be a shared network device or an application-specific component. It's usually best to treat Application Gateway as an application component and deploy it in a spoke virtual network for the following reasons:
+A hub and spoke design typically deploys shared network components in the hub virtual network and application-specific components in the spokes. In most systems, Azure Firewall Premium is a shared resource. Azure Web Application Firewall can be a shared network device or an application-specific component. It's a best practice to treat Application Gateway as an application component and deploy it in a spoke virtual network for the following reasons:
 
 - It can be difficult to troubleshoot Azure Web Application Firewall alerts. You generally need in-depth knowledge of the application to decide whether the messages that trigger those alarms are legitimate.
 
@@ -243,7 +243,7 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 - The functionality of the NVA in the hub determines whether your implementation needs DNS.
 
 :::image type="complex" border="false" source="./images/application-gateway-before-azure-firewall-route-server-internal.svg" alt-text="Diagram that shows the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Route Server." lightbox="./images/application-gateway-before-azure-firewall-route-server-internal.svg":::
-   The diagram consists of four sections, the hub virtual network, the Application Gateway virtual network, the application virtual network, and the shared services virtual network. The hub virtual network contains three boxes that represent the virtual network gateway subnet, the Route Server subnet, and the NVA subnet respectively. A blue arrow represents a client request from on-premises to the virtual network gateway. A green arrow points back to on-premises. Another blue arrow points from the virtual network gateway to the Application Gateway subnet in the Application Gateway virtual network. A green arrow points back to the virtual network gateway. Another blue arrow points from the Application Gateway subnet to the NVA subnet in the hub virtual network. A green arrow points back to the Application Gateway subnet. Another blue arrow points from the NVA subnet to the application subnet in the application virtual network. A green arrow points back to the NVA subnet. Finally, a blue arrow points from the NVA subent to the DNS subnet in the shared services virtual network. A green arrow points back to the NVA subnet.
+   The diagram consists of four sections, the hub virtual network, the Application Gateway virtual network, the application virtual network, and the shared services virtual network. The hub virtual network contains three boxes that represent the virtual network gateway subnet, the Route Server subnet, and the NVA subnet respectively. A blue arrow represents a client request from on-premises to the virtual network gateway. A green arrow points back to on-premises. Another blue arrow points from the virtual network gateway to the Application Gateway subnet in the Application Gateway virtual network. A green arrow points back to the virtual network gateway. Another blue arrow points from the Application Gateway subnet to the NVA subnet in the hub virtual network. A green arrow points back to the Application Gateway subnet. Another blue arrow points from the NVA subnet to the application subnet in the application virtual network. A green arrow points back to the NVA subnet. Finally, a blue arrow points from the NVA subnet to the DNS subnet in the shared services virtual network. A green arrow points back to the NVA subnet.
 :::image-end:::
 
 1. An on-premises client connects to the virtual network gateway.
@@ -266,9 +266,9 @@ Like with Virtual WAN, you might need to modify the routing when you use Route S
 
 ## IDPS and private IP addresses
 
-Azure Firewall Premium decides which IDPS rules to apply based on the source and destination IP addresses of the packets. By default, Azure Firewall treats private IP addresses in the RFC 1918 ranges (`10.0.0.0/8`, `192.168.0.0/16`, and `172.16.0.0/12`) and RFC 6598 range (`100.64.0.0/10`) as internal. Consequently, if you deploy Application Gateway in a subnet in one of these ranges, Azure Firewall Premium considers traffic between Application Gateway and the workload to be internal. Therefore, only IDPS signatures marked to be applied to internal traffic or to any traffic are used. IDPS signatures marked to be applied for inbound or outbound traffic won't be applied to traffic between Application Gateway and the workload. For more information, see [Azure Firewall IDPS Rules][IDPS-rules].
+Azure Firewall Premium decides which IDPS rules to apply based on the source and destination IP addresses of the packets. By default, Azure Firewall treats private IP addresses in the RFC 1918 ranges (`10.0.0.0/8`, `192.168.0.0/16`, and `172.16.0.0/12`) and RFC 6598 range (`100.64.0.0/10`) as internal. So, if you deploy Application Gateway in a subnet in one of these ranges, Azure Firewall Premium considers traffic between Application Gateway and the workload to be internal. Therefore, only IDPS signatures marked to be applied to internal traffic or to any traffic are used. IDPS signatures marked to be applied for inbound or outbound traffic aren't applied to traffic between Application Gateway and the workload. For more information, see [Azure Firewall IDPS Rules][IDPS-rules].
 
-The easiest way to force IDPS inbound signature rules to be applied to the traffic between Application Gateway and the workload is by placing Application Gateway in a subnet that uses a prefix outside of the private ranges. You don't necessarily need to use public IP addresses for this subnet. Instead, you can customize the IP addresses that Azure Firewall Premium treat as internal for IDPS. For example, if your organization doesn't use the `100.64.0.0/10` range, you can eliminate this range from the list of internal prefixes for IDPS and deploy Application Gateway in a subnet configured with an IP address in `100.64.0.0/10`. For more information, see [Azure Firewall Premium private IPDS ranges][IDPS-private-ranges].
+The easiest way to force IDPS inbound signature rules to be applied to the traffic between Application Gateway and the workload is by placing Application Gateway in a subnet that uses a prefix outside of the private ranges. You don't necessarily need to use public IP addresses for this subnet. Instead, you can customize the IP addresses that Azure Firewall Premium treats as internal for IDPS. For example, if your organization doesn't use the `100.64.0.0/10` range, you can eliminate this range from the list of internal prefixes for IDPS and deploy Application Gateway in a subnet configured with an IP address in `100.64.0.0/10`. For more information, see [Azure Firewall Premium private IPDS ranges][IDPS-private-ranges].
 
 ## Contributors
 
