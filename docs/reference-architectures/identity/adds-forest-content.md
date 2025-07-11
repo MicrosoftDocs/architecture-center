@@ -77,9 +77,10 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs for the services used in this architecture. Other considerations are described in the cost optimization section in [Well-Architected Framework][aaf-cost].
 
-#### AD Domain Services
+<a name='ad-domain-services'></a>
+#### Microsoft Entra Domain Services
 
-Consider having Active Directory Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+Consider deploying Microsoft Entra Domain Services as a shared service that multiple workloads consume to lower costs. For more information, [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/entra/identity/domain-services/compare-identity-solutions#domain-services-and-self-managed-ad-ds).
 
 #### Azure VPN Gateway
 
@@ -118,7 +119,6 @@ Active Directory is automatically scalable for domain controllers that are part 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
-[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
