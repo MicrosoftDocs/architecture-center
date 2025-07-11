@@ -1050,7 +1050,7 @@ items:
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
       - name: Zero-trust network for web applications
-        href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
+        href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
       items:
       - name: Secure research for regulated data
