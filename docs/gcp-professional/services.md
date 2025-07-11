@@ -371,7 +371,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
 | [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)

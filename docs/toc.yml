@@ -505,8 +505,6 @@ items:
       items:
       - name: Analytics end to end
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-      - name: Azure Synapse for landing zones
-        href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution

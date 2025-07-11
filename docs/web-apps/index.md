@@ -60,7 +60,6 @@ The following sections, organized by category, provide links to sample web app a
 ### E-commerce
 
 - [Intelligent product search engine for e-commerce](../databases/architecture/ecommerce-search.yml)
-- [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 
 ### Modernization
 

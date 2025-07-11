@@ -4516,6 +4516,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/web-apps/idea/scalable-ecommerce-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/basic-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/synapse-analytics-landing-zone.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/data-science-process/explore-data-sql-server.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
