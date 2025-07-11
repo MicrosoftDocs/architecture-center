@@ -209,7 +209,7 @@ You can create individual queues for each tenant within a single storage account
 
 For this scenario, you can use Storage access control, including SAS, to manage access for each tenant's data.
 
-When you dynamically create queues for each tenant, consider how your application tier consumes the messages from each tenant's queue. For advanced scenarios, consider using [Azure Service Bus](https://azure.microsoft.com/services/service-bus), which supports features such as [sessions](/azure/service-bus-messaging/message-sessions), [message auto-forwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), [topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). These capabilities can enhance multitenant solutions.
+When you dynamically create queues for each tenant, consider how your application tier consumes the messages from each tenant's queue. For advanced scenarios, consider using [Azure Service Bus](https://azure.microsoft.com/services/service-bus), which supports features such as [sessions](/azure/service-bus-messaging/message-sessions), [message automatic-forwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), [topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). These capabilities can enhance multitenant solutions.
 
 ## Contributors
 
@@ -222,7 +222,7 @@ Principal author:
 Other contributors:
 
 - [Dr. Christian Geuer-Pollmann](https://www.linkedin.com/in/chgeuer) | Principal Customer Engineer, FastTrack for Azure
-- [Patrick Horn](https://www.linkedin.com/in/patrick-horn-4383531) | Senior Customer Engineering Manager, FastTrack for Azure
+- Patrick Horn | Senior Customer Engineering Manager, FastTrack for Azure
 - [Ben Hummerstone](https://www.linkedin.com/in/bhummerstone) | Principal Customer Engineer, FastTrack for Azure
 - [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
