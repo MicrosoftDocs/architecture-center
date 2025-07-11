@@ -81,7 +81,7 @@ The following features of Event Hubs support multitenancy:
 
 - [Application groups](#application-groups)
 - [Microsoft Entra authentication](#azure-ad-authentication)
-- [SAS](#shared-access-signature)
+- [SAS](#sas)
 - [Customer-managed keys](#customer-managed-keys)
 - [Event Hubs capture](#event-hubs-capture)
 - [Geo-disaster recovery](#geo-disaster-recovery)
