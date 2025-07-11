@@ -95,7 +95,7 @@ Each component of Storage provides further options for tenant isolation.
 
 The following table summarizes the differences between the main tenancy isolation models for Storage blobs.
 
-| Consideration | Shared blob containers | Blob containers per tenant | Storage accounts per tenant |
+| Consideration | Shared blob containers | Blob containers for each tenant | Storage accounts for each tenant |
 |---|---|---|---|
 | **Data isolation** | Low-medium. Use paths to identify each tenant's data or hierarchical namespaces. | Medium. Use container-scoped SAS URLs to support security isolation. | High |
 | **Performance isolation** | Low | Low. Most quotas and limits apply to the entire storage account. | High |
@@ -120,7 +120,7 @@ In some multitenant solutions, you might only need to store a single blob or set
 
 When you use shared containers, consider whether you need to track the data and Storage usage for each tenant. For more information, see [Monitoring](#monitoring).
 
-#### Blob containers per tenant
+#### Blob containers for each tenant
 
 You can create individual blob containers for each tenant within a single storage account. There's no limit to the number of blob containers that you can create within a storage account.
 
@@ -130,7 +130,7 @@ When you create a container for each tenant, you can use Storage access control,
 
 The following table summarizes the differences between the main tenancy isolation models for Storage files.
 
-| Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
+| Consideration | Shared file shares | File shares for each tenant | Storage accounts for each tenant |
 |---|---|---|---|
 | **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and directories. | Medium-high | High |
 | **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but you should set size quotas for each file share. | High |
@@ -153,7 +153,7 @@ In other scenarios, consider using SAS to grant access to specific file shares o
 
 When you use shared file shares, consider whether you need to track the data and Storage usage for each tenant. For more information, see [Monitoring](#monitoring).
 
-#### File shares per tenant
+#### File shares for each tenant
 
 You can create individual file shares for each tenant within a single storage account. There's no limit to the number of file shares that you can create within a storage account.
 
@@ -163,7 +163,7 @@ For this scenario, you can use Storage access control, including SAS, to manage 
 
 The following table summarizes the differences between the main tenancy isolation models for Storage tables.
 
-| Consideration | Shared tables with partition keys per tenant | Tables per tenant | Storage accounts per tenant |
+| Consideration | Shared tables with partition keys for each tenant | Tables for each tenant | Storage accounts for each tenant |
 |---|---|---|---|
 | **Data isolation** | Low. The application enforces isolation. | Low-medium | High |
 | **Performance isolation** | Low | Low. Most quotas and limits apply to the entire storage account. | High |
@@ -171,7 +171,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | **Operational complexity** | Low | Medium | High |
 | **Example scenario** | A large multitenant solution has a shared application tier. | Tenant-scoped SAS URLs are issued. | Each tenant has its own deployment stamp. |
 
-#### Shared tables with partition keys per tenant
+#### Shared tables with partition keys for each tenant
 
 When you use table storage that includes a single shared table, consider using the [built-in support for partitioning](/rest/api/storageservices/understanding-the-table-service-data-model#partitionkey-property). Each entity must include a partition key, such as a tenant identifier.
 
@@ -179,7 +179,7 @@ SAS tokens and policies enable you to specify a partition key range. Azure Stora
 
 For high-scale applications, consider the maximum throughput of each table partition and the storage account.
 
-#### Tables per tenant
+#### Tables for each tenant
 
 You can create individual tables for each tenant within a single storage account. There's no limit to the number of tables that you can create within a storage account.
 
@@ -189,7 +189,7 @@ For this scenario, you can use Storage access control, including SAS, to manage 
 
 The following table summarizes the differences between the main tenancy isolation models for Storage queues.
 
-| Consideration | Shared queues | Queues per tenant | Storage accounts per tenant |
+| Consideration | Shared queues | Queues for each tenant | Storage accounts for each tenant |
 |---|---|---|---|
 | **Data isolation** | Low | Low-medium | High |
 | **Performance isolation** | Low | Low. Most quotas and limits apply to the entire storage account. | High |
@@ -203,7 +203,7 @@ If you share a queue, consider the quotas and limits that apply. In solutions th
 
 Queues don't provide partitioning or subqueues, so all tenants data might become intermingled.
 
-#### Queues per tenant
+#### Queues for each tenant
 
 You can create individual queues for each tenant within a single storage account. There's no limit to the number of queues that you can create within a storage account.
 

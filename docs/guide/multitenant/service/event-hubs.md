@@ -24,22 +24,23 @@ Determine the level of isolation that you want when you use Event Hubs in your m
 
 - **Hostile multitenancy:** Each tenant has its own namespace that isn't shared. Use this option to prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) for your tenants.
 
-A system can implement both models. Some tenants can share namespaces, while others have a dedicated one. A tenant can also share a namespace with other tenants but have dedicated event hubs.
+A system can implement both models. Some tenants can share namespaces, while other tenants have a dedicated namespace. A tenant can also share a namespace with other tenants but have dedicated event hubs.
 
 The following table summarizes the differences between the main tenancy isolation models for Event Hubs.
 
-| Consideration | Dedicated namespace |Shared namespace and dedicated event hubs | Shared namespace and shared event hubs |
+| Consideration | Dedicated namespace | Shared namespace and dedicated event hubs | Shared namespace and shared event hubs |
 | --- | --- | --- | --- |
 | **Data isolation** | High | Medium  | None |
-| **Performance isolation** | Highest. Manage performance needs based on each tenant's requirements.  | Medium. Can have noisy neighbor problems. | Low. Can have noisy neighbor problems. |
+| **Performance isolation** | Highest. Manage performance needs based on each tenant's requirements. | Medium. Can have noisy neighbor problems. | Low. Can have noisy neighbor problems. |
 | **Deployment complexity** | Medium. Understand [Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) at the subscription level. | Medium. Deploy separate message entities for each tenant. Understand [Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas). Some cases require multiple namespaces, depending on the number of tenants. | Low |
-| **Operational complexity** | High. Manage namespaces on a per-tenant basis. | Medium. Some tenants require granular management of message entities. | Low |
-| **Example scenario** | Separate application instances per tenant. | Dedicated event hubs for each tenant. | Large multitenant solution that has a shared application tier and one or more shared event hubs. |
+| **Operational complexity** | High. Manage namespaces separately for each tenant. | Medium. Some tenants require granular management of message entities. | Low |
+| **Example scenario** | Separate application instances for each tenant. | Dedicated event hubs for each tenant. | Large multitenant solution that has a shared application tier and one or more shared event hubs. |
 
 The following sections describe the models in more detail.
 
 > [!NOTE]
-> Event Hubs for Apache Kafka is a feature that adds a protocol head on top of Event Hubs so that Apache Kafka applications can use Event Hubs. The applications stream events into event hubs, which function like Kafka topics. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).
+> Event Hubs for Apache Kafka is a feature that adds a Kafka-compatible protocol layer to Event Hubs so that Apache Kafka applications can use Event Hubs. The applications stream events into event hubs, which function like Kafka topics. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).
+
 
 ### Dedicated namespace
 
@@ -101,7 +102,7 @@ For more information, see [Resource governance with application groups](/azure/e
 
 Event Hubs Premium namespaces provide reserved processing units that aren't shared with other namespaces. They ensure predictable latency and throughput for each namespace and prevent noisy neighbor problems. Premium namespaces provide the highest level of performance isolation without requiring a dedicated cluster.
 
-Premium namespaces suit hostile multitenancy scenarios, where tenants operate independently and might have unpredictable workloads. Each tenant can use the full capacity of their Premium namespace without affecting others. This tier costs more than the Standard tier.
+Premium namespaces suit hostile multitenancy scenarios, where tenants operate independently and might have unpredictable workloads. Each tenant can use the full capacity of their Premium namespace without affecting other tenants. This tier costs more than the Standard tier.
 
 Premium features include reserved processing units, customer-managed keys, virtual network integration, and enhanced message retention.
 
