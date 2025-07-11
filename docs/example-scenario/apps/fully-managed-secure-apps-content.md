@@ -89,7 +89,6 @@ Reliability helps ensure that your application can meet the commitments that you
 - Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
 - You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
-- For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
 #### Availability
 
