@@ -3,7 +3,8 @@ title: Guidance for using Azure Database for PostgreSQL in a multitenant solutio
 description: This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/18/2024
+ms.date: 07/11/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -15,9 +16,10 @@ Many multitenant solutions on Azure use the open-source relational database mana
 
 ## Deployment modes
 
-There are two deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
+There are three deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
-- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This deployment approach is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
+- [Azure Database for PostgreSQL - Flexible Server with Elastic Clusters (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters) - Provides horizontal scaling within a managed service, suitable for multitenant applications that need to be future-proofed to be able to scale from a few tenants to high numbers of tenants. This feature is in preview and isn't recommended for production use yet. However, you can begin to evaluate it for future implementation.
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
@@ -34,7 +36,7 @@ When you're building a multitenant application using Azure Database for PostgreS
 
 Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying *row security policies* to tables to restrict access to rows by tenant.
 
-There maybe a slight performance impact when implementing row-level security on a table. Therefore, additional indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. It is recommended to use performance testing techniques to validate that your workload meets your baseline performance requirements when row-level security is enabled.
+There maybe a slight performance impact when implementing row-level security on a table. Therefore, other indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. When you use row-level security, it's important to use performance testing techniques to validate that your workload meets your baseline performance requirements.
 
 More information:
 
@@ -44,7 +46,7 @@ More information:
 
 The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to scale your workload across multiple databases or database servers.
 
-Solutions that need a very high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using *distributed tables* in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
+Solutions that need a high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using *distributed tables* in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
 
 > [!NOTE]
 > From October 2022, Azure Database for PostgreSQL Hyperscale (Citus) has been rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
@@ -56,9 +58,22 @@ More information:
 - Choosing a [distribution column](/azure/cosmos-db/postgresql/howto-choose-distribution-column) in a distributed table.
 - A guide to using [Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html).
 
+### Elastic clusters (preview)
+
+Elastic clusters are a feature of Azure Database for PostgreSQL Flexible Server, which provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
+
+In multitenant solutions, elastic clusters enable sharding tenant data across multiple nodes. You can distribute tables by tenant ID to ensure tenant data colocation on specific nodes, which can improve query performance for tenant-specific queries.
+
+> [!NOTE]
+> Elastic clusters are currently in preview and available only in Azure Database for PostgreSQL - Flexible Server.
+
+More information:
+
+- [Elastic clusters for Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/concepts-elastic-clusters)
+
 ### Connection pooling
 
-Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which will negatively impact the performance of the Postgres server.
+Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which negatively impacts the performance of the Postgres server.
 
 Connection pooling via PgBouncer is installed by default in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server).
 
@@ -76,13 +91,40 @@ More information:
 - [Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
 - [Connect with managed identity to Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-connect-with-managed-identity)
 
+### Azure Confidential Computing (preview)
+
+Support for Azure Confidential Computing is available in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) through Trusted Execution Environments (TEEs), which provide hardware-based protection for data in use. This feature protects tenant data from unauthorized access by the operating system, hypervisor, or other applications.
+
+For multitenant solutions handling sensitive data, Confidential Computing provides hardware-level data protection during processing. It's appropriate when tenants have strict data protection requirements or regulatory compliance needs, or when you need to ensure that tenant data is not accessible to the application provider.
+
+> [!NOTE]
+> Confidential Computing is currently in preview and requires specific virtual machine SKUs.
+
+More information:
+
+- [Azure Confidential Computing for Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-confidential-computing)
+
+### Encryption
+
+Data stored in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) is encrypted at rest by default using Microsoft-managed keys, but you can also use customer-managed keys to allow tenants to specify their own encryption keys.
+
+When you use [customer-managed keys (CMK)](/azure/postgresql/flexible-server/concepts-data-encryption), you can provide your own encryption keys stored in [Azure Key Vault](/azure/key-vault/general/overview). In multitenant environments, this enables you to use different encryption keys for different tenants, even when their data is stored in the same database server. This capability also allows tenants to have control over their own encryption keys, and if they need to deactivate their account, deleting the encryption key ensures their data is no longer accessible.
+
+Azure Database for PostgreSQL - Flexible Server supports [automatic key version updates](/azure/postgresql/flexible-server/concepts-data-encryption#cmk-key-version-updates) for customer-managed keys. This feature automatically updates to new key versions after rotation in Azure Key Vault, without requiring manual key version management. In multitenant environments where regulatory compliance requires regular key rotation, this automation reduces manual operational tasks and maintains data protection without service interruption.
+
+More information:
+
+- [Data encryption with customer-managed keys](/azure/postgresql/flexible-server/concepts-data-encryption)
+- [Configure data encryption with customer managed key](/azure/postgresql/flexible-server/how-to-data-encryption)
+- [Automatic key version updates](/azure/postgresql/flexible-server/concepts-data-encryption#cmk-key-version-updates)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 
 Other contributors:
 
