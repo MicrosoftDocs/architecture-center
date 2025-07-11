@@ -17,7 +17,7 @@ Often, the three ETL phases are run in parallel to save time. For example, while
 
 Relevant Azure service:
 
-- [Azure Data Factory & Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
+- [Fabric Data Factory](/azure/data-factory/concepts-pipelines-activities)
 
 Other tools:
 
@@ -39,17 +39,11 @@ The data store only manages the schema of the data and applies the schema on rea
 
 The final phase of the ELT pipeline is typically to transform the source data into a final format that is more efficient for the types of queries that need to be supported. For example, the data may be partitioned. Also, ELT might use optimized storage formats like Parquet, which stores row-oriented data in a columnar fashion and provides optimized indexing.
 
-Relevant Azure service:
+Relevant Microsoft service:
 
-- [SQL dedicated pools on Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [SQL Serverless pools on Azure Synapse Analytics](/azure/synapse-analytics/get-started-analyze-sql-on-demand)
-- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Datamarts in Power BI](/power-bi/transform-model/datamarts/datamarts-overview)
+- [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
+- [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
 
-Other tools:
-
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
 ## Data flow and control flow
 
@@ -63,11 +57,23 @@ In the diagram above, there are several tasks within the control flow, one of wh
 
 Relevant Azure service:
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Fabric Data Factory](/azure/data-factory/concepts-pipelines-activities)
 
-Other tools:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+## Streaming Data and Hot Path Architectures (Push, Transform, Load)
+When you have a need for Lambda hot path or Kappa architectures, another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
+
+![Diagram of the push load tranform process.](../images/ptl.png)
+
+In a streaming architecture, data is ingested from event sources into a message broker or event hub (e.g., Azure Event Hubs, Kafka), then processed by a stream processor (e.g., Fabric Real-Time Intelligence, Azure Stream Analytics, Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing the results to downstream systems like dashboards, alerts, or databases.
+
+This approach is ideal for scenarios where low latency and continuous updates are critical, such as:
+
+- Monitoring manufacturing equipment for anomalies
+- Detecting fraud in financial transactions
+- Powering real-time dashboards for logistics or operations
+- Triggering alerts based on sensor thresholds
+
 
 ## Technology choices
 
@@ -78,13 +84,10 @@ Other tools:
 
 ## Next steps
 
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
-- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Fabric Decision Guide for Data Transformation]((fabric/fundamentals/decision-guide-pipeline-dataflow-spark))
 
 ## Related resources
 
 The following reference architectures show end-to-end ELT pipelines on Azure:
 
-- [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 - [Databases architecture design](../../databases/index.yml)
