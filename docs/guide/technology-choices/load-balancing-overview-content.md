@@ -63,7 +63,7 @@ The following flowchart helps you choose a load-balancing solution for your appl
 > [!TIP]
 > You can use Azure Copilot in the Azure portal to help guide you through this decision similar to the flowchart. In Azure Copilot, enter **Help me choose a load balancer.** By answering the questions from Copilot, you can narrow down your load balancing options.
 
-Treat this flowchart or Azure Copilot's recommendation as a starting point. Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation.
+Every application has unique requirements not captured in simple decision trees. Treat this flowchart or Azure Copilot's recommendation as a starting point. Then perform a more detailed evaluation.
 
 ![Diagram that shows a decision tree for load balancing in Azure.](./images/load-balancing-decision-tree.png)
 
@@ -120,7 +120,6 @@ The following table lists various articles based on the load-balancing services 
 | Load Balancer   | [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) | Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. |
 | Traffic Manager | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) | Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region. |
 | Application Gateway + API Management   | [Azure API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Use Application Gateway to offload WAF and TLS. Use API Management to load balance across API back ends. |
-| Azure Front Door + Application Gateway | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs. |
 | Traffic Manager + Application Gateway  | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml) | Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure. |
 
 ## Next steps

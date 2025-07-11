@@ -291,7 +291,7 @@ Principal authors:
 
 ## Related resources
 - [Microservices architecture style](../../guide/architecture-styles/index.md)
-- [Build microservices on Azure](../../microservices/index.yml)
+- [Build microservices on Azure](../architecture-styles/microservices.md)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Using tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)

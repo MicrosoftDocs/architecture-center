@@ -231,7 +231,7 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 
 [n-tier]: ../architecture-styles/n-tier.yml
 [w-q-w]: ../architecture-styles/web-queue-worker.yml
-[microservices]: ../architecture-styles/microservices.yml
+[microservices]: ../architecture-styles/microservices.md
 [event-driven]: ../architecture-styles/event-driven.yml
 [big-compute]: ../architecture-styles/big-compute.yml
 

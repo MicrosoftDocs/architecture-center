@@ -107,7 +107,6 @@ These are some additional sample networking architectures:
 
 - [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 - [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
 - [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
