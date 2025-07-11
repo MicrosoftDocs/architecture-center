@@ -57,10 +57,6 @@ For information specific to Azure App Service, see:
 
 The following sections, organized by category, provide links to sample web app architectures.
 
-### E-commerce
-
-- [Intelligent product search engine for e-commerce](../databases/architecture/ecommerce-search.yml)
-
 ### Modernization
 
 - [Choose between traditional web apps and single-page apps](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)
