@@ -221,7 +221,7 @@ In this system, the *triage support agent* interprets the request and tries to h
 
 ## Magentic orchestration
 
-TODO
+The magentic pattern is a general-purpose pattern for open-ended and complex problems that don't have a predetermined plan of approach. In this pattern, the plan of approach is dynamically built and refined as part of the workflow through collaboration between specialized agents and a magentic manager agent. The magentic manager agent builds and tracks a ledger to develop the approach plan, which will eventually be finalized and followed to complete the given task. The manager agent communicates directly with the specialized agents to gather information as it builds and refines the ledger, iterating as many times as needed to build a complete plan that can be successfully executed.
 
 :::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
 TODO
@@ -231,15 +231,21 @@ TODO
 
 ### When to use magentic orchestration
 
-TODO
+Consider the magentic pattern when you have:
+
+- A complex problem that has no predetermined plan of approach and requires input and feedback from multiple specialized agents
+- A requirement to have the AI system generate a fully developed plan of approach that can be reviewed by a human
 
 ### When to avoid magentic orchestration
 
-TODO
+Avoid this pattern when:
+
+- The solution path has already been developed
+- The task has low complexity and can be solved by a single agent through tool use
 
 ### Magentic orchestration example
 
-TODO
+An organization has developed a self-service HR kiosk system that relies on a magentic agent pattern to help users with issues regarding their benefits or other workplace matters. Because there's a vast number of possible issues that can be input from users, trying to pre-develop decision trees is inefficient. So, the system relies on the manager agent to dynamically build plans to solve issues as they are introduced by users. The manager relies on agents that have specialized knowlege about different aspects of the HR systems and third-party services, like health or life insurance, to research issues and offer solutions to help the users. The manager builds the plan as it gathers the necessary information from the other agents and then provides the plan to the user and sends a copy to the HR team so that it can be reviewed as necessary.
 
 :::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
 TODO
