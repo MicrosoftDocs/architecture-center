@@ -36,7 +36,7 @@ When you're building a multitenant application using Azure Database for PostgreS
 
 Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying *row security policies* to tables to restrict access to rows by tenant.
 
-There maybe a slight performance impact when implementing row-level security on a table. Therefore, other indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. When you use row-level security, it's important touse performance testing techniques to validate that your workload meets your baseline performance requirements.
+There maybe a slight performance impact when implementing row-level security on a table. Therefore, other indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. When you use row-level security, it's important to use performance testing techniques to validate that your workload meets your baseline performance requirements.
 
 More information:
 
