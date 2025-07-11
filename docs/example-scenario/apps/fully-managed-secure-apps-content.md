@@ -30,7 +30,7 @@ Consider this scenario for the following use cases:
 ### Components
 
 - The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, because the App Service Environment and the workloads that run on it are behind a virtual network, it also provides an extra layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB App Service Environment.
-- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, solid-state drive (SSD) storage, and double the memory-to-core ratio compared to Standard.
+- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, solid-state drive (SSD) storage, and provides the maximum scale-out capabilities.
 - Azure App Service [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes extra overhead from the web servers hosting the web app to decrypt traffic again.
 - [Web Application Firewall][docs-waf] is a feature of Application Gateway. Enabling the web application firewall in the application gateway further enhances security. The web application firewall uses Open Worldwide Application Security Project (OWASP) rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
@@ -43,7 +43,7 @@ Consider this scenario for the following use cases:
 
 An App Service Environment can run regular web apps on Windows or, as in this example, web apps deployed inside the environment that are each running as Linux containers. An App Service Environment was selected to host these single-instance containerized applications. There are alternatives available&mdash;review the considerations below when designing your solution.
 
-- [Azure Service Fabric][docs-service-fabric]: If your environment is mostly Windows-based, and your workloads are primarily .NET Framework-based, and you aren't considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java programming APIs, and for developing native microservices, the clusters can be provisioned on Windows or Linux.
+- [Azure Container Apps][docs-container-apps]: is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
 - [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
 
 Other options for the data tier include:
@@ -174,6 +174,7 @@ Principal author:
 [docs-azure-scale-ase]: /azure/app-service/environment/overview
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
+[docs-container-apps]: /azure/container-apps
 
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
