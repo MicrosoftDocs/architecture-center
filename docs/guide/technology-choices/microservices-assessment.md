@@ -79,7 +79,6 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
    - Is continuous delivery implemented where code changes are automatically built, tested, and prepared for release to production, ensuring that the software can be released at any time with confidence requiring a manual approval?
    - Is continuous deployment implemented that extends continuous delivery by automatically deploying code changes to production after it passes all automated tests, without manual intervention?
    - Is continuous monitoring embedded across all phases of DevOps and IT Ops to ensure the ongoing health, performance, and reliability of applications and infrastructure as they move from development to production and customer environments?
-   - Is [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) in place?
 - Is your build and deployment automation strategy aligned with your team’s delivery objectives and operational requirements?
 - Do you use feature flags and progressive exposure deployment strategies?
 - How is configuration of staging and production environments managed for the application?
