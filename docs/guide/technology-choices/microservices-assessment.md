@@ -64,7 +64,7 @@ Transforming a monolithic application to a microservices architecture takes time
 
 For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-corruption Layers to support this transformation.
 
-Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. The recommended solution is to decompose each database with each service. In many circumstances, that's not practical. In those cases, you can use patterns like the Database View pattern and the Database Wrapping Service pattern.
+Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. In many circumstances, that's not practical. In such cases, you can apply patterns like the [Katerialized View Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/materialized-view) and approaches such as [Modernizing applications using an API wrapper](https://learn.microsoft.com/en-us/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared databases.
 
 ## Assess DevOps readiness
 
@@ -76,11 +76,11 @@ When you evaluate your DevOps capability for a microservices architecture, keep 
 - Do you implement DevOps practices properly?
    - Do you follow agile practices?
    - Is continuous integration implemented?
-   - Is continuous delivery implemented?
-   - Is continuous deployment implemented?
-   - Is continuous monitoring implemented?
+   - Is continuous delivery implemented where code changes are automatically built, tested, and prepared for release to production, ensuring that the software can be released at any time with confidence requiring a manual approval?
+   - Is continuous deployment implemented that extends continuous delivery by automatically deploying code changes to production after it passes all automated tests, without manual intervention?
+   - Is continuous monitoring embedded across all phases of DevOps and IT Ops to ensure the ongoing health, performance, and reliability of applications and infrastructure as they move from development to production and customer environments?
    - Is [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) in place?
-- Do you use the right strategy and tools to automate builds and deployments? 
+- Is your build and deployment automation strategy aligned with your team’s delivery objectives and operational requirements?
 - Do you use feature flags and progressive exposure deployment strategies?
 - How is configuration of staging and production environments managed for the application?
 - Does the tool chain have community support and a support model and provide proper channels and documentation?
@@ -122,7 +122,8 @@ Microservices are adaptive to change and take advantage of agile development to 
 - Do you use semantic versioning for your applications? 
 - Do you maintain different environments and propagate the same release in a sequence (for example, first to staging and then to production)?
 - Do you use versioning for your APIs?
-- Do you follow proper versioning guidelines for APIs?
+- Do you follow proper versioning guidelines for APIs? Learn more about [Best practices for RESTful web API design
+](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#versioning-a-restful-web-api)
 - When do you change an API version?
 - What's your approach for handling API versioning?
    - URI path versioning
@@ -136,7 +137,7 @@ Microservices are adaptive to change and take advantage of agile development to 
 Microservices are self-contained services that communicate with each other across process boundaries to address business scenarios. To get reliable and dependable communication, you need to select an appropriate communication protocol. 
 
 Take these factors into consideration:
-- Are you following an API-first approach, where APIs are treated as first-class citizens?
+- Are you following an API-first approach, where APIs are designed and maintained as primary components of your system architecture?
 - Have you evaluated high-performance protocols such as gRPC, HTTP/2, or asynchronous messaging (e.g., Kafka, NATS) for efficient service-to-service communication?
 - Do you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol?
 - Do you use event streaming platforms for real-time data processing?
@@ -181,7 +182,7 @@ Take the following considerations into account:
 One of the greatest benefits of microservices architectures is technology diversity. Microservices-based systems enable teams to develop services by using the technologies that they choose. In traditional application development, you might reuse existing code when you build new components, or create an internal development framework to reduce development effort. The use of multiple technologies can prevent code reuse. 
 
 Consider these factors:  
-- Do you use a service template to kickstart new service development?
+- Do you use a standardized service template to accelerate new service development and ensure consistency in architecture, deployment, and DevOps practices?
 - Do you follow the Twelve-Factor app methodology and use a single code base for microservices, isolating dependencies and externalizing configuration?
 - Do you keep sensitive configuration in key vaults?
 - Do you containerize your services?
@@ -286,7 +287,7 @@ Consider these factors:
 
 - Are authentication and authorization required for the service?
 Have you considered [zero-trust architecture principles](/azure/security/fundamentals/zero-trust)?
-- Do you have secrets management beyond key vaults (rotation, lifecycle management)?
+- Do you have a comprehensive secrets management strategy that includes key rotation, lifecycle management, and auditing—beyond simply storing secrets in a key vault?
 - Are you using an API gateway to validate tokens and incoming requests?
 - Are you using SSL or mTLS to provide security for service communication?
 - Do you implement container and image security scanning?
@@ -301,8 +302,8 @@ Have you considered [zero-trust architecture principles](/azure/security/fundame
 
 Principal authors:
 
-- [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob/) | Senior Cloud Solution Architect - Digital & Application Innovation
-- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams/) | Technology Specialist - Digital & Application Innovation
+- [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob/) | Senior Cloud Solution Architect - Cloud and AI Apps
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams/) | Solution Engineer - Cloud and AI Apps
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
