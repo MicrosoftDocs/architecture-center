@@ -12,16 +12,16 @@ ms.custom: arb-aiml
 
 # AI agent orchestration patterns
 
-Modern AI agent systems often push beyond what single agents with access to many tools and knowledge sources can accomplish. These systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
+As developers learn how to take full advantage of the capabilities of LLMs, AI agent systems become increasingly complex. These systems often exceed the abilities of single agents with access to many tools and knowledge sources. Instead, these systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
 
 ## Overview
 
 Using multiple AI agents enables you to decompose complex problems into specialized units of work or knowledge, with each task handled by dedicated agents with specific capabilities. This approach offers several advantages over monolithic single-agent solutions.
 
-- Specialization: Each agent can focus on a specific domain or capability, reducing code and prompt complexity.
-- Scalability: Add or modify agents without redesigning the entire system.
-- Maintainability: Each agent has a smaller surface area and tool usage to test and debug.
-- Optimization: Each agent can use distinct models, task-solving approaches, knowledge, tools, and compute to accomplish its outcomes.
+- **Specialization:** Individual agents can focus on a specific domain or capability, reducing code and prompt complexity.
+- **Scalability:** Agents can be added or modified without redesigning the entire system.
+- **Maintainability:** Testing and debugging can be focused on individual agents, reducing the complexity of these tasks.
+- **Optimization:** Each agent can use distinct models, task-solving approaches, knowledge, tools, and compute to accomplish its outcomes.
 
 The patterns described in this guide represent proven approaches to orchestrating multiple agents. Each pattern is optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating autonomous components in AI-driven workload capabilities.
 
@@ -233,7 +233,8 @@ TODO
 
 Consider the magentic pattern when you have:
 
-- A complex problem that has no predetermined plan of approach and requires input and feedback from multiple specialized agents
+- A complex or open-ended problem that has no predetermined solution path
+- A requirement to consider input and feedback from multiple specialized agents to develop a valid solution path
 - A requirement to have the AI system generate a fully developed plan of approach that can be reviewed by a human
 
 ### When to avoid magentic orchestration
@@ -241,11 +242,12 @@ Consider the magentic pattern when you have:
 Avoid this pattern when:
 
 - The solution path has already been developed
+- There's no requirement to produce a ledger
 - The task has low complexity and can be solved by a single agent through tool use
 
 ### Magentic orchestration example
 
-An organization has developed a self-service HR kiosk system that relies on a magentic agent pattern to help users with issues regarding their benefits or other workplace matters. Because there's a vast number of possible issues that can be input from users, trying to pre-develop decision trees is inefficient. So, the system relies on the manager agent to dynamically build plans to solve issues as they are introduced by users. The manager relies on agents that have specialized knowlege about different aspects of the HR systems and third-party services, like health or life insurance, to research issues and offer solutions to help the users. The manager builds the plan as it gathers the necessary information from the other agents and then provides the plan to the user and sends a copy to the HR team so that it can be reviewed as necessary.
+An organization has developed a self-service HR kiosk system that relies on a magentic agent pattern to help users with issues regarding their benefits or other workplace matters. Because there's a vast number of possible issues that can be provided as input from users, trying to predevelop decision trees is inefficient. So, the system relies on the manager agent to dynamically build plans to solve issues as they are introduced by users. The manager relies on agents that have specialized knowlege about different aspects of the HR systems and third-party services, like health or life insurance, to research issues and offer solutions to help the users. The manager builds the plan as it gathers the necessary information from the other agents and then provides the plan to the user and sends a copy to the HR team so that it can be reviewed as necessary.
 
 :::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
 TODO
@@ -284,7 +286,7 @@ These patterns all require properly operating agents and reliable transitions be
 
 ### Security
 
-TODO, intro
+Implementing proper security mechanisms into these design patterns mimizes the risk of exposing your AI system to attacks or data leakage. Securing communication between agents and limiting individual agents' access to sensitive data are key security design strategies. Specific security considerations include:
 
 - Implement authentication and use secure networking between agents.
 - Consider data privacy implications of agent communications.
@@ -294,7 +296,7 @@ TODO, intro
 
 ### Observability and testing
 
-TODO, intro
+Distributing your AI system across multiple agents means you need to monitor and test each agent individually, and the system as a whole to ensure proper functionality. When desiging your obersvability and testing strategies, consider the following recommendations.
 
 - Instrument all agent operations and handoffs. Troubleshooting distributed systems is a computer science challenge, and orchestrated AI agents are no exception.
 - Track performance and resource utilization metrics for each agent so you can baseline, find bottlenecks, and optimize.
