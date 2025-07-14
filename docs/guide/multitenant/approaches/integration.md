@@ -188,7 +188,7 @@ Typically, you build these individual elements by using services like Azure Func
 
 When you work with complex multitenant integration scenarios, it's helpful to define a library of reusable integration steps. You can build workflows for each tenant by composing the applicable pieces based on that tenant's requirements. Alternatively, you might expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows.
 
-Similarly, you might need to import data from tenants who use a different data format or different transport from others. A good approach for this scenario is to build tenant-specific *connectors*. Connectors are workflows that normalize and import the data into a standardized format and location. They then trigger your main shared import process.
+Similarly, you might need to import data from tenants who use a different data format or different transport than others. A good approach for this scenario is to build tenant-specific *connectors*. Connectors are workflows that normalize and import the data into a standardized format and location. They then trigger your main shared import process.
 
 If you need to build tenant-specific logic or code, consider following the [Anti-Corruption Layer pattern](../../../patterns/anti-corruption-layer.yml). This pattern helps you encapsulate tenant-specific components and keeps the rest of your solution unaware of the added complexity.
 
