@@ -211,13 +211,15 @@ Avoid this pattern when:
 
 ### Agent handoff pattern example
 
-A telecommunications CRM solution uses handoff agents in their customer support web portal. An initial agent begins helping customers but discovers specialized expertise needs through the conversation, and hands the conversation to the most likely agent to address the customer concern. Only one agent at a time operates on the original input.
+A telecommunications CRM solution uses handoff agents in their customer support web portal. An initial agent begins helping customers but discovers specialized expertise needs through the conversation, and hands the conversation to the most likely agent to address the customer concern. Only one agent at a time operates on the original input, and the handoff chain will end in a single result.
 
 :::image type="complex" source="_images/handoff-pattern-example.svg" alt-text="Diagram showing handoff orchestration where a triage agent intelligently routes questions to appropriate specialist agents based on dynamic analysis." lightbox="_images/group-chat-pattern-example.svg":::
 TODO
 :::image-end:::
 
 In this system, the *triage support agent* interprets the request and tries to handle common problems itself. When it reaches its limits, the agent hands network issues to a *technical infrastructure agent*, billing disputes to a *financial resolution agent*, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and is aware of another agent that can better support the scenario. Every agent is capable of completing the conversation if it feels it has reached customer success or if it feels there are no more agents that could further benefit the customer. Likewise, some agents are defined to hand off the user experience to a human support agent in cases that are important to solve but no AI agents yet have the capabilities to address the problem.
+
+One example of a handoff instance is highlighted in the diagram, starting with the triage agent handing the work off to the technical infrastructure agent. The technical infrastructure agent makes a decision to hand off to the financial resolution agent which decides to finally redirect to customer support.
 
 ## Magentic orchestration
 
