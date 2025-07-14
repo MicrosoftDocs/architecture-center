@@ -130,7 +130,7 @@ You can embed feature flag support into your application by writing code yoursel
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to progressively roll out updates across a set of tenants or deployment stamps. You can assign a subset of tenants to each ring in the rollout sequence.
+[Deployment rings](/devops/operate/safe-deployment-practices) enable you to progressively roll out updates across a set of tenants or deployment stamps. You can assign a subset of tenants to each ring in the rollout sequence.
 
 You can determine how many rings to create and what each ring means for your own solution. Commonly, organizations use the following rings:
 
