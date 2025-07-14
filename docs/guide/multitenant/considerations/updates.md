@@ -20,7 +20,7 @@ When planning a strategy to update your solution, you need to:
 - Find a balance that both you and your tenants can accept.
 - Communicate your strategy clearly to your tenants and other stakeholders.
 
-In this article, we provide guidance for technical decision-makers about the approaches you can consider to update your tenants' software, and the trade-offs involved.
+This article provides guidance for technical decision-makers about approaches to update tenant software and the trade-offs involved.
 
 ## Your customers' requirements
 
@@ -36,19 +36,19 @@ Customers often have explicit or implicit requirements that can affect how your 
 
 - **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any problems that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
 
-- **Rollback:** Consider whether customers want to roll back updates if there's a breaking change, and who would trigger such a rollback request.
+- **Rollback:** Consider whether customers want to roll back updates if there's a breaking change and who triggers such a rollback request.
 
 ## Your requirements
 
 You also need to consider the following questions from your own perspective:
 
-- **Control you're willing to provide:** Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer might be yes. However, if you're building a consumer-focused solution, it's unlikely that you'll give any control over how you upgrade or operate your solution.
+- **Control you're willing to provide:** Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer might be yes. However, if you're building a consumer-focused solution, it's unlikely that you give any control over how you upgrade or operate your solution.
 
 - **Versions:** How many versions of your solution can you reasonably maintain at one time? If you find a bug or security vulnerability and need to apply a hotfix, you might need to apply it to all versions currently in use.
 
-- **Consequences of old versions:** What's the impact of letting customers fall too far behind the current version? If you release new features regularly, will old versions become obsolete quickly? Also, depending on your upgrade strategy and the types of changes, you might need to maintain separate infrastructures for each version of your solution. So, there might be both operational and financial costs, as you maintain support for older versions.
+- **Consequences of old versions:** What's the impact of letting customers fall too far behind the current version? If you release new features regularly, do old versions become obsolete quickly? Also, depending on your upgrade strategy and the types of changes, you might need to maintain separate infrastructures for each version of your solution. So, there might be both operational and financial costs, as you maintain support for older versions.
 
-- **Rollback:** Can your deployment strategy support rollbacks to previous versions? Is this something you want to enable?
+- **Rollback:** Can your deployment strategy support rollbacks to previous versions? Do you want to enable this capability?
 
 > [!NOTE]
 > Consider whether you need to take your solution offline for updates or maintenance. Outage windows are generally considered an outdated practice for software as a service (SaaS). Modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. However, you need to design for zero-downtime deployments. It's important to consider your update process when you plan your solution architecture.
@@ -61,7 +61,7 @@ You also need to consider the following questions from your own perspective:
 
 If you leave cadence of your service updates entirely to your tenants' discretion, they might choose to never update. It's important to allow yourself to update your solution, while factoring in any reasonable concerns or constraints that your customers might have. For example, if a customer is particularly sensitive to updates on a Friday because that's their busiest day of the week, consider whether you can just as easily defer updates to Monday without affecting your solution.
 
-One approach that can work well is to roll out updates on a tenant-by-tenant basis by using one of the approaches in the [Deployment strategies to support updates](#deployment-strategies-to-support-updates) section. Notify your customers about planned updates. Allow customers to temporarily opt out, but not permanently opt out. Put a reasonable limit on when you require the update to be applied.
+One approach that can work well is to roll out updates on a tenant-by-tenant basis by using one of the [deployment strategies](#deployment-strategies-to-support-updates). Notify your customers about planned updates. Allow customers to temporarily but not permanently opt out. Put a reasonable limit on when you require the update to be applied.
 
 Consider allowing yourself the ability to deploy security patches, or other critical hotfixes, with minimal or no advance notice. Ensure that tenants understand this practice and its importance in safeguarding their data.
 
@@ -108,11 +108,11 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 Consider how you deploy updates to your infrastructure. Your update strategy depends heavily on the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings. You can use these approaches independently, or you can combine them together to meet more complex requirements.
 
-In all cases, ensure that you have sufficient reporting and visibility. You need to know what version of infrastructure, software, or feature that each tenant is using, what they're eligible to migrate to, and any time-related data tied to those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.md).
+In all cases, ensure that you have sufficient reporting and visibility. You need to know what version of infrastructure, software, or feature each tenant uses, what they're eligible to migrate to, and any time-related data tied to those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.md).
 
 ### Deployment Stamps pattern
 
-Many multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). In this pattern, you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
+Many multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). In this pattern, you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process because you can roll out updates progressively across stamps without affecting others.
 
@@ -136,9 +136,9 @@ You can determine how many rings to create and what each ring means for your own
 
 - **Canary:** A canary ring includes your own test tenants and customers who want to receive updates as soon as they're available. Anybody on the canary ring should understand that they might receive more frequent updates. These updates might not have gone through as comprehensive a validation process as updates in other rings.
 
-- **Early adopter:** An early adopter ring contains tenants who are slightly more risk-averse, but who are still prepared to receive regular updates.
+- **Early adopter:** An early adopter ring contains tenants who are slightly more risk-averse but still prepared to receive regular updates.
 
-- **Users:** Most of your tenants will belong to the *users* ring, which receives less frequent and more highly tested updates.
+- **Users:** Most of your tenants belong to the *users* ring, which receives less frequent and more highly tested updates.
 
 ### API versions
 
