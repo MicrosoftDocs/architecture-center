@@ -1,95 +1,108 @@
-Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We describe some common deployment approaches that can support different tenant isolation models. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
+Azure provides many options for organizing your resources. In a multitenant solution, you need to consider specific trade-offs when you plan your resource organization strategy. This article focuses on two core elements of Azure resource organization: tenant isolation and scaling out across multiple resources. It describes some common deployment approaches that can support different tenant isolation models. This article also describes how to work with Azure resource limits and quotas and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
 
+The following sections describe tenant isolation and scale considerations that you should make when you organize your Azure resources.
+
 ### Tenant isolation requirements
 
-When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. Throughout the multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this series, we describe the options and trade-offs for many categories of resources. In general, there are a range of options for *tenant isolation*. Review [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) for more guidance about how to decide on your isolation model.
+When you deploy a multitenant solution in Azure, you need to decide whether you dedicate resources to each tenant or share resources between multiple tenants. The multitenancy approaches and [service-specific guidance](../service/overview.md) sections of this article series describe the options and trade-offs for many categories of resources. In general, there are a range of options for tenant isolation. For more information about how to decide on your isolation model, see [Tenancy models for a multitenant solution](../considerations/tenancy-models.md).
 
 ### Scale
 
-Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider *scaling out* or *bin packing* to meet your planned number of tenants or your planned system load.
+Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider scaling out or bin packing to meet your planned number of tenants or your planned system load.
 
-If you know with certainty that you won't grow to large numbers of tenants or to a high load, don't overengineer your scale-out plan. But if you plan for your solution to grow, carefully consider your scale-out plan. Ensure that you architect for scale, by following the guidance in this article.
+If you know with certainty that you won't grow to large numbers of tenants or to a high load, don't overengineer your scale-out plan. But if you plan for your solution to grow, carefully consider your scale-out plan. Follow the guidance in this article to help ensure that you architect for scale.
 
-If you have an automated deployment process and need to scale across resources, determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy new resources *just in time* for when you need them? Or, will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
+If you have an automated deployment process and need to scale across resources, determine how you plan to deploy and assign tenants across multiple resource instances. For example, consider how to detect when you approach the number of tenants that can be assigned to a specific resource. You might plan to deploy new resources just in time for when you need them. Or you might deploy a pool of resources ahead of time so that they're ready for you to use when you need them.
 
 > [!TIP]
-> In the early stages of design and development, you might not choose to implement automated scale-out processes. You should still consider and clearly document the processes required to scale as you grow. By documenting the processes, you make it easier for yourself to automate them if the need arises in the future.
+> In the early stages of design and development, you might not choose to implement automated scale-out processes. You should still consider and clearly document the processes required to scale as you grow. By documenting the processes, you make it easier to automate them if the need arises in the future.
 
-It's also important to avoid making any assumptions throughout your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts in the future, so when you build your application tier, ensure it can dynamically switch the storage account it connects to based on the active tenant.
+It's also important to avoid making any assumptions throughout your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts in the future. When you build your application tier, ensure it can dynamically switch the storage account it connects to based on the active tenant.
 
 ## Approaches and patterns to consider
 
+Consider the following approaches to tenant isolation, bin packing, resource tags, and deployments stacks when you plan your Azure resource organization.
+
 ### Tenant isolation
 
-Azure resources are deployed and managed through a hierarchy. Most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with a [*Microsoft Entra tenant*](/entra/fundamentals/how-subscriptions-associated-directory).
+Azure resources are deployed and managed through a hierarchy. Most resources are deployed into [resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in subscriptions. [Management groups](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with a [Microsoft Entra tenant](/entra/fundamentals/how-subscriptions-associated-directory).
 
-When you determine how to deploy resources for each tenant, you might isolate at different levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and tradeoffs. It's also common to combine approaches, using different isolation models for different components of a solution.
+When you determine how to deploy resources for each tenant, you might isolate at different levels in the hierarchy. Each option is valid for specific types of multitenant solutions, and each option comes with benefits and trade-offs. It's also common to combine approaches by using different isolation models for different components of a solution.
 
 #### Isolation within a shared resource
 
-You might choose to share an Azure resource among multiple tenants, and run all of their workloads on a single instance. Review the [service-specific guidance](../service/overview.md) for the Azure services you use to understand any specific considerations or options that might be important.
+You might choose to share an Azure resource among multiple tenants and run all of their workloads on a single instance. For specific considerations or options that might be important, see the [service-specific guidance](../service/overview.md) for the Azure services that you use.
 
-When you run single instances of a resource, you need to consider any service limits, subscription limits, or quotas that might be reached as you scale. For example, there's a maximum number of nodes that are supported by an Azure Kubernetes Service (AKS) cluster, and there's an upper limit on the number of transactions per second that are supported by a storage account. Consider how you'll [scale to multiple shared resources](#bin-packing) as you approach these limits.
+When you run single instances of a resource, you need to consider any service limits, subscription limits, or quotas that you might reach as you scale. For example, there's a maximum number of nodes that an Azure Kubernetes Service (AKS) cluster supports, and there's an upper limit on the number of transactions per second that a storage account supports. Plan how to [scale to multiple shared resources](#bin-packing) as you approach these limits.
 
-You also need to ensure your application code is fully aware of multitenancy, and that it restricts access to the data for a specific tenant.
+You also need to ensure that your application code is fully aware of multitenancy and that it restricts access to the data for a specific tenant.
 
-As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources to service all of their customers. In the following diagram, a single set of resources is shared by all the customers.
+As an example of the shared resource approach, suppose Contoso is building a multitenant software as a service (SaaS) application that includes a web application, a database, and a storage account. They might decide to deploy shared resources to service all of their customers. In the following diagram, all customers share a single set of resources.
 
-![Diagram that shows a single set of resources that are shared by all the customers.](media/resource-organization/isolation-within-resource.png)
+:::image type="complex" border="false" source="media/resource-organization/isolation-within-resource.png" alt-text="Diagram that shows a single set of resources that all the customers share." lightbox="media/resource-organization/isolation-within-resource.png":::
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that represents a shared resource group. It contains the application, the database, and storage.
+:::image-end:::
 
 #### Separate resources in a resource group
 
-You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants while other components are dedicated to a specific tenant. This approach is known as [horizontal partitioning](../considerations/tenancy-models.md#horizontally-partitioned-deployments).
+You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or you might share some components between tenants and dedicate other components to a specific tenant. This approach is known as [horizontal partitioning](../considerations/tenancy-models.md#horizontally-partitioned-deployments).
 
-We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
+We recommend that you use resource groups to manage resources that have the same life cycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
 
-It's important that you consider how you deploy and manage these resources, including [whether the deployment of tenant-specific resources is initiated by your deployment pipeline or your application](deployment-configuration.yml#resource-management-responsibility). You also need to determine how you'll [clearly identify that specific resources relate to specific tenants](cost-management-allocation.yml). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags), or a tenant catalog database.
+It's important to consider how you deploy and manage these resources, including [whether your deployment pipeline or your application initiate the deployment of tenant-specific resources](deployment-configuration.yml#resource-management-responsibility). You also need to determine how to [clearly identify that specific resources relate to specific tenants](cost-management-allocation.yml). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags), or a tenant catalog database.
 
-It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
+It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means that you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
-Suppose Contoso has three customers (tenants): Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three tenants, and then deploy individual databases for each tenant. The following diagram shows a resource group that contains shared resources and a resource group that contains each tenant's database.
+Suppose Contoso has three customers, or tenants: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three tenants, and then deploy individual databases for each tenant. The following diagram shows a resource group that contains shared resources and a resource group that contains each tenant's database.
 
-![Diagram showing a resource group that contains shared resources, and another resource group that contains a database for each customer.](media/resource-organization/isolation-resource.png)
+
+:::image type="complex" border="false" source="media/resource-organization/isolation-resource.png" alt-text="Diagram that shows one resource group that contains shared resources and another resource group that contains a database for each customer." lightbox="media/resource-organization/isolation-resource.png":::
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains two resource groups. One resource group contains the application and storage and is marked as shared. The other resource group contains a tenant database for each customer, Adventure Works, Fabrikam, and Tailwind.
+:::image-end:::
 
 #### Separate resource groups in a subscription
 
-When you deploy a set of resources for each tenant, consider using dedicated tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), each stamp should be deployed into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription, which enables you to easily configure policies and access control rules.
+When you deploy a set of resources for each tenant, consider using dedicated, tenant-specific resource groups. For example, when you follow the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern), you should deploy each stamp into its own resource group. You can consider deploying multiple tenant-specific resource groups into a shared Azure subscription. This approach enables you to easily configure policies and access control rules.
 
-You might choose to create a set of resource groups for each tenant, and also shared resource groups for any shared resources.
+You might choose to create a set of resource groups for each tenant and shared resource groups for any shared resources.
 
-When you deploy tenant-specific resource groups into shared subscriptions, be aware of the maximum number of resource groups in each subscription, and other subscription-level limits that apply to the resources you deploy. As you approach these limits, you might need to [scale across multiple subscriptions](#resource-group-and-subscription-limits).
+When you deploy tenant-specific resource groups into shared subscriptions, be aware of the maximum number of resource groups in each subscription and other subscription-level limits that apply to the resources you deploy. As you approach these limits, you might need to [scale across multiple subscriptions](#resource-group-and-subscription-limits).
 
-In our example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription. In the following diagram, a subscription, which contains three resource groups, is created for each customer.
+In the example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription. In the following diagram, a subscription, which contains three resource groups, is created for each customer.
 
-![Diagram showing a subscription that contains three resource groups, each of which is a complete set of resources for a specific customer.](media/resource-organization/isolation-resource-group.png)
+:::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer." lightbox=".media/resource-organization/isolation-resource-group.png":::
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains three resource groups. Each resource group contains the application, database, and storage for each customer, Adventure Works, Fabrikam, and Tailwind.
+:::image-end:::
 
 #### Separate subscriptions
 
-By deploying tenant-specific subscriptions, you can completely isolate tenant-specific resources. Additionally, because most quotas and limits apply within a subscription, using a separate subscription per tenant ensures that each tenant has full use of any applicable quotas. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also use [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) across subscriptions.
+You can deploy tenant-specific subscriptions to completely isolate tenant-specific resources. You can also ensure that each tenant has full use of any applicable quotas by using a separate subscription for each tenant because most quotas and limits apply within a subscription. For some Azure billing account types, [you can programmatically create subscriptions](/azure/cost-management-billing/manage/programmatically-create-subscription). You can also use [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) across subscriptions.
 
-Make you are aware of the number of subscriptions that you can create. The maximum number of subscriptions might differ, depending on your commercial relationship with Microsoft or a Microsoft partner, such as if you have an [enterprise agreement](/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement?tabs=rest#limitations-of-azure-enterprise-subscription-creation-api).
+Make sure you know how many subscriptions you can create. The maximum number of subscriptions might differ depending on your commercial relationship with Microsoft or a Microsoft partner, such as if you have an [enterprise agreement](/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement?tabs=rest#limitations-of-azure-enterprise-subscription-creation-api).
 
-However, it can be more difficult to request quota increases, when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for some resource types. However, for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits). It can also be challenging to work with Azure support agreements and support cases, when you work with many subscriptions.
+It can be more difficult to request quota increases when you work across a large number of subscriptions. The [Quota API](/rest/api/reserved-vm-instances/quotaapi) provides a programmatic interface for some resource types. However, for many resource types, quota increases must be requested by [initiating a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#how-to-manage-limits). It can also be challenging to work with Azure support agreements and support cases when you work with many subscriptions.
 
-Consider grouping your tenant-specific subscriptions into a [management group](/azure/governance/management-groups/overview) hierarchy, to enable easy management of access control rules and policies.
+Consider grouping your tenant-specific subscriptions into a [management group](/azure/governance/management-groups/overview) hierarchy to enable easy management of access control rules and policies.
 
-For example, suppose Contoso decided to create separate Azure subscriptions for each of their three customers, as shown in the following diagram. Each subscription contains a resource group, with the complete set of resources for that customer.
+For example, suppose Contoso decides to create separate Azure subscriptions for each of their customers, as shown in the following diagram. Each subscription contains a resource group that includes the complete set of resources for that customer.
 
-![Diagram showing three customer-specific subscriptions. Each subscription contains a resource group, with the complete set of resources for that customer.](media/resource-organization/isolation-subscription.png)
+:::image type="complex" border="false" source="media/resource-organization/isolation-subscription.png" alt-text="Diagram that shows three customer-specific subscriptions. Each subscription contains a resource group that includes the complete set of resources for that customer." lightbox="media/resource-organization/isolation-subscription.png":::
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents the management group. The management group contains three separate boxes that represent an Azure subscription for each customer, Adventure Works, Fabrikam, and Tailwind. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer.
+:::image-end:::
 
-Each subscription contains a resource group, with the complete set of resources for that customer.
+Each subscription contains a resource group that includes the complete set of resources for that customer.
 
-They use a management group to simplify the management of their subscriptions. By including *Production* in the management group's name, they can clearly distinguish any production tenants from non-production or test tenants. Non-production tenants would have different Azure access control rules and policies applied.
+In this example, Contoso uses a management group to simplify the management of their subscriptions. By including *Production* in the management group's name, they can clearly distinguish any production tenants from non-production or test tenants. Different Azure access control rules and policies apply to non-production tenants.
 
-All of their subscriptions are associated with a single Microsoft Entra tenant. Using a single Microsoft Entra tenant means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
+All of Contoso's subscriptions are associated with a single Microsoft Entra tenant. By using a single Microsoft Entra tenant, Contoso can use its team's identities, including users and service principals, throughout its entire Azure estate.
 
 <a name='separate-subscriptions-in-separate-azure-ad-tenants'></a>
 
 #### Separate subscriptions in separate Microsoft Entra tenants
 
-It's also possible to manually create individual Microsoft Entra tenants for each of your tenants, or to deploy your resources into subscriptions within your customers' Microsoft Entra tenants. However, working with multiple Microsoft Entra tenants makes it more difficult to authenticate, to manage role assignments, to apply global policies, and to perform many other management operations.
+You can also manually create individual Microsoft Entra tenants for each of your tenants or deploy your resources into subscriptions within your customers' Microsoft Entra tenants. However, working with multiple Microsoft Entra tenants makes it more difficult to authenticate, manage role assignments, apply global policies, and perform many other management operations.
 
 > [!WARNING]
 > **We advise against creating multiple Microsoft Entra tenants for most multitenant solutions.** Working across Microsoft Entra tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
@@ -98,15 +111,17 @@ It's also possible to manually create individual Microsoft Entra tenants for eac
 
 In situations where you need to manage Azure resources in subscriptions that are tied to multiple Microsoft Entra tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help manage your resources across your Microsoft Entra tenants.
 
-For example, Contoso could create separate Microsoft Entra tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
+For example, Contoso can create separate Microsoft Entra tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
 
-![Diagram showing a Microsoft Entra tenant for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Microsoft Entra tenant.](media/resource-organization/isolation-tenant.png)
+:::image type="complex" border="false" source="media/resource-organization/isolation-tenant.png" alt-text="Diagram that shows a Microsoft Entra tenant for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant." lightbox="media/resource-organization/isolation-tenant.png":::
+   In the diagram, three separate boxes represent the Microsoft Entra tenant for each of Contoso's customers, Adventure Works, Fabrikam, and Tailwind. Each tenant contains another box that represents the Azure subscription for each customer. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer. On the right side of the diagram, a blue line represents Azure Lighthouse. An arrow points from this blue line to each of the Microsoft Entra tenants.
+:::image-end:::
 
-A Microsoft Entra tenant is configured for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Microsoft Entra tenant.
+A Microsoft Entra tenant is configured for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant.
 
 ### Bin packing
 
-Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources as the load on your system increases, or as the number of tenants grows. Consider *bin packing* to deploy an optimal number of resources for your requirements.
+Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources as the load on your system increases, or as the number of tenants grows. Consider bin packing to deploy an optimal number of resources for your requirements.
 
 > [!TIP]
 > In many solutions, it's easier to scale your entire set of resources together, instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).

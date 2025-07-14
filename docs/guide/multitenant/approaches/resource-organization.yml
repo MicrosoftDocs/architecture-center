@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure resource organization in multitenant solutions
-  description: This article describes how to organize your Azure resources in a multitenant solution.
+  title: Organize Azure Resources in Multitenant Solutions
+  description: Learn how to organize your Azure resources in a multitenant solution based on tenant isolation and scaling out across multiple resources.
   author: johndowns
   ms.author: pnp
   ms.date: 06/16/2025
@@ -17,7 +17,7 @@ products:
   - azure
   - azure-resource-manager
   - entra-id
-name: Azure resource organization in multitenant solutions
+name: Organize Azure resources in multitenant solutions
 summary: This article describes how to organize your Azure resources in a multitenant solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/isolation-resource-group.png
 content: |
