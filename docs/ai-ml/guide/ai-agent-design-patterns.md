@@ -12,18 +12,18 @@ ms.custom: arb-aiml
 
 # AI agent orchestration patterns
 
-As developers learn how to take full advantage of the capabilities of LLMs, AI agent systems become increasingly complex. These systems often exceed the abilities of single agents with access to many tools and knowledge sources. Instead, these systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
+As architects and developers design their workload to take full advantage of the capabilities of language models, AI agent systems become increasingly complex. These systems often exceed the abilities of a single agent with access to many tools and knowledge sources. Instead, these systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide examines fundamental orchestration patterns for multi-agent architectures, helping you choose the right approach for your specific requirements.
 
 ## Overview
 
-Using multiple AI agents enables you to decompose complex problems into specialized units of work or knowledge, with each task handled by dedicated agents with specific capabilities. This approach offers several advantages over monolithic single-agent solutions.
+Using multiple AI agents enables you to decompose complex problems into specialized units of work or knowledge, with each task handled by dedicated agents with specific capabilities. These approaches mimic various strategies seen in human teamwork. Using multiple agents offers several advantages over monolithic single-agent solutions.
 
 - **Specialization:** Individual agents can focus on a specific domain or capability, reducing code and prompt complexity.
 - **Scalability:** Agents can be added or modified without redesigning the entire system.
 - **Maintainability:** Testing and debugging can be focused on individual agents, reducing the complexity of these tasks.
 - **Optimization:** Each agent can use distinct models, task-solving approaches, knowledge, tools, and compute to accomplish its outcomes.
 
-The patterns described in this guide represent proven approaches to orchestrating multiple agents. Each pattern is optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating autonomous components in AI-driven workload capabilities.
+The patterns described in this guide represent proven approaches to orchestrating multiple agents to work together to accomplish an outcome. Each pattern is optimized for different types of coordination requirements. These AI agent orchestration patterns complement and extend traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating autonomous components in AI-driven workload capabilities.
 
 ## Sequential orchestration
 
@@ -130,7 +130,7 @@ TODO
 
 This pattern addresses scenarios that are best accomplished through group discussion to reach decisions, whether through collaborative ideation, structured validation, or quality control processes. The pattern supports various interaction modes from free-flowing brainstorming to formal review workflows with fixed roles and approval gates.
 
-This pattern works particularly well with human-in-the-loop scenarios where humans can optionally assume dynamic chat manager responsibilities and guide conversations toward productive outcomes.
+This pattern works particularly well with human-in-the-loop scenarios where humans can optionally assume dynamic chat manager responsibilities and guide conversations toward productive outcomes. In this orchestration pattern, agents are typically in a *read-only* mode; they do not use tools to makes changes in running systems.
 
 ### When to use group chat orchestration
 
@@ -221,13 +221,13 @@ In this system, the *triage support agent* interprets the request and tries to h
 
 ## Magentic orchestration
 
-The magentic pattern is a general-purpose pattern for open-ended and complex problems that don't have a predetermined plan of approach. In this pattern, the plan of approach is dynamically built and refined as part of the workflow through collaboration between specialized agents and a magentic manager agent. The magentic manager agent builds and tracks a ledger to develop the approach plan, which will eventually be finalized and followed to complete the given task. The manager agent communicates directly with the specialized agents to gather information as it builds and refines the ledger, iterating as many times as needed to build a complete plan that can be successfully executed.
+The magentic orchestration pattern is for open-ended and complex problems that don't have a predetermined plan of approach. The agents in this pattern usually have tools that allow them to make direct changes in external systems. In this pattern, the focus is as much on building and documenting the *approach* to solve the problem as it is executing the approach. The task list is dynamically built and refined as part of the workflow through collaboration between specialized agents and a magentic manager agent. As the context evolves, the magentic manager agent builds a task ledger to develop the approach plan with goals and subgoals, which will eventually be finalized, followed, and tracked to complete the given outcome.
 
-:::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
+:::image type="complex" source="_images/magentic-pattern.svg" alt-text="Diagram showing magentic orchestration." lightbox="_images/magentic-pattern.svg":::
 TODO
 :::image-end:::
 
-TODO
+task The manager agent communicates directly with the specialized agents to gather information as it builds and refines the task ledger, iterating, back-tracking, and delegating as many times as needed to build a complete plan that can be successfully executed. The manager agent frequently evaluates whether the original request is fully satisfied or stalled, updating the ledger to adjust the plan. In some ways, this orchestration pattern is an extension of the [group chat](#group-chat-orchestration) pattern. The magentic orchestration pattern focuses on a agent building a plan of approach and while other agents that have tools to implement change in external systems, rather than just agents discussing and using their knowledge stores to reach an outcome.
 
 ### When to use magentic orchestration
 
@@ -235,25 +235,34 @@ Consider the magentic pattern when you have:
 
 - A complex or open-ended problem that has no predetermined solution path
 - A requirement to consider input and feedback from multiple specialized agents to develop a valid solution path
-- A requirement to have the AI system generate a fully developed plan of approach that can be reviewed by a human
+- A requirement to have the AI system generate a fully developed plan of approach that can be reviewed by a human before or after execution
+- Agents equipped with tools that interact with external systems, consume external resources, or could induce changes in running systems. A documented plan of how those agents will be sequenced could be presented to a user before allowing the agents to follow the tasks.
 
 ### When to avoid magentic orchestration
 
 Avoid this pattern when:
 
-- The solution path has already been developed
+- The solution path has already been developed or should be approached in a deterministic way
 - There's no requirement to produce a ledger
-- The task has low complexity and can be solved by a single agent through tool use
+- The task has low complexity and can be solved by a simpler pattern
+- The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for end results
 
 ### Magentic orchestration example
 
-An organization has developed a self-service HR kiosk system that relies on a magentic agent pattern to help users with issues regarding their benefits or other workplace matters. Because there's a vast number of possible issues that can be provided as input from users, trying to predevelop decision trees is inefficient. So, the system relies on the manager agent to dynamically build plans to solve issues as they are introduced by users. The manager relies on agents that have specialized knowlege about different aspects of the HR systems and third-party services, like health or life insurance, to research issues and offer solutions to help the users. The manager builds the plan as it gathers the necessary information from the other agents and then provides the plan to the user and sends a copy to the HR team so that it can be reviewed as necessary.
+A site reliability engineering (SRE) team built automation that uses magentic orchestration in their approach to handling low risk incident response scenarios. When a service outage occurs that is within the scope of the automation, the system must dynamically create and execute a remediation plan without knowing the specific steps needed upfront.
 
-:::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern.svg":::
+:::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_imagtes/magentic-pattern-example.svg":::
 TODO
 :::image-end:::
 
-TODO
+When the automation detects a qualifying incident, the *magentic manager agent* begins by creating an initial task ledger with high-level goals like "restore service availability" and "identify root cause." The manager agent then consults with specialized agents to gather information and refine the remediation plan.
+
+1. The *diagnostics agent* analyzes system logs, performance metrics, and error patterns to identify potential causes, reporting findings back to the manager agent.
+1. Based on diagnostic results, the manager agent updates the task ledger with specific investigation steps and consults the *infrastructure agent* to understand current system state and available recovery options.
+1. The *communication agent* provides stakeholder notification capabilities, and the manager agent incorporates communication checkpoints and approval gates into the evolving plan according to the SRE team's escalation procedures.
+1. As the situation becomes clearer, the manager agent might add the *rollback agent* to the plan if deployment reversion is needed, or escalate to human SRE engineers if the incident exceeds the automation's scope.
+
+Throughout this process, the manager agent continuously refines the task ledger based on new information, adding, removing, or reordering tasks as the incident evolves. For example, if the diagnostics agent discovers a database connection issue, the manager agent might pivot the entire plan from a deployment rollback strategy to a database connectivity restoration approach. The manager agent maintains a complete audit trail of the evolving plan and execution steps, providing transparency for post-incident review and ensuring the SRE team can improve both the workload and the automation based on lessons learned.
 
 ## Implementation considerations
 
@@ -286,17 +295,17 @@ These patterns all require properly operating agents and reliable transitions be
 
 ### Security
 
-Implementing proper security mechanisms into these design patterns mimizes the risk of exposing your AI system to attacks or data leakage. Securing communication between agents and limiting individual agents' access to sensitive data are key security design strategies. Specific security considerations include:
+Implementing proper security mechanisms into these design patterns minimizes the risk of exposing your AI system to attacks or data leakage. Securing communication between agents and limiting individual agents' access to sensitive data are key security design strategies. Specific security considerations include:
 
 - Implement authentication and use secure networking between agents.
 - Consider data privacy implications of agent communications.
 - Design audit trails for compliance requirements.
 - Design agents and their orchestrators to follow the principle of least privilege.
-- Consider how the end user's identity should be handled across agents. Agents must themselves have broad access to knowledge stores to handle requests from all users, but agents shouldn't return data that should be inaccessible to the user. Security trimming must be implemented in every agent in the pattern
+- Consider how the end user's identity should be handled across agents. Agents must themselves have broad access to knowledge stores to handle requests from all users, but agents shouldn't return data that should be inaccessible to the user. Security trimming must be implemented in every agent in the pattern.
 
 ### Observability and testing
 
-Distributing your AI system across multiple agents means you need to monitor and test each agent individually, and the system as a whole to ensure proper functionality. When desiging your obersvability and testing strategies, consider the following recommendations.
+Distributing your AI system across multiple agents means you need to monitor and test each agent individually, and the system as a whole to ensure proper functionality. When designing your observability and testing strategies, consider the following recommendations.
 
 - Instrument all agent operations and handoffs. Troubleshooting distributed systems is a computer science challenge, and orchestrated AI agents are no exception.
 - Track performance and resource utilization metrics for each agent so you can baseline, find bottlenecks, and optimize.
