@@ -87,7 +87,7 @@ Designs that connect all spoke virtual networks to each other can also be extend
 
 When you directly connect spoke virtual networks to each other in a fully meshed topology, you need to consider the potentially high number of virtual network peerings required. The following diagram illustrates this problem. In this scenario, we strongly recommend Azure Virtual Network Manager so that you can automatically create virtual network connections.
 
-:::image type="complex" border="false" source="images/peering-number-chart.png" alt-text="Diagram that shows how the required number of peerings grows with the number of spokes." lightbox="images/peering-number-chart.png":::
+:::image type="complex" border="false" source="images/peering-number-chart.svg" alt-text="Diagram that shows how the required number of peerings grows with the number of spokes." lightbox="images/peering-number-chart.svg":::
    The image shows a line chart that represents the peerings required for full mesh connectivity. The x axis shows the number of spoke virtual networks. The y axis shows the number of peerings. As the number of virtual networks increases, so do the number of peerings.
 :::image-end:::
 
