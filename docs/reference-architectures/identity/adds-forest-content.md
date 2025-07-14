@@ -75,7 +75,7 @@ For Active Directory-specific security considerations, see the security consider
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs for the services used in this architecture. Other considerations are described in the cost optimization section in [Well-Architected Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs for the services used in this architecture.
 
 <a name='ad-domain-services'></a>
 #### Microsoft Entra Domain Services
@@ -117,7 +117,6 @@ Active Directory is automatically scalable for domain controllers that are part 
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
 [adfs]: ./adfs.yml
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
