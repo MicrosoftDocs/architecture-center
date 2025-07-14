@@ -64,7 +64,7 @@ Transforming a monolithic application to a microservices architecture takes time
 
 For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-corruption Layers to support this transformation.
 
-Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. In many circumstances, that's not practical. In such cases, you can apply patterns like the [Materialized View pattern](https://learn.microsoft.com/azure/architecture/patterns/materialized-view) and approaches such as [Modernizing applications using an API wrapper](https://learn.microsoft.com/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared datab
+Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. In many circumstances, that's not practical. In such cases, you can apply patterns like the [Materialized View pattern](/azure/architecture/patterns/materialized-view) and approaches such as [Modernizing applications using an API wrapper](/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared data.
 
 ## Assess DevOps readiness
 
@@ -121,8 +121,7 @@ Microservices are adaptive to change and take advantage of agile development to 
 - Do you use semantic versioning for your applications? 
 - Do you maintain different environments and propagate the same release in a sequence (for example, first to staging and then to production)?
 - Do you use versioning for your APIs?
-- Do you follow proper versioning guidelines for APIs? Learn more about [Best practices for RESTful web API design
-](https://learn.microsoft.com/azure/architecture/best-practices/api-design#versioning-a-restful-web-api)
+- Do you follow proper versioning guidelines for APIs? Learn more about [Best practices for RESTful web API design](/azure/architecture/best-practices/api-design#versioning-a-restful-web-api).
 - When do you change an API version?
 - What's your approach for handling API versioning?
    - URI path versioning
