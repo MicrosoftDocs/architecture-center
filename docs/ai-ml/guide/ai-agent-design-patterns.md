@@ -251,7 +251,7 @@ Avoid this pattern when:
 
 A site reliability engineering (SRE) team built automation that uses magentic orchestration in their approach to handling low risk incident response scenarios. When a service outage occurs that is within the scope of the automation, the system must dynamically create and execute a remediation plan without knowing the specific steps needed upfront.
 
-:::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_imagtes/magentic-pattern-example.svg":::
+:::image type="complex" source="_images/magentic-pattern-example.svg" alt-text="Diagram showing magentic orchestration where TODO." lightbox="_images/magentic-pattern-example.svg":::
 TODO
 :::image-end:::
 
