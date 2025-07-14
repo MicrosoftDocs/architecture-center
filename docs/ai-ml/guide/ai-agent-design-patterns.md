@@ -345,6 +345,25 @@ The Agent Framework within Semantic Kernel provides support for many of these [A
 
 Many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Clayton Siemens](https://www.linkedin.com/in/clayton-siemens-3514896/) | Principal Content Developer - Azure Patterns & Practices
+
+Other contributors:
+
+- [Hemavathy Alaganandam](https://www.linkedin.com/in/hemaalaganandam/) | Principal Software Engineer
+- [James Lee](https://www.linkedin.com/in/jameslee-7/) | Data Scientist 2
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer
+- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
+- [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351/) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To begin implementing AI agent design patterns:
