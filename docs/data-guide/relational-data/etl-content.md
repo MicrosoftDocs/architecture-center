@@ -63,7 +63,7 @@ Relevant Azure service:
 ## Streaming Data and Hot Path Architectures (Push, Transform, Load)
 When you have a need for Lambda hot path or Kappa architectures, another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
 
-![Diagram of the push load tranform process.](../images/ptl.png)
+![Diagram of the push load tranform process.](../images/plt.png)
 
 In a streaming architecture, data is ingested from event sources into a message broker or event hub (e.g., Azure Event Hubs, Kafka), then processed by a stream processor (e.g., Fabric Real-Time Intelligence, Azure Stream Analytics, Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing the results to downstream systems like dashboards, alerts, or databases.
 
@@ -84,7 +84,7 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 
 ## Next steps
 
-- [Fabric Decision Guide for Data Transformation]((fabric/fundamentals/decision-guide-pipeline-dataflow-spark))
+- [Fabric Decision Guide for Data Transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark))
 
 ## Related resources
 
