@@ -11,7 +11,7 @@ ms.custom: arb-saas
 
 # Considerations for updating a multitenant solution
 
-One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution. You might need to make changes to your application code, your Azure infrastructure, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy because some of your tenants might be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
+One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution. You might need to make changes to your application code, your Azure infrastructure, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's especially important to be clear about your update policy because some of your tenants might be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
 
 When planning a strategy to update your solution, you need to:
 
@@ -26,7 +26,7 @@ In this article, we provide guidance for technical decision-makers about the app
 
 Customers often have explicit or implicit requirements that can affect how your system is updated. Consider the following aspects to build up a picture of any points of concern that customers might raise:
 
-- **Expectations and requirements:** Uncover any expectations or requirements that customers might have about when their solution can be updated. These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
+- **Expectations and requirements:** Uncover any expectations or requirements that customers might have about when their solution can be updated. These expectations or requirements might be formally communicated to you in contracts or service-level agreements, or they might be informal.
 
 - **Maintenance windows:** Understand whether your customers expect service-defined or self-defined maintenance windows. They might need to communicate to their users about potential outages. They might also expect to test important aspects of your service after the update is complete.
 
@@ -34,7 +34,7 @@ Customers often have explicit or implicit requirements that can affect how your 
 
 - **Sensitivity:** Understand whether any of your customers are particularly sensitive or resistant to having updates applied. If they are, try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
 
-- **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
+- **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any problems that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
 
 - **Rollback:** Consider whether customers want to roll back updates if there's a breaking change, and who would trigger such a rollback request.
 
@@ -42,7 +42,7 @@ Customers often have explicit or implicit requirements that can affect how your 
 
 You also need to consider the following questions from your own perspective:
 
-- **Control you're willing to provide:** Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer might be yes. However, if you're building a consumer-focused solution, it's unlikely you'll give any control over how you upgrade or operate your solution.
+- **Control you're willing to provide:** Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer might be yes. However, if you're building a consumer-focused solution, it's unlikely that you'll give any control over how you upgrade or operate your solution.
 
 - **Versions:** How many versions of your solution can you reasonably maintain at one time? If you find a bug or security vulnerability and need to apply a hotfix, you might need to apply it to all versions currently in use.
 
@@ -59,7 +59,7 @@ You also need to consider the following questions from your own perspective:
 
 ## Find a balance
 
-If you leave cadence of your service updates entirely to your tenants' discretion, they might choose to never update. It's important to allow yourself to update your solution, while factoring in any reasonable concerns or constraints that your customers might have. For example, if a customer is particularly sensitive to updates on a Friday because that's their busiest day of the week, then consider if you can just as easily defer updates to Monday without affecting your solution.
+If you leave cadence of your service updates entirely to your tenants' discretion, they might choose to never update. It's important to allow yourself to update your solution, while factoring in any reasonable concerns or constraints that your customers might have. For example, if a customer is particularly sensitive to updates on a Friday because that's their busiest day of the week, consider whether you can just as easily defer updates to Monday without affecting your solution.
 
 One approach that can work well is to roll out updates on a tenant-by-tenant basis by using one of the approaches in the [Deployment strategies to support updates](#deployment-strategies-to-support-updates) section. Notify your customers about planned updates. Allow customers to temporarily opt out, but not permanently opt out. Put a reasonable limit on when you require the update to be applied.
 
@@ -68,7 +68,7 @@ Consider allowing yourself the ability to deploy security patches, or other crit
 Another approach can be to allow tenants to initiate their own updates during a time that they choose. Again, you should provide a deadline, at which point you apply the update on their behalf.
 
 > [!WARNING]
-> Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it requires significant development and testing effort to deliver and maintain.
+> Be careful about enabling tenants to initiate their own updates. This process is complex to implement, and it requires significant development and testing effort to deliver and maintain.
 
 Regardless of what you do, ensure that you have a process to monitor the health of your tenants, especially before and after updates are applied. Critical production incidents, also known as *live-site incidents*, often occur after changes to code or configuration. As a result, it's important to proactively monitor for and respond to any problems to retain customer confidence. For more information, see [Incident management for SaaS workloads on Azure](/azure/well-architected/saas/incident-management).
 
