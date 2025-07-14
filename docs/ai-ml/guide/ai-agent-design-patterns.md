@@ -343,7 +343,7 @@ The Agent Framework within Semantic Kernel provides support for many of these [A
 - [Handoff Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
 - [Magentic Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
 
-Many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html).
+For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice. Additionally, many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html).
 
 ## Contributors
 
@@ -374,4 +374,5 @@ To begin implementing AI agent design patterns:
 1. Implement proper observability from the beginning.
 1. Plan for evolution as your requirements and understanding mature.
 
-For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice.
+> [!div class="nextstepaction"]
+> [Implement agent orchestration with Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/)
