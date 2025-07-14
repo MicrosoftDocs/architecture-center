@@ -1,4 +1,4 @@
-This reference architecture shows how to create a separate Active Directory domain in Azure that domains in your on-premises Active Directory forest trust.
+This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises Active Directory forest.
 
 ## Architecture
 
