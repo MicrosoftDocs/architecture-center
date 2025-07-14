@@ -57,7 +57,7 @@ Choose mitigation strategies that directly address the specific limit that you e
 
 ## Isolation models
 
-In some multitenant solutions, you might deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reasons for isolation. For more information, see [Azure resource organization in multitenant solutions](../approaches/resource-organization.yml).
+In some multitenant solutions, you might deploy separate or dedicated resources for each tenant. Resource Manager provides several models that you can use to isolate resources, depending on your requirements and the reasons for isolation. For more information, see [Azure resource organization in multitenant solutions](../approaches/resource-organization.md).
 
 ## Contributors
 

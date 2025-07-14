@@ -50,7 +50,7 @@ Advanced control planes might take on more responsibilities:
 
 - **Automated maintenance operations:** It performs common maintenance operations, including deleting or archiving old data, creating and managing database indexes, and rotating secrets and cryptographic certificates.
 
-- **Tenant placement:** It allocates tenants to existing deployments or stamps based on criteria such as stamp usage targets, tenant requirements, and [bin-packing strategies](../approaches/resource-organization.yml#bin-packing).
+- **Tenant placement:** It allocates tenants to existing deployments or stamps based on criteria such as stamp usage targets, tenant requirements, and [bin-packing strategies](../approaches/resource-organization.md#bin-packing).
 - **Tenant rebalancing:** It rebalances existing tenants across deployment stamps as their usage changes.
 - **Customer activity tracking:** It integrates with external customer management solutions, like Dynamics 365, to track customer activity. 
 
@@ -167,7 +167,7 @@ A control plane needs to recognize any components that are shared rather than de
 
 Some shared components require reconfiguration when tenants are added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant that has a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.md#dangling-dns-and-subdomain-takeover-attacks).
 
-Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
+Shared components might have complex scaling rules that your control plane needs to follow. For example, if you use a [bin-packing](../approaches/resource-organization.md#bin-packing) approach to deploy your tenants' databases, the control plane must assign each new database to an Azure SQL elastic pool.
 
 You might determine that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and use that pool for new tenant databases. Your control plane must manage each of these shared components, including scaling and reconfiguring them when changes occur.
 

@@ -1,3 +1,18 @@
+---
+title: Organize Azure Resources in Multitenant Solutions
+description: Learn how to organize your Azure resources in a multitenant solution based on tenant isolation and scaling out across multiple resources.
+author: johndowns
+ms.author: pnp
+ms.date: 06/16/2025
+ms.update-cycle: 1095-days
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+   - arb-saas
+---
+
+# Organize Azure resources in multitenant solutions
+
 Azure provides many options for organizing your resources. In a multitenant solution, you need to consider specific trade-offs when you plan your resource organization strategy. This article focuses on two core elements of Azure resource organization: tenant isolation and scaling out across multiple resources. It describes some common deployment approaches that can support different tenant isolation models. This article also describes how to work with Azure resource limits and quotas and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
@@ -10,7 +25,7 @@ When you deploy a multitenant solution in Azure, you need to decide whether you 
 
 ### Scale
 
-Most Azure resources, as well as resource groups and subscriptions, impose limits that can affect your ability to scale. You might need to consider scaling out or bin packing to meet your planned number of tenants or your planned system load.
+Most Azure resources, resource groups, and subscriptions impose limits that can affect your ability to scale. You might need to consider scaling out or bin packing to meet your planned number of tenants or your planned system load.
 
 If you know with certainty that you won't grow to large numbers of tenants or to a high load, don't overengineer your scale-out plan. But if you plan for your solution to grow, carefully consider your scale-out plan. Follow the guidance in this article to help ensure that you architect for scale.
 
@@ -72,7 +87,7 @@ When you deploy tenant-specific resource groups into shared subscriptions, be aw
 
 In the example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription. In the following diagram, a subscription, which contains three resource groups, is created for each customer.
 
-:::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer." lightbox=".media/resource-organization/isolation-resource-group.png":::
+:::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer." lightbox="media/resource-organization/isolation-resource-group.png":::
    In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains three resource groups. Each resource group contains the application, database, and storage for each customer, Adventure Works, Fabrikam, and Tailwind.
 :::image-end:::
 
@@ -94,7 +109,7 @@ For example, suppose Contoso decides to create separate Azure subscriptions for 
 
 Each subscription contains a resource group that includes the complete set of resources for that customer.
 
-In this example, Contoso uses a management group to simplify the management of their subscriptions. By including *Production* in the management group's name, they can clearly distinguish any production tenants from non-production or test tenants. Different Azure access control rules and policies apply to non-production tenants.
+In this example, Contoso uses a management group to simplify the management of their subscriptions. By including *Production* in the management group's name, they can clearly distinguish any production tenants from nonproduction or test tenants. Different Azure access control rules and policies apply to nonproduction tenants.
 
 All of Contoso's subscriptions are associated with a single Microsoft Entra tenant. By using a single Microsoft Entra tenant, Contoso can use its team's identities, including users and service principals, throughout its entire Azure estate.
 
@@ -121,79 +136,97 @@ A Microsoft Entra tenant is configured for each of Contoso's tenants. Each tenan
 
 ### Bin packing
 
-Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources as the load on your system increases, or as the number of tenants grows. Consider bin packing to deploy an optimal number of resources for your requirements.
+Regardless of your resource isolation model, it's important to consider when and how you plan to scale out your solution across multiple resources. You might need to scale your resources as the load on your system increases or as the number of tenants grows. Consider bin packing to deploy an optimal number of resources for your requirements.
 
 > [!TIP]
-> In many solutions, it's easier to scale your entire set of resources together, instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+> In many solutions, it's easier to scale your entire set of resources together instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
 
 #### Resource limits
 
-Azure resources have [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
+Azure resources have [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) that you must consider in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
 
-The way you configure and use each resource also affects the scalability of that resource. For example, suppose that, given a certain amount of compute resources, your application can successfully respond to a defined number of transactions per second. Beyond this point, you might need to scale out. Performance testing helps you to identify the point at which your resources no longer meet your requirements.
+The way you configure and use each resource also affects the scalability of that resource. For example, suppose that your application can successfully respond to a defined number of transactions per second when a specific amount of compute resources are available. Beyond this point, you might need to scale out. Performance testing helps you identify the point at which your resources no longer meet your requirements.
 
 > [!NOTE]
 > The principle of scaling to multiple resources applies even when you work with services that support multiple instances.
 > 
 > For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale a single plan. In a high-scale multitenant app, you might exceed these limits and need to deploy more App Service plans to match your growth.
 
-When you share some of your resources between tenants, you should first determine the number of tenants that the resource supports, when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
+When you share some of your resources between tenants, you should first determine the number of tenants that the resource supports when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
 For example, suppose you deploy Azure Application Gateway as part of a multitenant SaaS solution. You review your application design, test the application gateway's performance under load, and review its configuration. Then, you determine that a single application gateway resource can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 customers in your first year, so you need to plan to deploy multiple application gateways to service your expected load.
 
-![Diagram showing two application gateways. The first gateway is dedicated to customers 1 through 100, and the second is dedicated to customers 101 through 200.](media/resource-organization/bin-pack-resource.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource.png" alt-text="Diagram that shows an application gateway that's dedicated to customers 1 through 100 and another that's dedicated to customers 101 through 200." lightbox="media/resource-organization/bin-pack-resource.png":::
+   In the diagram, a box that represents a subscription contains another box that represents a resource group. The resource group contains two application gateways. One gateway is dedicated to customers 1 through 100, and the other is dedicated to customers 101 through 200.
+:::image-end:::
 
-In the previous diagram, there are two application gateways. The first gateway is dedicated to customers 1 through 100, and the second is dedicated to customers 101 through 200.
+The diagram shows two application gateways. The first gateway is dedicated to customers 1 through 100, and the second is dedicated to customers 101 through 200.
 
 #### Resource group and subscription limits
 
-Whether you work with shared or dedicated resources, it's important to account for limits. Azure limits the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
+Whether you work with shared or dedicated resources, it's important to account for limits. Azure limits the number of resources that can be [deployed into a resource group](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-group-limits) and [into an Azure subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-subscription-limits). As you approach these limits, you need to plan to scale across multiple resource groups or subscriptions.
 
-For example, suppose you deploy a dedicated application gateway, for each of your customers, into a shared resource group. For some resources, [Azure supports deploying up to 800 resources of the same type](/azure/azure-resource-manager/management/resources-without-resource-group-limit) into a single resource group. So, when you reach this limit, you need to deploy any new application gateways into another resource group. In the following diagram, there are two resource groups. Each resource group contains 800 application gateways.
+For example, suppose you deploy a dedicated application gateway for each of your customers into a shared resource group. For some resources, [Azure supports deploying up to 800 resources of the same type](/azure/azure-resource-manager/management/resources-without-resource-group-limit) into a single resource group. So, when you reach this limit, you need to deploy any new application gateways into another resource group. In the following diagram, there are two resource groups. Each resource group contains 800 application gateways.
 
-![Diagram that shows two resource groups. Each resource group contains 800 application gateways.](media/resource-organization/bin-pack-resource-group.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resource-group.png" alt-text="Diagram that shows two resource groups. Each resource group contains 800 application gateways." lightbox="media/resource-organization/bin-pack-resource-group.png":::
+   In the diagram, a box that represents a subscription contains three boxes that represent resource group 1, resource group 2, and resource group N. The resource group 1 box contains application gateways for tenants 1 through 800. The resource group 2 box contains application gateways for tenants 801 through 1600. The resource group N box contains application gateways for N tenants.
+:::image-end:::
 
 #### Bin pack tenants across resource groups and subscriptions
 
-You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a small number of tenants you might be able to deploy a single resource and share it among all of your tenants. The following diagram shows bin packing into a single resource.
+You can also apply the bin packing concept across resources, resource groups, and subscriptions. For example, when you have a few tenants, you might be able to deploy a single resource and share it among all of your tenants. The following diagram shows bin packing into a single resource.
 
-![Diagram that shows bin packing into a single resource.](media/resource-organization/bin-pack-resources-1.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-1.png" alt-text="Diagram that shows bin packing into a single resource." lightbox="media/resource-organization/bin-pack-resources-1.png":::
+   In the diagram, a box that represents subscription A contains another box that represents resource group A1. Resource group A1 contains resource A1-1.
+:::image-end:::
 
-As you grow, you might approach the capacity limit for a single resource, and scale out to multiple (*R*) resources. The following diagram shows bin packing across multiple resources.
+As you grow, you might approach the capacity limit for a single resource and scale out to multiple resources (*R*). The following diagram shows bin packing across multiple resources.
 
-![Diagram that shows bin packing across multiple resources.](media/resource-organization/bin-pack-resources-2.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-2.png" alt-text="Diagram that shows bin packing across multiple resources." lightbox="media/resource-organization/bin-pack-resources-2.png":::
+   In the diagram, a box that represents subscription A contains another box that represents resource group A1. Resource group A1 contains resources A1-1 to A1-R.
+:::image-end:::
 
-Over time, you might reach the limit of the number of resources in a single resource group, and you would then deploy multiple (*R*) resources into multiple (*G*) resource groups. The following diagram shows bin packing across multiple resources, in multiple resource groups.
+If you reach the limit of the number of resources in a single resource group, you can then deploy multiple resources (*R*) into multiple resource groups (*G*). The following diagram shows bin packing across multiple resources, in multiple resource groups.
 
-![Diagram that shows bin packing across multiple resources, in multiple resource groups.](media/resource-organization/bin-pack-resources-3.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-3.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups." lightbox="media/resource-organization/bin-pack-resources-3.png":::
+   In the diagram, a box that represents subscription A contains two boxes. One box represents resource group A1, and the other represents resource group AG. Resource group A1 contains resources A1-1 to A1-R. Resource group AG contains resources AG-1 to AG-R.
+:::image-end:::
 
-And as you grow even larger, you can deploy across multiple (*S*) subscriptions, each containing multiple (*G*) resource groups with multiple (*R*) resources. The following diagram shows bin packing across multiple resources, in multiple resource groups and subscriptions.
+As you grow even larger, you can deploy resources across multiple subscriptions (*S*), each containing multiple resource groups (*G*) that have multiple resources (*R*). The following diagram shows bin packing across multiple resources, in multiple resource groups and subscriptions.
 
-![Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions.](media/resource-organization/bin-pack-resources-4.png)
+:::image type="complex" border="false" source="media/resource-organization/bin-pack-resources-4.png" alt-text="Diagram that shows bin packing across multiple resources, in multiple resource groups and subscriptions." lightbox="media/resource-organization/bin-pack-resources-4.png":::
+   In the diagram, a box that represents subscription A contains two boxes. One box represents resource group A1, and the other represents resource group AG. Resource group A1 contains resources A1-1 to A1-R. Resource group AG contains resources AG-1 to AG-R. Another box that represents subscription S contains two boxes. One box represents resource group S1, and the other represents resource group SG. Resource group S1 contains resources S1-1 to S1-R. Resource group SG contains resources SG-1 to SG-R.
+:::image-end:::
 
-By planning your scale-out strategy, you can scale to extremely large numbers of tenants and sustain a high level of load.
+By planning your scale-out strategy, you can scale to large numbers of tenants and sustain a high level of load.
 
 ### Tags
 
-Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags).
+Resource tags enable you to add custom metadata to your Azure resources. You can use this metadata to manage resources and track costs. For more information, see [Allocate costs by using resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags).
 
 ### Deployment stacks
 
-Deployment stacks enable you to group resources together based on a common lifetime, even if they span multiple resource groups or subscriptions. Deployment stacks are useful when you deploy tenant-specific resources, especially if you have a deployment approach that requires deploying different types of resources into different places because of scale or compliance concerns. Deployment stacks also enable you to easily remove all of the resources related to a single tenant in one operation, if that tenant is offboarded. For more information, see [Deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks).
+Deployment stacks enable you to group resources together based on a common lifetime, even if they span multiple resource groups or subscriptions. Deployment stacks are useful when you deploy tenant-specific resources, especially if you have a deployment approach that requires you to deploy different types of resources into different places because of scale or compliance concerns. Deployment stacks also enable you to easily remove all of the resources related to a single tenant in one operation if you offboard that tenant. For more information, see [Create and deploy Azure deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks).
 
 ## Antipatterns to avoid
 
-- **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important, as your load or number of tenants increase. Plan how you'll deploy additional resources as you scale, and test the plan.
-- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like there being a single resource when you might need to scale to multiple resources in the future.
-- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale each component individually. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
-- **Deploying isolated resources for each tenant, when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
-- **Failing to track tenant-specific resources.** If you deploy tenant-specific resources, ensure you understand which resources are allocated to which tenants. This information is important for compliance purposes, for tracking costs, and for deprovisioning resources if a tenant is offboarded. Consider using resource tags to keep track of tenant information on resources, and consider using deployment stacks to group tenant-specific resources together into a logical unit regardless of the resource group or subscription they're in.
+- **Not planning for scale.** Ensure that you understand the limits of the resources that you deploy. Know which limits might become important as your load or number of tenants increases. Plan how to deploy more resources as you scale, and test that plan.
+
+- **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like having a single resource when you might need to scale to multiple resources in the future.
+
+- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale each component individually. It's often simpler to scale your solution as a unit by following the [Deployment Stamps pattern](overview.md#deployment-stamps-pattern).
+
+- **Deploying isolated resources for each tenant when it's not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
+
+- **Failing to track tenant-specific resources.** If you deploy tenant-specific resources, ensure that you understand which resources are allocated to which tenants. This information is important for compliance purposes, for tracking costs, and for deprovisioning resources if you offboard a tenant. Consider using resource tags to keep track of tenant information on resources, and consider using deployment stacks to group tenant-specific resources together into a logical unit regardless of the resource group or subscription they're in.
+
 - **Using separate Microsoft Entra tenants.** In general, it's inadvisable to provision multiple Microsoft Entra tenants. Managing resources across Microsoft Entra tenants is complex. It's simpler to scale across subscriptions linked to a single Microsoft Entra tenant.
-- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale&mdash;potentially at short notice.
+
+- **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you won't grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you need to be prepared to scale quickly.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -207,8 +240,8 @@ Other contributors:
  * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resource
 
-Review [Cost management and allocation](cost-management-allocation.yml) approaches.
+Review [cost management and allocation](cost-management-allocation.yml) approaches.
