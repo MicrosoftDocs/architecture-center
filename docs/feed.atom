@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-07-07T20:37:53.668Z</updated>
+    <updated>2025-07-14T17:08:59.073Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Microservices Architecture Style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about microservices on Azure. This architectural style builds applications that are resilient, highly scalable, and independently deployable.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Domain Name Considerations in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/domain-names</id>
@@ -25,6 +33,46 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Architecture styles]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare Java application hosting options on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/service-for-java-comparison</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/service-for-java-comparison"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[Explore recommended strategies for hosting Java applications to Azure, including platform types and supportability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Domain analysis for microservices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[This article shows a domain-driven approach to designing microservices so that each service follows the general rule of doing just one thing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Identify microservice boundaries]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/microservices/model/microservice-boundaries</id>
+        <link href="https://learn.microsoft.com/azure/architecture/microservices/model/microservice-boundaries"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to start from a carefully designed domain model to determine the right size for a microservice.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using tactical DDD to design microservices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/microservices/model/tactical-ddd</id>
+        <link href="https://learn.microsoft.com/azure/architecture/microservices/model/tactical-ddd"/>
+        <updated>2025-07-10T22:37:32.000Z</updated>
+        <summary type="html"><![CDATA[Use domain-driven design in a microservices architecture to identify the entity and aggregate patterns, which help identify natural boundaries for the services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Advanced Azure Kubernetes Service (AKS) Microservices Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced"/>
@@ -38,6 +86,46 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain"/>
         <updated>2025-07-02T16:51:53.000Z</updated>
         <summary type="html"><![CDATA[Learn how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services in hybrid cloud environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
+        <updated>2025-07-11T14:51:20.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for using Azure Database for PostgreSQL in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql"/>
+        <updated>2025-07-11T03:48:52.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and it provides links to guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to Use Azure NAT Gateway in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway"/>
+        <updated>2025-07-10T18:54:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure NAT Gateway features that are useful when you work with multitenant systems. See examples of how to use these features.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Load-balancing options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
+        <updated>2025-07-10T17:29:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect access tokens in a single-page application by using Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization"/>
+        <updated>2025-07-08T15:55:20.000Z</updated>
+        <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -497,11 +585,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Guidance for using Azure NAT Gateway in a multitenant solution]]></title>
+        <title type="html"><![CDATA[How to Use Azure NAT Gateway in a Multitenant Solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway"/>
         <updated>2025-06-12T22:47:48.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.]]></summary>
+        <summary type="html"><![CDATA[Learn about Azure NAT Gateway features that are useful when you work with multitenant systems. See examples of how to use these features.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
