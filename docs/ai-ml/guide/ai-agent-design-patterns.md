@@ -235,7 +235,7 @@ task The manager agent communicates directly with the specialized agents to gath
 
 Consider the magentic pattern when you have:
 
-- A complex or open-ended problem that has no predetermined solution path
+- A complex or open-ended use case that has no predetermined solution path
 - A requirement to consider input and feedback from multiple specialized agents to develop a valid solution path
 - A requirement to have the AI system generate a fully developed plan of approach that can be reviewed by a human before or after execution
 - Agents equipped with tools that interact with external systems, consume external resources, or could induce changes in running systems. A documented plan of how those agents will be sequenced could be presented to a user before allowing the agents to follow the tasks.
