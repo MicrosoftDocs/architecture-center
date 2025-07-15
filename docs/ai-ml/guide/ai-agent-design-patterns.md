@@ -248,6 +248,7 @@ Avoid this pattern when:
 - There's no requirement to produce a ledger
 - The task has low complexity and can be solved by a simpler pattern
 - The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for end results
+- You anticipate there will be frequent stalls or infinite loops with no clear path to resolution
 
 ### Magentic orchestration example
 
@@ -264,7 +265,9 @@ When the automation detects a qualifying incident, the *magentic manager agent* 
 1. The *communication agent* provides stakeholder notification capabilities, and the manager agent incorporates communication checkpoints and approval gates into the evolving plan according to the SRE team's escalation procedures.
 1. As the situation becomes clearer, the manager agent might add the *rollback agent* to the plan if deployment reversion is needed, or escalate to human SRE engineers if the incident exceeds the automation's scope.
 
-Throughout this process, the manager agent continuously refines the task ledger based on new information, adding, removing, or reordering tasks as the incident evolves. For example, if the diagnostics agent discovers a database connection issue, the manager agent might pivot the entire plan from a deployment rollback strategy to a database connectivity restoration approach. The manager agent maintains a complete audit trail of the evolving plan and execution steps, providing transparency for post-incident review and ensuring the SRE team can improve both the workload and the automation based on lessons learned.
+Throughout this process, the manager agent continuously refines the task ledger based on new information, adding, removing, or reordering tasks as the incident evolves. For example, if the diagnostics agent discovers a database connection issue, the manager agent might switch the entire plan from a deployment rollback strategy to a plan that focuses on restoring database connectivity.
+
+The manager agent guards watches for excessive stalls towards restoring service and guards against infinite remediation loops. The manager agent maintains a complete audit trail of the evolving plan and execution steps, providing transparency for post-incident review and ensuring the SRE team can improve both the workload and the automation based on lessons learned.
 
 ## Implementation considerations
 
@@ -345,7 +348,7 @@ The Agent Framework within Semantic Kernel provides support for many of these [A
 - [Handoff Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
 - [Magentic Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
 
-For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice. Additionally, many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html).
+For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice. Additionally, many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
 
 ## Contributors
 
