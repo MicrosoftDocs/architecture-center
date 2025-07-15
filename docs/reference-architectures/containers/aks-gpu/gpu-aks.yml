@@ -9,6 +9,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.category:
     - containers
+  ms.collection: ce-skilling-ai-copilot
   ms.custom: arb-containers
 azureCategories:
   - containers
@@ -20,4 +21,4 @@ name: Use Azure Kubernetes Service to host GPU-based workloads
 summary: Learn how to run workloads that use GPU nodes on Azure Kubernetes Service (AKS) cluster efficiently. Choose the right SKU, use GPU nodes to train machine learning models, and use GPU nodes to run inferences on AKS.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-baseline-architecture.png
 content: |
-  [!include[](gpu-aks-content.md)]
+  [!INCLUDE[](gpu-aks-content.md)]
