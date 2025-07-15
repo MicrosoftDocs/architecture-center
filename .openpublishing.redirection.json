@@ -16,6 +16,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/cross-tenant-communication-using-multitenanted-applications.md",
+      "redirect_url": "/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/networking/guide/build-private-5g-network.md",
       "redirect_url": "/azure/private-5g-core/private-5g-core-overview",
       "redirect_document_id": false
