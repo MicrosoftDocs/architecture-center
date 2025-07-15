@@ -82,6 +82,12 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 
+## AI agent orchestration patterns
+
+While the cloud design patterns above address common challenges in distributed systems, AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts, but AI agents introduce unique challenges such as non-deterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
+
+For AI workloads involving multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components working together to accomplish complex outcomes.
+
 ## Next steps
 
 Review the design patterns from the perspective of the Well-Architected Framework pillar that the pattern aims to optimize.

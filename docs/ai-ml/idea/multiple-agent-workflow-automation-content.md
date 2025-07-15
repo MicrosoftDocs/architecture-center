@@ -102,6 +102,10 @@ Consider this alternative if your workload has the following characteristics:
 
 For organizations that have mixed requirements, a hybrid approach can be effective. Standard workflows use Foundry Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
 
+## Multi-agent orchestration patterns
+
+When designing multi-agent automation systems, consider how agents will coordinate to accomplish complex workflows. This architecture implements a custom orchestrator that manages agent interactions, but the coordination patterns you choose significantly impact system performance and reliability. Sequential patterns work well for dependent tasks like document approval workflows, while concurrent patterns suit independent operations like data collection from multiple sources. Group chat patterns enable collaborative problem-solving, and handoff patterns allow specialized agents to handle different workflow phases. For detailed guidance on implementing these coordination strategies, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns), which provides architectural patterns and implementation considerations for various multi-agent scenarios.
+
 ## Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).

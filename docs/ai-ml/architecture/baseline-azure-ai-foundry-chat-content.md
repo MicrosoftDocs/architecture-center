@@ -151,6 +151,24 @@ Dynamic agent management increases flexibility but also introduces the burden of
 
 Choose the agent approach that aligns with your workload's user experience requirements.
 
+#### Single-agent or multi-agent orchestration
+
+**Current approach:** This reference architecture uses a single agent with access to all necessary knowledge sources and tools to handle most user interactions effectively.
+
+**Alternative approach:** You can orchestrate multiple specialized agents, where each agent focuses on specific domains, uses different models, or accesses distinct knowledge stores and tools.
+
+Consider a multi-agent approach when your workload exhibits these characteristics:
+
+- Requests span multiple expertise areas, such as financial analysis, legal review, and technical implementation. Specialized agents provide deeper, more accurate responses within their respective domains.
+
+- Information requires different permission levels. An HR agent might access employee data while a customer service agent accesses only product information. Multi-agent architectures enable granular security boundaries at the agent level.
+
+- Different query interactions benefit from different models. A lightweight model handles simple questions while a more powerful model processes complex reasoning tasks. This approach optimizes both cost and latency.
+
+- The chat experience serves as a front end to business processes that involve sequential or parallel steps requiring different specialists.
+
+Multi-agent approaches introduce coordination complexity and increased latency from inter-agent communication. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools. For guidance on implementing multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md), which covers sequential, concurrent, group chat, handoff, and magnetic orchestration approaches. You can implement some patterns within Foundry Agent Service, while others require self-hosted orchestration using an SDK such as Semantic Kernel.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
@@ -612,6 +630,6 @@ Other contributors:
 ## Related resources
 
 - An Azure Well-Architected Framework perspective on [AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
 - [Azure OpenAI models](/azure/ai-services/openai/concepts/models)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)
+- [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
