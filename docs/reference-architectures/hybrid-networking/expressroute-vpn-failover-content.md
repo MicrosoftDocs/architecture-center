@@ -373,7 +373,7 @@ Microsoft Learn modules:
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
-- [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.md)
+- [Spoke-to-spoke networking](../../networking/guide/spoke-to-spoke-networking.md)
 - [Connect an on-premises network to Azure](index.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
 - [Architecture best practices for Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
