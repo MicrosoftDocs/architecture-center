@@ -17,7 +17,7 @@ As your use of Azure matures, it's important to consider the governance of your 
 
 ### Resource isolation
 
-Ensure you configure your Azure resources to meet your tenants' isolation requirements. See [Azure resource organization in multitenant solutions](resource-organization.yml) for guidance on isolating your Azure resources. 
+Ensure you configure your Azure resources to meet your tenants' isolation requirements. For more information, see [Azure resource organization in multitenant solutions](resource-organization.yml).
 
 ### Data management
 
@@ -29,10 +29,10 @@ Review the [Architectural approaches for storage and data in multitenant solutio
 
 Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. Common data sources include the following types of resources:
 
-- Databases and storage accounts deployed as part of your solution.
-- Identity systems, which are often shared between tenants.
-- Logs.
-- Data warehouses.
+- Databases and storage accounts deployed as part of your solution
+- Identity systems, which are often shared between tenants
+- Logs
+- Data warehouses
 
 ### Sovereignty
 
@@ -52,7 +52,7 @@ For more information about integration with tenants' systems, and external syste
 
 ### Your access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service solution that's used by many different customers. A government agency might require that only citizens of their country/region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (Azure RBAC) role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service solution that's used by many different customers. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (Azure RBAC) role assignments for specific groups of users to work with these resources.
 
 ### Aggregation of data from multiple tenants
 
