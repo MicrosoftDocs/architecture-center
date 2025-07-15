@@ -94,7 +94,7 @@ The following sections describe these features.
 
 An application group consists of one or more client applications that interact with the Event Hubs data plane. You can apply quota and access management policies to the group, which applies them to all applications in the group.
 
-You can scope each application group to a single Event Hubs namespace or a single event hub. The application group should use a unique identifier for the client applications, such as a security context like an SAS or a Microsoft Entra application ID.
+You can scope each application group to a single Event Hubs namespace or a single event hub. The application group should use a unique identifying condition for the client applications, such as a security context like a Microsoft Entra application ID or a SAS.
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
