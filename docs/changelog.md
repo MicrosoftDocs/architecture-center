@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/07/2025
+ms.date: 07/14/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,13 +22,24 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Microservices Architecture Style](./guide/architecture-styles/microservices.md)
 - [Domain Name Considerations in Multitenant Solutions](./guide/multitenant/considerations/domain-names.md)
 - [Tenant Life Cycle Considerations in Multitenant Solutions](./guide/multitenant/considerations/tenant-life-cycle.md)
 
 ### Updated articles
 
+- [Architecture styles](./guide/architecture-styles/index.md)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
+- [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
+- [Domain analysis for microservices](./microservices/model/domain-analysis.md)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
+- [Identify microservice boundaries](./microservices/model/microservice-boundaries.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
+- [Using tactical DDD to design microservices](./microservices/model/tactical-ddd.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#95a051bfff](https://github.com/MicrosoftDocs/architecture-center/commit/95a051bfff))
 - [Deploy AD DS in an Azure Virtual Network](./example-scenario/identity/adds-extend-domain.yml)  ([#417cdcd602](https://github.com/MicrosoftDocs/architecture-center/commit/417cdcd602))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#cddc9e4a61](https://github.com/MicrosoftDocs/architecture-center/commit/cddc9e4a61))
+- [Guidance for using Azure Database for PostgreSQL in a multitenant solution](./guide/multitenant/service/postgresql.md)  ([#d07ac6f724](https://github.com/MicrosoftDocs/architecture-center/commit/d07ac6f724))
+- [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#9b2f30972c](https://github.com/MicrosoftDocs/architecture-center/commit/9b2f30972c))
+- [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#0260f2ff48](https://github.com/MicrosoftDocs/architecture-center/commit/0260f2ff48))
+- [Protect access tokens in a single-page application by using Azure API Management](./web-apps/guides/security/secure-single-page-application-authorization.yml)  ([#7f02e1da4d](https://github.com/MicrosoftDocs/architecture-center/commit/7f02e1da4d))
 - [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md)  ([#53d19ea22c](https://github.com/MicrosoftDocs/architecture-center/commit/53d19ea22c))
 - [Noisy Neighbor Antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#ce68a59508](https://github.com/MicrosoftDocs/architecture-center/commit/ce68a59508))
 - [Azure for AWS Professionals](./aws-professional/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
@@ -94,7 +105,7 @@ The following new and updated articles have recently been published in the Azure
 - [Patterns for inter-spoke networking](./networking/guide/spoke-to-spoke-networking.yml)  ([#f2d5a65b3e](https://github.com/MicrosoftDocs/architecture-center/commit/f2d5a65b3e))
 - [Guidance for using Azure Event Hubs in a multitenant solution](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
 - [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
-- [Guidance for using Azure NAT Gateway in a multitenant solution](./guide/multitenant/service/nat-gateway.md)  ([#3b18425a8a](https://github.com/MicrosoftDocs/architecture-center/commit/3b18425a8a))
+- [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#3b18425a8a](https://github.com/MicrosoftDocs/architecture-center/commit/3b18425a8a))
 - [Kubernetes Monitoring and Logging](./aws-professional/eks-to-aks/monitoring.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Kubernetes Workload Identity and Access](./aws-professional/eks-to-aks/workload-identity.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
