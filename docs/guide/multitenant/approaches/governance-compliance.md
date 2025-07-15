@@ -17,7 +17,7 @@ As your use of Azure matures, it's important to consider the governance of your 
 
 ### Resource isolation
 
-Ensure you configure your Azure resources to meet your tenants' isolation requirements. For more information, see [Azure resource organization in multitenant solutions](resource-organization.yml).
+Ensure that you configure your Azure resources to meet your tenants' isolation requirements. For more information, see [Azure resource organization in multitenant solutions](resource-organization.yml).
 
 ### Data management
 
@@ -25,7 +25,7 @@ When you store data on behalf of your tenants, you might have requirements or ob
 
 ### Isolation
 
-Review the [Architectural approaches for storage and data in multitenant solutions](storage-data.yml) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
+Review the [architectural approaches for storage and data in multitenant solutions](storage-data.yml) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
 Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. Common data sources include the following types of resources:
 
@@ -42,21 +42,21 @@ For more information about data residency and sovereignty, see the whitepaper [E
 
 ### Tenants' access to data that you store
 
-Tenants sometimes request direct access to the data you store on their behalf. For example, they might want to ingest their data into their own data lake.
+Tenants sometimes request direct access to the data that you store on their behalf. For example, they might want to ingest their data into their own data lake.
 
 Plan how to respond to these requests. Consider whether any of the tenants' data is kept in shared data stores. If it is, plan how to prevent tenants from accessing other tenants' data.
 
 Avoid providing direct access to databases or storage accounts unless you designed for this requirement, such as by using the [Valet Key pattern](../../../patterns/valet-key.yml). Consider creating an API or automated data export process for integration purposes.
 
-For more information about integration with tenants' systems, and external systems, see [Architectural approaches for tenant integration and data access](./integration.md).
+For more information about integration with tenants' systems and external systems, see [Architectural approaches for tenant integration and data access](./integration.md).
 
 ### Your access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service solution that's used by many different customers. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access controls (Azure RBAC) role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access control (Azure RBAC) role assignments for specific groups of users to work with these resources.
 
 ### Aggregation of data from multiple tenants
 
-Consider whether you need to combine or aggregate data from multiple tenants. For example, do you analyze the aggregated data, train machine learning models, or provide AI grounding data that could be applied to other tenants? Ensure that your tenants understand how you use their data. Include any use of aggregated or anonymized data.
+Consider whether you need to combine or aggregate data from multiple tenants. For example, you might analyze the aggregated data, train machine learning models, or provide AI grounding data that can be applied to other tenants. Ensure that your tenants understand how you use their data. Include any use of aggregated or anonymized data.
 
 ### Compliance requirements
 
@@ -66,16 +66,16 @@ It's important that you understand whether you need to meet any compliance stand
 
 - You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with the [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 
-- You purchase a cyberinsurance policy to mitigate the risk of breaches. Cyberinsurance providers might require that you follow their standards and apply specific controls for your policy to be valid.
+- You purchase a cyber insurance policy to mitigate the risk of breaches. Cyber insurance providers might require that you follow their standards and apply specific controls for your policy to be valid.
 
 > [!IMPORTANT]
 > Compliance is a shared responsibility between Microsoft, you, and your tenants.
 >
-> Microsoft ensures that our services meet a specific set of compliance standards, and provides tools like [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) that help to verify your resources are configured according to those standards.
+> Microsoft ensures that our services meet a specific set of compliance standards and provides tools like [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) that help to verify your resources are configured according to those standards.
 >
-> However, ultimately it is your responsibility to fully understand the compliance requirements that apply to your solution, and how to configure your Azure resources according to those standards. See [Azure compliance offerings](/azure/compliance/offerings) for more detail.
+> However, ultimately it's your responsibility to fully understand the compliance requirements that apply to your solution and how to configure your Azure resources according to those standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings).
 >
-> This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
+> This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance about how to consider compliance and governance in a multitenant solution.
 
 If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard consistently than to follow different standards for different tenants.
 
@@ -87,13 +87,13 @@ Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resou
 
 ### Access control
 
-Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the Azure RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Access Management](/entra/id-governance/privileged-identity-management/pim-configure).
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to the Azure resources that constitute the multitenant solution. Follow the Azure RBAC [best practices](/azure/role-based-access-control/best-practices), such as applying role assignments to groups instead of users. Scope your role assignments so that they provide the minimum permissions necessary. Avoid long-standing access to resources by using just-in-time access and features like [Microsoft Entra ID Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ### Azure Resource Graph
 
-[Azure Resource Graph](/azure/governance/resource-graph/overview) enables you to work with Azure resource metadata. By using Resource Graph, you can query across a large number of Azure resources, even if they're spread across multiple subscriptions. Resource Graph can query resources of a specific type or identify resources configured in specific ways. It can also be used to track the history of a resource's configuration.
+Use [Azure Resource Graph](/azure/governance/resource-graph/overview) to work with Azure resource metadata. By using Resource Graph, you can query across a large number of Azure resources, even if they're spread across multiple subscriptions. Resource Graph can query resources of a specific type or identify resources configured in specific ways. You can also use it to track the history of a resource's configuration.
 
-Resource Graph can be helpful to manage large Azure estates. For example, suppose you deploy tenant-specific Azure resources across multiple Azure subscriptions. By [applying tags to your resources](#resource-tags), you can use the Resource Graph API to find resources that are used by specific tenants or deployment stamps.
+Resource Graph can help you manage large Azure estates. For example, suppose you deploy tenant-specific Azure resources across multiple Azure subscriptions. By [applying tags to your resources](#resource-tags), you can use the Resource Graph API to find resources that specific tenants or deployment stamps use.
 
 ### Microsoft Purview
 
@@ -101,7 +101,7 @@ Consider using [Microsoft Purview](https://azure.microsoft.com/services/purview)
 
 ### Verify compliance with standards
 
-Use tools like [Azure Policy](/azure/governance/policy/overview), [Defender for Cloud's regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor). These tools help you to configure your Azure resources to meet compliance requirements and to follow the recommended best practices.
+Use tools like [Azure Policy](/azure/governance/policy/overview), the [Defender for Cloud regulatory compliance portal](/azure/defender-for-cloud/regulatory-compliance-dashboard), and [Azure Advisor](https://azure.microsoft.com/services/advisor). These tools help you configure your Azure resources to meet compliance requirements and follow the recommended best practices.
 
 ### Generate compliance documentation
 
@@ -125,7 +125,7 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 - **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you likely need to provide evidence that you comply with various standards. Use [Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture against a general baseline, such as the [CIS Microsoft Azure Foundations Benchmark](/azure/governance/policy/samples/cis-azure-2-0-0), even before any formal requirement is in place.
 
-- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools, such as the Azure CLI, Azure PowerShell, Azure Resource Graph, and the Azure Resource Manager APIs.
+- **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure that you understand automation tools, such as the Azure CLI, Azure PowerShell, Resource Graph, and the Azure Resource Manager APIs.
 
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.
 
