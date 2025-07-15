@@ -85,7 +85,7 @@ If different tenants need you to follow different compliance standards, plan to 
 
 ### Resource tags
 
-Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources, or the stamp identifier when you scale using the [Deployment Stamps pattern](#deployment-stamps-pattern). By using resource tags, you can quickly identify resources that are associated with specific tenants or stamps.
+Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources or the stamp identifier when you scale by using the [Deployment Stamps pattern](#deployment-stamps-pattern). By using resource tags, you can quickly identify resources that are associated with specific tenants or stamps.
 
 ### Access control
 
