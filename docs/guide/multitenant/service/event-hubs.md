@@ -50,7 +50,7 @@ Use the following techniques to fine-tune eventing capabilities to satisfy tenan
 
 - Deploy the namespace to a region that's close to the tenant.
 
-- Deploy the namespace with a pricing tier that matches the tenant. For example, a [premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
+- Deploy the namespace with a pricing tier that's appropriate for the tenant's requirements. For example, a [premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
 - Apply networking restrictions based on tenant needs by using [IP firewall rules](/azure/event-hubs/network-security#ip-firewall), [private endpoints](/azure/event-hubs/network-security#private-endpoints), and [virtual network service endpoints](/azure/event-hubs/network-security#network-service-endpoints).
 - Use [tenant-specific encryption keys](/azure/event-hubs/configure-customer-managed-key).
 - Configure [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) and [availability zones](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
@@ -61,7 +61,7 @@ This isolation model becomes more complex to manage as the number of tenants inc
 
 ### Shared namespace and dedicated event hubs
 
-If multiple tenants share a namespace, you can still isolate tenants to a dedicated event hub. To control access, use a shared access signature (SAS) or Microsoft Entra identity.
+If multiple tenants share a namespace, you can still isolate tenants to a dedicated event hub. To control access, use a Microsoft Entra identity or a shared access signature (SAS).
 
 As your system adds more tenants, the number of event hubs increases to accommodate each tenant. This growth can lead to higher operational costs and lower organizational agility. Each namespace has a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs. So the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
 
@@ -122,7 +122,7 @@ For more information, see the following articles:
 
 ### SAS
 
-Use an SAS to grant a tenant access to Event Hubs resources that have specific rights. If you isolate your tenants at an event-entity level, you can grant SAS keys on an event hub or Kafka topic that applies only to a particular tenant.
+Use an SAS to grant a tenant access to Event Hubs resources while granting specific rights. If you isolate your tenants at an entity level, you can grant SAS keys on an event hub or Kafka topic that applies only to a particular tenant.
 
 For more information, see [Authenticate access to Event Hubs resources by using an SAS](/azure/event-hubs/authenticate-shared-access-signature).
 
@@ -138,7 +138,7 @@ For more information, see [Configure customer-managed keys to encrypt Event Hubs
 
 You can use the Event Hubs capture feature to automatically capture streaming data from Event Hubs and store it to an Azure Blob Storage or Azure Data Lake Storage account.
 
-This capability archives events. For example, if you need to archive events for a tenant because of compliance reasons, you can deploy tenant-specific namespaces and enable Event Hubs capture to archive events in tenant-specific Azure Storage accounts. You can also enable Event Hubs capture on tenant-specific event hubs in a shared namespace.
+You can use this capability to archive events. For example, if you need to archive events for a tenant because of compliance reasons, you can deploy tenant-specific namespaces and enable Event Hubs capture to archive events in tenant-specific Azure Storage accounts. You can also enable Event Hubs capture on tenant-specific event hubs in a shared namespace.
 
 For more information, see [Capture events through Event Hubs in Blob Storage or Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 

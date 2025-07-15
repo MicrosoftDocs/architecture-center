@@ -27,7 +27,7 @@ A [shared access signature (SAS)](/azure/storage/common/storage-sas-overview) en
 
 You can use an SAS to restrict the scope of operations that a client can perform and the objects that they can perform operations against. For example, if you have a shared storage account for all your tenants and store tenant A's data in a blob container named `tenanta`, you can create an SAS that permits only tenant A's users to access that container. For more information about approaches that isolate your tenants' data in a storage account, see [Isolation models](#isolation-models).
 
-Use the [Valet Key pattern](../../../patterns/valet-key.yml) to issue constrained and scoped SAS tokens from your application tier. For example, if your multitenant application allows users to upload videos, your API or application tier can authenticate the client by using your authentication system. You can then provide an SAS that allows the client to upload a video file to a specific blob path within a designated container. The client then uploads the file directly to the storage account, which reduces bandwidth and load on your API. If the client tries to read data from the blob container or write data to another container in the storage account, Storage blocks the request. The SAS expires after a configurable time period.
+Use the [Valet Key pattern](../../../patterns/valet-key.yml) to issue constrained and scoped SAS tokens from your application tier. For example, if your multitenant application allows users to upload videos, your API or application tier can authenticate the client by using your application's authentication system. You can then provide an SAS that allows the client to upload a video file to a specific blob path within a designated container. The client then uploads the file directly to the storage account, which reduces bandwidth and load on your API. If the client tries to read data from the blob container or write data to another container in the storage account, Storage blocks the request. The SAS expires after a configurable time period.
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy to use when you issue multiple signatures.
 
@@ -35,15 +35,15 @@ Use the [Valet Key pattern](../../../patterns/valet-key.yml) to issue constraine
 
 Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) through Microsoft Entra ID. This capability enables [attribute-based access control](/azure/role-based-access-control/conditions-overview), which provides fine-grained access to blob paths or to blobs tagged with a specific tenant ID.
 
-### Life cycle management
+### Lifecycle management
 
 When you use blob storage in a multitenant solution, your tenants might require different policies for data retention. When you store large volumes of data, you might also want to automatically move tenant-specific data to the [cool or archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers) to optimize costs.
 
-Use [life cycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob life cycle for all tenants or for a subset of tenants. You can apply a life cycle management policy to blob containers or a subset of blobs within a container. But life cycle management policies have limits on the number of rules that you can specify. Plan and test your configuration carefully in a multitenant environment. Consider deploying multiple storage accounts if your rule count exceeds the limits.
+Use [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants or for a subset of tenants. You can apply a lifecycle management policy to blob containers or a subset of blobs within a container. But lifecycle management policies have limits on the number of rules that you can specify. Plan and test your configuration carefully in a multitenant environment. Consider deploying multiple storage accounts if your rule count exceeds the limits.
 
 ### Immutable storage
 
-When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers that have [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Storage prevents deletion or modification of the data before a specified time. This enforcement occurs at the storage account layer and applies to all users, including your organization's administrators.
+When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers by using [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Storage prevents deletion or modification of the data before a specified time. This enforcement occurs at the storage account layer and applies to all users, including your organization's administrators.
 
 Use immutable storage if tenants must maintain data or records because of legal or compliance requirements. Evaluate how this feature fits your [tenant life cycle](../considerations/tenant-life-cycle.md). For example, if a tenant is offboarded and requests data deletion, you might not be able to fulfill their request. If you use immutable storage for tenant data, consider how to address this problem in your terms of service.
 
@@ -62,11 +62,11 @@ If you need to use the server-side copy APIs directly from your code, consider u
 
 ### Object replication
 
-[Object replication](/azure/storage/blobs/object-replication-overview) is an asynchronous feature that automatically replicates data between a source and destination storage account. In a multitenant solution, use this feature to continuously replicate data between deployment stamps or when you implement the [Geode pattern](../../../patterns/geodes.yml).
+[Object replication](/azure/storage/blobs/object-replication-overview) is an feature that automatically and asynchronously replicates data between a source and destination storage account. In a multitenant solution, use this feature to continuously replicate data between deployment stamps or when you implement the [Geode pattern](../../../patterns/geodes.yml).
 
 ### Encryption
 
-Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encryption-customer-provided-keys) for your data. In a multitenant solution, combine this capability with [encryption scopes](/azure/storage/blobs/encryption-scope-overview). You can assign different encryption keys to different tenants, even when their data resides in the same storage account. These features together enable tenants to control their own data. If they deactivate their account, deleting the encryption key ensures that no one can access their data.
+Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encryption-customer-provided-keys) for your data. In a multitenant solution, consider combining this capability with [encryption scopes](/azure/storage/blobs/encryption-scope-overview). You can assign different encryption keys to different tenants, even when their data resides in the same storage account. These features together enable tenants to control their own data. If they deactivate their account, deleting the encryption key ensures that no one can access their data.
 
 ### Monitoring
 
@@ -140,7 +140,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 #### Shared file shares
 
-When you work with file shares, you might use a shared file share that includes file paths to data for each tenant.
+When you work with file shares, you might use a shared file share that includes file paths to separate the data for each tenant.
 
 | Tenant ID | Example file path |
 |-|-|
@@ -201,7 +201,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 If you share a queue, consider the quotas and limits that apply. In solutions that have a high request volume, consider whether the target throughput of 2,000 messages per second works for your scenario.
 
-Queues don't provide partitioning or subqueues, so all tenants data might become intermingled.
+Queues don't provide partitioning or subqueues, so all tenants' data might become intermingled.
 
 #### Queues for each tenant
 
@@ -209,7 +209,7 @@ You can create individual queues for each tenant within a single storage account
 
 For this scenario, you can use Storage access control, including SAS, to manage access for each tenant's data.
 
-When you dynamically create queues for each tenant, consider how your application tier consumes the messages from each tenant's queue. For advanced scenarios, consider using [Azure Service Bus](https://azure.microsoft.com/services/service-bus), which supports features such as [sessions](/azure/service-bus-messaging/message-sessions), [message automatic-forwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), [topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). These capabilities can enhance multitenant solutions.
+When you dynamically create queues for each tenant, consider how your application tier consumes the messages from each tenant's queue. For advanced scenarios, consider using [Azure Service Bus](https://azure.microsoft.com/services/service-bus), which supports features such as [sessions](/azure/service-bus-messaging/message-sessions), [message autoforwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), [topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). These capabilities can enhance multitenant solutions.
 
 ## Contributors
 
