@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a Document Generation System with AI
-  description: Learn how to build a simple system for generating document templates using AI. It combines retrieval, summarization, and generation to support faster document drafting.
+  title: Build a Document Generation System
+  description: Learn how to build a simple system for generating documents. It combines retrieval, summarization, and generation to support faster document drafting using AI.
   author: gpickett
   ms.author: gpickett
   ms.date: 6/16/2025
