@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data. The solution uses Azure AI Content Understanding, Azure AI Search, Azure OpenAI Service, and supporting Azure services to analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
+This architecture shows a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data, such as a call center. The solution uses Azure AI Content Understanding, Azure AI Search, Azure OpenAI Service, and supporting Azure services to analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
 
 The architecture demonstrates how to build scalable conversation analytics pipelines that process audio and text inputs through event-driven workflows, extract entities and relationships, and enable interactive exploration of insights through natural language chat interfaces for enterprise-grade conversation intelligence.
 
@@ -16,15 +16,15 @@ The architecture demonstrates how to build scalable conversation analytics pipel
 
 The following workflow corresponds to the preceding diagram:
 
-1. Call audio files and call transcripts are uploaded to Azure Storage Account as the initial data sources. The comprehensive data processing pipeline that analyzes audio/transcript files from customer service calls and creates a searchable knowledge base begins with this ingestion phase, where audio files undergo speech-to-text conversion while text transcripts are directly processed for content analysis. This is curently being triggered manually via script.
+1. Raw call audio files and call transcripts exist in their source systems.
 
-2. Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data, including call-specific elements such as resolution status, customer satisfaction indicators, and compliance markers.
+2. The audio files and transcripts are uploaded to Azure Storage Account as the initial data sources. The data processing pipeline that analyzes audio/transcript files from customer service calls and creates a searchable knowledge base begins with this ingestion phase, where audio files undergo speech-to-text conversion while text transcripts are directly processed for content analysis. This process happens daily, but your scenario might require a different frequency.
 
-3. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
+3. Azure AI Content Understanding processes both audio and text files to extract conversation details, entities, relationships, and contextual information. This service performs topic modeling and key phrase extraction to identify meaningful patterns within the conversational data, including call-specific elements such as resolution status, customer satisfaction indicators, and compliance markers.
 
-4. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI Service and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow.
+4. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
-5. Azure Container Registry manages container images for consistent deployment across the solution components, ensuring reliable application delivery to the Azure App Service hosting environment.
+5. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow.
 
 6. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
 
@@ -147,10 +147,9 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-
 ## Next steps
 
 - [Azure AI Content Understanding documentation](/azure/ai-services/content-understanding/)
 - [Azure AI Search vector search capabilities](/azure/search/vector-search-overview)
 - [Semantic Kernel overview and getting started guide](/semantic-kernel/overview/)
-- [Building RAG solutions with Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data)
+- [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
