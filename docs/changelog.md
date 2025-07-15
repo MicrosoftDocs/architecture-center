@@ -91,7 +91,7 @@ The following new and updated articles have recently been published in the Azure
 - [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#c33187a67c](https://github.com/MicrosoftDocs/architecture-center/commit/c33187a67c))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#f631aedcfa](https://github.com/MicrosoftDocs/architecture-center/commit/f631aedcfa))
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#ff2bccc86b](https://github.com/MicrosoftDocs/architecture-center/commit/ff2bccc86b))
-- [Patterns for inter-spoke networking](./networking/guide/spoke-to-spoke-networking.yml)  ([#f2d5a65b3e](https://github.com/MicrosoftDocs/architecture-center/commit/f2d5a65b3e))
+- [Patterns for inter-spoke networking](networking/guide/spoke-to-spoke-networking.md)  ([#f2d5a65b3e](https://github.com/MicrosoftDocs/architecture-center/commit/f2d5a65b3e))
 - [Guidance for using Azure Event Hubs in a multitenant solution](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
 - [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
 - [Guidance for using Azure NAT Gateway in a multitenant solution](./guide/multitenant/service/nat-gateway.md)  ([#3b18425a8a](https://github.com/MicrosoftDocs/architecture-center/commit/3b18425a8a))
