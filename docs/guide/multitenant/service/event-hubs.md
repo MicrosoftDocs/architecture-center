@@ -122,9 +122,9 @@ For more information, see the following articles:
 
 ### SAS
 
-Use an SAS to grant a tenant access to Event Hubs resources while granting specific rights. If you isolate your tenants at an entity level, you can grant SAS keys on an event hub or Kafka topic that applies only to a particular tenant.
+Use a SAS to grant a tenant access to Event Hubs resources while granting specific rights. If you isolate your tenants at an entity level, you can grant SAS keys on an event hub or Kafka topic that applies only to a particular tenant.
 
-For more information, see [Authenticate access to Event Hubs resources by using an SAS](/azure/event-hubs/authenticate-shared-access-signature).
+For more information, see [Authenticate access to Event Hubs resources by using a SAS](/azure/event-hubs/authenticate-shared-access-signature).
 
 ### Customer-managed keys
 
