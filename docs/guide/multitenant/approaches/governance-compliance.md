@@ -11,9 +11,11 @@ ms.custom: arb-saas
 
 # Architectural approaches for governance and compliance in multitenant solutions
 
-As your use of Azure matures, it's important to consider the governance of your cloud resources. Governance includes how tenants' data is stored and managed, and how you organize your Azure resources. You might also need to follow regulatory, legal, or contractually mandated standards. This article provides information about how to consider governance and compliance in a multitenant solution. It also suggests some of the key Azure platform features that support these concerns.
+As your use of Azure matures, it's important to consider the governance of your cloud resources. Governance includes how tenants' data is stored and managed and how you organize your Azure resources. You might also need to follow regulatory, legal, or contractually mandated standards. This article provides information about how to consider governance and compliance in a multitenant solution. It also suggests some of the key Azure platform features that support these concerns.
 
 ## Key considerations and requirements
+
+Consider the following key considerations and requirements.
 
 ### Resource isolation
 
@@ -21,7 +23,7 @@ Ensure that you configure your Azure resources to meet your tenants' isolation r
 
 ### Data management
 
-When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data. Uncover tenants' expectations and requirements that could affect how your solution works.
+When you store data on behalf of your tenants, you might have requirements or obligations that you need to meet. From a tenant's perspective, they often expect ownership and control of their data. Consider how you isolate, store, access, and aggregate tenants' data. Uncover tenants' expectations and requirements that might affect how your solution works.
 
 ### Isolation
 
@@ -38,7 +40,7 @@ Whichever isolation approaches you implement, be prepared for tenants to request
 
 Understand whether there are any restrictions on the physical location for your tenants' data that's to be stored or processed. Your tenants might require you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
-For more information about data residency and sovereignty, see the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Enabling_Data_Residency_and_Data_Protection_in_Azure_Regions-2021.pdf).
+For more information about data residency and sovereignty, see the whitepaper [Enabling data residency and data protection in Microsoft Azure regions](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Enabling_Data_Residency_and_Data_Protection_in_Azure_Regions-2021.pdf).
 
 ### Tenants' access to data that you store
 
