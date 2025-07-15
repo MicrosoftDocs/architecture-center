@@ -25,7 +25,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 
 Clearly document the workflow that's required to onboard a new tenant.
 
-Additionally, consider the specific Azure resources that you need to provision for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region. It can also occur when you use a [bin packing approach](./resource-organization-content.yml#bin-packing), where as you approach the limits of a stamp or component in your solution you create another instance for the next batch of tenants.
+Additionally, consider the specific Azure resources that you need to provision for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region. It can also occur when you use a [bin packing approach](./resource-organization.yml#bin-packing), where as you approach the limits of a stamp or component in your solution you create another instance for the next batch of tenants.
 
 Consider whether the onboarding process is likely to be disruptive to other tenants, especially to those who share the same infrastructure. For example, if you need to modify shared databases, could this process cause a performance impact that other tenants might notice? Consider whether you can avoid these effects, or mitigate them by performing the onboarding process outside of normal operating hours.
 
