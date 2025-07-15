@@ -366,6 +366,7 @@ Other contributors:
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 - [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351/) | Principal Software Engineer
+- [Yaniv Vaknin](https://www.linkedin.com/in/yaniv-vaknin-7a8324178/) | Senior Technical Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
