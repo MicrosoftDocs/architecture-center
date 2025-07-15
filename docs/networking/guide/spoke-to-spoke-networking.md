@@ -1,3 +1,26 @@
+---
+title: Patterns for Inter-Spoke Networking
+description: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.
+author: erjosito
+ms.author: jomore
+ms.date: 06/16/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+  - fcp
+azureCategories:
+  - networking
+  - security
+products:
+  - azure-expressroute
+  - azure-firewall
+  - azure-virtual-network
+  - azure-virtual-wan
+  - azure-vpn-gateway
+---
+
+# Patterns for inter-spoke networking
+
 The most common networking design patterns in Azure use hub-and-spoke virtual network topologies deployed in one or multiple Azure regions. These topologies can optionally connect to on-premises networks via Azure ExpressRoute or site-to-site virtual private network (VPN) tunnels across the public internet.
 
 Most design guides focus on application traffic that flows to those virtual networks from users in internal, on-premises networks or from the internet. This type of traffic is commonly known as *north-south traffic*, which is a term that reflects its vertical representation in network diagrams. This article focuses on various patterns available for *east-west traffic*. Communication flows between workloads deployed in Azure virtual networks, either within a single region or across multiple regions.
