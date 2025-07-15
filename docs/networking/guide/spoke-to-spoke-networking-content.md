@@ -1,6 +1,6 @@
 The most common networking design patterns in Azure use hub-and-spoke virtual network topologies deployed in one or multiple Azure regions. These topologies can optionally connect to on-premises networks via Azure ExpressRoute or site-to-site virtual private network (VPN) tunnels across the public internet.
 
-Most design guides focus on application traffic flowing to those virtual networks from users in internal, on-premises networks or from the internet. This type of traffic is commonly known as *north-south traffic*, a term that reflects its vertical representation in network diagrams. This article focuses on various patterns available for *east-west traffic*. Communication between workloads deployed in Azure virtual networks, either within a single region or across multiple regions.
+Most design guides focus on application traffic that flows to those virtual networks from users in internal, on-premises networks or from the internet. This type of traffic is commonly known as *north-south traffic*, which is a term that reflects its vertical representation in network diagrams. This article focuses on various patterns available for *east-west traffic*. Communication flows between workloads deployed in Azure virtual networks, either within a single region or across multiple regions.
 
 Making sure that your network design satisfies requirements for east-west traffic is crucial to providing performance, scalability, and resiliency to your applications that run in Azure.
 
@@ -22,7 +22,7 @@ Spoke-to-spoke traffic can be important in the following scenarios:
 
 The two main topologies that you can use in Azure designs that cross multiple virtual networks are [self-managed hub and spoke][hubnspoke] and [Azure Virtual WAN][vwan]. In a Virtual WAN environment, Microsoft manages the hub virtual networks and everything inside them. In a self-managed hub-and-spoke environment, you manage the hub virtual network.
 
-Virtual WAN and self-managed hub-and-spoke topologies are both architectures where workloads run in spoke virtual networks. Connectivity to on-premises is centralized in a hub virtual network. Many of the concepts explained in this article apply to both self-managed hub-and-spoke and Virtual WAN designs.
+Virtual WAN and self-managed hub-and-spoke topologies are both architectures where workloads run in spoke virtual networks. Connectivity to on-premises is centralized in a hub virtual network. Many of the concepts described in this article apply to both self-managed hub-and-spoke and Virtual WAN designs.
 
 There are two main patterns for connecting spoke virtual networks to each other:
 
@@ -62,9 +62,9 @@ Direct connections between spokes typically provide better throughput, latency, 
   
     You can create multiple network groups to isolate clusters of spoke virtual networks from direct connectivity. Each network group provides the same region and multiregion support for spoke-to-spoke connectivity. Be sure to stay below the maximum limits for Virtual Network Manager that are described in the [Virtual Network Manager FAQ][avnm-limits].
 
-- **VPN tunnels connecting virtual networks:** You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][virtual-network-to-virtual-network] or non-Microsoft VPN NVAs. The advantage of this option is that spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or connectivity cross-cloud providers. If there are software-defined wide area network (SD-WAN) NVAs in each spoke virtual network, this configuration can facilitate by using the non-Microsoft provider's control plane and feature set to manage virtual network connectivity.
+- **VPN tunnels connecting virtual networks:** You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][virtual-network-to-virtual-network] or non-Microsoft VPN NVAs. The advantage of this option is that spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or connectivity cross-cloud providers. If there are software-defined wide area network NVAs in each spoke virtual network, this configuration can facilitate by using the non-Microsoft provider's control plane and feature set to manage virtual network connectivity.
 
-   This option can also help you meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter that [MACsec encryption][macsec] doesn't provide. But this option has its own set of challenges because of the bandwidth limits of Internet Protocol Security tunnels (1.25 Gbps per tunnel) and the design constraints of having virtual network gateways in both hub and spoke virtual networks. If the spoke virtual network has a virtual network gateway, it can't be connected to Virtual WAN or use a hub's virtual network gateway to connect to on-premises networks.
+   This option can also help you meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter that [Media Access Control Security encryption][macsec] doesn't provide. But this option has its own set of challenges because of the bandwidth limits of Internet Protocol Security tunnels (1.25 Gbps per tunnel) and the design constraints of having virtual network gateways in both hub and spoke virtual networks. If the spoke virtual network has a virtual network gateway, it can't be connected to Virtual WAN or use a hub's virtual network gateway to connect to on-premises networks.
 
 #### Pattern 1a: Single region
 
@@ -123,9 +123,9 @@ The following diagram shows a single-region hub-and-spoke topology that sends tr
 
 In specific circumstances, it might be beneficial to separate the NVAs that handle spoke-to-spoke and internet traffic for scalability. You can achieve this separation by taking the following actions:
 
-- Tuning the route tables in each spoke is necessary to send private address traffic, such as traffic that uses RFC 1918 prefixes like `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, to an NVA. This appliance handles Azure-to-Azure and Azure-to-on-premises traffic, often known as *east-west traffic*.
+- Tune the route tables in each spoke is necessary to send private address traffic, such as traffic that uses RFC 1918 prefixes like `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, to an NVA. This appliance handles Azure-to-Azure and Azure-to-on-premises traffic, often known as *east-west traffic*.
 
-- Tuning internet traffic, which has a `0.0.0.0/0 route`, to a second NVA. This NVA is responsible for Azure-to-internet traffic, also known as *north-south traffic*.
+- Tune internet traffic, which has a `0.0.0.0/0 route`, to a second NVA. This NVA is responsible for Azure-to-internet traffic, also known as *north-south traffic*.
 
 The following diagram shows this configuration:
 
@@ -138,7 +138,7 @@ The following diagram shows this configuration:
 
 #### Pattern 2b: Multiple regions
 
-You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, you should apply extra route tables to the Azure Firewall subnets in each hub for the spokes in the remote region. This configuration ensures that inter-region traffic can be forwarded between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks then traverses both Azure firewalls. For more information, see [Azure Firewall to route a multi-hub and spoke topology][azfw-multi-hub-and-spoke].
+You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, you should apply extra route tables to the Azure Firewall subnets in each hub for the spokes in the remote region. This configuration ensures that inter-region traffic can be forwarded between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks then traverses both Azure firewalls. For more information, see [Use Azure Firewall to route a multi-hub and spoke topology][azfw-multi-hub-and-spoke].
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-2-hubs.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design via NVAs in the hubs." lightbox="images/spoke-to-spoke-via-nva-2-hubs.svg":::
    The image shows an East US hub and a West US hub. A black line connects the two hubs. Three solid black lines connect the East US hub to three separate spokes. Three solid black lines connect the West US hub to three separate spokes.
@@ -150,7 +150,7 @@ The design variation that has separate Azure firewalls or NVAs for north-south a
    The image shows the following hubs: a North-South East US hub, an East-West East US hub, an East-West West US hub, and a North-South West US hub. Three dotted lines connect the North-South East US hub to three separate spokes. Three solid lines connect the East-West East US hub to three separate spokes. Three solid lines connect the East-West West US hub to three separate spokes. Three dotted lines connect the North-South West US hub to three separate spokes.
 :::image-end:::
 
-Virtual WAN creates a similar topology and simplifies routing. It manages routing in the hubs, which Microsoft manages, and in the spokes, where routes can be injected without manual route table edits. This routing and connectivity model reduces the work for network administrators. After connecting spoke virtual networks to a Virtual WAN hub, the system handles traffic forwarding. Manual setup for routing between regions isn't needed.
+Virtual WAN creates a similar topology and takes over the routing complexity. It manages routing in the hubs, which Microsoft manages, and in the spokes, where routes can be injected without manual route table edits. The network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to worry about forwarding traffic between regions.
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-through-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN." lightbox="images/spoke-to-spoke-through-virtual-wan.svg":::
    The image shows a virtual WAN with East US and West US virtual hubs. Two groups of three lines connect the virtual WAN to three separate spokes. There are six spokes in total.
