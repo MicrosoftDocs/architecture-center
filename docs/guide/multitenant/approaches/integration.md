@@ -35,7 +35,7 @@ In many systems, access to specific data is restricted to individual users. The 
 
 For example, Power BI is a multitenant service that provides reporting and business intelligence on top of customer-owned data stores. When you configure Power BI, you configure *data sources* to pull data from databases, APIs, and other data stores. You can configure data stores in two different ways:
 
-- **Import all the data from the underlying data store.** This approach requires that Power BI receives credentials for an identity that accesses the full data store. After importing the data, Power BI administrators configure permissions independently. Power BI enforces those permissions.
+- **Import all the data from the underlying data store.** This approach requires that Power BI receives credentials for an identity that has permissions to the full data store. After importing the data, Power BI administrators configure permissions independently. Power BI enforces those permissions.
 
 - **Import a subset of data from the underlying data store, based on a user's permissions.** When a user creates a data source, they use their credentials and associated permissions. The exact subset of data that Power BI imports depends on the access level of the user who creates the data source.
 
@@ -45,7 +45,7 @@ If you work with full data sets, the source system effectively treats the destin
 
 Alternatively, if you work with user-scoped data, then you might need to use an approach like *delegation* to access the correct subset of data from the data set. Then the destination system effectively gets the same permission as a specific user. For more information, see [Delegated user access](#delegated-user-access). If you use delegation, consider how to handle scenarios where a user is deprovisioned or their permissions change.
 
-### Real-time data or batch data
+### Real-time integrations or batch integrations
 
 Consider whether you plan to use real-time data or send the data in batches.
 
@@ -97,7 +97,7 @@ Consider how you authenticate with each tenant when you initiate a connection. C
 
 - **Microsoft Entra tokens**, where you use a token that the tenant's Microsoft Entra directory issues. The token might be issued directly to your workload by using a multitenant Microsoft Entra application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
 
-Whichever approach you select, ensure that your tenants follow the principle of least privilege and don't grant your system unnecessary permissions. For example, if your system needs to read data from a tenant's data store, the identity that your system uses must not have write permissions.
+Whichever approach you select, ensure that your tenants follow the principle of least privilege and don't grant your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, the identity that your system uses shouldn't have write permissions.
 
 ### Tenants' access to your systems
 
@@ -170,9 +170,9 @@ After a user signs in, Microsoft Entra ID issues your application a short-lived 
 
 Messaging allows for asynchronous, loosely coupled communication between systems or components. Messaging is often used in integration scenarios to decouple the source and destination systems. For more information about messaging and multitenancy, see [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md).
 
-When you use messaging as part of an integration with your tenants' systems, consider whether you should use [SAS tokens for Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). SAS tokens grant limited access to your messaging resources to external users without enabling them to access the rest of your messaging subsystem.
+When you use messaging as part of an integration with your tenants' systems, consider whether you should use [SAS tokens for Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). SAS tokens grant limited access to your messaging resources to external users or systems without enabling them to access the rest of your messaging subsystem.
 
-In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority. You can also use different worker instances to prioritize them accordingly.
+In some scenarios, you might provide different service-level agreements or quality of service guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority. Then, you can use different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
@@ -196,7 +196,7 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 ## Antipatterns to avoid
 
-- **Exposing your primary data stores directly to tenants.** When tenants access your primary data stores, it can become harder to secure those stores. They might also accidentally cause performance problems that affect your solution. Avoid providing credentials to your data stores to customers. Don't directly replicate data from your primary database to customers' read replicas of the same database system. Instead, create dedicated *integration data stores*. Use the [Valet Key pattern](#valet-key-pattern) to expose the data.
+- **Exposing your primary data stores directly to tenants.** When tenants access your primary data stores, it can become harder to secure those stores. They might also accidentally cause performance problems that affect your solution. Avoid providing credentials to your data stores to customers. Don't directly replicate raw data from your primary database to customers' read replicas of the same database system. Instead, create dedicated *integration data stores*. Use the [Valet Key pattern](#valet-key-pattern) to expose the data.
 
 - **Exposing APIs without an API gateway.** APIs have specific concerns for access control, billing, and metering. Even if you don't plan to use API policies initially, it's a good idea to include an API gateway early. That way, if you need to customize your API policies later, you don't have to make breaking changes to the URLs that an external client depends on.
 
