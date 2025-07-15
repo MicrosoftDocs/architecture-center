@@ -25,13 +25,13 @@ Consider everything that you need to do when onboarding a tenant, and document t
 
 Clearly document the workflow that's required to onboard a new tenant.
 
-Additionally, consider the specific Azure resources that you need to provision for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region. It can also occur when you use a [bin packing approach](./resource-organization.yml#bin-packing), where as you approach the limits of a stamp or component in your solution you create another instance for the next batch of tenants.
+Additionally, consider the specific Azure resources that you need to provision for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region. It can also occur when you use a [bin packing approach](./resource-organization.yml#bin-packing). In bin packing, as you approach the limits of a stamp or component in your solution you create another instance for the next batch of tenants.
 
 Consider whether the onboarding process is likely to be disruptive to other tenants, especially to those who share the same infrastructure. For example, if you need to modify shared databases, could this process cause a performance impact that other tenants might notice? Consider whether you can avoid these effects, or mitigate them by performing the onboarding process outside of normal operating hours.
 
 ### Automation
 
-Automated deployments are always advisable for cloud-hosted solutions. When working with multitenant solutions, deployment automation becomes even more important for the following reasons:
+Automated deployments are always advisable for cloud-hosted solutions. Deployment automation is even more important for multitenant solutions for the following reasons:
 
 - **Scale:** As your tenant population increases, manual deployment processes become increasingly complex and time-consuming. An automated deployment approach is easier to scale as the number of tenants grows.
 - **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error, or of steps being performed for some tenants and not others. These manual processes leave your environment in an inconsistent or nonstandard state, which makes it harder for your team to manage the solution.
