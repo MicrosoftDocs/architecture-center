@@ -68,7 +68,7 @@ This approach doesn't provide any benefits for security isolation of data. In Az
 
 You might consider deploying a separate instance of Azure Cache for Redis for each tenant. There's no limit to the number of caches that you can deploy within a single Azure subscription. This approach provides the strongest level of data and performance isolation.
 
-However, each cache is billed as a separate Azure resource. This billing model means that as you grow to large numbers of tenants, you might incur more cost. Furthermore, this approach often doesn't make efficient use of each cache's resources because each Azure Cache for Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
+However, each cache is billed as a separate Azure resource. This isolation model means that as you grow to large numbers of tenants, you might incur more cost. Furthermore, this approach often doesn't make efficient use of each cache's resources because each Azure Cache for Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
 
 ## Features of Azure Cache for Redis that support multitenancy
 
@@ -109,4 +109,4 @@ Other contributors:
 
 ## Related resource
 
-[storage and data approaches for multitenancy](../approaches/storage-data.yml)
+[Storage and data approaches for multitenancy](../approaches/storage-data.yml)
