@@ -1047,7 +1047,7 @@ items:
       items:
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
-      - name: Zero-trust network for web applications
+      - name: Zero Trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
       items:
