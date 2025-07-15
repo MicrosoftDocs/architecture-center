@@ -68,13 +68,13 @@ We recommend that you use resource groups to manage resources that have the same
 
 It's important to consider how you deploy and manage these resources, including [whether your deployment pipeline or your application initiate the deployment of tenant-specific resources](deployment-configuration.yml#resource-management-responsibility). You also need to determine how to [clearly identify that specific resources relate to specific tenants](cost-management-allocation.yml). Consider using a clear [naming convention strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags), or a tenant catalog database.
 
-It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means that you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
+It's a good practice to use separate resource groups for the resources that you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means that you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
 Suppose Contoso has three customers, or tenants: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three tenants, and then deploy individual databases for each tenant. The following diagram shows a resource group that contains shared resources and a resource group that contains each tenant's database.
 
 
 :::image type="complex" border="false" source="media/resource-organization/isolation-resource.png" alt-text="Diagram that shows one resource group that contains shared resources and another resource group that contains a database for each customer." lightbox="media/resource-organization/isolation-resource.png":::
-   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains two resource groups. One resource group contains the application and storage and is marked as shared. The other resource group contains a tenant database for each customer, Adventure Works, Fabrikam, and Tailwind.
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains two resource groups. One resource group contains the application and storage and is marked as shared. The other resource group contains a tenant database for each customer: Adventure Works, Fabrikam, and Tailwind.
 :::image-end:::
 
 #### Separate resource groups in a subscription
@@ -88,7 +88,7 @@ When you deploy tenant-specific resource groups into shared subscriptions, be aw
 In the example, Contoso might choose to deploy a stamp for each of their customers and place the stamps in dedicated resource groups within a single subscription. In the following diagram, a subscription, which contains three resource groups, is created for each customer.
 
 :::image type="complex" border="false" source="media/resource-organization/isolation-resource-group.png" alt-text="Diagram that shows a subscription that contains three resource groups. Each resource group is a complete set of resources for a specific customer." lightbox="media/resource-organization/isolation-resource-group.png":::
-   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains three resource groups. Each resource group contains the application, database, and storage for each customer, Adventure Works, Fabrikam, and Tailwind.
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents Contoso's Azure subscription. That box contains another box that contains three resource groups. Each resource group contains the application, database, and storage for each customer: Adventure Works, Fabrikam, and Tailwind.
 :::image-end:::
 
 #### Separate subscriptions
@@ -104,7 +104,7 @@ Consider grouping your tenant-specific subscriptions into a [management group](/
 For example, suppose Contoso decides to create separate Azure subscriptions for each of their customers, as shown in the following diagram. Each subscription contains a resource group that includes the complete set of resources for that customer.
 
 :::image type="complex" border="false" source="media/resource-organization/isolation-subscription.png" alt-text="Diagram that shows three customer-specific subscriptions. Each subscription contains a resource group that includes the complete set of resources for that customer." lightbox="media/resource-organization/isolation-subscription.png":::
-   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents the management group. The management group contains three separate boxes that represent an Azure subscription for each customer, Adventure Works, Fabrikam, and Tailwind. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer.
+   In the diagram, a box that represents the Microsoft Entra tenant for Contoso contains another box that represents the management group. The management group contains three separate boxes that represent an Azure subscription for each customer: Adventure Works, Fabrikam, and Tailwind. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer.
 :::image-end:::
 
 Each subscription contains a resource group that includes the complete set of resources for that customer.
@@ -120,7 +120,7 @@ All of Contoso's subscriptions are associated with a single Microsoft Entra tena
 You can also manually create individual Microsoft Entra tenants for each of your tenants or deploy your resources into subscriptions within your customers' Microsoft Entra tenants. However, working with multiple Microsoft Entra tenants makes it more difficult to authenticate, manage role assignments, apply global policies, and perform many other management operations.
 
 > [!WARNING]
-> **We advise against creating multiple Microsoft Entra tenants for most multitenant solutions.** Working across Microsoft Entra tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
+> **We advise against creating multiple Microsoft Entra tenants for most multitenant solutions.** Working across Microsoft Entra tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs) who operate Azure environments on behalf of their customers.
 >
 > Before you make an effort to deploy multiple Microsoft Entra tenants, consider whether you can achieve your requirements by using management groups or subscriptions within a single tenant instead.
 
@@ -129,7 +129,7 @@ In situations where you need to manage Azure resources in subscriptions that are
 For example, Contoso can create separate Microsoft Entra tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
 
 :::image type="complex" border="false" source="media/resource-organization/isolation-tenant.png" alt-text="Diagram that shows a Microsoft Entra tenant for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant." lightbox="media/resource-organization/isolation-tenant.png":::
-   In the diagram, three separate boxes represent the Microsoft Entra tenant for each of Contoso's customers, Adventure Works, Fabrikam, and Tailwind. Each tenant contains another box that represents the Azure subscription for each customer. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer. On the right side of the diagram, a blue line represents Azure Lighthouse. An arrow points from this blue line to each of the Microsoft Entra tenants.
+   In the diagram, three separate boxes represent the Microsoft Entra tenant for each of Contoso's customers: Adventure Works, Fabrikam, and Tailwind. Each tenant contains another box that represents the Azure subscription for each customer. Each Azure subscription contains another box that represents the resource group for each customer. Each resource group contains the application, database, and storage for each customer. On the right side of the diagram, a blue line represents Azure Lighthouse. An arrow points from this blue line to each of the Microsoft Entra tenants.
 :::image-end:::
 
 A Microsoft Entra tenant is configured for each of Contoso's tenants. Each tenant contains a subscription and the resources that each customer needs. Azure Lighthouse is connected to each Microsoft Entra tenant.
@@ -244,4 +244,4 @@ Other contributors:
 
 ## Related resource
 
-Review [cost management and allocation](cost-management-allocation.yml) approaches.
+- [Cost management and allocation approaches](cost-management-allocation.yml)
