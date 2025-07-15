@@ -20,6 +20,8 @@ items:
           href: idea/many-models-machine-learning-azure-machine-learning.yml
       - name: Document processing and enrichment
         items:
+        - name: Extract and map information from unstructured content
+          href: idea/multi-modal-content-processing.yml
         - name: Extract document templates from enterprise data
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
