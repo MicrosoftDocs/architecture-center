@@ -15,9 +15,9 @@ The data transformation that takes place usually involves various operations, su
 
 Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
 
-Relevant Azure service:
+Relevant service:
 
-- [Fabric Data Factory](/azure/data-factory/concepts-pipelines-activities)
+-  [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
 Other tools:
 
@@ -37,9 +37,8 @@ The final phase of the ELT pipeline is typically to transform the source data in
 
 Relevant Microsoft service:
 
-- [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
-- [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
-
+- [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
 
 ## Data flow and control flow
 
@@ -51,15 +50,15 @@ Control flows execute data flows as a task. In a data flow task, data is extract
 
 In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
-Relevant Azure service:
+Relevant service:
 
-- [Fabric Data Factory](/azure/data-factory/concepts-pipelines-activities)
+-  [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
+## Streaming data and hot path architectures (push, transform, and load)
 
-## Streaming Data and Hot Path Architectures (Push, Transform, Load)
 When you have a need for Lambda hot path or Kappa architectures, another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
 
-![Diagram of the push load tranform process.](../images/plt.png)
+![Diagram of the push load tranform process.](../images/push-transform-load.png)
 
 In a streaming architecture, data is ingested from event sources into a message broker or event hub (e.g., Azure Event Hubs, Kafka), then processed by a stream processor (e.g., Fabric Real-Time Intelligence, Azure Stream Analytics, Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing the results to downstream systems like dashboards, alerts, or databases.
 
@@ -70,7 +69,6 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 - Powering real-time dashboards for logistics or operations
 - Triggering alerts based on sensor thresholds
 
-
 ## Technology choices
 
 - [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.md#oltp-in-azure)
@@ -80,7 +78,7 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 
 ## Next steps
 
-- [Fabric Decision Guide for Data Transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark))
+- [Fabric Decision Guide for Data Transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
 
 ## Related resources
 
