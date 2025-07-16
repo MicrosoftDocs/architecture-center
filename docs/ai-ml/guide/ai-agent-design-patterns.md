@@ -352,7 +352,7 @@ For hands-on implementation, explore some [Semantic Kernel multi-agent orchestra
 
 ## Implementations in Azure AI Foundry Agent Service
 
-The [Azure AI Foundry Agent Service](azure/ai-foundry/agents/overview) can also be used to chain agents together in relatively simple workflows using its [Connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement using this service are primarily non-deterministive, which limits which patterns can be fully implemented in this no-code environment.
+The [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) can also be used to chain agents together in relatively simple workflows using its [Connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement using this service are primarily non-deterministive, which limits which patterns can be fully implemented in this no-code environment.
 
 ## Contributors
 
