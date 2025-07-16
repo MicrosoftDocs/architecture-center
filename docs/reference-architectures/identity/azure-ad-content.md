@@ -4,7 +4,7 @@ Microsoft Entra ID is a cloud-based directory and identity service. This referen
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/azure-ad.svg" alt-text="Diagram of a hybrid cloud identity architecture that uses Microsoft Entra ID." lightbox="./images/azure-ad.svg":::
+:::image type="complex" border="false" source="./images/azure-active-directory.svg" alt-text="Diagram of a hybrid cloud identity architecture that uses Microsoft Entra ID." lightbox="./images/azure-active-directory.svg":::
    The image contains two key sections: an on-premises network and an Azure virtual network. The on-premises network section includes a domain controller, Microsoft Entra Connect Sync, and an on-premises client. An arrow points from the domain controller to Microsoft Entra Connect Sync. An arrow labeled sync points from Microsoft Entra Connect Sync to the Microsoft Entra tenant. An arrow labeled Requests from on-premises users points from the on-premises client to the Microsoft Entra tenant. An arrow labeled Requests from external users points to Microsoft Entra tenant. An arrow points from Microsoft Entra tenant to the Load balancer. Three arrows point from Load balancer to three separate virtual machines (VMs) in the Azure virtual network section. A dotted line labeled DDoS Protection encloses the Azure virtual network section. This section includes the Web tier, the Business tier, the Data tier, and the Management subnet. All three tiers include a network security group, a load balancer, and three VMs. The Management subnet includes Azure Bastion.
 :::image-end:::
 
