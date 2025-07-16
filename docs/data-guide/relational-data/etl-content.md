@@ -17,7 +17,7 @@ Often, the three ETL phases are run in parallel to save time. For example, while
 
 Relevant service:
 
--  [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
 Other tools:
 
@@ -52,7 +52,7 @@ In the diagram above, there are several tasks within the control flow, one of wh
 
 Relevant service:
 
--  [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
 ## Streaming data and hot path architectures (push, transform, and load)
 
@@ -78,7 +78,8 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 
 ## Next steps
 
-- [Fabric Decision Guide for Data Transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
+> [!div class="nextstepaction"]
+> [Fabric decision guide for data transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
 
 ## Related resources
 
