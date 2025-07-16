@@ -340,7 +340,7 @@ AI agent orchestration patterns extend and complement traditional [cloud design 
 
 ## Implementations in Microsoft Semantic Kernel
 
-The Agent Framework within Semantic Kernel provides support for many of these [Agent Orchestration Patterns](/semantic-kernel/frameworks/agent/agent-orchestration/).
+Many of these patterns rely on a code-based implementation to address the orchestration logic. The Agent Framework within Semantic Kernel provides support for many of these [Agent Orchestration Patterns](/semantic-kernel/frameworks/agent/agent-orchestration/).
 
 - [Sequential Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
 - [Concurrent Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
@@ -349,6 +349,10 @@ The Agent Framework within Semantic Kernel provides support for many of these [A
 - [Magentic Orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
 
 For hands-on implementation, explore some [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice. Additionally, many of these patterns can also be found in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
+
+## Implementations in Azure AI Foundry Agent Service
+
+The [Azure AI Foundry Agent Service](azure/ai-foundry/agents/overview) can also be used to chain agents together in relatively simple workflows using its [Connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement using this service are primarily non-deterministive, which limits which patterns can be fully implemented in this no-code environment.
 
 ## Contributors
 
