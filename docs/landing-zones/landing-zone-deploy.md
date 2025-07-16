@@ -32,7 +32,7 @@ Standard deployment options address typical enterprise Azure usage.
 
 #### Azure sovereign cloud deployments
 
-The three deployment options are supported for Azure public, global, and commercial cloud offerings. If deployment is required in other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets will need manual configuration changes by your platform team. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
+The three deployment options are supported for Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets need manual configuration changes by your platform team. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
 
 - **Azure Policy definitions, initiatives, and assignments:** Not all Azure policies are available across all clouds, so you need to remove unsupported policies before deployment.
 
