@@ -10,7 +10,9 @@ metadata:
   ms.category:
     - containers
   ms.collection: ce-skilling-ai-copilot
-  ms.custom: arb-containers
+  ms.custom:
+    - arb-containers
+    - arb-aiml
 azureCategories:
   - containers
   - compute
