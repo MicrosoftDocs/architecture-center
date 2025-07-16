@@ -5,6 +5,7 @@ metadata:
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 5/30/2025
+  ms.update-cycle: 180-days
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: reference-architecture

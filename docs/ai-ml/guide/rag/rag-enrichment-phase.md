@@ -4,6 +4,7 @@ description: Learn about the importance of augmenting chunks with metadata like 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 11/22/2024
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide

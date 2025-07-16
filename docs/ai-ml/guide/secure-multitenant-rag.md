@@ -4,6 +4,7 @@ description: Learn about the considerations and recommendations for improved sec
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/31/2025
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide

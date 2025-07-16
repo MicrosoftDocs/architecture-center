@@ -4,6 +4,7 @@ description: Learn how embeddings work, how to choose an embedding model, and ho
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 11/17/2024
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide

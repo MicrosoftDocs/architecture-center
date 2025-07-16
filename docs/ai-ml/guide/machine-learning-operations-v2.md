@@ -4,6 +4,7 @@ description: Learn about a single deployable set of repeatable and maintainable 
 author: setuc
 ms.author: setuchokshi
 ms.date: 07/03/2024
+ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
