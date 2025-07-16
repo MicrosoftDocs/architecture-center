@@ -4,7 +4,6 @@ description: Compare options for building, deploying, and managing your machine 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/27/2025
-ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide

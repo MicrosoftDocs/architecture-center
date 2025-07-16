@@ -4,7 +4,6 @@ description: Get started with AI. Use high-level architectural types, see Azure 
 author: anaharris-ms
 ms.author: pnp
 ms.date: 01/31/2025
-ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide

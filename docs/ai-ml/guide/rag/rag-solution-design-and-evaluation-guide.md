@@ -4,7 +4,6 @@ description: Learn about what to consider when you design a large language model
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/9/2024
-ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide

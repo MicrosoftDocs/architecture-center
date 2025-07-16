@@ -4,7 +4,6 @@ description: Learn about how to configure a search index, the types of searches 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/09/2025
-ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
