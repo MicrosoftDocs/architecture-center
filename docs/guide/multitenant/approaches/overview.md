@@ -41,4 +41,4 @@ The articles in this section aim to help solution architects and lead developers
 
 ## Related resource
 
-- Before you review the service-specific Azure guidance, review the [approaches for resource organization in a multitenant solution](resource-organization.yml).
+- Before you review the service-specific Azure guidance, review the [approaches for resource organization in a multitenant solution](resource-organization.md).
