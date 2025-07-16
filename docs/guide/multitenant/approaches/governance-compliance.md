@@ -54,7 +54,7 @@ For more information about integration with tenants' systems and external system
 
 ### Your access to tenants' data
 
-Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access control (Azure RBAC) role assignments for specific groups of users to work with these resources.
+Consider whether your tenants' requirements restrict the personnel who can work with their data or resources. For example, suppose you build a software as a service (SaaS) solution that many different customers use. A government agency might require that only citizens of their country or region are allowed to access the infrastructure and data for their solution. You might meet this requirement by using separate Azure resource groups, subscriptions, or management groups for sensitive customer workloads. You can apply tightly scoped Azure role-based access control (Azure RBAC) role assignments for specific groups of users to work with these resources.
 
 ### Aggregation of data from multiple tenants
 
@@ -107,7 +107,7 @@ Use tools like [Azure Policy](/azure/governance/policy/overview), the [Defender 
 
 ### Generate compliance documentation
 
-Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com) to generate compliance documentation that you can provide to your tenants or to non-Microsoft auditors.
+Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com) to generate compliance documentation that you can provide to your tenants or to external auditors.
 
 Some multitenant solutions incorporate Microsoft 365 and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft Purview portal](https://compliance.microsoft.com) helps you understand how these services comply with regulatory standards.
 
