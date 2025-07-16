@@ -24,21 +24,23 @@ The following platform deployment options provide an opinionated approach to dep
 
 Standard deployment options address typical enterprise Azure usage.
 
-| Azure platform landing zone deployment option | Description | Azure public clouds | Azure sovereign clouds (US Government, 21Vianet, and so on.) |
-| :-------------------------------------------- | :---------- | :----------------- | :----------------------------------------------------------- |
-| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported.<br><br>The individual resources can be deployed with the Azure Portal, just not as unified, guided portal experience. |
+| Azure platform landing zone deployment option | Description | Azure public clouds | Azure sovereign clouds like US Government and 21Vianet |
+| :--- | :--- | :--- | :--- |
+| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. <br><br> You can deploy individual resources by using the Azure Portal. However, this approach doesn't provide a unified, guided experience across resources. |
 | [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on infrastructure as code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. | Supported | Supported but requires modification. See the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
 | [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/) | An IaC-based deployment that uses Azure-verified modules for platform landing zones and provides a customizable way to deploy Azure landing zones with Terraform. | Supported | Supported but requires modification. See the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
 
 #### Azure sovereign cloud deployments
 
-The three deployment options are supported for the Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets will require manual configuration changes by your platform team. Only the Bicep & Terraform deployment options can be altered to handle these required changes.
+The three deployment options are supported for Azure public, global, and commercial cloud offerings. If deployment is required in other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets will need manual configuration changes by your platform team. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
 
-- Azure Policy definitions, initiatives & assignments - Not all Azure policies are available across all clouds, so you'll need to remove unsupported policies prior to deployment.
-- API versions for some resources - Certain API versions may not exist in some clouds, so you'll need to adjust resource API versions prior to deployment
-- Resource availability - Some resources might not exist in some clouds, for example DDoS Protection plans are not available in Azure in China. You will need to remove those prior to deployment.
+- **Azure Policy definitions, initiatives, and assignments:** Not all Azure policies are available across all clouds, so you need to remove unsupported policies before deployment.
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is still valid and supported in all Azure clouds. However, the deployment for that architecture is not provided in an automated solution that works across all clouds. If you would like to see automated deployment support for these clouds, [request the feature](https://github.com/Azure/Enterprise-Scale/issues/new?template=FEATURE_REQUEST.md).
+- **API versions for some resources:** Specific API versions might not exist in some clouds, so you need to adjust resource API versions before deployment.
+
+- **Resource availability:** Some resources might not exist in some clouds. For example, Azure DDoS Protection plans aren't available in Azure in China. You need to remove these resources before deployment.
+
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is valid and supported in all Azure clouds. However, the deployment for that architecture isn't provided in an automated solution that works across all clouds. If you want automated deployment support for these clouds, [request the feature](https://github.com/Azure/Enterprise-Scale/issues/new?template=FEATURE_REQUEST.md).
 
 ### Variants and specializations
 
