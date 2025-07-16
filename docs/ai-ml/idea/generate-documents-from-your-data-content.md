@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates a document generation solution that enables organizations to create intelligent structured and unstructured documents grounded in their enterprise data. The solution uses Azure AI services and Azure AI Search to identify relevant data, summarize information, and generate contextual content through conversational interactions. Users can generate documents based on this organizational knowledge and receive them in Microsoft Word format, with results cached for efficient reuse.
+This architecture demonstrates a document generation solution that enables organizations to create intelligent structured and unstructured documents grounded in their enterprise data. The solution uses Azure Document Intelligence to identify relevant data, summarize information, and generate contextual content through conversational interactions. Users can generate documents based on this organizational knowledge and receive them in Microsoft Word format, with results cached for efficient reuse.
 
 This architecture shows how to build a comprehensive system for generating business documents using AI. It combines retrieval, summarization, and generation with document persistence to support faster document creation workflows. The system enables user interaction through natural language and helps embed organizational knowledge directly into document processing workflows, while caching generated content to avoid regeneration overhead.
 
@@ -22,25 +22,21 @@ The following workflow corresponds to the preceding diagram:
 
 3. Azure Storage Account receives and stores enterprise documents (including PDF files), making them available for processing and indexing by downstream services. A storage account will also be used to store the generated documents from user sessions.
 
-4. Azure AI Services (specifically Azure Document Intelligence) processes PDFs and other documents, performing enrichment and vectorization to prepare content for indexing.
+4. Azure Document Intelligence creates searchable indexes from the processed and enriched documents, enabling semantic search capabilities and rapid information retrieval for document generation. Indexing skills could be used for maintaining the index in AI Search.
 
-5. Azure AI Search creates searchable indexes from the processed and enriched documents, enabling semantic search capabilities and rapid information retrieval for document generation. Indexing skills could be used for maintaining the index in AI Search.
+5. Azure AI Foundry utilizes the indexed content to power conversational interactions through Chat Completion, Conversation Loop, and JSON Mode via SDK, generating contextual documents based on user queries and organizational data.
 
-6. Azure OpenAI Service utilizes the indexed content to power conversational interactions through Chat Completion, Conversation Loop, and JSON Mode via SDK, generating contextual documents based on user queries and organizational data.
+6. App Service hosts the web frontend where users interact with the system through natural language to interact with the document generation system.
 
-7. App Service hosts the web frontend where users interact with the system through natural language to interact with the document generation system.
-
-8. Azure Cosmos DB stores conversation history and user interactions, while maintaining context for continuous improvement.
+7. Azure Cosmos DB stores conversation history and user interactions, while maintaining context for continuous improvement.
 
 ### Components
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web frontend interface where users interact with their enterprise data through conversational AI functionality. The interface enables both structured and unstructured document generation and DOCX export capabilities, providing a responsive and intuitive user experience.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web frontend interface where users interact with their enterprise data through conversational AI functionality. This compute is also where the documents are generated, using the docx react library to create DOCX files. App service persists generated documents to an Azure Storage account for delivery. The interface enables both structured and unstructured document generation and DOCX export capabilities, providing a responsive and intuitive user experience.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI Service powers the conversational interface and document generation capabilities, utilizing GPT models through Chat Completion, Conversation Loop, and JSON Mode via SDK to understand user queries, synthesize content from enterprise data, and generate contextual documents ranging from structured forms to unstructured business content.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models-as-a-service (MaaS) for the Semantic Kernel based agents to invoke.
 
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a cloud search service that provides rich search capabilities over diverse content types. In this architecture, Azure AI Search enables retrieval-augmented generation (RAG) by creating semantic search indexes of enterprise documents, allowing the system to quickly identify and retrieve relevant information for contextual document generation and locate previously cached documents.
-
-- [Azure AI Services](/azure/ai-services/) provides a collection of AI services for processing and understanding various types of content. In this architecture, Azure AI Services processes enterprise documents through Azure Document Intelligence to extract text, understand structure, and perform enrichment and vectorization to prepare content for indexing and generation workflows, supporting both structured and unstructured document creation.
+- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/?view=doc-intel-4.0.0) is a cloud-based Azure AI service that uses machine-learning models to automate your data processing in applications and workflows. Document Intelligence is essential for enhancing data-driven strategies and enriching document search capabilities.
 
 - [Azure Storage Account](/azure/well-architected/service-guides/azure-blob-storage) is Microsoft's object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Azure Storage Account stores enterprise documents and reference materials (including PDF files) that provide the foundational knowledge base for the document generation process. It is also used to store generated documents for caching purposes.
 
@@ -51,7 +47,7 @@ The following workflow corresponds to the preceding diagram:
 
 This document generation solution addresses the challenge organizations face when creating consistent, high-quality business documents that leverage institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts. The solution transforms document creation through conversational AI that generates both structured forms (like contracts, invoices, promissory notes) and unstructured documents (like proposals, reports, briefings) grounded in organizational data.
 
-This architecture supports transactional usage only, with batch processing not supported, ensuring focused, real-time document generation workflows that maintain quality and consistency for individual document requests. Generated documents are available for local download only and are not cached anywhere within the system, ensuring data privacy and security while requiring users to manage their own document storage and version control locally.
+This architecture supports transactional usage only, with batch processing not supported, ensuring focused, real-time document generation workflows that maintain quality and consistency for individual document requests.
 
 ### Potential use cases
 
@@ -99,21 +95,13 @@ This architecture includes multiple components that you can substitute with othe
 
 Consider the alternative if your workload primarily focuses on standardized forms with minimal unstructured content requirements.
 
-### Caching Strategy
-
-**Current approach:** Cosmos DB for document caching with semantic search integration for intelligent retrieval.
-
-**Alternative approach:** Traditional file storage with metadata indexing or hybrid approach combining blob storage for document files with database metadata.
-
-Consider alternatives based on document size, retrieval patterns, and integration requirements with the conversational interface.
-
 ## Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/c42b93df96a64d9d9067d2cbc1c0c4d2).
 
-Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers. However, Azure Container Registry has a fixed cost per registry per day.
+Pricing varies per region and usage, so it isn't possible to predict exact costs for your usage. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers.
 
 ## Deploy this scenario
 
