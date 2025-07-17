@@ -4,7 +4,9 @@ Organizations increasingly adopt API-first design approaches while facing growin
 
 This article doesn't address the application's underlying platforms, such as App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Service. Those parts of the diagram showcase what you can implement as a broader solution. This article specifically discusses the shaded areas, API Management and Application Gateway.
 
-![Diagram showing how Application Gateway and API Management protect APIs.](../_images/protect-apis.png)
+:::image type="complex" source="../_images/protect-apis.png" alt-text="Diagram showing how Application Gateway and API Management protect APIs." lightbox="../_images/protect-apis.png":::
+The diagram shows the Microsoft Azure architecture for protecting APIs using Application Gateway and API Management. On the left, external clients connect through the Internet to Application Gateway in the ag-subnet, which includes a Web Application Firewall. Application Gateway routes traffic to API Management in the apim-subnet above it. API Management connects to two backend services to the right: App Service Environment in ase-subnet and Kubernetes Service in aks-subnet. Internal clients at the bottom left connect directly through the virtual network. The architecture shows URL patterns for external and internal API access, with a dead end sinkpool for unauthorized requests. DDoS Protection shields the entire Azure environment, indicated by a security badge in the bottom right corner.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
 
@@ -18,6 +20,7 @@ This article doesn't address the application's underlying platforms, such as App
 
    - URLs formatted like `api.<some-domain>/external/*` can reach the backend to interact with the requested APIs.
    - Calls formatted as `api.<some-domain>/*` go to a dead end (sinkpool), which is a backend pool with no target.
+   - A routing rule at the Application Gateway level redirects users under `portal.<some-domain>/*` to the developer portal. Developers can manage APIs and their configurations from both internal and external environments. Alternatively, you can block the developer portal completely.
 
 1. Application Gateway accepts and proxies internal calls from resources in the same Azure virtual network under `api.<some-domain>/internal/*`.
 
@@ -27,8 +30,6 @@ This article doesn't address the application's underlying platforms, such as App
    - `api.<some-domain>/internal/*`
 
    In this scenario, API Management uses two types of IP addresses, public and private. Public IP addresses are for management operations on port 3443 for the management plane and for runtime API traffic in external virtual network configuration. When API Management sends a request to a public internet-facing back end, it shows a public IP address as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-in-a-virtual-network).
-
-- A routing rule at the Application Gateway level redirects users under `portal.<some-domain>/*` to the developer portal. Developers can manage APIs and their configurations from both internal and external environments. Alternatively, you can block the developer portal completely.
 
 ### Components
 
