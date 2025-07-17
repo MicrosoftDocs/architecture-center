@@ -105,7 +105,9 @@ Consider the concurrent orchestration pattern in the following scenarios:
 - Tasks that benefit from multiple independent perspectives or different specializations, such as technical, business, and creative, that can all contribute to the same problem. This collaboration typically occurs in scenarios that feature the following multi-agent decision-making techniques:  
 
   - Brainstorming
+
   - Ensemble reasoning
+
   - Quorum and voting-based decisions
 
 - Time-sensitive scenarios where parallel processing reduces latency
