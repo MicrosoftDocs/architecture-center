@@ -4,6 +4,7 @@ description: This article describes approaches to consider for networking in a m
 author: johndowns
 ms.author: pnp
 ms.date: 07/17/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
