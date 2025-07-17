@@ -82,7 +82,7 @@ The following items must be addressed during a freshness update, no exceptions, 
 
   This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience and impact. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
 
-- The data discloses or identify previously undisclosed solution shortcomings.
+- The data discloses or identifies previously undisclosed solution shortcomings.
 - The data aligns with the template for the content type.
 - The data is edited for quality.
 - The `author` and `ms.author` reflect the correct durable owner of this data.
