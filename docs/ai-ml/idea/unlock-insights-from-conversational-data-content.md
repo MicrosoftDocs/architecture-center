@@ -24,7 +24,7 @@ The following workflow corresponds to the preceding diagram:
 
 4. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
-5. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow.
+5. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow. This orchestration is only for handling chat requests. 
 
 6. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
 
@@ -50,7 +50,7 @@ The following workflow corresponds to the preceding diagram:
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service for storing and managing container images. In this architecture, Container Registry manages container images for the application components, ensuring consistent deployment and version control across the solution.
 
-- [Azure AI Services](/azure/ai-services/what-are-ai-services) provides a comprehensive collection of AI capabilities through REST APIs and SDKs. In this architecture, AI Services enhances the conversation analysis through additional topic modeling capabilities, complementing the core content understanding and search functionality.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) provides a comprehensive collection of AI capabilities through REST APIs and SDKs. In this architecture, AI Foundry enhances the conversation analysis through additional topic modeling capabilities, complementing the core content understanding and search functionality.
 
 ## Scenario details
 
