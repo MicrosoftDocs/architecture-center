@@ -73,7 +73,7 @@ These content types do not directly map to the file system. Their destinations a
 
 ## Freshness updates
 
-Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receive a full freshness pass get their `ms.date` metadata updated to reflect this. We don't ever update `ms.date` unless a full freshness pass is complete on the data.
+Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. We don't ever update `ms.date` unless a full freshness pass is complete on the data.
 
 The following items must be addressed during a freshness update, no exceptions, and the person doing the update will need to self-attest to addressing these items:
 
