@@ -188,7 +188,7 @@ You manage resources related to public internet ingress into the workload. For e
 
 #### Alternate approach to inspecting incoming traffic
 
-This architecture doesn't use Azure Firewall to inspect incoming traffic, but sometimes organizational governance requires it. In those cases, the platform team supports the implementation to provide workload teams with an extra layer of intrusion detection and prevention. This layer helps block unwanted inbound traffic. To support this topology, this architecture requires more UDR configurations. For more information, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml).
+This architecture doesn't use Azure Firewall to inspect incoming traffic, but sometimes organizational governance requires it. In those cases, the platform team supports the implementation to provide workload teams with an extra layer of intrusion detection and prevention. This layer helps block unwanted inbound traffic. To support this topology, this architecture requires more UDR configurations. For more information, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.md).
 
 ### DNS configuration
 

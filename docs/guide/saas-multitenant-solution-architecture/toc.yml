@@ -51,7 +51,7 @@ items:
           - name: Overview
             href: ../multitenant/approaches/overview.md
           - name: Resource organization
-            href: ../multitenant/approaches/resource-organization.yml
+            href: ../multitenant/approaches/resource-organization.md
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation

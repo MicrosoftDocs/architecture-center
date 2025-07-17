@@ -4,7 +4,7 @@ metadata:
   description: This article describes approaches to support multitenancy for the storage and data components of your solution.
   author: johndowns
   ms.author: pnp
-  ms.date: 07/29/2024
+  ms.date: 07/17/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom:
