@@ -139,7 +139,7 @@ public static class AsyncProcessingWorkAcceptor
 
         string reqid = Guid.NewGuid().ToString();
 
-        string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
+        string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
 
         var messagePayload = JsonConvert.SerializeObject(customer);
         var message = new ServiceBusMessage(messagePayload);
@@ -212,7 +212,7 @@ public static class AsyncOperationStatusChecker
         else
         {
             // If it's NOT present, then we need to back off. Depending on the value of the optional "OnPending" parameter, choose what to do.
-            string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
+            string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
             switch (OnPending)
             {

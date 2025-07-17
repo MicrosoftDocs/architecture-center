@@ -75,7 +75,7 @@ For a sample that deploys a similar architecture, see [Set up IoT Hub file uploa
 
 Principal authors:
 
-- [Katrien De Graeve](https://linkedin.com/in/katriendg/) | Software Engineer
+- [Katrien De Graeve](https://www.linkedin.com/in/katriendg/) | Software Engineer
 - [Vincent Misson](https://www.linkedin.com/in/vmisson/) | Cloud Solution Architect
 
 Other contributor:
