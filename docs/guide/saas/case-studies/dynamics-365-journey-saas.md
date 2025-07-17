@@ -236,5 +236,5 @@ The biggest lesson we’ve learned is that the journey to SaaS never ends. A pro
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Mike Ehrenberg](https://www.linkedin.com/in/mike-ehrenberg-5a3492128/) | CTO, Microsoft Dynamics
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Arsen Vladimirsky](http://linkedin.com/in/arsenv) | Principal Customer Engineer

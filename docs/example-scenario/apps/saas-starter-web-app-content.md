@@ -214,7 +214,7 @@ Principal author:
 Other contributors:
 
 - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
-- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant

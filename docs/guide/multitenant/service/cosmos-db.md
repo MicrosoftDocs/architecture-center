@@ -181,7 +181,7 @@ Principal authors:
 
 - [Tara Bhatia](https://linkedin.com/in/tarabhatia01/) | Program Manager, Azure Cosmos DB
 - [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

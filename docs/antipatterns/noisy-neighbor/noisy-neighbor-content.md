@@ -83,7 +83,7 @@ From a service's perspective, the noisy neighbor problem might appear in the fol
 
 Principal author:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

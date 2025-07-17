@@ -108,7 +108,7 @@ Principal authors:
 
 Other contributor:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

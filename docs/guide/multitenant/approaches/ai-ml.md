@@ -158,7 +158,7 @@ Principal author:
 Other contributors:
 
 - [Paul Burpo](https://www.linkedin.com/in/paul-burpo/) | Principal Customer Engineer, FastTrack for Azure
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 - [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect

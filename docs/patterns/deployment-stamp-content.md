@@ -157,7 +157,7 @@ Click the link below to deploy the solution.
 
 Principal author:
 
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

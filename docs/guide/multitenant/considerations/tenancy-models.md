@@ -187,7 +187,7 @@ Whichever isolation model you choose, be sure to test your solution to verify th
 
 Principal author:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

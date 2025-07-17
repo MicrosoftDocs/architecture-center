@@ -62,13 +62,13 @@ For more information about how to design a multitenant network topology, see [Ar
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- - [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Senior Program Manager, Azure NAT Gateway
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
- - [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Principal Customer Engineer
+- [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Senior Program Manager, Azure NAT Gateway
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Principal Customer Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

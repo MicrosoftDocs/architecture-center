@@ -96,7 +96,7 @@ Many multitenant solutions need to be geo-distributed. You might share a globall
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
