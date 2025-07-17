@@ -103,8 +103,8 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 Principal authors:
 
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
-- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 
 Other contributor:
 

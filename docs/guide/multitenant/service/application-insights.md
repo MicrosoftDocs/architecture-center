@@ -127,7 +127,7 @@ You can perform ingestion rate limiting in Application Insights by using [sampli
 
 Principal author:
 
-- [Raj Nemani](https://linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
+- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
 
 Other contributors:
 

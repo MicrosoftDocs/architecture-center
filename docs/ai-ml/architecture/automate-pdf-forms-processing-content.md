@@ -139,7 +139,7 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](https://linkedin.com/in/gailzhou) | Principal Software Engineer
+- [Gail Zhou](https://www.linkedin.com/in/gailzhou) | Principal Software Engineer
 
 Other contributors:
 - [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect

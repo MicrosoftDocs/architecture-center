@@ -106,7 +106,7 @@ Other contributors:
 
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
-- [Gary Moore](https://linkedin.com/in/gwmoore) | Programmer/Writer
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

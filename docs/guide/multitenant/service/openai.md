@@ -166,15 +166,15 @@ By carefully managing batch deployments, you can balance cost efficiency and res
 
 Principal author:
 
-- [Sofia Ferreira](https://linkedin.com/in/asofiamferreira) | Software Engineer, ISV & DN CoE
+- [Sofia Ferreira](https://www.linkedin.com/in/asofiamferreira) | Software Engineer, ISV & DN CoE
 
 Other contributors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce) | Customer Engineer, ISV & DN CoE
-- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, ISV & DN CoE
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, ISV & DN CoE
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

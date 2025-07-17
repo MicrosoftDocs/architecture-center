@@ -158,7 +158,7 @@ Principal authors:
 
 Other contributor:
 
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
