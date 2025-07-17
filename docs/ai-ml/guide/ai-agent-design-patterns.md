@@ -418,7 +418,7 @@ AI agent orchestration patterns extend and complement traditional [cloud design 
 
 ## Implementations in Microsoft Semantic Kernel
 
-Many of these patterns rely on a code-based implementation to address the orchestration logic. The Agent Framework within Semantic Kernel provides support for many of the following [Agent Orchestration patterns](/semantic-kernel/frameworks/agent/agent-orchestration/).
+Many of these patterns rely on a code-based implementation to address the orchestration logic. The Agent Framework within Semantic Kernel provides support for many of the following [Agent Orchestration patterns](/semantic-kernel/frameworks/agent/agent-orchestration/):
 
 - [Sequential orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
 - [Concurrent orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
