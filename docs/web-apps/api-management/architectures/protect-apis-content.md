@@ -1,4 +1,4 @@
-With more workloads adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their design, and the growing number and severity of threats to web applications over the internet, it's critical to have a security strategy to protect APIs. One step toward API security is protecting the network traffic by using the [Gateway Routing pattern](../../../patterns/gateway-routing.yml). You use the gateway to restrict traffic source locations and traffic quality in addition to supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
+With more workloads adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their design, and the growing number and severity of threats to web applications over the internet, it's critical to have a comprehensive security strategy to protect APIs. This is especially important as organizations increasingly expose AI-powered APIs and adopt zero trust architecture principles. One step toward API security is protecting the network traffic by using the [Gateway Routing pattern](../../../patterns/gateway-routing.yml). You use the gateway to restrict traffic source locations and traffic quality in addition to supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
 
@@ -94,6 +94,8 @@ Always implement these additional security measures:
 - Use [private endpoints](/azure/api-management/private-endpoint) for API Management to provide secure inbound connectivity.
 
 - Enable [Microsoft Defender for APIs](/defender-for-cloud/defender-for-apis-introduction) to monitor API security posture and detect threats.
+
+- Configure [WAF bot protection rules](/azure/web-application-firewall/ag/bot-protection) to identify and block malicious bots.
 
 ### Cost Optimization
 
