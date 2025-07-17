@@ -28,7 +28,9 @@ The following workflow corresponds to the preceding diagram:
 
 6. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
 
-7. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application.
+7. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application. The chat history is stored in Cosmos DB so Cosmos DB only interacts with the app to pull the users previous questions/answers. The data to be queried for new questions is in SQL DB and Azure AI Search index.
+
+8. Azure AI Foundry is making an open ai call for topic modeling on the data and the data is then written to sql.
 
 ### Components
 
