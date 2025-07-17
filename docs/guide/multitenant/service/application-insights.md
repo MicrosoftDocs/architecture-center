@@ -131,12 +131,12 @@ Principal author:
 
 Other contributors:
 
-- [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
-- [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer - Azure Patterns & Practices
-- [Landon Pierce](https://linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
+- [Rick Hallihan](https://www.linkedin.com/in/hallihan/) | Senior Software Engineer - Azure Patterns & Practices
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
