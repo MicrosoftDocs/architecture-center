@@ -93,7 +93,7 @@ Always implement these security measures:
 
 - Use [private endpoints](/azure/api-management/private-endpoint) for API Management to provide secure inbound connectivity.
 
-- Enable [Microsoft Defender for APIs](/defender-for-cloud/defender-for-apis-introduction) to monitor API security posture and detect threats.
+- Enable [Microsoft Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) to monitor API security posture and detect threats.
 
 - Configure [WAF bot protection rules](/azure/web-application-firewall/ag/bot-protection) to identify and block malicious bots.
 
