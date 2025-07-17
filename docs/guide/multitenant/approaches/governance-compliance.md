@@ -19,7 +19,7 @@ Consider the following key considerations and requirements.
 
 ### Resource isolation
 
-Ensure that you configure your Azure resources to meet your tenants' isolation requirements. For more information, see [Azure resource organization in multitenant solutions](resource-organization.yml).
+Ensure that you configure your Azure resources to meet your tenants' isolation requirements. For more information, see [Azure resource organization in multitenant solutions](resource-organization.md).
 
 ### Data management
 
