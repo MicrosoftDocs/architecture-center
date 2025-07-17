@@ -53,7 +53,7 @@ Use the following techniques to fine-tune eventing capabilities to satisfy tenan
 - Deploy the namespace with a pricing tier that's appropriate for the tenant's requirements. For example, a [premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
 - Apply networking restrictions based on tenant needs by using [IP firewall rules](/azure/event-hubs/network-security#ip-firewall), [private endpoints](/azure/event-hubs/network-security#private-endpoints), and [virtual network service endpoints](/azure/event-hubs/network-security#network-service-endpoints).
 - Use [tenant-specific encryption keys](/azure/event-hubs/configure-customer-managed-key).
-- Configure [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) and [availability zones](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
+- Configure [availability zones](/azure/event-hubs/event-hubs-geo-dr), [Event Hubs geo-replication](/azure/event-hubs/geo-replication), and [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
 
 If you reach the maximum number of Event Hubs namespaces in your Azure subscription, deploy namespaces across different subscriptions by using the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
 
@@ -85,7 +85,7 @@ The following features of Event Hubs support multitenancy:
 - [SAS](#sas)
 - [Customer-managed keys](#customer-managed-keys)
 - [Event Hubs capture](#event-hubs-capture)
-- [Geo-disaster recovery](#geo-disaster-recovery)
+- [Geo-replication and geo-disaster recovery](#geo-replication-and-geo-disaster-recovery)
 - [IP firewall rules](#ip-firewall-rules)
 
 The following sections describe these features.
@@ -142,16 +142,11 @@ You can use this capability to archive events. For example, if you need to archi
 
 For more information, see [Capture events through Event Hubs in Blob Storage or Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 
-### Geo-disaster recovery
+### Geo-replication and geo-disaster recovery
 
-Geo-disaster recovery continuously replicates the entire configuration of an Event Hubs namespace from a primary namespace to a paired secondary namespace. This feature improves recovery capabilities from disasters, such as regional failures.
+[Event Hubs Geo-replication](/azure/event-hubs/geo-replication) continuously replicates the configuration and data of an Event Hubs namespace from a primary namespace to a paired secondary namespace. This feature improves recovery capabilities from disasters, such as regional failures. For example, if you isolate your tenants at the namespace level, you can replicate the configuration of a tenant namespace to a secondary region. This setup provides protection against outages and failures in the primary region. However, it requires that your namespaces use specific tiers.
 
-For example, if you isolate your tenants at the namespace level, you can replicate the configuration of a tenant namespace to a secondary region. This setup provides protection against outages and failures in the primary region.
-
-For more information, see [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
-
-> [!NOTE]
-> To help maintain operational continuity, geo-disaster recovery replicates the configuration of the primary namespace to the secondary namespace. It doesn't replicate the event data or any Microsoft Entra role-based access control assignments that you use for your primary namespace. For more information, see [Multisite and multiregion federation](/azure/event-hubs/event-hubs-federation-overview).
+Event Hubs also has a separate feature called [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr), which replicates just the configuration of a namespace. This capability helps to maintain operational continuity. It doesn't replicate the event data or any Microsoft Entra role-based access control assignments that you use for your primary namespace. If you need to, you can configure your own replication by using [Multisite and multiregion federation](/azure/event-hubs/event-hubs-federation-overview).
 
 ### IP firewall rules
 
