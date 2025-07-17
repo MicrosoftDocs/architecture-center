@@ -96,7 +96,7 @@ For more information about various design considerations, including API design, 
 
 Your application has specific business requirements, goals, and measurements of success. You should decompose those functional and nonfunctional requirements into discrete activities that work together to achieve a solution that meets your and your customers' expectations. These activities typically follow patterns that the software industry has established. Software design patterns are named and repeatable approaches that you can apply to processing or data storage. These patterns are proven to solve specific problems with known tradeoffs.
 
-Azure's [catalog of cloud design patterns](../patterns/index.md) addresses specific challenges in distributed systems. For AI workloads involving multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns) for specialized coordination approaches that complement traditional design patterns by addressing the unique challenges of orchestrating intelligent, autonomous components.
+Azure's [catalog of cloud design patterns](../patterns/index.md) addresses specific challenges in distributed systems. For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns) for specialized coordination approaches that complement traditional design patterns by addressing the unique challenges of orchestrating intelligent, autonomous components.
 
 ## Make informed technology choices
 

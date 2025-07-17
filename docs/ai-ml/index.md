@@ -103,7 +103,7 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 ## Agent-based architecture
 
-For guidance on coordinating multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
+For guidance about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
 ## Azure AI services
 
