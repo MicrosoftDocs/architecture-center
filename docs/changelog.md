@@ -39,7 +39,7 @@ The following new and updated articles have recently been published in the Azure
 - [Guidance for using Azure Database for PostgreSQL in a multitenant solution](./guide/multitenant/service/postgresql.md)  ([#d07ac6f724](https://github.com/MicrosoftDocs/architecture-center/commit/d07ac6f724))
 - [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#9b2f30972c](https://github.com/MicrosoftDocs/architecture-center/commit/9b2f30972c))
 - [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#0260f2ff48](https://github.com/MicrosoftDocs/architecture-center/commit/0260f2ff48))
-- [Protect access tokens in a single-page application by using Azure API Management](./web-apps/guides/security/secure-single-page-application-authorization.yml)  ([#7f02e1da4d](https://github.com/MicrosoftDocs/architecture-center/commit/7f02e1da4d))
+- [Protect access tokens in a single-page application by using Azure API Management](./web-apps/guides/security/secure-single-page-application-authorization.md)  ([#7f02e1da4d](https://github.com/MicrosoftDocs/architecture-center/commit/7f02e1da4d))
 - [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md)  ([#53d19ea22c](https://github.com/MicrosoftDocs/architecture-center/commit/53d19ea22c))
 - [Noisy Neighbor Antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#ce68a59508](https://github.com/MicrosoftDocs/architecture-center/commit/ce68a59508))
 - [Azure for AWS Professionals](./aws-professional/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
