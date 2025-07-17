@@ -14,8 +14,6 @@ items:
           items:
           - name: SaaS starter web app reference architecture
             href: ../../example-scenario/apps/saas-starter-web-app.yml
-          - name: Multitenant SaaS reference architecture
-            href: ../../example-scenario/multi-saas/multitenant-saas.yml
       - name: Startups
         items:
         - name: Overview
@@ -53,7 +51,7 @@ items:
           - name: Overview
             href: ../multitenant/approaches/overview.md
           - name: Resource organization
-            href: ../multitenant/approaches/resource-organization.yml
+            href: ../multitenant/approaches/resource-organization.md
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation

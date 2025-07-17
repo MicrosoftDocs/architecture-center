@@ -38,9 +38,7 @@ items:
     - name: Microservices
       items:
       - name: Get started
-        href: microservices/index.yml
-      - name: Microservice architecture style
-        href: guide/architecture-styles/microservices.yml
+        href: guide/architecture-styles/microservices.md
       - name: Guides
         items:
           - name: Microservices assessment and readiness
@@ -507,8 +505,6 @@ items:
       items:
       - name: Analytics end to end
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-      - name: Azure Synapse for landing zones
-        href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
@@ -894,8 +890,6 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Cross-tenant communication
-        href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
         href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
     - name: Architectures
@@ -1051,8 +1045,8 @@ items:
       items:
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
-      - name: Zero-trust network for web applications
-        href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
+      - name: Zero Trust network for web applications
+        href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
       items:
       - name: Secure research for regulated data

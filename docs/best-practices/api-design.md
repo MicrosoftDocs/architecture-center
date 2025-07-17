@@ -641,13 +641,13 @@ APIs that support the inclusion of trace and context information enhance their o
 
 ```http
 GET https://api.contoso.com/orders/3
-Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+Correlation-ID: aaaa0000-bb11-2222-33cc-444444dddddd
 ```
 
 ```http
 HTTP/1.1 200 OK
 ...
-Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+Correlation-ID: aaaa0000-bb11-2222-33cc-444444dddddd
 
 {...}
 ```
