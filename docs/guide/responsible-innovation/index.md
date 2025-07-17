@@ -1,9 +1,8 @@
 ---
 title: Responsible Engineering Overview
 description: Learn how to incorporate responsible engineering principles and practices so that you can deploy your technology ethically and sustainably.
-author: Zimmergren
+author: claytonsiemens77
 ms.author: pnp
-ms.reviewer: tozimmergren
 ms.date: 04/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
