@@ -3,7 +3,8 @@ title: Architectural approaches for networking in multitenant solutions
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 07/29/2024
+ms.date: 07/17/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -30,12 +31,12 @@ Whenever you use infrastructure services, like virtual machines or Azure Kuberne
 
 If you use Azure's platform services, like App Service, Azure Cosmos DB, or Azure SQL Database, then the specific architecture you use will determine the networking services you require.
 
-If you need to isolate your platform services from the internet, you need to use a VNet. Depending on the specific services you use, you might work with [private endpoints](/azure/private-link/private-endpoint-overview) or VNet-integrated resources, like [Application Gateway](/azure/application-gateway/overview). However, you might also choose to make your platform services available through their public IP addresses, and use the services' own protections like firewalls and identity controls. In these situations, you might not need a VNet.
+If you need to isolate your platform services from the internet, you need to use a VNet. Depending on the specific services you use, you might work with [private endpoints](/azure/private-link/private-endpoint-overview) or VNet-integrated resources, like [Application Gateway](/azure/application-gateway/overview). However, you might also choose to make your platform services available through their public IP addresses, and use the services' own protections like firewalls and identity controls. In these situations, you might not need to deploy and configure your own VNet.
 
 The decision of whether to use VNets for platform services is based on many requirements, including the following factors:
 
-- **Compliance requirements:** You might need to meet a specific compliance standard. Some standards require your Azure environment to be configured in specific ways.
-- **Your tenants' requirements:** Even if your own organization doesn't have specific requirements for network-layer isolation or controls, your tenants might. Ensure you have a clear understanding of how your tenants will access your solution and whether they have any assumptions about its network design.
+- **Compliance requirements:** You might need to meet a specific compliance standard. Some standards require your Azure environment to be configured in specific ways, such as using particular network controls. To learn more, see [Architectural approaches for governance and compliance in multitenant solutions](./governance-compliance.md).
+- **Your tenants' requirements:** Even if your own organization doesn't have defined requirements for network-layer isolation or controls, your tenants might. Ensure you have a clear understanding of how your tenants will access your solution and whether they have any assumptions about its network design.
 - **Complexity:** It can be more complex to understand and work with virtual networks. Ensure your team has a clear understanding of the principles involved, or you're likely to deploy an insecure environment.
 
 Ensure that you understand the [implications of using private networking](#antipatterns-to-avoid).
@@ -56,11 +57,11 @@ Consider whether your tenants will access your services through the internet or 
 
 For internet-based (public) access, you can use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls to secure your service.
 
-If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants, and when you deploy dedicated VNets for each tenant.
+If you need to enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants, and when you deploy dedicated VNets for each tenant.
 
 ### Access to tenants' endpoints
 
-Consider whether you need to send data to endpoints within the tenants' networks, either within or outside of Azure. For example, will you need to invoke a webhook that's provided by a customer, or do you need to send real-time messages to a tenant?
+Consider whether you need to send data to endpoints within the tenants' networks, either within or outside of Azure. For example, you might invoke a webhook that's provided by a customer, or you might need to send real-time messages to a tenant's systems.
 
 If you do need to send data to tenants' endpoints, consider the following common approaches:
 
@@ -103,7 +104,7 @@ Consider whether your tenants need your service to use static public IP addresse
 
 When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. Consider using NAT Gateway to control the IP address of outbound traffic. For more information about using NAT Gateway in a multitenant solution, see [Azure NAT Gateway considerations for multitenancy](../service/nat-gateway.md).
 
-When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying a resource like a virtual machine into a VNet and then using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying a resource like a virtual machine into a VNet and then using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips).
 
 ### Agents
 
