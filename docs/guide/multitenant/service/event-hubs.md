@@ -41,7 +41,6 @@ The following sections describe the models in more detail.
 > [!NOTE]
 > Event Hubs for Apache Kafka is a feature that adds a Kafka-compatible protocol layer to Event Hubs so that Apache Kafka applications can use Event Hubs. The applications stream events into event hubs, which function like Kafka topics. For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).
 
-
 ### Dedicated namespace
 
 This model provisions an [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) for each tenant. This approach provides the maximum level of isolation and the ability to provide acceptable performance for all tenants.
@@ -51,8 +50,11 @@ Use the following techniques to fine-tune eventing capabilities to satisfy tenan
 - Deploy the namespace to a region that's close to the tenant.
 
 - Deploy the namespace with a pricing tier that's appropriate for the tenant's requirements. For example, a [premium namespace](/azure/event-hubs/event-hubs-premium-overview) allows you to choose the number of [processing units](/azure/event-hubs/event-hubs-scalability#processing-units).
+
 - Apply networking restrictions based on tenant needs by using [IP firewall rules](/azure/event-hubs/network-security#ip-firewall), [private endpoints](/azure/event-hubs/network-security#private-endpoints), and [virtual network service endpoints](/azure/event-hubs/network-security#network-service-endpoints).
+
 - Use [tenant-specific encryption keys](/azure/event-hubs/configure-customer-managed-key).
+
 - Configure [Event Hubs geo-replication](/azure/event-hubs/geo-replication) and [Event Hubs geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) to meet tenant availability requirements.
 
 If you reach the maximum number of Event Hubs namespaces in your Azure subscription, deploy namespaces across different subscriptions by using the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp).
