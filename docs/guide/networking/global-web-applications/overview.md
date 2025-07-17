@@ -231,7 +231,7 @@ Principal authors:
 
 - [Dave Burkhardt](https://linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Priyanka Wilkins](https://linkedin.com/in/priyanka-w/) | Principal Content Developer
+- [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Principal Content Developer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
