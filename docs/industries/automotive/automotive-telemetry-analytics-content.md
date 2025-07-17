@@ -239,7 +239,7 @@ Other contributors:
 
 - [Devang Shah](https://www.linkedin.com/in/shahdevang) | Principal Program Manager
 - [Hans-Peter Bareiner](https://www.linkedin.com/in/hans-peter-bareiner-69039163) | Cloud Solution Architect
-- [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Sr. Software Engineer
+- [Jason Bouska](https://www.linkedin.com/in/jasonbouska/) | Senior Software Engineer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

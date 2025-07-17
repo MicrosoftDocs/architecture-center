@@ -151,7 +151,7 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributor:

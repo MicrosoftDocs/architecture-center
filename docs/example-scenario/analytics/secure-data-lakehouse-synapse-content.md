@@ -292,7 +292,7 @@ Principal author:
 Other contributors:
 
 - Ian Chen | Principal Software Engineer Lead
-- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering
+- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras/) | Principal Software Engineering Manager, Azure Patterns & Practices
 - Roy Chan | Principal Software Engineer Manager
 - [Gurkamal Rakhra](https://www.linkedin.com/in/gurkamaldeep/) | Principal Solutions Architect
 

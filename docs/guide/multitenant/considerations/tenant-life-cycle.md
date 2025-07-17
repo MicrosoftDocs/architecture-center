@@ -112,7 +112,7 @@ Deactivation differs from offboarding because it's intended to be a temporary st
 
 Principal author:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

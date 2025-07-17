@@ -226,15 +226,14 @@ The diagram has three stamps with control planes. Each stamp has three tenant da
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- * [Bohdan Cherchyk](https://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
- * [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -242,7 +241,7 @@ Other contributors:
 
 - [Well-Architected Framework](/azure/well-architected/)
 
-## Related resources 
+## Related resources
 
 - [Architectural considerations overview](overview.yml) 
 - [Architectural approaches for control planes in multitenant solutions](../approaches/control-planes.md)

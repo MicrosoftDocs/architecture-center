@@ -161,7 +161,7 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

@@ -162,7 +162,7 @@ Several Azure services support automatic management of certificates for custom d
 
 Principal author:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
