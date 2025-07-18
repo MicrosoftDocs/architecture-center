@@ -78,7 +78,9 @@ To learn more about how to use custom domains for Azure resources, see [Map a cu
 
 This process uses the [OAuth2 Authorization Code Flow](/entra/architecture/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Microsoft Entra authorization endpoint. You need to configure a redirect URI in Microsoft Entra ID. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Microsoft Entra ID and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the authentication flow.](../_images/no-token-in-browser-set-token-sequence.png)
+:::image type="complex" border="false" source="../_images/no-token-in-browser-set-token-sequence.png" alt-text="Diagram that shows the authentication flow." lightbox="../_images/no-token-in-browser-set-token-sequence.png":::
+   The diagram has three sections: the browser, API Management, and Microsoft identity platform. A series of arrows and dotted lines outline a sequence where a user signs in to a single-page application in the browser section. An arrow represents the request going to Microsoft Entra ID for authentication. Upon successful authentication, API Management receives the authorization code, exchanges it for an access token, encrypts the token, stores it in an HttpOnly cookie, and redirects the user back to the application with the secure cookie set. The flow shows that the access token never enters the browser's JavaScript context.
+:::image-end:::
 
 The flow contains these steps:
 
@@ -139,7 +141,9 @@ The flow contains these steps:
 
 When the single-page application has the access token, it can use the token to call the downstream API. The cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, so it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the API call sequence.](../_images/no-token-in-browser-call-api-sequence.png)
+:::image type="complex" border="false" source="../_images/no-token-in-browser-call-api-sequence.png" alt-text="Diagram that shows the API call sequence." lightbox="../_images/no-token-in-browser-call-api-sequence.png":::
+   The diagram has three sections: the browser, API Management, and Microsoft Graph API. A series of arrows and dotted lines show the secure authentication flow between a user, single-page application, Microsoft Graph API, and API Management. An arrow points from the single-page application in the browser section to the API endpoint in the API Management section. The browser process adds the cookie, and the inbound policy sets the variable and header for the cookie. Another arrow represents the request being sent to the downstream API in the Microsoft Graph API section. Another arrow represents the downstream API returning the request to the single-page application in the browser section.
+:::image-end:::
 
 The flow contains these steps:
 
