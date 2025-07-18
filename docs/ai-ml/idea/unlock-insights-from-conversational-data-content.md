@@ -30,7 +30,7 @@ The following workflow corresponds to the preceding diagram:
 
 7. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application. The chat history is stored in Cosmos DB so Cosmos DB only interacts with the app to pull the users previous questions/answers. The data to be queried for new questions is in SQL DB and Azure AI Search index.
 
-8. Azure AI Foundry is making an open ai call for topic modeling on the data and the data is then written to sql.
+8. A Python script running on Databricks/Synapse performs topic modeling by making API calls to a Phi-3 model hosted in Azure AI Foundry. The script processes data from Delta tables, sends text to the model for topic analysis, and writes the results back to Delta tables.
 
 ### Components
 
@@ -108,19 +108,6 @@ Consider this alternative if your workload has the following characteristics:
 - You want to minimize the number of different services in your architecture
 - Your search requirements are primarily vector-based without need for traditional full-text search capabilities
 
-### Interactive frontend architecture
-
-**Current approach:** This solution uses Azure App Service to host both the web frontend and orchestration APIs, providing integrated hosting for the complete user experience.
-
-**Alternative approach:** Deploy the frontend as a static web app using Azure Static Web Apps while hosting APIs separately in Azure Container Apps or Azure Functions.
-
-Consider this alternative if your workload has the following characteristics:
-
-- You want to optimize for global content delivery and edge performance
-- Your frontend and backend have different scaling requirements
-- You prefer a microservices architecture with clear separation of concerns
-- You want to minimize hosting costs for the frontend component
-
 ## Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -133,7 +120,7 @@ Pricing varies per region and usage, so it isn't possible to predict exact costs
 
 To deploy an implementation of this architecture, follow the steps in the [GitHub repository](https://github.com/microsoft/Conversation-Knowledge-Mining-Solution-Accelerator).
 
-The deployment includes automated Infrastructure as Code templates, sample conversation data for testing, and comprehensive setup documentation to help you get started quickly.
+The deployment includes automated Infrastructure as Code templates, sample conversation data for testing, and setup documentation to help you get started.
 
 ## Contributors
 
