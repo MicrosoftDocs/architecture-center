@@ -153,7 +153,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/sap-on-microsoft/ct-p/SAPonMicrosoft)
 - [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
+- [Stack Overflow for SAP](https://stackoverflow.com/tags/sap/info)
 
 ## Related resources
 

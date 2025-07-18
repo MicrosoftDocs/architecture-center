@@ -103,12 +103,12 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 Principal authors:
 
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
-- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 
 Other contributor:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

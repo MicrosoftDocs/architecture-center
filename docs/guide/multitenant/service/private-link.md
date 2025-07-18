@@ -151,12 +151,12 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributor:
 
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 - [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

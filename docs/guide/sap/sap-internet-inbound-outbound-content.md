@@ -219,10 +219,6 @@ Principal authors:
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect  
 - [Dennis Padia](https://www.linkedin.com/in/dennispadia) | Senior SAP Architect
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Communities
@@ -231,7 +227,7 @@ Consider using these communities to get answers to questions and for help with s
 
 - [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
+- [Stack Overflow SAP](https://stackoverflow.com/tags/sap/info)
 
 ## Next steps
 

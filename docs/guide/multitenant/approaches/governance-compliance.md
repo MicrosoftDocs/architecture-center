@@ -141,7 +141,7 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

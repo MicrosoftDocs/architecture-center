@@ -149,16 +149,16 @@ Audit logs are an important tool for understanding your environment and how user
 
 Principal authors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
   
 Other contributors:
 
-- [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
-- [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
-- [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+- [Sander van den Hoven](https://www.linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+- [Nick Ward](https://www.linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

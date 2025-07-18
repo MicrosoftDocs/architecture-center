@@ -148,7 +148,7 @@ Because JSON is a text-based format, it isn't efficient over the wire and not id
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
-There are other variations of JSON such as [binary JSON (BSON)](http://bsonspec.org). BSON is a binary encoding aligned to work with MongoDB.
+There are other variations of JSON such as [binary JSON (BSON)](https://bsonspec.org). BSON is a binary encoding aligned to work with MongoDB.
 
 ### CSV
 
@@ -180,7 +180,7 @@ Apache Parquet supports data compression and has limited capabilities for schema
 
 ### CBOR
 
-[CBOR](http://cbor.io) (Specification) is a binary format that provides a small encoding size. The advantage of using CBOR over MessagePack is its compliance with IETF in RFC7049.
+[CBOR](https://cbor.io) (Specification) is a binary format that provides a small encoding size. The advantage of using CBOR over MessagePack is its compliance with IETF in RFC7049.
 
 ## Next steps
 
