@@ -101,6 +101,10 @@ For more information, see the following resources:
 
 For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) and [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
+## Agent-based architecture
+
+For guidance about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
+
 ## Azure AI services
 
 With [Azure AI services](https://azure.microsoft.com/products/ai-services), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
