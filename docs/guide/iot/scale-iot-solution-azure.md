@@ -11,15 +11,17 @@ ms.custom: arb-iot
 
 # Scale out an Azure IoT Hub solution to support millions of devices
 
-This article describes how to scale an Internet of Things (IoT) solution by using a scale-out pattern on the Azure IoT Hub platform. The scale-out pattern addresses scaling challenges by adding instances to a deployment instead of increasing instance size. This implementation guidance shows you how to scale an IoT solution that supports millions of devices and considers Azure service and subscription limits. The article outlines low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs. For more information, see the following articles:
-
-- [Best practices for large-scale Microsoft Azure IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale)
-- [IoT Hub](/azure/iot-hub/)
-- [IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/)
+This article describes how to scale an Internet of Things (IoT) solution by using a scale-out pattern on the Azure IoT Hub platform. The scale-out pattern addresses scaling challenges by adding instances to a deployment instead of increasing instance size. This implementation guidance shows you how to scale an IoT solution that supports millions of devices and considers Azure service and subscription limits. The article outlines low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs.
 
 :::image type="complex" source="media/iot-steps-high-res.png" alt-text="A diagram that shows the main steps to scale out your Azure IoT solution." lightbox="media/iot-steps-high-res.png" border="false":::
 The steps in order are gather requirements, understand Azure IoT concepts, understand shared resiliency, scale out components, design device software, deploy devices, and monitor devices.
 :::image-end:::
+
+For more information, see the following articles:
+
+- [Best practices for large-scale Microsoft Azure IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale)
+- [IoT Hub](/azure/iot-hub/)
+- [IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/)
 
 > [!NOTE]
 > This document doesn't cover the [Azure IoT Operations](/azure/iot-operations/overview-iot-operations) platform, which scales based on the hosting Kubernetes platform configuration.
@@ -28,7 +30,7 @@ The steps in order are gather requirements, understand Azure IoT concepts, under
 
 Gather requirements before you implement a new IoT solution. This step helps ensure that the implementation meets your business objectives. Your business objectives and operational environment should drive your requirements. At a minimum, gather the following requirements:
 
-**Identify the types of devices that you want to deploy.** IoT encompasses a wide range of solutions, from simple microcontroller units (MCUs) to mid-level system-on-chip (SOC) and microprocessor units (MPUs), to full PC-level designs. The device-side software capabilities directly influence the solution design.
+**Identify the types of devices that you want to deploy.** IoT encompasses a wide range of solutions, from simple microcontroller units (MCUs) to mid-level system-on-chip (SoC) and microprocessor units (MPUs), to full PC-level designs. Device-side software capabilities directly influence the solution design.
 
 **Determine how many devices you need to deploy.** Some of the basic principles of implementing IoT solutions apply at all scales. Understand the scale to help avoid overengineering a solution. A solution for 1,000 devices has fundamental differences compared to a solution for 1 million devices. A proof-of-concept (PoC) solution for 10,000 devices might not scale appropriately to 10 million devices if you don't consider the target scale at the start of the solution design.
 
@@ -81,7 +83,7 @@ You must consider shared resiliency concepts, such as transient fault handling, 
 - Reliance on the network connectivity between the device and cloud services
 - Implementation limits of cloud services
 
-Transient fault handling requires that you have a retry capability built into your device code. Several retry strategies exist, including exponential backoff with randomization, also known as *exponential backoff with jitter.* For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+Transient fault handling requires you to have a retry capability built into your device code. Several retry strategies exist, including exponential backoff with randomization, also known as *exponential backoff with jitter.* For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 Different factors can affect the network connectivity of a device:
 
@@ -113,7 +115,7 @@ If regional redundancy is a concern, use the [Geode pattern](/azure/architecture
 
 The Azure Cloud Adoption Framework includes [guidance about regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
 
-**Understand ISV SaaS concerns.** ISVs that offers SaaS solutions should meet customers' expectations for availability and resiliency. ISVs must architect Azure services to be highly available and consider the cost of resiliency and redundancy when billing the customer.
+**Understand ISV SaaS concerns.** ISVs that offer SaaS solutions should meet customers' expectations for availability and resiliency. ISVs must architect Azure services to be highly available and consider the cost of resiliency and redundancy when billing the customer.
 
 Segregate the cost of goods sold based on customer data segregation for each software customer. This distinction is important when the user isn't the same as the customer. For example, for a smart TV platform, the platform vendor's customer might be the television vendor, but the user is the purchaser of the television. This segregation, driven by the customer tenancy model from the requirements, requires separate DPS and IoT Hub instances. The provisioning service must also have a unique customer identity, which you can define through a unique endpoint or device authentication process. For more information, see [IoT multitenant guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
@@ -123,7 +125,7 @@ When you scale IoT solutions, evaluate each service and how they interrelate. Yo
 
 ### Scale out across multiple DPS instances
 
-Because of DPS service limits, you often need to expand to multiple DPS instances. You can approach device provisioning across multiple DPS instances in two main ways: zero-touch provisioning and low-touch provisioning.
+Because of DPS service limits, you often need to expand to multiple DPS instances. You can approach device provisioning across multiple DPS instances through either zero-touch provisioning or low-touch provisioning.
 
 The following approaches apply the previously described *stamp* concept for resiliency and scaling out. This concept includes deploying Azure App Service in multiple regions and using a tool such as [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) or a [global load balancer](/azure/load-balancer/cross-region-overview). For simplicity, the following diagrams don't show these components.
 
@@ -200,7 +202,7 @@ The diagram has two scale stamps that each include a DPS pool and an IoT Hub poo
 1. The device makes a request against DPS with the assigned ID scope. DPS returns IoT hub assignment details to the device.
 1. The device persists the ID scope and IoT hub connection information to persistent storage, ideally in a secured storage location because the ID scope is part of the authentication against the DPS instance. The device uses this IoT hub connection information for further requests into the system.
 
-This article doesn't cover other variations. For example, you can configure this approach by moving the DPS call to the provisioning API, as shown earlier in the zero-touch provisioning with a provisioning API. The goal is to make sure each tier is scalable, configurable, and readily deployable.
+This article doesn't cover other variations. For example, you can configure this approach by moving the DPS call to the provisioning API, as shown earlier in the zero-touch provisioning with a provisioning API. The goal is to make sure that each tier is scalable, configurable, and readily deployable.
 
 ### General DPS provisioning guidance
 
@@ -222,7 +224,7 @@ Apply the following recommendations to your DPS deployment:
 
 ### Scale out IoT Hub
 
-Compared to scaling out DPS, scaling out IoT Hub is relatively straightforward. As mentioned earlier, one of the benefits of DPS is its ability to link to many IoT Hub instances. When you follow the recommended practice of using DPS in Azure IoT solutions, scaling out IoT Hub involves the following steps:
+Compared to scaling out DPS, scaling out IoT Hub is relatively straightforward. One of the benefits of DPS is its ability to link to many IoT Hub instances. When you follow the recommended practice of using DPS in Azure IoT solutions, scaling out IoT Hub involves the following steps:
 
 1. Create a new instance of the IoT Hub service.
 
@@ -232,11 +234,11 @@ Compared to scaling out DPS, scaling out IoT Hub is relatively straightforward. 
 
 ## Design device software
 
-Scalable device design requires following best practices and device-side considerations. Some of these practices come from anti-patterns experienced in the field. This section describes key concepts for a successfully scaled deployment.
+Scalable device design requires following best practices and device-side considerations. Some of these practices come from anti-patterns encountered in the field. This section describes key concepts for a successfully scaled deployment.
 
 **Estimate workloads across different parts of the device life cycle and scenarios within the life cycle.** Device registration workloads can vary greatly between development phases, such as pilot, development, production, decommissioning, and end of life. In some cases, they can also vary based on external factors such as the previously mentioned blackout scenario. Design for the worst-case workload to help ensure success at scale.
 
-**Support reprovisioning on demand.** You can offer this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reprovision-devices). This option lets you transfer ownership scenarios and factory default scenarios.
+**Support reprovisioning on demand.** You can provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reprovision-devices). This option lets you transfer ownership scenarios and factory default scenarios.
 
 **Avoid unnecessary reprovisioning.** Active, working devices rarely require reprovisioning because provisioning information remains relatively static. Don't reprovision without a good reason.
 
@@ -246,7 +248,7 @@ Scalable device design requires following best practices and device-side conside
 
 **Support over-the-air (OTA) updates.** Two simple update models include using device twin properties with [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) and using simple device commands. For more sophisticated update scenarios and reporting, see [Azure Device Update](/azure/iot-hub-device-update/). OTA updates allow you to fix defects in device code and reconfigure services, such as DPS ID scope, if necessary.
 
-**Architect for certificate changes at all layers and certificate uses.** This recommendation aligns with the OTA update best practices. You must consider certificate rotation. The IoT Hub DPS documentation touches on this scenario [from a device identity certificate](/azure/iot-dps/how-to-roll-certificates) viewpoint. In a device solution, other certificates are being used for access to services like IoT Hub, App Service, and Azure Storage accounts. The root certificate change across the Azure platform indicates that you must anticipate changes at all layers. Also, use certificate pinning with caution, especially when certificates are outside the device manufacturer's control.
+**Architect for certificate changes at all layers and certificate uses.** This recommendation aligns with the OTA update best practices. You must consider certificate rotation. The IoT Hub DPS documentation addresses this scenario [from a device identity certificate](/azure/iot-dps/how-to-roll-certificates) viewpoint. In a device solution, other certificates are used for access to services like IoT Hub, App Service, and Azure Storage accounts. The root certificate change across the Azure platform indicates that you must anticipate changes at all layers. Also, use certificate pinning with caution, especially when certificates are outside the device manufacturer's control.
 
 **Consider a reasonable default state.** To resolve initial provisioning failures, have a reasonable disconnected or unprovisioned configuration, depending on the circumstances. If the device has a heavy interaction component as part of initial provisioning, the provision process can occur in the background while the user performs other provisioning tasks. Always pair this approach with an appropriate retry pattern and the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
