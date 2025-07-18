@@ -102,7 +102,7 @@ Consider the concurrent orchestration pattern in the following scenarios:
 
 - Tasks that you can run in parallel, either by using a fixed set of agents or by dynamically choosing AI agents based on specific task requirements.
 
-- Tasks that benefit from multiple independent perspectives or different specializations, such as technical, business, and creative approaches, that can all contribute to the same problem. This collaboration typically occurs in scenarios that feature the following multi-agent decision-making techniques:  
+- Tasks that benefit from multiple independent perspectives or different specializations, such as technical, business, and creative approaches, that can all contribute to the same problem. This collaboration typically occurs in scenarios that feature the following multi-agent decision-making techniques:
 
   - Brainstorming
 
@@ -130,7 +130,7 @@ Avoid this orchestration pattern in the following scenarios:
 
 ### Concurrent orchestration example
 
-A financial services firm runs an intelligent application that uses concurrent agents that specialize in different types of analysis to evaluate the same stock simultaneously. Each agent contributes insights from its specialized perspective, which provides diverse, time-sensitive input for rapid investment decisions.
+A financial services firm built an intelligent application that uses concurrent agents that specialize in different types of analysis to evaluate the same stock simultaneously. Each agent contributes insights from its specialized perspective, which provides diverse, time-sensitive input for rapid investment decisions.
 
 :::image type="complex" border="false" source="_images/concurrent-pattern-example.svg" alt-text="Diagram that shows concurrent orchestration to evaluate a stock." lightbox="_images/concurrent-pattern-example.svg":::
    The image contains three key sections. In the top section, an arrow points from Ticker symbol to the Stock analysis agent. A line connects Model, exchange symbol mapping knowledge to the Stock analysis agent. An arrow points from the Stock analysis agent to a section that reads Decision with supporting evidence based on combined intermediate results. A line connects Stock analysis agent to a line that points to four separate sections. These sections are four separate flows: Fundamental analysis agent, Technical analysis agent, Sentiment analysis agent, and ESG agent. A line connects Model to the Fundamental analysis agent flow. An arrow points from Fundamental analysis agent flow to Intermediate result. A line points from the Fundamental analysis agent flow and splits into two flows: Financials and revenue analysis agent and Competitive analysis agent. A line connects Financials and revenue analysis agent to a section that reads Model, reported financials knowledge. A line connects Competitive analysis agent to a section that reads Model, competitive knowledge. An arrow points from Technical analysis agent to Intermediate result. A line connects Technical analysis agent to a section that reads Fine-tuned model, market APIs. An arrow points from Sentiment analysis agent to Intermediate result. A line connects Sentiment analysis agent to a section that reads Model, social APIs, news APIs. An arrow points from the ESG agent to Intermediate result. A line connects the ESG agent to a section that reads Model, ESG knowledge.
@@ -198,7 +198,7 @@ Managing conversation flow and preventing infinite loops require careful attenti
 
 ### Maker-checker loops
 
-The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something. Another agent, the *checker*, provides crucial feedback. This pattern is iterative, with the checker agent pushing the conversation back to the maker agent to make updates and repeat the process. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
+The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something. Another agent, the *checker*, provides a critique of the result. This pattern is iterative, with the checker agent pushing the conversation back to the maker agent to make updates and repeat the process. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
 
 ### Group chat orchestration example
 
@@ -286,7 +286,7 @@ Consider the magentic pattern in the following scenarios:
 
 - A complex or open-ended use case that has no predetermined solution path.  
 
-- A requirement to consider input and feedback from multiple specialized agents to develop a valid solution path.  
+- A requirement to consider input and feedback from multiple specialized agents to develop a valid solution path.
 
 - A requirement for the AI system to generate a fully developed plan of approach that a human can review before or after implementation.
 
