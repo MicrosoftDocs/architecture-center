@@ -84,9 +84,9 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 
 ## AI agent orchestration patterns
 
-While the cloud design patterns above address common challenges in distributed systems, AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts. However, AI agents introduce unique challenges such as non-deterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
+The preceding cloud design patterns address common challenges in distributed systems, but AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts. However, AI agents introduce unique challenges such as nondeterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
 
-For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components working together to accomplish complex outcomes.
+For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
 
 ## Next steps
 

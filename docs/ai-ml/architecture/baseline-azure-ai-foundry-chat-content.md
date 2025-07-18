@@ -153,7 +153,7 @@ Choose the agent approach that aligns with your workload's user experience requi
 
 #### Single-agent or multi-agent orchestration
 
-**Current approach:** This reference architecture uses a single agent with access to all necessary knowledge sources and tools to handle most user interactions effectively.
+**Current approach:** This reference architecture uses a single agent that has access to all necessary knowledge sources and tools to handle most user interactions effectively.
 
 **Alternative approach:** You can orchestrate multiple specialized agents, where each agent focuses on specific domains, uses different models, or accesses distinct knowledge stores and tools.
 
@@ -165,11 +165,11 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 - Different query interactions benefit from different models. A lightweight model handles simple questions, while a more powerful model processes complex reasoning tasks. This approach optimizes both cost and latency.
 
-- The chat experience serves as a front end to business processes that involve sequential or parallel steps requiring different specialists.
+- The chat experience serves as a front end to business processes that involve sequential or parallel steps that require different specialists.
 
-Multi-agent approaches introduce coordination complexity and increased latency because of inter-agent communication. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
+Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
 
-For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magnetic orchestration approaches. You can implement some patterns within Foundry Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
+For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Foundry Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
 
 ## Considerations
 
