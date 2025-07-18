@@ -112,9 +112,9 @@ Explore the cost of running this scenario. All of the services are pre-configure
 
 We've provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a Basic tier that will minimize cost but still ensure that there's service-level agreement (SLA) support and enough capacity to handle a production-level workload.
-- [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled in a single App Service instance with a moderate Standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
-- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, Premium tier web apps deployed in multiple regions fronted by Traffic Manager are required. Data consists of the following components: storage, databases, and CDN, all configured for terabytes of data.
+- [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single small instance of an isolated web app. Each of the other components is scaled to a Basic tier that will minimize cost but still ensure that there's service-level agreement (SLA) support and enough capacity to handle a production-level workload.
+- [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled by a moderately sized single isolated App Service instance. Additionally, the capacity of the Application Gateway and Azure SQL Database are increased to support the added workload.
+- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, isolated tier web apps deployed in multiple regions fronted by Traffic Manager are required. An additional Application Gateway and Virtual Network are added to the estimate. An Azure Traffic Manager is also included in the solution. The capacity of the Azure SQL Database is increased to support the additonal workload.
 
 ### Performance Efficiency
 
@@ -156,9 +156,9 @@ Principal author:
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/fully-managed-secure-apps.svg
-[small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
-[medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
-[large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
+[small-pricing]: https://azure.com/e/9563539d508a4b68853a6b3c5168431e
+[medium-pricing]: https://azure.com/e/c3fb0809853c4cbabdcecae279dafe1f
+[large-pricing]: https://azure.com/e/2fb444f766ed4daca863eced5f051dd4
 [app-service-reference-architecture]: /azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
