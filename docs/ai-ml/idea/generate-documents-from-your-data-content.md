@@ -6,7 +6,7 @@ This architecture shows how to build a comprehensive system to generate business
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/generate-documents-from-your-data.png" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents-from-your-data.png":::
+:::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
    This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account. The files are then processed by Azure AI Document Intelligence, which indexes the content. The indexed content flows through App Service and then into Azure AI Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 

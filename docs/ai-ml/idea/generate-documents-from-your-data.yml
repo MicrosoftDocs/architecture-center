@@ -15,6 +15,6 @@ products:
   - azure-cosmos-db
 name: Build a document generation system by using AI
 summary: Learn how to build a simple system for generating document templates by using AI. It combines retrieval, summarization, and generation to support faster document drafting.
-thumbnailUrl: /azure/architecture/browse/thumbs/generate-documents-from-your-data.png
+thumbnailUrl: /azure/architecture/browse/thumbs/generate-documents.png
 content: |
   [!INCLUDE[](generate-documents-from-your-data-content.md)]
