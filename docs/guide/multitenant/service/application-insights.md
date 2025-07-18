@@ -127,16 +127,16 @@ You can perform ingestion rate limiting in Application Insights by using [sampli
 
 Principal author:
 
-- [Raj Nemani](https://linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
+- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
 
 Other contributors:
 
-- [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
-- [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer - Azure Patterns & Practices
-- [Landon Pierce](https://linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer, Azure Patterns & Practices
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Rick Hallihan](https://www.linkedin.com/in/hallihan/) | Senior Software Engineer, Azure Patterns & Practices
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

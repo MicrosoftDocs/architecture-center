@@ -3,7 +3,6 @@ title: Choose a data transfer technology
 description: Learn about data transfer options like the Azure Import/Export service, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools.
 author: josearper
 ms.author: joaria
-ms.reviewer: tozimmergren
 ms.date: 10/04/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide

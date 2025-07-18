@@ -41,7 +41,7 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 
 - Use [tenant-specific encryption keys](#customer-managed-keys).
 
-- Configure [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) or [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) to replicate the metadata and data of the namespace to another region.
+- Configure [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) or [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) to replicate the metadata and data of the namespace to another region.
 
 The disadvantage to this isolation model is that as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
 
@@ -111,7 +111,7 @@ Partitioning is available when you deploy namespaces with specific SKUs. For mor
 
 ### Automatic update of MUs
 
-Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enable this feature to allow the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) without requiring manual intervention.
+Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enable this feature to allow the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) without requiring manual intervention.
 
 For more information, see [Automatically update MUs of a Service Bus namespace](/azure/service-bus-messaging/automate-update-messaging-units).
 
@@ -121,15 +121,15 @@ For more information, see [Automatically update MUs of a Service Bus namespace](
 
 Principal author:
 
-- [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://www.linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
-- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
