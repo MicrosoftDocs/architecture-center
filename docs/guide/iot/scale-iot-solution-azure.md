@@ -38,17 +38,17 @@ Identify how many devices you need to deploy so that you can choose the right Az
 
 **Document the anticipated device locations.** Include physical location, power availability, and internet connectivity. A solution that you deploy in a single geography, such as only in North America, is designed differently compared to a global solution. Likewise, an industrial IoT solution deployed in factories that have full-time power differs from a fleet management solution deployed in motor vehicles that have variable power and location. The communication protocol and available bandwidth, whether to a gateway or directly to a cloud service, affect design scalability at each layer. Also consider connectivity availability. Determine whether devices remain connected to Azure or run in a disconnected mode for extended periods.
 
-**Investigate data locality requirements.** Legal, compliance, or customer requirements might restrict where you can store data, such as telemetry, or metadata, such as device information, for the solution. These restrictions significantly influence the solution's geographical design.
+**Investigate data locality requirements.** Legal, compliance, or customer requirements might restrict where you can store data (such as telemetry) or metadata (such as device information) for the solution. These restrictions significantly influence the solution's geographical design.
 
-**Determine data exchange requirements.** A solution that sends basic telemetry, such as current temperature, once per hour differs from a solution that uploads 1-MB sample files once every 10 minutes. A one-way, device-to-cloud (D2C) solution differs from a bidirectional D2C and cloud-to-device (C2D) solution. Also, product scalability limitations treat message size and message quantity as different dimensions.
+**Determine data exchange requirements.** A solution that sends basic telemetry such as current temperature once per hour differs from a solution that uploads 1-MB sample files once every 10 minutes. A one-way, device-to-cloud (D2C) solution differs from a bidirectional D2C and cloud-to-device (C2D) solution. Also, product scalability limitations treat message size and message quantity as different dimensions.
 
 **Document expected high availability and disaster recovery requirements.** Like any production solution, full IoT solution designs include availability, or uptime, requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user errors, environmental factors, and solution bugs. The design also needs to have a documented [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and recovery time objective (RTO) if a disaster occurs, such as a permanent region loss or malicious actors. This article focuses on device scale, so it includes only limited information about high availability and disaster recovery concerns.
 
-**Decide on a customer tenancy model if appropriate.** In a multitenant independent software vendor (ISV) solution, where the solution developer creates a solution for external customers, the design must define how to segregate and manage customer data. For more information, see [Tenancy models](/azure/architecture/guide/multitenant/considerations/tenancy-models) and [IoT-specific guidance](/azure/architecture/guide/multitenant/approaches/iot).
+**Decide on a customer tenancy model if appropriate.** In a multitenant software development company solution, where the solution developer creates a solution for external customers, the design must define how to segregate and manage customer data. For more information, see [Tenancy models](/azure/architecture/guide/multitenant/considerations/tenancy-models) and the related [IoT-specific guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
 ## Understand Azure IoT concepts
 
-When you create a solution, choose the appropriate Azure IoT components and other supporting Azure services. The architecture of your solution requires significant effort. Properly using IoT Hub and IoT Hub DPS services can help you scale your solutions to millions of devices.
+When you create a solution, choose the appropriate Azure IoT components and other supporting Azure services. The architecture of your solution requires significant effort. Properly using the IoT Hub and IoT Hub DPS services can help you scale your solutions to millions of devices.
 
 ### IoT Hub
 
@@ -58,13 +58,13 @@ IoT Hub scales based on the desired functionality and the number of messages or 
 
 - The free, basic, and standard [tiers](/azure/iot-hub/iot-hub-scaling#choose-your-features-basic-and-standard-tiers) determine the available capabilities. A production instance doesn't use the free tier because it's limited in scale and intended for introduction development scenarios only. Most solutions use the standard tier to get the full capabilities of IoT Hub.
 
-- The [size](/azure/iot-hub/iot-hub-scaling#choose-your-size-editions-and-units) determines the message and data throughput base unit for D2C messages for the IoT hub. The maximum size for an instance of IoT hub is size 3, which supports 300 million messages per day and 1,114.4 GB of data per day, per unit.
+- The [size](/azure/iot-hub/iot-hub-scaling#choose-your-size-editions-and-units) determines the message and data throughput base unit for D2C messages for IoT Hub. The maximum size for an instance of IoT Hub is size 3, which supports 300 million messages per day and 1,114.4 GB of data per day, per unit.
 
 - The unit count determines the multiplier for the scale on size. For example, three units support three times the scale of one unit. The limit on size 1 or 2 hub instances is 200 units, and the limit on size 3 hub instances is 10 units.
 
-In addition to the daily limits based on the size and unit count and the general functionality limits based on tier, IoT Hub enforces per-second limits on throughput. Each IoT Hub instance also supports up to 1 million devices as a [soft limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#how-to-manage-limits). Although you can request a higher limit, design your solution around the soft limit to avoid future problems. Your data exchange requirements help define the appropriate configuration. For more information, see [Other limits](/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits).
+In addition to the daily limits based on the size and unit count and the general functionality limits based on tier, IoT Hub enforces per-second limits on throughput. Each IoT Hub instance also supports up to 1 million devices as a [hard limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#how-to-manage-limits). Your data exchange requirements help define the appropriate configuration. For more information, see [Other limits](/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits).
 
-Your solution requirements drive the necessary size and number of IoT hubs as a starting point. If you use IoT Hub DPS, Azure helps you distribute your workloads across multiple IoT Hub instances.
+Your solution requirements drive the necessary size and number of IoT Hub instances as a starting point. If you use IoT Hub DPS, Azure helps you distribute your workloads across multiple IoT Hub instances.
 
 ### IoT Hub DPS
 
@@ -75,7 +75,7 @@ DPS instances reside in specific geographic regions but have a [global public en
 
 ## Understand shared resiliency concepts
 
-You must consider shared resiliency concepts, such as transient fault handling, device location impact, and, for ISVs, software as a service (SaaS) data resiliency.
+You must consider shared resiliency concepts, such as transient fault handling, device location impact, and, for software companies, software as a service (SaaS) data resiliency.
 
 **Understand transient fault handling.** Any production distributed solution, whether it's on-premises or in the cloud, must be able to recover from transient or temporary faults. Transient faults might occur more frequently in a cloud solution because of the following factors:
 
@@ -115,7 +115,7 @@ If regional redundancy is a concern, use the [Geode pattern](/azure/architecture
 
 The Azure Cloud Adoption Framework includes [guidance about regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
 
-**Understand ISV SaaS concerns.** ISVs that offer SaaS solutions should meet customers' expectations for availability and resiliency. ISVs must architect Azure services to be highly available and consider the cost of resiliency and redundancy when billing the customer.
+**Understand software company SaaS concerns.** Software companies that offer SaaS solutions should meet customers' expectations for availability and resiliency. Software companies must architect Azure services to be highly available and consider the cost of resiliency and redundancy when billing the customer.
 
 Segregate the cost of goods sold based on customer data segregation for each software customer. This distinction is important when the user isn't the same as the customer. For example, for a smart TV platform, the platform vendor's customer might be the television vendor, but the user is the purchaser of the television. This segregation, driven by the customer tenancy model from the requirements, requires separate DPS and IoT Hub instances. The provisioning service must also have a unique customer identity, which you can define through a unique endpoint or device authentication process. For more information, see [IoT multitenant guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
@@ -238,7 +238,7 @@ Scalable device design requires following best practices and device-side conside
 
 **Estimate workloads across different parts of the device life cycle and scenarios within the life cycle.** Device registration workloads can vary greatly between development phases, such as pilot, development, production, decommissioning, and end of life. In some cases, they can also vary based on external factors such as the previously mentioned blackout scenario. Design for the worst-case workload to help ensure success at scale.
 
-**Support reprovisioning on demand.** You can provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reprovision-devices). This option lets you transfer ownership scenarios and factory default scenarios.
+**Support reprovisioning on demand.** You can provide this feature through a device command and an administrative user request. For more information, see [Reprovision devices](/azure/iot-dps/concepts-deploy-at-scale#reprovision-devices). This option facilitates transfer-of-ownership scenarios and factory-default scenarios.
 
 **Avoid unnecessary reprovisioning.** Active, working devices rarely require reprovisioning because provisioning information remains relatively static. Don't reprovision without a good reason.
 
@@ -248,7 +248,7 @@ Scalable device design requires following best practices and device-side conside
 
 **Support over-the-air (OTA) updates.** Two simple update models include using device twin properties with [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) and using simple device commands. For more sophisticated update scenarios and reporting, see [Azure Device Update](/azure/iot-hub-device-update/). OTA updates allow you to fix defects in device code and reconfigure services, such as DPS ID scope, if necessary.
 
-**Architect for certificate changes at all layers and certificate uses.** This recommendation aligns with the OTA update best practices. You must consider certificate rotation. The IoT Hub DPS documentation addresses this scenario [from a device identity certificate](/azure/iot-dps/how-to-roll-certificates) viewpoint. In a device solution, other certificates are used for access to services like IoT Hub, App Service, and Azure Storage accounts. The root certificate change across the Azure platform indicates that you must anticipate changes at all layers. Also, use certificate pinning with caution, especially when certificates are outside the device manufacturer's control.
+**Architect for certificate changes at all layers and certificate uses.** This recommendation aligns with the OTA update best practices. You must consider certificate rotation. The IoT Hub DPS documentation addresses this scenario [from a device identity certificate](/azure/iot-dps/how-to-roll-certificates) viewpoint. In a device solution, other certificates are used for access to services like IoT Hub, App Service, and Azure Storage accounts. Azure sometimes changes certificate authority configurations, so you must anticipate changes at all layers. Also, use certificate pinning with caution, especially when certificates are outside the device manufacturer's control.
 
 **Consider a reasonable default state.** To resolve initial provisioning failures, have a reasonable disconnected or unprovisioned configuration, depending on the circumstances. If the device has a heavy interaction component as part of initial provisioning, the provision process can occur in the background while the user performs other provisioning tasks. Always pair this approach with an appropriate retry pattern and the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
