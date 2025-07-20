@@ -7,7 +7,7 @@ The architecture combines retrieval, summarization, and generation with document
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
-   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account. The files are then processed by Azure AI Document Intelligence, which indexes the content. The indexed content flows through App Service and then into Azure AI Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
+   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and Azure AI Document Intelligence processes the files and indexes the content. The indexed content flows through App Service and then into Azure AI Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/generate-documents.vsdx) of this architecture.*
@@ -44,7 +44,7 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-This document generation solution addresses the challenge that organizations face when they want to create consistent, high-quality business documents that use institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts. This solution transforms document creation through conversational AI that generates both structured documents, such as contracts, invoices, and promissory notes, and unstructured documents, such as proposals, reports, and briefings, grounded in organizational data.
+This document generation solution addresses the challenge that organizations encounter when they want to create consistent, high-quality business documents that use institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts. This solution transforms document creation through conversational AI that generates structured documents such as contracts, invoices, and promissory notes, and unstructured documents such as proposals, reports, and briefings, all grounded in organizational data.
 
 This architecture supports transactional usage only. It enables focused, real-time document generation workflows that maintain quality and consistency for individual document requests. It doesn't support batch processing.
 
@@ -64,7 +64,7 @@ This architecture supports transactional usage only. It enables focused, real-ti
 
 **Grant application development:** Create grant applications by combining project requirements, organizational capabilities, and historical successful submissions into compelling funding requests.
 
-**Requests for Proposals (RFP) response generation:** Automatically draft responses to requests for proposals by analyzing requirements against organizational capabilities and previous successful proposals.
+**Requests for Proposals (RFP) response generation:** Automatically draft responses to RFPs by analyzing requirements against organizational capabilities and previous successful proposals.
 
 ### Financial and procurement documentation
 
@@ -90,7 +90,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** Use custom AI-powered generation that includes enterprise data grounding and intelligent caching for both structured and unstructured documents.
 
-**Alternative approach:** Use Azure AI Document Intelligence with pre-built forms for structured documents only, combined with traditional document management systems.
+**Alternative approach:** Use Azure AI Document Intelligence with prebuilt forms for structured documents only, combined with traditional document management systems.
 
 Consider the alternative if your workload primarily focuses on standardized forms that have minimal unstructured content requirements.
 
@@ -100,7 +100,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/c42b93df96a64d9d9067d2cbc1c0c4d2) shows the costs to run this scenario.
 
-Pricing varies based on region and usage, so you can't predict exact costs for your scenario. The majority of the Azure resources used in this infrastructure are on usage-based pricing tiers.
+Pricing varies based on region and usage, so you can't predict exact costs for your scenario. Most of the Azure resources used in this infrastructure are on usage-based pricing tiers.
 
 ## Deploy this scenario
 
