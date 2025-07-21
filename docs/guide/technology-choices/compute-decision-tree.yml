@@ -17,6 +17,9 @@ azureCategories:
 products:
   - azure-app-service
   - azure-kubernetes-service
+  - azure-virtual-machines
+  - azure-container-apps
+  - azure-functions
 name: Choose an Azure compute service
 summary: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 thumbnailUrl: /azure/architecture/browse/thumbs/compute-choices.png
