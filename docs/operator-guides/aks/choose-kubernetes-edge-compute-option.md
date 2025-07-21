@@ -22,7 +22,7 @@ This document discusses the trade-offs for various options available for extendi
 
 - **Mixed node.** Ability to run a Kubernetes cluster with both Linux and Windows nodes.
 
-**Assumptions**
+**Assumptions:**
 
 - You're a cluster operator looking to understand different options for running Kubernetes at the edge and managing clusters in Azure.
 
@@ -34,9 +34,9 @@ This article helps you identify which option best fits your scenario and the env
 
 |                                 | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary**                                                                                                                               |
 |---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities. |
-| **K8s on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location.                                                                   |
-| **Azure Kubernetes Service (AKS) hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local or Windows Server 2019.                                                                                   |
+| **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities |
+| **Kubernetes on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location                                                                   |
+| **Azure Kubernetes Service (AKS) hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local or Windows Server 2019                                                                                   |
 
 \*Other managed edge platforms, such as OpenShift and Tanzu, aren't in scope for this document.
 
@@ -58,7 +58,7 @@ Often, *edge* locations have specific requirements for running Kubernetes cluste
 
 - You can enable clusters by using [Azure Arc](/azure/azure-arc/) as a simple way to manage your cluster from Azure alongside other resources. This approach also provides your cluster with other Azure capabilities, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Microsoft Defender for Cloud](/azure/security-center/azure-defender), and other services.
 
-- Because cluster configuration isn't trivial, it's especially important to be mindful of continuous integration and continuous deployment (CI/CD). You must track and act on upstream changes of various plugins. Ensure that those changes don't affect the health of your cluster. It's important for you to have a strong CI/CD solution, strong testing, and monitoring in place.
+- It's especially important to be mindful of continuous integration and continuous deployment (CI/CD) because cluster configuration isn't trivial. You must track and act on upstream changes of various plugins. Ensure that those changes don't affect the health of your cluster. It's important for you to have a strong CI/CD solution, strong testing, and monitoring in place.
 
 ### Tooling options
 
@@ -86,7 +86,7 @@ Operational cost:
 
 Ease of configuration:
 
-- You must evaluate the many open-source options at every stage of configuration whether its networking, storage, or monitoring options, which can become complex. This approach requires more consideration for configuring a CI/CD for cluster configuration. Because of these concerns, the ease of configuration is difficult.
+- You must evaluate the many open-source options at every stage of configuration, including networking, storage, and monitoring options, which can become complex. This approach requires more consideration for configuring a CI/CD for cluster configuration. Because of these concerns, configuration is more difficult.
 
 Flexibility:
 
@@ -130,11 +130,11 @@ Flexibility:
 
 ## AKS hybrid
 
-AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. You can deploy these clusters by using Windows Admin Center or PowerShell modules on a multi-node cluster that runs Windows Server.
+AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. You can deploy these clusters by using Windows Admin Center or PowerShell modules on a multiple-node cluster that runs Windows Server.
 
 ### Scenario
 
-This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local or Windows Server. Operations and configuration complexity are reduced at the expense of the flexibility when compared to the bare-metal Kubernetes option.
+This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local or Windows Server. Operations and configuration complexity are reduced at the expense of flexibility when compared to the bare-metal Kubernetes option.
 
 ### Considerations
 
