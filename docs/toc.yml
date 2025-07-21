@@ -15,12 +15,6 @@ items:
     href: landing-zones/bicep/landing-zone-bicep.md
   - name: Subscription vending implementation
     href: landing-zones/subscription-vending.yml
-  - name: Application landing zone design guides
-    items:
-    - name: Use the Azure Governance Visualizer
-      href: landing-zones/azure-governance-visualizer-accelerator.yml
-    - name: Azure Virtual Desktop
-      href: landing-zones/azure-virtual-desktop/design-guide.md
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -972,6 +966,8 @@ items:
       items:
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
+      - name: Use the Azure Governance Visualizer
+        href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Architectures
       items:
       - name: Azure Automation State Configuration
@@ -1109,6 +1105,8 @@ items:
       href: guide/virtual-desktop/start-here.md
     - name: Guides
       items:
+      - name: Azure Virtual Desktop design guide
+        href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
