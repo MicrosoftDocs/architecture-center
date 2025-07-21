@@ -72,7 +72,7 @@ Cluster bootstrap:
 
 Storage:
 
-- [CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options are available to fit your requirements from cloud to local file shares.
+- [Container Storage Interface (CSI) drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options are available to fit your requirements from cloud to local file shares.
 
 Networking:
 
@@ -94,7 +94,7 @@ Flexibility:
 
 ## Kubernetes on Azure Stack Edge
 
-Azure Stack Edge Pro devices deploy a Kubernetes cluster for you, including a primary VM and a worker VM.
+Azure Stack Edge Pro devices deploy a Kubernetes cluster for you, including a primary virtual machine (VM) and a worker VM.
 
 [Azure Stack Edge Pro](/azure/databox-online/) devices deliver Azure capabilities like compute, storage, networking, and hardware-accelerated machine learning to any edge location. Kubernetes clusters can be created after the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R devices. Manage upgrades of the Kubernetes cluster by using standard updates available for the device.
 
