@@ -89,7 +89,7 @@ Notes
 
 Notes
 
-1. <span id="note1b">Requires App Service Environment.</span>
+1. <span id="note1b">Requires App Service Environment or a dedicated compute pricing tier.</span>
 2. <span id="note2b">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
 3. <span id="note3b">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
@@ -163,6 +163,7 @@ Review and understand the available security controls and visibility for each se
 - [Azure Functions](/azure/azure-functions/security-baseline)
 - [Azure Kubernetes Service](/azure/aks/security-baseline)
 - [Azure Container Instances](/azure/container-instances/security-baseline)
+- [Azure Container Apps](/azure/azure-container-apps-security-baseline)
 - [Azure Service Fabric](/azure/service-fabric/security-baseline)
 - [Azure Batch](/azure/batch/security-baseline)
 - [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
