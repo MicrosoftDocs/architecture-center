@@ -974,8 +974,6 @@ items:
         href: example-scenario/wsus/index.yml
     - name: Architectures
       items:
-      - name: Azure Automation State Configuration
-        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
