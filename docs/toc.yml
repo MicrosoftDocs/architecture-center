@@ -970,8 +970,6 @@ items:
         href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Architectures
       items:
-      - name: Azure Automation State Configuration
-        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
