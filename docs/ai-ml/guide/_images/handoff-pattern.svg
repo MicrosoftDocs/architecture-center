@@ -1,1 +1,511 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; background-color: light-dark(#ffffff, #121212);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="811px" height="541px" viewBox="-0.5 -0.5 811 541"><defs/><rect fill="#ffffff" width="100%" height="100%" x="0" y="0" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));"/><g><g data-cell-id="ytMBhzY2hk2a-g8UY768-0"><g data-cell-id="ytMBhzY2hk2a-g8UY768-1"><g data-cell-id="ytMBhzY2hk2a-g8UY768-2"><g><path d="M 280 50 L 280 70 L 280 50 L 280 63.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 280 68.88 L 276.5 61.88 L 280 63.63 L 283.5 61.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-3"><g><rect x="249.97" y="20" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 35px; margin-left: 251px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Input</div></div></div></foreignObject><text x="280" y="39" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Input</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-4"><g><path d="M 160 260 L 160 280 L 160 260 L 160 280" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-9"><g><path d="M 99.97 230 L 80 230 L 100 230 L 86.37 230" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 81.12 230 L 88.12 226.5 L 86.37 230 L 88.12 233.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-6"><g><rect x="99.97" y="200" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 111.97 200 L 111.97 260 M 207.97 200 L 207.97 260" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 230px; margin-left: 113px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent 2</div></div></div></foreignObject><text x="160" y="234" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent 2</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-7"><g><path d="M 329.97 260 L 330 280 L 330 260 L 330 280" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-20"><g><path d="M 585 310 Q 552.5 310 552.5 375.5 Q 552.5 441 526.37 441" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 521.12 441 L 528.12 437.5 L 526.37 441 L 528.12 444.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-21"><g><path d="M 645 340 L 645 360 L 645 340 L 645 360" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-22"><g><path d="M 705 310 L 725 310 L 710 310 L 723.63 310" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 728.88 310 L 721.88 313.5 L 723.63 310 L 721.88 306.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-10"><g><rect x="585" y="280" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 597 280 L 597 340 M 693 280 L 693 340" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 310px; margin-left: 598px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent <i>n</i></div></div></div></foreignObject><text x="645" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent n</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-13"><g><rect x="279.99" y="280" width="99.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 310px; margin-left: 281px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model,<br />knowledge, and tools</div></div></div></foreignObject><text x="330" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model,...</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-14"><g><rect x="600.01" y="360" width="89.97" height="50" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 88px; height: 1px; padding-top: 385px; margin-left: 601px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and<br />knowledge</div></div></div></foreignObject><text x="645" y="389" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and...</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-20"><g><path d="M 219.97 100 L 200 100 L 220 100 L 200 100" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-0"><g><path d="M 280 130 Q 280 165 220 165 Q 160 165 160 193.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 160 198.88 L 156.5 191.88 L 160 193.63 L 163.5 191.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-1"><g><path d="M 280 130 Q 280 165 305 165 Q 330 165 330 193.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 330 198.88 L 326.5 191.88 L 330 193.63 L 333.5 191.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-17"><g><path d="M 339.97 100 L 360 100 L 350 100 L 363.63 100" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 368.88 100 L 361.88 103.5 L 363.63 100 L 361.88 96.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-24"><g><path d="M 280 130 Q 280 170 462.5 170 Q 645 170 645 273.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 645 278.88 L 641.5 271.88 L 645 273.63 L 648.5 271.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-21"><g><rect x="219.97" y="70" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 231.97 70 L 231.97 130 M 327.97 70 L 327.97 130" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 100px; margin-left: 233px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent 1</div></div></div></foreignObject><text x="280" y="104" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent 1</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-19"><g><path d="M 460 471 L 460 491 L 460 470 L 460 483.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 460 488.88 L 456.5 481.88 L 460 483.63 L 463.5 481.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-23"><g><rect x="400" y="411" width="120" height="60" fill="#f5f5f5" stroke="#666666" pointer-events="all" style="fill: rgb(245, 245, 245); stroke: rgb(102, 102, 102);"/><path d="M 412 411 L 412 471 M 508 411 L 508 471" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(102, 102, 102);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 441px; margin-left: 413px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #333333; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Customer support employee</div></div></div></foreignObject><text x="460" y="445" fill="#333333" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Customer support...</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-24"><g><rect x="109.99" y="280" width="99.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 310px; margin-left: 111px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and<br />knowledge</div></div></div></foreignObject><text x="160" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and...</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-3"><g><path d="M 389.97 230 Q 645 230 645 273.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 645 278.88 L 641.5 271.88 L 645 273.63 L 648.5 271.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-4"><g><path d="M 389.97 230 Q 500 230 500 273.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 500 278.88 L 496.5 271.88 L 500 273.63 L 503.5 271.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-11"><g><path d="M 330 260 L 330 270 L 430 270 L 430 288.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 430 293.88 L 426.5 286.88 L 430 288.63 L 433.5 286.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-23"><g><path d="M 269.97 230 Q 250 230 250 335.5 Q 250 441 393.63 441" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 398.88 441 L 391.88 444.5 L 393.63 441 L 391.88 437.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-26"><g><rect x="269.97" y="200" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 281.97 200 L 281.97 260 M 377.97 200 L 377.97 260" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 230px; margin-left: 283px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent 3</div></div></div></foreignObject><text x="330" y="234" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent 3</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-13"><g><path d="M 500 340 L 500 360 L 500 340 L 500 353.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 500 358.88 L 496.5 351.88 L 500 353.63 L 503.5 351.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-28"><g><rect x="470" y="280" width="60" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 476 280 L 476 340 M 524 280 L 524 340" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 46px; height: 1px; padding-top: 310px; margin-left: 477px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">...</div></div></div></foreignObject><text x="500" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">...</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-29"><g><rect x="100" y="70" width="100" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 100px; margin-left: 101px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and general knowledge</div></div></div></foreignObject><text x="150" y="104" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and genera...</text></switch></g></g></g><g data-cell-id="ytMBhzY2hk2a-g8UY768-31"><g><rect x="20" y="215" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 230px; margin-left: 21px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="50" y="234" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-10"><g><rect x="400" y="295" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 310px; margin-left: 401px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="430" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-12"><g><rect x="470" y="360" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 375px; margin-left: 471px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="500" y="379" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-14"><g><rect x="730" y="295" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 310px; margin-left: 731px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="760" y="314" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-16"><g><rect x="370" y="85" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 100px; margin-left: 371px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="400" y="104" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="TqyLGluliYNha5Gh5uvp-18"><g><rect x="430" y="490" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 505px; margin-left: 431px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="460" y="509" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g></g></g></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Text is not SVG - cannot display</text></a></switch></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by Microsoft Visio, SVG Export handoff-pattern.svg handoff-pattern -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="8.44792in" height="5.63542in"
+		viewBox="0 0 608.25 405.75" xml:space="preserve" color-interpolation-filters="sRGB" class="st14">
+	<v:documentProperties v:langID="2052" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st2 {fill:none}
+		.st3 {stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st4 {fill:#000000;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st5 {fill:#ffffff;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st7 {fill:#dae8fc;stroke:#6c8ebf;stroke-linecap:butt;stroke-width:0.75}
+		.st8 {stroke:#6c8ebf;stroke-linecap:butt;stroke-width:0.75}
+		.st9 {fill:#fff2cc;stroke:#d6b656;stroke-linecap:butt;stroke-width:0.75}
+		.st10 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
+		.st11 {font-size:1em}
+		.st12 {fill:#f5f5f5;stroke:#666666;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {stroke:#666666;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>handoff-pattern</title>
+		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(0.375,0.375)">
+			<title>Sheet.1</title>
+			<rect x="0" y="0" width="608.25" height="405.75" class="st1"/>
+		</g>
+		<g id="group2-3" transform="translate(15.375,-15.375)" v:mID="2" v:groupContext="group">
+			<title>Sheet.2</title>
+			<g id="group3-4" transform="translate(192.375,-337.5)" v:mID="3" v:groupContext="group">
+				<title>Sheet.3</title>
+				<g id="shape4-5" v:mID="4" v:groupContext="shape" transform="translate(2.625,5.68434E-14)">
+					<title>Sheet.4</title>
+					<path d="M0 390.75 L0 405.75 L0 390.75 L0 400.97 L0 390.75 Z" class="st2"/>
+					<path d="M0 390.75 L0 405.75 L0 390.75 L0 400.97" class="st3"/>
+				</g>
+				<g id="shape5-8" v:mID="5" v:groupContext="shape" transform="translate(7.99361E-15,-0.84)">
+					<title>Sheet.5</title>
+					<path d="M2.63 405.75 L0 400.5 L2.63 401.81 L5.25 400.5 L2.63 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group6-10" transform="translate(172.478,-352.5)" v:mID="6" v:groupContext="group">
+				<title>Sheet.6</title>
+				<desc>Input</desc>
+				<g id="shape7-11" v:mID="7" v:groupContext="shape">
+					<title>Sheet.7</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape6-13" v:mID="6" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.88" y="397.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Input</text>				</g>
+			</g>
+			<g id="shape9-15" v:mID="9" v:groupContext="shape" transform="translate(105,-180)">
+				<title>Sheet.9</title>
+				<path d="M0 390.75 L0 405.75 L0 390.75 L0 405.75 L0 390.75 Z" class="st2"/>
+				<path d="M0 390.75 L0 405.75 L0 390.75 L0 405.75" class="st3"/>
+			</g>
+			<g id="group10-18" transform="translate(45,-214.875)" v:mID="10" v:groupContext="group">
+				<title>Sheet.10</title>
+				<g id="shape11-19" v:mID="11" v:groupContext="shape" transform="translate(6.99441E-15,-2.625)">
+					<title>Sheet.11</title>
+					<path d="M14.98 405.75 L0 405.75 L15 405.75 L4.78 405.75 L14.98 405.75 Z" class="st2"/>
+					<path d="M14.98 405.75 L0 405.75 L15 405.75 L4.78 405.75" class="st3"/>
+				</g>
+				<g id="shape12-22" v:mID="12" v:groupContext="shape" transform="translate(0.84,5.68434E-14)">
+					<title>Sheet.12</title>
+					<path d="M0 403.12 L5.25 400.5 L3.94 403.12 L5.25 405.75 L0 403.12 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group13-24" transform="translate(59.9775,-195)" v:mID="13" v:groupContext="group">
+				<title>Sheet.13</title>
+				<desc>Agent 2</desc>
+				<g id="group14-25" v:mID="14" v:groupContext="group">
+					<title>Sheet.14</title>
+					<g id="shape15-26" v:mID="15" v:groupContext="shape">
+						<title>Sheet.15</title>
+						<rect x="0" y="360.75" width="90" height="45" class="st7"/>
+					</g>
+					<g id="shape16-28" v:mID="16" v:groupContext="shape" transform="translate(9,5.68434E-14)">
+						<title>Sheet.16</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM72 360.75 L72 405.75 L72 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M72 360.75 L72 405.75" class="st8"/>
+					</g>
+				</g>
+				<g id="shape13-31" v:mID="13" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="45" cy="383.25" width="90.01" height="45"/>
+					<text x="27.63" y="386.25" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent 2</text>				</g>
+			</g>
+			<g id="shape18-33" v:mID="18" v:groupContext="shape" transform="translate(232.477,-180)">
+				<title>Sheet.18</title>
+				<path d="M0 390.75 L0.02 405.75 L0.02 390.75 L0.02 405.75 L0 390.75 Z" class="st2"/>
+				<path d="M0 390.75 L0.02 405.75 L0.02 390.75 L0.02 405.75" class="st3"/>
+			</g>
+			<g id="group19-36" transform="translate(375.84,-56.625)" v:mID="19" v:groupContext="group">
+				<title>Sheet.19</title>
+				<g id="shape20-37" v:mID="20" v:groupContext="shape" transform="translate(3.9375,-2.625)">
+					<title>Sheet.20</title>
+					<path d="M43.97 307.5 C27.72 307.5 19.6 323.87 19.6 356.62 C19.6 389.37 13.07 405.75 0 405.75 L43.97 307.5 Z"
+							class="st2"/>
+					<path d="M43.97 307.5 C27.72 307.5 19.6 323.87 19.6 356.62 C19.6 389.37 13.07 405.75 0 405.75" class="st3"/>
+				</g>
+				<g id="shape21-40" v:mID="21" v:groupContext="shape">
+					<title>Sheet.21</title>
+					<path d="M0 403.12 L5.25 400.5 L3.94 403.12 L5.25 405.75 L0 403.12 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="shape22-42" v:mID="22" v:groupContext="shape" transform="translate(468.75,-120)">
+				<title>Sheet.22</title>
+				<path d="M0 390.75 L0 405.75 L0 390.75 L0 405.75 L0 390.75 Z" class="st2"/>
+				<path d="M0 390.75 L0 405.75 L0 390.75 L0 405.75" class="st3"/>
+			</g>
+			<g id="group23-45" transform="translate(513.75,-154.875)" v:mID="23" v:groupContext="group">
+				<title>Sheet.23</title>
+				<g id="shape24-46" v:mID="24" v:groupContext="shape" transform="translate(9.29257E-14,-2.625)">
+					<title>Sheet.24</title>
+					<path d="M0 405.75 L15 405.75 L3.75 405.75 L13.97 405.75 L0 405.75 Z" class="st2"/>
+					<path d="M0 405.75 L15 405.75 L3.75 405.75 L13.97 405.75" class="st3"/>
+				</g>
+				<g id="shape25-49" v:mID="25" v:groupContext="shape" transform="translate(12.66,5.68434E-14)">
+					<title>Sheet.25</title>
+					<path d="M5.25 403.12 L0 405.75 L1.31 403.12 L0 400.5 L5.25 403.12 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group26-51" transform="translate(423.75,-135)" v:mID="26" v:groupContext="group">
+				<title>Sheet.26</title>
+				<desc>Agent n</desc>
+				<g id="group27-52" v:mID="27" v:groupContext="group">
+					<title>Sheet.27</title>
+					<g id="shape28-53" v:mID="28" v:groupContext="shape">
+						<title>Sheet.28</title>
+						<rect x="0" y="360.75" width="90" height="45" class="st7"/>
+					</g>
+					<g id="shape29-55" v:mID="29" v:groupContext="shape" transform="translate(9,5.68434E-14)">
+						<title>Sheet.29</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM72 360.75 L72 405.75 L72 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M72 360.75 L72 405.75" class="st8"/>
+					</g>
+				</g>
+				<g id="shape26-58" v:mID="26" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="45" cy="383.25" width="90.01" height="45"/>
+					<text x="27.49" y="386.25" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent n</text>				</g>
+			</g>
+			<g id="group31-60" transform="translate(194.993,-135)" v:mID="31" v:groupContext="group">
+				<title>Sheet.31</title>
+				<desc>Model, knowledge, and tools</desc>
+				<g id="shape32-61" v:mID="32" v:groupContext="shape">
+					<title>Sheet.32</title>
+					<path d="M0 399 A6.75016 6.75016 -180 0 0 6.75 405.75 L68.23 405.75 A6.75016 6.75016 -180 0 0 74.98 399 L74.98
+								 367.5 A6.75016 6.75016 -180 0 0 68.23 360.75 L6.75 360.75 A6.75016 6.75016 -180 0 0 0 367.5 L0 399
+								 Z" class="st9"/>
+				</g>
+				<g id="shape31-63" v:mID="31" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="37.4888" cy="383.25" width="74.98" height="45"/>
+					<text x="23.74" y="375.15" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model,<v:newlineChar/><tspan
+								x="6.03" dy="1.2em" class="st11">knowledge, and </tspan><tspan x="27.69" dy="1.2em" class="st11">tools</tspan></text>				</g>
+			</g>
+			<g id="group34-67" transform="translate(435.008,-82.5)" v:mID="34" v:groupContext="group">
+				<title>Sheet.34</title>
+				<desc>Model and knowledge</desc>
+				<g id="shape35-68" v:mID="35" v:groupContext="shape">
+					<title>Sheet.35</title>
+					<path d="M0 400.12 A5.62513 5.62513 -180 0 0 5.63 405.75 L61.85 405.75 A5.62513 5.62513 -180 0 0 67.48 400.12
+								 L67.48 373.87 A5.62513 5.62513 -180 0 0 61.85 368.25 L5.63 368.25 A5.62513 5.62513 -180 0 0 -0 373.87
+								 L0 400.12 Z" class="st9"/>
+				</g>
+				<g id="shape34-70" v:mID="34" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="33.7388" cy="387" width="67.48" height="37.5"/>
+					<text x="12.25" y="384.3" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+								x="11.97" dy="1.2em" class="st11">knowledge</tspan></text>				</g>
+			</g>
+			<g id="shape37-73" v:mID="37" v:groupContext="shape" transform="translate(135,-315)">
+				<title>Sheet.37</title>
+				<path d="M14.98 405.75 L0 405.75 L15 405.75 L0 405.75 L14.98 405.75 Z" class="st2"/>
+				<path d="M14.98 405.75 L0 405.75 L15 405.75 L0 405.75" class="st3"/>
+			</g>
+			<g id="group38-76" transform="translate(102.375,-240.84)" v:mID="38" v:groupContext="group">
+				<title>Sheet.38</title>
+				<g id="shape39-77" v:mID="39" v:groupContext="shape" transform="translate(2.625,-3.9375)">
+					<title>Sheet.39</title>
+					<path d="M90 358.03 C90 375.53 75 384.28 45 384.28 C15 384.28 0 391.43 0 405.75 L90 358.03 Z" class="st2"/>
+					<path d="M90 358.03 C90 375.53 75 384.28 45 384.28 C15 384.28 0 391.43 0 405.75" class="st3"/>
+				</g>
+				<g id="shape40-80" v:mID="40" v:groupContext="shape">
+					<title>Sheet.40</title>
+					<path d="M2.62 405.75 L0 400.5 L2.62 401.81 L5.25 400.5 L2.62 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group41-82" transform="translate(195,-240.84)" v:mID="41" v:groupContext="group">
+				<title>Sheet.41</title>
+				<g id="shape42-83" v:mID="42" v:groupContext="shape" transform="translate(-4.39648E-14,-3.9375)">
+					<title>Sheet.42</title>
+					<path d="M0 358.03 C0 375.53 6.25 384.28 18.75 384.28 C31.25 384.28 37.5 391.43 37.5 405.75 L0 358.03 Z"
+							class="st2"/>
+					<path d="M0 358.03 C0 375.53 6.25 384.28 18.75 384.28 C31.25 384.28 37.5 391.43 37.5 405.75" class="st3"/>
+				</g>
+				<g id="shape43-86" v:mID="43" v:groupContext="shape" transform="translate(34.875,5.68434E-14)">
+					<title>Sheet.43</title>
+					<path d="M2.63 405.75 L0 400.5 L2.63 401.81 L5.25 400.5 L2.63 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group44-88" transform="translate(239.977,-312.375)" v:mID="44" v:groupContext="group">
+				<title>Sheet.44</title>
+				<g id="shape45-89" v:mID="45" v:groupContext="shape" transform="translate(-1.65867E-13,-2.625)">
+					<title>Sheet.45</title>
+					<path d="M0 405.75 L15.02 405.75 L7.52 405.75 L17.74 405.75 L0 405.75 Z" class="st2"/>
+					<path d="M0 405.75 L15.02 405.75 L7.52 405.75 L17.74 405.75" class="st3"/>
+				</g>
+				<g id="shape46-92" v:mID="46" v:groupContext="shape" transform="translate(16.4325,1.13687E-13)">
+					<title>Sheet.46</title>
+					<path d="M5.25 403.12 L0 405.75 L1.31 403.12 L0 400.5 L5.25 403.12 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group47-94" transform="translate(195,-180.84)" v:mID="47" v:groupContext="group">
+				<title>Sheet.47</title>
+				<g id="shape48-95" v:mID="48" v:groupContext="shape" transform="translate(1.15108E-12,-3.9375)">
+					<title>Sheet.48</title>
+					<path d="M0 298.03 C0 318.03 45.62 328.03 136.87 328.03 C228.12 328.03 273.75 353.93 273.75 405.75 L0 298.03 Z"
+							class="st2"/>
+					<path d="M0 298.03 C0 318.03 45.62 328.03 136.87 328.03 C228.12 328.03 273.75 353.93 273.75 405.75" class="st3"/>
+				</g>
+				<g id="shape49-98" v:mID="49" v:groupContext="shape" transform="translate(271.125,5.68434E-14)">
+					<title>Sheet.49</title>
+					<path d="M2.63 405.75 L0 400.5 L2.63 401.81 L5.25 400.5 L2.63 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group50-100" transform="translate(149.978,-292.5)" v:mID="50" v:groupContext="group">
+				<title>Sheet.50</title>
+				<g id="group51-101" v:mID="51" v:groupContext="group">
+					<title>Sheet.51</title>
+					<desc>Agent 1</desc>
+					<g id="shape52-102" v:mID="52" v:groupContext="shape">
+						<title>Sheet.52</title>
+						<rect x="0" y="360.75" width="90" height="45" class="st7"/>
+					</g>
+					<g id="shape53-104" v:mID="53" v:groupContext="shape" transform="translate(9,5.68434E-14)">
+						<title>Sheet.53</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM72 360.75 L72 405.75 L72 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M72 360.75 L72 405.75" class="st8"/>
+					</g>
+					<g id="shape51-107" v:mID="51" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)"/>
+						<v:textRect cx="45" cy="383.25" width="90.01" height="45"/>
+						<text x="27.63" y="386.25" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent 1</text>					</g>
+				</g>
+			</g>
+			<g id="group55-109" transform="translate(327.375,-21.75)" v:mID="55" v:groupContext="group">
+				<title>Sheet.55</title>
+				<g id="shape56-110" v:mID="56" v:groupContext="shape" transform="translate(2.625,5.68434E-14)">
+					<title>Sheet.56</title>
+					<path d="M0 390.75 L0 405.75 L0 390 L0 400.22 L0 390.75 Z" class="st2"/>
+					<path d="M0 390.75 L0 405.75 L0 390 L0 400.22" class="st3"/>
+				</g>
+				<g id="shape57-113" v:mID="57" v:groupContext="shape" transform="translate(4.44644E-14,-1.59)">
+					<title>Sheet.57</title>
+					<path d="M2.62 405.75 L0 400.5 L2.62 401.81 L5.25 400.5 L2.62 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group58-115" transform="translate(285,-36.75)" v:mID="58" v:groupContext="group">
+				<title>Sheet.58</title>
+				<desc>Customer support employee</desc>
+				<g id="group59-116" v:mID="59" v:groupContext="group">
+					<title>Sheet.59</title>
+					<g id="shape60-117" v:mID="60" v:groupContext="shape">
+						<title>Sheet.60</title>
+						<rect x="0" y="360.75" width="90" height="45" class="st12"/>
+					</g>
+					<g id="shape61-119" v:mID="61" v:groupContext="shape" transform="translate(9,5.68434E-14)">
+						<title>Sheet.61</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM72 360.75 L72 405.75 L72 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M72 360.75 L72 405.75" class="st13"/>
+					</g>
+				</g>
+				<g id="shape58-122" v:mID="58" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="45" cy="383.25" width="90.01" height="45"/>
+					<text x="25.8" y="375.15" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Customer <v:newlineChar/><tspan
+								x="29.53" dy="1.2em" class="st11">support <v:newlineChar/></tspan><tspan x="25.51" dy="1.2em"
+								class="st11">employee</tspan></text>				</g>
+			</g>
+			<g id="group63-126" transform="translate(67.4925,-135)" v:mID="63" v:groupContext="group">
+				<title>Sheet.63</title>
+				<desc>Model and knowledge</desc>
+				<g id="shape64-127" v:mID="64" v:groupContext="shape">
+					<title>Sheet.64</title>
+					<path d="M0 399 A6.75016 6.75016 -180 0 0 6.75 405.75 L68.23 405.75 A6.75016 6.75016 -180 0 0 74.98 399 L74.98
+								 367.5 A6.75016 6.75016 -180 0 0 68.23 360.75 L6.75 360.75 A6.75016 6.75016 -180 0 0 -0 367.5 L0
+								 399 Z" class="st9"/>
+				</g>
+				<g id="shape63-129" v:mID="63" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="37.4888" cy="383.25" width="74.98" height="45"/>
+					<text x="13.61" y="380.25" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+								x="13.3" dy="1.2em" class="st11">knowledge</tspan></text>				</g>
+			</g>
+			<g id="group66-132" transform="translate(277.477,-180.84)" v:mID="66" v:groupContext="group">
+				<title>Sheet.66</title>
+				<g id="shape67-133" v:mID="67" v:groupContext="shape" transform="translate(1.00719E-12,-3.9375)">
+					<title>Sheet.67</title>
+					<path d="M0 373.03 C127.52 373.03 191.27 383.93 191.27 405.75 L0 373.03 Z" class="st2"/>
+					<path d="M0 373.03 C127.52 373.03 191.27 383.93 191.27 405.75" class="st3"/>
+				</g>
+				<g id="shape68-136" v:mID="68" v:groupContext="shape" transform="translate(188.648,5.68434E-14)">
+					<title>Sheet.68</title>
+					<path d="M2.63 405.75 L0 400.5 L2.63 401.81 L5.25 400.5 L2.63 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group69-138" transform="translate(277.478,-180.84)" v:mID="69" v:groupContext="group">
+				<title>Sheet.69</title>
+				<g id="shape70-139" v:mID="70" v:groupContext="shape" transform="translate(3.35731E-13,-3.9375)">
+					<title>Sheet.70</title>
+					<path d="M0 373.03 C55.02 373.03 82.52 383.93 82.52 405.75 L0 373.03 Z" class="st2"/>
+					<path d="M0 373.03 C55.02 373.03 82.52 383.93 82.52 405.75" class="st3"/>
+				</g>
+				<g id="shape71-142" v:mID="71" v:groupContext="shape" transform="translate(79.8975,5.68434E-14)">
+					<title>Sheet.71</title>
+					<path d="M2.63 405.75 L0 400.5 L2.63 401.81 L5.25 400.5 L2.63 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group72-144" transform="translate(232.5,-169.59)" v:mID="72" v:groupContext="group">
+				<title>Sheet.72</title>
+				<g id="shape73-145" v:mID="73" v:groupContext="shape" transform="translate(-1.51079E-12,-3.9375)">
+					<title>Sheet.73</title>
+					<path d="M0 384.28 L0 391.78 L75 391.78 L75 405.75 L0 384.28 Z" class="st2"/>
+					<path d="M0 384.28 L0 391.78 L75 391.78 L75 405.75" class="st3"/>
+				</g>
+				<g id="shape74-148" v:mID="74" v:groupContext="shape" transform="translate(72.375,0)">
+					<title>Sheet.74</title>
+					<path d="M2.62 405.75 L0 400.5 L2.62 401.81 L5.25 400.5 L2.62 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group75-150" transform="translate(172.5,-56.625)" v:mID="75" v:groupContext="group">
+				<title>Sheet.75</title>
+				<g id="shape76-151" v:mID="76" v:groupContext="shape" transform="translate(-3.19744E-13,-2.625)">
+					<title>Sheet.76</title>
+					<path d="M14.98 247.5 C4.99 247.5 0 273.88 0 326.63 C0 379.38 35.91 405.75 107.72 405.75 L14.98 247.5 Z"
+							class="st2"/>
+					<path d="M14.98 247.5 C4.99 247.5 0 273.88 0 326.63 C0 379.38 35.91 405.75 107.72 405.75" class="st3"/>
+				</g>
+				<g id="shape77-154" v:mID="77" v:groupContext="shape" transform="translate(106.41,1.13687E-13)">
+					<title>Sheet.77</title>
+					<path d="M5.25 403.12 L0 405.75 L1.31 403.12 L0 400.5 L5.25 403.12 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group78-156" transform="translate(187.477,-195)" v:mID="78" v:groupContext="group">
+				<title>Sheet.78</title>
+				<desc>Agent 3</desc>
+				<g id="group79-157" v:mID="79" v:groupContext="group">
+					<title>Sheet.79</title>
+					<g id="shape80-158" v:mID="80" v:groupContext="shape">
+						<title>Sheet.80</title>
+						<rect x="0" y="360.75" width="90" height="45" class="st7"/>
+					</g>
+					<g id="shape81-160" v:mID="81" v:groupContext="shape" transform="translate(9,5.68434E-14)">
+						<title>Sheet.81</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM72 360.75 L72 405.75 L72 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M72 360.75 L72 405.75" class="st8"/>
+					</g>
+				</g>
+				<g id="shape78-163" v:mID="78" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="45" cy="383.25" width="90.01" height="45"/>
+					<text x="27.63" y="386.25" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent 3</text>				</g>
+			</g>
+			<g id="group83-165" transform="translate(357.375,-120)" v:mID="83" v:groupContext="group">
+				<title>Sheet.83</title>
+				<g id="shape84-166" v:mID="84" v:groupContext="shape" transform="translate(2.625,5.68434E-14)">
+					<title>Sheet.84</title>
+					<path d="M0 390.75 L0 405.75 L0 390.75 L0 400.97 L0 390.75 Z" class="st2"/>
+					<path d="M0 390.75 L0 405.75 L0 390.75 L0 400.97" class="st3"/>
+				</g>
+				<g id="shape85-169" v:mID="85" v:groupContext="shape" transform="translate(-6.04516E-14,-0.84)">
+					<title>Sheet.85</title>
+					<path d="M2.62 405.75 L0 400.5 L2.62 401.81 L5.25 400.5 L2.62 405.75 Z" class="st4"/>
+				</g>
+			</g>
+			<g id="group86-171" transform="translate(337.5,-135)" v:mID="86" v:groupContext="group">
+				<title>Sheet.86</title>
+				<desc>...</desc>
+				<g id="group87-172" v:mID="87" v:groupContext="group">
+					<title>Sheet.87</title>
+					<g id="shape88-173" v:mID="88" v:groupContext="shape">
+						<title>Sheet.88</title>
+						<rect x="0" y="360.75" width="45" height="45" class="st7"/>
+					</g>
+					<g id="shape89-175" v:mID="89" v:groupContext="shape" transform="translate(4.5,5.68434E-14)">
+						<title>Sheet.89</title>
+						<path d="M0 360.75 L0 405.75 L0 360.75 ZM36 360.75 L36 405.75 L36 360.75 Z" class="st2"/>
+						<path d="M0 360.75 L0 405.75M36 360.75 L36 405.75" class="st8"/>
+					</g>
+				</g>
+				<g id="shape86-178" v:mID="86" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="383.25" width="45.01" height="45"/>
+					<text x="19.25" y="386.25" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>...</text>				</g>
+			</g>
+			<g id="group91-180" transform="translate(60,-292.5)" v:mID="91" v:groupContext="group">
+				<title>Sheet.91</title>
+				<desc>Model and general knowledge</desc>
+				<g id="shape92-181" v:mID="92" v:groupContext="shape">
+					<title>Sheet.92</title>
+					<path d="M0 399 A6.75016 6.75016 -180 0 0 6.75 405.75 L68.25 405.75 A6.75016 6.75016 -180 0 0 75 399 L75 367.5
+								 A6.75016 6.75016 -180 0 0 68.25 360.75 L6.75 360.75 A6.75016 6.75016 -180 0 0 0 367.5 L0 399 Z"
+							class="st9"/>
+				</g>
+				<g id="shape91-183" v:mID="91" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="37.5" cy="383.25" width="75.01" height="45"/>
+					<text x="16.01" y="375.15" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and <tspan
+								x="22.65" dy="1.2em" class="st11">general </tspan><tspan x="15.73" dy="1.2em" class="st11">knowledge</tspan></text>				</g>
+			</g>
+			<g id="group94-187" transform="translate(0,-206.25)" v:mID="94" v:groupContext="group">
+				<title>Sheet.94</title>
+				<desc>Result</desc>
+				<g id="shape95-188" v:mID="95" v:groupContext="shape">
+					<title>Sheet.95</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape94-190" v:mID="94" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+			<g id="group97-192" transform="translate(285,-146.25)" v:mID="97" v:groupContext="group">
+				<title>Sheet.97</title>
+				<desc>Result</desc>
+				<g id="shape98-193" v:mID="98" v:groupContext="shape">
+					<title>Sheet.98</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape97-195" v:mID="97" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+			<g id="group100-197" transform="translate(337.5,-97.5)" v:mID="100" v:groupContext="group">
+				<title>Sheet.100</title>
+				<desc>Result</desc>
+				<g id="shape101-198" v:mID="101" v:groupContext="shape">
+					<title>Sheet.101</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape100-200" v:mID="100" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+			<g id="group103-202" transform="translate(532.5,-146.25)" v:mID="103" v:groupContext="group">
+				<title>Sheet.103</title>
+				<desc>Result</desc>
+				<g id="shape104-203" v:mID="104" v:groupContext="shape">
+					<title>Sheet.104</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.38 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.38 383.25 A3.37508 3.37508 -180 0 0 -0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape103-205" v:mID="103" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+			<g id="group106-207" transform="translate(262.5,-303.75)" v:mID="106" v:groupContext="group">
+				<title>Sheet.106</title>
+				<desc>Result</desc>
+				<g id="shape107-208" v:mID="107" v:groupContext="shape">
+					<title>Sheet.107</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape106-210" v:mID="106" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+			<g id="group109-212" transform="translate(307.5,5.68434E-14)" v:mID="109" v:groupContext="group">
+				<title>Sheet.109</title>
+				<desc>Result</desc>
+				<g id="shape110-213" v:mID="110" v:groupContext="shape">
+					<title>Sheet.110</title>
+					<path d="M0 402.37 A3.37508 3.37508 -180 0 0 3.37 405.75 L41.63 405.75 A3.37508 3.37508 -180 0 0 45 402.37 L45
+								 386.62 A3.37508 3.37508 -180 0 0 41.63 383.25 L3.37 383.25 A3.37508 3.37508 -180 0 0 0 386.62 L0
+								 402.37 Z" class="st5"/>
+				</g>
+				<g id="shape109-215" v:mID="109" v:groupContext="groupContent">
+					<v:textBlock v:margins="rect(0,0,0,0)"/>
+					<v:textRect cx="22.5" cy="394.5" width="45.01" height="22.5"/>
+					<text x="10.38" y="397.2" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>				</g>
+			</g>
+		</g>
+	</g>
+</svg>

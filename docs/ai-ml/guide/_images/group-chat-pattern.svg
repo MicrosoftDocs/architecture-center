@@ -1,1 +1,660 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; background-color: light-dark(#ffffff, #121212);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="637px" height="502px" viewBox="-0.5 -0.5 637 502"><defs/><rect fill="#ffffff" width="100%" height="100%" x="0" y="0" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));"/><g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-0"><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-1"><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-2"><g><path d="M 267 50 L 267 70 L 267 50 L 267 63.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 267 68.88 L 263.5 61.88 L 267 63.63 L 270.5 61.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-3"><g><rect x="236.97" y="20" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 35px; margin-left: 238px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Input</div></div></div></foreignObject><text x="267" y="39" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Input</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-6"><g><path d="M 107 230 L 107 250 L 107 230 L 107 250" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-12"><g><path d="M 46.97 200 L 27 200 L 27 370 L 267 370 L 266.98 383.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 266.97 388.88 L 263.48 381.88 L 266.98 383.63 L 270.48 381.89 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-7"><g><rect x="46.97" y="170" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 58.97 170 L 58.97 230 M 154.97 170 L 154.97 230" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 200px; margin-left: 60px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent 1</div></div></div></foreignObject><text x="107" y="204" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent 1</text></switch></g></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-8"><g><path d="M 266.97 230 L 267 250 L 267 230 L 267 250" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-16"><g><path d="M 466.97 200 L 447 200 L 447 370 L 267 370 L 266.98 383.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 266.97 388.88 L 263.48 381.88 L 266.98 383.63 L 270.48 381.89 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-24"><g><path d="M 527 230 L 527 250 L 527 230 L 526.96 250" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-13"><g><rect x="466.97" y="170" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 478.97 170 L 478.97 230 M 574.97 170 L 574.97 230" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 200px; margin-left: 480px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent <i>n</i></div></div></div></foreignObject><text x="527" y="204" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent n</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-27"><g><path d="M 266.97 430 L 266.97 450" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-14"><g><rect x="221.97" y="390" width="90" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 88px; height: 1px; padding-top: 410px; margin-left: 223px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Accumulating chat thread</div></div></div></foreignObject><text x="267" y="414" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Accumulating ch...</text></switch></g></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-16"><g><rect x="217.03" y="250" width="99.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 280px; margin-left: 218px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and<br />knowledge</div></div></div></foreignObject><text x="267" y="284" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and...</text></switch></g></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-17"><g><rect x="476.98" y="250" width="99.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 280px; margin-left: 478px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and<br />knowledge</div></div></div></foreignObject><text x="527" y="284" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and...</text></switch></g></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-20"><g><path d="M 266.97 130 L 267 150 L 107 150 L 107 163.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 107 168.88 L 103.5 161.88 L 107 163.63 L 110.5 161.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-24"><g><path d="M 266.97 130 L 267 150 L 527 150 L 526.98 163.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 526.97 168.88 L 523.48 161.88 L 526.98 163.63 L 530.48 161.89 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-10"><g><path d="M 266.97 130 L 267 150 L 397 150 L 396.98 163.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 396.97 168.88 L 393.48 161.88 L 396.98 163.63 L 400.48 161.89 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-14"><g><path d="M 266.97 130 L 266.97 163.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 266.97 168.88 L 263.47 161.88 L 266.97 163.63 L 270.47 161.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-17"><g><path d="M 326.97 100 L 607 100 L 607 410 L 318.34 410" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 313.09 410 L 320.09 406.5 L 318.34 410 L 320.09 413.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-20"><g><path d="M 206.97 100 L 166.97 100" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-25"><g><rect x="206.97" y="70" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 218.97 70 L 218.97 130 M 314.97 70 L 314.97 130" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 100px; margin-left: 220px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Group chat manager</div></div></div></foreignObject><text x="267" y="104" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Group chat manag...</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-11"><g><path d="M 527 390 L 527 410 L 318.34 410" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 313.09 410 L 320.09 406.5 L 318.34 410 L 320.09 413.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-1"><g><rect x="466.97" y="330" width="120" height="60" fill="#f5f5f5" stroke="#666666" pointer-events="all" style="fill: rgb(245, 245, 245); stroke: rgb(102, 102, 102);"/><path d="M 478.97 330 L 478.97 390 M 574.97 330 L 574.97 390" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(102, 102, 102);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 360px; margin-left: 480px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #333333; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Human chat participant or observer</div></div></div></foreignObject><text x="527" y="364" fill="#333333" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Human chat parti...</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-5"><g><rect x="56.98" y="250" width="99.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 280px; margin-left: 58px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model and<br />knowledge</div></div></div></foreignObject><text x="107" y="284" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model and...</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-13"><g><path d="M 206.97 200 L 187 200 L 187 370 L 267 370 L 267 383.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 267 388.88 L 263.5 381.88 L 267 383.63 L 270.5 381.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-10"><g><rect x="206.97" y="170" width="120" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 218.97 170 L 218.97 230 M 314.97 170 L 314.97 230" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 94px; height: 1px; padding-top: 200px; margin-left: 220px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Agent 2</div></div></div></foreignObject><text x="267" y="204" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Agent 2</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-15"><g><path d="M 366.97 200 L 347 200 L 347 370 L 267 370 L 266.98 383.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/><path d="M 266.97 388.88 L 263.48 381.88 L 266.98 383.63 L 270.48 381.89 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="oPNJwO-qV-UCBl3z9ZRl-19"><g><rect x="366.97" y="170" width="60" height="60" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" style="fill: rgb(218, 232, 252); stroke: rgb(108, 142, 191);"/><path d="M 372.97 170 L 372.97 230 M 420.97 170 L 420.97 230" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(108, 142, 191);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 46px; height: 1px; padding-top: 200px; margin-left: 374px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">...</div></div></div></foreignObject><text x="397" y="204" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">...</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-19"><g><rect x="107" y="70" width="59.97" height="60" rx="9" ry="9" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: rgb(255, 242, 204); stroke: rgb(214, 182, 86);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 100px; margin-left: 108px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Model</div></div></div></foreignObject><text x="137" y="104" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Model</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-23"><g><rect x="377" y="414" width="140" height="46" fill="none" stroke="none" pointer-events="all"/><path d="M 377.2 413.77 C 377.2 413.77 377.2 413.77 377.2 413.77 M 377.2 413.77 C 377.2 413.77 377.2 413.77 377.2 413.77 M 376.94 420.17 C 376.77 419.17 378.56 418.79 382.19 414.13 M 376.94 420.17 C 378.36 417.92 380.44 416.25 382.19 414.13 M 376.68 426.56 C 380.57 420.11 381.13 417.27 387.83 413.73 M 376.68 426.56 C 379.21 422.8 383.59 417.39 387.83 413.73 M 377.07 432.21 C 380.89 426.03 383.98 418.74 392.82 414.09 M 377.07 432.21 C 380.57 426.8 389.12 420.59 392.82 414.09 M 376.81 438.61 C 382.64 430.84 388.96 423.38 398.46 413.7 M 376.81 438.61 C 382.67 432.86 386.99 427.37 398.46 413.7 M 377.21 444.25 C 387.31 433.92 394.35 421.67 403.45 414.06 M 377.21 444.25 C 388.27 435.41 396.64 423.48 403.45 414.06 M 376.94 450.65 C 387.03 438 401.47 423.4 409.09 413.67 M 376.94 450.65 C 386.25 437.58 393.95 429.1 409.09 413.67 M 376.68 457.04 C 386.7 444.3 404.42 428.85 414.08 414.03 M 376.68 457.04 C 383.43 448.31 392.97 438.72 414.08 414.03 M 379.05 460.42 C 390.19 443.85 402.5 433.63 419.72 413.63 M 379.05 460.42 C 389.38 451.32 397.69 439.98 419.72 413.63 M 384.03 460.78 C 395.17 443.32 409.23 432.47 424.71 413.99 M 384.03 460.78 C 399.34 444.58 416.98 425.61 424.71 413.99 M 389.68 460.39 C 403.77 446.19 421.58 426.17 429.7 414.35 M 389.68 460.39 C 401.33 448.68 412.36 436.11 429.7 414.35 M 394.66 460.75 C 406.21 449.98 416.65 430.14 435.34 413.96 M 394.66 460.75 C 409.32 445.49 421.57 431.81 435.34 413.96 M 400.31 460.35 C 408.79 448.44 424.66 437.67 440.33 414.32 M 400.31 460.35 C 413.97 443.13 428.86 427.43 440.33 414.32 M 405.29 460.71 C 418.31 440.59 434.74 428.55 445.97 413.92 M 405.29 460.71 C 417.92 443.13 433.39 429.06 445.97 413.92 M 410.94 460.32 C 427.57 439.7 439.27 426.51 450.96 414.28 M 410.94 460.32 C 419.69 450.03 431.49 434.3 450.96 414.28 M 415.92 460.68 C 425.68 446.86 446.07 433.63 456.6 413.89 M 415.92 460.68 C 426.03 448.83 434.18 440.42 456.6 413.89 M 421.57 460.28 C 434.9 444.65 445.74 431.68 461.59 414.25 M 421.57 460.28 C 428.32 452.61 438.06 442.17 461.59 414.25 M 426.55 460.65 C 438.28 450.53 453.26 434.48 467.23 413.85 M 426.55 460.65 C 440.66 442.02 456.1 425.42 467.23 413.85 M 432.2 460.25 C 445.92 446.86 448.9 438.72 472.22 414.21 M 432.2 460.25 C 440.24 448.1 452.77 435.54 472.22 414.21 M 437.18 460.61 C 447.45 451.49 460.38 435.56 477.86 413.82 M 437.18 460.61 C 448.16 450.33 457.94 437.75 477.86 413.82 M 442.83 460.22 C 452.76 443.3 470.68 430.98 482.85 414.18 M 442.83 460.22 C 454.96 445.34 466.8 431.61 482.85 414.18 M 447.81 460.58 C 460.14 445.75 475.35 431.95 488.49 413.78 M 447.81 460.58 C 455.54 452.92 463.54 441.64 488.49 413.78 M 453.46 460.18 C 465.68 442.28 479.25 428.87 493.48 414.14 M 453.46 460.18 C 468.96 443.59 480.24 429.78 493.48 414.14 M 458.44 460.54 C 468.82 445.71 479.47 433.7 499.12 413.75 M 458.44 460.54 C 475.33 441.19 490.05 426.09 499.12 413.75 M 463.43 460.9 C 473.33 442.38 485.52 434.05 504.11 414.11 M 463.43 460.9 C 478.98 441.76 493.52 424.71 504.11 414.11 M 469.07 460.51 C 485.42 445.69 493.88 433.89 509.75 413.72 M 469.07 460.51 C 481.87 444.58 491.92 430.66 509.75 413.72 M 474.06 460.87 C 481.96 451.25 493.44 441.32 514.74 414.08 M 474.06 460.87 C 488.06 443.76 504.53 424.69 514.74 414.08 M 479.7 460.47 C 492.22 446.72 504.86 430.93 517.1 417.45 M 479.7 460.47 C 490.48 446.88 503.79 429.65 517.1 417.45 M 484.69 460.83 C 493.3 450.63 501.59 443.92 517.49 423.1 M 484.69 460.83 C 497.76 448.32 507.31 432.5 517.49 423.1 M 490.33 460.44 C 494.87 456.4 504.08 448.73 517.23 429.49 M 490.33 460.44 C 496.56 450.81 508.15 439.28 517.23 429.49 M 495.32 460.8 C 503.13 453.57 510.56 443.03 516.97 435.89 M 495.32 460.8 C 500.77 457.08 506.17 449.3 516.97 435.89 M 500.96 460.4 C 504.74 456.84 508.46 454.57 517.37 441.54 M 500.96 460.4 C 506.11 458.08 507.4 451.7 517.37 441.54 M 505.95 460.76 C 508.92 458.11 512.26 452.51 517.1 447.93 M 505.95 460.76 C 511.46 457.5 512.89 451.81 517.1 447.93 M 511.59 460.37 C 512.99 458.28 514.75 455.61 517.5 453.58 M 511.59 460.37 C 514.03 456.81 515.69 454.75 517.5 453.58" fill="none" stroke="#e6e6e6" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(230, 230, 230);"/><path d="M 377 414 C 425.41 413.25 471.42 417.79 517 414 M 377 414 C 416.82 415.24 458.22 413.27 517 414 M 517 414 C 520.78 435.79 513.71 448.15 517 460 M 517 414 C 514.8 425.34 514.93 439.54 517 460 M 517 460 C 467.34 463.71 420.38 461.87 377 460 M 517 460 C 474.34 461.83 431.97 463.76 377 460 M 377 460 C 377.44 452.02 377.71 439.24 377 414 M 377 460 C 376.99 449.84 378.74 438.96 377 414" fill="none" stroke="#666666" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(102, 102, 102);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 138px; height: 1px; padding-top: 437px; margin-left: 378px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #333333; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">New group instructions based on accumulated context</div></div></div></foreignObject><text x="447" y="441" fill="#333333" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">New group instructions...</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-26"><g><rect x="236.97" y="450" width="60" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 465px; margin-left: 238px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Result</div></div></div></foreignObject><text x="267" y="469" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Result</text></switch></g></g></g><g data-cell-id="4zmG-z9aPdC0uTSK_B0k-21"><g><rect x="217" y="330" width="100" height="36" fill="none" stroke="none" pointer-events="all"/><path d="M 216.92 330.09 C 216.92 330.09 216.92 330.09 216.92 330.09 M 216.92 330.09 C 216.92 330.09 216.92 330.09 216.92 330.09 M 217.32 335.73 C 217.31 333.29 221.7 331.37 222.56 329.7 M 217.32 335.73 C 218.17 333.92 220.65 332.18 222.56 329.7 M 217.05 342.13 C 219.44 338.14 224.1 334.46 227.55 330.06 M 217.05 342.13 C 219.97 337.88 222.7 333.93 227.55 330.06 M 216.79 348.53 C 223.18 342.57 228.74 339.01 233.19 329.66 M 216.79 348.53 C 221.5 342.6 224.62 336.8 233.19 329.66 M 217.19 354.17 C 223.66 346.54 234.08 340.58 238.18 330.02 M 217.19 354.17 C 221.46 349.13 228.01 338.5 238.18 330.02 M 216.93 360.57 C 223.63 356.31 231 346.2 243.82 329.63 M 216.93 360.57 C 222.18 353.06 230.59 345.47 243.82 329.63 M 217.32 366.21 C 222.98 359.31 234.65 346.98 248.81 329.99 M 217.32 366.21 C 226.03 357.24 236.24 344.5 248.81 329.99 M 222.31 366.57 C 236.21 351.96 247.91 339.42 253.8 330.35 M 222.31 366.57 C 231.35 352.51 242.78 341.37 253.8 330.35 M 227.95 366.18 C 243.21 352.72 253.75 335.62 259.44 329.95 M 227.95 366.18 C 236.78 353.82 248.37 345.89 259.44 329.95 M 232.94 366.54 C 243.18 355.02 250.02 350.51 264.43 330.31 M 232.94 366.54 C 246.49 354.35 254.78 338.54 264.43 330.31 M 238.58 366.14 C 245.87 358.92 255.99 353.19 270.07 329.92 M 238.58 366.14 C 250.05 353.27 263.22 337.79 270.07 329.92 M 243.57 366.5 C 253.53 358.14 261 346.97 275.06 330.28 M 243.57 366.5 C 254.24 356.77 261.02 347.53 275.06 330.28 M 249.21 366.11 C 255.21 360.26 261.75 351.79 280.7 329.88 M 249.21 366.11 C 261.87 353.7 270.78 341.38 280.7 329.88 M 254.2 366.47 C 265.9 350.27 277.41 335.8 285.69 330.24 M 254.2 366.47 C 261.24 358.22 272.29 345.6 285.69 330.24 M 259.84 366.08 C 269.94 351.28 282.13 337.82 291.33 329.85 M 259.84 366.08 C 265.54 355.68 275.77 349.48 291.33 329.85 M 264.83 366.44 C 280.75 350.59 288.24 341.13 296.32 330.21 M 264.83 366.44 C 272.91 355.94 280.69 347.64 296.32 330.21 M 270.47 366.04 C 281.12 361.82 287.1 347.87 301.96 329.81 M 270.47 366.04 C 279.14 357.57 286.82 345.02 301.96 329.81 M 275.46 366.4 C 284.37 356.05 285.71 353.94 306.95 330.17 M 275.46 366.4 C 287.04 353.14 297.86 342.89 306.95 330.17 M 281.1 366.01 C 296.91 355.44 308.09 335.62 312.59 329.78 M 281.1 366.01 C 292.22 355.19 298.62 343.31 312.59 329.78 M 286.09 366.37 C 297.3 354.34 312.07 337.88 317.58 330.14 M 286.09 366.37 C 295.59 355.03 310.44 342.23 317.58 330.14 M 291.73 365.97 C 301.74 352.86 308.26 345.98 317.32 336.54 M 291.73 365.97 C 297.51 358.5 306.45 348.1 317.32 336.54 M 296.72 366.33 C 306.47 359.71 306.08 350.69 317.71 342.18 M 296.72 366.33 C 304.61 357.5 310.29 348.21 317.71 342.18 M 302.36 365.94 C 306.17 359.64 314.93 350.12 317.45 348.58 M 302.36 365.94 C 305.34 358.32 311.82 354.72 317.45 348.58 M 307.35 366.3 C 312.5 364.86 312.43 357.39 317.19 354.98 M 307.35 366.3 C 309.41 363.74 312.4 360.03 317.19 354.98 M 312.99 365.9 C 315.6 362.65 315.85 361.72 317.58 360.62 M 312.99 365.9 C 314.12 363.38 316.57 362 317.58 360.62" fill="none" stroke="#e6e6e6" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(230, 230, 230);"/><path d="M 217 330 C 248.55 329.44 285.83 325.19 317 330 M 217 330 C 250.22 328.77 283.51 329.92 317 330 M 317 330 C 313.77 344.58 319.26 355.76 317 366 M 317 330 C 317.74 341.48 318.28 351.77 317 366 M 317 366 C 296.1 363.75 267.56 363.92 217 366 M 317 366 C 293.65 365.81 271.48 368.19 217 366 M 217 366 C 215.94 355.98 214.09 341.86 217 330 M 217 366 C 218.13 355.03 219.21 343.65 217 330" fill="none" stroke="#666666" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all" style="stroke: rgb(102, 102, 102);"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 348px; margin-left: 218px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #333333; "><div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Chat output from agents</div></div></div></foreignObject><text x="267" y="352" fill="#333333" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">Chat output from...</text></switch></g></g></g></g></g></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Text is not SVG - cannot display</text></a></switch></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by Microsoft Visio, SVG Export group-chat-pattern.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="7.15625in" height="5.75in" viewBox="0 0 515.25 414"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st19">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvSubprocessMaster" v:prompt="" v:val="VT4(Rectangle)"/>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st2 {fill:none}
+		.st3 {stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st4 {fill:#000000;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st5 {fill:#ffffff;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st7 {fill:#dae8fc;stroke:#6c8ebf;stroke-linecap:butt;stroke-width:0.75}
+		.st8 {stroke:#6c8ebf;stroke-linecap:butt;stroke-width:0.75}
+		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
+		.st10 {font-size:1em}
+		.st11 {fill:#fff2cc;stroke:#d6b656;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:#f5f5f5;stroke:#666666;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {stroke:#666666;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
+		.st15 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {stroke:#e6e6e6;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.375}
+		.st17 {stroke:#666666;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st18 {fill:#000000;font-family:Segoe UI;font-size:0.666664em}
+		.st19 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="9"
+				v:shadowOffsetY="-9"/>
+		<g id="group1-1" transform="translate(18.75,-18.75)" v:mID="1" v:groupContext="group">
+			<title>Sheet.1</title>
+			<g id="shape2-2" v:mID="2" v:groupContext="shape">
+				<title>Sheet.2</title>
+				<rect x="0" y="37.5" width="477.75" height="376.5" class="st1"/>
+			</g>
+			<g id="group3-4" transform="translate(20.25,-16.5)" v:mID="3" v:groupContext="group">
+				<title>Sheet.3</title>
+				<g id="group4-5" transform="translate(177.375,-307.5)" v:mID="4" v:groupContext="group">
+					<title>Sheet.4</title>
+					<g id="shape5-6" v:mID="5" v:groupContext="shape" transform="translate(2.625,1.13687E-13)">
+						<title>Sheet.5</title>
+						<path d="M0 399 L0 414 L0 399 L0 409.22 L0 399 Z" class="st2"/>
+						<path d="M0 399 L0 414 L0 399 L0 409.22" class="st3"/>
+					</g>
+					<g id="shape6-9" v:mID="6" v:groupContext="shape" transform="translate(-6.59472E-14,-0.84)">
+						<title>Sheet.6</title>
+						<path d="M2.62 414 L0 408.75 L2.62 410.06 L5.25 408.75 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group7-11" transform="translate(157.477,-322.5)" v:mID="7" v:groupContext="group">
+					<title>Sheet.7</title>
+					<desc>Input</desc>
+					<g id="shape8-12" v:mID="8" v:groupContext="shape">
+						<title>Sheet.8</title>
+						<path d="M0 410.62 A3.37508 3.37508 -180 0 0 3.37 414 L41.63 414 A3.37508 3.37508 -180 0 0 45 410.62 L45
+									 394.87 A3.37508 3.37508 -180 0 0 41.63 391.5 L3.37 391.5 A3.37508 3.37508 -180 0 0 0 394.87
+									 L0 410.62 Z" class="st5"/>
+					</g>
+					<g id="shape7-14" v:mID="7" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="22.5" cy="402.75" width="45.01" height="22.5"/>
+						<text x="10.88" y="405.75" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Input</text>					</g>
+				</g>
+				<g id="shape10-16" v:mID="10" v:groupContext="shape" transform="translate(60,-172.5)">
+					<title>Sheet.10</title>
+					<path d="M0 399 L0 414 L0 399 L0 414 L0 399 Z" class="st2"/>
+					<path d="M0 399 L0 414 L0 399 L0 414" class="st3"/>
+				</g>
+				<g id="group11-19" transform="translate(1.29496E-12,-68.34)" v:mID="11" v:groupContext="group">
+					<title>Sheet.11</title>
+					<g id="shape12-20" v:mID="12" v:groupContext="shape" transform="translate(2.15827E-12,-3.9375)">
+						<title>Sheet.12</title>
+						<path d="M14.98 276.28 L0 276.28 L0 403.78 L180 403.78 L179.99 414 L14.98 276.28 Z" class="st2"/>
+						<path d="M14.98 276.28 L0 276.28 L0 403.78 L180 403.78 L179.99 414" class="st3"/>
+					</g>
+					<g id="shape13-23" v:mID="13" v:groupContext="shape" transform="translate(177.36,1.13687E-13)">
+						<title>Sheet.13</title>
+						<path d="M2.62 414 L0 408.75 L2.63 410.06 L5.25 408.76 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group14-25" transform="translate(14.9775,-187.5)" v:mID="14" v:groupContext="group">
+					<title>Sheet.14</title>
+					<desc>Agent 1</desc>
+					<g id="group15-26" v:mID="15" v:groupContext="group">
+						<title>Sheet.15</title>
+						<g id="shape16-27" v:mID="16" v:groupContext="shape">
+							<title>Sheet.16</title>
+							<rect x="0" y="369" width="90" height="45" class="st7"/>
+						</g>
+						<g id="shape17-29" v:mID="17" v:groupContext="shape" transform="translate(9,-6.82121E-13)">
+							<title>Sheet.17</title>
+							<path d="M0 369 L0 414 L0 369 ZM72 369 L72 414 L72 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M72 369 L72 414" class="st8"/>
+						</g>
+					</g>
+					<g id="shape14-32" v:mID="14" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="45" cy="391.5" width="90.01" height="45"/>
+						<text x="27.63" y="394.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent 1</text>					</g>
+				</g>
+				<g id="shape19-34" v:mID="19" v:groupContext="shape" transform="translate(179.978,-172.5)">
+					<title>Sheet.19</title>
+					<path d="M0 399 L0.02 414 L0.02 399 L0.02 414 L0 399 Z" class="st2"/>
+					<path d="M0 399 L0.02 414 L0.02 399 L0.02 414" class="st3"/>
+				</g>
+				<g id="group20-37" transform="translate(177.36,-68.34)" v:mID="20" v:groupContext="group">
+					<title>Sheet.20</title>
+					<g id="shape21-38" v:mID="21" v:groupContext="shape" transform="translate(2.625,-3.9375)">
+						<title>Sheet.21</title>
+						<path d="M149.99 276.28 L135.02 276.28 L135.02 403.78 L0.01 403.78 L0 414 L149.99 276.28 Z" class="st2"/>
+						<path d="M149.99 276.28 L135.02 276.28 L135.02 403.78 L0.01 403.78 L0 414" class="st3"/>
+					</g>
+					<g id="shape22-41" v:mID="22" v:groupContext="shape">
+						<title>Sheet.22</title>
+						<path d="M2.62 414 L0 408.75 L2.62 410.06 L5.25 408.76 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="shape23-43" v:mID="23" v:groupContext="shape" transform="translate(374.97,-172.5)">
+					<title>Sheet.23</title>
+					<path d="M0.03 399 L0.03 414 L0.03 399 L0 414 L0.03 399 Z" class="st2"/>
+					<path d="M0.03 399 L0.03 414 L0.03 399 L0 414" class="st3"/>
+				</g>
+				<g id="group24-46" transform="translate(329.978,-187.5)" v:mID="24" v:groupContext="group">
+					<title>Sheet.24</title>
+					<desc>Agent n</desc>
+					<g id="group25-47" v:mID="25" v:groupContext="group">
+						<title>Sheet.25</title>
+						<g id="shape26-48" v:mID="26" v:groupContext="shape">
+							<title>Sheet.26</title>
+							<rect x="0" y="369" width="90" height="45" class="st7"/>
+						</g>
+						<g id="shape27-50" v:mID="27" v:groupContext="shape" transform="translate(9,-6.82121E-13)">
+							<title>Sheet.27</title>
+							<path d="M0 369 L0 414 L0 369 ZM72 369 L72 414 L72 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M72 369 L72 414" class="st8"/>
+						</g>
+					</g>
+					<g id="shape24-53" v:mID="24" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="45" cy="391.5" width="90.01" height="45"/>
+						<text x="27.49" y="394.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent n</text>					</g>
+				</g>
+				<g id="shape29-55" v:mID="29" v:groupContext="shape" transform="translate(179.977,-22.5)">
+					<title>Sheet.29</title>
+					<path d="M0 399 L0 414 L0 399 Z" class="st2"/>
+					<path d="M0 399 L0 414" class="st3"/>
+				</g>
+				<g id="group30-58" transform="translate(146.227,-37.5)" v:mID="30" v:groupContext="group">
+					<title>Sheet.30</title>
+					<desc>Accumulating chat thread</desc>
+					<g id="shape31-59" v:mID="31" v:groupContext="shape">
+						<title>Sheet.31</title>
+						<path d="M-0 409.5 A4.5001 4.5001 -180 0 0 4.5 414 L63 414 A4.5001 4.5001 -180 0 0 67.5 409.5 L67.5 388.5
+									 A4.5001 4.5001 -180 0 0 63 384 L4.5 384 A4.5001 4.5001 -180 0 0 -0 388.5 L0 409.5 Z"
+								class="st5"/>
+					</g>
+					<g id="shape30-61" v:mID="30" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="33.75" cy="399" width="67.5" height="30"/>
+						<text x="6.53" y="396.3" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Accumulating <tspan
+									x="11.15" dy="1.2em" class="st10">chat thread</tspan></text>					</g>
+				</g>
+				<g id="group33-64" transform="translate(142.522,-127.5)" v:mID="33" v:groupContext="group">
+					<title>Sheet.33</title>
+					<desc>Model and knowledge</desc>
+					<g id="shape34-65" v:mID="34" v:groupContext="shape">
+						<title>Sheet.34</title>
+						<path d="M0 407.25 A6.75016 6.75016 -180 0 0 6.75 414 L68.23 414 A6.75016 6.75016 -180 0 0 74.98 407.25 L74.98
+									 375.75 A6.75016 6.75016 -180 0 0 68.23 369 L6.75 369 A6.75016 6.75016 -180 0 0 -0 375.75 L0
+									 407.25 Z" class="st11"/>
+					</g>
+					<g id="shape33-67" v:mID="33" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="37.4888" cy="391.5" width="74.98" height="45"/>
+						<text x="13.61" y="388.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+									x="13.3" dy="1.2em" class="st10">knowledge</tspan></text>					</g>
+				</g>
+				<g id="group36-70" transform="translate(337.485,-127.5)" v:mID="36" v:groupContext="group">
+					<title>Sheet.36</title>
+					<desc>Model and knowledge</desc>
+					<g id="shape37-71" v:mID="37" v:groupContext="shape">
+						<title>Sheet.37</title>
+						<path d="M0 407.25 A6.75016 6.75016 -180 0 0 6.75 414 L68.23 414 A6.75016 6.75016 -180 0 0 74.98 407.25 L74.98
+									 375.75 A6.75016 6.75016 -180 0 0 68.23 369 L6.75 369 A6.75016 6.75016 -180 0 0 0 375.75 L0 407.25
+									 Z" class="st11"/>
+					</g>
+					<g id="shape36-73" v:mID="36" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="37.4888" cy="391.5" width="74.98" height="45"/>
+						<text x="13.61" y="388.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+									x="13.3" dy="1.2em" class="st10">knowledge</tspan></text>					</g>
+				</g>
+				<g id="group39-76" transform="translate(57.375,-233.34)" v:mID="39" v:groupContext="group">
+					<title>Sheet.39</title>
+					<g id="shape40-77" v:mID="40" v:groupContext="shape" transform="translate(2.625,-3.9375)">
+						<title>Sheet.40</title>
+						<path d="M119.98 388.78 L120 403.78 L0 403.78 L0 414 L119.98 388.78 Z" class="st2"/>
+						<path d="M119.98 388.78 L120 403.78 L0 403.78 L0 414" class="st3"/>
+					</g>
+					<g id="shape41-80" v:mID="41" v:groupContext="shape">
+						<title>Sheet.41</title>
+						<path d="M2.63 414 L0 408.75 L2.63 410.06 L5.25 408.75 L2.63 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group42-82" transform="translate(179.977,-233.34)" v:mID="42" v:groupContext="group">
+					<title>Sheet.42</title>
+					<g id="shape43-83" v:mID="43" v:groupContext="shape" transform="translate(4.31655E-13,-3.9375)">
+						<title>Sheet.43</title>
+						<path d="M0 388.78 L0.02 403.78 L195.02 403.78 L195.01 414 L0 388.78 Z" class="st2"/>
+						<path d="M0 388.78 L0.02 403.78 L195.02 403.78 L195.01 414" class="st3"/>
+					</g>
+					<g id="shape44-86" v:mID="44" v:groupContext="shape" transform="translate(192.383,0)">
+						<title>Sheet.44</title>
+						<path d="M2.62 414 L0 408.75 L2.62 410.06 L5.25 408.76 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group45-88" transform="translate(179.978,-233.34)" v:mID="45" v:groupContext="group">
+					<title>Sheet.45</title>
+					<g id="shape46-89" v:mID="46" v:groupContext="shape" transform="translate(-6.63469E-13,-3.9375)">
+						<title>Sheet.46</title>
+						<path d="M0 388.78 L0.02 403.78 L97.52 403.78 L97.51 414 L0 388.78 Z" class="st2"/>
+						<path d="M0 388.78 L0.02 403.78 L97.52 403.78 L97.51 414" class="st3"/>
+					</g>
+					<g id="shape47-92" v:mID="47" v:groupContext="shape" transform="translate(94.8825,0)">
+						<title>Sheet.47</title>
+						<path d="M2.62 414 L0 408.75 L2.62 410.06 L5.25 408.76 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group48-94" transform="translate(177.352,-233.34)" v:mID="48" v:groupContext="group">
+					<title>Sheet.48</title>
+					<g id="shape49-95" v:mID="49" v:groupContext="shape" transform="translate(2.625,-3.9375)">
+						<title>Sheet.49</title>
+						<path d="M0 388.78 L0 414 L0 388.78 Z" class="st2"/>
+						<path d="M0 388.78 L0 414" class="st3"/>
+					</g>
+					<g id="shape50-98" v:mID="50" v:groupContext="shape">
+						<title>Sheet.50</title>
+						<path d="M2.62 414 L0 408.75 L2.62 410.06 L5.25 408.75 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group51-100" transform="translate(214.568,-49.875)" v:mID="51" v:groupContext="group">
+					<title>Sheet.51</title>
+					<g id="shape52-101" v:mID="52" v:groupContext="shape" transform="translate(3.9375,-2.625)">
+						<title>Sheet.52</title>
+						<path d="M6.47 181.5 L216.49 181.5 L216.49 414 L0 414 L6.47 181.5 Z" class="st2"/>
+						<path d="M6.47 181.5 L216.49 181.5 L216.49 414 L0 414" class="st3"/>
+					</g>
+					<g id="shape53-104" v:mID="53" v:groupContext="shape">
+						<title>Sheet.53</title>
+						<path d="M0 411.37 L5.25 408.75 L3.94 411.37 L5.25 414 L0 411.37 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="shape54-106" v:mID="54" v:groupContext="shape" transform="translate(104.978,-285)">
+					<title>Sheet.54</title>
+					<path d="M30 414 L0 414 L30 414 Z" class="st2"/>
+					<path d="M30 414 L0 414" class="st3"/>
+				</g>
+				<g id="group55-109" transform="translate(134.977,-262.5)" v:mID="55" v:groupContext="group">
+					<title>Sheet.55</title>
+					<desc>Group chat manager</desc>
+					<g id="group56-110" v:mID="56" v:groupContext="group">
+						<title>Sheet.56</title>
+						<g id="shape57-111" v:mID="57" v:groupContext="shape">
+							<title>Sheet.57</title>
+							<rect x="0" y="369" width="90" height="45" class="st7"/>
+						</g>
+						<g id="shape58-113" v:mID="58" v:groupContext="shape" transform="translate(9,-6.82121E-13)">
+							<title>Sheet.58</title>
+							<path d="M0 369 L0 414 L0 369 ZM72 369 L72 414 L72 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M72 369 L72 414" class="st8"/>
+						</g>
+					</g>
+					<g id="shape55-116" v:mID="55" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="45" cy="391.5" width="90.01" height="45"/>
+						<text x="20.39" y="388.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Group chat <tspan
+									x="25.48" dy="1.2em" class="st10">manager</tspan></text>					</g>
+				</g>
+				<g id="group60-119" transform="translate(214.568,-49.875)" v:mID="60" v:groupContext="group">
+					<title>Sheet.60</title>
+					<g id="shape61-120" v:mID="61" v:groupContext="shape" transform="translate(3.9375,-2.625)">
+						<title>Sheet.61</title>
+						<path d="M156.5 399 L156.5 414 L0 414 L156.5 399 Z" class="st2"/>
+						<path d="M156.5 399 L156.5 414 L0 414" class="st3"/>
+					</g>
+					<g id="shape62-123" v:mID="62" v:groupContext="shape">
+						<title>Sheet.62</title>
+						<path d="M0 411.37 L5.25 408.75 L3.94 411.37 L5.25 414 L0 411.37 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group63-125" transform="translate(329.978,-67.5)" v:mID="63" v:groupContext="group">
+					<title>Sheet.63</title>
+					<desc>Human chat participant or observer</desc>
+					<g id="group64-126" v:mID="64" v:groupContext="group">
+						<title>Sheet.64</title>
+						<g id="shape65-127" v:mID="65" v:groupContext="shape">
+							<title>Sheet.65</title>
+							<rect x="0" y="369" width="90" height="45" class="st12"/>
+						</g>
+						<g id="shape66-129" v:mID="66" v:groupContext="shape" transform="translate(9,-6.82121E-13)">
+							<title>Sheet.66</title>
+							<path d="M0 369 L0 414 L0 369 ZM72 369 L72 414 L72 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M72 369 L72 414" class="st13"/>
+						</g>
+					</g>
+					<g id="shape63-132" v:mID="63" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="45" cy="391.5" width="90.01" height="45"/>
+						<text x="20.87" y="383.4" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Human chat <tspan
+									x="18.28" dy="1.2em" class="st10">participant or </tspan><tspan x="27.82" dy="1.2em"
+									class="st10">observer</tspan></text>					</g>
+				</g>
+				<g id="group68-136" transform="translate(22.485,-127.5)" v:mID="68" v:groupContext="group">
+					<title>Sheet.68</title>
+					<desc>Model and knowledge</desc>
+					<g id="shape69-137" v:mID="69" v:groupContext="shape">
+						<title>Sheet.69</title>
+						<path d="M0 407.25 A6.75016 6.75016 -180 0 0 6.75 414 L68.23 414 A6.75016 6.75016 -180 0 0 74.98 407.25 L74.98
+									 375.75 A6.75016 6.75016 -180 0 0 68.23 369 L6.75 369 A6.75016 6.75016 -180 0 0 -0 375.75 L0
+									 407.25 Z" class="st11"/>
+					</g>
+					<g id="shape68-139" v:mID="68" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="37.4888" cy="391.5" width="74.98" height="45"/>
+						<text x="13.61" y="388.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+									x="13.3" dy="1.2em" class="st10">knowledge</tspan></text>					</g>
+				</g>
+				<g id="group71-142" transform="translate(120,-68.34)" v:mID="71" v:groupContext="group">
+					<title>Sheet.71</title>
+					<g id="shape72-143" v:mID="72" v:groupContext="shape" transform="translate(-4.39648E-14,-3.9375)">
+						<title>Sheet.72</title>
+						<path d="M14.98 276.28 L0 276.28 L0 403.78 L60 403.78 L60 414 L14.98 276.28 Z" class="st2"/>
+						<path d="M14.98 276.28 L0 276.28 L0 403.78 L60 403.78 L60 414" class="st3"/>
+					</g>
+					<g id="shape73-146" v:mID="73" v:groupContext="shape" transform="translate(57.375,1.13687E-13)">
+						<title>Sheet.73</title>
+						<path d="M2.63 414 L0 408.75 L2.63 410.06 L5.25 408.75 L2.63 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group74-148" transform="translate(134.977,-187.5)" v:mID="74" v:groupContext="group">
+					<title>Sheet.74</title>
+					<desc>Agent 2</desc>
+					<g id="group75-149" v:mID="75" v:groupContext="group">
+						<title>Sheet.75</title>
+						<g id="shape76-150" v:mID="76" v:groupContext="shape">
+							<title>Sheet.76</title>
+							<rect x="0" y="369" width="90" height="45" class="st7"/>
+						</g>
+						<g id="shape77-152" v:mID="77" v:groupContext="shape" transform="translate(9,-6.82121E-13)">
+							<title>Sheet.77</title>
+							<path d="M0 369 L0 414 L0 369 ZM72 369 L72 414 L72 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M72 369 L72 414" class="st8"/>
+						</g>
+					</g>
+					<g id="shape74-155" v:mID="74" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="45" cy="391.5" width="90.01" height="45"/>
+						<text x="27.63" y="394.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Agent 2</text>					</g>
+				</g>
+				<g id="group79-157" transform="translate(177.36,-68.34)" v:mID="79" v:groupContext="group">
+					<title>Sheet.79</title>
+					<g id="shape80-158" v:mID="80" v:groupContext="shape" transform="translate(2.625,-3.9375)">
+						<title>Sheet.80</title>
+						<path d="M74.99 276.28 L60.02 276.28 L60.02 403.78 L0.01 403.78 L0 414 L74.99 276.28 Z" class="st2"/>
+						<path d="M74.99 276.28 L60.02 276.28 L60.02 403.78 L0.01 403.78 L0 414" class="st3"/>
+					</g>
+					<g id="shape81-161" v:mID="81" v:groupContext="shape">
+						<title>Sheet.81</title>
+						<path d="M2.62 414 L0 408.75 L2.63 410.06 L5.25 408.76 L2.62 414 Z" class="st4"/>
+					</g>
+				</g>
+				<g id="group82-163" transform="translate(254.978,-187.5)" v:mID="82" v:groupContext="group">
+					<title>Sheet.82</title>
+					<desc>...</desc>
+					<g id="group83-164" v:mID="83" v:groupContext="group">
+						<title>Sheet.83</title>
+						<g id="shape84-165" v:mID="84" v:groupContext="shape">
+							<title>Sheet.84</title>
+							<rect x="0" y="369" width="45" height="45" class="st7"/>
+						</g>
+						<g id="shape85-167" v:mID="85" v:groupContext="shape" transform="translate(4.5,-6.82121E-13)">
+							<title>Sheet.85</title>
+							<path d="M0 369 L0 414 L0 369 ZM36 369 L36 414 L36 369 Z" class="st2"/>
+							<path d="M0 369 L0 414M36 369 L36 414" class="st8"/>
+						</g>
+					</g>
+					<g id="shape82-170" v:mID="82" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="22.5" cy="391.5" width="45.01" height="45"/>
+						<text x="18.6" y="395.1" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>...</text>					</g>
+				</g>
+				<g id="group87-172" transform="translate(60,-262.5)" v:mID="87" v:groupContext="group">
+					<title>Sheet.87</title>
+					<desc>Model</desc>
+					<g id="shape88-173" v:mID="88" v:groupContext="shape">
+						<title>Sheet.88</title>
+						<path d="M0 407.25 A6.75016 6.75016 -180 0 0 6.75 414 L38.23 414 A6.75016 6.75016 -180 0 0 44.98 407.25 L44.98
+									 375.75 A6.75016 6.75016 -180 0 0 38.23 369 L6.75 369 A6.75016 6.75016 -180 0 0 0 375.75 L0 407.25
+									 Z" class="st11"/>
+					</g>
+					<g id="shape87-175" v:mID="87" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="22.4888" cy="391.5" width="44.98" height="45"/>
+						<text x="8.3" y="394.5" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Mode<tspan
+									class="st10" v:langID="2052">l</tspan></text>					</g>
+				</g>
+				<g id="group90-178" transform="translate(262.26,-12.18)" v:mID="90" v:groupContext="group">
+					<title>Sheet.90</title>
+					<desc>New group instructions based on accumulated context</desc>
+					<g id="group91-179" v:mID="91" v:groupContext="group">
+						<title>Sheet.91</title>
+						<g id="shape92-180" v:mID="92" v:groupContext="shape" transform="translate(0.24,-2.82)">
+							<title>Sheet.92</title>
+							<rect x="0" y="379.5" width="105" height="34.5" class="st15"/>
+						</g>
+						<g id="shape93-182" v:mID="93" v:groupContext="shape" transform="translate(1.1191E-13,-2.145)">
+							<title>Sheet.93</title>
+							<path d="M0.39 378.65 C0.39 378.65 0.39 378.65 0.39 378.65 ZM0.39 378.65 C0.39 378.65 0.39 378.65 0.39
+										 378.65 ZM0.19 383.45 C0.07 382.7 1.41 382.42 4.13 378.92 L0.19 383.45 ZM0.19 383.45 C1.26
+										 381.76 2.82 380.51 4.13 378.92 L0.19 383.45 ZM0 388.24 C2.92 383.41 3.34 381.28 8.36 378.62
+										 L0 388.24 ZM0 388.24 C1.9 385.42 5.18 381.37 8.36 378.62 L0 388.24 ZM0.29 392.48 C3.16 387.85
+										 5.48 382.38 12.11 378.89 L0.29 392.48 ZM0.29 392.48 C2.92 388.42 9.33 383.77 12.11 378.89
+										 L0.29 392.48 ZM0.1 397.28 C4.47 391.45 9.21 385.86 16.34 378.6 L0.1 397.28 ZM0.1 397.28
+										 C4.49 392.97 7.73 388.85 16.34 378.6 L0.1 397.28 ZM0.4 401.51 C7.97 393.76 13.25 384.58
+										 20.08 378.87 L0.4 401.51 ZM0.4 401.51 C8.69 394.88 14.97 385.93 20.08 378.87 L0.4 401.51
+										 ZM0.19 406.31 C7.76 396.82 18.59 385.87 24.31 378.58 L0.19 406.31 ZM0.19 406.31 C7.18 396.51
+										 12.95 390.15 24.31 378.58 L0.19 406.31 ZM0 411.1 C7.52 401.55 20.81 389.96 28.05 378.85
+										 L0 411.1 ZM0 411.1 C5.06 404.56 12.22 397.36 28.05 378.85 L0 411.1 ZM1.78 413.64 C10.13
+										 401.21 19.37 393.55 32.28 378.55 L1.78 413.64 ZM1.78 413.64 C9.53 406.81 15.76 398.31 32.28
+										 378.55 L1.78 413.64 ZM5.51 413.91 C13.87 400.81 24.41 392.68 36.02 378.82 L5.51 413.91 ZM5.51
+										 413.91 C17 401.76 30.23 387.53 36.02 378.82 L5.51 413.91 ZM9.75 413.62 C20.32 402.97 33.68
+										 387.95 39.77 379.09 L9.75 413.62 ZM9.75 413.62 C18.49 404.83 26.76 395.41 39.77 379.09 L9.75
+										 413.62 ZM13.49 413.89 C22.15 405.81 29.98 390.93 44 378.79 L13.49 413.89 ZM13.49 413.89
+										 C24.48 402.44 33.67 392.18 44 378.79 L13.49 413.89 ZM17.72 413.59 C24.08 404.65 35.99 396.58
+										 47.74 379.06 L17.72 413.59 ZM17.72 413.59 C27.97 400.67 39.14 388.9 47.74 379.06 L17.72
+										 413.59 ZM21.46 413.86 C31.22 398.77 43.55 389.74 51.97 378.76 L21.46 413.86 ZM21.46 413.86
+										 C30.93 400.67 42.53 390.12 51.97 378.76 L21.46 413.86 ZM25.7 413.56 C38.17 398.1 46.94 388.21
+										 55.71 379.03 L25.7 413.56 ZM25.7 413.56 C32.26 405.85 41.11 394.05 55.71 379.03 L25.7 413.56
+										 ZM29.43 413.83 C36.75 403.47 52.04 393.55 59.94 378.74 L29.43 413.83 ZM29.43 413.83 C37.01
+										 404.95 43.13 398.64 59.94 378.74 L29.43 413.83 ZM33.67 413.53 C43.67 401.81 51.8 392.08
+										 63.68 379.01 L33.67 413.53 ZM33.67 413.53 C38.73 407.78 46.04 399.95 63.68 379.01 L33.67
+										 413.53 ZM37.4 413.81 C46.2 406.22 57.44 394.18 67.91 378.71 L37.4 413.81 ZM37.4 413.81 C47.99
+										 399.84 59.57 387.39 67.91 378.71 L37.4 413.81 ZM41.64 413.51 C51.93 403.47 54.17 397.36
+										 71.66 378.98 L41.64 413.51 ZM41.64 413.51 C47.67 404.4 57.07 394.98 71.66 378.98 L41.64
+										 413.51 ZM45.38 413.78 C53.08 406.94 62.78 394.99 75.89 378.69 L45.38 413.78 ZM45.38 413.78
+										 C53.61 406.07 60.95 396.64 75.89 378.69 L45.38 413.78 ZM49.61 413.49 C57.06 400.8 70.5 391.56
+										 79.63 378.96 L49.61 413.49 ZM49.61 413.49 C58.71 402.33 67.59 392.03 79.63 378.96 L49.61
+										 413.49 ZM53.35 413.76 C62.6 402.64 74 392.29 83.86 378.66 L53.35 413.76 ZM53.35 413.76 C59.15
+										 408.01 65.15 399.55 83.86 378.66 L53.35 413.76 ZM57.59 413.46 C66.75 400.03 76.93 389.98
+										 87.6 378.93 L57.59 413.46 ZM57.59 413.46 C69.21 401.02 77.67 390.66 87.6 378.93 L57.59 413.46
+										 ZM61.32 413.73 C69.11 402.61 77.09 393.6 91.83 378.64 L61.32 413.73 ZM61.32 413.73 C73.99
+										 399.22 85.03 387.89 91.83 378.64 L61.32 413.73 ZM65.06 414 C72.49 400.11 81.63 393.86 95.57
+										 378.91 L65.06 414 ZM65.06 414 C76.73 399.64 87.63 386.86 95.57 378.91 L65.06 414 ZM69.29
+										 413.71 C81.56 402.59 87.9 393.74 99.8 378.61 L69.29 413.71 ZM69.29 413.71 C78.89 401.76
+										 86.43 391.32 99.8 378.61 L69.29 413.71 ZM73.04 413.98 C78.96 406.76 87.57 399.31 103.55
+										 378.88 L73.04 413.98 ZM73.04 413.98 C83.54 401.14 95.89 386.84 103.55 378.88 L73.04 413.98
+										 ZM77.27 413.68 C86.66 403.36 96.14 391.52 105.32 381.41 L77.27 413.68 ZM77.27 413.68 C85.35
+										 403.48 95.33 390.56 105.32 381.41 L77.27 413.68 ZM81.01 413.95 C87.47 406.3 93.68 401.26
+										 105.61 385.65 L81.01 413.95 ZM81.01 413.95 C90.81 404.56 97.97 392.7 105.61 385.65 L81.01
+										 413.95 ZM85.24 413.65 C88.64 410.62 95.55 404.87 105.41 390.44 L85.24 413.65 ZM85.24 413.65
+										 C89.91 406.43 98.6 397.78 105.41 390.44 L85.24 413.65 ZM88.98 413.92 C94.84 408.5 100.41
+										 400.6 105.22 395.24 L88.98 413.92 ZM88.98 413.92 C93.07 411.13 97.12 405.3 105.22 395.24
+										 L88.98 413.92 ZM93.21 413.62 C96.05 410.95 98.84 409.25 105.52 399.48 L93.21 413.62 ZM93.21
+										 413.62 C97.07 411.88 98.04 407.1 105.52 399.48 L93.21 413.62 ZM96.95 413.89 C99.18 411.91
+										 101.69 407.71 105.32 404.27 L96.95 413.89 ZM96.95 413.89 C101.09 411.45 102.16 407.18 105.32
+										 404.27 L96.95 413.89 ZM101.18 413.6 C102.23 412.03 103.55 410.03 105.62 408.51 L101.18 413.6
+										 ZM101.18 413.6 C103.01 410.93 104.26 409.39 105.62 408.51 L101.18 413.6 Z" class="st2"/>
+							<path d="M0.39 378.65 C0.39 378.65 0.39 378.65 0.39 378.65M0.39 378.65 C0.39 378.65 0.39 378.65 0.39
+										 378.65M0.19 383.45 C0.07 382.7 1.41 382.42 4.13 378.92M0.19 383.45 C1.26 381.76 2.82 380.51
+										 4.13 378.92M0 388.24 C2.92 383.41 3.34 381.28 8.36 378.62M0 388.24 C1.9 385.42 5.18 381.37
+										 8.36 378.62M0.29 392.48 C3.16 387.85 5.48 382.38 12.11 378.89M0.29 392.48 C2.92 388.42 9.33
+										 383.77 12.11 378.89M0.1 397.28 C4.47 391.45 9.21 385.86 16.34 378.6M0.1 397.28 C4.49 392.97
+										 7.73 388.85 16.34 378.6M0.4 401.51 C7.97 393.76 13.25 384.58 20.08 378.87M0.4 401.51 C8.69
+										 394.88 14.97 385.93 20.08 378.87M0.19 406.31 C7.76 396.82 18.59 385.87 24.31 378.58M0.19
+										 406.31 C7.18 396.51 12.95 390.15 24.31 378.58M0 411.1 C7.52 401.55 20.81 389.96 28.05 378.85M0
+										 411.1 C5.06 404.56 12.22 397.36 28.05 378.85M1.78 413.64 C10.13 401.21 19.37 393.55 32.28
+										 378.55M1.78 413.64 C9.53 406.81 15.76 398.31 32.28 378.55M5.51 413.91 C13.87 400.81 24.41
+										 392.68 36.02 378.82M5.51 413.91 C17 401.76 30.23 387.53 36.02 378.82M9.75 413.62 C20.32
+										 402.97 33.68 387.95 39.77 379.09M9.75 413.62 C18.49 404.83 26.76 395.41 39.77 379.09M13.49
+										 413.89 C22.15 405.81 29.98 390.93 44 378.79M13.49 413.89 C24.48 402.44 33.67 392.18 44 378.79M17.72
+										 413.59 C24.08 404.65 35.99 396.58 47.74 379.06M17.72 413.59 C27.97 400.67 39.14 388.9 47.74
+										 379.06M21.46 413.86 C31.22 398.77 43.55 389.74 51.97 378.76M21.46 413.86 C30.93 400.67 42.53
+										 390.12 51.97 378.76M25.7 413.56 C38.17 398.1 46.94 388.21 55.71 379.03M25.7 413.56 C32.26
+										 405.85 41.11 394.05 55.71 379.03M29.43 413.83 C36.75 403.47 52.04 393.55 59.94 378.74M29.43
+										 413.83 C37.01 404.95 43.13 398.64 59.94 378.74M33.67 413.53 C43.67 401.81 51.8 392.08 63.68
+										 379.01M33.67 413.53 C38.73 407.78 46.04 399.95 63.68 379.01M37.4 413.81 C46.2 406.22 57.44
+										 394.18 67.91 378.71M37.4 413.81 C47.99 399.84 59.57 387.39 67.91 378.71M41.64 413.51 C51.93
+										 403.47 54.17 397.36 71.66 378.98M41.64 413.51 C47.67 404.4 57.07 394.98 71.66 378.98M45.38
+										 413.78 C53.08 406.94 62.78 394.99 75.89 378.69M45.38 413.78 C53.61 406.07 60.95 396.64 75.89
+										 378.69M49.61 413.49 C57.06 400.8 70.5 391.56 79.63 378.96M49.61 413.49 C58.71 402.33 67.59
+										 392.03 79.63 378.96M53.35 413.76 C62.6 402.64 74 392.29 83.86 378.66M53.35 413.76 C59.15
+										 408.01 65.15 399.55 83.86 378.66M57.59 413.46 C66.75 400.03 76.93 389.98 87.6 378.93M57.59
+										 413.46 C69.21 401.02 77.67 390.66 87.6 378.93M61.32 413.73 C69.11 402.61 77.09 393.6 91.83
+										 378.64M61.32 413.73 C73.99 399.22 85.03 387.89 91.83 378.64M65.06 414 C72.49 400.11 81.63
+										 393.86 95.57 378.91M65.06 414 C76.73 399.64 87.63 386.86 95.57 378.91M69.29 413.71 C81.56
+										 402.59 87.9 393.74 99.8 378.61M69.29 413.71 C78.89 401.76 86.43 391.32 99.8 378.61M73.04
+										 413.98 C78.96 406.76 87.57 399.31 103.55 378.88M73.04 413.98 C83.54 401.14 95.89 386.84
+										 103.55 378.88M77.27 413.68 C86.66 403.36 96.14 391.52 105.32 381.41M77.27 413.68 C85.35
+										 403.48 95.33 390.56 105.32 381.41M81.01 413.95 C87.47 406.3 93.68 401.26 105.61 385.65M81.01
+										 413.95 C90.81 404.56 97.97 392.7 105.61 385.65M85.24 413.65 C88.64 410.62 95.55 404.87 105.41
+										 390.44M85.24 413.65 C89.91 406.43 98.6 397.78 105.41 390.44M88.98 413.92 C94.84 408.5 100.41
+										 400.6 105.22 395.24M88.98 413.92 C93.07 411.13 97.12 405.3 105.22 395.24M93.21 413.62 C96.05
+										 410.95 98.84 409.25 105.52 399.48M93.21 413.62 C97.07 411.88 98.04 407.1 105.52 399.48M96.95
+										 413.89 C99.18 411.91 101.69 407.71 105.32 404.27M96.95 413.89 C101.09 411.45 102.16 407.18
+										 105.32 404.27M101.18 413.6 C102.23 412.03 103.55 410.03 105.62 408.51M101.18 413.6 C103.01
+										 410.93 104.26 409.39 105.62 408.51" class="st16"/>
+						</g>
+						<g id="shape94-185" v:mID="94" v:groupContext="shape" transform="translate(0.2325,-5.11591E-13)">
+							<title>Sheet.94</title>
+							<path d="M0.01 376.68 C36.32 376.12 70.82 379.52 105.01 376.68 L0.01 376.68 ZM0.01 376.68 C29.87 377.61
+										 60.92 376.13 105.01 376.68 L0.01 376.68 ZM105.01 376.68 C107.84 393.02 102.54 402.29 105.01
+										 411.18 L105.01 376.68 ZM105.01 376.68 C103.36 385.18 103.46 395.83 105.01 411.18 L105.01
+										 376.68 ZM105.01 411.18 C67.76 413.96 32.54 412.58 0.01 411.18 L105.01 411.18 ZM105.01 411.18
+										 C73.01 412.55 41.24 414 0.01 411.18 L105.01 411.18 ZM0.01 411.18 C0.34 405.19 0.54 395.61
+										 0.01 376.68 L0.01 411.18 ZM0.01 411.18 C0 403.56 1.31 395.4 0.01 376.68 L0.01 411.18 Z"
+									class="st2"/>
+							<path d="M0.01 376.68 C36.32 376.12 70.82 379.52 105.01 376.68M0.01 376.68 C29.87 377.61 60.92 376.13
+										 105.01 376.68M105.01 376.68 C107.84 393.02 102.54 402.29 105.01 411.18M105.01 376.68 C103.36
+										 385.18 103.46 395.83 105.01 411.18M105.01 411.18 C67.76 413.96 32.54 412.58 0.01 411.18M105.01
+										 411.18 C73.01 412.55 41.24 414 0.01 411.18M0.01 411.18 C0.34 405.19 0.54 395.61 0.01 376.68M0.01
+										 411.18 C0 403.56 1.31 395.4 0.01 376.68" class="st17"/>
+						</g>
+					</g>
+					<g id="shape90-188" v:mID="90" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="54.0375" cy="395.059" width="108.08" height="37.8825"/>
+						<text x="12.75" y="387.86" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>New group instructions <v:newlineChar/><tspan
+									x="14.2" dy="1.2em" class="st10">based on accumulated <v:newlineChar/></tspan><tspan x="40.94"
+									dy="1.2em" class="st10">context</tspan></text>					</g>
+				</g>
+				<g id="group96-192" transform="translate(157.477,0)" v:mID="96" v:groupContext="group">
+					<title>Sheet.96</title>
+					<desc>Result</desc>
+					<g id="shape97-193" v:mID="97" v:groupContext="shape">
+						<title>Sheet.97</title>
+						<path d="M0 410.62 A3.37508 3.37508 -180 0 0 3.37 414 L41.63 414 A3.37508 3.37508 -180 0 0 45 410.62 L45
+									 394.87 A3.37508 3.37508 -180 0 0 41.63 391.5 L3.37 391.5 A3.37508 3.37508 -180 0 0 0 394.87
+									 L0 410.62 Z" class="st5"/>
+					</g>
+					<g id="shape96-195" v:mID="96" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="22.5" cy="402.75" width="45.01" height="22.5"/>
+						<text x="9.04" y="405.75" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Result</text>					</g>
+				</g>
+				<g id="group99-197" transform="translate(140.318,-83.8575)" v:mID="99" v:groupContext="group">
+					<title>Sheet.99</title>
+					<desc>Chat output from agents</desc>
+					<g id="group100-198" v:mID="100" v:groupContext="group">
+						<title>Sheet.100</title>
+						<g id="shape101-199" v:mID="101" v:groupContext="shape" transform="translate(2.1825,-1.6425)">
+							<title>Sheet.101</title>
+							<rect x="0" y="387" width="75" height="27" class="st15"/>
+						</g>
+						<g id="shape102-201" v:mID="102" v:groupContext="shape" transform="translate(2.025,-1.215)">
+							<title>Sheet.102</title>
+							<path d="M0.1 386.64 C0.1 386.64 0.1 386.64 0.1 386.64 ZM0.1 386.64 C0.1 386.64 0.1 386.64 0.1 386.64
+										 ZM0.4 390.87 C0.39 389.04 3.68 387.6 4.33 386.35 L0.4 390.87 ZM0.4 390.87 C1.04 389.51 2.9
+										 388.21 4.33 386.35 L0.4 390.87 ZM0.2 395.67 C1.99 392.68 5.48 389.92 8.07 386.62 L0.2 395.67
+										 ZM0.2 395.67 C2.39 392.48 4.43 389.52 8.07 386.62 L0.2 395.67 ZM0 400.47 C4.79 396 8.96
+										 393.33 12.3 386.32 L0 400.47 ZM0 400.47 C3.53 396.02 5.87 391.67 12.3 386.32 L0 400.47 ZM0.3
+										 404.7 C5.15 398.98 12.97 394.51 16.04 386.59 L0.3 404.7 ZM0.3 404.7 C3.5 400.92 8.42 392.95
+										 16.04 386.59 L0.3 404.7 ZM0.11 409.5 C5.13 406.3 10.66 398.72 20.27 386.29 L0.11 409.5 ZM0.11
+										 409.5 C4.04 403.87 10.35 398.17 20.27 386.29 L0.11 409.5 ZM0.4 413.73 C4.64 408.55 13.4
+										 399.31 24.02 386.56 L0.4 413.73 ZM0.4 413.73 C6.93 407 14.59 397.45 24.02 386.56 L0.4 413.73
+										 ZM4.14 414 C14.57 403.04 23.34 393.64 27.76 386.83 L4.14 414 ZM4.14 414 C10.92 403.45 19.49
+										 395.1 27.76 386.83 L4.14 414 ZM8.37 413.71 C19.82 403.61 27.72 390.79 31.99 386.53 L8.37
+										 413.71 ZM8.37 413.71 C14.99 404.44 23.69 398.49 31.99 386.53 L8.37 413.71 ZM12.11 413.98
+										 C19.79 405.34 24.92 401.95 35.73 386.8 L12.11 413.98 ZM12.11 413.98 C22.28 404.83 28.49
+										 392.98 35.73 386.8 L12.11 413.98 ZM16.34 413.68 C21.81 408.26 29.4 403.96 39.96 386.51 L16.34
+										 413.68 ZM16.34 413.68 C24.95 404.02 34.82 392.41 39.96 386.51 L16.34 413.68 ZM20.09 413.95
+										 C27.56 407.68 33.16 399.3 43.7 386.78 L20.09 413.95 ZM20.09 413.95 C28.09 406.65 33.17 399.72
+										 43.7 386.78 L20.09 413.95 ZM24.32 413.65 C28.82 409.27 33.72 402.91 47.93 386.48 L24.32
+										 413.65 ZM24.32 413.65 C33.81 404.35 40.49 395.11 47.93 386.48 L24.32 413.65 ZM28.06 413.92
+										 C36.83 401.77 45.47 390.92 51.68 386.75 L28.06 413.92 ZM28.06 413.92 C33.34 407.74 41.63
+										 398.27 51.68 386.75 L28.06 413.92 ZM32.29 413.63 C39.86 402.53 49.01 392.44 55.91 386.46
+										 L32.29 413.63 ZM32.29 413.63 C36.56 405.83 44.24 401.18 55.91 386.46 L32.29 413.63 ZM36.03
+										 413.9 C47.97 402.01 53.59 394.92 59.65 386.73 L36.03 413.9 ZM36.03 413.9 C42.09 406.03 47.93
+										 399.8 59.65 386.73 L36.03 413.9 ZM40.26 413.6 C48.25 410.44 52.73 399.97 63.88 386.43 L40.26
+										 413.6 ZM40.26 413.6 C46.76 407.25 52.52 397.84 63.88 386.43 L40.26 413.6 ZM44 413.87 C50.69
+										 406.11 51.69 404.53 67.62 386.7 L44 413.87 ZM44 413.87 C52.69 403.93 60.8 396.24 67.62 386.7
+										 L44 413.87 ZM48.23 413.58 C60.09 405.65 68.48 390.79 71.85 386.41 L48.23 413.58 ZM48.23
+										 413.58 C56.57 405.46 61.37 396.55 71.85 386.41 L48.23 413.58 ZM51.98 413.85 C60.38 404.83
+										 71.46 392.48 75.59 386.68 L51.98 413.85 ZM51.98 413.85 C59.1 405.34 70.24 395.74 75.59 386.68
+										 L51.98 413.85 ZM56.21 413.55 C63.71 403.72 68.6 398.56 75.4 391.48 L56.21 413.55 ZM56.21
+										 413.55 C60.54 407.95 67.25 400.15 75.4 391.48 L56.21 413.55 ZM59.95 413.82 C67.26 408.85
+										 66.97 402.09 75.69 395.71 L59.95 413.82 ZM59.95 413.82 C65.87 407.2 70.13 400.23 75.69 395.71
+										 L59.95 413.82 ZM64.18 413.53 C67.04 408.8 73.61 401.66 75.5 400.51 L64.18 413.53 ZM64.18
+										 413.53 C66.41 407.81 71.27 405.11 75.5 400.51 L64.18 413.53 ZM67.92 413.8 C71.78 412.72
+										 71.73 407.11 75.3 405.31 L67.92 413.8 ZM67.92 413.8 C69.47 411.88 71.71 409.09 75.3 405.31
+										 L67.92 413.8 ZM72.15 413.5 C74.11 411.06 74.3 410.36 75.59 409.54 L72.15 413.5 ZM72.15 413.5
+										 C73 411.61 74.84 410.57 75.59 409.54 L72.15 413.5 Z" class="st2"/>
+							<path d="M0.1 386.64 C0.1 386.64 0.1 386.64 0.1 386.64M0.1 386.64 C0.1 386.64 0.1 386.64 0.1 386.64M0.4
+										 390.87 C0.39 389.04 3.68 387.6 4.33 386.35M0.4 390.87 C1.04 389.51 2.9 388.21 4.33 386.35M0.2
+										 395.67 C1.99 392.68 5.48 389.92 8.07 386.62M0.2 395.67 C2.39 392.48 4.43 389.52 8.07 386.62M0
+										 400.47 C4.79 396 8.96 393.33 12.3 386.32M0 400.47 C3.53 396.02 5.87 391.67 12.3 386.32M0.3
+										 404.7 C5.15 398.98 12.97 394.51 16.04 386.59M0.3 404.7 C3.5 400.92 8.42 392.95 16.04 386.59M0.11
+										 409.5 C5.13 406.3 10.66 398.72 20.27 386.29M0.11 409.5 C4.04 403.87 10.35 398.17 20.27 386.29M0.4
+										 413.73 C4.64 408.55 13.4 399.31 24.02 386.56M0.4 413.73 C6.93 407 14.59 397.45 24.02 386.56M4.14
+										 414 C14.57 403.04 23.34 393.64 27.76 386.83M4.14 414 C10.92 403.45 19.49 395.1 27.76 386.83M8.37
+										 413.71 C19.82 403.61 27.72 390.79 31.99 386.53M8.37 413.71 C14.99 404.44 23.69 398.49 31.99
+										 386.53M12.11 413.98 C19.79 405.34 24.92 401.95 35.73 386.8M12.11 413.98 C22.28 404.83 28.49
+										 392.98 35.73 386.8M16.34 413.68 C21.81 408.26 29.4 403.96 39.96 386.51M16.34 413.68 C24.95
+										 404.02 34.82 392.41 39.96 386.51M20.09 413.95 C27.56 407.68 33.16 399.3 43.7 386.78M20.09
+										 413.95 C28.09 406.65 33.17 399.72 43.7 386.78M24.32 413.65 C28.82 409.27 33.72 402.91 47.93
+										 386.48M24.32 413.65 C33.81 404.35 40.49 395.11 47.93 386.48M28.06 413.92 C36.83 401.77 45.47
+										 390.92 51.68 386.75M28.06 413.92 C33.34 407.74 41.63 398.27 51.68 386.75M32.29 413.63 C39.86
+										 402.53 49.01 392.44 55.91 386.46M32.29 413.63 C36.56 405.83 44.24 401.18 55.91 386.46M36.03
+										 413.9 C47.97 402.01 53.59 394.92 59.65 386.73M36.03 413.9 C42.09 406.03 47.93 399.8 59.65
+										 386.73M40.26 413.6 C48.25 410.44 52.73 399.97 63.88 386.43M40.26 413.6 C46.76 407.25 52.52
+										 397.84 63.88 386.43M44 413.87 C50.69 406.11 51.69 404.53 67.62 386.7M44 413.87 C52.69 403.93
+										 60.8 396.24 67.62 386.7M48.23 413.58 C60.09 405.65 68.48 390.79 71.85 386.41M48.23 413.58
+										 C56.57 405.46 61.37 396.55 71.85 386.41M51.98 413.85 C60.38 404.83 71.46 392.48 75.59 386.68M51.98
+										 413.85 C59.1 405.34 70.24 395.74 75.59 386.68M56.21 413.55 C63.71 403.72 68.6 398.56 75.4
+										 391.48M56.21 413.55 C60.54 407.95 67.25 400.15 75.4 391.48M59.95 413.82 C67.26 408.85 66.97
+										 402.09 75.69 395.71M59.95 413.82 C65.87 407.2 70.13 400.23 75.69 395.71M64.18 413.53 C67.04
+										 408.8 73.61 401.66 75.5 400.51M64.18 413.53 C66.41 407.81 71.27 405.11 75.5 400.51M67.92
+										 413.8 C71.78 412.72 71.73 407.11 75.3 405.31M67.92 413.8 C69.47 411.88 71.71 409.09 75.3
+										 405.31M72.15 413.5 C74.11 411.06 74.3 410.36 75.59 409.54M72.15 413.5 C73 411.61 74.84 410.57
+										 75.59 409.54" class="st16"/>
+						</g>
+						<g id="shape103-204" v:mID="103" v:groupContext="shape">
+							<title>Sheet.103</title>
+							<path d="M2.18 385.36 C25.85 384.94 53.81 381.75 77.18 385.36 L2.18 385.36 ZM2.18 385.36 C27.1 384.43
+										 52.07 385.3 77.18 385.36 L2.18 385.36 ZM77.18 385.36 C74.76 396.29 78.88 404.68 77.18 412.36
+										 L77.18 385.36 ZM77.18 385.36 C77.74 393.97 78.14 401.68 77.18 412.36 L77.18 385.36 ZM77.18
+										 412.36 C61.51 410.67 40.1 410.8 2.18 412.36 L77.18 412.36 ZM77.18 412.36 C59.67 412.21 43.04
+										 414 2.18 412.36 L77.18 412.36 ZM2.18 412.36 C1.39 404.84 0 394.25 2.18 385.36 L2.18 412.36
+										 ZM2.18 412.36 C3.03 404.13 3.84 395.59 2.18 385.36 L2.18 412.36 Z" class="st2"/>
+							<path d="M2.18 385.36 C25.85 384.94 53.81 381.75 77.18 385.36M2.18 385.36 C27.1 384.43 52.07 385.3 77.18
+										 385.36M77.18 385.36 C74.76 396.29 78.88 404.68 77.18 412.36M77.18 385.36 C77.74 393.97 78.14
+										 401.68 77.18 412.36M77.18 412.36 C61.51 410.67 40.1 410.8 2.18 412.36M77.18 412.36 C59.67
+										 412.21 43.04 414 2.18 412.36M2.18 412.36 C1.39 404.84 0 394.25 2.18 385.36M2.18 412.36 C3.03
+										 404.13 3.84 395.59 2.18 385.36" class="st17"/>
+						</g>
+					</g>
+					<g id="shape99-207" v:mID="99" v:groupContext="groupContent">
+						<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+						<v:textRect cx="39.4388" cy="397.875" width="78.88" height="32.25"/>
+						<text x="4.92" y="395.18" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Chat output from <tspan
+									x="26.17" dy="1.2em" class="st10">agents</tspan></text>					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
