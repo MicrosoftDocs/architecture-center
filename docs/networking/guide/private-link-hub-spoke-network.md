@@ -38,7 +38,7 @@ Use a hub-and-spoke architecture to take advantage of the following benefits:
 
 The following diagram shows a typical hub-and-spoke topology that you can deploy in Azure.
 
-:::image type="complex" source="./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.png" alt-text="Architecture diagram that shows a hub virtual network and two spokes. One spoke is an on-premises network. The other is a landing zone virtual network." border="false" lightbox="./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.png":::
+:::image type="complex" source="./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg" alt-text="Architecture diagram that shows a hub virtual network and two spokes. One spoke is an on-premises network. The other is a landing zone virtual network." border="false" lightbox="./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg":::
 The hub virtual network contains two DNS forwarders. It connect the on-premises network via a two-sided arrow that represents an ExpressRoute circuit. The on-premises network contains two virtual machines (VMs) and two Domain Name Systems (DNS). The hub virtual network connects to the landing zone virtual network via a two-sided arrow that represents virtual network peering. The landing zone virtual network contains a spoke VM and a private endpoint. The private endpoint connects to storage labeled mystoragewithpl.blob.core.windows.net. The hub virtual network connects to Azure recursive resolvers and private DNS zones via Azure-provided DNS.
 :::image-end:::
 
@@ -62,7 +62,7 @@ Traffic between your virtual network and the service that you access travels acr
 
 The following diagram shows how on-premises users connect to a virtual network and use Private Link to access PaaS resources.
 
-:::image type="complex" source="./images/private-link-hub-spoke-network-private-link.png" alt-text="Architecture diagram that shows how Azure Private Link connects a virtual network to PaaS resources." border="false":::
+:::image type="complex" source="./images/private-link-hub-spoke-network-private-link.svg" alt-text="Architecture diagram that shows how Azure Private Link connects a virtual network to PaaS resources." border="false" lightbox="./images/private-link-hub-spoke-network-private-link.svg":::
 The diagram has three main sections: a consumer virtual network, provider virtual network, and section that includes Azure services. The consumer network connects to on-premises via ExpressRoute private peering. It contains a network security group that denies outbound traffic. It also contains a subnet that includes two private endpoints and computers that point to a private endpoint. The consumer network includes Microsoft Entra tenant A, subscription A, and region A. A dotted arrow that represents Private Link points from the consumer network to the provider network. The provider network contains Private Link and a subnet. Private Link points to a standard load balancer, which distributes traffic to computers in the subnet. The virtual network has a network security group that denies outbound traffic. The provider network includes Microsoft Entra tenant B, subscription B, and region B. A dotted arrow that represents Private Link points from the consumer network to the Azure services. The services in this section include Azure Automation, Azure SQL Database, Azure Synapse Analytics, and many more. Traffic to the provider network and the Azure services is carried over the Microsoft network.
 :::image-end:::
 
@@ -118,7 +118,7 @@ If you plan on accessing resources from applications that you deploy in Azure, t
 
 The following flowchart summarizes the various options and recommendations. Every customer has a unique environment, so consider your system's requirements when you decide where to place private endpoints.
 
-:::image type="complex" source="./images/private-link-hub-spoke-network-decision-tree.png" alt-text="Flowchart that guides you through the process of deciding whether to place Private Link on a spoke or in the hub of a hub-and-spoke network." border="false":::
+:::image type="complex" source="./images/private-link-hub-spoke-network-decision-tree.svg" alt-text="Flowchart that guides you through the process of deciding whether to place Private Link on a spoke or in the hub of a hub-and-spoke network." border="false" lightbox="./images/private-link-hub-spoke-network-decision-tree.svg":::
    The top of the flowchart is labeled Start. An arrow points from that box to a box labeled Virtual WAN topology. Two arrows flow out of that box. One labeled yes points to a box labeled spoke. The second arrow is labeled no and points to a box labeled traffic analysis with NVA or Azure Firewall. Two arrows flow out of the traffic analysis box. One labeled yes points to a box labeled hub. The second arrow is labeled No and points to a box labeled private endpoint access from on-premises. Two arrows flow out of the private endpoint box. One labeled yes points to a box labeled hub. The second arrow is labeled no and points to a box labeled single application access. Two arrows flow out of that box. One labeled no points to a box labeled hub. The second arrow is labeled yes and points to a box labeled spoke.
 :::image-end:::
 
