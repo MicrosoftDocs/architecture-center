@@ -173,7 +173,7 @@ Principal author:
 [docs-waf]: /azure/web-application-firewall/ag/ag-overview
 [docs-azure-devops]: /azure/devops/user-guide/what-is-azure-devops
 [docs-azure-vm]: /azure/well-architected/service-guides/virtual-machines
-[docs-azure-scale-ase]: /azure/app-service/environment/overview
+[docs-azure-scale-ase]: /azure/app-service/environment/using#how-scale-works
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
 [docs-container-apps]: /azure/container-apps
