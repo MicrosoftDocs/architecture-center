@@ -24,7 +24,7 @@ The following workflow corresponds to the preceding diagram:
 
 4. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
-5. A Python script that performs topic modeling from extracted call transcript data from step 3, using Azure OpenAI, and saves the results to Azure SQL Database.
+5. Custom application code performs topic modeling from extracted call transcript data from step 3, using Azure OpenAI models in Azure AI Foundry, and saves the results to Azure SQL Database.
 
 6. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow. This orchestration is only for handling chat requests. 
 
