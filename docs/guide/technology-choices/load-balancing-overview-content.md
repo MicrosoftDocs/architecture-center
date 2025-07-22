@@ -4,6 +4,26 @@ Azure provides various load-balancing services that you can use to distribute yo
 
 This article describes considerations to help you determine an appropriate load-balancing solution for your workload's needs.
 
+## Azure load-balancing services
+
+Here are the main load-balancing services or services with load-balancing capabilities currently available in Azure:
+
+- [Azure API Management](/azure/api-management/api-management-key-concepts) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can be configured to load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
+
+  > [!IMPORTANT]
+  > API Management is not a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional features within its broader API management functionality. API Management is included in this article for completeness because it does provide load balancing capabilities for specific API hosting topologies, but its primary purpose is API gateway functionality rather than load balancing.
+
+- [Azure Application Gateway](/azure/application-gateway/overview) provides application delivery controller as a service, offering various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+
+- [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It offers Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
+
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
+
+- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live (TTL) values.
+
+> [!NOTE]
+> Clustering technology, such as Azure Container Apps or Azure Kubernetes Service, contains load balancing constructs that operate mostly within the scope of their own cluster boundary. These capabilities route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
+
 ## Service categorizations
 
 Azure load-balancing services can be categorized along two dimensions: global versus regional and HTTP(S) versus non-HTTP(S).
@@ -20,33 +40,16 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 
 The following table summarizes the Azure load-balancing services.
 
-| Service                   | Global/Regional    | Recommended traffic |
-| :------------------------ | :----------------- | :------------------ |
-| Azure API Management      | Regional or Global | HTTP(S) APIs        |
-| Azure Application Gateway | Regional           | HTTP(S)             |
-| Azure Front Door          | Global             | HTTP(S)             |
-| Azure Load Balancer       | Regional or Global | Non-HTTP(S)         |
-| Azure Traffic Manager     | Global             | Non-HTTP(S)         |
+| Service             | Global/Regional    | Recommended traffic |
+| :------------------ | :----------------- | :------------------ |
+| API Management      | Regional or Global | HTTP(S) APIs        |
+| Application Gateway | Regional           | HTTP(S)             |
+| Front Door          | Global             | HTTP(S)             |
+| Load Balancer       | Regional or Global | Non-HTTP(S)         |
+| Traffic Manager     | Global             | Non-HTTP(S)         |
 
 > [!NOTE]
 > Azure Traffic Manager and Azure Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer 7 capabilities. Unlike Azure Load Balancer, Azure Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
-
-## Azure load-balancing services
-
-Here are the main load-balancing services currently available in Azure:
-
-- [API Management](/azure/api-management/api-management-key-concepts) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
-
-- [Application Gateway](/azure/application-gateway/overview) provides application delivery controller as a service, offering various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
-
-- [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It offers Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
-
-- [Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
-
-- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live (TTL) values.
-
-> [!NOTE]
-> Clustering technology, such as Azure Container Apps or Azure Kubernetes Service, contains load balancing constructs that operate mostly within the scope of their own cluster boundary. These capabilities route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
 
 ## Decision tree for load balancing in Azure
 
