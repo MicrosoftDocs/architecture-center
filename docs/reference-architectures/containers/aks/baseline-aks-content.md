@@ -126,7 +126,7 @@ AKS maintains two node pools, which are separate groups of nodes. The system nod
 
 Create Private Link connections for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services by way of a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups.
 
-For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
 ## Plan the IP addresses
 
