@@ -88,8 +88,11 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
 - Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
-- You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
+- Review the following resources for additional guidance.
+  - [Enterprise web app patterns][docs-web-app-patterns]
+  - [Reliability in Azure App Service Environment][docs-reliability-ase]
+  - [Configure App Service Environment for Zone Redundancy][docs-zone-redundancy-ase]
 
 #### Availability
 
@@ -132,7 +135,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Principal author:
 
-- Faisal Mustafa | Senior Customer Engineer
+- Nicholas McCollum | Principal Customer Engineer
 
 ## Next steps
 
@@ -177,6 +180,9 @@ Principal author:
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
 [docs-container-apps]: /azure/container-apps
+[docs-web-app-patterns]: /azure/architecture/web-apps/guides/enterprise-app-patterns/overview
+[docs-reliability-ase]: /azure/reliability/reliability-app-service-environment
+[docs-zone-redundancy-ase]: /azure/app-service/environment/configure-zone-redundancy-environment
 
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
