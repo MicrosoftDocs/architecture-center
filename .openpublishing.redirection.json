@@ -4481,6 +4481,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/state-configuration/state-configuration.yml",
+      "redirect_url": "/azure/automation/manage-runbooks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/sap/hana-large-instances.yml",
       "redirect_url": "/azure/azure-large-instances/what-is-azure-large-instances",
       "redirect_document_id": false  
