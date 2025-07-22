@@ -24,13 +24,13 @@ The following workflow corresponds to the preceding diagram:
 
 4. Extracted entities and processed conversation data are stored in Azure SQL Database for structured queries, while Azure AI Search creates vectorized representations of call transcripts, enabling semantic search capabilities across the conversation corpus with support for complex queries about call outcomes, agent performance, and customer sentiment trends.
 
-5. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow. This orchestration is only for handling chat requests. 
+5. A Python script that performs topic modeling from extracted call transcript data from step 3, using Azure OpenAI, and saves the results to Azure SQL Database.
 
-6. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
+6. The orchestration layer within Azure App Service coordinates the overall workflow, managing data flow between services and providing API endpoints. This orchestration integrates Azure OpenAI models in AI Foundry and Semantic Kernel for intelligent processing and response generation, utilizing function calling capabilities to enhance the conversation analysis workflow. This orchestration is only for handling chat requests. 
 
-7. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application. The chat history is stored in Cosmos DB so Cosmos DB only interacts with the app to pull the users previous questions/answers. The data to be queried for new questions is in SQL DB and Azure AI Search index.
+7. Users access a web frontend hosted on Azure App Service to explore call insights, chat with the data using natural language queries, and generate visualizations. The interface provides conversational access to the processed knowledge base, enabling queries like "Show me all unresolved billing complaints from last month" or "What are the most common reasons for escalations?"
 
-8. A Python script running on Databricks/Synapse performs topic modeling by making API calls to a Phi-3 model hosted in Azure AI Foundry. The script processes data from Delta tables, sends text to the model for topic analysis, and writes the results back to Delta tables.
+8. Azure Cosmos DB stores chat history and session data, maintaining conversation context for the interactive frontend experience and enabling persistent user sessions across the application. The chat history is stored in Cosmos DB so Cosmos DB only interacts with the app to pull the users previous questions/answers. The data to be queried for new questions is in SQL DB and Azure AI Search index.
 
 ### Components
 
