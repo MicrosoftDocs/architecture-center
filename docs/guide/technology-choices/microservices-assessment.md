@@ -1,6 +1,6 @@
 ---
-title: Microservices assessment and readiness 
-description: Use this guide as a checklist of considerations to keep in mind when you move to a microservices architecture.
+title: Microservices Assessment and Readiness 
+description: Learn about the considerations to keep in mind when you move to a microservices architecture. Use this guide to assess your application's readiness.
 author: ovaismehboob 
 ms.author: ovmehboo
 ms.date: 06/16/2025
@@ -12,154 +12,222 @@ ms.custom: fcp
 
 # Microservices assessment and readiness 
 
-A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. Along with these benefits, this architecture presents challenges. When you build microservices-based applications or transform existing applications into a microservices architecture, you need to analyze and assess your current situation to identify areas that need improvement.
+A microservices architecture can provide many benefits for your applications, including agility, scalability, and high availability. This architecture can also present challenges. When you build microservices-based applications or transform existing applications into a microservices architecture, you need to analyze and assess your current situation to identify areas that need improvement.
 
-This guide will help you understand some considerations to keep in mind when you move to a microservices architecture. You can use this guide to assess the maturity of your application, infrastructure, DevOps, development model, and more.  
+This article describes some considerations to keep in mind when you move to a microservices architecture. You can use this guide to assess the maturity of your application, infrastructure, DevOps, and development model.
 
 ## Understand business priorities
 
-To start evaluating a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years, the core priorities might be reliability and efficiency. 
+To evaluate a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years, the core priorities might be reliability and efficiency.
 
-Here are some priorities to consider:
+Consider the following priorities:
 
-- Innovation - fostering agility and experimentation
-- Reliability - ensuring high availability and fault tolerance
-- Efficiency - optimizing resources and productivity
+- Innovation, including fostering agility and experimentation
+- Reliability, including ensuring high availability and fault tolerance
+- Efficiency, including optimizing resources and productivity
 
-Document the SLOs that are aligned with various parts of your application to ensure an organizational commitment that can serve as a guide to your assessment. 
+Document the service-level objectives (SLOs) that align with various parts of your application to ensure an organizational commitment that can guide your assessment. 
 
 ## Record architectural decisions
 
-A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, and infrastructure components, for example. However, these choices should respect the formally agreed-upon principles known as shared governance, which express the agreement among teams on how to address the broader strategy for microservices.
+A microservices architecture helps teams become autonomous. Teams can make their own decisions about technologies, methodologies, and infrastructure components. However, these choices should respect the formally agreed-upon principles known as shared governance. These principles express the agreement among teams about how to address the broader strategy for microservices.
 
-Consider these factors:
+Consider the following factors:
 
-- Is shared governance in place to guide architecture decisions across teams?
-- Do you maintain Architecture Decision Records (ADRs) with clear rationale, trade-offs, and status?
-- Do you maintain an architecture journal to capture design explorations and evolving context?
-- Can your team easily access and search your ADRs and architecture journal?
-- Do you have a technology evaluation framework for assessing new tools and frameworks?
-- Are there established principles for technology selection and standardization?
-- Are architectural decisions reviewed and updated regularly as business and technical requirements evolve?
+- Whether shared governance is in place to guide architecture decisions across teams
+
+- Whether you maintain architecture decision records (ADRs) with clear rationale, trade-offs, and status
+
+- Whether you maintain an architecture journal to capture design explorations and evolving context
+
+- Whether your team can easily access and search your ADRs and architecture journal
+
+- Whether you have a technology evaluation framework to assess new tools and frameworks
+
+- Whether you have established principles for technology selection and standardization
+
+- Whether architectural decisions are reviewed and updated regularly as business and technical requirements evolve
 
 ## Assess team composition
 
-You need to have the proper team structure to avoid unnecessary communication across teams. A microservices architecture encourages the formation of small, focused, cross-functional teams and requires a mindset change, which must be preceded by team restructuring.
+You need to structure your team properly to avoid unnecessary communication across teams. Small, focused, cross-functional teams are the best fit for a microservices architecture. These adjustments often require a mindset change, which must precede team restructuring.
 
-Consider these factors:
-- Are your teams split based on subdomains, following [domain-driven design (DDD) principles](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice)? 
-- Are your teams cross-functional, with enough capacity to build and operate related microservices independently?
-- How much time is spent in ad hoc activities and tasks that aren't related to projects?
-- How much time is spent in cross-team collaboration?
-- Do you have a process for identifying and minimizing technical debt?
-- How are lessons learned and experience communicated across teams?
+Consider the following factors:
+
+- Whether your teams are divided based on subdomains and follow [domain-driven design (DDD) principles](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice)
+
+- Whether your teams are cross-functional and have enough capacity to build and operate related microservices independently
+
+- How much time is spent in unplanned activities and tasks that aren't related to projects
+
+- How much time is spent in cross-team collaboration
+
+- Whether you have a process for identifying and minimizing technical debt
+
+- How teams learn lessons and how they communicate this experience
 
 ## Use the Twelve-Factor methodology
 
-The fundamental goal of choosing a microservices architecture is to deliver value faster and be adaptive to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
+The fundamental goal of choosing a microservices architecture is to deliver value faster and adapt to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
 
 ## Understand the decomposition approach
 
-Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.yml) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
+Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily separated from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.yml) to keep the monolithic applications in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
 
-For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-corruption Layers to support this transformation.
+For example, an e-commerce system might have modules like cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. You can make the notification module a separate microservice, but you also need to update the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-corruption Layers to support this transformation.
 
-Data synchronization, multi-writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. In many circumstances, that's not practical. In such cases, you can apply patterns like the [Materialized View pattern](/azure/architecture/patterns/materialized-view) and approaches such as [Modernizing applications using an API wrapper](/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared data.
+Data synchronization, multiple writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. Some circumstances might make that approach impractical. In these cases, you can apply patterns like the [Materialized View pattern](/azure/architecture/patterns/materialized-view) and approaches such as [application modernization by using an API wrapper](/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared data.
 
 ## Assess DevOps readiness
 
-When you move to a microservices architecture, it's important to assess your DevOps competence. A microservices architecture is intended to facilitate agile development in applications to increase organizational agility. DevOps is one of the key practices that you should implement to achieve this competence. 
+When you move to a microservices architecture, it's important to assess your DevOps competence. A microservices architecture should facilitate agile development in applications to increase organizational agility. DevOps is one of the key practices that you should implement to achieve this competence.
 
-When you evaluate your DevOps capability for a microservices architecture, keep these points in mind:
-- Do people in your organization know the fundamental practices and principles of DevOps? 
-- Do teams understand source control tools and their integration with CI/CD pipelines?
-- Do you implement DevOps practices properly?
-   - Do you follow agile practices?
-   - Is continuous integration implemented?
-   - Is continuous delivery implemented where code changes are automatically built, tested, and prepared for release to production, ensuring that the software can be released at any time with confidence requiring a manual approval?
-   - Is continuous deployment implemented that extends continuous delivery by automatically deploying code changes to production after it passes all automated tests, without manual intervention?
-   - Is continuous monitoring embedded across all phases of DevOps and IT Ops to ensure the ongoing health, performance, and reliability of applications and infrastructure as they move from development to production and customer environments?
-- Is your build and deployment automation strategy aligned with your team’s delivery objectives and operational requirements?
-- Do you use feature flags and progressive exposure deployment strategies?
-- How is configuration of staging and production environments managed for the application?
-- Does the tool chain have community support and a support model and provide proper channels and documentation?
+When you evaluate your DevOps capability for a microservices architecture, consider the following points:
+
+- Whether people in your organization know the fundamental practices and principles of DevOps
+
+- Whether teams understand source control tools and how they integrate with continuous integration and continuous delivery (CI/CD) pipelines
+
+- Whether you implement DevOps practices properly, including:
+
+   - Following agile practices.
+
+   - Implementing continuous integration.
+
+   - Implementing continuous delivery where code changes are automatically built, tested, and prepared for release to production. This approach helps ensure that software can be confidently released at any time and with manual approval.
+
+   - Implementing continuous deployment that extends continuous delivery by automatically deploying code changes to production after it passes all automated tests, without manual intervention.
+
+   - Embedding continuous monitoring across all phases of DevOps and IT Ops to ensure the ongoing health, performance, and reliability of applications and infrastructure as they move from development to production and customer environments.
+
+- Whether your build and deployment automation strategy aligns with your team's delivery objectives and operational requirements
+
+- Whether you use feature flags and progressive exposure deployment strategies
+
+- How configuration of staging and production environments is managed for the application
+
+- Whether the tool chain has community support and a support model and provides proper channels and documentation
 
 ## Identify business areas that change frequently
 
-A microservices architecture is flexible and adaptable. During assessment, drive a discussion in the organization to determine the areas that your colleagues think will change frequently. Building microservices allows teams to quickly respond to changes that customers request and minimize regression testing efforts. In a monolithic application, a change in one module requires numerous levels of regression testing and reduces agility in releasing new versions. 
+A microservices architecture is flexible and adaptable. During assessment, drive a discussion in your organization to determine the areas that your colleagues expect to change frequently. Building microservices allows teams to quickly respond to changes that customers request and minimize regression testing efforts. In a monolithic application, a change in one module requires numerous levels of regression testing and reduces agility in new version releases. 
 
-Consider these factors:
-- Is the service independently deployable?
-- Does the service follow DDD principles?
-- Does the service follow SOLID principles?
-- Is the database private to the service?
-- Did you build the service by using the supported microservices chassis pattern?
+Consider the following factors:
+
+- Whether the service is independently deployable
+
+- Whether the service follows DDD principles
+
+- Whether the service follows SOLID principles
+
+- Whether the database is private to the service
+
+- Whether you build the service by using the supported microservices chassis framework
 
 ## Assess infrastructure readiness
 
-When you shift to a microservices architecture, infrastructure readiness is a critical point to consider. The application's performance, availability, and scalability will be affected if the infrastructure isn't properly set up or if the right services or components aren't used. Sometimes an application is created with all the suggested methodologies and procedures, but the infrastructure is inadequate. This results in poor performance and maintenance. 
+When you shift to a microservices architecture, infrastructure readiness is a critical point to consider. Improper setup of the infrastructure or not using the appropriate services or components affect the application's performance, availability, and scalability. You might use all of the suggested methodologies and procedures to create an application, but if the infrastructure is inadequate, the application might perform poorly and require extra maintenance. 
 
-Consider these factors when you evaluate your infrastructure readiness: 
-- Does the infrastructure ensure the scalability of the services deployed?
-- Do you have container infrastructure ready for microservices deployment?
-- Does the infrastructure support provisioning through scripts that can be automated via CI/CD?
-- Does the deployment infrastructure offer an SLA for availability?
-- Do you have a disaster recovery (DR) plan and routine drill schedules?
-- Is the data replicated to different regions for DR?
-- Do you have a data backup plan?
-- Are the deployment options documented?
-- Is the deployment infrastructure monitored?
-- Does the deployment infrastructure support self-healing of services?
+Consider the following factors when you evaluate your infrastructure readiness:
+
+- Whether the infrastructure ensures the scalability of the deployed services
+
+- Whether you have container infrastructure ready for microservices deployment
+
+- Whether the infrastructure supports provisioning through scripts that can be automated via CI/CD
+
+- Whether the deployment infrastructure offers a service-level agreement (SLA) for availability
+
+- Whether you have a disaster recovery (DR) plan and routine drill schedules
+
+- Whether the data is replicated to different regions for DR
+
+- Whether you have a data backup plan
+
+- Whether the deployment options are documented
+
+- Whether the deployment infrastructure is monitored
+
+- Whether the deployment infrastructure supports self-healing of services
 
 ## Assess release cycles
 
-Microservices are adaptive to change and take advantage of agile development to shorten release cycles and bring value to customers faster. Consider these factors when you evaluate your release cycles:
+Microservices can adapt to change and take advantage of agile development to shorten release cycles and bring value to customers faster. Consider the following factors when you evaluate your release cycles:
 
-- How often do you build and release applications?
-- How often do your releases fail after deployment?
-- How long does it take to recover or remediate problems after an outage? 
-- Do you use semantic versioning for your applications? 
-- Do you maintain different environments and propagate the same release in a sequence (for example, first to staging and then to production)?
-- Do you use versioning for your APIs?
-- Do you follow proper versioning guidelines for APIs? Learn more about [Best practices for RESTful web API design](/azure/architecture/best-practices/api-design#versioning-a-restful-web-api).
-- When do you change an API version?
-- What's your approach for handling API versioning?
-   - URI path versioning
-   - Query parameter versioning
-   - Content-type versioning
-   - Custom header versioning
-- Do you have a practice in place for event versioning?
+- How often you build and release applications
+
+- How often your releases fail after deployment
+
+- How long it takes to recover or remediate problems after an outage
+
+- Whether you use semantic versioning for your applications
+
+- Whether you maintain different environments and propagate the same release in a sequence, for example, first to staging and then to production
+
+- Whether you use versioning for your APIs
+
+- Whether you follow proper [versioning guidelines](/azure/architecture/best-practices/api-design#implement-versioning) for APIs
+
+- When you change an API version
+
+- What your approach to handling API versioning is, including:
+
+   - URI path versioning.
+   - Query parameter versioning.
+   - Content-type versioning.
+   - Custom header versioning.
+
+- Whether you have a practice in place for event versioning
 
 ## Assess communication across services
 
-Microservices are self-contained services that communicate with each other across process boundaries to address business scenarios. To get reliable and dependable communication, you need to select an appropriate communication protocol. 
+Microservices are self-contained services that communicate with each other across process boundaries to address business scenarios. To achieve reliable and dependable communication, you need to select an appropriate communication protocol.
 
-Take these factors into consideration:
-- Are you following an API-first approach, where APIs are designed and maintained as primary components of your system architecture?
-- Have you evaluated high-performance protocols such as gRPC, HTTP/2, or asynchronous messaging (e.g., Kafka, NATS) for efficient service-to-service communication?
-- Do you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol?
-- Do you use event streaming platforms for real-time data processing?
-- Have you considered asynchronous communication anywhere in the system?
-- Have you assessed the message broker technology and its capabilities?
-- Do you understand the throughput of messages that services receive and process?
-- Do you use direct client-to-service communication?
-- Do you need to persist messages at the message broker level?
-- Are you using the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices? 
-- Have you implemented Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication? A common way to handle this is to use the [Ambassador pattern](../../patterns/ambassador.yml).
-- Do you have defined domain events to facilitate communication between microservices? 
+Consider the following factors:
+
+- Whether you follow an API-first approach, where you design and maintain APIs as primary components of your system architecture.
+
+- Whether you evaluate high-performance protocols, such as gRPC, HTTP/2, or asynchronous messaging like Kafka or NATS, for efficient service-to-service communication.
+
+- Whether you have long-chain operations, where multiple services communicate in sequence over a synchronous communication protocol.
+
+- Whether you use event streaming platforms for real-time data processing.
+
+- Whether you plan to implement asynchronous communication anywhere in the system.
+
+- Whether you plan to assess the message broker technology and its capabilities.
+
+- Whether you understand the throughput of messages that services receive and process.
+
+- Whether you use direct client-to-service communication.
+
+- Whether you need to persist messages at the message-broker level.
+
+- Whether you use the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices.
+
+- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
+
+- Whether you have defined domain events to facilitate communication between microservices.
 
 ## Evaluate how services are exposed to clients
 
-An API gateway is one of the core components in a microservices architecture. Directly exposing services to the clients creates problems in terms of manageability, control, and dependable communication. An API gateway serves as a proxy server, intercepting traffic and routing it to backend services. If you need to filter traffic by IP address, authorization, mock responses, and so on, you can do it at the API gateway level without making any changes to the services.
+An API gateway is one of the core components in a microservices architecture. Directly exposing services to the clients creates problems with manageability, control, and dependable communication. An API gateway serves as a proxy server that intercepts traffic and routes it to back-end services. If you need to filter traffic by IP address, authorization, or mock responses, you can filter it at the API gateway level without making any changes to the services.
 
-Take these factors into consideration:
-- Are the services directly consumed by clients?
-- Is there an API gateway that acts as a facade for all the services?
-- Do you implement [Backend for Frontend (BFF) patterns](/azure/architecture/patterns/backends-for-frontends) for different client types?
-- Can the API gateway set up policies like quota limits, mocking responses, and filtering of IP addresses?
-- Are you using multiple API gateways to address the needs of various types of clients, like mobile apps, web apps, and partners?
-- Does your API gateway provide a portal where clients can discover and subscribe to services, like a developer portal in [Azure API Management](https://azure.microsoft.com/services/api-management)?
-- Does your solution provide L7 load balancing or Web Application Firewall (WAF) capabilities along with the API gateway?
+Consider the following factors:
+
+- Whether clients directly consume the services
+
+- Whether an API gateway acts as a facade for all of the services
+
+- Whether you implement the [Backends for Frontends (BFF) pattern](/azure/architecture/patterns/backends-for-frontends) for different client types
+
+- Whether the API gateway can set up policies like quota limits, mock responses, and IP address filtering
+
+- Whether you use multiple API gateways to address the needs of various types of clients, like mobile apps, web apps, and partners
+
+- Whether your API gateway provides a portal where clients can discover and subscribe to services, like a developer portal in [Azure API Management](https://azure.microsoft.com/services/api-management)
+
+- Whether your solution provides L7 load balancing or web application firewall (WAF) capabilities along with the API gateway
  
 ## Assess transaction handling
 
