@@ -286,8 +286,8 @@
 				<g id="shape56-118" v:mID="56" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="37.4887" cy="343.5" width="74.98" height="45"/>
-					<text x="17.24" y="335.4" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
-								x="8.24" dy="1.2em" class="st9">log &#38; metrics </tspan><tspan x="17.24" dy="1.2em" class="st9">knowledge</tspan></text>				</g>
+					<text x="16" y="335.4" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Model and<v:newlineChar/><tspan
+								x="10.65" dy="1.2em" class="st9">log &#38; metrics </tspan><tspan x="15.72" dy="1.2em" class="st9">knowledge</tspan></text>				</g>
 			</g>
 			<g id="group59-122" transform="translate(112.522,-108)" v:mID="59" v:groupContext="group">
 				<title>Sheet.59</title>
