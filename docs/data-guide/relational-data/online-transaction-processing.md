@@ -2,7 +2,7 @@
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: hz4dkr
-ms.author: ambers
+ms.author: callard
 ms.date: 07/23/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -69,10 +69,11 @@ In practice, most workloads aren't purely OLTP. There tends to be an analytical 
 
 In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
 
-- [Azure SQL Database](/azure/sql-database/)
-- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
-- [Azure Database for MySQL](/azure/mysql/)
-- [Azure Database for PostgreSQL](/azure/postgresql/)
+- [Azure SQL Database](https://learn.microsoft.com/en-us/azure/sql-database/)
+- [Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/)
+- [SQL Server on Azure VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [Azure Database for MySQL](https://learn.microsoft.com/en-us/azure/mysql/)
+- [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/)
 
 ## Key selection criteria
 
@@ -98,55 +99,56 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability  | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
-|------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
-|      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
-|       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
-| Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |           SQL            |              SQL, PL/pgSQL, PL/JavaScript (v8)              |
+| Capability         | Azure SQL Database | SQL Server in an Azure virtual machine | Azure SQL Managed Instance | Azure Database for MySQL | Azure Database for PostgreSQL |
+|--------------------|--------------|------------------|---------------|--------|-------------|
+| Managed Service    | Yes          | No               | Yes           | Yes    | Yes         |
+| Platform           | N/A          | Windows/Linux    | N/A           | N/A    | N/A         |
+| Programmability^1^    | T-SQL, .NET, R | T-SQL, .NET, R, Python | T-SQL, .NET, R | SQL | SQL, PL/pgSQL, PL/Java Script (v8) |
 
 [1] Not including client driver support, which allows many programming languages to connect to and use the OLTP data store.
 
 ### Scalability capabilities
 
-| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- |
-| Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [16 TB](/azure/mysql/concepts-limits) | [16 TB](/azure/postgresql/concepts-limits) |
-| Supports capacity pools  | Yes | Yes | No | No |
-| Supports clusters scale out  | No | Yes | No | No |
-| Dynamic scalability (scale up)  | Yes | No | Yes | Yes |
+| Capability         | Azure SQL Database | SQL Server in an Azure virtual machine | Azure SQL Managed Instance | Azure Database for MySQL | Azure Database for PostgreSQL |
+|--------------------|--------------|------------------|---------------|--------|-------------|
+| Max DB Size        | 4 TB         | 256 TB           | 32 TB (Next-gen GP) | 16 TB | 16 TB |
+| Capacity Pools     | Yes          | Yes              | Yes           | No     | No          |
+| Cluster Scale-out  | No           | Yes              | No            | No     | No          |
+| Dynamic Scale-up   | Yes          | No               | Yes           | Yes    | Yes         |
 
 ### Analytic workload capabilities
 
-| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- |
-| Temporal tables | Yes | Yes | No | No |
-| In-memory (memory-optimized) tables | Yes | Yes | No | No |
-| Columnstore support | Yes | Yes | No | No |
-| Adaptive query processing | Yes | Yes | No | No |
+| Capability         | Azure SQL Database | SQL Server in an Azure virtual machine | Azure SQL Managed Instance | Azure Database for MySQL | Azure Database for PostgreSQL |
+|--------------------|--------------|------------------|---------------|--------|-------------|
+| Temporal Tables    | Yes          | Yes              | Yes           | No     | No          |
+| In-memory Tables   | Yes          | Yes              | Yes           | No     | No          |
+| Columnstore        | Yes          | Yes              | Yes           | No     | No          |
+| Adaptive Query     | Yes          | Yes              | Yes           | No     | No          |
 
 ### Availability capabilities
 
-| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- |
-| Readable secondaries | Yes | Yes | Yes | Yes |
-| Geographic replication | Yes | Yes | Yes | Yes |
-| Automatic failover to secondary | Yes | No | No | No|
-| Point-in-time restore | Yes | Yes | Yes | Yes |
+| Capability         | Azure SQL Database | SQL Server in an Azure virtual machine | Azure SQL Managed Instance | Azure Database for MySQL | Azure Database for PostgreSQL |
+|--------------------|--------------|------------------|---------------|--------|-------------|
+| Readable Secondaries | Yes        | Yes              | Yes           | Yes    | Yes         |
+| Geo-replication    | Yes          | Yes              | Yes           | Yes    | Yes         |
+| Auto Failover      | Yes          | No               | Yes           | No     | No          |
+| Point-in-time Restore | Yes       | Yes              | Yes           | Yes    | Yes         |
 
 ### Security capabilities
 
-| Capability | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
-|-------------------------------------------------------------------------------------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
-|                                             Row level security                                              |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
-|                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                    Microsoft Entra authentication                                    |        Yes         |                  No                    |            Yes           |              Yes              |
-|                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
-|                                         Multifactor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
-| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
-|                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |
+| Capability         | Azure SQL Database | SQL Server in an Azure virtual machine | Azure SQL Managed Instance | Azure Database for MySQL | Azure Database for PostgreSQL |
+|--------------------|--------------|------------------|---------------|--------|-------------|
+| Row-level Security | Yes          | Yes              | Yes           | Yes    | Yes         |
+| Data Masking       | Yes          | Yes              | Yes           | No     | No          |
+| Transparent Encryption | Yes      | Yes              | Yes           | Yes    | Yes         |
+| IP Restrictions    | Yes          | Yes              | Yes           | Yes    | Yes         |
+| VNet Access        | Yes          | Yes              | Yes           | Yes    | Yes         |
+| Entra ID Auth      | Yes          | No               | Yes           | Yes    | Yes         |
+| MFA                | Yes          | No               | Yes           | Yes    | Yes         |
+|  Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)  | Yes          | Yes              | Yes           | No     | No          |
+| Private IP         | No           | Yes              | Yes           | No     | No          |
+
+
 
 ## Next steps
 
