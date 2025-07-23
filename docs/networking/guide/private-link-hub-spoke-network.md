@@ -1,5 +1,5 @@
 ---
-title: Azure Private Link in a hub-and-spoke network
+title: Azure Private Link in a Hub-and-Spoke Network
 description: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
 author: ivapplyr
 ms.author: ivapplyr
@@ -59,7 +59,7 @@ Traffic between your virtual network and the service that you access travels acr
 The following diagram shows how on-premises users connect to a virtual network and use Private Link to access PaaS resources.
 
 :::image type="complex" source="./images/private-link-hub-spoke-network-private-link.svg" alt-text="Architecture diagram that shows how Azure Private Link connects a virtual network to PaaS resources." border="false" lightbox="./images/private-link-hub-spoke-network-private-link.svg":::
-The diagram has three main sections: a consumer virtual network, provider virtual network, and section that includes Azure services. The consumer network connects to on-premises via ExpressRoute private peering. It contains a network security group that denies outbound traffic. It also contains a subnet that includes two private endpoints and computers that point to a private endpoint. The consumer network includes Microsoft Entra tenant A, subscription A, and region A. A dotted arrow that represents Private Link points from the consumer network to the provider network. The provider network contains Private Link and a subnet. Private Link points to a standard load balancer, which distributes traffic to computers in the subnet. The virtual network has a network security group that denies outbound traffic. The provider network includes Microsoft Entra tenant B, subscription B, and region B. A dotted arrow that represents Private Link points from the consumer network to the Azure services. The services in this section include Azure Automation, Azure SQL Database, Azure Synapse Analytics, and many more. Traffic to the provider network and the Azure services is carried over the Microsoft network.
+The diagram has three main sections: a consumer virtual network, a provider virtual network, and a section that includes Azure services. The consumer network connects to on-premises via ExpressRoute private peering. It contains a network security group that denies outbound traffic. It also contains a subnet that includes two private endpoints and computers that point to a private endpoint. The consumer network includes Microsoft Entra tenant A, subscription A, and region A. A dotted arrow that represents Private Link points from the consumer network to the provider network. The provider network contains Private Link and a subnet. Private Link points to a standard load balancer, which distributes traffic to computers in the subnet. The virtual network has a network security group that denies inbound traffic. The provider network includes Microsoft Entra tenant B, subscription B, and region B. A dotted arrow that represents Private Link points from the consumer network to the Azure services. The services in this section include Azure Automation, Azure SQL Database, Azure Synapse Analytics, and many more. Traffic to the provider network and the Azure services is carried over the Microsoft network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/private-link-hub-spoke-network-private-link.vsdx) of this architecture.*
@@ -93,7 +93,7 @@ In this case, deploy private endpoints in your hub in a dedicated subnet. This s
 - Enables you to apply network security group rules for inbound traffic in the subnet that you dedicate to a private endpoint. These rules filter traffic to your resources. They provide a single place to control access to your resources.
 - Centralizes management of private endpoints. If you deploy all private endpoints in one place, you can more efficiently manage them in all virtual networks and subscriptions.
 
-Use this configuration when all workloads need access to each PaaS resource protected by Private Link. If your workloads access different PaaS resources, don't deploy private endpoints in a dedicated subnet. Instead, improve security by following the principle of least privilege:
+Use this configuration when all workloads need access to each PaaS resource that Private Link protects. If your workloads access different PaaS resources, don't deploy private endpoints in a dedicated subnet. Instead, improve security by following the principle of least privilege:
 
 - Place each private endpoint in a separate subnet.
 - Only give workloads that use a protected resource access to that resource.
@@ -102,8 +102,8 @@ Use this configuration when all workloads need access to each PaaS resource prot
 
 If you plan on using private endpoints to access resources from an on-premises system, deploy the endpoints in your hub. This setup provides the following benefits:
 
-- Use network security groups to control access to your resources.
-- Manage your private endpoints in a centralized location.
+- You can use network security groups to control access to your resources.
+- You can manage your private endpoints in a centralized location.
 
 If you plan on accessing resources from applications that you deploy in Azure, the following factors apply:
 
