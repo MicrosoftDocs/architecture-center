@@ -29,10 +29,10 @@
 		.st19 {fill:#ed7100;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st20 {fill:#000000;font-family:Segoe UI;font-size:0.666664em}
 		.st21 {fill:#000000;font-family:Segoe UI;font-size:0.687492em}
-		.st22 {fill:#000000;font-family:Segoe UI;font-size:0.708344em}
-		.st23 {fill:#515151;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st24 {fill:#0079d6;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st25 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st22 {fill:#515151;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {fill:#0079d6;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st24 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st25 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st26 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -452,7 +452,7 @@
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="12.4" cy="305.55" width="24.8" height="9.9"/>
 					<rect x="0" y="300.6" width="24.8" height="9.9" class="st1"/>
-					<text x="5.65" y="308.25" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>				</g>
+					<text x="6.21" y="308.02" class="st21" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>				</g>
 			</g>
 			<g id="group89-178" transform="translate(184.89,-179.565)" v:mID="89" v:groupContext="group">
 				<title>Sheet.89</title>
@@ -512,7 +512,7 @@
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="36" cy="305.55" width="72.01" height="9.9"/>
 					<rect x="0" y="300.6" width="72" height="9.9" class="st1"/>
-					<text x="1.37" y="308.1" class="st22" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Evaluate goal loop</text>				</g>
+					<text x="2.39" y="308.02" class="st21" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Evaluate goal loop</text>				</g>
 			</g>
 			<g id="shape102-204" v:mID="102" v:groupContext="shape" transform="translate(345.645,-211.47)">
 				<title>Sheet.102</title>
@@ -545,7 +545,7 @@
 									 C12.9 288.31 13.36 288.46 13.7 288.73 C14.03 289 14.22 289.36 14.22 289.75 L14.22 299.67 C12.92
 									 299.81 11.78 300.1 10.95 300.49 C10.25 300.87 9.88 301.33 9.87 301.78 L9.87 304.19 L2.76 304.19
 									 L2.76 305.18 L9.84 305.18 L9.84 307.08 L2.76 307.08 L2.76 308.07 L9.84 308.07 L9.84 310.5 L0
-									 310.5 ZM2.73 292.21 L11.46 292.21 L11.46 291.22 L2.73 291.22 L2.73 292.21 Z" class="st23"/>
+									 310.5 ZM2.73 292.21 L11.46 292.21 L11.46 291.22 L2.73 291.22 L2.73 292.21 Z" class="st22"/>
 					</g>
 					<g id="shape110-219" v:mID="110" v:groupContext="shape" transform="translate(11.01,0)">
 						<title>Sheet.110</title>
@@ -553,7 +553,7 @@
 									 C11.43 309.21 11.01 309.58 10.23 309.87 C9.17 310.24 7.6 310.47 5.94 310.47 C4.16 310.5 2.44
 									 310.27 1.29 309.87 C0.5 309.58 0.07 309.21 0.06 308.83 L0.06 301.3 ZM0 300.05 C0 299.35 2.57
 									 298.78 5.75 298.78 C8.92 298.78 11.49 299.35 11.49 300.05 C11.49 300.92 8.92 301.63 5.75 301.63
-									 C2.57 301.63 0 300.92 0 300.05 Z" class="st24"/>
+									 C2.57 301.63 0 300.92 0 300.05 Z" class="st23"/>
 					</g>
 				</g>
 			</g>
@@ -618,8 +618,15 @@
 			<desc>Invoke agents</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="18.8157" cy="299.321" width="37.64" height="22.3576"/>
-			<rect x="0" y="288.142" width="37.6315" height="22.3576" class="st25"/>
+			<rect x="0" y="288.142" width="37.6315" height="22.3576" class="st24"/>
 			<text x="5.69" y="296.62" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Invoke<v:newlineChar/><tspan
 						x="5.54" dy="1.2em" class="st13">agents</tspan></text>		</g>
+		<g id="shape124-242" v:mID="124" v:groupContext="shape" transform="translate(238.5,-15.48)">
+			<title>Sheet.124</title>
+			<desc>External systems</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="38.25" cy="306" width="76.51" height="9"/>
+			<rect x="0" y="301.5" width="76.5" height="9" class="st25"/>
+			<text x="9.27" y="308.4" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>External systems</text>		</g>
 	</g>
 </svg>
