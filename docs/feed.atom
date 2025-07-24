@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-07-14T17:08:59.073Z</updated>
+    <updated>2025-07-22T22:31:37.264Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Use API Management to Protect Access Tokens in Single-Page Applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization"/>
+        <updated>2025-07-21T23:41:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure API Management to implement a JavaScript single-page application that doesn't store tokens in the browser session or local storage.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Patterns for Inter-Spoke Networking]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking"/>
+        <updated>2025-07-17T18:27:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Organize Azure Resources in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization"/>
+        <updated>2025-07-16T20:33:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to organize your Azure resources in a multitenant solution based on tenant isolation and scaling out across multiple resources.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2025-07-16T20:25:22.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing Zero Trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Microservices Architecture Style]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices</id>
@@ -31,6 +63,46 @@
         <updated>2025-07-03T18:28:44.000Z</updated>
         <summary type="html"><![CDATA[This article describes the different stages of a tenant life cycle and considerations for each stage, such as scaling and updates.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a Document Generation System by Using AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/generate-documents-from-your-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/generate-documents-from-your-data"/>
+        <updated>2025-07-21T15:51:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a simple system to generate documents. It combines retrieval, summarization, and generation to support faster document drafting by using AI.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Agent Orchestration Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns"/>
+        <updated>2025-07-18T19:03:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create an Active Directory Domain Service Resource Forest in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest"/>
+        <updated>2025-07-16T07:09:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a separate Active Directory domain in Azure that domains in your on-premises Active Directory forest trust.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend On-Premises Active Directory Federation Services to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <updated>2025-07-16T07:09:33.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate On-Premises Active Directory Domains With Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2025-07-16T07:09:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Architecture styles]]></title>
@@ -89,6 +161,182 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure"/>
+        <updated>2025-07-21T15:51:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to scale out your Azure IoT Hub-based solution by using a scale-out pattern model, such as low-touch or zero-touch, to support millions of devices.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Azure AI Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat"/>
+        <updated>2025-07-18T19:03:01.000Z</updated>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Azure AI Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloud Design Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture//patterns"/>
+        <updated>2025-07-18T19:03:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about design patterns for building reliable, scalable, and more secure applications in the cloud with examples based on Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Kubernetes at the Edge Compute Option]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option"/>
+        <updated>2025-07-22T15:53:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn about trade-offs and considerations for various Kubernetes options available for extending compute on the edge.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Load-balancing options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
+        <updated>2025-07-22T15:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect APIs with Azure Application Gateway and Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis"/>
+        <updated>2025-07-17T21:57:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to protect APIs with API Management and Application Gateway.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Event Hubs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
+        <updated>2025-07-17T19:53:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use an Identity as a Service platform]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/identity"/>
+        <updated>2025-07-17T18:11:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IoT Hub-based Multitenant Solution Architectural Approaches]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
+        <updated>2025-07-17T18:11:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architectural approaches for Azure IoT Hub-based multitenant solutions to build scalable, secure, and efficient solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Considerations for Multitenant Control Planes]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes"/>
+        <updated>2025-07-17T18:11:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2025-07-17T18:11:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Governance and Compliance in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/governance-compliance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/governance-compliance"/>
+        <updated>2025-07-17T15:21:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn about governance and compliance approaches for multitenant solutions, including data sovereignty, access control, and regulatory standards.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for networking in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking"/>
+        <updated>2025-07-17T04:16:14.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to consider for networking in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for storage and data in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data"/>
+        <updated>2025-07-17T02:56:42.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the storage and data components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry Storm antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm"/>
+        <updated>2025-07-16T20:39:09.000Z</updated>
+        <summary type="html"><![CDATA[Understand the Retry Storm antipattern, so you can avoid retrying failed requests to a service too often.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure Landing Zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2025-07-16T19:25:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deployment options for both platform and application landing zones in Azure to help ensure governance and cost efficiency.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for the deployment and configuration of multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration"/>
+        <updated>2025-07-15T22:59:21.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to consider when deploying and configuring a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Tenant Integration and Data Access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/integration"/>
+        <updated>2025-07-15T20:32:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about integration approaches for multitenant solutions, including APIs, webhooks, messaging, and data access patterns for tenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Cache for Redis Considerations for Multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cache-redis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cache-redis"/>
+        <updated>2025-07-15T20:14:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Cache for Redis features, like access control lists and active geo-replication, that you can use to improve the performance of multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Storage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage"/>
+        <updated>2025-07-15T16:38:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Storage that benefit multitenant systems. It includes links to guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataOps for the modern data warehouse]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw"/>
+        <updated>2025-07-14T21:37:13.000Z</updated>
+        <summary type="html"><![CDATA[How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Considerations for Updating a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates"/>
+        <updated>2025-07-14T20:53:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about update strategies for multitenant solutions, including deployment approaches, tenant requirements, and maintenance windows.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
@@ -110,22 +358,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/nat-gateway"/>
         <updated>2025-07-10T18:54:13.000Z</updated>
         <summary type="html"><![CDATA[Learn about Azure NAT Gateway features that are useful when you work with multitenant systems. See examples of how to use these features.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Load-balancing options]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
-        <updated>2025-07-10T17:29:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Protect access tokens in a single-page application by using Azure API Management]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization"/>
-        <updated>2025-07-08T15:55:20.000Z</updated>
-        <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -353,11 +585,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Considerations for updating a multitenant solution]]></title>
+        <title type="html"><![CDATA[Considerations for Updating a Multitenant Solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates"/>
         <updated>2025-06-25T08:28:13.000Z</updated>
-        <summary type="html"><![CDATA[This article describes considerations for updating your multitenant solution.]]></summary>
+        <summary type="html"><![CDATA[Learn about update strategies for multitenant solutions, including deployment approaches, tenant requirements, and maintenance windows.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -553,35 +785,19 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Zero-trust network for web applications with Azure Firewall and Application Gateway]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
-        <updated>2025-06-16T17:22:12.000Z</updated>
-        <summary type="html"><![CDATA[Protect web apps by implementing zero-trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Patterns for inter-spoke networking]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking"/>
-        <updated>2025-06-16T16:52:49.000Z</updated>
-        <summary type="html"><![CDATA[Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Guidance for using Azure Event Hubs in a multitenant solution]]></title>
+        <title type="html"><![CDATA[Multitenancy and Azure Event Hubs]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
         <updated>2025-06-15T20:58:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <summary type="html"><![CDATA[Learn about Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Storage considerations for multitenancy]]></title>
+        <title type="html"><![CDATA[Multitenancy and Azure Storage]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/storage"/>
         <updated>2025-06-15T20:58:18.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the features of Azure Storage that are useful when working with multitenant systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.]]></summary>
+        <summary type="html"><![CDATA[This article describes the features of Azure Storage that benefit multitenant systems. It includes links to guidance and examples.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -665,11 +881,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Scale out an Azure IoT Hub-based solution to support millions of devices]]></title>
+        <title type="html"><![CDATA[Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure"/>
         <updated>2025-06-09T20:10:25.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to scale out your Azure IoT Hub-based solution to support millions of devices.]]></summary>
+        <summary type="html"><![CDATA[Learn how to scale out your Azure IoT Hub-based solution by using a scale-out pattern model, such as low-touch or zero-touch, to support millions of devices.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -745,7 +961,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Integrate on-premises AD domains with Microsoft Entra ID]]></title>
+        <title type="html"><![CDATA[Integrate On-Premises Active Directory Domains With Microsoft Entra ID]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
         <updated>2025-06-03T16:59:22.000Z</updated>
@@ -1201,14 +1417,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Migrate Cloud Workloads Across Security Tenants]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants"/>
-        <updated>2025-04-01T22:10:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Migrate Mainframe Data to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
@@ -1646,14 +1854,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
         <updated>2025-04-03T18:15:22.000Z</updated>
         <summary type="html"><![CDATA[Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Front Door to Secure AKS Workloads]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door"/>
-        <updated>2025-04-01T22:22:59.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
