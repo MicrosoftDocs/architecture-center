@@ -34,7 +34,7 @@ items:
           href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
-      - name: Chat bots
+      - name: Chat with data
         items:
         - name: Basic Azure AI Foundry chat reference architecture
           href: architecture/basic-azure-ai-foundry-chat.yml
@@ -72,7 +72,7 @@ items:
       items:
       - name: Machine learning options
         href: guide/data-science-and-machine-learning.md
-      - name: AI agent design patterns
+      - name: AI agent orchestration patterns
         href: guide/ai-agent-design-patterns.md
       - name: Developing and evaluating RAG solutions
         items:
