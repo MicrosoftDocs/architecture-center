@@ -88,7 +88,7 @@ items:
           href: guide/rag/rag-generate-embeddings.md
         - name: Information-retrieval phase
           href: guide/rag/rag-information-retrieval.md
-        - name: LLM end-to-end evaluation phase
+        - name: Model end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
       - name: Design a secure multitenant RAG inferencing solution
         href: guide/secure-multitenant-rag.md
