@@ -17,9 +17,9 @@ The management of transactional data using computer systems is referred to as on
 
 Transactional data is information that tracks the interactions related to an organization's activities. These interactions are typically business transactions, such as payments received from customers, payments made to suppliers, products moving through inventory, orders taken, or services delivered. Transactional events, which represent the transactions themselves, typically contain a time dimension, some numerical values, and references to other data.
 
-Transactions typically need to be *atomic* and *consistent*. Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state. If a transaction cannot be completed, the database system must roll back any steps that were already done as part of that transaction. In a traditional relational database management system (RDBMS), this rollback happens automatically if a transaction cannot be completed. Consistency means that transactions always leave the data in a valid state. (These are very informal descriptions of atomicity and consistency. There are more formal definitions of these properties, such as [ACID](https://en.wikipedia.org/wiki/ACID).)
+Transactions typically need to be *atomic* and *consistent*. Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state. If a transaction can't be completed, the database system must roll back any steps that were already done as part of that transaction. In a traditional relational database management system (RDBMS), this rollback happens automatically if a transaction can't be completed. Consistency means that transactions always leave the data in a valid state. (These are informal descriptions of atomicity and consistency. There are more formal definitions of these properties, such as [ACID](https://en.wikipedia.org/wiki/ACID).)
 
-Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is strongly consistent within the context of the enterprise, for all users and processes.
+Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is consistent within the context of the enterprise, for all users and processes.
 
 The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.yml) architecture, which may have multiple middle-tiers handling business logic.
 
@@ -49,7 +49,7 @@ Transactional data tends to have the following traits:
 
 Choose OLTP when you need to efficiently process and store business transactions and immediately make them available to client applications in a consistent way. Use this architecture when any tangible delay in processing would have a negative impact on the day-to-day operations of the business.
 
-OLTP systems are designed to efficiently process and store transactions, as well as query transactional data. The goal of efficiently processing and storing individual transactions by an OLTP system is partly accomplished by data normalization &mdash; that is, breaking the data up into smaller chunks that are less redundant. This supports efficiency because it enables the OLTP system to process large numbers of transactions independently, and avoids extra processing needed to maintain data integrity in the presence of redundant data.
+OLTP systems are designed to efficiently process and store transactions, and query transactional data. The goal of efficiently processing and storing individual transactions by an OLTP system is partly accomplished by data normalization &mdash; that is, breaking the data up into smaller chunks that are less redundant. This supports efficiency because it enables the OLTP system to process large numbers of transactions independently, and avoids extra process needed to maintain data integrity in the presence of redundant data
 
 ## Challenges
 
@@ -57,7 +57,7 @@ Implementing and using an OLTP system can create a few challenges:
 
 - OLTP systems aren't always good for handling aggregates over large amounts of data, although there are exceptions, such as a well-planned SQL Server-based solution. Analytics against the data, that rely on aggregate calculations over millions of individual transactions, are very resource intensive for an OLTP system. They can be slow to execute and can cause a slow-down by blocking other transactions in the database.
 
-- When conducting analytics and reporting on data that is highly normalized, the queries tend to be complex, because most queries need to de-normalize the data by using joins. Also, naming conventions for database objects in OLTP systems tend to be terse and succinct. The increased normalization coupled with terse naming conventions makes OLTP systems difficult for business users to query, without the help of a DBA or data developer.
+- When conducting analytics and reporting on data that is highly normalized, the queries tend to be complex, because most queries need to denormalize the data by using joins. Also, naming conventions for database objects in OLTP systems tend to be terse and succinct. The increased normalization coupled with terse naming conventions makes OLTP systems difficult for business users to query, without the help of a DBA or data developer.
 
 - Storing the history of transactions indefinitely and storing too much data in any one table can lead to slow query performance, depending on the number of transactions stored. The common solution is to maintain a relevant window of time (such as the current fiscal year) in the OLTP system and offload historical data to other systems, such as a data mart or [data warehouse](./data-warehousing.yml).
 
@@ -65,15 +65,15 @@ Implementing and using an OLTP system can create a few challenges:
 
 Applications such as websites hosted in [App Service Web Apps](/azure/app-service/app-service-web-overview), REST APIs running in App Service, or mobile or desktop applications communicate with the OLTP system, typically via a REST API intermediary.
 
-In practice, most workloads aren't purely OLTP. There tends to be an analytical component as well. In addition, there is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as hybrid transactional/analytical processing (HTAP) (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
+In practice, most workloads aren't purely OLTP. There tends to be an analytical component as well. In addition, there's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as hybrid transactional/analytical processing (HTAP) (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
 
-In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
+In Azure, all of the following data stores meet the core requirements for OLTP and the management of transaction data:
 
-- [Azure SQL Database](https://learn.microsoft.com/en-us/azure/sql-database/)
-- [Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/)
-- [SQL Server on Azure VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
-- [Azure Database for MySQL](https://learn.microsoft.com/en-us/azure/mysql/)
-- [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/)
+- [Azure SQL Database](/azure/sql-database/)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/)
+- [SQL Server on Azure VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [Azure Database for MySQL](/azure/mysql/)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
 
 ## Key selection criteria
 
@@ -81,9 +81,9 @@ To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 
-- Does your solution have specific dependencies for Microsoft SQL Server, MySQL or PostgreSQL compatibility? Your application may limit the data stores you can choose based on the drivers it supports for communicating with the data store, or the assumptions it makes about which database is used.
+- Does your solution have specific dependencies for Microsoft SQL Server, MySQL, or PostgreSQL compatibility? Your application may limit the data stores you can choose based on the drivers it supports for communicating with the data store, or the assumptions it makes about which database is used.
 
-- Are your write throughput requirements particularly high? If yes, choose an option that provides in-memory tables.
+- Are your write throughput requirements high? If yes, choose an option that provides in-memory tables.
 
 - Is your solution multitenant? If so, consider options that support capacity pools, where multiple database instances draw from an elastic pool of resources, instead of fixed resources per database. This can help you better distribute capacity across all database instances, and can make your solution more cost effective.
 
