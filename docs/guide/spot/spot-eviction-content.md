@@ -1,4 +1,4 @@
-This article describes best practices for how to build on Azure Spot Virtual Machines. It includes a deployable example scenario. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The right workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
+This article describes best practices for how to build on Azure Spot Virtual Machines. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The right workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
 
 ## Understand spot VMs
 
@@ -152,10 +152,6 @@ The following workflow corresponds to the previous diagram:
 1. **Query Scheduled Events endpoint:** An API request is sent to a static nonroutable IP address `169.254.169.254`. The API request queries the Scheduled Events endpoint for infrastructure maintenance signals.
 
 1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration, but allows you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights. For more information, see [Enable live metrics from the .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
-
-## Deploy this scenario
-  
-![GitHub logo](../../_images/github.png) There's a GitHub repository called [interruptible workload on spot](https://github.com/mspnp/interruptible-workload-on-spot) that has templates, scripts, and step-by-step instructions to deploy this architecture.
 
 ## Next step
 
