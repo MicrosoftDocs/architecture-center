@@ -118,7 +118,7 @@ Many managed ML services don't require model training or data, so there's usuall
 Consider the scale requirements for the components in your solution. For example, many of the APIs within Azure AI Services support a maximum number of requests per second. If you deploy a single AI Services resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.md).
 
 > [!NOTE]
-> Some managed services enable you to train or fine-tune models with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/computer-vision/how-to/add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
+> Some managed services enable you to fine-tune or customize models with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/computer-vision/how-to/add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 ### Custom AI/ML architecture
 
