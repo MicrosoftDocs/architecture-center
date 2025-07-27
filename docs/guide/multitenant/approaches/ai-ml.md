@@ -113,12 +113,17 @@ It's a good practice to try to use prebuilt AI/ML services, where you can. For e
 
 Azure provides several services that provide AI and ML technology across a range of domains, including language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure's prebuilt AI/ML services are provided by a unified AI application service, [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry), and that provides access to a variety of models including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service) (formerly Azure OpenAI Service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration, and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
-Many managed ML services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed ML services do provide a model customization capability. For example, [Azure Custom Voice](/azure/ai-services/speech-service/custom-neural-voice) enables you to customize a model with your own data and requires consideration of tenant data isolation.
+Many managed ML services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and ML services do provide a model customization capability, including:
+
+- [Azure Custom Voice](/azure/ai-services/speech-service/custom-neural-voice)
+- [Custom Vision service](/azure/ai-services/custom-vision-service/overview)
+- [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
+- [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
+- Some [OpenAI models support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
+
+When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 Consider the scale requirements for the components in your solution. For example, many of the APIs within Azure AI Services support a maximum number of requests per second. If you deploy a single AI Services resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.md).
-
-> [!NOTE]
-> Some managed services enable you to fine-tune or customize models with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/computer-vision/how-to/add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 ### Custom AI/ML architecture
 
