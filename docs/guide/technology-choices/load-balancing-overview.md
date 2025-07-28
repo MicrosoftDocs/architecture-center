@@ -14,6 +14,26 @@ Azure provides various load-balancing services that you can use to distribute yo
 
 This article describes considerations to help you determine an appropriate load-balancing solution for your workload's needs.
 
+## Azure load-balancing services
+
+The following main load-balancing services are currently available in Azure:
+
+- [API Management](/azure/api-management/api-management-key-concepts) is a managed service that you can use to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can be configured to load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority based.
+
+  > [!IMPORTANT]
+  > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional features within its broader API management functionality. API Management is included in this article for completeness because it does provide load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
+
+- [Application Gateway](/azure/application-gateway/overview) is a web traffic load load balancer. It provides application delivery controller as a service and provides various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+
+- [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
+
+- [Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring that your solution is highly available. Load Balancer is zone redundant, which ensures high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
+
+- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live (TTL) values.
+
+> [!NOTE]
+> Clustering technology, such as Azure Container Apps or Azure Kubernetes Service, contains load balancing constructs that operate mostly within the scope of their own cluster boundary. These capabilities route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
+
 ## Service categorizations
 
 Azure load-balancing services can be categorized along two dimensions: global versus regional and HTTP(S) versus non-HTTP(S).
@@ -34,7 +54,7 @@ The following table summarizes the Azure load-balancing services.
 
 | Service             | Global or regional | Recommended traffic |
 | :--- | :--- | :---  |
-| API Management      | Regional or global | HTTP(S) APIs        |
+| API Management      | Regional or global | HTTP(S) APIs only   |
 | Application Gateway | Regional           | HTTP(S)             |
 | Azure Front Door    | Global             | HTTP(S)             |
 | Load Balancer       | Regional or global | Non-HTTP(S)         |
@@ -42,23 +62,6 @@ The following table summarizes the Azure load-balancing services.
 
 > [!NOTE]
 > Traffic Manager and Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer 7 capabilities. Unlike Load Balancer, Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
-
-## Azure load-balancing services
-
-The following main load-balancing services are currently available in Azure:
-
-- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed service that enables you to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three load-balancing methods: round-robin, weighted, and priority based.
-
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) provides application delivery controller as a service. It provides various Layer 7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
-
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer 7 capabilities for your application such as SSL offload, path-based routing, fast failover, and caching to improve performance and high availability.
-
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's designed to handle millions of requests per second while ensuring that your solution is highly available. Load Balancer is zone redundant, which ensures high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
-
-- [Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live values.
-
-> [!NOTE]
-> Clustering technology, such as Azure Container Apps or Azure Kubernetes Service (AKS), contains load balancing constructs that operate mostly within the scope of their own cluster boundary. These capabilities route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
 
 ## Decision tree for load balancing in Azure
 
@@ -96,7 +99,7 @@ When your workload includes several services that require load balancing, assess
 - **Global or deployed in multiple regions:** If this load balancer should have a single, highly available control plane that routes traffic to public endpoints on your globally distributed application. This configuration can support either active-active or active-passive topologies across regions.
 
   > [!NOTE]
-  > You can use a regional service, such as Application Gateway or API Management, to load balance across back ends that span multiple regions and control routing through a single control plane. That architecture is possible by using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or public IP addresses of services in other regions.
+  > You can use a regional service, such as Application Gateway, to load balance across back ends that span multiple regions and control routing through a single control plane. That architecture is possible by using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IP addresses of services in other regions.
   >
   > This scenario isn't the primary point of this decision.
   >
@@ -110,7 +113,7 @@ When your workload includes several services that require load balancing, assess
 
 - **Application-layer processing** refers to special routing within a virtual network. Examples include path-based routing across VMs or virtual machine scale sets. For more information, see [Deploy an Application Gateway behind Azure Front Door](/azure/frontdoor/front-door-faq#when-should-i-deploy-an-application-gateway-behind-front-door-).
 
-- **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, you should consider API Management to load balance traffic across API back ends that aren't already load balanced through another mechanism.
+- **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, if your workload already uses API Management for its gateway capabilities, you can consider API Management's optional load balancing feature to direct traffic across API back ends that aren't already load balanced through another mechanism. If your workload isn't using API Management, we don't recommend that you use API Management only for load balancing concerns.
 
 - **Performance acceleration** refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks (CDNs) or optimized point of presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDNs](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). You can gain the benefits of both features with or without Application Gateway in the architecture.
 
