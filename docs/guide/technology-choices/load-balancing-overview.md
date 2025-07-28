@@ -1,5 +1,5 @@
 ---
-title: Load-balancing options
+title: Load-Balancing Options
 description: Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
@@ -7,6 +7,8 @@ ms.date: 07/10/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
+
+# Load-balancing options
 
 The term *load balancing* refers to the distribution of processing across multiple computing resources. You load balance to optimize resource usage, maximize throughput, minimize response time, and prevent overloading any single resource. Load balancing can also improve availability by sharing a workload across redundant computing resources.
 
