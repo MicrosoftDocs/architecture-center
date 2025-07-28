@@ -129,28 +129,6 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 - Infrastructure as code. For example, Bicep, Resource Manager templates, Azure CLI, Terraform, PowerShell, Bash.
 - [Azure Front Door](/azure/frontdoor/), which can route traffic to a specific stamp or to a traffic routing service.
 
-## Example
-
-The following example deploys multiple stamps of a simple PaaS solution, with an app service and a SQL Database in each stamp. While stamps can be configured in any region that support the services deployed in the template, for illustration purposes this template deploys two stamps within the West US 2 region and a further stamp in the West Europe region. Within a stamp, the app service receives its own public DNS hostname and it can receive connections independently of all other stamps.
-
-> [!WARNING]
-> The example below uses a SQL Server administrator account. It's generally not a good practice to use an administrative account from your application. For a real application, consider [using a managed identity to connect from your application to a SQL database](/azure/app-service/app-service-web-tutorial-connect-msi), or use a least-privilege account.
-
-Click the link below to deploy the solution.
-
-[![Deploy to Azure](../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Fdeployment-stamp.json)
-
-> [!NOTE]
-> There are alternative approaches to deploying stamps with a Resource Manager template, including using [nested templates](/azure/azure-resource-manager/resource-group-linked-templates#nested-template) or [linked templates](/azure/azure-resource-manager/resource-group-linked-templates#linked-template) to decouple the definition of each stamp from the iteration required to deploy multiple copies.
-
-### Example traffic routing approach
-
-The following example deploys an implementation of a traffic routing solution that could be used with a set of deployment stamps for a hypothetical API application. To allow for geographical distribution of incoming requests, Front Door is deployed alongside multiple instances of API Management on the consumption tier. Each API Management instance reads the tenant ID from the request URL and then looks up the relevant stamp for the request from a geo-distributed Azure Cosmos DB data store. The request is then forwarded to the relevant back-end stamp.
-
-Click the link below to deploy the solution.
-
-[![Deploy to Azure](../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Ftraffic-routing.json)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
