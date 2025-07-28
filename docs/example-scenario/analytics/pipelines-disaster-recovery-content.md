@@ -28,7 +28,9 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a unified platform for big data and data warehousing that's designed to help organizations analyze vast amounts of data quickly and efficiently. [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) is a data integration and orchestration feature within Azure Synapse Analytics that you can use to build, manage, and automate workflows for moving and transforming data. In this architecture, Azure Synapse Analytics pipelines manage data workflows and support BCDR by enabling zone-redundancy, integration with Git repositories, and automated or user-managed recovery approaches.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a unified platform for big data and data warehousing that's designed to help you analyze vast amounts of data quickly and efficiently.
+
+  - [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) is a data integration and orchestration feature within Azure Synapse Analytics that you can use to build, manage, and automate workflows for moving and transforming data. In this architecture, Azure Synapse Analytics pipelines manage data workflows and support BCDR by enabling zone-redundancy, integration with Git repositories, and automated or user-managed recovery approaches.
 
 - [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a cloud-based platform that helps developers collaborate, manage code, and track changes in software projects by using Git. In this architecture, GitHub stores pipeline artifacts and enables automated deployment to secondary regions as part of the user-managed recovery strategy.
 
@@ -54,7 +56,7 @@ When you [configure automated recovery](#deploy-this-scenario) with backup and D
 
 In DR failover, Azure Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage and compare the recovered pipelines to the backups.
 
-The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/reliability/business-continuity-management-program#testing-of-services).
+The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/reliability/business-continuity-management-program#testing-and-drills).
 
 ### User-managed redundancy with CI/CD
 
@@ -156,7 +158,7 @@ In general, you need to design your pipelines to include activities, like fail a
 
 1. Add an activity in your pipeline to look up the witness and compare the current primary value to the global parameter.
 
-   - If the parameters match, this pipeline runs on the primary region. Proceed with the real work.
+   - If the parameters match, this pipeline runs on the primary region. Proceed with the main processing tasks.
 
    - If the parameters don't match, this pipeline runs on the secondary region. Only return the result.
 
@@ -186,9 +188,9 @@ Other contributors:
 - [What are Azure regions?](/azure/reliability/regions-overview)
 - [What are Azure availability zones?](/azure/reliability/availability-zones-overview)
 - [Azure regions decision guide](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions)
-- [Azure services that support availability zones](/azure/reliability/availability-zones-region-support)
+- [Azure services that support availability zones](/azure/reliability/regions-list)
 - [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility)
-- [Azure Data Factory data redundancy](/azure/data-factory/concepts-data-redundancy)
+- [Azure Data Factory data redundancy](/azure/reliability/reliability-data-factory)
 - [IR in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)
 - [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)
@@ -197,4 +199,4 @@ Other contributors:
 ## Related resources
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
