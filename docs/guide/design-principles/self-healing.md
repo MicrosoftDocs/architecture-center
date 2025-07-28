@@ -10,8 +10,6 @@ ms.subservice: architecture-guide
 
 # Design for self healing
 
-## Design your application to be self healing when failures occur
-
 In a distributed system, failures must be expected to happen. Hardware can fail. The network can have transient failures. Rarely will an entire service, data center, or even Azure region experience a disruption, however, even those outages must be designed for in your workload architecture. Resiliency and recovery should be addressed early in your workload design.
 
 Therefore, design an application that is self-healing when failures occur. Use a three-pronged approach:
@@ -20,7 +18,9 @@ Therefore, design an application that is self-healing when failures occur. Use a
 - Respond to failures gracefully.
 - Log and monitor failures to give operational insight.
 
-How you respond to a particular type of failure depends on your workload's availability requirements. For example, if you require high availability, you might deploy to multiple availability zones in a region. To avoid outages, even in the unlikely event of an entire Azure region experiencing disruption, you can automatically fail over to a secondary region during a regional outage. However, incurs a higher cost and potentially lower performance than a single-region deployment.
+## Design your application to be self healing when failures occur
+
+How you respond to a particular type of failure depends on your workload's availability requirements. For example, if you require high availability, you might deploy to multiple availability zones in a region. To avoid outages, even in the unlikely event of an entire Azure region experiencing disruption, you can automatically fail over to a secondary region during a regional outage. However, this incurs a higher cost and potentially lower performance than a single-region deployment.
 
 Also, don't just consider significant events like regional outages, which are generally rare. You should focus as much, if not more, on handling local, short-lived failures, such as network connectivity failures or failed database connections.
 
