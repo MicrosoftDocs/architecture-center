@@ -45,7 +45,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Private Link](/azure/private-link/private-link-overview) carries private connections to Azure services. It helps ensure secure communication between components.
 
-- [Azure load balancing services](../../guide/technology-choices/load-balancing-overview.yml) scale VMs for high availability and high performance. This architecture uses [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer), which provides low-latency balancing of traffic among VMs and across multitiered hybrid apps.
+- [Azure load balancing services](../../guide/technology-choices/load-balancing-overview.md) scale VMs for high availability and high performance. This architecture uses [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer), which provides low-latency balancing of traffic among VMs and across multitiered hybrid apps.
 
 - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) provides highly durable and high-performance block storage for Azure VMs. It supports various disk storage options to meet performance and durability needs. There are four disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.
 

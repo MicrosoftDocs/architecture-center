@@ -196,7 +196,7 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
-        href: guide/technology-choices/load-balancing-overview.yml
+        href: guide/technology-choices/load-balancing-overview.md
       - name: VNet peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.yml
     - name: Choose a messaging service
