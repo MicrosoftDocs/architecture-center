@@ -83,7 +83,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Configure and test alerts to notify you when specific tenants experience problems or exceed their consumption limits.  
 
-- [Organize your Azure resources](./approaches/resource-organization.yml) for isolation and scale.  
+- [Organize your Azure resources](./approaches/resource-organization.md) for isolation and scale.  
 
 - Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and relying on manual deployments.  
 
@@ -95,7 +95,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Determine how to scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.yml), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.  
 
-- Consider the scale limits for each Azure resource. [Organize your resources](./approaches/resource-organization.yml) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.yml#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.  
+- Consider the scale limits for each Azure resource. [Organize your resources](./approaches/resource-organization.md) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
 ## Contributors
 
@@ -103,12 +103,12 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 Principal authors:
 
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
-- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 
 Other contributor:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

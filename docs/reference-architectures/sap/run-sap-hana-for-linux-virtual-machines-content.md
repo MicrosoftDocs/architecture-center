@@ -205,16 +205,16 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 * [SAP Community](https://www.sap.com/community.html)
 
-* [SAP on Stack Overflow](http://stackoverflow.com/tags/sap/info)
+* [SAP on Stack Overflow](https://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
- 
+- [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

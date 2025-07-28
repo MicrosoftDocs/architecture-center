@@ -170,5 +170,5 @@ Other contributor:
 
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Multi-tier app service with private endpoint](../../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
-- [Azure Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.yml)
+- [Azure Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
 - [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)

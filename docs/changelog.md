@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/14/2025
+ms.date: 07/22/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,12 +22,21 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Use API Management to Protect Access Tokens in Single-Page Applications](./web-apps/guides/security/secure-single-page-application-authorization.md)
+- [Patterns for Inter-Spoke Networking](./networking/guide/spoke-to-spoke-networking.md)
+- [Organize Azure Resources in Multitenant Solutions](./guide/multitenant/approaches/resource-organization.md)
+- [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md)
 - [Microservices Architecture Style](./guide/architecture-styles/microservices.md)
 - [Domain Name Considerations in Multitenant Solutions](./guide/multitenant/considerations/domain-names.md)
 - [Tenant Life Cycle Considerations in Multitenant Solutions](./guide/multitenant/considerations/tenant-life-cycle.md)
+- [Build a Document Generation System by Using AI](./ai-ml/idea/generate-documents-from-your-data.yml)
+- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md)
 
 ### Updated articles
 
+- [Create an Active Directory Domain Service Resource Forest in Azure](./reference-architectures/identity/adds-forest.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
+- [Extend On-Premises Active Directory Federation Services to Azure](./reference-architectures/identity/adfs.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
+- [Integrate On-Premises Active Directory Domains With Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
 - [Architecture styles](./guide/architecture-styles/index.md)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Domain analysis for microservices](./microservices/model/domain-analysis.md)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
@@ -35,6 +44,28 @@ The following new and updated articles have recently been published in the Azure
 - [Using tactical DDD to design microservices](./microservices/model/tactical-ddd.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#95a051bfff](https://github.com/MicrosoftDocs/architecture-center/commit/95a051bfff))
 - [Deploy AD DS in an Azure Virtual Network](./example-scenario/identity/adds-extend-domain.yml)  ([#417cdcd602](https://github.com/MicrosoftDocs/architecture-center/commit/417cdcd602))
+- [Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices](./guide/iot/scale-iot-solution-azure.md)  ([#a1277eba93](https://github.com/MicrosoftDocs/architecture-center/commit/a1277eba93))
+- [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
+- [Cloud Design Patterns](./patterns/index.md)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
+- [Choose a Kubernetes at the Edge Compute Option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)  ([#723bb4b356](https://github.com/MicrosoftDocs/architecture-center/commit/723bb4b356))
+- [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#0ea839f349](https://github.com/MicrosoftDocs/architecture-center/commit/0ea839f349))
+- [Protect APIs with Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#7cca2c974e](https://github.com/MicrosoftDocs/architecture-center/commit/7cca2c974e))
+- [Use an Identity as a Service platform](./guide/design-principles/identity.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
+- [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
+- [Considerations for Multitenant Control Planes](./guide/multitenant/considerations/control-planes.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
+- [Architectural Approaches for Governance and Compliance in Multitenant Solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#22c44510c0](https://github.com/MicrosoftDocs/architecture-center/commit/22c44510c0))
+- [Architectural approaches for networking in multitenant solutions](./guide/multitenant/approaches/networking.md)  ([#e54cbf0a57](https://github.com/MicrosoftDocs/architecture-center/commit/e54cbf0a57))
+- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#2ad4215274](https://github.com/MicrosoftDocs/architecture-center/commit/2ad4215274))
+- [Retry Storm antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
+- [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#101c275703](https://github.com/MicrosoftDocs/architecture-center/commit/101c275703))
+- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.yml)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
+- [Architectural Approaches for Tenant Integration and Data Access](./guide/multitenant/approaches/integration.md)  ([#2d3e279874](https://github.com/MicrosoftDocs/architecture-center/commit/2d3e279874))
+- [Azure Cache for Redis Considerations for Multitenancy](./guide/multitenant/service/cache-redis.md)  ([#74b0437dc4](https://github.com/MicrosoftDocs/architecture-center/commit/74b0437dc4))
+- [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#c89a4b5fc6](https://github.com/MicrosoftDocs/architecture-center/commit/c89a4b5fc6))
+- [DataOps for the modern data warehouse](./databases/architecture/dataops-mdw.yml)  ([#3311f07b38](https://github.com/MicrosoftDocs/architecture-center/commit/3311f07b38))
+- [Considerations for Updating a Multitenant Solution](./guide/multitenant/considerations/updates.md)  ([#9decc8bdf3](https://github.com/MicrosoftDocs/architecture-center/commit/9decc8bdf3))
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#cddc9e4a61](https://github.com/MicrosoftDocs/architecture-center/commit/cddc9e4a61))
 - [Guidance for using Azure Database for PostgreSQL in a multitenant solution](./guide/multitenant/service/postgresql.md)  ([#d07ac6f724](https://github.com/MicrosoftDocs/architecture-center/commit/d07ac6f724))
 - [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#9b2f30972c](https://github.com/MicrosoftDocs/architecture-center/commit/9b2f30972c))
@@ -76,7 +107,7 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural Considerations for Choosing an Azure Container Service](./guide/container-service-general-considerations.md)  ([#c7dde0a13f](https://github.com/MicrosoftDocs/architecture-center/commit/c7dde0a13f))
 - [Azure Kubernetes Service (AKS) - planning](./reference-architectures/containers/aks-start-here.md)  ([#869ea8c700](https://github.com/MicrosoftDocs/architecture-center/commit/869ea8c700))
 - [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#ccfa7b6a50](https://github.com/MicrosoftDocs/architecture-center/commit/ccfa7b6a50))
-- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#d005fb7b98](https://github.com/MicrosoftDocs/architecture-center/commit/d005fb7b98))
+- [Considerations for Updating a Multitenant Solution](./guide/multitenant/considerations/updates.md)  ([#d005fb7b98](https://github.com/MicrosoftDocs/architecture-center/commit/d005fb7b98))
 - [DevSecOps for Infrastructure as Code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml)  ([#3b64332719](https://github.com/MicrosoftDocs/architecture-center/commit/3b64332719))
 - [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#a8ae8f2059](https://github.com/MicrosoftDocs/architecture-center/commit/a8ae8f2059))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml)  ([#a8ae8f2059](https://github.com/MicrosoftDocs/architecture-center/commit/a8ae8f2059))
@@ -101,10 +132,8 @@ The following new and updated articles have recently been published in the Azure
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#69a84710fd](https://github.com/MicrosoftDocs/architecture-center/commit/69a84710fd))
 - [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#c33187a67c](https://github.com/MicrosoftDocs/architecture-center/commit/c33187a67c))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#f631aedcfa](https://github.com/MicrosoftDocs/architecture-center/commit/f631aedcfa))
-- [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#ff2bccc86b](https://github.com/MicrosoftDocs/architecture-center/commit/ff2bccc86b))
-- [Patterns for inter-spoke networking](./networking/guide/spoke-to-spoke-networking.yml)  ([#f2d5a65b3e](https://github.com/MicrosoftDocs/architecture-center/commit/f2d5a65b3e))
-- [Guidance for using Azure Event Hubs in a multitenant solution](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
-- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
+- [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
 - [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#3b18425a8a](https://github.com/MicrosoftDocs/architecture-center/commit/3b18425a8a))
 - [Kubernetes Monitoring and Logging](./aws-professional/eks-to-aks/monitoring.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
@@ -115,7 +144,7 @@ The following new and updated articles have recently been published in the Azure
 - [Messaging Bridge pattern](./patterns/messaging-bridge.yml)  ([#0f15cb4959](https://github.com/MicrosoftDocs/architecture-center/commit/0f15cb4959))
 - [Architectural Approaches for Identity in Multitenant Solutions](./guide/multitenant/approaches/identity.md)  ([#6d6acc32ed](https://github.com/MicrosoftDocs/architecture-center/commit/6d6acc32ed))
 - [Noisy Neighbor Antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#5cd73dc642](https://github.com/MicrosoftDocs/architecture-center/commit/5cd73dc642))
-- [Scale out an Azure IoT Hub-based solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)  ([#54c99a236d](https://github.com/MicrosoftDocs/architecture-center/commit/54c99a236d))
+- [Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices](./guide/iot/scale-iot-solution-azure.md)  ([#54c99a236d](https://github.com/MicrosoftDocs/architecture-center/commit/54c99a236d))
 - [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#c92d3f1e02](https://github.com/MicrosoftDocs/architecture-center/commit/c92d3f1e02))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#110aa0e75a](https://github.com/MicrosoftDocs/architecture-center/commit/110aa0e75a))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#110aa0e75a](https://github.com/MicrosoftDocs/architecture-center/commit/110aa0e75a))
@@ -125,7 +154,7 @@ The following new and updated articles have recently been published in the Azure
 - [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Identity architecture design](./identity/identity-start-here.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
-- [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
+- [Integrate On-Premises Active Directory Domains With Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Cloud Design Patterns](./patterns/index.md)  ([#3c77e71076](https://github.com/MicrosoftDocs/architecture-center/commit/3c77e71076))
 - [Migrate IBM System i (AS/400) to Azure by Using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)  ([#b786930e24](https://github.com/MicrosoftDocs/architecture-center/commit/b786930e24))
@@ -198,7 +227,6 @@ The following new and updated articles have recently been published in the Azure
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md)  ([#ade25804b5](https://github.com/MicrosoftDocs/architecture-center/commit/ade25804b5))
 - [Foundations of Assessing Harm](./guide/responsible-innovation/harms-modeling/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
 - [Responsible Engineering Overview](./guide/responsible-innovation/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
-- [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)  ([#4eae6ed023](https://github.com/MicrosoftDocs/architecture-center/commit/4eae6ed023))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#5b28fa3068](https://github.com/MicrosoftDocs/architecture-center/commit/5b28fa3068))
 - [Load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0a441feecd](https://github.com/MicrosoftDocs/architecture-center/commit/0a441feecd))
 - [Design for Operations](./guide/design-principles/design-for-operations.md)  ([#4abcb44a53](https://github.com/MicrosoftDocs/architecture-center/commit/4abcb44a53))
@@ -254,5 +282,4 @@ The following new and updated articles have recently been published in the Azure
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
 - [Cloud Design Patterns](./patterns/index.md)  ([#03c62aa25d](https://github.com/MicrosoftDocs/architecture-center/commit/03c62aa25d))
 - [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#70840c3465](https://github.com/MicrosoftDocs/architecture-center/commit/70840c3465))
-- [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#3882965be5](https://github.com/MicrosoftDocs/architecture-center/commit/3882965be5))
 

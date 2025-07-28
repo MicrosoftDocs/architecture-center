@@ -309,7 +309,7 @@ This article has a companion repository available in GitHub that shows how you a
 
 Principal author:
 
-- [Fabio Braga](https://linkedin.com/in/fabiohemylio/) | Principal MTC Technical Architect
+- [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Principal MTC Technical Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

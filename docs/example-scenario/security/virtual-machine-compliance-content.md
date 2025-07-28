@@ -197,7 +197,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
 - Azure Policy and [Azure Automanage Machine configuration][Azure Automanage Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
-- During the public preview period, [VM Image Builder][Azure VM Image Builder - pricing] is using a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
+- [VM Image Builder][Azure VM Image Builder - pricing] uses a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
 - [Compute Gallery][Azure Shared Image Galleries] has no charges except:
 
   - The cost of storing replicas.

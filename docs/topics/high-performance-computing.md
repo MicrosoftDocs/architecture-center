@@ -215,7 +215,6 @@ The cloud native model example diagram below, shows how the workload in the clou
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
 - Alces Flight Compute
-- [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Altair Grid Engine](https://www.altair.com/grid-engine)

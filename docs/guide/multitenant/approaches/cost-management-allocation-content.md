@@ -95,12 +95,12 @@ Reservation scopes can also be helpful, when you have tenants with unpredictable
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Sherri Babylon](https://linkedin.com/in/sbabylon) | Senior Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

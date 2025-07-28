@@ -103,6 +103,9 @@ conceptualContent:
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
         itemType: concept
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
+        itemType: concept
       - text: Cloud design patterns
         url: ./patterns/index.md
         itemType: concept
@@ -115,9 +118,6 @@ conceptualContent:
       - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.md
-        itemType: concept
 
     - title: AI & Machine Learning
       links:
@@ -130,6 +130,9 @@ conceptualContent:
       - text: Build a generative AI gateway
         url: /azure/architecture/ai-ml/guide/azure-openai-gateway-guide
         itemType: how-to-guide
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
+        itemType: concept
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
         itemType: how-to-guide
@@ -248,9 +251,6 @@ conceptualContent:
           url: /azure/architecture/identity/identity-start-here
         - text: Identity in multitenant architectures
           url: /azure/architecture/guide/multitenant/considerations/identity
-          itemType: concept
-        - text: Building applications to work across Entra tenants
-          url: /azure/architecture/patterns/cross-tenant-communication-using-multitenanted-applications
           itemType: concept
         - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture

@@ -460,7 +460,6 @@ The following section provides an example list of the high-level tasks or typica
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Automation in a hybrid environment](azure-automation-hybrid.yml)
-- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps

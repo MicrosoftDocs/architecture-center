@@ -126,7 +126,7 @@ Unisys provides operational performance in Azure through its Bronze, Silver, Gol
 
 Principal authors:
 
-- [Philip Brooks](https://linkedin.com/in/philipbbrooks/) | Senior Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior Program Manager
 - [Adam Gallagher](mailto:Adam.Gallagher@Unisys.com) | Senior Solution Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
