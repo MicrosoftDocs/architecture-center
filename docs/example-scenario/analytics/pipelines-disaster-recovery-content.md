@@ -5,7 +5,7 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 ## Architecture
 
 :::image type="complex" border="false" source="media/pipelines-disaster-recovery.svg" alt-text="Diagram that shows availability zones and regions for Azure Synapse Analytics and Azure Data Factory pipelines BCDR." lightbox="media/pipelines-disaster-recovery.svg":::
-   The image shows two regions. The first region is labeled Git repo with CI/CD. It has three availability zones. A large section in the center of these zones contains four icons: Azure Data Factory, Azure Synapse Analytics pipelines, Azure Repos, and GitHub. The second region is an exact duplicate of the first region. An arrow labeled To meet business continuity and recovery goals points from the first region to the second region.
+   The image shows two regions. The first region is labeled Git repo with CI/CD. It has three availability zones. Azure Data Factory, Azure Synapse Analytics pipelines, Azure Repos, and GitHub span the three zones. The second region is an exact duplicate of the first region. An arrow labeled To meet business continuity and recovery goals points from the first region to the second region.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-synapse-data-factory.vsdx) of this architecture.*
@@ -16,17 +16,17 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 
   - Each Azure region has a set of datacenters that are deployed within a latency-defined perimeter.
 
-  - Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures.
+  - Azure availability zones are physically separate locations within each Azure region. The zones can tolerate local failures.
 
-  - All Azure regions and availability zones are connected through a dedicated, regional low-latency network and by a high-performance network.
+  - All Azure regions and availability zones are connected through a dedicated, regional low-latency network and a high-performance network.
 
   - All availability zone-enabled regions have at least three separate availability zones to ensure resiliency.
 
-- When a datacenter, part of a datacenter, or an availability zone in a region goes down, failover occurs with zero downtime for zone-resilient Azure Data Factory and Azure Synapse Analytics pipelines.
+- When a datacenter, part of a datacenter, or an availability zone in a region fails, zone-resilient Azure Data Factory and Azure Synapse Analytics pipelines fail over with zero downtime.
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help organizations manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a unified platform for big data and data warehousing that's designed to help organizations analyze vast amounts of data quickly and efficiently. [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) is a data integration and orchestration feature within Azure Synapse Analytics that you can use to build, manage, and automate workflows for moving and transforming data. In this architecture, Azure Synapse Analytics pipelines manage data workflows and support BCDR by enabling zone-redundancy, integration with Git repositories, and automated or user-managed recovery approaches.
 
@@ -44,13 +44,13 @@ Azure Data Factory and Azure Synapse Analytics pipelines store artifacts that in
 
 Disasters can occur in various forms, such as hardware failures, natural events, or software failures caused by human error or cyberattacks. Depending on the type of failure, the geographic impact might be regional or global. When you plan a DR strategy, consider both the nature of the disaster and its potential geographic scope.
 
-BCDR in Azure operates under a shared responsibility model. Azure provides the foundational infrastructure and platform services, but many Azure offerings require customers to actively configure their DR strategies.
+BCDR in Azure operates under a shared responsibility model. Azure provides the foundational infrastructure and platform services, but many Azure offerings require you to actively configure your DR strategies.
 
 You can use the following recommended practices to achieve BCDR for Azure Data Factory and Azure Synapse Analytics pipelines under various failure scenarios. For implementation, see [Deploy this scenario](#deploy-this-scenario).
 
 ### Automated recovery with Azure DR
 
-With automated recovery supporting backup and DR, a complete outage in an Azure region that has a paired region triggers Azure Data Factory or Azure Synapse Analytics pipelines to automatically fail over to the paired region after [automated recovery is configured](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
+When you [configure automated recovery](#deploy-this-scenario) with backup and DR, a complete outage in an Azure region that has a paired region triggers Azure Data Factory or Azure Synapse Analytics pipelines to automatically fail over to the paired region. Exceptions include Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
 In DR failover, Azure Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage and compare the recovered pipelines to the backups.
 
@@ -58,9 +58,9 @@ The Azure Global team conducts regular BCDR drills, and Azure Data Factory and A
 
 ### User-managed redundancy with CI/CD
 
-To achieve BCDR if a complete regional failure occurs, you must have an Azure Data Factory or an Azure Synapse workspace provisioned in a secondary region. In cases of accidental deletion, service outages, or internal maintenance events affecting Azure Data Factory or Azure Synapse Analytics pipelines, you can recover the pipelines manually by using Git integration and CI/CD workflows.
+To achieve BCDR if a complete regional failure occurs, you must have an Azure Data Factory or Azure Synapse workspace provisioned in a secondary region. In cases of accidental deletion, service outages, or internal maintenance events affecting Azure Data Factory or Azure Synapse Analytics pipelines, you can recover the pipelines manually by using Git integration and CI/CD workflows.
 
-Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active. Promoting the secondary DR region to the primary region requires pre-planned steps that vary according to the specific implementation. These steps ensure a smooth transition and minimal disruption if a regional failure occurs. In this case, all the necessary configurations for infrastructure are available in the secondary region, but they aren't provisioned.
+Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active. Promoting the secondary DR region to the primary region requires preplanned steps that vary according to the specific implementation. These steps ensure a smooth transition and minimal disruption if a regional failure occurs. In this case, all the necessary configurations for infrastructure are available in the secondary region, but they aren't provisioned.
 
 ### Potential use cases
 
@@ -81,7 +81,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Azure Data Factory and Azure Synapse Analytics pipelines are mainstream Azure services that support availability zones. They're designed to provide the right level of resiliency and flexibility along with ultra-low latency.
 
-The user-managed recovery approach allows you to continue operations if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, the data factory and Azure Synapse Analytics pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
+The user-managed recovery approach allows you to continue operations if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, Azure Data Factory and Azure Synapse Analytics pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
 
 ### Cost Optimization
 
@@ -112,13 +112,13 @@ In Azure Data Factory, you can set the Azure IR region for your activity run or 
    The image shows a screenshot of Auto Resolve in Azure Data Factory. The top of the page shows IR setup. There are three tabs: Settings, Virtual Network, and Data flow runtime. The page is toggled to Settings. A short description reads: The Azure Data Factory manages the IR in Azure to connect to required data source/destination or external compute in public network. The compute resource is elastic allocated based on performance requirement of activities. Beneath this short description are four fields: Name, Description, Type, and Region. The Name field is populated with integrationRuntime1. The Description field is empty. The Type field is populated with Azure. The Region field is populated with Auto Resolve and shows a drop-down menu that filters out regions.
 :::image-end:::
 
-In the context of the IRs, IR fails over automatically to the paired region when you select **Auto Resolve** as the IR region. For other specific location regions, you can create a secondary data factory in another region and use CI/CD to provision your data factory from the Git repository.
+When you select **Auto Resolve** as the IR region, the IR fails over automatically to the paired region. For other specific location regions, you can create a secondary data factory in another region and use CI/CD to provision your data factory from the Git repository.
 
-- For managed virtual networks, users need to manually switch to the secondary region.
+- For managed virtual networks, you must manually switch to the secondary region.
 
-- Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR) because the infrastructure is customer-managed. For guidance about how to set up multiple nodes for higher availability by using SHIR, see [Create and configure a SHIR](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
+- Azure managed automatic failover doesn't apply to a self-hosted integration runtime (SHIR) because the infrastructure is customer-managed. For guidance about how to set up multiple nodes for higher availability by using a SHIR, see [Create and configure a SHIR](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
 
-- To configure BCDR for Azure SQL Server Integration Services Integration Runtime IR, see [Configure Azure-SSIS IR for BCDR](/azure/data-factory/configure-bcdr-azure-ssis-integration-runtime).
+- To configure BCDR for Azure SQL Server Integration Services (Azure-SSIS) IR, see [Configure Azure-SSIS IR for BCDR](/azure/data-factory/configure-bcdr-azure-ssis-integration-runtime).
 
 Linked services aren't fully enabled after failover because of pending private endpoints in the newer network of the region. You need to configure private endpoints in the recovered region. You can automate private endpoint creation by using the [approval API](/powershell/module/az.network/approve-azprivateendpointconnection).
 
@@ -128,19 +128,19 @@ You can use Git and CI/CD to recover pipelines manually if an Azure Data Factory
 
 - To use Azure Data Factory pipeline CI/CD, see [CI/CD in Azure Data Factory](/azure/data-factory/continuous-integration-delivery) and [Source control in Azure Data Factory](/azure/data-factory/source-control).
 
-- To use Azure Synapse Analytics pipeline CI/CD, see [CI/CD for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery). Make sure to initialize the Azure Synapse Analytics workspace first. For more information, see [Source control in Synapse Studio](/azure/synapse-analytics/cicd/source-control).
+- To use Azure Synapse Analytics pipeline CI/CD, see [CI/CD for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery). Make sure to initialize the workspace first. For more information, see [Source control in Synapse Studio](/azure/synapse-analytics/cicd/source-control).
 
 When you deploy user-managed redundancy by using CI/CD, take the following actions.
 
 #### Disable triggers
 
-Disable triggers in the original primary data factory after it comes back online. You can disable the triggers manually, or implement automation to periodically check the availability of the original primary data factory. Disable all triggers on the original primary data factory immediately after the factory recovers.
+Disable triggers in the original primary data factory after it comes back online. You can disable the triggers manually or implement automation to periodically check the availability of the original primary data factory. Disable all triggers on the original primary data factory immediately after the factory recovers.
 
-To use Azure PowerShell to turn Azure Data Factory triggers off or on, see [Sample pre- and post-deployment script](/azure/data-factory/continuous-integration-delivery-sample-script) and [CI/CD improvements related to pipeline triggers deployment](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064).
+To use Azure PowerShell to turn Azure Data Factory triggers off or on, see [Sample pre-deployment and post-deployment script](/azure/data-factory/continuous-integration-delivery-sample-script) and [CI/CD improvements related to pipeline triggers deployment](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064).
 
 #### Handle duplicate writes
 
-Most extract, transform, and load pipelines are designed to handle duplicate writes because backfill and restatement require them. Data sinks that support transparent failover can handle duplicate writes with records merge or by deleting and inserting all records in the specific time range.
+Most extract, transform, and load pipelines are designed to handle duplicate writes because backfill and restatement processes require them. Data sinks that support transparent failover can handle duplicate writes by merging records or by deleting and inserting all records in the specific time range.
 
 For data sinks that change endpoints after failover, primary and secondary storage might have duplicate or partial data. You need to merge the data manually.
 
@@ -148,7 +148,7 @@ For data sinks that change endpoints after failover, primary and secondary stora
 
 In general, you need to design your pipelines to include activities, like fail and lookup activities, for restarting failed pipelines from the point of interest.
 
-1. Add a global parameter in your data factory to indicate the region, such as `region='EastUS'` in the primary region and `region='CentralUS'` in the secondary data factory.
+1. Add a global parameter in your data factory to indicate the region, such as `region='EastUS'` in the primary data factory and `region='CentralUS'` in the secondary data factory.
 
 1. Create a witness in a third region. The witness can be a REST call or any type of storage. The witness returns the current primary region, such as `'EastUS'`, by default.
 
@@ -158,7 +158,7 @@ In general, you need to design your pipelines to include activities, like fail a
 
    - If the parameters match, this pipeline runs on the primary region. Proceed with the real work.
 
-   - If the parameters don't match, this pipeline runs on the secondary region. Just return the result.
+   - If the parameters don't match, this pipeline runs on the secondary region. Only return the result.
 
 > [!NOTE]
 > This approach introduces a dependency on the witness lookup into your pipeline. Failure to read the witness halts all pipeline runs.
