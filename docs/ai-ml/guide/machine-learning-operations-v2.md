@@ -258,7 +258,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage.
 
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs.
+- [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs.
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a service that ingests data streams that client applications generate. It then ingests and stores streaming data, which preserves the sequence of events received. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
