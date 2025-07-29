@@ -227,7 +227,6 @@ The following new and updated articles have recently been published in the Azure
 - [Foundations of Assessing Harm](./guide/responsible-innovation/harms-modeling/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
 - [Responsible Engineering Overview](./guide/responsible-innovation/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#5b28fa3068](https://github.com/MicrosoftDocs/architecture-center/commit/5b28fa3068))
-- [Load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0a441feecd](https://github.com/MicrosoftDocs/architecture-center/commit/0a441feecd))
 - [Design for Operations](./guide/design-principles/design-for-operations.md)  ([#4abcb44a53](https://github.com/MicrosoftDocs/architecture-center/commit/4abcb44a53))
 - [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#be5522b006](https://github.com/MicrosoftDocs/architecture-center/commit/be5522b006))
 - [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#7d45a953e1](https://github.com/MicrosoftDocs/architecture-center/commit/7d45a953e1))
