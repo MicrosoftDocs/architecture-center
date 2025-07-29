@@ -1115,8 +1115,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
-      - name: Multiple Active Directory forests
-        href: example-scenario/azure-virtual-desktop/multi-forest.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework
