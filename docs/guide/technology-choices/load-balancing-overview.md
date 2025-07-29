@@ -1,6 +1,6 @@
 ---
-title: Load-Balancing Options
-description: Learn about Azure load-balancing services and considerations to select one for distributing traffic across multiple computing resources.
+title: Load Balancing Options
+description: Learn about Azure load balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/10/2025
@@ -8,51 +8,51 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
 
-# Load-balancing options
+# Load balancing options
 
 The term *load balancing* refers to the distribution of processing across multiple computing resources. You load balance to optimize resource usage, maximize throughput, minimize response time, and prevent overloading any single resource. Load balancing can also improve availability by sharing a workload across redundant computing resources.
 
-Azure provides various load-balancing services that you can use to distribute your workloads across multiple computing resources. These services include Azure API Management, Azure Application Gateway, Azure Front Door, Azure Load Balancer, and Azure Traffic Manager.
+Azure provides various load balancing services that you can use to distribute your workloads across multiple computing resources. These services include Azure API Management, Azure Application Gateway, Azure Front Door, Azure Load Balancer, and Azure Traffic Manager.
 
-This article describes considerations to help you determine an appropriate load-balancing solution for your workload's needs.
+This article describes considerations to help you determine an appropriate load balancing solution for your workload's needs.
 
-## Azure load-balancing services
+## Azure load balancing services
 
-The following main load-balancing services are available in Azure:
+The following main load balancing services are available in Azure:
 
-- [API Management](/azure/api-management/api-management-key-concepts) is a managed service that you can use to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can be configured to load balance traffic across nodes in a designated load-balanced back-end pool. You can choose from three different load-balancing methods: round-robin, weighted, and priority-based.
+- [API Management](/azure/api-management/api-management-key-concepts) is a managed service that you can use to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can be configured to load balance traffic across nodes in a designated load balanced back-end pool. You can choose from three different load balancing methods: round-robin, weighted, and priority-based.
 
   > [!IMPORTANT]
-  > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional features within its broader API management functionality. API Management is included in this article for completeness because it does provide load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
+  > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional within its broader API management functionality. API Management is included in this article for completeness because it provides load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
 
-- [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer. It provides application delivery controller functionality as a managed service. It also provides various Layer-7 load-balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+- [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer. It provides application delivery controller functionality as a managed service. It also provides various Layer-7 load balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer-7 capabilities for your application such as Secure Sockets Layer (SSL) offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
 - [Load Balancer](/azure/load-balancer/load-balancer-overview) is a Layer-4 service that handles inbound and outbound traffic across all User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. It's designed for high performance and ultra-low latency. It's built to handle millions of requests per second while ensuring that your solution is highly available. Load Balancer is zone redundant, which ensures high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
 
-- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a Domain Name System (DNS)-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door. DNS caching and systems that ignore DNS time-to-live (TTL) values often cause this delay.
+- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a Domain Name System (DNS)-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door. DNS caching and systems that ignore DNS time-to-live (TTL) values often cause this delay.
 
 > [!NOTE]
 > Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service (AKS), contain load balancing constructs. These constructs operate mostly within the scope of their own cluster boundary. They route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
 
 ## Service categorizations
 
-Azure load-balancing services can be categorized along two dimensions: global versus regional and HTTP(S) versus non-HTTP(S).
+Azure load balancing services can be categorized along two dimensions: global versus regional and HTTP(S) versus non-HTTP(S).
 
 ### Global versus regional
 
-- **Global:** These load-balancing services distribute traffic across regional back ends, clouds, or hybrid on-premises services. They provide a single control plane that routes user traffic to available back ends globally. These services react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale units hosted across different regions or geographies.
+- **Global:** These load balancing services distribute traffic across regional back ends, clouds, or hybrid on-premises services. They provide a single control plane that routes user traffic to available back ends globally. These services react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale units hosted across different regions or geographies.
 
-- **Regional:** These load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
+- **Regional:** These load balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S):** These load-balancing services are [Layer-7](https://www.iso.org/ics/35.100.70/x/) load balancers that accept only HTTP(S) traffic. They're designed for web applications or other HTTP(S) endpoints. Features include SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S):** These load balancing services are [Layer-7](https://www.iso.org/ics/35.100.70/x/) load balancers that accept only HTTP(S) traffic. They're designed for web applications or other HTTP(S) endpoints. Features include SSL offload, web application firewall, path-based load balancing, and session affinity.
 
-- **Non-HTTP(S):** These load-balancing services include [Layer-4](https://www.iso.org/ics/35.100.40/x/) TCP, UDP, or DNS-based load balancing services.
+- **Non-HTTP(S):** These load balancing services include [Layer-4](https://www.iso.org/ics/35.100.40/x/) TCP, UDP, or DNS-based load balancing services.
 
-The following table summarizes the Azure load-balancing services.
+The following table summarizes the Azure load balancing services.
 
 | Service             | Global or regional | Recommended traffic |
 | :--- | :--- | :---  |
@@ -69,17 +69,17 @@ The following table summarizes the Azure load-balancing services.
 
 Consider the following factors when you select a load balancing solution:
 
-- **Traffic type:** Is it a web HTTP(S) application? Is it public facing or a private application?
+- **Traffic type:** Determine whether it's a web HTTP(S) application and whether it is public facing or a private application.
 
-- **Global versus regional:** Do you need to load balance VMs or containers within a single virtual network, load balance scale units or deployments across regions, or both?
+- **Global versus regional:** Clarify whether you need to load balance VMs or containers within a single virtual network, load balance scale units or deployments across regions, or both.
 
-- **Availability:** What's the [service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)?
+- **Availability:** Review the [service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-- **Cost:** In addition to the cost of the service itself, consider the operational cost for managing a solution built on that service. For more information, see [Azure pricing](https://azure.microsoft.com/pricing/). 
+- **Cost:** Account for the cost of the service itself, as well as the operational cost of managing a solution built on that service. For more information, see [Azure pricing](https://azure.microsoft.com/pricing/).
 
-- **Features and limits:** What capabilities does each service support, and what are the [service limits](/azure/azure-subscription-service-limits) of each service?
+- **Features and limits:** Identify the capabilities supported by each service and the applicable [service limits](/azure/azure-subscription-service-limits).
 
-The following flow chart helps you choose a load-balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
+The following flow chart helps you choose a load balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
 
 > [!TIP]
 > You can use Microsoft Copilot in the Azure portal to help guide you through this decision similar to the flow chart. In Copilot, enter **Help me choose a load balancer.** By answering the questions from Copilot, you can narrow down your load balancing options.
@@ -90,7 +90,7 @@ Every application has unique requirements not captured in simple decision trees.
    The image shows a branched flowchart in which each path leads to a load balancing solution. The first path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, then to Load Balancer via another No arrow. The second path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, points to Global/deployed in multiple regions via the Yes arrow, and then to Load Balancer via the No arrow. The third path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, points to Global/deployed in multiple regions via the Yes arrow, then to Traffic Manager and Load Balancer via the Yes arrow. The fourth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Hosting only APIs via the No arrow, to API Management via the Yes arrow. The fifth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Hosting only APIs via the No arrow, to Application Gateway via the No arrow. The sixth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Azure Front Door and Application Gateway via the Yes arrow. The seventh path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Azure Front Door and API Management via the Only APIs arrow. The eighth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door via the PaaS arrow. The ninth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door and Application Gateway ingress controller via the AKS arrow. The tenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door and Load Balancer via the IaaS VMs arrow. The eleventh path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway via the No arrow. The twelfth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Do you require SSL offload or application-layer processing per request via the Yes arrow, to Azure Front Door and Application Gateway via the Yes arrow. The thirteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Do you require SSL offload or application-layer processing per request via the Yes arrow, to Azure Front Door and API Management via the Only APIs arrow. The fourteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway via the No arrow. The fifteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway and API Management via the Only APIs arrow.
 :::image-end:::
 
-When your workload includes several services that require load balancing, assess each service individually. An effective setup often uses more than one type of load-balancing solution. You might incorporate these solutions at different places in your workload's architecture to serve unique functions or roles.
+When your workload includes several services that require load balancing, assess each service individually. An effective setup often uses more than one type of load balancing solution. You might incorporate these solutions at different places in your workload's architecture to serve unique functions or roles.
 
 ### Definitions
 
@@ -124,7 +124,7 @@ When your workload includes several services that require load balancing, assess
 
 ### Other considerations
 
-Each load balancing service also has capability support or implementation details that you should consider. Here are some examples that might be relevant for your load-balancing scenario:
+Each load balancing service also has capability support or implementation details that you should consider. Here are some examples that might be relevant for your load balancing scenario:
 
 - WebSockets support
 - Server-sent events support
@@ -139,7 +139,7 @@ Some load balancing options in Azure allow you to offload capabilities from the 
 
 ## Examples
 
-The following table lists various articles based on the load-balancing services used in the solution.
+The following table lists various articles based on the load balancing services used in the solution.
 
 | Services        | Article | Description |
 | :-------------- | :------ | :---------- |
