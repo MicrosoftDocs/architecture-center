@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/22/2025
+ms.date: 07/28/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure Private Link in a Hub-and-Spoke Network](./networking/guide/private-link-hub-spoke-network.md)
 - [Use API Management to Protect Access Tokens in Single-Page Applications](./web-apps/guides/security/secure-single-page-application-authorization.md)
 - [Patterns for Inter-Spoke Networking](./networking/guide/spoke-to-spoke-networking.md)
 - [Organize Azure Resources in Multitenant Solutions](./guide/multitenant/approaches/resource-organization.md)
@@ -47,6 +48,9 @@ The following new and updated articles have recently been published in the Azure
 - [Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices](./guide/iot/scale-iot-solution-azure.md)  ([#a1277eba93](https://github.com/MicrosoftDocs/architecture-center/commit/a1277eba93))
 - [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
 - [Cloud Design Patterns](./patterns/index.md)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
+- [Design for self healing](./guide/design-principles/self-healing.md)  ([#3e62723717](https://github.com/MicrosoftDocs/architecture-center/commit/3e62723717))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#ed02f09c26](https://github.com/MicrosoftDocs/architecture-center/commit/ed02f09c26))
+- [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#910a86755b](https://github.com/MicrosoftDocs/architecture-center/commit/910a86755b))
 - [Choose a Kubernetes at the Edge Compute Option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)  ([#723bb4b356](https://github.com/MicrosoftDocs/architecture-center/commit/723bb4b356))
 - [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#0ea839f349](https://github.com/MicrosoftDocs/architecture-center/commit/0ea839f349))
 - [Protect APIs with Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
@@ -66,7 +70,6 @@ The following new and updated articles have recently been published in the Azure
 - [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#c89a4b5fc6](https://github.com/MicrosoftDocs/architecture-center/commit/c89a4b5fc6))
 - [DataOps for the modern data warehouse](./databases/architecture/dataops-mdw.yml)  ([#3311f07b38](https://github.com/MicrosoftDocs/architecture-center/commit/3311f07b38))
 - [Considerations for Updating a Multitenant Solution](./guide/multitenant/considerations/updates.md)  ([#9decc8bdf3](https://github.com/MicrosoftDocs/architecture-center/commit/9decc8bdf3))
-- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#cddc9e4a61](https://github.com/MicrosoftDocs/architecture-center/commit/cddc9e4a61))
 - [Guidance for using Azure Database for PostgreSQL in a multitenant solution](./guide/multitenant/service/postgresql.md)  ([#d07ac6f724](https://github.com/MicrosoftDocs/architecture-center/commit/d07ac6f724))
 - [How to Use Azure NAT Gateway in a Multitenant Solution](./guide/multitenant/service/nat-gateway.md)  ([#9b2f30972c](https://github.com/MicrosoftDocs/architecture-center/commit/9b2f30972c))
 - [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md)  ([#53d19ea22c](https://github.com/MicrosoftDocs/architecture-center/commit/53d19ea22c))
@@ -225,6 +228,7 @@ The following new and updated articles have recently been published in the Azure
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md)  ([#ade25804b5](https://github.com/MicrosoftDocs/architecture-center/commit/ade25804b5))
 - [Foundations of Assessing Harm](./guide/responsible-innovation/harms-modeling/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
 - [Responsible Engineering Overview](./guide/responsible-innovation/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
+- [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)  ([#4eae6ed023](https://github.com/MicrosoftDocs/architecture-center/commit/4eae6ed023))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#5b28fa3068](https://github.com/MicrosoftDocs/architecture-center/commit/5b28fa3068))
 - [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#0a441feecd](https://github.com/MicrosoftDocs/architecture-center/commit/0a441feecd))
 - [Design for Operations](./guide/design-principles/design-for-operations.md)  ([#4abcb44a53](https://github.com/MicrosoftDocs/architecture-center/commit/4abcb44a53))
@@ -280,4 +284,5 @@ The following new and updated articles have recently been published in the Azure
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
 - [Cloud Design Patterns](./patterns/index.md)  ([#03c62aa25d](https://github.com/MicrosoftDocs/architecture-center/commit/03c62aa25d))
 - [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#70840c3465](https://github.com/MicrosoftDocs/architecture-center/commit/70840c3465))
+- [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#3882965be5](https://github.com/MicrosoftDocs/architecture-center/commit/3882965be5))
 

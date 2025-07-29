@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-07-22T22:31:37.264Z</updated>
+    <updated>2025-07-28T18:29:58.011Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Private Link in a Hub-and-Spoke Network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/private-link-hub-spoke-network</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/private-link-hub-spoke-network"/>
+        <updated>2025-07-23T17:15:25.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Use API Management to Protect Access Tokens in Single-Page Applications]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization</id>
@@ -185,6 +193,30 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Design for self healing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/self-healing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/self-healing"/>
+        <updated>2025-07-28T17:50:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn to design resilient applications that can recover from failures without manual intervention through self-healing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
+        <updated>2025-07-27T23:12:53.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microservices Architecture on Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
+        <updated>2025-07-25T20:05:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Choose a Kubernetes at the Edge Compute Option]]></title>
         <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option</id>
         <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option"/>
@@ -334,14 +366,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/updates"/>
         <updated>2025-07-14T20:53:34.000Z</updated>
         <summary type="html"><![CDATA[Learn about update strategies for multitenant solutions, including deployment approaches, tenant requirements, and maintenance windows.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
-        <updated>2025-07-11T14:51:20.000Z</updated>
-        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1417,6 +1441,14 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Migrate Cloud Workloads Across Security Tenants]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants"/>
+        <updated>2025-04-01T22:10:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Migrate Mainframe Data to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
@@ -1854,6 +1886,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
         <updated>2025-04-03T18:15:22.000Z</updated>
         <summary type="html"><![CDATA[Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Front Door to Secure AKS Workloads]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-front-door/aks-front-door"/>
+        <updated>2025-04-01T22:22:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
