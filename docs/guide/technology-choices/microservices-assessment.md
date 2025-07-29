@@ -18,7 +18,7 @@ This article describes some considerations to keep in mind when you move to a mi
 
 ## Understand business priorities
 
-To evaluate a microservices architecture, you need to first understand the core priorities of your business. Core priorities might be related to agility, change adoption, or rapid development, for example. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups, but after a few years, the core priorities might be reliability and efficiency.
+To evaluate a microservices architecture, you need to first understand the core priorities of your business. For example, core priorities might be related to agility, change adoption, or rapid development. You need to analyze whether your architecture is a good fit for your core priorities. Keep in mind that business priorities can change over time. For example, innovation is a top priority for startups. However, after a few years, the core priorities might be reliability and efficiency.
 
 Consider the following priorities:
 
@@ -36,7 +36,7 @@ Consider the following factors:
 
 - Whether shared governance is in place to guide architecture decisions across teams
 
-- Whether you maintain architecture decision records (ADRs) with clear rationale, trade-offs, and status
+- Whether you maintain architecture decision records (ADRs) that include clear rationale, trade-offs, and status
 
 - Whether you maintain an architecture journal to capture design explorations and evolving context
 
@@ -58,9 +58,9 @@ Consider the following factors:
 
 - Whether your teams are cross-functional and have enough capacity to build and operate related microservices independently
 
-- How much time is spent in unplanned activities and tasks that aren't related to projects
+- The amount of time that's spent in unplanned activities and tasks that aren't related to projects
 
-- How much time is spent in cross-team collaboration
+- The amount of time that's spent in cross-team collaboration
 
 - Whether you have a process for identifying and minimizing technical debt
 
@@ -68,13 +68,13 @@ Consider the following factors:
 
 ## Use the Twelve-Factor methodology
 
-The fundamental goal of choosing a microservices architecture is to deliver value faster and adapt to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
+The fundamental goal of choosing a microservices architecture is to deliver value faster and adapt to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for how to build maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
 
 ## Understand the decomposition approach
 
-Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily separated from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.yml) to keep the monolithic applications in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
+Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily separated from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.md) and [Anti-Corruption Layer](../../patterns/anti-corruption-layer.yml) to keep the monolithic applications in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
 
-For example, an e-commerce system might have modules like cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. You can make the notification module a separate microservice, but you also need to update the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-corruption Layers to support this transformation.
+For example, an e-commerce system might have modules like cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. You can make the notification module a separate microservice, but you also need to update the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler Fig and Anti-Corruption Layer to support this transformation.
 
 Data synchronization, multiple writes to both monolithic and microservice interfaces, data ownership, schema decomposition, joins, volume of data, and data integrity might make data breakdown and migration difficult. There are several techniques that you can use, like keeping a shared database between microservices, decoupling databases from a group of services based on business capability or domain, and isolating databases from the services. An ideal solution is to decompose each database with each service. Some circumstances might make that approach impractical. In these cases, you can apply patterns like the [Materialized View pattern](/azure/architecture/patterns/materialized-view) and approaches such as [application modernization by using an API wrapper](/azure/app-modernization-guidance/expand/modernize-applications-using-an-api-wrapper) to abstract and modernize access to legacy or shared data.
 
@@ -118,7 +118,7 @@ Consider the following factors:
 
 - Whether the service follows DDD principles
 
-- Whether the service follows SOLID principles
+- Whether the service follows single responsibility, open-closed, Liskov substitution, interface segregation, and dependency inversion (SOLID) principles 
 
 - Whether the database is private to the service
 
@@ -126,7 +126,7 @@ Consider the following factors:
 
 ## Assess infrastructure readiness
 
-When you shift to a microservices architecture, infrastructure readiness is a critical point to consider. Improper setup of the infrastructure or not using the appropriate services or components affect the application's performance, availability, and scalability. You might use all of the suggested methodologies and procedures to create an application, but if the infrastructure is inadequate, the application might perform poorly and require extra maintenance. 
+When you shift to a microservices architecture, infrastructure readiness is a critical point to consider. Improper setup of the infrastructure or not using the appropriate services or components affects the application's performance, availability, and scalability. You might use all of the suggested methodologies and procedures to create an application. However, if the infrastructure is inadequate, the application might perform poorly and require extra maintenance. 
 
 Consider the following factors when you evaluate your infrastructure readiness:
 
@@ -154,21 +154,21 @@ Consider the following factors when you evaluate your infrastructure readiness:
 
 Microservices can adapt to change and take advantage of agile development to shorten release cycles and bring value to customers faster. Consider the following factors when you evaluate your release cycles:
 
-- How often you build and release applications
+- How often you build and release applications.
 
-- How often your releases fail after deployment
+- How often your releases fail after deployment.
 
-- How long it takes to recover or remediate problems after an outage
+- How long it takes to recover or remediate problems after an outage.
 
-- Whether you use semantic versioning for your applications
+- Whether you use semantic versioning for your applications.
 
-- Whether you maintain different environments and propagate the same release in a sequence, for example, first to staging and then to production
+- Whether you maintain different environments and propagate the same release in a sequence. For example, you release to staging first and then to production.
 
-- Whether you use versioning for your APIs
+- Whether you use versioning for your APIs.
 
-- Whether you follow proper [versioning guidelines](/azure/architecture/best-practices/api-design#implement-versioning) for APIs
+- Whether you follow proper [versioning guidelines](/azure/architecture/best-practices/api-design#implement-versioning) for APIs.
 
-- When you change an API version
+- When you change an API version.
 
 - What your approach to handling API versioning is, including:
 
@@ -177,7 +177,7 @@ Microservices can adapt to change and take advantage of agile development to sho
    - Content-type versioning.
    - Custom header versioning.
 
-- Whether you have a practice in place for event versioning
+- Whether you have a practice in place for event versioning.
 
 ## Assess communication across services
 
@@ -205,7 +205,7 @@ Consider the following factors:
 
 - Whether you use the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices.
 
-- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
+- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
 
 - Whether you have defined domain events to facilitate communication between microservices.
 
@@ -217,7 +217,7 @@ Consider the following factors:
 
 - Whether clients directly consume the services
 
-- Whether an API gateway acts as a facade for all of the services
+- Whether an API gateway serves as a unified facade for all of the services
 
 - Whether you implement the [Backends for Frontends (BFF) pattern](/azure/architecture/patterns/backends-for-frontends) for different client types
 
@@ -235,7 +235,7 @@ Distributed transactions help run multiple operations as a single unit of work. 
 
 Consider the following factors:
 
-- How many distributed transactions are in the system
+- The number of distributed transactions in the system
 
 - How you handle distributed transactions, including the use of the [Saga pattern](/azure/architecture/reference-architectures/saga/saga) with orchestration or choreography
 
@@ -279,7 +279,7 @@ When you assess your deployment plan, consider the following factors:
 
 - What kind of collaboration that teams require when you deploy services
 
-- Whether you provision infrastructure by using Infrastructure as Code (IaC)
+- Whether you provision infrastructure by using infrastructure as code (IaC)
 
 - Whether you follow immutable infrastructure principles
 
@@ -303,7 +303,7 @@ Consider the following factors:
 
 - Whether you understand the SLAs that various hosting platforms provide
 
-- Whether your hosting platform supports disaster recovery
+- Whether your hosting platform supports DR
 
 ## Assess services monitoring
 
@@ -313,7 +313,7 @@ Consider the following factors:
 
 - Whether you monitor your deployed services
 
-- Whether you have SLOs defined
+- Whether you have defined SLOs
 
 - Whether you have a logging mechanism, and what tools you use
 
@@ -337,9 +337,9 @@ In a microservices architecture, an application is composed of various microserv
 
 You can use correlation tokens to retrieve the request trail by identifying which services contain the correlation token and which don't. The services that don't have the correlation token for that request failed. If a failure occurs, you can retry the transaction. To enforce idempotency, only services that don't have the correlation token serve the request.
 
-For example, if you have a long chain of operations that involves many services, passing a correlation token to services can help you investigate problems easily if any of the services fail during a transaction. Each service usually has its own database. The correlation token is kept in the database record. If a transaction replays, services that have that specific correlation token in their databases ignore the request. Only services that don't have the token serve the request. 
+For example, if you have a long chain of operations that includes many services, passing a correlation token to services can help you investigate problems easily if any of the services fail during a transaction. Each service usually has its own database. The correlation token is kept in the database record. If a transaction replays, services that have that specific correlation token in their databases ignore the request. Only services that don't have the token serve the request. 
 
-Consider the following factors
+Consider the following factors:
 
 - At which stage you assign the correlation token
 
@@ -355,7 +355,7 @@ Consider the following factors
 
 A microservices chassis framework is a base framework that provides capabilities for cross-cutting concerns like logging, exception handling, distributed tracing, security, and communication. When you use a chassis framework, you focus more on implementing the service boundary than on interacting with infrastructure functionality.
 
-For example, say you're building a cart management service. You want to validate the incoming token, write logs to the logging database, and communicate with another service by invoking that service's endpoint. If you use a microservices chassis framework, you can reduce development efforts. Dapr is one system that provides various building blocks for implementing cross-cutting concerns.
+For example, say that you're building a cart management service. You want to validate the incoming token, write logs to the logging database, and communicate with another service by invoking that service's endpoint. If you use a microservices chassis framework, you can reduce development efforts. Dapr is one system that provides various building blocks for implementing cross-cutting concerns.
 
 Consider the following factors:
 
@@ -373,7 +373,7 @@ Consider the following factors:
 
 You typically test the application after development is complete and it's ready to roll out to user acceptance testing (UAT) and production environments. Consider testing earlier in the application development life cycle. This approach is known as shift-left testing. It increases the quality of applications because you do testing during each phase of the application development life cycle, including the design, development, and post-development phases.
 
-For example, when you build an application, you start by designing an architecture. When you use the shift-left approach, you test the design for vulnerabilities by using tools like [Microsoft Threat Modeling](/azure/security/develop/threat-modeling-tool). When you start development, you can scan your source code by running tools like static application security testing (SAST) and by using other analyzers to uncover problems. After you deploy the application, you can use tools like dynamic application security testing (DAST) to test it while it's hosted. Functional testing, chaos testing, penetration testing, and other kinds of testing happen later.
+For example, when you build an application, you start by designing an architecture. When you use the shift-left approach, you test the design for vulnerabilities by using tools like [Microsoft Threat Modeling](/azure/security/develop/threat-modeling-tool). When you start development, you can scan your source code by running tools like static application security testing (SAST) and by using other analyzers to uncover problems. After you deploy the application, you can use tools like dynamic application security testing (DAST) to test it while it's hosted. Functional testing, chaos testing, penetration testing, and other kinds of testing occur later.
 
 Consider the following factors:
 
@@ -401,7 +401,7 @@ Consider the following factors:
 
 Service protection, secure access, and secure communication are among the most important considerations for a microservices architecture. For example, a microservices-based system that spans multiple services and uses token validation for each service isn't a viable solution. This type of system affects the agility of the overall system and might introduce implementation drift across services.
 
-The API gateway and the application firewall usually handle security concerns. The gateway and firewall take incoming requests, validate tokens, and apply various filters and policies, like implementing OWASP Top 10 principles to intercept traffic. Finally, they send the request to the back-end microservices. This configuration helps developers focus on business needs rather than the cross-cutting concern of security.
+The API gateway and the application firewall usually handle security concerns. The gateway and firewall take incoming requests, validate tokens, and apply various filters and policies, like implementing OWASP Top 10 principles to intercept traffic. Finally, they send the request to the back-end microservices. This configuration helps developers focus on business needs instead of worrying about the cross-cutting concern of security.
 
 Consider the following factors:
 
