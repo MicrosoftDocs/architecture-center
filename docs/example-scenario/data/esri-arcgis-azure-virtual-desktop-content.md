@@ -189,4 +189,3 @@ Other contributor:
 
 - [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
-- [Multiple forests with AD DS and Microsoft Entra ID](../azure-virtual-desktop/multi-forest.yml)
