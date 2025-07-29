@@ -668,7 +668,7 @@ Basic, cluster-level networking metrics are available through native [platform a
 
 The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-container-networking-services-overview) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
