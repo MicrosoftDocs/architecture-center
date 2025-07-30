@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Load balancing options
 
-The term *load balancing* refers to the distribution of processing across multiple computing resources. You load balance to optimize resource usage, maximize throughput, minimize response time, and prevent overloading any single resource. Load balancing can also improve availability by sharing a workload across redundant computing resources.
+The term *load balancing* refers to the distribution of processing across multiple computing resources. You load balance to optimize resource usage, maximize throughput, minimize response time, and avoid overloading any single resource. Load balancing can also improve availability by sharing a workload across redundant computing resources.
 
 Azure provides various load balancing services that you can use to distribute your workloads across multiple computing resources. These services include Azure API Management, Azure Application Gateway, Azure Front Door, Azure Load Balancer, and Azure Traffic Manager.
 
@@ -18,7 +18,7 @@ This article describes considerations to help you determine an appropriate load 
 
 ## Azure load balancing services
 
-The following main load balancing services are available in Azure:
+The following main load balancing services and service with load balancing capabilities are available in Azure:
 
 - [API Management](/azure/api-management/api-management-key-concepts) is a managed service that you can use to publish, secure, transform, maintain, and monitor HTTP(S) APIs. It provides a gateway for your APIs and can be configured to load balance traffic across nodes in a designated load balanced back-end pool. You can choose from three different load balancing methods: round-robin, weighted, and priority-based.
 
@@ -50,7 +50,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 - **HTTP(S):** These load balancing services are [Layer-7](https://www.iso.org/ics/35.100.70/x/) load balancers that accept only HTTP(S) traffic. They're designed for web applications or other HTTP(S) endpoints. Features include SSL offload, web application firewall, path-based load balancing, and session affinity.
 
-- **Non-HTTP(S):** These load balancing services include [Layer-4](https://www.iso.org/ics/35.100.40/x/) TCP, UDP, or DNS-based load balancing services.
+- **Non-HTTP(S):** These load balancing services include [Layer-4](https://www.iso.org/ics/35.100.40/x/) TCP and UDP services, or DNS-based load balancing services.
 
 The following table summarizes the Azure load balancing services.
 
@@ -65,7 +65,7 @@ The following table summarizes the Azure load balancing services.
 > [!NOTE]
 > Traffic Manager and Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer-7 capabilities. Unlike Load Balancer, Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
 
-## Choose the most appropriate load balancing solution in Azure
+## Choose a load balancing solution for your scenario
 
 Consider the following factors when you select a load balancing solution:
 
