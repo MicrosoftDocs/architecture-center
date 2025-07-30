@@ -39,6 +39,7 @@ Relevant Microsoft service:
 
 - [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
 - [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+- [Microsoft Fabric Data Pipelines](/fabric/data-factory)
 
 ## Data flow and control flow
 
@@ -56,7 +57,7 @@ Relevant service:
 
 ## Streaming data and hot path architectures (push, transform, and load)
 
-When you have a need for Lambda hot path or Kappa architectures, another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
+When you have a need for [Lambda hot path or Kappa architectures](/databases/guide/big-data-architectures), another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
 
 ![Diagram of the push, transform, and load process.](../images/push-transform-load.png)
 
