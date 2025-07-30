@@ -11,7 +11,7 @@ azureCategories:
   - databases
   - integration
 products:
-  - azure-synapse-analytics
+  - fabric
   - azure-data-factory
 name: Extract, transform, and load (ETL)
 summary: Learn about extract, transform, load (ETL) and extract, load, transform (ELT) data transformation pipelines, and how to use control flows and data flows.

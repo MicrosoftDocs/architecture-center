@@ -15,9 +15,9 @@ The data transformation that takes place usually involves various operations, su
 
 Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
 
-Relevant Azure service:
+Relevant service:
 
-- [Azure Data Factory & Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
 Other tools:
 
@@ -33,23 +33,13 @@ Extract, load, transform (ELT) differs from ETL solely in where the transformati
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage, such as a Hadoop Distributed File System, an Azure blob store, or Azure Data Lake gen 2 (or a combination). Technologies, such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which often can be a time consuming operation for large data sets.
 
-In practice, the target data store is a [data warehouse](./data-warehousing.yml) using either a Hadoop cluster (using Hive or Spark) or a SQL dedicated pool on Azure Synapse Analytics. In general, a schema is overlaid on the flat file data at query time and stored as a table, enabling the data to be queried like any other table in the data store. These are referred to as external tables because the data does not reside in storage managed by the data store itself, but on some external scalable storage such as Azure Data Lake store or Azure blob storage.
-
-The data store only manages the schema of the data and applies the schema on read. For example, a Hadoop cluster using Hive would describe a Hive table where the data source is effectively a path to a set of files in HDFS. In Azure Synapse, PolyBase can achieve the same result &mdash; creating a table against data stored externally to the database itself. Once the source data is loaded, the data present in the external tables can be processed using the capabilities of the data store. In big data scenarios, this means the data store must be capable of massively parallel processing (MPP), which breaks the data into smaller chunks and distributes processing of the chunks across multiple nodes in parallel.
-
 The final phase of the ELT pipeline is typically to transform the source data into a final format that is more efficient for the types of queries that need to be supported. For example, the data may be partitioned. Also, ELT might use optimized storage formats like Parquet, which stores row-oriented data in a columnar fashion and provides optimized indexing.
 
-Relevant Azure service:
+Relevant Microsoft service:
 
-- [SQL dedicated pools on Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [SQL Serverless pools on Azure Synapse Analytics](/azure/synapse-analytics/get-started-analyze-sql-on-demand)
-- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Datamarts in Power BI](/power-bi/transform-model/datamarts/datamarts-overview)
-
-Other tools:
-
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+- [Microsoft Fabric Data Pipelines](/fabric/data-factory)
 
 ## Data flow and control flow
 
@@ -61,13 +51,24 @@ Control flows execute data flows as a task. In a data flow task, data is extract
 
 In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
-Relevant Azure service:
+Relevant service:
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
-Other tools:
+## Streaming data and hot path architectures (push, transform, and load)
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+When you have a need for [Lambda hot path or Kappa architectures](/azure/architecture/databases/guide/big-data-architectures), another option is to subscribe to various data sources as data is being generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
+
+![Diagram of the push, transform, and load process.](../images/push-transform-load.png)
+
+In a streaming architecture, data is ingested from event sources into a message broker or event hub (e.g., Azure Event Hubs, Kafka), then processed by a stream processor (e.g., Fabric Real-Time Intelligence, Azure Stream Analytics, Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing the results to downstream systems like dashboards, alerts, or databases.
+
+This approach is ideal for scenarios where low latency and continuous updates are critical, such as:
+
+- Monitoring manufacturing equipment for anomalies
+- Detecting fraud in financial transactions
+- Powering real-time dashboards for logistics or operations
+- Triggering alerts based on sensor thresholds
 
 ## Technology choices
 
@@ -78,13 +79,11 @@ Other tools:
 
 ## Next steps
 
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
-- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+> [!div class="nextstepaction"]
+> [Fabric decision guide for data transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
 
 ## Related resources
 
 The following reference architectures show end-to-end ELT pipelines on Azure:
 
-- [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 - [Databases architecture design](../../databases/index.yml)
