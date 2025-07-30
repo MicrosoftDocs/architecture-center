@@ -115,7 +115,7 @@ Kubernetes [volumes, persistent volumes, and persistent volume claims](https://k
 
 ## HA and DR
 
-In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.yml) are important.
+In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.md) are important.
 
 However, DR requires multiregion service deployment at the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
 
