@@ -10,6 +10,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Azure Updates process
 azure-update-report/**/*.md
 azure-update-report/**/*.json
 

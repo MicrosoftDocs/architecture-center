@@ -79,4 +79,4 @@ fi
 
 # Clean up temp file
 rm -f "$TEMP_FILE"
-echo "Success! Azure updates saved to: $OUTPUT_FILE"
+echo "Azure updates summary saved to: $OUTPUT_FILE"
