@@ -232,7 +232,7 @@ Virtual Machines node pools have the following limitations:
 
 ### Virtual nodes
 
-You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project.
+You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://virtual-kubelet.io/) project.
 
 Virtual node functionality depends on [Azure Container Instances](/azure/container-instances). For more information, see [Create and configure an AKS cluster to use virtual nodes](/azure/aks/virtual-nodes).
 

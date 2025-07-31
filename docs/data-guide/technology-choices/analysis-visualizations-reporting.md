@@ -77,7 +77,7 @@ The following table summarizes the key differences in capabilities.
 | Access to numerous open-source packages | No | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes <sup>4</sup> |
 | Data transformation or cleansing options | [Power Query](https://powerbi.microsoft.com/blog/getting-started-with-power-query-part-i/), R | 40 languages, including Python, R, Julia, and Scala | More than 20 interpreters, including Python, JDBC, and R | Python, F#, R |
 | Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options. | Free | Free | Free |
-| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (via sharing) |
+| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/)) | Yes | Yes (via sharing) |
 
 [1] When used as part of a managed HDInsight cluster.
 

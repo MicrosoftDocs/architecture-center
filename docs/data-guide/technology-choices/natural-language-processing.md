@@ -225,9 +225,8 @@ Principal authors:
 
 - Spark NLP documentation:
 
-  - [Spark NLP](https://nlp.johnsnowlabs.com/)
+  - [Spark NLP](https://sparknlp.org/)
   - [Spark NLP general documentation](https://sparknlp.org/docs/en/quickstart)
-  - [Spark NLP GitHub](https://github.com/JohnSnowLabs/spark-nlp)
   - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
   - [Spark NLP pipelines](https://sparknlp.org/docs/en/pipelines)
   - [Spark NLP annotators](https://sparknlp.org/docs/en/annotators#available-annotators)

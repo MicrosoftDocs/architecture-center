@@ -57,7 +57,7 @@ Generate a non-tabular report that summarizes updates found in the provided JSON
 
 - Use these classification guidelines - Well-Architected Framework pillars and sub-themes:
 
-  - **Reliability:** redundancy, fault tolerance, business continunity, disaster recovery
+  - **Reliability:** redundancy, fault tolerance, business continuity, disaster recovery
   - **Security:** Network security, identity and access management, data encryption, compliance
   - **Cost Optimization:** Data management, resource optimization, cost reduction
   - **Operational Excellence:** Maintenance management, deployment simplification, monitoring
