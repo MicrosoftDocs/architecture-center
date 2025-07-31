@@ -157,7 +157,7 @@ Document layout analysis libraries and services expose a model that represents t
 > [!NOTE]
 > Document Intelligence is a cloud-based service that requires you to upload your document. You need to ensure that your security and compliance regulations allow you to upload documents to such services.
 
-**Tools:** [Document Intelligence document analysis models](/azure/ai-services/document-intelligence/overview#general-extraction-models), [Donut](https://github.com/clovaai/donut/), [Layout Parser](https://github.com/Layout-Parser/layout-parser)<br/>
+**Tools:** [Document Intelligence document analysis models](/azure/ai-services/document-intelligence/overview#general-extraction-models), [Donut](https://github.com/clovaai/donut/), [Layout Parser](https://layout-parser.github.io/)<br/>
 **Engineering effort:** Medium<br/>
 **Processing cost:** Medium<br/>
 **Use cases:** Semi-structured documents<br/>
