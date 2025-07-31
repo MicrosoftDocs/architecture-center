@@ -34,7 +34,7 @@ The next diagram shows multiple clients calling a single service. Each client is
 - If using [tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd), partition boundaries should align with the bounded contexts.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
 - Consider combining bulkheads with retry, circuit breaker, and throttling patterns to provide more sophisticated fault handling.
-- When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://github.com/resilience4j/resilience4j) and [Polly][polly] offer a framework for creating consumer bulkheads.
+- When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://resilience4j.readme.io/docs/getting-started) and [Polly](https://www.pollydocs.org/) offer a framework for creating consumer bulkheads.
 - When partitioning services into bulkheads, consider deploying them into separate virtual machines, containers, or processes. Containers offer a good balance of resource isolation with fairly low overhead.
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 - Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
@@ -96,7 +96,3 @@ spec:
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.yml)
 - [Throttling pattern](./throttling.yml)
-
-<!-- links -->
-
-[polly]: https://github.com/App-vNext/Polly
