@@ -268,10 +268,6 @@ The cost of the resulting architecture depends on the following configuration de
 
 After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
 
-## Deploy this scenario
-
-An implementation for this scenario is available in [GitHub](https://github.com/azure-samples/private-aks-cluster-terraform-devops).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
