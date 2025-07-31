@@ -232,7 +232,7 @@ Virtual Machines node pools have the following limitations:
 
 ### Virtual nodes
 
-You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project.
+You can use virtual nodes to quickly scale out application workloads in an AKS cluster. Virtual nodes provide quick pod provisioning, and you only pay per second for runtime. You don't need to wait for the cluster autoscaler to deploy new worker nodes to run more pod replicas. Only Linux pods and nodes support virtual nodes. The virtual nodes add-on for AKS is based on the open-source [Virtual Kubelet](https://virtual-kubelet.io/) project.
 
 Virtual node functionality depends on [Azure Container Instances](/azure/container-instances). For more information, see [Create and configure an AKS cluster to use virtual nodes](/azure/aks/virtual-nodes).
 
@@ -546,7 +546,7 @@ Other contributors:
 
 - [AKS cluster best practices](/azure/aks/best-practices)
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
-- [Create a private AKS cluster by using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
 - [Create a public or private AKS cluster with Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
 - [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Create an AKS cluster with the Application Gateway Ingress Controller](https://github.com/Azure-Samples/aks-agic)

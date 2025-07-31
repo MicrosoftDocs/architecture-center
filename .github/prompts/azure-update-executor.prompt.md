@@ -22,7 +22,7 @@ You need access to the Azure Update Evaluator markdown report. Don't proceed unt
 
 ### Step 1: Article analysis process
 
-1. Scan all `.md` files in #codebase looking for articles that might have been impacted by the updates. To optimize your search use relevant keywords in the article content:
+1. Scan all `.md` files in #codebase looking for articles that might have been affected by the updates. To optimize your search use relevant keywords in the article content:
    - Service names (e.g., "ExpressRoute", "Azure Monitor")
    - Theme keywords (e.g., "maintenance", "security", "cost optimization")
    - Related concepts from the update description

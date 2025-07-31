@@ -118,7 +118,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 
 [!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
-Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight fault-tolerance library, to implement the Retry pattern in Java. The reference implementation adds the Retry pattern by decorating the service plan controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails. The retry policy for the reference implementation includes maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`.
+Use [Resilience4j](https://resilience4j.readme.io/docs/getting-started), a lightweight fault-tolerance library, to implement the Retry pattern in Java. The reference implementation adds the Retry pattern by decorating the service plan controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails. The retry policy for the reference implementation includes maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`.
 
 ```java
     @GetMapping("/list")
@@ -136,7 +136,7 @@ Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight 
 
 [!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
-Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3) to implement the Circuit Breaker pattern. The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
+Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j](https://resilience4j.readme.io/docs/getting-started) to implement the Circuit Breaker pattern. The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
 
 ### Implement the Cache-Aside pattern
 
