@@ -1,6 +1,6 @@
 ---
 title: Choose the right AI model for your workload
-description: Learn strategies to help you select the best model for you AI workload
+description: Learn strategies to help you select the best model for your AI workload
 author: claytonsiemens77
 ms.author: csiemens
 ms.date: 07/30/2025
@@ -16,7 +16,7 @@ In the rapidly evolving landscape of AI development, selecting the right model i
 
 ## Understanding your model's lifecycle
 
-Choosing a model isn't a one-time activity. In your proof of concept or prototype phase, you may choose a frontier model to start with to expedite the build-out. When you get to production, you might decide that a more specialized model, or even a small language model is a better fit. And as your workload evolves, you may find that the model you initially chose doesn't perform as you had expected, or the features you have planned aren't a good fit for that model. Likewise, to keep up with market advances, you might need to regularly swap your model out with new releases.
+Choosing a model isn't a one-time activity. In your proof of concept or prototype phase, you might choose a frontier model to start with to expedite the build-out. When you get to production, you might decide that a more specialized model, or even a small language model is a better fit. And as your workload evolves, you may find that the model you initially chose doesn't perform as anticipated, or your planned features aren't a good fit for that model. Likewise, to keep up with market advances, you might need to regularly swap out your model with new releases.
 
 ## Key criteria for model selection
 
@@ -43,7 +43,7 @@ Leaderboards and benchmarks offer comparative insights into model performance ac
 - Use tools like Hugging Face’s benchmark collections to assess models for language support, reasoning, and safety.
 - Evaluate models based on latency, token cost, and accuracy using side-by-side comparisons.
 
-## De-risking you model choice
+## Derisking you model choice
 
 To future-proof your architecture:
 
@@ -53,4 +53,4 @@ To future-proof your architecture:
 
 ## Fine-tuning and distillation
 
-In many cases, you'll need to do some amount of fine-tuning to train your model on your dataset. This might influence your model choice as some models don't support fine-tuning. Distillation refers to using a model trained on your dataset to train another model, usually a smaller, specialized model. This practice allows you to build a more efficient workload, increasing performance and decreasing costs. As with fine-tuning, some models don't support distillation, so consider this as you plan your workload design.
+In many cases, you'll need to do some amount of fine-tuning to train your model on your dataset. This requirement might influence your model choice as some models don't support fine-tuning. Distillation refers to using a model trained on your dataset to train another model, usually a smaller, specialized model. This practice allows you to build a more efficient workload, increasing performance and decreasing costs. As with fine-tuning, some models don't support distillation, so consider this requirement as you plan your workload design.
