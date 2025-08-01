@@ -11,6 +11,7 @@ Use the following flowchart to select a candidate compute service.
 This diagram refers to two migration strategies:
 
 - **Lift and shift**: A strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
+
 - **Cloud optimized**: A strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
 The output from this flowchart is your starting point. Next, evaluate the service to see if it meets your needs.
@@ -24,14 +25,23 @@ If your application consists of multiple workloads, evaluate each workload separ
 If you're not familiar with the Azure service selected in the previous section, see this overview documentation:
 
 - [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
+
 - [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+
 - [Azure Functions](/azure/azure-functions/functions-overview): A service that provides managed functions that run based on a variety of trigger types for event-driven applications.
+
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
+
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
+
 - [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a single container or group of containers in Azure. Azure Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
+
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
+
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
+
 - [Azure Batch](/azure/batch/batch-technical-overview): A managed service for running large-scale parallel and high-performance computing (HPC) applications.
+
 - [Azure VMware Solution](/azure/azure-vmware/introduction): A managed service for running VMware workloads natively on Azure.
 
 ## Understand the hosting models
@@ -39,7 +49,9 @@ If you're not familiar with the Azure service selected in the previous section, 
 For hosting models, cloud services fall into three categories:
 
 - **Infrastructure as a service (IaaS)**: Lets you provision VMs along with the associated networking and storage components. Then you can deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the VMs.
+
 - **Platform as a service (PaaS)**: Provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. Azure App Service and Azure Container Apps are PaaS services.
+
 - **Functions as a service (FaaS)**: Lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
 
   > [!NOTE]
@@ -65,11 +77,17 @@ There's a tradeoff between control and ease of management. IaaS gives the most c
 Notes
 
 1. <span id="note1">If you're using a Consumption plan. For an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+
 1. <span id="note2">Higher service-level agreement (SLA) with two or more instances.</span>
+
 1. <span id="note3">Recommended for production environments.</span>
+
 1. <span id="note4">Can scale down to zero after job completes.</span>
+
 1. <span id="note5">Three for primary nodes and three for worker nodes.</span>
+
 1. <span id="note6">When using [Durable Functions][durable-functions].</span>
+
 1. <span id="note7">Require minimum number of [three nodes][azure-vmware-plans].</span>
 
 ## Networking
@@ -90,7 +108,9 @@ Notes
 Notes
 
 1. <span id="note1b">Requires App Service Environment or a dedicated compute pricing tier.</span>
+
 2. <span id="note2b">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
+
 3. <span id="note3b">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
@@ -130,10 +150,15 @@ Notes
 Notes
 
 1. <span id="note1d">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
+
 2. <span id="note2d">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service](/azure/aks/cluster-autoscaler).</span>
+
 3. <span id="note3d">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+
 4. <span id="note4d">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
+
 5. <span id="note5d">See [Scale a Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
+
 6. <span id="note6d">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
 
 ## Availability
@@ -158,14 +183,23 @@ For guided learning on service guarantees, see [Core Cloud Services - Azure arch
 Review and understand the available security controls and visibility for each service:
 
 - [Azure Windows virtual machine](/azure/virtual-machines/windows/security-baseline)
+
 - [Azure Linux virtual machine](/azure/virtual-machines/linux/security-baseline)
+
 - [Azure App Service](/azure/app-service/overview-security)
+
 - [Azure Functions](/azure/azure-functions/security-baseline)
+
 - [Azure Kubernetes Service](/azure/aks/security-baseline)
+
 - [Azure Container Instances](/azure/container-instances/security-baseline)
+
 - [Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
+
 - [Azure Service Fabric](/azure/service-fabric/security-baseline)
+
 - [Azure Batch](/azure/batch/security-baseline)
+
 - [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
 
 ## Other criteria
@@ -224,18 +258,14 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [cost-container-apps]: https://azure.microsoft.com/pricing/details/container-apps
 [cost-aro]:https://azure.microsoft.com/pricing/details/openshift
 [cost-avs]: https://azure.microsoft.com/pricing/details/azure-vmware
-
 [function-plans]: /azure/azure-functions/functions-scale
 [azure-vmware-plans]: /azure/azure-vmware/architecture-private-clouds#hosts
-
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
-
 [n-tier]: ../architecture-styles/n-tier.yml
 [w-q-w]: ../architecture-styles/web-queue-worker.yml
 [microservices]: ../architecture-styles/microservices.md
 [event-driven]: ../architecture-styles/event-driven.yml
 [big-compute]: ../architecture-styles/big-compute.yml
-
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity
 [durable-functions]: /azure/azure-functions/durable/durable-functions-overview
