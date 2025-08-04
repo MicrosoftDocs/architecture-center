@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 07/28/2025
+ms.date: 08/04/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -18,10 +18,14 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## August 2025
+
+
 ## July 2025
 
 ### New articles
 
+- [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md)
 - [Azure Private Link in a Hub-and-Spoke Network](./networking/guide/private-link-hub-spoke-network.md)
 - [Use API Management to Protect Access Tokens in Single-Page Applications](./web-apps/guides/security/secure-single-page-application-authorization.md)
 - [Patterns for Inter-Spoke Networking](./networking/guide/spoke-to-spoke-networking.md)
@@ -35,6 +39,12 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Compare AWS and Azure compute services](./aws-professional/compute.md)  ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
+- [Compare AWS and Azure database technology](./aws-professional/databases.md)  ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
+- [Comparing AWS and Azure messaging services](./aws-professional/messaging.md)  ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
+- [Compare AWS and Azure Networking Options](./aws-professional/networking.md)  ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
+- [Compare Storage Services on Azure and AWS](./aws-professional/storage.md)  ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
+- [BCDR for Azure Data Factory and Azure Synapse Analytics Pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml)  ([#b3ba9f5c58](https://github.com/MicrosoftDocs/architecture-center/commit/b3ba9f5c58))
 - [Create an Active Directory Domain Service Resource Forest in Azure](./reference-architectures/identity/adds-forest.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
 - [Extend On-Premises Active Directory Federation Services to Azure](./reference-architectures/identity/adfs.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
 - [Integrate On-Premises Active Directory Domains With Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
@@ -45,14 +55,17 @@ The following new and updated articles have recently been published in the Azure
 - [Using tactical DDD to design microservices](./microservices/model/tactical-ddd.yml)  ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#95a051bfff](https://github.com/MicrosoftDocs/architecture-center/commit/95a051bfff))
 - [Deploy AD DS in an Azure Virtual Network](./example-scenario/identity/adds-extend-domain.yml)  ([#417cdcd602](https://github.com/MicrosoftDocs/architecture-center/commit/417cdcd602))
+- [Extract, transform, load (ETL)](./data-guide/relational-data/etl.yml)  ([#98fabfcaf2](https://github.com/MicrosoftDocs/architecture-center/commit/98fabfcaf2))
 - [Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices](./guide/iot/scale-iot-solution-azure.md)  ([#a1277eba93](https://github.com/MicrosoftDocs/architecture-center/commit/a1277eba93))
 - [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
 - [Cloud Design Patterns](./patterns/index.md)  ([#04ff7691f5](https://github.com/MicrosoftDocs/architecture-center/commit/04ff7691f5))
+- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml)  ([#258ce07bbf](https://github.com/MicrosoftDocs/architecture-center/commit/258ce07bbf))
+- [SAP landscape architecture](./guide/sap/sap-whole-landscape.yml)  ([#ee8c5f9f5a](https://github.com/MicrosoftDocs/architecture-center/commit/ee8c5f9f5a))
+- [Microservices Assessment and Readiness](./guide/technology-choices/microservices-assessment.md)  ([#1f3f4a3c49](https://github.com/MicrosoftDocs/architecture-center/commit/1f3f4a3c49))
 - [Design for self healing](./guide/design-principles/self-healing.md)  ([#3e62723717](https://github.com/MicrosoftDocs/architecture-center/commit/3e62723717))
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#ed02f09c26](https://github.com/MicrosoftDocs/architecture-center/commit/ed02f09c26))
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#910a86755b](https://github.com/MicrosoftDocs/architecture-center/commit/910a86755b))
 - [Choose a Kubernetes at the Edge Compute Option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)  ([#723bb4b356](https://github.com/MicrosoftDocs/architecture-center/commit/723bb4b356))
-- [Load balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0ea839f349](https://github.com/MicrosoftDocs/architecture-center/commit/0ea839f349))
 - [Protect APIs with Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
 - [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#7cca2c974e](https://github.com/MicrosoftDocs/architecture-center/commit/7cca2c974e))
 - [Use an Identity as a Service platform](./guide/design-principles/identity.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
@@ -149,7 +162,6 @@ The following new and updated articles have recently been published in the Azure
 - [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#c92d3f1e02](https://github.com/MicrosoftDocs/architecture-center/commit/c92d3f1e02))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md)  ([#110aa0e75a](https://github.com/MicrosoftDocs/architecture-center/commit/110aa0e75a))
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)  ([#110aa0e75a](https://github.com/MicrosoftDocs/architecture-center/commit/110aa0e75a))
-- [Multiple forests with AD DS and Microsoft Entra ID](./example-scenario/azure-virtual-desktop/multi-forest.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
 - [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#3e311eaba8](https://github.com/MicrosoftDocs/architecture-center/commit/3e311eaba8))
@@ -198,90 +210,4 @@ The following new and updated articles have recently been published in the Azure
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#de4e1ff583](https://github.com/MicrosoftDocs/architecture-center/commit/de4e1ff583))
 - [Implement Advanced Monitoring for Azure OpenAI Through a Gateway](./ai-ml/guide/azure-openai-gateway-monitoring.yml)  ([#d11c6c7ff1](https://github.com/MicrosoftDocs/architecture-center/commit/d11c6c7ff1))
 - [Message Encoding Considerations](./best-practices/message-encode.md)  ([#457876053e](https://github.com/MicrosoftDocs/architecture-center/commit/457876053e))
-- [Choose a Data Analytics and Reporting Technology in Azure](./data-guide/technology-choices/analysis-visualizations-reporting.md)  ([#f3e3c2d8b8](https://github.com/MicrosoftDocs/architecture-center/commit/f3e3c2d8b8))
-
-## April 2025
-
-### New articles
-
-- [Deploy Highly Available NVAs](./networking/guide/network-virtual-appliance-high-availability.md)
-- [Online Analytical Processing](./data-guide/relational-data/online-analytical-processing.md)
-- [Big Data Architectures](./databases/guide/big-data-architectures.md)
-- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)
-- [Cost Management for Kubernetes](./aws-professional/eks-to-aks/cost-management.md)
-- [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service](./aws-professional/eks-to-aks/migrate.md)
-- [Kubernetes Monitoring and Logging](./aws-professional/eks-to-aks/monitoring.md)
-- [Manage Kubernetes Nodes and Node Pools](./aws-professional/eks-to-aks/node-pools.md)
-- [Enhance Network Access Security to Kubernetes](./aws-professional/eks-to-aks/private-clusters.md)
-- [Kubernetes Workload Identity and Access](./aws-professional/eks-to-aks/workload-identity.md)
-- [Replicate Mainframe Data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
-
-### Updated articles
-
-- [Migrate IBM z/OS OLTP Workloads to Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)  ([#ace16bc3ba](https://github.com/MicrosoftDocs/architecture-center/commit/ace16bc3ba))
-- [Replicate Mainframe and Midrange Data to Azure by Using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)  ([#ace16bc3ba](https://github.com/MicrosoftDocs/architecture-center/commit/ace16bc3ba))
-- [Modernize Mainframe and Midrange Data](./example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)  ([#ace16bc3ba](https://github.com/MicrosoftDocs/architecture-center/commit/ace16bc3ba))
-- [Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)  ([#ace16bc3ba](https://github.com/MicrosoftDocs/architecture-center/commit/ace16bc3ba))
-- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)  ([#ace16bc3ba](https://github.com/MicrosoftDocs/architecture-center/commit/ace16bc3ba))
-- [Governance Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/governance.md)  ([#ade25804b5](https://github.com/MicrosoftDocs/architecture-center/commit/ade25804b5))
-- [AKS for Amazon EKS Professionals](./aws-professional/eks-to-aks/index.md)  ([#ade25804b5](https://github.com/MicrosoftDocs/architecture-center/commit/ade25804b5))
-- [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md)  ([#ade25804b5](https://github.com/MicrosoftDocs/architecture-center/commit/ade25804b5))
-- [Foundations of Assessing Harm](./guide/responsible-innovation/harms-modeling/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
-- [Responsible Engineering Overview](./guide/responsible-innovation/index.md)  ([#3faccc2c85](https://github.com/MicrosoftDocs/architecture-center/commit/3faccc2c85))
-- [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)  ([#4eae6ed023](https://github.com/MicrosoftDocs/architecture-center/commit/4eae6ed023))
-- [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#5b28fa3068](https://github.com/MicrosoftDocs/architecture-center/commit/5b28fa3068))
-- [Design for Operations](./guide/design-principles/design-for-operations.md)  ([#4abcb44a53](https://github.com/MicrosoftDocs/architecture-center/commit/4abcb44a53))
-- [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#be5522b006](https://github.com/MicrosoftDocs/architecture-center/commit/be5522b006))
-- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#7d45a953e1](https://github.com/MicrosoftDocs/architecture-center/commit/7d45a953e1))
-- [Enterprise file shares with disaster recovery](./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [SQL Server on Azure Virtual Machines with Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Deploy and Operate Apps with AKS Enabled by Azure Arc on Azure Local](./example-scenario/hybrid/aks-hybrid-azure-local.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Hybrid file services](./hybrid/hybrid-file-services.yml)  ([#140e3ddc51](https://github.com/MicrosoftDocs/architecture-center/commit/140e3ddc51))
-- [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Deploy AD DS in an Azure Virtual Network](./example-scenario/identity/adds-extend-domain.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [WordPress on App Service](./example-scenario/infrastructure/wordpress-app-service.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Azure API Management landing zone architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Run HP-UX workloads in Azure with Stromasys Charon-PAR](./example-scenario/mainframe/hp-ux-stromasys-charon-par.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Migrate IBM System i (AS/400) to Azure by Using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)  ([#715c3bf500](https://github.com/MicrosoftDocs/architecture-center/commit/715c3bf500))
-- [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md)  ([#92dba45459](https://github.com/MicrosoftDocs/architecture-center/commit/92dba45459))
-- [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md)  ([#92dba45459](https://github.com/MicrosoftDocs/architecture-center/commit/92dba45459))
-- [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md)  ([#92dba45459](https://github.com/MicrosoftDocs/architecture-center/commit/92dba45459))
-- [Choose an Azure AI Services Technology](./data-guide/technology-choices/ai-services.md)  ([#92dba45459](https://github.com/MicrosoftDocs/architecture-center/commit/92dba45459))
-- [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure](./example-scenario/mainframe/deploy-ibm-power-workloads.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Massive-scale VWAN architecture design](./networking/architecture/massive-scale-azure-architecture.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Implement TIC 3.0 compliance](./networking/architecture/trusted-internet-connections.yml)  ([#216825e836](https://github.com/MicrosoftDocs/architecture-center/commit/216825e836))
-- [Starter web app for SaaS development](./example-scenario/apps/saas-starter-web-app.yml)  ([#249f8c9ec2](https://github.com/MicrosoftDocs/architecture-center/commit/249f8c9ec2))
-- [Near real-time lakehouse data processing](./example-scenario/data/real-time-lakehouse-data-processing.yml)  ([#249f8c9ec2](https://github.com/MicrosoftDocs/architecture-center/commit/249f8c9ec2))
-- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#249f8c9ec2](https://github.com/MicrosoftDocs/architecture-center/commit/249f8c9ec2))
-- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#249f8c9ec2](https://github.com/MicrosoftDocs/architecture-center/commit/249f8c9ec2))
-- [Certificate Lifecycle Management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#5f8cefbf09](https://github.com/MicrosoftDocs/architecture-center/commit/5f8cefbf09))
-- [Monolithic Persistence Antipattern](./antipatterns/monolithic-persistence/index.md)  ([#4146f310ab](https://github.com/MicrosoftDocs/architecture-center/commit/4146f310ab))
-- [General Mainframe Refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)  ([#326b3995f8](https://github.com/MicrosoftDocs/architecture-center/commit/326b3995f8))
-- [Compare AWS and Azure Identity Management Solutions](./aws-professional/security-identity.md)  ([#1ab5fc7556](https://github.com/MicrosoftDocs/architecture-center/commit/1ab5fc7556))
-- [Unisys ClearPath MCP Virtualization on Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#2310bff65a](https://github.com/MicrosoftDocs/architecture-center/commit/2310bff65a))
-- [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#59d4a8cec6](https://github.com/MicrosoftDocs/architecture-center/commit/59d4a8cec6))
-- [Unisys ClearPath Forward OS 2200 Enterprise Server Virtualization on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)  ([#a95ed47c51](https://github.com/MicrosoftDocs/architecture-center/commit/a95ed47c51))
-- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)  ([#4cd26a7fc3](https://github.com/MicrosoftDocs/architecture-center/commit/4cd26a7fc3))
-- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#9ef1418ce8](https://github.com/MicrosoftDocs/architecture-center/commit/9ef1418ce8))
-- [Cloud Design Patterns](./patterns/index.md)  ([#03c62aa25d](https://github.com/MicrosoftDocs/architecture-center/commit/03c62aa25d))
-- [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md)  ([#70840c3465](https://github.com/MicrosoftDocs/architecture-center/commit/70840c3465))
-- [Use Azure Front Door to Secure AKS Workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#3882965be5](https://github.com/MicrosoftDocs/architecture-center/commit/3882965be5))
 
