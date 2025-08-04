@@ -41,7 +41,17 @@ You can use data lake stores in event streaming or IoT scenarios because data la
 
 The following table compares data lakes and data warehouses.
 
-![A table that compares data lake features with data warehouse features.](./images/comparing-data-lakes-and-data-warehouses.png)
+| **Feature**                  | **Data Lake**                                                                 | **Data Warehouse**                                                             |
+|-----------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Data Type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
+| **Query Performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
+| **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
+| **Data Processing**         | ELT (Extract, Load, Transform) – transforms data at query time               | ETL (Extract, Transform, Load) – data is cleaned before loading                |
+| **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
+| **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
+| **Use Case Fit**            | Best for big data, machine learning, and exploratory analytics               | Ideal for business intelligence, reporting, and structured data analysis       |
+| **Performance Optimization**| Requires tuning (e.g., partitioning, caching) for better performance         | Built-in optimizations like indexing and materialized views                    |
+| **Tooling**                 | Often uses tools like Spark, Presto, or Databricks                           | Uses SQL-based tools like Snowflake, Redshift, or BigQuery                     |
 
 ## Challenges
 
