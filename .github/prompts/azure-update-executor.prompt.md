@@ -144,7 +144,6 @@ Create comprehensive summary report:
 1. Prompt user: "Please review each modified article to ensure changes are appropriate and well-integrated."
 2. Provide guidance: "Verify that additions align with existing content structure and Well-Architected principles."
 3. Allow user to request modifications or approve changes
-4. **Do not proceed to git operations without explicit user approval**
 
 ## Process standards
 
