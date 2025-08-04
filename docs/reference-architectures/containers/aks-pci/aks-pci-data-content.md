@@ -175,7 +175,7 @@ Store secret and private keys used to encrypt/decrypt cardholder data in one (or
 
 A PCI-DSS 3.2.1 workload will need to use more than one encryption key as part of the data-at-rest protection strategy. A data encryption key (DEK) is used to encrypt and decrypt the CHD, but you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that the KEK is stored in a cryptographic device.
 
-You can use Azure Key Vault to store the DEK and use Azure Dedicated HSM to store the KEK. For information about HSM key management, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview).
+You can use Azure Key Vault to store the DEK and use Azure Cloud HSM to store the KEK. For information about HSM key management, see [What is Azure Cloud HSM?](/azure/cloud-hsm/overview).
 
 ### Requirement 3.6
 
