@@ -196,6 +196,6 @@ In the previous diagram, the gray boxes are components of an IoT system that are
 ## Related resources
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
-- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Big data architecture style](../../guide/architecture-stylemd)
 - [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Big data architectures with Fabric](/azure/architecture/browse/?azure_categories=analytics&products=fabric)

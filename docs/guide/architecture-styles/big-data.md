@@ -47,7 +47,7 @@ Most big data architectures include some or all of the following components:
 
 - **Orchestration:** Big data solutions can consist of repeated data processing operations encapsulated in workflows. These workflows transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results directly to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory or Microsoft Fabric pipelines.
 
-Microsoft includes many services that you can use in a big data architecture. They fall roughly into two categories:
+Microsoft includes many services that can be used in a big data architecture. They fall roughly into two categories:
 
 - Software as a service (SaaS) services, such as Microsoft Fabric
 
@@ -80,22 +80,23 @@ Consider this architecture style when you need to take the following actions:
 
 ## Best practices
 
-- **Take advantage of parallelism.** Most big data processing technologies distribute the workload across multiple processing units. This distribution requires static data files to be created and stored in a splittable format. Distributed file systems such as Hadoop Distributed File System (HDFS) can optimize read and write performance. Multiple cluster nodes in parallel perform the actual processing, which reduces overall job times. We recommend that you use a splittable data format such as Parquet.
+- **Take advantage of parallelism.** Most big data processing technologies distribute the workload across multiple processing units. This distribution requires static data files to be created and stored in a splittable format. Distributed file systems such as Hadoop Distributed File System (HDFS) can optimize read and write performance. Multiple cluster nodes in parallel perform the actual processing, which reduces overall job times. We recommend that you use a splittable data format, such as Parquet.
 
-- **Partition data.** Batch processing usually occurs on a recurring schedule, such as weekly or monthly. Partition data files and data structures, such as tables, based on temporal periods that align with the processing schedule. This strategy simplifies data ingestion and job scheduling, simplifies troubleshooting, and can significantly improve query performance.
+- **Partition data.** Batch processing usually occurs on a recurring schedule, such as weekly or monthly. Partition data files and data structures, such as tables, based on temporal periods that align with the processing schedule. This strategy simplifies data ingestion and job scheduling, makes troubleshooting easier, and can significantly improve query performance.
 
-- **Apply schema-on-read semantics.** Using a data lake allows you to combine storage for files in multiple formats, whether structured, semi-structured, or unstructured. Apply *schema-on-read* semantics, which project a schema onto the data during processing instead of at the time of storage. This approach adds flexibility to the solution and helps prevent bottlenecks during data ingestion that data validation and type checking cause.
+- **Apply schema-on-read semantics.** Using a data lake lets you combine storage for files in multiple formats, whether structured, semi-structured, or unstructured. Use *schema-on-read* semantics, which project a schema onto the data when the data is processing, not when the data is stored. This builds flexibility into the solution, and prevents bottlenecks during data ingestion caused by data validation and type checking.
 
-- **Process batch data on arrival.** Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. However, with larger volumes of data and a greater variety of formats, big data solutions typically adopt variations of ETL, such as extract, load, and transform (ELT).
+- **Process batch data on arrival.** Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. With larger volumes data, and a greater variety of formats, big data solutions generally use variations of ETL, such as extract, load, and transform (ELT).
 
 - **Process streaming data in flight** In the case of streaming solutions, transform the payload while the data is being transmitted. Because you're dealing with much smaller packets over the network, it's much easier to transform these smaller rows sets during generation. Land the transformed stream in an engine optimized for event based data, such as Microsoft Fabric Real Time Intelligence Eventhouse, making the data immediately available for action.
 
 - **Balance usage and time costs.** For batch processing jobs, it's important to consider two factors: The per-unit cost of the compute nodes, and the per-minute cost of using those nodes to complete the job. For example, a batch job might take eight hours with four cluster nodes. However, it might turn out that the job uses all four nodes only during the first two hours, and after that, only two nodes are required. In that case, running the entire job on two nodes would increase the total job time, but wouldn't double it, so the total cost would be less. In some business scenarios, a longer processing time might be preferable to the higher cost of using underutilized cluster resources.
 
 - **Separate resources.** When possible, aim to separate resources based on the workloads to avoid scenarios like one workload using all the resources while other is waiting.
-- **Orchestrate data ingestion.** In some cases, existing business applications might write data files for batch processing directly into Azure Storage blob containers, where downstream services like Microsoft Fabric can consume them. However, it's often necessary to orchestrate the ingestion of data from on-premises or external sources into the data lake. To achieve this data ingestion in a predictable and centrally manageable way, use an orchestration workflow or pipeline, such as those supported by Azure Data Factory or Microsoft Fabric.
 
-- **Scrub sensitive data early.** The data ingestion workflow should scrub sensitive data early in the process to avoid storing it in the data lake.
+- **Orchestrate data ingestion.** In some cases, existing business applications might write data files for batch processing directly into Azure storage blob containers, where downstream services like Microsoft Fabric can consume them. However, you'll often need to orchestrate the ingestion of data from on-premises or external data sources into the data lake. Use an orchestration workflow or pipeline, such as those supported by Azure Data Factory or Microsoft Fabric, to achieve this in a predictable and centrally manageable fashion.
+
+- **Scrub sensitive data early.** The data ingestion workflow should scrub sensitive data early in the process, to avoid storing it in the data lake.
 
 ## IoT architecture
 
@@ -105,31 +106,35 @@ Internet of Things (IoT) is a specialized subset of big data solutions. The foll
    The diagram has three key sections. Three arrows point from the Application back end. One arrow points to Command and control. One arrow points to Provisioning API. One arrow points to Device registry. An arrow points from Provisioning API to Device registry. One arrow points from Command and control to Devices. An arrow splits from this line and points to Field gateway. A double-sided arrow points between Devices and Field gateway. An arrow points from Field gateway to Cloud gateway. An arrow points from Cloud gateway to Stream processing. Five arrows point from Stream processing. One arrow points to Application back end. One arrow points to Cold storage. One arrow points to Hot path analytics. One arrow points to Notifications. One arrow points to Machine learning. An arrow points from Batch analytics to Cold storage.
 :::image-end:::
 
-The **cloud gateway** ingests device events at the cloud boundary. It uses a reliable, low-latency messaging system.
+The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
 
-Devices might send events directly to the cloud gateway or through a **field gateway**. A field gateway is a specialized device or software, usually colocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess raw device events and perform functions such as filtering, aggregation, or protocol transformation.
+Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually colocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess the raw device events, performing functions such as filtering, aggregation, or protocol transformation.
 
-After ingestion, events go through one or more **stream processors** that can route the data for analytics, actions, and other processing.
+After ingestion, events go through one or more **stream processors** that can route the data to perform analytics, take action and other processing.
 
-The following are some common types of processing:
+The following are some common types of processing.
 
-- Data is loaded into an event-based data store such as Eventhouse in Microsoft Fabric Real-Time Intelligence to contextualize the IoT device with metadata, such as the building location and device information.
+- Data is loaded into an event based data store such as Microsoft Fabric Real Time Intelligence Eventhouse to contextualize the IoT device with metadata, such as the building location and device information.
 
-- Analyzing the event stream in real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when specific conditions occur in the stream.
+- Analyzing the event stream in real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
 - Machine learning.
 
-The shaded-gray boxes show components of an IoT system that aren't directly related to event streaming, but are included here for completeness.
+The boxes that are shaded gray show components of an IoT system that aren't directly related to event streaming, but are included here for completeness.
 
-- The **device registry** is a database of provisioned devices, including device IDs and typically device metadata such as location.
+- The **device registry** is a database of the provisioned devices, including the device IDs and usually device metadata, such as location.
 
 - The **provisioning API** is a common external interface for provisioning and registering new devices.
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-> This section presents a high-level overview of IoT. For more information, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
+> This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For more information, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
+
+## Next step
+
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
 ## Related resource
 
