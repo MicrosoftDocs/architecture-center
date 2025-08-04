@@ -44,12 +44,20 @@ Regional availability can significantly influence the selection of an AI model, 
 
 ### Deployment strategy: Will the model be hosted on serverless or managed infrastructure, your own infrastructure, or on-device?
 
+Your deployment model — whether serverless, platform-as-a-service (PaaS), or self-hosted — can significantly influence your choice of an AI model. Serverless environments favor lightweight, stateless models that can scale instantly and handle sporadic workloads efficiently, but may impose limits on execution time and memory. PaaS offers more flexibility and built-in infrastructure, making it suitable for moderately complex models that benefit from managed services. In contrast, self-hosted deployments provide full control over hardware and configuration, allowing for the use of large, resource-intensive models, but require substantial maintenance and operational overhead. The right model depends on balancing performance needs with infrastructure capabilities and operational constraints.
 
 ### Domain specificity: Is the model pretrained on data relevant to your industry, such as finance or healthcare?
 
-### Scalability: Can you scale your model according to your reliability and performance targets?
+Using an AI model pretrained on data relevant to your industry—such as healthcare, finance, or legal—offers significant advantages in accuracy, efficiency, and contextual understanding. These models are already familiar with domain-specific terminology, regulatory nuances, and typical workflows, which reduces the need for extensive retraining and fine-tuning. As a result, they can deliver more precise predictions, generate more relevant content, and support faster deployment in real-world applications. Leveraging industry-specific pretraining also helps ensure compliance and improves trustworthiness, especially in fields where precision and reliability are critical.
 
 ### Performance: How fast and accurate must your responses be?
+
+Every AI model has built-in performance limits, and how you host the model can add more restrictions. Together, the model and its hosting setup determine how fast it can respond and how many requests it can handle at once. Depending on how your system or application will use the model, you’ll need to either choose a model that fits your system’s needs or adjust your system to match what the model can realistically handle.
+
+In general, you want to pick a model that meets your quality standards while working as quickly as possible. It should also be hosted in a way that supports the number of requests your system expects, without slowing things down or creating a poor user experience.
+
+> [!NOTE]
+> Some cross-cutting concerns, like implementing responsible AI policies, might introduce additional performance limitations. While you should include these limitations in your evaluation, they shouldn’t influence your model choice.
 
 ### Narrowing the search space
 
