@@ -123,7 +123,7 @@ Consider the following common types of processing:
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
-- Machine learning.
+- Scoring events by using machine learning models to detect anomalies, predict failures, or classify device behavior.
 
 The shaded-gray boxes show components of an IoT system that aren't directly related to event streaming. They're included here for completeness.
 
