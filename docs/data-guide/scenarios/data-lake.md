@@ -46,12 +46,10 @@ The following table compares data lakes and data warehouses.
 | **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
 | **Query performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
 | **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
-| **Data processing**         | ELT (Extract, Load, Transform) – transforms data at query time               | ETL (Extract, Transform, Load) – data is cleaned before loading                |
+| **Data transformation stage**         | Transformation happens at query time, impacting overall processing time               | Transformation happens at ingestion time to conform with the medallion architecture              |
 | **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
 | **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
 | **Use case fit**            | Best for big data, machine learning, and exploratory analytics               | Ideal for business intelligence, reporting, and structured data analysis       |
-| **Performance optimization**| Requires tuning (e.g., partitioning, caching) for better performance         | Built-in optimizations like indexing and materialized views                    |
-| **Tooling**                 | Often uses tools like Spark, Presto, or Databricks                           | Uses SQL-based tools like Snowflake, Redshift, or BigQuery                     |
 
 ## Challenges
 
