@@ -52,7 +52,7 @@ High-quality analytics start with robust, trustworthy data. At the highest level
 
 -   [Data protection](/azure/architecture/framework/security/design-storage).
 
-At the platform level, the following [big data best practices](../../guide/architecture-style.md#best-practices) contribute to trustworthy analytics on Azure:
+At the platform level, the following [big data best practices](../../guide/architecture-styles/big-data.md#best-practices) contribute to trustworthy analytics on Azure:
 
 -   Orchestrate data ingestion using a data workflow or pipeline solution such as those supported by Azure Data Factory or Oozie.
 
