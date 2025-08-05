@@ -106,13 +106,19 @@ Reliability ensures your application can meet the commitments you make to your c
 
 *Regions -* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails.
 
-- Traffic Manager will automatically fail over to the secondary region if the primary region fails.
-- Choosing the best regions for your needs must be based on technical, regulatory considerations, and availability-zone support.
+Traffic Manager will automatically fail over to the secondary region if the primary region fails.
 
-*Region pairs -* Use Region Pairs for the most resiliency. Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)). Here are two benefits of Region Pairs:
+Choose the best regions for your needs based on all of these factors:
+- Your technical requirements, including geographic distance and cross-region latency
+- Data residency needs
+- Regulatory considerations
+- Availability zone support
+- Service availability in each region
+- Cost
 
-- Planned Azure updates roll out to paired regions one at a time to minimize downtime and risk of application outage.
-- Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
+Many Azure regions are paired. If your region has a pair, there can be some benefits to using the paired region as your secondary region. However, you should verify the region pair meets all your requirements first.
+
+For more information about how to select Azure regions, see [Select Azure regions in the Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
 *Availability zones -* Use multiple availability zones to support your Application Gateway, Azure Firewall, Azure Load Balancer, and application tiers when available.
 
@@ -121,7 +127,7 @@ Reliability ensures your application can meet the commitments you make to your c
 For more information, see:
 
 - [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview)
-- [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+- [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired)
 
 ### Global routing
 
