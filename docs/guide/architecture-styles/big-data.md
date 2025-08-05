@@ -95,11 +95,11 @@ Consider this architecture style when you need to take the following actions:
 
 - **Balance usage and time costs.** For batch processing jobs, it's important to consider the per-unit cost of the compute nodes and the per-minute cost of using those nodes to complete the job. For example, a batch job might take eight hours with four cluster nodes. However, it might turn out that the job uses all four nodes only during the first two hours, and after that, only two nodes are required. In that case, running the entire job on two nodes would increase the total job time but wouldn't double it, so the total cost would be less. In some business scenarios, a longer processing time might be preferable to the higher cost of using underutilized cluster resources.
 
-- **Separate resources.** When possible, separate resources based on the workloads to avoid scenarios like one workload using all the resources while other is waiting.
+- **Separate resources.** When possible, separate resources based on the workloads to avoid scenarios like one workload using all the resources while the other is waiting.
 
 - **Orchestrate data ingestion.** In some cases, existing business applications might write data files for batch processing directly into Azure storage blob containers, where downstream services like Microsoft Fabric can consume them. However, you often need to orchestrate the ingestion of data from on-premises or external data sources into the data lake. Use an orchestration workflow or pipeline, such as those supported by Azure Data Factory or Microsoft Fabric, to achieve predictable and centrally managed data movement.
 
-- **Scrub sensitive data early.** The data ingestion workflow should scrub sensitive data early in the process to avoid storage it in the data lake.
+- **Scrub sensitive data early.** The data ingestion workflow should scrub sensitive data early in the process to avoid storing it in the data lake.
 
 ## IoT architecture
 
@@ -133,7 +133,6 @@ The shaded-gray boxes show components of an IoT system that aren't directly rela
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-> This section presents a high-level overview of IoT. For more information, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
 
 ## Next step
 
