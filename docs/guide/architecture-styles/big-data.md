@@ -7,8 +7,8 @@ ms.date: 12/12/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
-  - arb-iot
   - arb-data
+  - arb-iot
 ---
 
 # Architecture
