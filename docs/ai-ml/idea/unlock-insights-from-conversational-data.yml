@@ -11,9 +11,9 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
+  - ai-services
   - azure-container-apps
   - azure-cosmos-db
-  - ai-services
   - semantic-kernel
 name: Build a conversation knowledge mining solution with Azure AI services
 summary: Learn how to design a scalable conversation analytics system that extracts insights from conversational data using Azure AI services and OpenAI.
