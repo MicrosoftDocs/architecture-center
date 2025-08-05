@@ -31,7 +31,7 @@ When you use infrastructure services, like virtual machines or Azure Kubernetes 
 
 When you use Azure platform services, like Azure App Service, Azure Cosmos DB, or Azure SQL Database, your architecture determines the networking services that you require.
 
-To isolate your platform services from the internet, use a virtual network. Depending on the services that you use, you might work with [private endpoints](/azure/private-link/private-endpoint-overview) or virtual network-integrated resources, like [Azure Application Gateway](/azure/application-gateway/overview). Or you might also make your platform services available through their public IP addresses and use the services' own protections like firewalls and identity controls. In these situations, you might not need to deploy and configure your own virtual network.
+To isolate your platform services from the internet, use a virtual network. Depending on the services that you use, you might work with [private endpoints](/azure/private-link/private-endpoint-overview) or virtual network-integrated resources, like [Azure Application Gateway](/azure/application-gateway/overview). You might also make your platform services available through their public IP addresses and use the services' own protections like firewalls and identity controls. In these situations, you might not need to deploy and configure your own virtual network.
 
 Decide whether to use virtual networks for platform services based on the following factors:
 
@@ -42,13 +42,13 @@ Decide whether to use virtual networks for platform services based on the follow
 
 Ensure that you understand the [implications of using private networking](#antipatterns-to-avoid).
 
-### Sizing subnets
+### Size your subnets
 
 When you need to deploy a virtual network, carefully consider the sizing and address space of the entire virtual network, including the subnets.
 
 Understand how you plan to deploy your Azure resources into virtual networks and the number of IP addresses that each resource consumes. If you deploy tenant-specific compute nodes, database servers, or other resources, create subnets large enough for your expected tenant growth and [horizontal autoscaling of resources](/azure/architecture/framework/scalability/design-scale).
 
-Similarly, when you work with managed services, understand how they consume IP addresses. For example, if you use AKS with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet are based on factors like the number of nodes, how you scale horizontally, and your service deployment process. When you use App Service and Azure Functions with virtual network integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
+Similarly, when you work with managed services, understand how they consume IP addresses. For example, when you use AKS with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni), the number of IP addresses consumed from a subnet are based on factors like the number of nodes, how you scale horizontally, and your service deployment process. When you use App Service and Azure Functions with virtual network integration, [the number of IP addresses consumed is based on the number of plan instances](/azure/app-service/overview-vnet-integration#subnet-requirements).
 
 [Review the subnet segmentation guidance](/azure/security/fundamentals/network-best-practices#logically-segment-subnets) when you plan your subnets.
 
@@ -58,7 +58,7 @@ Consider whether your tenants need to access your services through the internet 
 
 To secure your service for internet-based (public) access, use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls.
 
-To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants and deploy dedicated virtual networks for each one.
+To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants and deploy dedicated virtual networks for each one.
 
 ### Access to tenants' endpoints
 
@@ -73,29 +73,29 @@ If you need to send data to tenants' endpoints, consider the following common ap
 
 ## Approaches and patterns to consider
 
-This section describes some key networking approaches to consider in a multitenant solution. It starts with lower-level approaches for core networking components and then describes approaches to consider for HTTP and other application-layer concerns.
+This section describes some key networking approaches to consider in a multitenant solution. It starts with lower-level approaches for core networking components and then describes approaches for HTTP and other application-layer concerns.
 
 ### Tenant-specific virtual networks with service provider-selected IP addresses
 
 In some situations, you need to run dedicated virtual network-connected resources in Azure on a tenant's behalf. For example, you might run a virtual machine for each tenant, or you might need to use private endpoints to access tenant-specific databases.
 
-Consider deploying a virtual network for each tenant by using an IP address space that you control. This approach enables you to peer the virtual networks together for your own purposes, such establishing a [hub-and-spoke topology](#hub-and-spoke-topology) to centrally control traffic ingress and egress.
+Consider deploying a virtual network for each tenant by using an IP address space that you control. This approach enables you to peer the virtual networks together for your own purposes, such as establishing a [hub-and-spoke topology](#hub-and-spoke-topology) to centrally control traffic ingress and egress.
 
-Avoid using service provider-selected IP addresses if tenants need to connect directly to the virtual network that you create, such as by using virtual network peering. The address space that you select will likely conflict with their existing address spaces.
+Avoid using service provider-selected IP addresses if tenants need to connect directly to the virtual network that you create, such as by using virtual network peering. The address space that you select likely conflicts with their existing address spaces.
 
 ### Tenant-specific virtual networks with tenant-selected IP addresses
 
 If tenants need to peer their own virtual networks with the virtual network you manage on their behalf, consider deploying tenant-specific virtual networks by using an IP address space that the tenant selects. This setup enables each tenant to ensure that the IP address ranges in your system's virtual network don't overlap with their own virtual networks, which enables compatibility for peering.
 
-However, this approach likely prevents you from peering your tenants' virtual networks together or adopting a [hub-and-spoke topology](#hub-and-spoke-topology). Overlapping IP address ranges among virtual networks of different tenants makes these configurations impractical.
+But this approach likely prevents you from peering your tenants' virtual networks together or adopting a [hub-and-spoke topology](#hub-and-spoke-topology). Overlapping IP address ranges among virtual networks of different tenants makes these configurations impractical.
 
 ### Hub-and-spoke topology
 
 The [hub-and-spoke virtual network topology](../../../networking/architecture/hub-spoke.yml) enables you to peer a centralized *hub* virtual network with multiple *spoke* virtual networks. You can centrally control the traffic ingress and egress for your virtual networks and control whether the resources in each spoke's virtual network can communicate with each other. Each spoke virtual network can also access shared components, like Azure Firewall, and might use services like Azure DDoS Protection.
 
-When you use a hub-and-spoke topology, plan for limits, [such as the maximum number of peered virtual networks](/azure/virtual-network/virtual-network-peering-overview). Don't use overlapping address spaces for each tenant's virtual network.
+When you use a hub-and-spoke topology, plan for limits [such as the maximum number of peered virtual networks](/azure/virtual-network/virtual-network-peering-overview). Don't use overlapping address spaces for each tenant's virtual network.
 
-Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use selected IP addresses. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks for scale purposes or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
 > [!TIP]
 > If your solution runs across multiple geographic regions, deploy separate hubs and hub resources in each region to prevent traffic from crossing multiple Azure regions. This practice incurs a higher resource cost but reduces request latency and avoids global peering charges.
@@ -116,15 +116,15 @@ The agent initiates an outbound connection to an endpoint that you specify and c
 
 Agents typically simplify the security configuration for your tenants. It can be complex and risky to open inbound ports, especially in an on-premises environment. An agent eliminates the need for tenants to take this risk.
 
-Examples of Microsoft services that provide agents for connectivity to tenants' networks:
+Microsoft services that provide agents for connectivity to tenants' networks include the following examples:
 
 - [Azure Data Factory self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime)
 - [App Service hybrid connections](/azure/app-service/app-service-hybrid-connections)
 - Microsoft on-premises data gateway, which is used for [Azure Logic Apps](/azure/logic-apps/logic-apps-gateway-connection), [Power BI](/power-bi/connect-data/service-gateway-onprem), and other services
 
-### Private Link
+### Private Link service
 
-[Private Link](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link with their own virtual network to access your service from an on-premises environment. Azure securely routes the traffic to the service by using private IP addresses.
+[Private Link service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own virtual network to access your service from an on-premises environment. Azure securely routes the traffic to the service by using private IP addresses.
 
 For more information, see [Multitenancy and Private Link](../service/private-link.md).
 
@@ -147,7 +147,7 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) involves serving web content from a cloud-native storage service and using a content delivery network to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network to cache the content.
 
 You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another content delivery network for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
 
