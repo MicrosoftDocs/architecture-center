@@ -11,7 +11,7 @@ ms.custom:
   - arb-iot
 ---
 
-# Architecture
+# Big data architecture style
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.
 
@@ -28,7 +28,7 @@ Big data solutions typically include one or more of the following types of workl
 
 Most big data architectures include some or all of the following components:
 
-- **Data sources:** Big data solutions can start with one or more data sources:
+- **Data sources:** Big data solutions can start with one or more data sources.
 
   - Data stores, such as relational databases
 
@@ -36,25 +36,25 @@ Most big data architectures include some or all of the following components:
 
   - Real-time data sources, such as streaming devices, webhooks, or applications upstream of the relational database
 
-- **Data storage:** Data for batch processing operations is typically stored in a distributed file store that can contain high volumes of large files in various formats. This kind of store is often known as a *data lake*. Options for implementing this storage include Azure Data Lake Store or Microsoft Fabric OneLake.
+- **Data storage:** Data for batch processing operations is typically stored in a distributed file store that can contain high volumes of large files in various formats. This kind of store is often known as a *data lake*. Options for implementing this storage include Azure Data Lake Storage or Microsoft Fabric OneLake.
 
-- **Batch processing:** When data needs to be prepared for analysis and made available for reports that reflect past events or trends, batch processing is useful. Usually, these jobs involve reading source files, processing them, and writing the output to new files. Options include using data flows or data pipelines in Microsoft Fabric.
+- **Batch processing:** When data needs to be prepared for analysis and made available for reports that reflect past events or trends, batch processing is useful. Usually, these jobs involve reading source files, processing them, and writing the output to new files. Options include using data flows or data pipelines in Fabric.
 
-- **Real time processing:** If the solution includes real-time sources, the architecture must include a way to capture and store real-time messages for stream processing. Data can remain in motion from the moment it's generated through its cleaning, transformation, and eventual use in operational or analytical actions. Many solutions need to support scale-out processing, reliable delivery, and other message queuing semantics. Options include Microsoft Fabric Real-Time Intelligence Eventstreams, Azure Event Hubs, Azure IoT Hub, and Apache Kafka.
+- **Real-time processing:** If the solution includes real-time sources, the architecture must include a way to capture and store real-time messages for stream processing. Data can remain in motion from the moment it's generated through its cleaning, transformation, and eventual use in operational or analytical actions. Many solutions need to support scale-out processing, reliable delivery, and other message queuing semantics. Options include Fabric Real-Time Intelligence eventstreams, Azure Event Hubs, Azure IoT Hub, and Apache Kafka.
 
-- **Analytical data store:** Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can be queried by using analytical tools. Depending on your scenario, the analytical data store used to serve these queries can be an Eventhouse in Microsoft Fabric to process data in motion and the stream is processed in flight. Or it could be a dimensional data warehouse, as seen in most traditional business intelligence (BI) solutions or a lakehouse (Bronze, Silver, and Gold). Microsoft Fabric provides several options, such as eventhouse, warehouse, and lakehouse. Each option can be queried by using SQL or Spark, depending on the use case. Use the [Fabric data store decision guide](/fabric/fundamentals/decision-guide-data-store) to help guide your decision.
+- **Analytical data store:** Many big data solutions prepare data for analysis and then serve the processed data in a structured format that can be queried by using analytical tools. Depending on your scenario, the analytical data store used to serve these queries can be an eventhouse in Microsoft Fabric to process data in motion and the stream is processed in flight. Or it could be a dimensional data warehouse, as seen in most traditional business intelligence (BI) solutions or a lakehouse (Bronze, Silver, and Gold). Microsoft Fabric provides several options, such as eventhouses, warehouses, and lakehouses. Each option can be queried by using SQL or Spark, depending on the use case. Use the [Fabric data store decision guide](/fabric/fundamentals/decision-guide-data-store) to help guide your decision.
 
-- **Analysis and reporting:** One of the goals of data solutions should be to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture might include a data modeling layer, such as a multidimensional online analytical processing (OLAP) cube or tabular data model in Azure Analysis Services. It might also support self-service BI by using the modeling and visualization technologies in Microsoft Power BI or Microsoft Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, Microsoft Fabric provides tools like notebooks, where users can choose SQL or a programming language of their choice.
+- **Analysis and reporting:** One of the goals of data solutions should be to provide insights into the data through analysis and reporting. To empower users to analyze the data, the architecture might include a data modeling layer, such as a multidimensional online analytical processing (OLAP) cube or tabular data model in Azure Analysis Services. It might also support self-service BI by using the modeling and visualization technologies in Power BI or Excel. Analysis and reporting can also take the form of interactive data exploration by data scientists or data analysts. For these scenarios, Microsoft Fabric provides tools like notebooks, where users can choose SQL or a programming language of their choice.
 
-- **Actions and alerting:** Another goal of a big data solution should be to provide operational insights into the current state of the business process. The architecture should include an action system layer, which takes real time streams of data as it's being processed and detects exceptions and anomalies that occur within the organization. Instead of a user checking a report, you can use these alerting systems to proactively notify users and leadership of anomalous activities. Microsoft Fabric Real-Time Intelligence activator alerts provide this kind of proactive monitoring.
+- **Actions and alerting:** Another goal of a big data solution should be to provide operational insights into the current state of the business process. The architecture should include an action system layer, which takes real-time streams of data as it's being processed and detects exceptions and anomalies that occur within the organization. Instead of a user checking a report, you can use these alerting systems to proactively notify users and leadership of anomalous activities. Real-Time Intelligence activator alerts provide this kind of proactive monitoring.
 
 - **Orchestration:** Big data solutions can consist of repeated data processing operations encapsulated in workflows. These workflows transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results directly to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory or Microsoft Fabric pipelines.
 
 Microsoft provides many services for big data architecture that are grouped roughly into the following categories:
 
-- Software as a service (SaaS) services, such as Microsoft Fabric
+- Software as a service (SaaS) solutions, such as Microsoft Fabric
 
-- Managed services such as Azure Data Lake Store, Azure Stream Analytics, Event Hubs, IoT Hub, Azure Data Factory, Azure SQL Database, and Azure Cosmos DB
+- Managed services such as Data Lake Storage, Azure Stream Analytics, Event Hubs, IoT Hub, Azure Data Factory, Azure SQL Database, and Azure Cosmos DB
   
 ## When to use this architecture
 
@@ -73,7 +73,7 @@ Consider this architecture style when you need to take the following actions:
 
 - **Elastic scale:** All of the components in the big data architecture support scale-out provisioning. As a result, you can adjust your solution for small or large workloads and pay only for the resources you use.
 
-- **Interoperability with existing solutions:** The components of the big data architecture are also used for IoT processing and enterprise BI solutions. This versatility enables you to create an integrated solution across data workloads.
+- **Interoperability with existing solutions:** The components of the big data architecture are also used for Internet of Things (IoT) processing and enterprise BI solutions. This versatility enables you to create an integrated solution across data workloads.
 
 ## Challenges
 
@@ -91,9 +91,9 @@ Consider this architecture style when you need to take the following actions:
 
 - **Process batch data on arrival.** Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. However, with larger volumes of data and a greater variety of formats, big data solutions typically adopt variations of ETL, such as extract, load, and transform (ELT).
 
-- **Process streaming data in flight.** For streaming solutions, transform the payload while the data is being transmitted. Because you're dealing with much smaller packets over the network, it's much easier to transform these smaller rows sets during generation. Land the transformed stream in an engine that's optimized for event-based data, such as Microsoft Fabric Real-Time Intelligence Eventhouse, which makes the data immediately available for action.
+- **Process streaming data in flight.** For streaming solutions, transform the payload while the data is being transmitted. Because you're dealing with much smaller packets over the network, it's much easier to transform these smaller rows sets during generation. Land the transformed stream in an engine that's optimized for event-based data, such as a Real-Time Intelligence eventhouse, which makes the data immediately available for action.
 
-- **Balance usage and time costs.** For batch processing jobs, it's important to consider the per-unit cost of the compute nodes and the per-minute cost of using those nodes to complete the job. For example, a batch job might take eight hours with four cluster nodes. However, it might turn out that the job uses all four nodes only during the first two hours, and after that, only two nodes are required. In that case, running the entire job on two nodes would increase the total job time but wouldn't double it, so the total cost would be less. In some business scenarios, a longer processing time might be preferable to the higher cost of using underutilized cluster resources.
+- **Balance usage and time costs.** For batch processing jobs, it's important to consider the per-unit cost of the compute nodes and the per-minute cost of using those nodes to complete the job. For example, a batch job might take eight hours with four cluster nodes. However, it might turn out that the job uses all four nodes only during the first two hours, and after that, only two nodes are required. In that case, running the entire job on two nodes increases the total job time but doesn't double it, so the total cost is less. In some business scenarios, a longer processing time might be preferable to the higher cost of using underutilized cluster resources.
 
 - **Separate resources.** When possible, separate resources based on the workloads to avoid scenarios like one workload using all the resources while the other is waiting.
 
@@ -103,7 +103,7 @@ Consider this architecture style when you need to take the following actions:
 
 ## IoT architecture
 
-Internet of Things (IoT) is a specialized subset of big data solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
+IoT is a specialized subset of big data solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
 :::image type="complex" border="false" source="./images/iot.svg" alt-text="Diagram of an IoT architecture." lightbox="./images/iot.svg":::
    The diagram has three key sections. Three arrows point from the Application back end. One arrow points to Command and control. One arrow points to Provisioning API. One arrow points to Device registry. An arrow points from Provisioning API to Device registry. One arrow points from Command and control to Devices. An arrow splits from this line and points to Field gateway. A double-sided arrow points between Devices and Field gateway. An arrow points from Field gateway to Cloud gateway. An arrow points from Cloud gateway to Stream processing. Five arrows point from Stream processing. One arrow points to Application back end. One arrow points to Cold storage. One arrow points to Hot path analytics. One arrow points to Notifications. One arrow points to Machine learning. An arrow points from Batch analytics to Cold storage.
@@ -117,15 +117,15 @@ After ingestion, events go through one or more **stream processors** that can ro
 
 Consider the following common types of processing:
 
-- Data is loaded into an event-based data store such as Eventhouse in Microsoft Fabric Real-Time Intelligence to contextualize the IoT device with metadata, such as the building location and device information.
+- Data is loaded into an event-based data store such as an eventhouse in Real-Time Intelligence to contextualize the IoT device with metadata, such as the building location and device information.
 
-- Analyzing the event stream in real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when specific conditions occur in the stream.
+- Analyzing the eventstream in real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when specific conditions occur in the stream.
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
 - Scoring events by using machine learning models to detect anomalies, predict failures, or classify device behavior.
 
-The shaded-gray boxes show components of an IoT system that aren't directly related to event streaming. They're included here for completeness.
+The gray boxes show components of an IoT system that aren't directly related to eventstreaming. They're included here for completeness.
 
 - The **device registry** is a database of provisioned devices. It includes device IDs and typically contains metadata such as location.
 
