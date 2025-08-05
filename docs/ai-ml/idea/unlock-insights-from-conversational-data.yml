@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Build a Conversation Knowledge Mining Solution with Azure AI Services
-  description: Learn how to design a scalable conversation analytics system that extracts insights from conversational data using Azure AI services and OpenAI.
+  description: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and OpenAI.
   author: gpickett
   ms.author: gpickett
   ms.date: 6/16/2025
