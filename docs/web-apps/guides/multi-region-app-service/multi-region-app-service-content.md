@@ -167,7 +167,7 @@ Follow these steps to create an active-passive approach for your web apps by usi
 In a passive/cold architecture, your web app is deployed into a single primary region. Application files, and some databases, are backed up into an Azure Storage account. Backups are replicated to another region. If the primary region is unavailable, you manually deploy another app into a second region and restore from the backup.
 
 > [!NOTE]
-> Passive-cold approaches rely on manual intervention during a region falure, and often result in significant downtime and data loss. For most production-grade solutions, you should consider an active-active or active-passive solution.
+> Passive-cold approaches rely on manual intervention during a region failure, and often result in significant downtime and data loss. For most production-grade solutions, you should consider an active-active or active-passive solution.
 
 ### Cross-region replication
 
