@@ -5,7 +5,7 @@ Organizations increasingly adopt API-first design approaches while facing growin
 This article doesn't address the application's underlying platforms, such as App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Service (AKS). Those parts of the diagram showcase what you can implement as a broader solution. This article specifically discusses the shaded areas, API Management, and Application Gateway.
 
 :::image type="complex" source="../_images/protect-apis.svg" alt-text="Diagram that shows how Application Gateway and API Management protect APIs." lightbox="../_images/protect-apis.svg" border="false":::
-The diagram shows the Microsoft Azure architecture that protects APIs by using Application Gateway and API Management. External clients connect through the internet to Application Gateway in the ag-subnet, which includes a WAF. Application Gateway routes traffic to API Management in the apim-subnet. API Management connects to two back-end services: App Service Environment in ase-subnet and Azure Kubernetes Service (AKS) in the aks-subnet. Internal clients connect directly through the virtual network. The architecture shows URL patterns for external and internal API access, with a dead end sinkpool for unauthorized requests. Azure DDoS Protection shields the entire Azure environment, indicated by a security badge on the edge of the virtual network.
+The diagram shows the Microsoft Azure architecture that protects APIs by using Application Gateway and API Management. External clients connect through the internet to Application Gateway in the ag-subnet, which includes a web application firewall (WAF). Application Gateway routes traffic to API Management in the apim-subnet. API Management connects to two back-end services: App Service Environment in ase-subnet and Azure Kubernetes Service (AKS) in the aks-subnet. Internal clients connect directly through the virtual network. The architecture shows URL patterns for external and internal API access, with a dead end, or sinkpool, for unauthorized requests. Azure DDoS Protection shields the entire Azure environment, indicated by a security badge on the edge of the virtual network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
@@ -51,13 +51,13 @@ You can use other services to deliver a similar level of firewall and WAF protec
 
 ## Recommendations
 
-This solution focuses on implementing the whole solution and testing API access from inside and outside the API Management virtual network. For more information about the integration process, see [Integrate API Management in an internal virtual network by using Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+This architecture focuses on implementing the whole solution and testing API access from inside and outside the API Management virtual network. For more information about the integration process, see [Integrate API Management in an internal virtual network by using Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
 To communicate with private resources in the back end, place Application Gateway and API Management in the same virtual network as the resources or in a peered virtual network.
 
 - The private, internal deployment model allows API Management to connect to an existing virtual network, which makes it reachable from inside that network context. To enable this feature, deploy either the **Developer** or **Premium** API Management tiers for classic virtual network injection. For newer virtual network options, use the **Standard v2** or **Premium v2** tiers with virtual network integration or injection capabilities.
 
-- If your clients operate in a different subscription or are managed with a different Microsoft Entra ID directory, use [Azure Private Link fo Application Gateway](/azure/application-gateway/private-link) to provide private connectivity to Application Gateway from client virtual networks across subscriptions and regions.
+- If your clients operate in a different subscription or are managed with a different Microsoft Entra ID directory, use [Azure Private Link for Application Gateway](/azure/application-gateway/private-link) to provide private connectivity to Application Gateway from client virtual networks across subscriptions and regions.
 
 - Manage Application Gateway certificates in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
 
@@ -75,7 +75,7 @@ Application Gateway always deploys in a highly available configuration, regardle
 
 Enable zone redundancy for your API Management service components to provide resiliency and high availability. Zone redundancy replicates the API Management gateway and control plane across datacenters in physically separated zones. This configuration makes them resilient to zone failure. You must use the API Management **Premium** tier to support [availability zones](/azure/reliability/reliability-api-management#availability-zone-support).
 
-API Management also supports multiregion deployments, which can improve availability if one region goes offline. For more information, see [Multiregion deployment](/azure/reliability/reliability-api-management#multi-region-support). In this topology, deploy one Application Gateway for each region because Application Gateway is a regional service.
+API Management also supports multiregion deployments, which can improve availability if one region goes offline. For more information, see [Multiregion support](/azure/reliability/reliability-api-management#multi-region-support). In this topology, deploy one application gateway for each region because Application Gateway is a regional service.
 
 ### Security
 
@@ -87,11 +87,11 @@ For more information about API Management security, see [Azure security baseline
 
 Always implement the following security measures:
 
-- Use [Azure WAF](/azure/web-application-firewall/overview) policies with the latest Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.2 or newer to protect against common web vulnerabilities, including the OWASP Top 10 threats.
+- Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) policies with the latest Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.2 or newer to protect against common web vulnerabilities, including the OWASP Top 10 threats.
 
 - Configure [WAF geomatch custom rules](/azure/web-application-firewall/geomatch-custom-rules-examples) to block or allow traffic based on geographic location. This approach provides some protection against DDoS attacks.
 
-- Enable [application (Layer 7) DDoS protection](/azure/web-application-firewall/shared/application-ddos-protection#azure-waf-with-azure-application-gateway) by using Azure WAF with Application Gateway to protect against volumetric and protocol-based attacks. Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design practices to enhance DDoS mitigation features.
+- Enable [application (Layer 7) DDoS protection](/azure/web-application-firewall/shared/application-ddos-protection#azure-waf-with-azure-application-gateway) by using Azure Web Application Firewall with Application Gateway to protect against volumetric and protocol-based attacks. Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design practices to enhance DDoS mitigation features.
 
 - Use [private endpoints](/azure/api-management/private-endpoint) for API Management to provide secure inbound connectivity.
 
@@ -135,14 +135,14 @@ Implement comprehensive monitoring and observability:
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Application Gateway serves as the entry point for this architecture, and the WAF feature requires processing power for each request analysis. To allow Application Gateway to expand its computational capacity on demand, enable autoscaling. For more information, see [Autoscaling and zone redundancy in Application Gateway](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Follow the product documentation recommendations for [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure), including proper subnet sizing. This approach ensures the subnet is large enough to support full scale-out.
+Application Gateway serves as the entry point for this architecture, and the Azure Web Application Firewall feature requires processing power for each request analysis. To allow Application Gateway to expand its computational capacity on demand, enable autoscaling. For more information, see [Autoscaling and zone redundancy in Application Gateway](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Follow the product documentation recommendations for [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure), including proper subnet sizing. This approach ensures the subnet is large enough to support full scale-out.
 
 Consider the following performance optimizations for API Management:
 
 - Enable [API Management autoscaling](/azure/api-management/api-management-howto-autoscale) to automatically respond to increasing request volumes.
 
 - Use [API Management caching policies](/azure/api-management/api-management-howto-cache) to reduce back-end load and improve response times.
-- Implement [API Management rate limiting](/azure/api-management/api-management-access-restriction-policies) to protect back-end services from excessive load.
+- Implement [API Management rate limiting](/azure/api-management/api-management-policies) to protect back-end services from excessive load.
 - Use [Standard v2 or Premium v2 tiers](/azure/api-management/v2-service-tiers-overview) to improve performance and networking capabilities.
 
 ## Next steps
