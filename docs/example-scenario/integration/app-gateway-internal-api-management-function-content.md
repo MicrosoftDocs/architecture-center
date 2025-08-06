@@ -77,7 +77,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes your availability and performance.
+- Deploy at least three [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes your availability and performance.
 - The premium tier is recommended because it supports availability zones and multiregion deployments. This means your services can keep running even if one region or zone goes down. These features help protect your application during outages or disasters.
 - From a disaster recovery standpoint when setting up API Management, use a user-assigned managed identity instead of a system-assigned one. This way, if you redeploy or remove the resource, your identity and its permissions (like access to Key Vault secrets) stay intact, making it easier to restore access. Also, automate your backups with Azure Pipelines and decide if you need to deploy your services in multiple regions for extra reliability.
 - Virtual network peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design ](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
