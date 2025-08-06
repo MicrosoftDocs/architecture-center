@@ -96,7 +96,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Due to the need of availability zone and virtual network support, we selected the Premium tier of API Management, following the [pricing for each region](https://azure.microsoft.com/pricing/details/api-management). Additionally, in this workload, Azure Functions is hosted on the [Premium plan](https://azure.microsoft.com/pricing/details/functions/), due to the need of virtual network access. Here is a [price calculator](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) of the deployment.
+- This deployment utilizes the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network support, but if you do not want dedicated instances you can also utilize [Flex Consumption](/azure/azure-functions/flex-consumption-plan) which also supports network access and availability zone. Here is a [price calculator](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) of the deployment.
 - For proof of concept or prototypes, we recommend you use other tiers of API Management (such as Developer or Standard). 
 
 ### Operational Excellence
