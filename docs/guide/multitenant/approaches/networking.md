@@ -147,11 +147,11 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network (CDN) to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network to cache the content.
 
-You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
+You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another content delivery network for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
 
-Depending on your solution's design, you might also be able to cache tenant-specific files or data within a CDN, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution. Ensure that tenant-specific data remains isolated sufficiently to prevent data leakage across tenants. Consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
+Depending on your solution's design, you might also be able to cache tenant-specific files or data within a content delivery network, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution. Ensure that tenant-specific data remains isolated sufficiently to prevent data leakage across tenants. Consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
 
 ## Antipatterns to avoid
 
