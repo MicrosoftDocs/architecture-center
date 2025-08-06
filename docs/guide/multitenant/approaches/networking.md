@@ -15,7 +15,7 @@ ms.custom: arb-saas
 All solutions deployed to Azure require some form of networking. How you interact with Azure networking services depends on your solution's design and workload. This article provides considerations and guidance for the networking aspects of multitenant solutions on Azure. It includes information about lower-level networking components, such as virtual networks, and extends to higher-level and application-tier approaches.
 
 > [!NOTE]
-> Azure is a multitenant environment, and its network components support multitenancy by design. You don't need to understand the details to design your own solution, but you can [learn more about how Azure isolates your virtual network traffic from other customers' traffic](/azure/security/fundamentals/isolation-choices#networking-isolation).
+> Azure is a multitenant environment, as are many of its network components. You don't need to understand the details to design your own solution, but you can [learn more about how Azure isolates your virtual network traffic from other customers' traffic](/azure/security/fundamentals/isolation-choices#networking-isolation).
 
 ## Key considerations and requirements
 
@@ -66,7 +66,7 @@ Consider whether you need to send data to endpoints within the tenants' networks
 
 If you need to send data to tenants' endpoints, consider the following common approaches:
 
-- Initiate connections from your solution to tenants' endpoints through the internet. Consider whether the connections must originate from a [static IP address](#static-ip-addresses). Depending on the Azure services that you use, you might need to deploy a [Network Address Translation (NAT) gateway](/azure/virtual-network/nat-gateway/nat-overview), firewall, or load balancer.
+- Initiate connections from your solution to tenants' endpoints through the internet. Consider whether the connections must originate from a [static IP address](#static-ip-addresses). Depending on the Azure services that you use, you might need to use network address translation (NAT) by deploying [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview), a firewall, or a load balancer.
 
 - Deploy an [agent](#agents) to enable connectivity between your Azure-hosted services and your customers' networks, regardless of their location.
 - Consider using a service like [Azure Event Grid](/azure/event-grid/overview), potentially with [event domains](/azure/event-grid/event-domains), for one-way messaging.
@@ -87,7 +87,7 @@ Avoid using service provider-selected IP addresses if tenants need to connect di
 
 If tenants need to peer their own virtual networks with the virtual network that you manage on their behalf, consider deploying tenant-specific virtual networks by using an IP address space that the tenant selects. This setup enables each tenant to ensure that the IP address ranges in your system's virtual network don't overlap with their own virtual networks, which enables compatibility for peering.
 
-But this approach likely prevents you from peering your tenants' virtual networks together or adopting a [hub-and-spoke topology](#hub-and-spoke-topology). Overlapping IP address ranges among virtual networks of different tenants makes these configurations impractical.
+But this approach likely prevents you from peering your tenants' virtual networks together or adopting a [hub-and-spoke topology](#hub-and-spoke-topology). Peered virtual networks can't use overlapping IP address ranges, and when tenants select their own IP address ranges they're likely to select ranges that overlap with each other.
 
 ### Hub-and-spoke topology
 
@@ -98,7 +98,7 @@ When you use a hub-and-spoke topology, plan for limits [such as the maximum numb
 Consider using the hub-and-spoke topology when you deploy tenant-specific virtual networks that use IP addresses that you select. Each tenant's virtual network becomes a spoke and can share common resources in the hub virtual network. You can also use the hub-and-spoke topology when you scale shared resources across multiple virtual networks or when you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
 > [!TIP]
-> If your solution spans multiple geographic regions, deploy separate hubs and hub resources in each region to prevent traffic from crossing multiple Azure regions. This practice incurs a higher resource cost but reduces request latency and avoids global peering charges.
+> If your solution spans multiple geographic regions, deploy separate hubs and hub resources in each region to prevent traffic from crossing multiple Azure regions. This practice incurs a higher resource cost but reduces request latency and reduces global peering charges.
 
 ### Static IP addresses
 
@@ -147,11 +147,11 @@ If you plan to deploy a gateway for your solution, a good practice is to first b
 
 ### Static Content Hosting pattern
 
-The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network to cache the content.
+The [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml) serves web content from a cloud-native storage service and uses a content delivery network (CDN) to cache the content.
 
-You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another content delivery network for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
+You can use [Azure Front Door](/azure/frontdoor/front-door-caching) or another CDN for your solution's static components such as single-page JavaScript applications and for static content such as image files and documents.
 
-Depending on your solution's design, you might also be able to cache tenant-specific files or data within a content delivery network, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution. Ensure that tenant-specific data remains isolated sufficiently to prevent data leakage across tenants. Consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
+Depending on your solution's design, you might also be able to cache tenant-specific files or data within a CDN, such as JSON-formatted API responses. This practice can help you improve the performance and scalability of your solution. Ensure that tenant-specific data remains isolated sufficiently to prevent data leakage across tenants. Consider how you plan to purge tenant-specific content from your cache, such as when data is updated or a new application version is deployed. By including the tenant identifier in the URL path, you can control whether you purge a specific file, all files that relate to a specific tenant, or all files for all tenants.
 
 ## Antipatterns to avoid
 
@@ -181,7 +181,7 @@ In modern solutions, you should combine network-layer security with other securi
 
 When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your back-end web application service by offloading the custom domain and TLS management to the gateway.
 
-But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use multitenant back-end services, like App Service, Azure Functions, and Azure Spring Apps. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.yml).
+But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.yml).
 
 Test your application's behavior with the gateway configuration that you plan to use.
 
