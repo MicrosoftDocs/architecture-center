@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Architectural approaches for storage and data in multitenant solutions
-  description: This article describes approaches to support multitenancy for the storage and data components of your solution.
+  title: Architectural Approaches for Storage and Data in Multitenant Solutions
+  description: Learn about approaches, including common patterns and antipatterns, to support multitenancy for the storage and data components of your solution.
   author: johndowns
   ms.author: pnp
   ms.date: 07/17/2025
