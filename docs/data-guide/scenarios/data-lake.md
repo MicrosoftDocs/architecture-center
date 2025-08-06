@@ -41,7 +41,15 @@ You can use data lake stores in event streaming or IoT scenarios because data la
 
 The following table compares data lakes and data warehouses.
 
-![A table that compares data lake features with data warehouse features.](./images/comparing-data-lakes-and-data-warehouses.png)
+| **Feature**                  | **Data Lake**                                                                 | **Data Warehouse**                                                             |
+|-----------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
+| **Query performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
+| **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
+| **Data transformation stage**         | Transformation happens at query time, impacting overall processing time               | Transformation happens during the ETL or ELT process              |
+| **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
+| **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
+| **Use case fit**            | Best for big data, machine learning, and exploratory analytics               | Ideal for business intelligence, reporting, and structured data analysis       |
 
 ## Challenges
 
