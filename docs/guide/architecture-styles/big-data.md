@@ -133,11 +133,7 @@ The gray boxes show components of an IoT system that aren't directly related to 
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-
-## Next step
+## Related resources
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
-
-## Related resource
-
 - [Big data architectures](../../databases/guide/big-data-architectures.md)
