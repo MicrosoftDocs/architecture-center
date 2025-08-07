@@ -57,7 +57,7 @@ items:
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
         - name: Unlock insights from conversational data
-          href: ai-ml/idea/unlock-insights-from-conversational-data.yml 
+          href: idea/unlock-insights-from-conversational-data.yml 
       - name: Batch scoring
         items:
         - name: Batch scoring with Spark on Databricks
