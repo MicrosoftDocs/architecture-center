@@ -906,7 +906,6 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
-- [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml)
 
 ## Related resources
 
