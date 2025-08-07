@@ -10,13 +10,13 @@ ms.subservice: design-pattern
 
 # Retry Storm antipattern
 
-When a service becomes unavailable or busy, frequent client retries can prevent the service from recovering and make the problem worse. Retrying indefinitely is ineffective because requests typically remain valid only for a limited time.
+When a service becomes unavailable or busy, frequent client retries can prevent the service from recovering and worsen the problem. Retrying indefinitely is ineffective because requests typically remain valid only for a limited time.
 
 ## Context and problem
 
 In the cloud, services sometimes experience problems and become unavailable to clients or enforce throttling or rate limits. While it's a good practice for clients to retry failed connections to services, they shouldn't retry too frequently or for too long. Retries within a short period of time are unlikely to succeed because the service likely hasn't recovered. Excessive connection attempts during recovery can overwhelm the service and intensify the original problem. This situation is sometimes called a *thundering herd*.
 
-The following example illustrates a scenario where a client connects to a server-based API. If the request doesn't succeed, the client retries immediately and keeps retrying forever. Often this sort of behavior is more subtle than in this example, but the same principle applies.
+The following example illustrates a scenario where a client connects to a server-based API. If the request doesn't succeed, the client retries immediately and keeps retrying forever. This sort of behavior is often more subtle than this example, but the same principle applies.
 
 ```csharp
 public async Task<string> GetDataFromServer()
@@ -70,15 +70,17 @@ The following sections illustrate one approach to detect a potential retry storm
 
 ### Identify patterns by using client telemetry
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) records telemetry from applications and makes that data available for querying and visualization. It tracks outbound connections as dependencies and allows users can access and chart this information to identify when a client makes several outbound requests to the same service.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) records telemetry from applications and makes that data available for querying and visualization. It tracks outbound connections as dependencies and allows users to access and chart this information to identify when a client makes several outbound requests to the same service.
 
 The following screenshot shows a graph on the Metrics tab in the Application Insights portal. It shows the *Dependency failures* metric split by *Remote dependency name*. This scenario has over 21,000 failed connection attempts to a dependency within a short time.
 
-:::image type="content" source="_images/client-application-insights.png" alt-text="Screenshot of Application Insights that shows 21,000 dependency failures to a single dependency within a 30-minute period." lightbox="_images/client-application-insights.png":::
+:::image type="complex" source="_images/client-application-insights.png" alt-text="Screenshot of Application Insights that shows 21,000 dependency failures to a single dependency within a 30-minute period." lightbox="_images/client-application-insights.png":::
+The diagram is a screenshot from the Application Insights Metrics section. It visualizes dependency failures over time. The interface is structured with a vertical navigation pane on the left. It lists sections like Overview, Activity log, Access control, Diagnose and solve problems, Investigate, Monitoring, Logs, Workbooks, and Users. The main content area displays a line chart titled "Sum Dependency failures for AppInsights by Remote dependency name." It shows the number of failures over a 30-minute UTC time span. The chart features a single prominent spike around 12:30, which indicates a surge in failures. The y-axis quantifies the failure count, while the x-axis tracks time. Above the chart are controls for creating or refreshing charts and customizing metrics. Below the chart, a data entry labeled "GET/api…" displays a value of 21.34k, which represents a specific metric tied to that API call.
+:::image-end:::
 
 ### Identify patterns by using server telemetry
 
-Server applications might be able to detect large numbers of connections from a single client. In the following example, Azure Front Door acts as a gateway for an application and [is configured to log](/azure/frontdoor/front-door-diagnostics#diagnostic-logging) all requests to a Log Analytics workspace.
+Server applications might be able to detect large numbers of connections from a single client. In the following example, Azure Front Door acts as a gateway for an application and is [configured to log](/azure/frontdoor/front-door-diagnostics#diagnostic-logging) all requests to a Log Analytics workspace.
 
 To identify client IP addresses that send large numbers of requests to the application within the last day, run the following Kusto query in Log Analytics.
 
@@ -92,7 +94,9 @@ AzureDiagnostics
 
 If you run this query during a retry storm, it shows a large number of connection attempts from a single IP address.
 
-:::image type="content" source="_images/server-log-analytics.png" alt-text="Screenshot of Log Analytics that shows 81,608 inbound connections to Azure Front Door from a single IP address within a one-hour period." lightbox="_images/server-log-analytics.png":::
+:::image type="complex" source="_images/server-log-analytics.png" alt-text="Screenshot of Log Analytics that shows 81,608 inbound connections to Azure Front Door from a single IP address within a one-hour period." lightbox="_images/server-log-analytics.png":::
+The diagram displays the Log Analytics query editor interface, which showcases a Kusto Query Language (KQL) query and its runtime results. The interface is structured with a query input pane at the top and a results table below. The query filters diagnostic logs from Azure Front Door resources, specifically targeting entries categorized as "FrontdoorAccessLog" generated within the past day. It aggregates the number of access events by client IP address in one-hour time bins and sorts the results by event count in descending order. The results table shows two entries for the same timestamp, February 23, 2021, at 11:00 PM UTC. One IP address generates 81,608 events and another generates 5. This visualization helps users identify high-traffic sources and analyze access patterns to Azure Front Door endpoints over time.
+:::image-end:::
 
 ## Related resources
 
