@@ -1,3 +1,17 @@
+---
+title: Architectural Approaches for Storage and Data in Multitenant Solutions
+description: Learn about approaches, including common patterns and antipatterns, to support multitenancy for the storage and data components of your solution.
+author: johndowns
+ms.author: pnp
+ms.date: 07/17/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom:
+   - arb-saas
+---
+
+# Architectural approaches for storage and data in multitenant solutions
+
 Data is often considered the most valuable part of a solution because it represents your and your customers' valuable business information. It's important to carefully manage your data. When you plan storage or data components for a multitenant system, you need to decide on an approach to sharing or isolating your tenants' data.
 
 This article provides guidance about the key considerations and requirements for solution architects when they decide on an approach to store data in a multitenant system. This article also describes some common patterns for applying multitenancy to storage and data services and some antipatterns to avoid. It also provides targeted guidance for some specific scenarios.

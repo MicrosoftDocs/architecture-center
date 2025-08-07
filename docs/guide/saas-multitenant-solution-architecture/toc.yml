@@ -65,7 +65,7 @@ items:
           - name: Networking
             href: ../multitenant/approaches/networking.md
           - name: Storage and data
-            href: ../multitenant/approaches/storage-data.yml
+            href: ../multitenant/approaches/storage-data.md
           - name: Messaging
             href: ../multitenant/approaches/messaging.md
           - name: Identity
