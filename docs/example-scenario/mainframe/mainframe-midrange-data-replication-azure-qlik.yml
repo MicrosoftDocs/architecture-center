@@ -9,8 +9,9 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - migration
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Use Qlik to replicate mainframe and midrange data to Azure
 azureCategories:
   - migration

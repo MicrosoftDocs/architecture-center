@@ -9,6 +9,9 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - devx-track-extended-java
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
 products:
