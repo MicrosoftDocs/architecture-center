@@ -59,7 +59,7 @@ Many industries record video footage to detect the presence or absence of a part
 
 A video recording can be separated into individual frames so that various technologies can analyze the images. One such technology is *computer vision*: the capability of a computer to identify objects and entities on an image.
 
-With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained, and, depending on the use case, you can frequently get results that are at least as good as those of the person who trained the model. By using [Machine Learning Operations (MLOps)](/azure/machine-learning/concept-model-management-and-deployment) to improve the model continuously, you can expect better results over time, and react to changes in the video data over time.
+With computer vision, monitoring video footage becomes automated, standardized, and potentially more accurate. A computer vision model can be trained, and, depending on the use case, you can frequently get results that are at least as good as those of the person who trained the model. By using [Machine Learning Operations (MLOps)](/azure/machine-learning/concept-model-management-and-deployment) to improve the model continuously, you can expect better results over time, and react to changes in the video data over time.
 
 ### Potential use cases
 
