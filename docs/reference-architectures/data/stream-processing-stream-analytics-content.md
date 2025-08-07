@@ -247,7 +247,7 @@ In this reference architecture, new documents are created only once per minute (
 - [Stream processing with Azure Databricks](stream-processing-databricks.yml)
 
 <!-- links -->
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: /azure/well-architected/operational-excellence/principles
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
