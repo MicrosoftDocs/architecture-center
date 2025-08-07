@@ -1,7 +1,5 @@
 This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
-
 ## Architecture
 
 :::image type="content" source="./images/stream-processing-asa/stream-processing-stream-analytics.svg" alt-text="Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics." lightbox="./images/stream-processing-asa/stream-processing-stream-analytics.svg":::
@@ -244,10 +242,6 @@ Throughput capacity for Azure Cosmos DB is measured in [Request Units (RUs)](/az
 
 In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 
-## Deploy this scenario
-
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
-
 ## Related resources
 
 - [Stream processing with Azure Databricks](stream-processing-databricks.yml)
@@ -257,5 +251,4 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
-[github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
