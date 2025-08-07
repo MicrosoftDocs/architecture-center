@@ -54,13 +54,13 @@ Services should also protect themselves from retry storms.
 
 ## Considerations
 
-- **Understand error types.** Some error types don't indicate a service failure, but instead indicate an invalid request from the client. For example, if a client application receives a `400 Bad Request` error response, retrying the same request likely wonn't help because the server has already informed you that your request isn't valid.
+- **Understand error types.** Some error types don't indicate a service failure, but instead indicate an invalid request from the client. For example, if a client application receives a `400 Bad Request` error response, retrying the same request likely won't help because the server has already informed you that your request isn't valid.
 
 - **Define the appropriate retry duration.** Clients should consider the most appropriate length of time to reattempt connections. The time window should align with business requirements and the ability to reasonably return an error to a user or caller. Most applications only need to retry for a few seconds or minutes.
 
-## How to detect the problem
+## Detect the problem
 
-From a client's perspective, symptoms of this problem might include very long response or processing times, or telemetry that indicates repeated attempts to retry the connection.
+From a client's perspective, symptoms of this problem might include very long response or processing times and telemetry that indicates repeated attempts to retry the connection.
 
 From a service's perspective, symptoms of this problem might include several requests from one client within a short period of time or several requests from a single client while recovering from outages. A service might also struggle to recover after a failure. Or a service might have ongoing cascading failures right after a fault repair.
 
@@ -74,11 +74,11 @@ The following sections illustrate one approach to detect a potential retry storm
 
 The following screenshot shows a graph on the Metrics tab in the Application Insights portal. It shows the *Dependency failures* metric split by *Remote dependency name*. This scenario has over 21,000 failed connection attempts to a dependency within a short time.
 
-:::image type="content" source="_images/client-application-insights.png" alt="Screenshot of Application Insights that shows 21,000 dependency failures to a single dependency within a 30-minute period." lightbox="_images/client-application-insights.png":::
+:::image type="content" source="_images/client-application-insights.png" alt-text="Screenshot of Application Insights that shows 21,000 dependency failures to a single dependency within a 30-minute period." lightbox="_images/client-application-insights.png":::
 
 ### Identify patterns by using server telemetry
 
-Server applications migh be able to detect large numbers of connections from a single client. In the following example, Azure Front Door acts as a gateway for an application and [is configured to log](/azure/frontdoor/front-door-diagnostics#diagnostic-logging) all requests to a Log Analytics workspace.
+Server applications might be able to detect large numbers of connections from a single client. In the following example, Azure Front Door acts as a gateway for an application and [is configured to log](/azure/frontdoor/front-door-diagnostics#diagnostic-logging) all requests to a Log Analytics workspace.
 
 To identify client IP addresses that send large numbers of requests to the application within the last day, run the following Kusto query in Log Analytics.
 
@@ -92,7 +92,7 @@ AzureDiagnostics
 
 If you run this query during a retry storm, it shows a large number of connection attempts from a single IP address.
 
-:::image type="content" source="_images/server-log-analytics.png" alt="Screenshot of Log Analytics that shows 81,608 inbound connections to Azure Front Door from a single IP address within a one-hour period." lightbox="_images/server-log-analytics.png":::
+:::image type="content" source="_images/server-log-analytics.png" alt-text="Screenshot of Log Analytics that shows 81,608 inbound connections to Azure Front Door from a single IP address within a one-hour period." lightbox="_images/server-log-analytics.png":::
 
 ## Related resources
 
