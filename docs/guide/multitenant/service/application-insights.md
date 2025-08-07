@@ -3,7 +3,7 @@ title: Multitenancy and Application Insights
 description: Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.
 author: rajnemani
 ms.author: ranema
-ms.date: 01/08/2025
+ms.date: 08/01/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
