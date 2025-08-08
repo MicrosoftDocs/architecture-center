@@ -24,7 +24,7 @@ In this image:
 
 You can reuse an existing server or deploy a new one that will be the WSUS server. Your WSUS VM must meet the documented [system requirements](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#system-requirements).  As this is a security sensitive capability, you should plan on accessing this virtual machine by using just-in-time (JIT). See [Manage virtual machine access using just-in-time](/azure/security-center/security-center-just-in-time).
 
-Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You'll need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role. We also encourage that VMs do not use a WSUS server in a different region as their primary source.
+Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You'll need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role. We also encourage that VMs don't use a WSUS server in a different region as their primary source.
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
