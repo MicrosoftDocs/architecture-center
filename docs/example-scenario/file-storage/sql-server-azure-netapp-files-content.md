@@ -97,7 +97,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 	Network-attached storage, limited by network bandwidth rather than disk I/O, can perform better than disk I/O. This is due to the ingrained constraint of cloud resources and the fact that VM SKUs generally have higher network limits than disk limits. This solution supports smaller VM sizes with better performance. Smaller VMs are less costly and carry lower SQL Service license costs, while network attached storage doesn't have an I/O cost factor. 
 
-	Consider the following table, which compares total cost of a 50-TiB SQL Server configuration, where the requirement is 80,000 I/OPs, running on E64-32s_v3 VMs. This configuration is compared to 128 GB RAM on Ultra and Premium SSD to E16-4/16s with 128 GB RAM on Azure NetApp Files:
+	Consider the following table, which compares total cost of a 50-TiB SQL Server configuration, where the requirement is 80,000 I/OPs, running on E64-32s_v3 VMs. This configuration is compared to 128-GB RAM on Ultra and Premium SSD to E16-4/16s with 128-GB RAM on Azure NetApp Files:
 
 	:::image type="complex" source="./media/cost-comparison.png" alt-text="Table comparing ultra and premium solid-state drives costs with Azure NetApp Files. " border="false":::
    A four-column table shows a TCO comparison for a 50-TiB SQL Server deployment across an Ultra SSD, Premium SSD, and Azure NetApp Files. In the first row, the bandwidth cost of the Ultra SSD is $704. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows I/O cost, which is $3,971 for the Ultra SSD. There's no cost for the Premium SSD or Azure NetApp Files. The next row shows capacity cost: $6,130 for Ultra SSD, $6,442 for Premium SSD, and $7,680 for Azure NetApp Files. The next row shows SQL Server license cost: $17,520 for Ultra SSD, $17,520 for Premium SSD, and $4,380 for Azure NetApp Files. The next row shows instance cost: $4,882 for Ultra SSD, $4,882 for Premium SSD, and $1,221 for Azure NetApp Files. The final row shows total cost: $33,207 for Ultra SSD, $28,844 for Premium SSD, and $13,281 for Azure NetApp Files.
@@ -108,7 +108,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 * **Scalability** 
-	Azure NetApp Files volumes can be expanded or contracted without interruption to the database. The flexibility supports both growth and cost reduction, without having to shutdown and restart the database.
+	Azure NetApp Files volumes can be expanded or contracted without interruption to the database. The flexibility supports both growth and cost reduction, without having to shut down and restart the database.
 
 ## Deploy this scenario
 
