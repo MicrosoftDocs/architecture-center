@@ -27,9 +27,11 @@ There are several criteria that can influence your model selection. Some of thes
 
 When selecting an AI model, you should select a model whose capabilities align with the specific task you want it to perform. Different models are optimized for different functions: some excel at natural language processing, others at image recognition, audio analysis, or multimodal tasks. For example, convolutional neural networks (CNNs) are ideal for visual data, while generative pre-trained transformer (GPT) models are better suited for text generation and understanding. By clearly defining your task — whether it's sentiment analysis, code generation, or real-time conversation — you can narrow down your options and choose a model that delivers the best performance, accuracy, and efficiency for your use case.
 
-### Workload design: Will you use one model or will your design be agentic, using multiple models?
+#### Single model vs multiple model considerations
 
-When designing AI workloads, choosing between a single-model approach and an agentic design depends on the complexity and scope of the tasks involved. A single-model design is often simpler and more efficient for narrowly defined tasks, such as sentiment analysis or image classification, where one model can be fine-tuned to deliver optimal results. In contrast, an agentic design leverages multiple specialized models or agents that collaborate to handle multifaceted workflows. For example, you might combine language understanding, reasoning, and retrieval. This modular approach allows for greater flexibility, scalability, and adaptability, especially in dynamic environments where tasks evolve or require diverse capabilities. Ultimately, the choice hinges on the desired functionality, performance requirements, and long-term maintainability of the AI solution.
+When considering task fit, your workload application design matters. Using a single model to fulfill all of the task requirements aligns better with a simpler approach. Alternatively, you could break the task into multiple steps, each using a model suited to its specific purpose. Using multiple models are common in AI agent-based workload design, especially when using [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). For example, you might combine language understanding, reasoning, and retrieval. This modular approach allows for greater flexibility, scalability, and adaptability, especially in dynamic environments where tasks evolve or require diverse capabilities.
+
+Each model that's included in your workload must be evaluated and selected individually, and you should follow these considerations for each one.
 
 ### Cost constraints
 
