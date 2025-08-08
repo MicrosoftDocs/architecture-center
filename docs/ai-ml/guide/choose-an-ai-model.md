@@ -34,6 +34,10 @@ When designing AI workloads, choosing between a single-model approach and an age
 
 Cost considerations play a pivotal role in selecting an AI model, especially when balancing performance with budget constraints. High-performing models often require significant compute resources, which can drive up infrastructure and operational costs, particularly at scale. For startups or projects with limited funding, open-source or pre-trained models offered by cloud providers can provide a cost-effective alternative without sacrificing too much performance. On the other hand, organizations with larger budgets may opt for proprietary models or custom training to achieve higher precision and domain-specific capabilities. Ultimately, aligning model choice with financial resources ensures sustainable deployment and maximizes return on investment.
 
+### Context window size: How large of a context window will you need?
+
+When selecting an AI model, the context window size should align with the complexity and length of the input data you expect to work with. Generally speaking, larger, full-feature models have larger context windows. These models also require more compute resources and are generally slower in returing responses than smaller, specialized models. A larger context window allows the model to consider more information at once—such as longer documents, extended conversations, or complex codebases—without losing track of earlier content. This is especially important for tasks that require maintaining coherence, understanding nuanced context, or referencing earlier parts of a conversation or document. Conversely, models with smaller context windows may be faster or more cost-effective but are better suited for shorter, more focused tasks.  
+
 ### Security and compliance: Will the model meet your organization's security and compliance standards and requirements?
 
 Selecting a model that aligns with your organization’s security standards and regulatory obligations is essential to mitigate risk and maintain trust. Organizations operating in regulated industries, such as healthcare, finance, or government, must ensure their models comply with standards like GDPR, HIPAA, or CCPA. This means choosing models that offer robust data protection, secure deployment options, and transparency in decision-making processes. Open-source models may provide greater interpretability and control, while proprietary models might offer stronger built-in safeguards and support for compliance certifications.
@@ -63,12 +67,11 @@ In general, you want to pick a model that meets your quality standards while wor
 
 To help you apply the selection criteria in an efficient manner when searching a catalog like Hugging Face or Azure AI Foundry, use available filters like tasks to help you reduce the number of models to choose from. You can also narrow the choices by searching for one or more specific model providers and researching the capabilities of their model versions.
 
-## Benchmarking and Evaluation
+## Evaluation and benchmarking
 
-Leaderboards and benchmarks offer comparative insights into model performance across domains:
+To perform a side-by-side AI model evaluation, start by defining a clear set of criteria based on your application’s specific needs, such as accuracy, speed, cost, context retention, and output quality. Then, run both models on the same representative dataset or set of tasks, ensuring consistent input and evaluation conditions. Compare the outputs qualitatively and quantitatively, using metrics like relevance, coherence, latency, and user satisfaction. It’s also helpful to involve stakeholders or end users in the evaluation process to gather feedback on which model better aligns with real-world expectations. This structured approach helps you make an informed decision about which model is the best fit for your use case.
 
-- Use tools like Hugging Face’s benchmark collections to assess models for language support, reasoning, and safety.
-- Evaluate models based on latency, token cost, and accuracy using side-by-side comparisons.
+You can also use tools like Hugging Face’s benchmark collections to assess models for language support, reasoning, and safety. Using third-party benchmarking can help you understand how specific models have performed across many different real-world scenarios.
 
 ## Derisking you model choice
 
