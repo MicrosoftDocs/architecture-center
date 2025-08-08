@@ -7,8 +7,9 @@ metadata:
   ms.date: 07/30/2024
   ms.topic: conceptual
   ms.subservice: reference-architecture
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Refactor an IBM z/OS mainframe coupling facility to Azure
 summary: Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.
 products:
