@@ -36,7 +36,7 @@ Cost considerations play a pivotal role in selecting an AI model, especially whe
 
 ### Context window size: How large of a context window will you need?
 
-When selecting an AI model, the context window size should align with the complexity and length of the input data you expect to work with. Generally speaking, larger, full-feature models have larger context windows. These models also require more compute resources and are generally slower in returing responses than smaller, specialized models. A larger context window allows the model to consider more information at once—such as longer documents, extended conversations, or complex codebases—without losing track of earlier content. This is especially important for tasks that require maintaining coherence, understanding nuanced context, or referencing earlier parts of a conversation or document. Conversely, models with smaller context windows may be faster or more cost-effective but are better suited for shorter, more focused tasks.  
+When selecting an AI model, the context window size should align with the complexity and length of the input data you expect to work with. Generally speaking, larger, full-feature models have larger context windows. These models also require more compute resources and are generally slower in returning responses than smaller, specialized models. A larger context window allows the model to consider more information at once—such as longer documents, extended conversations, or complex codebases—without losing track of earlier content. This is especially important for tasks that require maintaining coherence, understanding nuanced context, or referencing earlier parts of a conversation or document. Conversely, models with smaller context windows may be faster or more cost-effective but are better suited for shorter, more focused tasks.  
 
 ### Security and compliance: Will the model meet your organization's security and compliance standards and requirements?
 
@@ -73,7 +73,7 @@ To perform a side-by-side AI model evaluation, start by defining a clear set of 
 
 You can also use tools like Hugging Face’s benchmark collections to assess models for language support, reasoning, and safety. Using third-party benchmarking can help you understand how specific models have performed across many different real-world scenarios.
 
-## Derisking you model choice
+## Derisking your model choice
 
 To future-proof your architecture:
 
