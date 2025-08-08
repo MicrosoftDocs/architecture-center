@@ -1,6 +1,6 @@
 ---
 title: Architectural Approaches for the Deployment and Configuration of Multitenant Solutions
-description: This article describes approaches to consider when deploying and configuring a multitenant solution.
+description: Learn how to deploy and configure multitenant solutions in Azure by using automation, scalable architecture, and best practices for onboarding tenants.
 author: johndowns
 ms.author: pnp
 ms.date: 07/16/2025
@@ -16,7 +16,7 @@ categories:
 
 # Architectural approaches for the deployment and configuration of multitenant solutions
 
-Regardless of your architecture and the components that you use to implement it, you need to deploy and configure your solution's components. In a multitenant environment, consider how you deploy your Azure resources, especially when you deploy dedicated resources for each tenant or reconfigure resources dynamically based on the number of tenants in your system. This article provides solution architects with guidance about deploying multitenant solutions. It demonstrates approaches to consider when you plan your deployment strategy.
+Regardless of your architecture and the components that you use to implement it, you need to deploy and configure your solution's components. In a multitenant environment, consider how to deploy your Azure resources, especially when you deploy dedicated resources for each tenant or reconfigure resources dynamically based on the number of tenants in your system. This article provides solution architects with guidance about deploying multitenant solutions. It demonstrates approaches to consider when you plan your deployment strategy.
 
 ## Key considerations and requirements
 
@@ -56,7 +56,7 @@ You should use automated deployments for cloud-hosted solutions. In multitenant 
 - **Scale:** As your tenant population increases, manual deployment processes become increasingly complex and time-consuming. An automated deployment approach is easier to scale as the number of tenants grows.
 
 - **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error or inconsistent steps across tenants. These inconsistencies can leave your environment in a nonstandard state, which makes it harder for your team to manage the solution.
-- **Impact of outages:** Manual deployments are more risky and prone to outages than automated deployments. In a multitenant environment, a system-wide outage because of a deployment error has a higher impact because it might affect every tenant.
+- **Impact of outages:** Manual deployments are more risky and prone to outages than automated deployments. In a multitenant environment, a deployment error can cause a system-wide outage that affects every tenant, which increases the overall impact.
 
 When you deploy to a multitenant environment, follow these practices:
 
@@ -71,7 +71,7 @@ If you plan to offer your solution through Azure Marketplace, you should provide
 
 When you programmatically deploy tenant resources onto shared resources, consider the capacity limit for each resource. When you approach that limit, you might need to create another instance of the resource to support further scale. Consider the limits of each resource that you deploy and the conditions that trigger you to deploy another instance.
 
-For example, suppose your solution includes an Azure SQL logical server and provisions a dedicated database on that server for each tenant. A [single logical server has limits](/azure/azure-sql/database/resource-limits-logical-server#logical-server-limits), which include a maximum number of databases that a logical server supports. As you approach these limits, you might need to provision new servers so that you can continue to onboard tenants. Consider whether to automate this process or manually monitor the growth.
+For example, suppose your solution includes an Azure SQL logical server and provisions a dedicated database on that server for each tenant. A [single logical server has limits](/azure/azure-sql/database/resource-limits-logical-server#logical-server-limits), which include a maximum number of databases that it supports. As you approach these limits, you might need to provision new servers so that you can continue to onboard tenants. Consider whether to automate this process or manually monitor the growth.
 
 ### Resource management responsibility
 
@@ -154,7 +154,7 @@ The diagram shows a four-step process for tenant creation. It begins with the AP
 
 The onboarding process typically includes the following asynchronous steps:
 
-1. Request to onboard a tenant, such as by initiating an API request to your system's control plane.
+1. Request to onboard a tenant, such as initiating an API request to your system's control plane.
 
 1. A workflow component receives the creation request and orchestrates the remaining steps.
 1. The workflow initiates the deployment of tenant-specific resources to Azure. You can use an imperative programming model, such as Azure SDKs, or imperatively trigger the deployment of a Bicep file or Terraform template.
@@ -171,17 +171,15 @@ For more information, see [Considerations for multitenant control planes](../con
 
 ### Example
 
-Contoso runs a multitenant solution for their customers. They have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They deploy a single set of App Service resources and an Azure SQL logical server that all tenants share. They also deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram.
+Contoso runs a multitenant solution for their customers. They have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They deploy a single set of Azure App Service resources and an Azure SQL logical server that all tenants share. They also deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram. Contoso uses Bicep to deploy their Azure resources.
 
 :::image type="complex" source="media/deployment-configuration/example-architecture.png" alt-text="Architecture diagram showing shared resources and dedicated resources for each tenant." border="false" lightbox="media/deployment-configuration/example-architecture.png":::
 The diagram shows a shared resource architecture in an Azure environment. At the top, three shared components are shown: Azure SQL Server, App Service plan, and App Service app. Beneath them, individual tenants labeled tenant 1, tenant 2, and tenant N are depicted. Each tenant connects to their own dedicated Azure SQL database.
 :::image-end:::
 
-Contoso uses Bicep to deploy their Azure resources.
-
 #### Option 1: Use deployment pipelines for everything
 
-Contoso might consider deploying all their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants. The Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loop-resources) to deploy a database for each of the listed tenants, as shown in the following diagram.
+Contoso might deploy all their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants. The Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loop-resources) to deploy a database for each of the listed tenants, as shown in the following diagram.
 
 :::image type="complex" source="media/deployment-configuration/example-configuration.png" alt-text="Diagram showing a pipeline deploying both shared and tenant-specific resources." border="false" lightbox="media/deployment-configuration/example-configuration.png":::
 The diagram shows a deployment process to Azure that uses a pipeline that connects to two input files: a Bicep file and a parameter file. The Bicep file includes an App Service plan, an App Service app, Azure SQL Server, and multiple Azure SQL databases. The parameter file lists tenant 1, tenant 2, and continuing through tenant N. The pipeline targets an Azure environment.
@@ -196,7 +194,7 @@ If Contoso follows this model, they must do the following steps:
 
 #### Option 2: Use a combination of deployment pipelines and imperative resource creation
 
-Alternatively, Contoso might consider separating the responsibility for the Azure deployments.
+Alternatively, Contoso might separate the responsibility for the Azure deployments.
 
 Contoso uses a Bicep file that defines shared resources to deployed. The shared resources support all tenants and include a tenant catalog database, also known as a *tenant list database*, as shown in the following diagram.
 
@@ -212,13 +210,11 @@ The API asynchronously starts a workflow that onboards their new tenants. The wo
 
 - Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql#management-library).
 
-After the database is deployed, the workflow adds the tenant to the tenant list database, as shown in the following diagram.
+After the database is deployed, the workflow adds the tenant to the tenant list database, as shown in the following diagram. The application tier initiates ongoing database schema updates.
 
 :::image type="complex" source="media/deployment-configuration/example-data-workflow.png" alt-text="Diagram showing the workflow to deploy a database for a new tenant." border="false" lightbox="media/deployment-configuration/example-data-workflow.png":::
 The diagram shows a deployment process in Azure involving tenant-specific and shared resources. It begins with an API that points to a workflow. Within the workflow, two actions are defined: deploy database and update tenant list. The deploy database action points to Azure tenant-specific resources, including SQL databases for tenant 1, tenant 2, and tenant N. The update tenant list action points to the SQL tenant list within Azure shared resources.
 :::image-end:::
-
-The application tier initiates ongoing database schema updates.
 
 ## Contributors
 
