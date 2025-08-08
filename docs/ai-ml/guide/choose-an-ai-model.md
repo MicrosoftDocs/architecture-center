@@ -19,6 +19,8 @@ In the rapidly evolving landscape of AI development, selecting the right model i
 
 There are several criteria that can influence your model selection. Some of these criteria might be more important to you based on your own unique workload characteristics and the organizational priorities that apply to your workload. Each of these criteria act as a filter to be applied to the thousands of available models. The following list of criteria is ordered by general priority.
 
+#Note to Nitya - decision tree image will go here
+
 ### Task fit
 
 **What is the model intended to do: chat, reasoning, RAG, or multimodal processing?**
@@ -77,6 +79,12 @@ In general, you want to pick a model that meets your quality standards while wor
 
 > [!NOTE]
 > Some cross-cutting concerns, like implementing responsible AI policies, might introduce additional performance limitations. While you should include these limitations in your evaluation, they shouldn’t influence your model choice.
+
+## Model tunability
+
+**How much customization do you need to perform?**
+
+Some AI models offer a many hyperparamaters that you can tune to meet your application needs. Examples of these models are deep neural networks or gradient boosting machines. These models offer fine-grained control over parameters such as learning rate and architecture, making them ideal for high-stakes tasks where accuracy is critical. In contrast, simpler models like linear regression or decision trees are easier to deploy and interpret, making them suitable for smaller datasets, real-time use cases, or teams with limited machine learning experience. However, tunability also affects generalization: overly complex models risk overfitting, while simpler ones may underfit but offer more stable performance. Resource constraints are another consideration, as highly tunable models often require more training time, memory, and automated tuning tools. 
 
 ### Narrowing the search space
 
