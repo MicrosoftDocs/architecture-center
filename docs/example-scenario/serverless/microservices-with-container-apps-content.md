@@ -75,13 +75,13 @@ These features replace many of the complexities of the previous AKS architecture
 
 ### Alternatives
 
-An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes, which is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
+An alternative scenario of this example using Kubernetes is described in [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
 
 ## Scenario details
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-Fabrikam, Inc. (a fictional company) implements a drone delivery application where users request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. 
+Fabrikam, Inc. (a fictional company) implements a drone delivery application where users request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time.
 
 The microservices application was deployed to an Azure Kubernetes Service (AKS) cluster. But, the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They eventually migrated the application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam was able to:
 
@@ -153,9 +153,6 @@ For more network topology options, see [Networking architecture in Azure Contain
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
-<!--
-- [Container Apps pricing]().  We can add the link when the document is published.
- -->
 - Azure Container Apps has consumption based pricing model.
 - Azure Container Apps supports scale to zero. When a container app is scaled to zero, there's no charge.
 - In this scenario, Azure Cosmos DB and Azure Cache for Redis are the main cost drivers.
@@ -197,13 +194,11 @@ Principal author:
 
 ## Next steps
 
-- [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
-- [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery GitHub repo](https://github.com/mspnp/aks-fabrikam-dronedelivery)
+- [Azure Container Apps Documentation](/azure/container-apps/)
 
 ## Related resources
 
-- [Build microservices on Azure](/azure/architecture/microservices)
-- [Design a microservices architecture](/azure/architecture/microservices/design)
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+- [Design a microservices architecture](/azure/architecture/microservices/design/)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
