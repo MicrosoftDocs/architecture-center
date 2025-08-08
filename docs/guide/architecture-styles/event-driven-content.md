@@ -1,6 +1,6 @@
 An event-driven architecture consists of *event producers* that generate a stream of events, *event consumers* that listen for these events, and *event channels* (often implemented as event brokers or ingestion services) that transfer events from producers to consumers.
 
-## Architecture
+## Architecture approach
 
 :::image type="complex" border="false" source="./images/event-driven.svg" alt-text="Diagram that shows an event-driven architecture style." lightbox="./images/event-driven.svg":::
    An arrow points from the Event producers section to the Event ingestion section. Three arrows point from the Event ingestion section to three sections that are all labeled Event consumers.
@@ -8,23 +8,23 @@ An event-driven architecture consists of *event producers* that generate a strea
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers: A producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events. 
 
-This process differs from a [Competing Consumers pattern][competing-consumers]. In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure Internet of Things (IoT)](https://learn.microsoft.com/azure/iot-fundamentals/iot-introduction), events must be ingested at high volumes.
+This process differs from a [Competing Consumers pattern][competing-consumers]. In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure Internet of Things (IoT)](/azure/iot-fundamentals/iot-introduction), events must be ingested at high volumes.
 
 An event-driven architecture can use a [publish-subscribe model](/azure/architecture/patterns/publisher-subscriber) or an event stream model.
 
-- **Pub/sub:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. Once received, an event can't be replayed, and new subscribers don't see the event. [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/overview) is a recommended service for pub/sub scenarios.
+- **Pub/sub:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. Once received, an event can't be replayed, and new subscribers don't see the event. [Azure Event Grid](/azure/event-grid/overview) is a recommended service for pub/sub scenarios.
 
-- **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream. That means a client can join at any time and can replay events. [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about) is designed for high-throughput event streaming.
+- **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream. That means a client can join at any time and can replay events. [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is designed for high-throughput event streaming.
 
 On the consumer side, there are some common variations:
 
-- **Simple event processing:** An event immediately triggers an action in the consumer. For example, you can use [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) with an [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/overview) or [Azure Service Bus](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) trigger so that a function runs whenever a message is published to a topic or event.
+- **Simple event processing:** An event immediately triggers an action in the consumer. For example, you can use [Azure Functions](/azure/azure-functions/functions-overview) with an [Event Grid trigger](/azure/azure-functions/functions-bindings-event-grid-trigger) or [Azure Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus-trigger) so that your code runs whenever a message is published.
 
 - **Basic event correlation:** A consumer processes a few discrete business events, correlates them by some identifier, and persists information from earlier events for use when processing later events. Libraries like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/1-saga-basics/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) support this pattern.
 
-- **Complex event processing:** A consumer uses a technology like [Azure Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-introduction) to analyze a series of events and identify patterns in the event data. For example, you can aggregate readings from an embedded device over a time window, and generate a notification if the moving average crosses a certain threshold.
+- **Complex event processing:** A consumer uses a technology like [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) to analyze a series of events and identify patterns in the event data. For example, you can aggregate readings from an embedded device over a time window and generate a notification if the moving average crosses a certain threshold.
 
-- **Event stream processing:** Use a data streaming platform, such as [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-concepts-and-iot-hub), [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about), or Apache Kafka, as a pipeline to ingest events and feed them to stream processors. The stream processors act to process or transform the stream. There might be multiple stream processors for different subsystems of the application. This approach is a good fit for IoT workloads.
+- **Event stream processing:** Use a data streaming platform, such as [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub), [Azure Event Hubs](/azure/event-hubs/event-hubs-about), or [Azure Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview), as a pipeline to ingest events and feed them to stream processors. The stream processors act to process or transform the stream. There might be multiple stream processors for different subsystems of the application. This approach is a good fit for IoT workloads.
 
 The source of the events might be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that the data source requires.
 
@@ -50,7 +50,7 @@ You should use this architecture when:
 - Real-time processing with minimum time lag is required.
 - Complex event processing, such as pattern matching or aggregation over time windows, is required.
 - High volume and high velocity of data is required, as with, for example, IoT.
-- You need to decouple producers and consumers for scalability and reliability.
+- You need to decouple producers and consumers for independent scalability and reliability goals.
 
 ## Benefits
 
@@ -102,7 +102,7 @@ The benefits of this architecture are:
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
-- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes. For guidance on hybrid architectures, see the [Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/).
+- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
 
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a particular domain might affect many components.
 
