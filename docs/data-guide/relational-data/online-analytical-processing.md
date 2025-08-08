@@ -188,4 +188,4 @@ The following tables summarize the key differences in capabilities between these
 
 ## Related resources
 
-- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.md)

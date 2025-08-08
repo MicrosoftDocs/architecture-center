@@ -8,7 +8,7 @@ Aligned with Microsoft's security recommendation, this solution incorporates sev
 
 - **Secure by default**. Inbound traffic to virtual machines is locked down, allowing connectivity only when needed. This default security posture minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
 
-- **Secure operations**. It's critical to implement continuous monitoring and invest in improving of security controls to meet current and future threats. Use various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles. Optionally you should consider Microsoft Entra Conditional Access to regulate access to Azure resources and Azure Key Vault for storing virtual machine local passwords if not integrated with Entra ID or Active Direcory Domain Services.
+- **Secure operations**. It's critical to implement continuous monitoring and invest in improving of security controls to meet current and future threats. Use various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles. Optionally you should consider Microsoft Entra Conditional Access to regulate access to Azure resources and Azure Key Vault for storing virtual machine local passwords if not integrated with Entra ID or Active Directory Domain Services.
 
 ## Potential use cases
 

@@ -3,7 +3,7 @@ title: Multitenancy and Application Insights
 description: Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.
 author: rajnemani
 ms.author: ranema
-ms.date: 08/13/2024
+ms.date: 08/01/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -37,7 +37,7 @@ This table summarizes the differences between the main tenancy models for Applic
 | **Data isolation** | Low | Low | High |
 | **Performance isolation** | Low | Medium | High |
 | **Deployment complexity** | Low to medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
-| **Operational complexity** | Low |Medium | High |
+| **Operational complexity** | Low | Medium | High |
 | **Example scenario** | Large multitenant solution with a shared application tier | Multitenant solution with regional deployments to better serve a global customer base | Individual application instances per tenant |
 
 ### Globally shared Application Insights instance
@@ -68,13 +68,13 @@ You might decide to use a dedicated Application Insights instance for each tenan
 
 ![Diagram that shows one instance per tenant.](media/application-insights/dedicated-app-insights-per-tenant.png)
 
-This approach gives you more flexibility and control over tenants' telemetry data and provides the strongest data isolation. When you use this model, you can configure tenant-specific settings and retention policies. 
+This approach gives you more flexibility and control over tenants' telemetry data and provides the strongest data isolation. When you use this model, you can configure tenant-specific settings and retention policies.
 
-When you use this approach, however, you need to deploy a large number of Application Insights instances, manage-tenant specific settings in a tenant catalog, and change application code when new tenants are onboarded. Note that the decision to deploy a dedicated Application Insights instance per tenant is separate from the decision to deploy an application tier for each tenant. For example, you can decide to deploy a single application instance in a stamp that's shared by multiple tenants but deploy one Application Insights instance for each tenant.
+When you use this approach, however, you need to deploy a large number of Application Insights instances, manage tenant-specific settings in a tenant catalog, and change application code when new tenants are onboarded. Note that the decision to deploy a dedicated Application Insights instance per tenant is separate from the decision to deploy an application tier for each tenant. For example, you can decide to deploy a single application instance in a stamp that's shared by multiple tenants but deploy one Application Insights instance for each tenant.
 
 You should consider using one Application Insights instance per tenant if you require a high degree of data isolation between your tenants, you need different configurations for various tenants, or the service limits of a single Application Insights instance don't meet your needs.  
 
-With this approach, it might be difficult to aggregate data and compare it across all tenants because you need to query multiple Application Insights instances separately. If you use this approach, consider using [cross-resource queries and Azure Monitor workbooks](#unify-multiple-application-insights-instances-into-a-single-view).
+This approach makes it difficult to aggregate and compare data across tenants because you must query multiple Application Insights instances separately. If you use this approach, consider using [cross-resource queries and Azure Monitor workbooks](#unify-multiple-application-insights-instances-into-a-single-view).
 
 ## Application Insights features that support multitenancy
 
@@ -119,7 +119,7 @@ The time it takes for data on a monitored system to become available for analysi
 
 ## Rate limiting on ingestion
 
-You can perform ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to stay within the limits.  
+You can implement ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to stay within the limits.
 
 ## Contributors
 
@@ -135,7 +135,7 @@ Other contributors:
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Rick Hallihan](https://www.linkedin.com/in/hallihan/) | Senior Software Engineer, Azure Patterns & Practices
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Senior Partner Technology Strategist, EPS
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
