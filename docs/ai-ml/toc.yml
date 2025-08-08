@@ -4,6 +4,10 @@ items:
   items:
     - name: Explore ideas about
       items:
+      - name: Audio processing
+        items:
+        - name: Unlock insights from conversational data
+          href: idea/unlock-insights-from-conversational-data.yml
       - name: Image processing
         items:
         - name: Image classification
