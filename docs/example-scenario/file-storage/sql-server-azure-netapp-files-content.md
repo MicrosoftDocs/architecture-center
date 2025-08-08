@@ -86,7 +86,6 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-
 * **Role-based access, encryption at-rest and in-flight**
 	You can rely on [secure data plane concepts](/azure/azure-netapp-files/data-plane-security) with configurable role-based permissions at the share and file level. Data is encrypted in transit and at rest.
 
