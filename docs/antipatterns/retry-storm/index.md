@@ -50,7 +50,7 @@ Services should also protect themselves from retry storms.
 - **Add a gateway layer to block connections during incidents.** This approach follows the [Bulkhead pattern](../../patterns/bulkhead.yml). Azure provides many gateway services for different types of solutions including [Azure Front Door](https://azure.microsoft.com/services/frontdoor/), [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [Azure API Management](https://azure.microsoft.com/services/api-management/).
 
 - **Throttle requests at your gateway.** This approach prevents back-end components from becoming overwhelmed by excessive requests.
-- **Send signals to clients.** When throttling, send back a `retry-after` header to help clients understand when to reattempt their connections.
+- **Send signals to clients.** When throttling, send back a `retry-after` header to help clients understand when to reattempt their connections. Clients aren't required to honor these headers, but many do.
 
 ## Considerations
 
