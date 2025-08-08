@@ -57,7 +57,9 @@ Limited regional availability significantly influences the selection of an AI mo
 
 **Will the model be hosted on serverless or managed infrastructure, your own infrastructure, or on-device?**
 
-Your deployment model — whether serverless, platform-as-a-service (PaaS), or self-hosted — can significantly influence your choice of an AI model. Serverless environments favor lightweight, stateless models that can scale instantly and handle sporadic workloads efficiently, but may impose limits on execution time and memory. PaaS offers more flexibility and built-in infrastructure, making it suitable for moderately complex models that benefit from managed services. In contrast, self-hosted deployments provide full control over hardware and configuration, allowing for the use of large, resource-intensive models, but require substantial maintenance and operational overhead. The right model depends on balancing performance needs with infrastructure capabilities and operational constraints.
+Models need to be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers. Or that compute could be local to your workload, such as running within process in your code. Some models that are available in a serverless platform from the provider, sometimes known as Models-as-a-Service (MaaS), might be too big or not licensed to be made available in your own compute. While some specialized models are not offered through your provider's hosting and are only available to run in your own inferencing environment.
+
+Your workload requirements will constrain what the compute platform options are per task, which effectively applies a restriction on which models can be used based on where they can be deployed to meet efficiency, cost, and compliance requirements.
 
 ### Domain specificity
 
