@@ -74,7 +74,7 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#2ad4215274](https://github.com/MicrosoftDocs/architecture-center/commit/2ad4215274))
 - [Retry Storm antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#101c275703](https://github.com/MicrosoftDocs/architecture-center/commit/101c275703))
-- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.yml)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
+- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.md)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
 - [Architectural Approaches for Tenant Integration and Data Access](./guide/multitenant/approaches/integration.md)  ([#2d3e279874](https://github.com/MicrosoftDocs/architecture-center/commit/2d3e279874))
 - [Azure Cache for Redis Considerations for Multitenancy](./guide/multitenant/service/cache-redis.md)  ([#74b0437dc4](https://github.com/MicrosoftDocs/architecture-center/commit/74b0437dc4))
 - [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#c89a4b5fc6](https://github.com/MicrosoftDocs/architecture-center/commit/c89a4b5fc6))

@@ -100,4 +100,4 @@ Other contributors:
 
 ## Next steps
 
-Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
+Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md).

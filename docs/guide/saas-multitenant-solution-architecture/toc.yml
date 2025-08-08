@@ -57,7 +57,7 @@ items:
           - name: Cost management and allocation
             href: ../multitenant/approaches/cost-management-allocation.yml
           - name: Deployment and configuration
-            href: ../multitenant/approaches/deployment-configuration.yml
+            href: ../multitenant/approaches/deployment-configuration.md
           - name: Compute
             href: ../multitenant/approaches/compute.md
           - name: Control planes
