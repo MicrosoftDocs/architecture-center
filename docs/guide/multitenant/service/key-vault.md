@@ -1,23 +1,15 @@
 ---
-title: Azure Key Vault considerations for multitenancy
+title: Guidance for using Azure Key Vault in a multitenant solution
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 09/17/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-key-vault
-categories:
-  - management-and-governance
-  - security
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
-# Multitenancy and Azure Key Vault
+# Guidance for using Azure Key Vault in a multitenant solution
 
 Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this article, we describe some of the features of Azure Key Vault that are useful for multitenant solutions. We then provide links to the guidance that can help you, when you're planning how you're going to use Key Vault.
 
@@ -63,7 +55,7 @@ If your tenants configure network access controls on their vaults, make sure you
 
 You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is simplest, but it provides the least data isolation and performance isolation.
 
-You might also choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
+You might also choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
 
 - To avoid cross-region traffic latency when working with the data in your vault.
 - To support data residency requirements.
@@ -106,12 +98,12 @@ More information:
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

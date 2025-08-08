@@ -1,8 +1,8 @@
 ---
 title: Design a Secure Multitenant RAG Inferencing Solution
 description: Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.
-author: robbagby
-ms.author: robbag
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
@@ -10,12 +10,6 @@ ms.subservice: architecture-guide
 ms.custom:
   - arb-aiml
   - arb-saas
-products:
-  - ai-services
-  - azure-openai
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
 ---
 
 # Design a secure multitenant RAG inferencing solution
@@ -186,8 +180,8 @@ When you design a multitenant RAG inferencing solution, you must consider how to
 
 Principal authors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -199,6 +193,6 @@ Principal authors:
 ## Related resources
 
 - [SaaS and multitenant solution architecture](../../guide/saas-multitenant-solution-architecture/index.md)
-- [Basic OpenAI end-to-end chat reference architecture](../architecture/basic-openai-e2e-chat.yml)
-- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Basic AI Foundry chat architecture](../architecture/basic-azure-ai-foundry-chat.yml)
+- [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml)

@@ -1,20 +1,13 @@
 ---
 title: Develop a RAG Solution - Generate Embeddings Phase
 description: Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.
-author: robbagby
-ms.author: robbag
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 11/17/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-categories:
-  - ai-machine-learning
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
 ---
 
 # RAG generate embeddings phase

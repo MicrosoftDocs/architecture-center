@@ -1,6 +1,6 @@
 Software as a Service (SaaS) is a complex topic with many points to consider. Independent software vendors (ISVs) who build their SaaS solutions on Azure need to solve problems and make decisions such as:
 
-- Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) should I use?
+- Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.md) should I use?
 - How do I set up an identity solution for use in a multitenant architecture?
 - How do I handle onboarding new customers?
 
@@ -61,7 +61,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
 
-1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/azure/active-directory/develop/id-tokens), which is a JSON web token (JWT).
+1. The *Identity provider* adds the permissions and roles as custom claims to the [ID token](/entra/identity-platform/id-tokens), which is a JSON web token (JWT).
 
 1. The *Identity provider* returns an ID token to the *end user* and initiates a redirect to the *front-end application*.
 
@@ -71,7 +71,7 @@ The user sign-in workflow consists of the following steps:
 
 1. The *Front-end application* returns a successful sign-in page and the *end user* is now signed in.
 
-For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc).
+For more information about how this sign-in flow works, see [OpenID Connect protocol](/entra/identity-platform/v2-protocols-oidc).
 
 #### Onboard a new tenant
 
@@ -163,7 +163,7 @@ This architecture uses the following Azure services:
 
 ### Alternatives
 
-The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. The following are some examples of alternative approaches that you can follow when you implement this solution:
+The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.md) that you intend for your SaaS application to support. The following are some examples of alternative approaches that you can follow when you implement this solution:
 
 - The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/).
 
@@ -179,7 +179,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
+This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/entra/identity-platform/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
 
 ### Cost Optimization
 
@@ -214,7 +214,7 @@ Principal author:
 Other contributors:
 
 - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
-- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
@@ -238,5 +238,4 @@ Here are some additional recommended resources for building a SaaS application o
 - [Architectural approaches for compute in multitenant solutions](/azure/architecture/guide/multitenant/approaches/compute)
 - [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
-- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
 - [Cloud Design Patterns](/azure/architecture/patterns/)

@@ -2,11 +2,11 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::
-  Diagram that shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
-:::image-end:::
+:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
+This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
+
+Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.
 
 ### Dataflow
 
@@ -14,7 +14,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Orchestrators like Azure Logic Apps, Azure Data Factory, or Azure Functions ingest messages and attachments from email servers and files from file transfer protocol servers or web applications.
 
-   - Functions and Logic Apps enable serverless workloads. The service that you choose depends on your preference for service capabilities like development, connectors, management, and operational context. For more information, see [Compare Functions and Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps).
+   - Azure Functions and Azure Logic Apps enable serverless workloads. The service that you choose depends on your preference for service capabilities like development, connectors, management, and operational context. For more information, see [Compare Azure Functions and Azure Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps).
 
    - Consider using Azure Data Factory to move data in bulk.
 
@@ -42,7 +42,7 @@ The following dataflow corresponds to the previous diagram:
 
 ### Components
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) is part of [Azure Integration Services](/shows/azure-friday/an-overview-of-azure-integration-services). Logic Apps creates automated workflows that integrate apps, data, services, and systems. You can use [managed connectors](/azure/connectors/managed) for services like Azure Storage and Microsoft 365 to trigger workflows when a file arrives in the storage account or an email is received.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is part of [Azure Integration Services](/shows/azure-friday/an-overview-of-azure-integration-services). Azure Logic Apps creates automated workflows that integrate apps, data, services, and systems. You can use [managed connectors](/azure/connectors/managed) for services like Azure Storage and Microsoft 365 to trigger workflows when a file arrives in the storage account or an email is received.
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a managed cloud extract, transform, and load service for data integration and transformation. Azure Data Factory can add [transformation activities](/azure/data-factory/transform-data) to a pipeline that include invoking a REST endpoint or running a notebook on the ingested data.
 
@@ -76,7 +76,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - You can use the prebuilt model in Language for [document and conversation summarization](/azure/ai-services/language-service/summarization/overview).
 
-- Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
+- Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
 - You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
 
@@ -160,19 +160,19 @@ The major costs for this solution include:
 
 - Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to perform the activities. Added orchestration activity runs are also charged, based on their number.
 
-  Logic Apps pricing plans depend on the resources that you create and use. The following articles can help you choose the right plan for specific use cases:
+  Azure Logic Apps pricing plans depend on the resources that you create and use. The following articles can help you choose the right plan for specific use cases:
 
-  - [Costs that typically accrue with Logic Apps](/azure/logic-apps/plan-manage-costs#costs-that-typically-accrue-with-azure-logic-apps)
+  - [Costs that typically accrue with Azure Logic Apps](/azure/logic-apps/plan-manage-costs#costs-that-typically-accrue-with-azure-logic-apps)
   
-  - [Single-tenant versus multitenant and integration service environment for Logic Apps](/azure/logic-apps/single-tenant-overview-compare)
+  - [Single-tenant versus multitenant environment for Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare)
   
-  - [Usage metering, billing, and pricing models for Logic Apps](/azure/logic-apps/logic-apps-pricing)
+  - [Usage metering, billing, and pricing models for Azure Logic Apps](/azure/logic-apps/logic-apps-pricing)
 
 For more information about pricing for specific components, see the following resources:
 
 - [Azure AI Document Intelligence pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/)
 - [Functions pricing](https://azure.microsoft.com/pricing/details/functions)
-- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+- [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
 - [Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
@@ -219,4 +219,3 @@ Principal author:
 
 - [Extract text from objects by using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP by using deep learning](../../data-guide/technology-choices/natural-language-processing.md)
-- [Automate document processing by using Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)

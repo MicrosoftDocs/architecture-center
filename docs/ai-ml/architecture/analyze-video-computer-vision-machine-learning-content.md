@@ -1,9 +1,8 @@
 This article describes an architecture that you can use to replace the manual analysis of video footage with an automated, and frequently more accurate, machine learning process.
 
-
 ## Architecture
 
-:::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
+:::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for automated video analysis by using video frames and custom code." lightbox="_images/analyze-video-content.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
 *The FFmpeg and Jupyter Notebook logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
@@ -34,7 +33,7 @@ This article describes an architecture that you can use to replace the manual an
 
 If there is no need to call a pre-trained Object Detection Custom Model, we can use the following architecture which relies on Azure AI Vision Video Retrieval. Using this service will omit the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach serves a more straightforward path if your use case relies on detecting common objects or entities in a video.
 
-:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for automated video analysis by using the Video Retrieval API." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
 
@@ -50,7 +49,7 @@ If there is no need to call a pre-trained Object Detection Custom Model, we can 
 8. Power BI provides data visualization.
 
 ### Alternative Components 
-- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
+- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
 - [SQL database in Fabric](/fabric/database/sql/overview) is a simple, autonomous, and secure SQL database service optimized for AI. It is used in this architecture to store information about the videos retrieved from the Azure Video Retrieval API.
 - [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advance image and video analysis capabilities without requiring machine learning expertise. The [Video Retrieval API](/azure/ai-services/computer-vision/how-to/video-retrieval) is used in this architecture to retrieve information directly from the video.
 

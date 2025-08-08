@@ -2,21 +2,11 @@
 title: Choose an Azure storage service
 description: Use this guide to decide which Azure storage service best suits your application.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
-categories: storage
-products:
-- azure-data-lake-storage
-- azure-queue-storage
-- azure-table-storage
-- azure-blob-storage
-- azure-file-storage
-- azure-netapp-files
-- azure-container-storage
-- azure-managed-lustre
 ---
 
 # Review your storage options

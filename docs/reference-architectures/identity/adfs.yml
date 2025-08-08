@@ -1,28 +1,25 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extend on-premises AD FS to Azure
-  description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
-  author: billmath
-  ms.author: billmath
-  ms.date: 10/30/2024
+  title: Extend On-Premises Active Directory Federation Services to Azure
+  description: Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.
+  author: justinha
+  ms.author: justinha
+  ms.date: 06/05/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
-    - identity
     - hybrid
-  ms.custom:
     - identity
-    - reference-architecture
-    - e2e-hybrid
-name: Extend on-premises AD FS to Azure
+  ms.custom: e2e-hybrid  
 azureCategories:
-  - identity
   - hybrid
-summary: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
+  - identity
 products:
-  - entra-id
-  - entra
   - azure-load-balancer
+  - entra
+  - entra-id
+name: Extend on-premises Active Directory Federation Services to Azure
+summary: Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/adfs.png
 content: |
-   [!include[](adfs-content.md)]
+   [!INCLUDE[](adfs-content.md)]

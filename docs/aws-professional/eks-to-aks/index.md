@@ -1,8 +1,8 @@
 ---
 title: AKS for Amazon EKS Professionals
 description: Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -11,11 +11,6 @@ ms.collection:
  - aws-to-azure
 ms.custom:
   - arb-containers
-categories:
-  - containers
-  - compute
-products:
-  - azure-kubernetes-service
 ---
 
 # AKS for Amazon EKS professionals
@@ -67,9 +62,9 @@ Principal authors:
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

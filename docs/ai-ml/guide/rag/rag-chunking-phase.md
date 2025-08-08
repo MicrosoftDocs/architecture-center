@@ -1,20 +1,13 @@
 ---
 title: Develop a RAG Solution - Chunking Phase
 description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
-author: robbagby
-ms.author: robbag
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 01/16/2025 
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-categories:
-  - ai-machine-learning
-products:
-  - ai-services
-  - azure-cognitive-search
-  - azure-openai
-  - azure-machine-learning
 ---
 
 # RAG chunking phase
@@ -164,7 +157,7 @@ Document layout analysis libraries and services expose a model that represents t
 > [!NOTE]
 > Document Intelligence is a cloud-based service that requires you to upload your document. You need to ensure that your security and compliance regulations allow you to upload documents to such services.
 
-**Tools:** [Document Intelligence document analysis models](/azure/ai-services/document-intelligence/overview#general-extraction-models), [Donut](https://github.com/clovaai/donut/), [Layout Parser](https://github.com/Layout-Parser/layout-parser)<br/>
+**Tools:** [Document Intelligence document analysis models](/azure/ai-services/document-intelligence/overview#general-extraction-models), [Donut](https://github.com/clovaai/donut/), [Layout Parser](https://layout-parser.github.io/)<br/>
 **Engineering effort:** Medium<br/>
 **Processing cost:** Medium<br/>
 **Use cases:** Semi-structured documents<br/>
@@ -174,7 +167,7 @@ Document layout analysis libraries and services expose a model that represents t
 
 Services such as Document Intelligence provide prebuilt models that you can take advantage of for various document types. Some models are trained for specific document types, such as the U.S. W-2 tax form, while others target a broader genre of document types such as invoices.
 
-**Tools:** [Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), [Power Automate intelligent document processing](https://powerautomate.microsoft.com/en-us/intelligent-document-processing/), [LayoutLMv3](https://huggingface.co/microsoft/layoutlmv3-base)<br/>
+**Tools:** [Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), [Power Automate intelligent document processing](https://powerautomate.microsoft.com/intelligent-document-processing/), [LayoutLMv3](https://huggingface.co/microsoft/layoutlmv3-base)<br/>
 **Engineering effort:** Low<br/>
 **Processing cost:** Medium/High<br/>
 **Use cases:** Structured documents where a prebuilt model exists<br/>

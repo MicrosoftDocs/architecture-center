@@ -1,30 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Integrate on-premises AD domains with Microsoft Entra ID
+  title: Integrate On-Premises Active Directory Domains With Microsoft Entra ID
   description: Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.
   author: justinha
   ms.author: justinha
-  ms.date: 06/07/2024
+  ms.date: 06/05/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
-    - identity
     - hybrid
-  ms.custom:
     - identity
-    - reference-architecture
+  ms.custom:
     - e2e-hybrid
-    - 2021-refresh
     - has-azure-ad-ps-ref
 name: Integrate on-premises Active Directory domains with Microsoft Entra ID
 azureCategories:
-  - identity
   - hybrid
-summary: Implement a secure hybrid network architecture using Microsoft Entra ID.
+  - identity
+summary: Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.
 products:
-  - entra-id
-  - azure-virtual-network
   - azure-virtual-machines
+  - azure-virtual-network
+  - entra-id
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad.png
 content: |
-   [!include[](azure-ad-content.md)]
+   [!INCLUDE[](azure-ad-content.md)]

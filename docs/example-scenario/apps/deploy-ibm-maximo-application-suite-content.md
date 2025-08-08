@@ -21,32 +21,32 @@ From the perspective of infrastructure, this architecture provides the following
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host the OpenShift platform and run the Maximo containers. Virtual Machines is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) to host the OpenShift platform and run the Maximo containers. Virtual Machines is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources.
 
 - [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.16/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
 
-- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+- [Azure Load Balancers](/azure/well-architected/service-guides/azure-load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs. Virtual Network is the fundamental building block for private networks in Azure.
+- [Virtual Network](/azure/well-architected/service-guides/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs. Virtual Network is the fundamental building block for private networks in Azure.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) to host the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and Network File System (NFS) protocols.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) to host the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and Network File System (NFS) protocols.
 
-- [Azure DNS](https://azure.microsoft.com/services/dns) to manage DNS resolution for the containers inside and outside of the solution. Azure DNS supports all common DNS records and provides high availability.
+- [Azure DNS](/azure/dns/dns-overview) to manage DNS resolution for the containers inside and outside of the solution. Azure DNS supports all common DNS records and provides high availability.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides seamless enhanced-security RDP and SSH access to VMs without any exposure through public IP addresses.
+- [Azure Bastion](/azure/bastion/bastion-overview) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides seamless enhanced-security RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not currently supported.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
-- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) (optional) to provide a jump box for installation of OpenShift. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, you can perform the installation from an existing machine.
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/quick-create-portal) (optional) to provide a jump box for installation of OpenShift. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, you can perform the installation from an existing machine.
 
 ### Alternatives
 
 The following services typically aren't necessary, but they're effective alternatives:
 
-- [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) as a replacement for Azure Files. Azure NetApp Files supports of any type of workload with high availability and high performance.
-- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to SQL Managed Instance or Db2 Warehouse.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) as a replacement for Azure Files. Azure NetApp Files supports of any type of workload with high availability and high performance.
+- [Oracle Database on Azure](/azure/oracle/oracle-db/database-overview) if you prefer that to SQL Managed Instance or Db2 Warehouse.
 - [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
 
 ## Scenario details
@@ -62,7 +62,7 @@ IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise a
 - **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
 - **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
 
-These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview). This guide details how to install Maximo manually.
+These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. Azure offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://www.ibm.com/docs/masv-and-l/cd?topic=imas-installing-byol-maximo-application-suite). This guide details how to install Maximo manually.
 
 ### Potential use cases
 
@@ -241,13 +241,13 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 MAS currently supports single sign-on (SSO) with Security Assertion Markup Language (SAML) in Microsoft Entra ID. This authentication method requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial).
 
-Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
+Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/entra/identity/enterprise-apps/add-application-portal-setup-sso).
 
 You should also configure Open Authorization (OAuth) for OpenShift. For more information, see [Overview of authentication and authorization](https://docs.openshift.com/container-platform/4.16/authentication/index.html) in the OpenShift documentation.
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/entra/fundamentals/how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost optimization
 
@@ -324,8 +324,8 @@ For help with getting started, see the following resources:
 - [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/preparing-to-install-on-azure.html)
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
-- [Requirements for Maximo](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements)
-- [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview)
+- [Requirements for Maximo](https://www.ibm.com/docs/mas-cd/continuous-delivery?topic=deploy-system-requirements)
+- [IBM Maximo Application Suite (BYOL)](https://www.ibm.com/docs/masv-and-l/cd?topic=imas-installing-byol-maximo-application-suite)
 
 To learn more about the featured technologies, see the following resources:
 

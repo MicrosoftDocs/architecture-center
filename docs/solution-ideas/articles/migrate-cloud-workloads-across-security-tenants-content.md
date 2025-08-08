@@ -42,7 +42,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
 
 - The [Azure Storage](/azure/storage/common/storage-introduction) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, and durable storage for various data objects in the cloud.
 

@@ -38,7 +38,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
   - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Azure Well-Architected Framework perspective on Log Analytics](/azure/well-architected/service-guides/azure-log-analytics).
   - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
   - [Microsoft Entra ID](/entra/fundamentals/whatis) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-  - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
+  - A [service principal](/entra/identity-platform/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
   - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a modern big data streaming platform and event ingestion service.
   - CISA TALON is a CISA-operated service that runs on Azure. TALON connects to your Event Hubs service, authenticates by using a CISA-supplied certificate that's associated with your service principal, and collects logs for CLAW consumption.
 
@@ -233,8 +233,8 @@ Other contributor:
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 - [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview)
-- [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)
-- [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
+- [Use the portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal)
 - [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
@@ -242,7 +242,7 @@ Other contributor:
 - [Collect Syslog data sources with the Log Analytics agent](/azure/azure-monitor/agents/data-sources-syslog)
 - [Parse text data in Azure Monitor logs](/azure/azure-monitor/logs/parse-text)
 - [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
-- [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+- [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Deploy and configure Azure Firewall using the Azure portal](/azure/firewall/tutorial-firewall-deploy-portal)
 
 ## Related resources

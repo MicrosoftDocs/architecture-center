@@ -139,7 +139,7 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](https://linkedin.com/in/gailzhou) | Principal Software Engineer
+- [Gail Zhou](https://www.linkedin.com/in/gailzhou) | Principal Software Engineer
 
 Other contributors:
 - [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
@@ -166,4 +166,3 @@ Other contributors:
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
 - [Index file content and metadata by using Azure AI Search](../../ai-ml/architecture/search-blob-metadata.yml)
 - [Automate document identification, classification, and search by using Durable Functions](../../example-scenario/ai/automate-document-classification-durable-functions.yml)
-- [Automate document processing by using Azure AI Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)

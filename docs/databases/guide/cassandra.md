@@ -3,7 +3,6 @@ title: Run Apache Cassandra on Azure VMs
 description: Examine performance considerations for running Apache Cassandra on Azure Virtual Machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
 ms.author: arsenv
-categories: azure
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.subservice: best-practice
@@ -12,11 +11,6 @@ ms.custom:
   - cse
   - best-practice
   - arb-data
-azureCategories:
-  - databases
-products:
-  - azure
-  - azure-virtual-machines
 ---
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->
@@ -136,7 +130,7 @@ For a multiregion deployment, use Azure Global VNet-peering to connect the virtu
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/4.0/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](https://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
@@ -170,9 +164,9 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
 
-- [Apache Cassandra Hardware Choices](https://cassandra.apache.org/doc/latest/cassandra/operating/hardware.html)
+- [Apache Cassandra Hardware Choices](https://cassandra.apache.org/doc/latest/cassandra/managing/operating/hardware.html)
 
-- [Apache Cassandra Configuration File](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html)
+- [Apache Cassandra Configuration File](https://cassandra.apache.org/doc/stable/cassandra/managing/configuration/cass_yaml_file.html)
 
 ## Related resources
 

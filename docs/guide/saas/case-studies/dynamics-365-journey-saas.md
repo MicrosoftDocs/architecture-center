@@ -2,20 +2,11 @@
 title: "The journey to SaaS: Dynamics 365"
 description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-  - dynamics-365
-categories:
-  - management-and-governance
-ms.category:
-  - fcp
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 
@@ -108,7 +99,7 @@ As with every architectural decision, base your use of deployment stamps on your
 
 ### Control planes and configuration
 
-When an ISV moves to a cloud-based SaaS delivery model, one of the most dramatic changes is that they take responsibility for the operation of the service. In most on-premises software, customers’ IT departments are responsible for deploying, configuring, and managing the systems. Customers themselves take care of monitoring systems and make decisions about when to roll out updates. They’re also responsible for executing all the steps involved. Often, specialist service integration partners help customers to operate complex products in their environment. The software provider becomes responsible for all these activities *across all their customers* by moving to a cloud and SaaS model. With the transition to SaaS, it's necessary to build the ISV’s service and also a [*control plane*](../../multitenant/considerations/control-planes.yml) to automate the work of onboarding and managing tenants. Control planes and automation are important, even with a relatively small number of customers.
+When an ISV moves to a cloud-based SaaS delivery model, one of the most dramatic changes is that they take responsibility for the operation of the service. In most on-premises software, customers’ IT departments are responsible for deploying, configuring, and managing the systems. Customers themselves take care of monitoring systems and make decisions about when to roll out updates. They’re also responsible for executing all the steps involved. Often, specialist service integration partners help customers to operate complex products in their environment. The software provider becomes responsible for all these activities *across all their customers* by moving to a cloud and SaaS model. With the transition to SaaS, it's necessary to build the ISV’s service and also a [*control plane*](../../multitenant/considerations/control-planes.md) to automate the work of onboarding and managing tenants. Control planes and automation are important, even with a relatively small number of customers.
 
 It’s good practice to design a control plane that’s resilient, reliable, and highly available. Too often, control planes are treated as an afterthought in the journey to building a SaaS product. But if a control plane isn’t designed with the same care as the rest of the product, you’re at risk of it being a single point of failure. Without proper attention to the resiliency of the control plane, a control plane failure could affect all customers.
 
@@ -245,5 +236,5 @@ The biggest lesson we’ve learned is that the journey to SaaS never ends. A pro
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Mike Ehrenberg](https://www.linkedin.com/in/mike-ehrenberg-5a3492128/) | CTO, Microsoft Dynamics
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Arsen Vladimirsky](http://linkedin.com/in/arsenv) | Principal Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer

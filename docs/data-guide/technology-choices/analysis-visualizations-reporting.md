@@ -1,21 +1,12 @@
 ---
 title: Choose a Data Analytics and Reporting Technology in Azure
 description: Evaluate big data analytics technology options for Azure. Use key selection criteria and a capability matrix to help you choose a data analytics technology.
-author: RobBagby
-ms.author: robbag
-categories: azure
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories:
-  - analytics
-products:
-  - power-bi
-  - azure-notebooks
-ms.custom:
-  - data-analytics
-  - guide
-  - internal-intro
+ms.custom: arb-data
 ---
 
 # Choose a data analytics and reporting technology in Azure
@@ -35,7 +26,7 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 
 [Power BI](/power-bi/) is a suite of business analytics tools. It can [connect to hundreds of data sources](/power-bi/desktop-data-sources#connect-to-a-data-source), and you can use it for unplanned analysis. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any extra licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/azure/active-directory/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Microsoft Entra ID](/entra/identity/) to authenticate users who sign in to the Power BI service. It uses the Power BI credentials when a user attempts to access resources that require authentication.
 
 ### Jupyter notebooks
 
@@ -86,7 +77,7 @@ The following table summarizes the key differences in capabilities.
 | Access to numerous open-source packages | No | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes <sup>4</sup> |
 | Data transformation or cleansing options | [Power Query](https://powerbi.microsoft.com/blog/getting-started-with-power-query-part-i/), R | 40 languages, including Python, R, Julia, and Scala | More than 20 interpreters, including Python, JDBC, and R | Python, F#, R |
 | Pricing | Free for Power BI Desktop (authoring). See [Power BI pricing](https://powerbi.microsoft.com/pricing/) for hosting options. | Free | Free | Free |
-| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (via sharing) |
+| Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (via sharing or with a multiuser server like [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/)) | Yes | Yes (via sharing) |
 
 [1] When used as part of a managed HDInsight cluster.
 

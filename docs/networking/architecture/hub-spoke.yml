@@ -10,15 +10,7 @@ metadata:
   ms.category:
     - networking
     - hybrid
-  ms.custom:
-    - networking
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
-    - internal-intro
-    - deployable
-    - 2021-refresh
-    - engagement-fy23
+  ms.custom: e2e-hybrid
 name: Hub-spoke network topology in Azure
 azureCategories:
   - networking

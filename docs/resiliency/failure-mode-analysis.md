@@ -2,17 +2,10 @@
 title: Failure mode analysis
 description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-azureCategories: management-and-governance
-categories: management-and-governance
-products:
-  - azure-app-service
-ms.custom:
-  - resiliency
-  - article
 ---
 
 # Failure mode analysis for Azure applications
@@ -138,14 +131,6 @@ The default retry policy uses exponential back-off. To use a different retry pol
 - Deploy to multiple regions with local quorum consistency. If a nontransient failure occurs, fail over to another region.
 
 **Diagnostics**. Application logs
-
-## Cloud Service
-
-### Web or worker roles are unexpectedly  being shut down.
-
-**Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
-
-**Recovery**. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
 
 ## Azure Cosmos DB
 
@@ -426,7 +411,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
-:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/main/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions:
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [in GitHub](https://github.com/mspnp/samples/tree/main/Reliability/FailureModeAnalysisSample). It uses [Polly](https://www.pollydocs.org/) for these exceptions:
 
 - 429 - Throttling
 - 408 - Timeout
@@ -479,7 +464,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
-[onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [new-relic]: https://newrelic.com
@@ -488,8 +472,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
 [ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
-[RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
-[RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication

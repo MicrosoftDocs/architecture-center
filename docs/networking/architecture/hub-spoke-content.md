@@ -1,4 +1,4 @@
-This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture).
+This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture).
 
 Hub-spoke is one of the network topologies recommended by the Cloud Adoption Framework. See, [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology) to understand why this topology is considered a best practice for many organizations.
 
@@ -64,13 +64,13 @@ Hub-spoke network topologies typically include the many of following architectur
 
 This architecture involves the creation, configuration, and maintenance of several Azure resource primitives, namely: `virtualNetworkPeerings`, `routeTables`, and `subnets`. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) is a management service that helps you group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and Microsoft Entra directories. With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and logically segment your virtual networks. You can use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) that allow virtual networks within a group to communicate with each other as if they were manually connected.  This layer adds a layer of abstraction over those primitives to focus on describing the networking topology vs working about the implementation of that topology.
 
-It's recommended that you evaluate using Virtual Network Manager as a way to optimize your time spending with network management operations. Evaluate the cost of the service against your calculated value/savings to determine if Virtual Network Manger is a net benefit for your network's size and complexity.
+It's recommended that you evaluate using Virtual Network Manager as a way to optimize your time spending with network management operations. Evaluate the cost of the service against your calculated value/savings to determine if Virtual Network Manager is a net benefit for your network's size and complexity.
 
 ## Scenario details
 
 This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks.
 
-This architecture describes a network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture).
+This architecture describes a network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture).
 
 The benefits of using a customer-managed hub and spoke configuration include:
 
@@ -344,5 +344,5 @@ Explore the following related architectures:
 
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
-- [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
+- [Spoke-to-spoke networking](../guide/spoke-to-spoke-networking.md)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

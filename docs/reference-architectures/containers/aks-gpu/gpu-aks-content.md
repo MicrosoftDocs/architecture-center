@@ -12,7 +12,7 @@ To determine when to use GPUs for AKS workloads, you must understand GPU optimiz
 
 You can use GPUs to accelerate data preprocessing, feature engineering, and model training in data science workflows. To efficiently use GPUs, frameworks like [RAPIDS](https://rapids.ai/) and [Dask GPU](https://docs.dask.org/en/stable/gpu.html) extend popular data-processing libraries, such as pandas and scikit-learn.
 
-Open-source software (OSS)-accelerated SQL query engines and columnar databases like [BlazingSQL](https://github.com/BlazingDB/blazingsql) and [HeavyDB](https://github.com/heavyai/heavydb) use GPUs to rapidly perform queries and analytics on large datasets.
+Open-source software (OSS)-accelerated SQL query engines and columnar databases like [HeavyDB](https://www.heavy.ai/) use GPUs to rapidly perform queries and analytics on large datasets.
 
 #### Machine learning and deep learning
 
@@ -124,7 +124,7 @@ To improve machine learning operations, KAITO provides the following capabilitie
 
 - **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
 - **Automatic GPU node provisioning**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
-- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models. For open-source models with MIT or Apache2 licenses that the KAITO repository doesn't support, you can [submit a request](https://github.com/Azure/kaito/blob/main/docs/How-to-add-new-models.md) for new model onboarding.
+- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models.
 
 For more information about KAITO, see the following resources:
 

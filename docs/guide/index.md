@@ -1,17 +1,11 @@
 ---
 title: Azure Application Architecture Fundamentals
 description: Learn about structured approaches to designing scalable, resilient, and highly available applications on Azure. Follow best practices for cloud applications.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/03/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Azure application architecture fundamentals
@@ -102,7 +96,7 @@ For more information about various design considerations, including API design, 
 
 Your application has specific business requirements, goals, and measurements of success. You should decompose those functional and nonfunctional requirements into discrete activities that work together to achieve a solution that meets your and your customers' expectations. These activities typically follow patterns that the software industry has established. Software design patterns are named and repeatable approaches that you can apply to processing or data storage. These patterns are proven to solve specific problems with known tradeoffs.
 
-Azure's [catalog of cloud design patterns](../patterns/index.md) addresses specific challenges in distributed systems.
+The [catalog of cloud design patterns](../patterns/index.md) in Azure addresses specific challenges in distributed systems. For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). It includes specialized coordination approaches that complement traditional design patterns by addressing the unique challenges of orchestrating intelligent, autonomous components.
 
 ## Make informed technology choices
 

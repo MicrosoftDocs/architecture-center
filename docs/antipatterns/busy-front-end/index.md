@@ -1,14 +1,11 @@
 ---
 title: Busy Front End antipattern
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
-ms.author: robbag
-author: RobBagby
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-products:
-  - aspnet
-categories: featured
 ---
 
 <!-- cSpell:ignore workinfrontend workinbackground Hudgens userprofile -->

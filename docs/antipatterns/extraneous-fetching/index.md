@@ -1,26 +1,11 @@
 ---
 title: Extraneous Fetching antipattern
 description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
-ms.author: robbag
-author: RobBagby
-categories: azure
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 07/25/2022
 ms.topic: design-pattern
 ms.subservice: best-practice
-azureCategories:
-  - databases
-  - storage
-  - web
-  - compute
-  - devops
-products:
-  - azure-sql-database
-  - azure-app-service
-  - azure-front-door
-  - azure-functions
-  - azure-table-storage
-ms.custom:
-  - article
 keywords:
   - anti-pattern
   - antipattern
@@ -40,7 +25,7 @@ Antipatterns are common design flaws that can break your software or application
 
 This antipattern can occur if the application tries to minimize I/O requests by retrieving all of the data that it *might* need. This is often a result of overcompensating for the [Chatty I/O][chatty-io] antipattern. For example, an application might fetch the details for every product in a database. But the user may need just a subset of the details (some may not be relevant to customers), and probably doesn't need to see *all* of the products at once. Even if the user is browsing the entire catalog, it would make sense to paginate the results&mdash;showing 20 at a time, for example.
 
-Another source of this problem is following poor programming or design practices. For example, the following code uses Entity Framework to fetch the complete details for every product. Then it filters the results to return only a subset of the fields, discarding the rest. You can find the complete sample [here][sample-app].
+Another source of this problem is following poor programming or design practices. For example, the following code uses Entity Framework to fetch the complete details for every product. Then it filters the results to return only a subset of the fields, discarding the rest.
 
 ```csharp
 public async Task<IHttpActionResult> GetAllFieldsAsync()
@@ -57,7 +42,7 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 }
 ```
 
-In the next example, the application retrieves data to perform an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records. You can find the complete sample [here][sample-app].
+In the next example, the application retrieves data to perform an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnClientAsync()
@@ -253,9 +238,6 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 [BusyDatabase]: ../busy-database/index.md
 [data-partitioning]: ../../best-practices/data-partitioning.yml
 [new-relic]: https://newrelic.com/products/application-monitoring
-
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/ExtraneousFetching
-
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md
 [Load-Test-Results-Client-Side1]: ./_images/LoadTestResultsClientSide1.jpg

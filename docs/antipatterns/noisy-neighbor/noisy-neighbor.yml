@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Noisy Neighbor antipattern
-  description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
-  ms.author: robbag
-  author: RobBagby
-  ms.date: 07/10/2024
+  title: Noisy Neighbor Antipattern
+  description: Learn how the activity of one tenant can negatively affect the performance and reliability of other tenants in a multitenant system.
+  ms.author: pnp
+  author: claytonsiemens77
+  ms.date: 06/11/2025
   ms.topic: design-pattern
   ms.subservice: best-practice
   ms.custom:
@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure
 name: Noisy Neighbor antipattern
-summary: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
+summary: Learn how the activity of one tenant can negatively affect the performance and reliability of other tenants in a multitenant system.
 thumbnailUrl: /azure/architecture/browse/thumbs/noisy-neighbor-single.png
 content: |
   [!INCLUDE[](noisy-neighbor-content.md)]

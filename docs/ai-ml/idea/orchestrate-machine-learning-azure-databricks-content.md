@@ -67,7 +67,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 - A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
 
-  - [**Delta Lake**](https://delta.io) is the recommended open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
+  - [**Delta Lake**](/azure/databricks/delta/) is the recommended open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
 
 - [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning lifecycle. MLflow has the following components:
   - The [**tracking feature**](/azure/databricks/applications/mlflow/tracking) tracks experiments, so you can record and compare parameters, metrics, and model artifacts.
@@ -76,7 +76,7 @@ Machine learning engineers manage the production environment, where machine lear
   - [**MLflow Model**](/azure/databricks/applications/mlflow/models) is a format that you can use to store and deploy models from any machine learning library to various model-serving and inference platforms.
   - [**Unity Catalog**](/azure/databricks/data-governance/unity-catalog/) provides centralized access control, auditing, lineage, and data-discovery capabilities across Azure Databricks workspaces.
   - [**Mosaic AI Model Serving**](/azure/databricks/machine-learning/model-serving/) hosts MLflow models as REST endpoints.
-- [**Azure Databricks**](https://azure.microsoft.com/services/databricks) provides a managed MLflow service that has enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
+- [**Azure Databricks**](/azure/well-architected/service-guides/azure-databricks-security) provides a managed MLflow service that has enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
   - [**Databricks Runtime for Machine Learning**](/azure/databricks/runtime/mlruntime#mlruntime) automates the creation of a cluster that's optimized for machine learning and preinstalls popular machine learning libraries like TensorFlow, PyTorch, and XGBoost. It also preinstalls Azure Databricks for Machine Learning tools, like AutoML and feature store clients.
 
   - A [**feature store**](/azure/databricks/applications/machine-learning/feature-store) is a centralized repository of features. Use the feature store to discover and share features and help prevent data skew between model training and inference.

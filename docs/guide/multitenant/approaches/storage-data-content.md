@@ -27,7 +27,7 @@ When designing a solution that contains multitenant data services, there are usu
 - When using Azure SQL, you can use separate tables in shared databases, or you can deploy separate databases or servers for each tenant.
 - In all Azure services, you can consider deploying resources within a single shared Azure subscription, or you can use multiple Azure subscriptions - perhaps even one per tenant.
 
-There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
+There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if you're designing a business-to-consumer (B2C) solution it might be reasonable to have a single data store for all of your data. However, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
 
 ### Complexity of implementation
 
@@ -35,18 +35,18 @@ It's important to consider the complexity of your implementation. It's good prac
 
 Similarly, if your solution doesn't need to scale to a large number of tenants, or if you don't have concerns around performance or data isolation, then it's better to keep your solution simple and avoid adding unnecessary complexity.
 
-A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure that you design for this requirement upfront. Avoid forking or providing custom infrastructure for individual tenants. Customized infrastructure inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/devops/operate/progressive-experimentation-feature-flags) and other forms of tenant configuration.
+A particular concern for multitenant data solutions is the level of customization you support. For example, can a tenant extend your data model or apply custom data rules? Ensure that you design for this requirement upfront. Avoid forking or providing customized infrastructure for individual tenants. Customized infrastructure inhibits your ability to scale, to test your solution, and to deploy updates. Instead, consider using [feature flags](/devops/operate/progressive-experimentation-feature-flags) and other forms of tenant configuration.
 
 ### Complexity of management and operations
 
 Consider how you plan to operate your solution, and how your multitenancy approach affects your operations and processes. For example:
 
-- **Management:** Consider cross-tenant management operations, such as regular maintenance activities. If you use multiple accounts, servers, or databases, how will you initiate and monitor the operations for each tenant?
+- **Management:** Consider management operations, such as regular maintenance activities. If you use multiple servers, file stores, or databases, plan how to initiate and monitor the maintenance operations for each tenant's resources.
 - **Monitoring and metering:** If you monitor or meter your tenants, consider how your solution reports metrics, and whether they can be easily linked to the tenant that triggered the request.
-- **Reporting:** Reporting data from across isolated tenants might require that each tenant publishes data to a centralized data warehouse, rather than running queries on each database individually and then aggregating the results.
+- **Reporting:** Consider whether you need to report on aggegated data from across multiple isolated tenants. As your solution scales, it becomes cumbersome to run queries on each database individually and aggregate the results. A different approach is to have each tenant's applications publish data to a centralized data warehouse.
 - **Schema updates:** If you use a database that enforces a schema, plan how you will deploy schema updates across your estate. Consider how your application knows which schema version to use for a specific tenant's database queries.
-- **Requirements:** Consider your tenants' high availability requirements (for example, uptime service level agreements, or SLAs) and disaster recovery requirements (for example, recovery time objectives, or RTOs, and recovery point objectives, or RPOs). If tenants have different expectations, will you be able to meet each tenant's requirements?
-- **Migration:** How will you migrate tenants if they need to move to a different type of service, a different deployment, or another region?
+- **Requirements:** Consider your tenants' high availability requirements (for example, uptime service level agreements, or SLAs) and disaster recovery requirements (for example, recovery time objectives, or RTOs, and recovery point objectives, or RPOs). If tenants have different expectations, verify you can meet each tenant's requirements.
+- **Migration:** Consider whether you'll enable tenants to move to a different type of service, a different deployment, or another region. If this is a capability you plan to offer, build processes and tools to ensure it's a repeatable and safe process.
 
 ### Cost
 
@@ -54,11 +54,14 @@ Generally, the higher the density of tenants to your deployment infrastructure, 
 
 ## Approaches and patterns to consider
 
-Several design patterns from the Azure Architecture Center are of relevance to multitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
+Several design patterns from the Azure Architecture Center are of relevance to multitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements.
 
 ### Deployment Stamps pattern
 
-For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) can be used to support a multitenant solution, see [Overview](overview.yml#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+
+> [!TIP]
+> In multitenant solutions, it's a good practice to create deployment stamps. This recommendation applies even when you use a multitenant database or sharded databases within a stamp. By modelling your solution as a stamp, you can easily redeploy it as new business opportunities arise.
 
 ### Shared multitenant databases and file stores
 
@@ -66,13 +69,13 @@ You might consider deploying a shared multitenant database, storage account, or 
 
 ![Diagram showing a single shared multitenant database for all tenants' data.](media/storage-data/shared-database.png)
 
-This approach provides the highest density of tenants to infrastructure, so it tends to come at the lowest cost of any approach. It also often reduces the management overhead, because there's a single database or resource to manage, back up, and secure.
+This approach provides the highest density of tenants to infrastructure, so it tends to come at the lowest financial cost of any approach. It also often reduces the management overhead, because there's a single database or resource to manage, back up, and secure.
 
-However, when you work with shared infrastructure, there are several caveats to consider:
+However, when you work with shared infrastructure, there are several drawbacks to consider:
 
-- **Scale limits:** When you rely on a single resource, consider the supported scale and limits of that resource. For example, the maximum size of one database or file store, or the maximum throughput limits, will eventually become a hard blocker, if your architecture relies on a single database. Carefully consider the maximum scale you need to achieve, and compare it to your current and future limits, before you select this pattern.
+- **Scale limits:** When you rely on a single resource, consider the supported scale and limits of that resource. For example, if your architecture relies on a single shared database, the maximum size of a database or file store, or the maximum throughput limits, will eventually become a hard blocker. Carefully consider the maximum scale you need to achieve, and compare it to your current and future limits, before you select this pattern.
 - **Noisy neighbors:** The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Consider applying the [Throttling pattern](../../../patterns/throttling.yml) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.yml) to mitigate these effects.
-- **Monitoring each tenant:** You might have difficulty monitoring the activity and [measuring the consumption](../considerations/measure-consumption.md) for a single tenant. Some services, such as Azure Cosmos DB, provide reporting on resource usage for each request, so this information can be tracked to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, the Azure Files metrics for file capacity are available per file share dimension, and only when you use premium shares. However, the standard tier provides the metrics only at the storage account level.
+- **Measuring tenants' consumption:** Consider whether you need to [measure the consumption](../considerations/measure-consumption.md) of each tenant. Some data services, such as Azure Cosmos DB, provide reporting on resource usage for each transaction, so this information can be tracked and aggregated to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, when you use Azure Files with premium file eshares, you can access metrics for file capacity for each file share dimension, and the standard tier provides the metrics only at the storage account level.
 - **Tenant requirements:** Tenants might have different requirements for security, backup, availability, or storage location. If these don't match your single resource's configuration, you might not be able to accommodate them.
 - **Schema customization:** When you work with a relational database, or another situation where the schema of the data is important, then tenant-level schema customization is difficult.
 
@@ -98,11 +101,12 @@ Another common approach is to deploy a single multitenant application, with dedi
 
 In this model, each tenant's data is isolated from the others, and you might be able to support some degree of customization for each tenant.
 
-Because you provision dedicated data resources for each tenant, the cost for this approach can be higher than shared hosting models. However, Azure provides several options you can consider, in order to share the cost of hosting individual data resources across multiple tenants. For example, when you work with Azure SQL, you can consider [elastic pools](/azure/azure-sql/database/elastic-pool-overview). For Azure Cosmos DB, you can [provision throughput for a database](/azure/cosmos-db/set-throughput#set-throughput-on-a-database) and the throughput is shared between the containers in that database, although this approach is not appropriate when you need guaranteed performance for each container.
+Because you provision dedicated data resources for each tenant, the cost for this approach can be higher than shared hosting models. However, Azure provides several options you can consider, in order to share the cost of hosting individual data resources across multiple tenants. For example, when you work with Azure SQL Database, you can consider [elastic pools](/azure/azure-sql/database/elastic-pool-overview). For Azure Cosmos DB, you can [provision throughput for a database](/azure/cosmos-db/set-throughput#set-throughput-on-a-database) and the throughput is shared between the containers in that database, although this approach is not appropriate when you need guaranteed performance for each container.
 
 In this approach, because only the data components are deployed individually for each tenant, you likely can achieve high density for the other components in your solution and reduce the cost of those components.
 
-It's important to use automated deployment approaches when you provision databases for each tenant.
+> [!NOTE]
+> It's important to use automated deployment approaches when you provision databases for each tenant. Otherwise, the complexity of manually deploying and managing the databases soon becomes overwhelming.
 
 ### Geode pattern
 
@@ -110,7 +114,7 @@ The [Geode pattern](../../../patterns/geodes.yml) is designed specifically for g
 
 ![Diagram showing the Geode pattern, with databases deployed across multiple regions that synchronize together.](media/storage-data/geodes.png)
 
-Azure Cosmos DB provides [multi-region writes](/azure/cosmos-db/sql/how-to-multi-master) to support this pattern, and Cassandra supports multi-region clusters. Other data services are generally not able to support this pattern, without significant customization.
+Azure Cosmos DB provides [multi-region writes](/azure/cosmos-db/nosql/how-to-multi-master) to support this pattern, and [Azure Managed Instance for Apache Cassandra supports multi-region clusters](/azure/managed-instance-apache-cassandra/create-multi-region-cluster). Other data services are generally not able to support this pattern, without significant customization.
 
 ## Antipatterns to avoid
 
@@ -118,26 +122,26 @@ When you create multitenant data services, it's important to avoid situations th
 
 For relational databases, these include:
 
-- **Table-based isolation.** When you work within a single database, avoid creating individual tables for each tenant. A single database won't be able to support very large numbers of tenants when you use this approach, and it becomes increasingly difficult to query, manage, and update data. Instead, consider using a single set of multitenant tables with a tenant identifier column. Alternatively, you can use one of the patterns described above to deploy separate databases for each tenant.
+- **Table-based isolation.** When you work within a single database, avoid creating individual tables for each tenant. A single database can't support very large numbers of tenants when you use this approach, and it becomes increasingly difficult to query, manage, and update data. Instead, consider using a single set of multitenant tables with a tenant identifier column. Alternatively, you can use one of the patterns described above to deploy separate databases for each tenant.
 - **Column-level tenant customization.** Avoid schema updates that only apply to a single tenant. For example, suppose you have a single multitenant database. Avoid adding a new column to meet a specific tenant's requirements. It might be acceptable for a small number of customizations, but this rapidly becomes unmanageable when you have a large number of customizations to consider. Instead, consider revising your data model to track custom data for each tenant in a dedicated table.
-- **Manual schema changes.** Avoid updating your database schema manually, even if you only have a single shared database. It's easy to lose track of the updates you've applied, and if you need to scale out to more databases, it's challenging to identify the correct schema to apply. Instead, build an automated pipeline to deploy your schema changes, and use it consistently. Track the schema version used for each tenant in a dedicated database or lookup table.
-- **Version dependencies.** Avoid having your application take a dependency on a single version of your database schema. As you scale, you might need to apply schema updates at different times for different tenants. Instead, ensure your application version is backwards-compatible with at least one schema version, and avoid destructive schema updates.
+- **Manual schema changes.** Avoid updating your database schema manually, even if you only have a single shared database. It's easy to lose track of the updates you've applied, and if you need to scale out to more databases, it's challenging to identify the correct schema to apply. Instead, build tooling or an automated pipeline to deploy your schema changes, and use it consistently. Track the schema version used for each tenant in a dedicated database or lookup table.
+- **Version dependencies.** Avoid having your application take a dependency on a single version of your database schema. As you scale, you might need to apply schema updates at different times for different tenants. Instead, ensure your application version is backwards-compatible with at least one previous schema version, and sequence destructive schema changes across multiple versions to support rollbacks.
 
 ## Databases
 
 There are some features that can be useful for multitenancy. However, these aren't available in all database services. Consider whether you need these, when you decide on the service to use for your scenario:
 
-- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like Azure SQL and Postgres Flex.
+- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like Azure SQL Database and Azure Database for PostgreSQL flexible server.
 
     When you use row-level security you need to ensure the user's identity and tenant identity are propagated through the application and into the data store with each query. This approach can be complex to design, implement, test, and maintain. Many multitenant solutions don't use row-level security because of those complexities.
 
-- **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
+- **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in SQL Server and Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
 
-- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database), although each option has limitations you should be aware of.
+- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL Database [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database).
 
-- **Sharding and partitioning** has stronger native support in some services than others. This feature is available in Azure Cosmos DB, by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview). While Azure SQL doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
+- **Sharding and partitioning** has stronger native support in some services than others. This feature is available in Azure Cosmos DB, by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview). While Azure SQL Database doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
-Additionally, when you work with relational databases or other schema-based databases, consider where the schema upgrade process should be triggered, when you maintain a fleet of databases. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As the number of databases increases, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
+Additionally, when you maintain a fleet of relational databases or other schema-based databases, consider where the schema upgrade process should be triggered. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As the number of databases increases, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
 
 ## File and blob storage
 
@@ -157,7 +161,7 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 

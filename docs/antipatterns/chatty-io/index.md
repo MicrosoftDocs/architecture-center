@@ -1,17 +1,11 @@
 ---
 title: Chatty I/O antipattern
 description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
-ms.author: robbag
-author: RobBagby
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-categories:
- - databases
-products:
-  - azure-event-hubs
-ms.custom:
-  - article
 ---
 
 <!--cSpell:ignore dateofbirth -->
@@ -32,7 +26,7 @@ The following example reads from a database of products. There are three tables,
 2. Find all products in that subcategory by querying the `Product` table.
 3. For each product, query the pricing data from the `ProductPriceListHistory` table.
 
-The application uses [Entity Framework][ef] to query the database. You can find the complete sample [here][code-sample].
+The application uses [Entity Framework][ef] to query the database.
 
 ```csharp
 public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcategoryId)
@@ -312,7 +306,6 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.yml
-[code-sample]: https://github.com/mspnp/performance-optimization/tree/main/ChattyIO
 [data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md

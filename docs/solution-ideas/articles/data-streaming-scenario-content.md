@@ -24,15 +24,15 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 The solution uses the following key technologies:
 
-- [API Management](https://azure.microsoft.com/services/api-management)
+- [API Management](/azure/api-management/api-management-key-concepts)
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
-- [Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [HDInsight](https://azure.microsoft.com/services/hdinsight)
-- [AKS](https://azure.microsoft.com/services/kubernetes-service)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)
+- [Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)
+- [HDInsight](/azure/hdinsight/hdinsight-overview)
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Scenario details
 

@@ -1,19 +1,11 @@
 ---
 title: Transient fault handling
 description: Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.
-ms.author: robbag
-author: RobBagby
-categories: azure
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 07/25/2022
 ms.topic: best-practice
 ms.subservice: best-practice
-azureCategories:
-  - databases
-  - security
-  - web
-products:
-  - azure-cloud-services
-  - azure-virtual-machines
 ms.custom:
   - best-practice
 ---

@@ -2,20 +2,12 @@
 title: Choose an Azure data service
 description: Use this guide to decide which data service best suits your application.
 author: claytonsiemens77
-ms.author: csiemens
+ms.author: pnp
 ms.date: 03/28/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure
-categories: databases
-products:
- - azure-sql-database
- - azure-cosmos-db
- - azure-database-mysql
- - azure-database-postgresql
- - azure-cache-redis
- - azure-time-series-insights
 ---
 
 # Review your data options
@@ -33,7 +25,7 @@ For each application or service you deploy to your landing zone environment, use
 Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
 
 - **What is the level of control of the OS and database engine required?** Some scenarios require you to have a high degree of control or ownership of the software configuration and host servers for your database workloads. In these scenarios, you can deploy custom infrastructure as a service (IaaS) virtual machines to fully control the deployment and configuration of data services. You might not require this level of control, but maybe you're not ready to move to a full platform as a service (PaaS) solution. In that case, a managed instance can provide higher compatibility with your on-premises database engine while offering the benefits of a fully managed platform.
-- **Will your workloads use a relational database technology?** If so, what technology do you plan to use? Azure provides managed PaaS database capabilities for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [PostgreSQL](/azure/postgresql/overview), and [MariaDB](/azure/mariadb/overview).
+- **Will your workloads use a relational database technology?** If so, what technology do you plan to use? Azure provides managed PaaS database capabilities for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), and [PostgreSQL](/azure/postgresql/overview).
     - Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and [PostgreSQL](/azure/cosmos-db/postgresql/introduction) APIs to take advantage of the many benefits that Azure Cosmos DB offers, including automatic high availability and instantaneous scalability.
 - **Will your workloads use SQL Server?** In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
 - **Will your workloads use key/value database storage?** [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) offers a high-performance cached key/value data storage solution that can power fast, scalable applications. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides general-purpose key/value storage capabilities.
@@ -59,7 +51,6 @@ The following table lists common use-scenario requirements and the recommended d
 | Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql&preserve-view=true) |
 | Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
 | Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
-| Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MariaDB database service. | [Azure Database for MariaDB](/azure/mariadb/overview) |
 | Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
 | Modernize existing Cassandra data clusters and apps, and enjoy flexibility and freedom with managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
 | Build a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
@@ -69,12 +60,12 @@ The following table lists common use-scenario requirements and the recommended d
 
 The following table lists features available in Azure database services.
 
-|  Feature         |Azure SQL Database |Azure SQL Managed Instance |Azure Database for PostgreSQL |Azure Database for MySQL |Azure Database for MariaDB |Azure Managed Instance for Apache Cassandra |Azure Cosmos DB |Azure Cache for Redis |Azure Cosmos DB for MongoDB |Azure Cosmos DB for Gremlin
-|------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-|Database type|Relational |Relational |Relational |Relational | Relational |NoSQL |NoSQL |In-memory |NoSQL |Graph
-|Data model|Relational |Relational |Relational |Relational | Relational |Multimodel: Document, Wide-column, Key-value, Graph |Wide-column |Key-value |Document |Graph
-|Distributed multimaster writes|No |No |No |No |No |Yes |Yes |Yes (Enterprise and Flash tiers only) |Yes |Yes
-|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (flexible server only) |Virtual network injection (flexible server only) |Virtual network service endpoint |Native virtual network implementation |Virtual network service endpoint |Virtual network injection (Premium, Enterprise, and Flash tiers only) |Virtual network service endpoint |Virtual network service endpoint
+|  Feature         |Azure SQL Database |Azure SQL Managed Instance |Azure Database for PostgreSQL |Azure Database for MySQL |Azure Managed Instance for Apache Cassandra |Azure Cosmos DB |Azure Cache for Redis |Azure Cosmos DB for MongoDB |Azure Cosmos DB for Gremlin
+|------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|
+|Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL |Graph
+|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, Wide-column, Key-value, Graph |Wide-column |Key-value |Document |Graph
+|Distributed multimaster writes|No |No |No |No |Yes |Yes |Yes (Enterprise and Flash tiers only) |Yes |Yes
+|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (flexible server only) |Virtual network injection (flexible server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network injection (Premium, Enterprise, and Flash tiers only) |Virtual network service endpoint |Virtual network service endpoint |
 
 > [!NOTE]
 > [Private link service](/azure/private-link/private-link-service-overview) simplifies networking design to allow Azure services to communicate over private networking. It's supported for all Azure database services. In the case of Managed Instance database services, these instances are deployed in virtual networks, which negates the need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip) for them.

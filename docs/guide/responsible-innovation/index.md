@@ -1,23 +1,11 @@
 ---
 title: Responsible Engineering Overview
 description: Learn how to incorporate responsible engineering principles and practices so that you can deploy your technology ethically and sustainably.
-author: Zimmergren
-ms.author: tozimmergren
-ms.reviewer: tozimmergren
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 04/03/2025
 ms.topic: conceptual
-products: azure
 ms.subservice: architecture-guide
-azureCategories: developer-tools
-categories: developer-tools
-ms.custom:
-  - guide
-keywords:
-  - Innovation toolkit
-  - responsible innovation
-  - innovation best practices
-  - threat modeling
-  - engagement-fy23
 ---
 
 # Responsible engineering overview

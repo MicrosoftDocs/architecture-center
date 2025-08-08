@@ -10,9 +10,6 @@ ms.custom:
   - e2e-aks
   - devx-track-azurecli
   - arb-containers
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Azure Kubernetes Service patch and upgrade guidance
@@ -365,7 +362,7 @@ Principal author:
 Other contributors:
 
 - [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | Principal Solution Architect
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

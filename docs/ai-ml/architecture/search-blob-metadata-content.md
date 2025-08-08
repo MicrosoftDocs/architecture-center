@@ -126,7 +126,6 @@ Other contributor:
 - [Security filters for trimming results in Azure AI Search](/azure/search/search-security-trimming-for-azure-search)
 - [Tutorial: Index from multiple data sources using the .NET SDK](/azure/search/tutorial-multiple-data-sources)
 
-## Related resources
+## Related resource
 
 - [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
-- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

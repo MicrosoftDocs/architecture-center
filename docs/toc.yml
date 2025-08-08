@@ -15,12 +15,6 @@ items:
     href: landing-zones/bicep/landing-zone-bicep.md
   - name: Subscription vending implementation
     href: landing-zones/subscription-vending.yml
-  - name: Application landing zone design guides
-    items:
-    - name: Use the Azure Governance Visualizer
-      href: landing-zones/azure-governance-visualizer-accelerator.yml
-    - name: Azure Virtual Desktop
-      href: landing-zones/azure-virtual-desktop/design-guide.md
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -38,9 +32,7 @@ items:
     - name: Microservices
       items:
       - name: Get started
-        href: microservices/index.yml
-      - name: Microservice architecture style
-        href: guide/architecture-styles/microservices.yml
+        href: guide/architecture-styles/microservices.md
       - name: Guides
         items:
           - name: Microservices assessment and readiness
@@ -198,7 +190,7 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
-        href: guide/technology-choices/load-balancing-overview.yml
+        href: guide/technology-choices/load-balancing-overview.md
       - name: VNet peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.yml
     - name: Choose a messaging service
@@ -396,7 +388,7 @@ items:
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
   - name: Backends for Frontends
-    href: patterns/backends-for-frontends.yml
+    href: patterns/backends-for-frontends.md
   - name: Bulkhead
     href: patterns/bulkhead.yml
   - name: Cache-Aside
@@ -503,24 +495,10 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-      - name: Monitor Azure Databricks jobs
-        items:
-        - name: Overview
-          href: databricks-monitoring/index.md
-        - name: Send Databricks application logs
-          href: databricks-monitoring/application-logs.md
-        - name: Use dashboards to visualize Databricks
-          href: databricks-monitoring/dashboards.md
-        - name: Troubleshoot performance bottlenecks
-          href: databricks-monitoring/performance-troubleshooting.md
-        - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-      - name: Azure Synapse for landing zones
-        href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
@@ -541,10 +519,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml        
     - name: Solution ideas
       items:
-      - name: Azure Data Explorer solutions
-        items:
-        - name: Big data analytics with Data Explorer
-          href: solution-ideas/articles/big-data-azure-data-explorer.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Modern analytics with Azure Databricks
@@ -602,10 +576,10 @@ items:
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
-          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml
+          href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
-        - name: IBM System i to Azure using Infinite i
+        - name: Migrate IBM System i to Azure by using Infinite i
           href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
@@ -659,8 +633,6 @@ items:
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
-        - name: Use LzLabs SDM in Azure
-          href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
     - name: Solution ideas
       items:
       - name: DFS failover cluster
@@ -813,6 +785,9 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
+    items:
+    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
+      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
@@ -861,17 +836,13 @@ items:
             href: hybrid/azure-local-baseline.yml
           - name: Azure Local storage switchless
             href: hybrid/azure-local-switchless.yml
-          - name: Azure Local stretched clusters for DR
-            href: hybrid/azure-local-dr.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS hybrid)
+          - name: AKS on Azure Local (AKS enabled by Azure Arc)
             items:
             - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: AKS on Azure Local network architecture
-              href: example-scenario/hybrid/aks-network.yml
-            - name: Deploy apps with AKS on Azure Local
+            - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
@@ -913,8 +884,6 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Cross-tenant communication
-        href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
         href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
     - name: Architectures
@@ -997,10 +966,10 @@ items:
       items:
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
+      - name: Use the Azure Governance Visualizer
+        href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Architectures
       items:
-      - name: Azure Automation State Configuration
-        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
@@ -1070,8 +1039,8 @@ items:
       items:
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
-      - name: Zero-trust network for web applications
-        href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
+      - name: Zero Trust network for web applications
+        href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
       items:
       - name: Secure research for regulated data
@@ -1134,8 +1103,10 @@ items:
       href: guide/virtual-desktop/start-here.md
     - name: Guides
       items:
+      - name: Azure Virtual Desktop design guide
+        href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
+        href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
@@ -1144,8 +1115,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
-      - name: Multiple Active Directory forests
-        href: example-scenario/azure-virtual-desktop/multi-forest.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework

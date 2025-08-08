@@ -3,16 +3,9 @@ title: Use an Identity as a Service platform
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
 ms.date: 10/05/2024
-ms.author: jodowns
+ms.author: pnp
 ms.topic: conceptual
 ms.subservice: architecture-guide
-categories:
-  - identity
-products:
-  - entra-id
-  - entra-external-id
-ms.custom:
-  - guide
 ---
 
 # Use an Identity as a Service platform
@@ -107,15 +100,15 @@ It's expensive and complex to maintain a secure, reliable, and responsive identi
 
 Principal author:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
- - [LaBrina Loving](http://linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
- - [Gary Moore](https://linkedin.com/in/gwmoore) | Programmer/Writer
- - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

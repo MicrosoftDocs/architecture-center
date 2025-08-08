@@ -196,25 +196,7 @@ For maximum security, require HTTPS throughout the request pipeline:
 
 - **Static website hosting**. Enable the "[Secure transfer required][storage-https]" option on the Storage account. When this option is enabled, the storage account only allows requests from secure HTTPS connections.
 
-- **API Management**. Configure the APIs to use HTTPS protocol only. You can configure this in the Azure portal or through a Resource Manager template:
-
-    ```json
-    {
-        "apiVersion": "2018-01-01",
-        "type": "apis",
-        "name": "dronedeliveryapi",
-        "dependsOn": [
-            "[concat('Microsoft.ApiManagement/service/', variables('apiManagementServiceName'))]"
-        ],
-        "properties": {
-            "displayName": "Drone Delivery API",
-            "description": "Drone Delivery API",
-            "path": "api",
-            "protocols": [ "HTTPS" ]
-        },
-        ...
-    }
-    ```
+- **API Management**. Configure the APIs to use HTTPS protocol only. You can configure this in the Azure portal or through a Resource Manager template.
 
 - **Azure Functions**. Enable the "[HTTPS Only][functions-https]" setting.
 
@@ -329,14 +311,14 @@ Product documentation:
 - [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
 - [Azure Content Delivery Network](/azure/cdn/cdn-overview)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [About API Management][apim] 
+- [About API Management][apim]
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Microsoft Entra ID](/azure/active-directory)
+- [Microsoft Entra ID](/entra/identity)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
-Learn modules:
-- [Choose the best Azure serverless technology for your business scenario](/training/modules/serverless-fundamentals/)
+Learn module:
+
 - [Create serverless logic with Azure Functions](/training/modules/create-serverless-logic-with-azure-functions/)
 
 ## Related resources
@@ -367,14 +349,12 @@ Related guidance:
 [claims]: https://en.wikipedia.org/wiki/Claims-based_identity
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
-[cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2-input
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [event-driven]: ../../../guide/architecture-styles/event-driven.yml
-[functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
@@ -385,13 +365,11 @@ Related guidance:
 [graph]: /graph/overview
 [key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../../microservices/model/domain-analysis.md
-[monitor]: /azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 [partition-key]: /azure/cosmos-db/partition-data
-[pipelines]: /azure/devops/pipelines/index
 [gh-actions]: /azure/developer/github/github-actions
 [ru]: /azure/cosmos-db/request-units
-[scopes]: /azure/active-directory/develop/v2-permissions-and-consent
+[scopes]: /entra/identity-platform/permissions-consent-overview
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview

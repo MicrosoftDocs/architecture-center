@@ -6,14 +6,7 @@ ms.author: arsenv
 ms.date: 08/28/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-  - security
-ms.custom:
-  - guide
-  - arb-saas
+ms.custom: arb-saas
 ---
 
 # Microsoft SaaS stories video interviews

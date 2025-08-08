@@ -236,7 +236,7 @@ private void RaiseDomainEvents(List<IDataObject<Entity>> dObjs)
 }
 ```
 
-On the last line, the [MediatR](https://github.com/jbogard/MediatR) package, an implementation of the mediator pattern in C#, is used to publish an event within the application. Doing so is possible because all events like `ContactNameUpdatedEvent` implement the `INotification` interface of the MediatR package.
+On the last line, the [MediatR](https://github.com/LuckyPennySoftware/MediatR) package, an implementation of the mediator pattern in C#, is used to publish an event within the application. Doing so is possible because all events like `ContactNameUpdatedEvent` implement the `INotification` interface of the MediatR package.
 
 These events need to be processed by a corresponding handler. Here, the `IEventsRepository` implementation comes into play. Here's the sample of the `NameUpdated` event handler:
 

@@ -2,8 +2,8 @@
 metadata:
   title: Geode pattern
   description: Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.
-  ms.author: robbag
-  author: RobBagby
+  ms.author: pnp
+  author: claytonsiemens77
   ms.date: 03/18/2024
   ms.topic: design-pattern
   ms.subservice: design-pattern

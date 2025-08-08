@@ -2,8 +2,8 @@
 metadata:
   title: Quarantine pattern
   description: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
-  ms.author: robbag
-  author: RobBagby
+  ms.author: pnp
+  author: claytonsiemens77
   ms.date: 01/15/2025
   ms.topic: design-pattern
   ms.subservice: design-pattern

@@ -2,19 +2,12 @@
 title: Mission-critical global content delivery
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/21/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-traffic-manager
-  - azure-front-door
-categories:
-  - networking
-ms.custom:
-  - checklist
-  - guide
+ms.custom: guide
 ---
 
 # Mission-critical global content delivery
@@ -99,9 +92,9 @@ Using multiple CDNs comes with some tradeoffs.
 
 Principal authors:
 
-- [Dave Burkhardt](https://linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
-- [Priyanka Wilkins](https://linkedin.com/in/priyanka-w/) | Principal Content Developer
+- [Dave Burkhardt](https://www.linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Principal Content Developer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

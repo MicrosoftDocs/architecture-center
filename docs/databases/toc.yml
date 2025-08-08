@@ -42,14 +42,8 @@ items:
         items:
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Relational
-        items:
-        - name: Intelligent search engine for e-commerce
-          href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
-        - name: Automated enterprise BI
-          href: ../reference-architectures/data/enterprise-bi-adf.yml
         - name: Disaster recovery for data analytics pipelines
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
@@ -70,8 +64,8 @@ items:
           href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
-        - name: SMA OpCon in Azure
-          href: ../solution-ideas/articles/sma-opcon-azure.yml    
+        - name: Implement SMA OpCon in Azure
+          href: ../example-scenario/integration/sma-opcon-azure.yml    
     - name: Apply guidance
       items:
       - name: Databases

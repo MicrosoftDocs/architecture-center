@@ -2,15 +2,10 @@
 title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
-ms.author: jodowns
+ms.author: pnp
 ms.date: 07/24/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
- - azure-api-management
-categories:
- - integration
- - web
 ms.custom:
  - arb-saas
 ---
@@ -26,7 +21,7 @@ ms.custom:
 
 ## Isolation models
 
-API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.yml), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
+API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.md), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.md#deployment-stamps-pattern).
 
 Typically, the way you use API Management is similar, regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
 
@@ -157,12 +152,13 @@ However, if you need fully isolated API Management instances, you might also cho
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, Global Partner Solutions
 
 Other contributor:
 
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -174,4 +170,4 @@ Review the [architectural approaches for integration in multitenant solutions](.
 
 - [Architect multitenant solutions on Azure](../overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
-- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml)
+- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)

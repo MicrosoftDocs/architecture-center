@@ -6,10 +6,6 @@ ms.author: ranema
 ms.date: 08/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-products:
-  - azure-monitor
-categories:
-  - analytics
 ms.custom:
   - arb-saas
 ---
@@ -58,7 +54,7 @@ To address these concerns, you might need to implement logic and mechanisms to e
 
 ### One Application Insights instance per stamp
 
-Multitenant solutions often include multiple stamps, which might be deployed in different Azure regions. Stamps enable you to serve tenants that are local to a particular region so you can provide better performance. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.yml#deployment-stamps-pattern).
+Multitenant solutions often include multiple stamps, which might be deployed in different Azure regions. Stamps enable you to serve tenants that are local to a particular region so you can provide better performance. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
 
 You might decide to deploy an Application Insights instance in each stamp, sharing the instance among all tenants that use the stamp, as shown here:
 
@@ -131,17 +127,16 @@ You can perform ingestion rate limiting in Application Insights by using [sampli
 
 Principal author:
 
- * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist, GPS-ISV
+- [Raj Nemani](https://www.linkedin.com/in/rajnemani/) | Director, Partner Technology Strategist, GPS-ISV
 
 Other contributors:
 
-* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-* [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
-* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-* [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
-* [Landon Pierce](https://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
-* [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
-* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer, Azure Patterns & Practices
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Rick Hallihan](https://www.linkedin.com/in/hallihan/) | Senior Software Engineer, Azure Patterns & Practices
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, Azure CXP
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, OCP
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, Azure CXP
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -164,4 +159,4 @@ Other contributors:
 
 - [Architect multitenant solutions on Azure](overview.md)
 - [Architectural considerations for a multitenant solution](../considerations/overview.yml)
-- [Tenancy models for a multitenant solution](../considerations/tenancy-models.yml)
+- [Tenancy models for a multitenant solution](../considerations/tenancy-models.md)

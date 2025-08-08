@@ -4,12 +4,13 @@ This article describes how SQL Server can be migrated to Azure Virtual Machines 
 
 ## Architecture
 
-SQL Server can be deployed in Azure on Azure VMs making use of Azure NetApp Files to store the database and log files via SMB. It's highly recommended to enable Azure NetApp Files' [SMB continuous availability shares](/azure/azure-netapp-files/enable-continuous-availability-existing-smb) to ensure SMB transparent failover, which allows for nondisruptive maintenance on the Azure NetApp Files service. You can [enable](/azure/azure-netapp-files/enable-continuous-availability-existing-smb#steps) existing SMB volumes to use Continuous Availability.
-
 :::image type="complex" source="./media/continuous-availability.png" alt-text="Architecture diagram displaying a SQL Server deployment with Azure NetApp Files." border="false":::
    A large rectangle representing an Azure region surrounds the whole diagram. Inside the region, there's another rectangle representing availability zone one. Availability zone one contains the Azure NetApp Files delegated subnet and the virtual machine subnet, the latter of which contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL logs, and SQL backup.
 :::image-end:::
 
+SQL Server can be deployed in Azure on Azure VMs making use of Azure NetApp Files to store the database and log files via SMB. It's highly recommended to enable Azure NetApp Files' [SMB continuous availability shares](/azure/azure-netapp-files/enable-continuous-availability-existing-smb) to ensure SMB transparent failover, which allows for nondisruptive maintenance on the Azure NetApp Files service. You can [enable](/azure/azure-netapp-files/enable-continuous-availability-existing-smb#steps) existing SMB volumes to use Continuous Availability.
+
+<!-- this should be a workflow heading -->
 ## High availability and disaster recovery considerations
 
 When using SQL Server databases in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime.

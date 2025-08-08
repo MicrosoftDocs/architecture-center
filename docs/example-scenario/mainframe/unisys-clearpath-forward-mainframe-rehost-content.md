@@ -125,7 +125,7 @@ You can optimize operational efficiency by deploying your solution with Azure Re
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Unisys matches operational performance in Azure with Bronze, Silver, Gold, Platinum, and Titanium offerings to match client workload to operational needs. Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [performance diagnostics](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive problem resolution to improve workload management.
+Unisys provides Gold, Platinum, and Titanium offerings to match client workload to operational needs. These offerings parallel operational performance in Azure. Unisys virtualization on Azure enhances performance efficiency through Azure Monitor and [Performance Diagnostics](/troubleshoot/azure/virtual-machines/windows/how-to-use-perfinsights). These tools enable real-time optimization and proactive problem resolution to improve workload management.
 
 ## Contributors
 
@@ -154,7 +154,7 @@ For more information, see the following resources:
 ## Related resources
 
 - [Unisys CPF OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
-- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
+- [SMA OpCon in Azure](../../example-scenario/integration/sma-opcon-azure.yml)
 - [Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

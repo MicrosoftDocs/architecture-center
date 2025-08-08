@@ -1,21 +1,11 @@
 ---
 title: Busy Database antipattern
 description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
-ms.author: robbag
-author: RobBagby
-categories: azure
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.subservice: best-practice
-azureCategories:
-  - databases
-  - storage
-  - compute
-products:
-  - azure-sql-database
-  - azure-app-service
-ms.custom:
-  - article
 ---
 
 <!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS Linq processingindatabasemonitor -->
@@ -40,7 +30,7 @@ This antipattern typically occurs because:
 - Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
 - Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
 
-The following example retrieves the 20 most valuable orders for a specified sales territory and formats the results as XML. It uses Transact-SQL functions to parse the data and convert the results to XML. You can find the complete sample [here][sample-app].
+The following example retrieves the 20 most valuable orders for a specified sales territory and formats the results as XML. It uses Transact-SQL functions to parse the data and convert the results to XML.
 
 ```sql
 SELECT TOP 20
@@ -280,4 +270,3 @@ CPU and DTU utilization shows that the system took longer to reach saturation, d
 
 [dtu]: /azure/sql-database/sql-database-service-tiers-dtu
 [ExtraneousFetching]: ../extraneous-fetching/index.md
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/BusyDatabase

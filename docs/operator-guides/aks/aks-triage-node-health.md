@@ -1,19 +1,14 @@
 ---
 title: AKS triage—Node health
 description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-categories:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Examine node and pod health

@@ -152,7 +152,7 @@ For User and Authorization, implement role-based access control (RBAC) and resou
 
 * Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to help prevent accidental or malicious changes. Resource locks help prevent administrators from deleting or modifying critical Azure resources where your SAP solution is located.
 
-More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
+More security recommendations can be found at these [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ### Operational Excellence
 
@@ -205,16 +205,16 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 * [SAP Community](https://www.sap.com/community.html)
 
-* [SAP on Stack Overflow](http://stackoverflow.com/tags/sap/info)
+* [SAP on Stack Overflow](https://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
- 
+- [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

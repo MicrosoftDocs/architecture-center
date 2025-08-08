@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Analyze video content with Computer Vision and Azure Machine Learning
-  description: Find out how to automate video analysis. Use Computer Vision and Azure Machine Learning to analyze your content.
+  title: Video Analysis by Using Azure Machine Learning
+  description: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
   author: oscarsk91
   ms.author: oscarsh
   ms.date: 12/20/2024
@@ -20,8 +20,8 @@ products:
   - azure-logic-apps
   - azure-synapse-analytics
   - azure-data-lake-storage
-name: Analyze video content with Computer Vision and Azure Machine Learning
-summary: Use Computer Vision and Azure Machine Learning to analyze your video content.
+name: Perform video analysis by using Azure Machine Learning and Computer Vision
+summary: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-video-thumb.png
 content: |
   [!INCLUDE[](analyze-video-computer-vision-machine-learning-content.md)]

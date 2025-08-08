@@ -9,18 +9,6 @@ ms.subservice: architecture-guide
 ms.collection: 
  - migration
  - aws-to-azure
-categories: azure
-azureCategories:
-  - analytics
-  - compute
-  - developer-tools
-  - devops
-  - networking
-  - web
-products:
-  - azure-cloud-services
-  - azure-devops
-  - azure-managed-applications
 ---
 
 # Azure for AWS professionals
@@ -65,19 +53,19 @@ The preceding list doesn't include all services. The following tables describe s
 ### Marketplace
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [AWS Marketplace](https://aws.amazon.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace) | These services present easy-to-deploy and automatically configured partner applications, including single virtual machine (VM) or multiple VM solutions. You can purchase software as a service (SaaS) products from either marketplace. Many of these offerings are eligible to count toward your Azure consumption commitment. To understand which offerings count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc). |
 
 ### Time series databases and analytics
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) | Azure Data Explorer is a fully managed, low latency, and distributed big data analytics platform. It runs complex queries across petabytes of data and is optimized for log and time series data.|
 
 ### DevOps and application monitoring
 
 | AWS service | Azure service | Description |
-|-------------|---------------|-------------|
+| :---------- | :------------ | :---------- |
 | [Amazon CloudWatch](https://aws.amazon.com/cloudwatch) and [AWS X-Ray](https://aws.amazon.com/xray/) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Azure Monitor is a comprehensive solution that you can use to collect, analyze, and act on telemetry from your cloud and on-premises environments. Use [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, to instrument your code for more in-depth application performance monitoring. In AWS, you typically use both X-Ray and CloudWatch. |
 | [AWS CodeDeploy](https://aws.amazon.com/codedeploy) <br/><br/>[AWS CodeCommit (deprecated)](https://aws.amazon.com/codecommit/) <br/><br/>[AWS CodePipeline](https://aws.amazon.com/codepipeline) <br/><br/> [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) <br/><br/>[AWS CodeBuild](https://aws.amazon.com/codebuild)  | [Azure DevOps](https://azure.microsoft.com/services/devops/)<br/><br/> [GitHub](https://github.com) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Azure DevOps is a single solution that focuses on collaboration, continuous integration and continuous delivery (CI/CD), code testing, code artifacts, security testing, and code management. <br/><br/> GitHub is a cloud-based platform that you can use to showcase, collaborate on, and manage code. <br/><br/> Use GitHub Actions to automate software development workflows. <br/><br/> AWS code products support many of these functions. AWS no longer provides a code repository to new customers, but it does allow integration with partner repositories via CodeConnections.|
 | [AWS CLI](https://aws.amazon.com/cli) <br/><br/>[AWS Tools for PowerShell](https://aws.amazon.com/powershell/) <br/><br/>[AWS SDKs](https://aws.amazon.com/developer/tools/)| [Azure CLI](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) <br/><br/>[Azure SDKs](https://azure.github.io/azure-sdk/) | These services are built on top of the native REST API across all cloud services. Various programming language-specific wrappers provide easier ways to create solutions. |
@@ -88,7 +76,7 @@ The preceding list doesn't include all services. The following tables describe s
 ### Internet of Things (IoT)
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [AWS IoT Core](https://aws.amazon.com/iot-core) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) | This service provides a cloud gateway for managing bidirectional communication more securely and at scale with billions of IoT devices. |
 | [AWS IoT Greengrass](https://aws.amazon.com/greengrass) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Use this service to deploy cloud intelligence directly onto IoT devices and cater to on-premises scenarios. |
 | [Amazon Data Firehose](https://aws.amazon.com/firehose/) and [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams) | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) <br/><br/>[Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) | These services facilitate the mass ingestion of events or messages, typically from devices and sensors. The data can then be processed in real-time microbatches or be written to storage for further analysis. Both Kinesis Data Streams and Stream Analytics have real-time data processing capabilities.|
@@ -99,7 +87,7 @@ The preceding list doesn't include all services. The following tables describe s
 ### Management and governance
 
 | AWS service | Azure service | Description |
-|-------------|---------------|-------------|
+| :---------- | :------------ | :---------- |
 | [AWS Organizations](https://aws.amazon.com/organizations) | [Azure management groups](/azure/governance/management-groups)| Azure management groups help you organize your resources and subscriptions.|
 | [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)| [Azure Well-Architected Review](/assessments/?mode=pre-assessment)| Examine your workload through the lenses of reliability, cost management, operational excellence, security, and performance efficiency. |
 | [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Azure Advisor](https://azure.microsoft.com/services/advisor) | Advisor provides analysis of cloud resource configuration and security to help subscribers use best practices and optimum configurations. |
@@ -115,23 +103,23 @@ The preceding list doesn't include all services. The following tables describe s
 | [AWS Control Tower](https://aws.amazon.com/controltower) | [Azure Lighthouse](/azure/lighthouse/overview) | Set up and govern multiple-account or multiple-subscription environments. |
 | [AWS Resource Groups and Tag Editor](https://docs.aws.amazon.com/ARG) | [Resource Manager resource groups](/azure/azure-resource-manager/management/overview) and [tags](/azure/azure-resource-manager/management/tag-resources) | A resource group is a container that holds related resources for an Azure solution. Apply tags to your Azure resources to logically organize them by categories. |
 | [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig) | [Azure App Configuration](/azure/azure-app-configuration) | App Configuration is a managed service that helps developers simply and more securely centralize their application and feature settings. |
-| [AWS Service Catalog](https://aws.amazon.com/servicecatalog) | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview) | Azure Managed Applications provides cloud solutions that customers can easily deploy and operate.
+| [AWS Service Catalog](https://aws.amazon.com/servicecatalog) | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview) | Azure Managed Applications provides cloud solutions that customers can easily deploy and operate. |
 
 ### Authentication and authorization
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/)<br/><br/>[AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Use these services to more securely control access to services and resources and improve data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
+| :---------- | :------------ | :---------- |
+| [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/)<br/><br/>[AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) | Use these services to more securely control access to services and resources and improve data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
 | [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) | Azure RBAC helps you manage who can access Azure resources, which resources they can access, and what they can do with those resources. |
 | [AWS Organizations](https://aws.amazon.com/organizations) | [Azure management groups](https://azure.microsoft.com/get-started/azure-portal/management-groups/) | These services provide security policy and role management when you work with multiple accounts. |
-| [Multi-Factor Authentication (MFA) for IAM](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Help safeguard access to data and applications while providing a simple sign-in process to users. |
-| [AWS Directory Service](https://aws.amazon.com/directoryservice) | [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds) | Domain Services provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
-| [Amazon Cognito](https://aws.amazon.com/cognito) | [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External ID is a highly available, global identity management service for consumer-facing applications in which you need to support "bring your own identity" scenarios, such as identities from Google or Meta. |
+| [Multi-Factor Authentication (MFA) for IAM](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Help safeguard access to data and applications while providing a simple sign-in process to users. |
+| [AWS Directory Service](https://aws.amazon.com/directoryservice) | [Microsoft Entra Domain Services](/entra/identity/domain-services/overview) | Domain Services provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
+| [Amazon Cognito](https://aws.amazon.com/cognito) | [Microsoft identity platform](/entra/identity-platform/v2-overview) and [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External ID is a highly available, global identity management service for consumer-facing applications in which you need to support "bring your own identity" scenarios, such as identities from Google or Meta. |
 
 ### Encryption
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [Server-side encryption with AWS Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) | [Azure Storage service-side encryption](/azure/storage/storage-service-encryption) | Service-side encryption helps you protect your data and meet your organization's security and compliance commitments. |
 | [AWS Key Management Service (KMS)](https://aws.amazon.com/kms), [AWS CloudHSM](https://aws.amazon.com/cloudhsm) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault) <br/><br> [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) | Improve security and work with other services by providing a way to manage, create, and control encryption keys that hardware security modules (HSMs) store. Key Vault provides a shared HSM or a dedicated HSM. On AWS, KMS uses a shared HSM. CloudHSM is a dedicated HSM. Both platforms provide Federal Information Processing Standards-validated options. |
 | [AWS Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/) | [Azure confidential computing](https://azure.microsoft.com/solutions/confidential-compute/) | Azure confidential computing provides platforms that have more controls to help protect data while it's being processed. It can also remotely verify platform trustworthiness. Azure also provides Azure SQL Always Encrypted and confidential VMs for Azure Virtual Desktop, Azure Data Explorer, and Azure Databricks. |
@@ -139,14 +127,14 @@ The preceding list doesn't include all services. The following tables describe s
 ### Firewalls
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [AWS WAF](https://aws.amazon.com/waf) | [Azure web application firewall](https://azure.microsoft.com/products/web-application-firewall) | These firewalls help protect web applications from common web exploits. |
 | [AWS Network Firewall](https://aws.amazon.com/network-firewall)| [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) | These services improve inbound protection and outbound network-level protection across all ports and protocols. Both solutions support the ability to inspect and apply rules for encrypted web traffic. |
 
 ### Security
 
 | AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
+| :---------- | :------------ | :---------- |
 | [Amazon Inspector](https://aws.amazon.com/inspector) | [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/) | Defender for Cloud is an automated security assessment service that improves the security and compliance of applications. It automatically assesses applications for vulnerabilities or deviations from best practices. |
 | [AWS Certificate Manager](https://aws.amazon.com/certificate-manager) | [Key Vault certificates](/azure/key-vault/certificates/about-certificates) <br/><br> [Microsoft Cloud PKI](https://www.microsoft.com/security/business/endpoint-management/microsoft-cloud-PKI)| Use these services to create and manage certificates and their keys. |
 | [Amazon GuardDuty](https://aws.amazon.com/guardduty/) | [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/) | Detect and investigate advanced attacks on-premises and in the cloud. |
@@ -156,20 +144,19 @@ The preceding list doesn't include all services. The following tables describe s
 ### Web applications
 
 | AWS service | Azure service | Description |
-|------|-------------|---------------|
+| :---------- | :------------ | :---------- |
 | [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk) | [Azure App Service](https://azure.microsoft.com/services/app-service) | App Service is a managed hosting platform that provides easy-to-use services for deploying and scaling web applications and services. |
 | [Amazon API Gateway](https://aws.amazon.com/api-gateway) | [Azure API Management](https://azure.microsoft.com/services/api-management) | These services provide a turnkey solution for publishing APIs to internal and external customers. |
 | [Amazon CloudFront](https://aws.amazon.com/cloudfront) | [Azure Front Door](https://azure.microsoft.com/services/frontdoor) | Azure Front Door is a modern cloud content delivery network service that delivers high performance, scalability, and more secure user experiences for your content and applications. |
 | [AWS Global Accelerator](https://aws.amazon.com/global-accelerator) | [Azure Front Door](https://azure.microsoft.com/services/frontdoor) | Easily join your distributed microservices architectures into a single global application that uses HTTP load balancing and path-based routing rules. Automate turning up new regions and scale out by using API-driven global actions and independent fault-tolerance to your back-end microservices in Azure or anywhere. |
 | [AWS Global Accelerator](https://aws.amazon.com/global-accelerator) | [Cross-regional load balancer](/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
-| [Amazon Lightsail](https://aws.amazon.com/lightsail) | [App Service](https://azure.microsoft.com/services/app-service) | Build, deploy, and scale web apps on a fully managed platform. |
+| [Amazon Lightsail](https://aws.amazon.com/lightsail) and [AWS Amplify](https://aws.amazon.com/amplify) | [App Service](https://azure.microsoft.com/services/app-service) | Build, deploy, and scale web apps on a fully managed platform. |
 | [AWS App Runner](https://aws.amazon.com/apprunner) | [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) | Easily deploy and run containerized web apps on Windows and Linux. |
-| [AWS Amplify](https://aws.amazon.com/amplify) | [Static Web Apps](https://azure.microsoft.com/services/app-service/static) | Static Web Apps boosts productivity by providing a tailored developer experience, CI/CD workflows to build and deploy your static content hosting, and dynamic scaling for integrated serverless APIs. |
 
 ### End-user computing
 
 | AWS service | Azure service | Description |
-|------|-------------|---------------|
+| :---------- | :------------ | :---------- |
 | [Amazon WorkSpaces Family](https://aws.amazon.com/workspaces), [Amazon AppStream 2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](/azure/virtual-desktop) | Manage virtual desktops and applications to give users access to the corporate network and data anytime, anywhere, and on supported devices. WorkSpaces Family supports Windows and Linux virtual desktops. Azure Virtual Desktop supports single and multiple-session Windows virtual desktops.|
 
 ## Miscellaneous

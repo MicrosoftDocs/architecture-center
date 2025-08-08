@@ -38,7 +38,7 @@ There is no single approach that's correct in all cases, but here are some gener
 
 ## Example: Choosing data stores for the Drone Delivery application
 
-The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./index.yml). This example is ideal for the aircraft and aerospace industries.
+The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding architecture in [Design a microservices architecture](./index.yml).
 
 To recap, this application defines several microservices for scheduling deliveries by drone. When a user schedules a new delivery, the client request includes information about the delivery, such as pickup and dropoff locations, and about the package, such as size and weight. This information defines a unit of work.
 
@@ -82,4 +82,4 @@ Learn about design patterns that can help mitigate some common challenges in a m
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.yml)
 - [Design APIs for microservices](api-design.yml)
-- [Microservices architecture design](../../microservices/index.yml)
+- [Microservices architecture design](../../guide/architecture-styles/microservices.md)

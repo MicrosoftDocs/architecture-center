@@ -5,8 +5,8 @@ metadata:
   ms.topic: hub-page
   ms.date: 12/09/2024
   ms.collection: collection
-  ms.author: robbag
-  author: RobBagby
+  ms.author: pnp
+  author: claytonsiemens77
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center
@@ -97,11 +97,14 @@ conceptualContent:
   items:
     - title: Popular articles
       links:
-      - text: Baseline OpenAI end-to-end chat architecture
-        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+      - text: AI Foundry chat baseline architecture
+        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
         itemType: architecture
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
+        itemType: concept
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
         itemType: concept
       - text: Cloud design patterns
         url: ./patterns/index.md
@@ -115,21 +118,21 @@ conceptualContent:
       - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.md
-        itemType: concept
 
     - title: AI & Machine Learning
       links:
       - text: AI architecture design
         itemType: overview
         url: /azure/architecture/ai-ml/
-      - text: Azure OpenAI baseline architecture
-        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+      - text: AI Foundry chat baseline architecture
+        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway
         url: /azure/architecture/ai-ml/guide/azure-openai-gateway-guide
         itemType: how-to-guide
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
+        itemType: concept
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
         itemType: how-to-guide
@@ -249,9 +252,6 @@ conceptualContent:
         - text: Identity in multitenant architectures
           url: /azure/architecture/guide/multitenant/considerations/identity
           itemType: concept
-        - text: Building applications to work across Entra tenants
-          url: /azure/architecture/patterns/cross-tenant-communication-using-multitenanted-applications
-          itemType: concept
         - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
@@ -306,9 +306,6 @@ conceptualContent:
         - text: Baseline zone-redundant web application
           itemType: architecture
           url: web-apps/app-service/architectures/baseline-zone-redundant.yml
-        - text: E-commerce product search
-          itemType: get-started
-          url:  ./databases/architecture/ecommerce-search.yml
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
           url:  /azure/architecture/web-apps/api-management/architectures/protect-apis

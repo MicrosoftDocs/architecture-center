@@ -1,19 +1,13 @@
 ---
 title: AKS triage—Workload deployments
 description: Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
-  - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Monitor workload deployments
@@ -108,7 +102,7 @@ The first number signifies the count of containers that are currently in a *read
 
 Ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, some containers might not be ready or there might be issues preventing them from reaching the *ready* state.
 
-#### Deployment, `StatefulSet`, `DaemonSet`, and `StatefulSet`
+#### Deployment, `StatefulSet`, `DaemonSet`, and `ReplicaSet`
 
 Run the following command to retrieve the [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) in all namespaces:
 

@@ -3,7 +3,7 @@ metadata:
   title: Azure Data Factory on Azure landing zones baseline architecture
   description: Learn how to design and implement the medallion lakehouse architecture on Azure landing zones by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.
   author: claytonsiemens77
-  ms.author: csiemens
+  ms.author: pnp
   ms.date: 08/02/2024
   ms.topic: conceptual
   ms.subservice: reference-architecture

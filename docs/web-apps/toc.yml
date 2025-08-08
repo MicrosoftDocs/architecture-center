@@ -4,8 +4,6 @@ items:
   items: 
     - name: Explore ideas about
       items: 
-      - name: Hosting an e-commerce web app
-        href: idea/scalable-ecommerce-web-app.yml
       - name: Deploying a highly available SharePoint farm
         href: ../solution-ideas/articles/highly-available-sharepoint-farm.yml
     - name: Design architectures
@@ -47,7 +45,7 @@ items:
       - name: Security guidance for web apps
         items:
         - name: Single-page application authorization
-          href: guides/security/secure-single-page-application-authorization.yml
+          href: guides/security/secure-single-page-application-authorization.md
       - name: Application development guidance for web apps
         items:
         - name: Enterprise web app patterns

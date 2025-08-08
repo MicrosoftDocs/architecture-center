@@ -34,7 +34,7 @@ This solution uses the following Azure components.
 
 #### AI Search
 
-[AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) indexes the content and powers the user experience in this solution. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. And you can use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
+[AI Search](/azure/search/search-what-is-azure-search) indexes the content and powers the user experience in this solution. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. And you can use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
 
 #### Azure AI Vision
 
@@ -44,21 +44,21 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Language
 
-[Language](https://azure.microsoft.com/products/ai-services/ai-language/) uses [text analytics](/azure/ai-services/language-service/overview#available-features) capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) to extract text information from unstructured documents.
+[Language](/azure/ai-services/language-service/overview) uses [text analytics](/azure/ai-services/language-service/overview#available-features) capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) to extract text information from unstructured documents.
 
 #### Azure Storage
 
-[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is REST-based object storage for data that you can access from anywhere in the world through HTTPS. You can use Blob Storage to expose data publicly to the world or to store application data privately. Blob Storage is ideal for large amounts of unstructured data like text or graphics.
+[Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is REST-based object storage for data that you can access from anywhere in the world through HTTPS. You can use Blob Storage to expose data publicly to the world or to store application data privately. Blob Storage is ideal for large amounts of unstructured data like text or graphics.
 
-[Table Storage](https://azure.microsoft.com/products/storage/tables/) stores highly available, scalable, structured, and semi-structured NoSQL data in the cloud.
+[Table Storage](/azure/storage/tables/table-storage-overview) stores highly available, scalable, structured, and semi-structured NoSQL data in the cloud.
 
 #### Azure Functions
 
-[Functions](https://azure.microsoft.com/products/functions/) is a serverless compute service that you can use to run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses a Functions method to apply the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
+[Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that you can use to run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses a Functions method to apply the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
 
 #### Azure App Service
 
-This solution builds a standalone web app in [Azure App Service](https://azure.microsoft.com/products/app-service/) to test, demonstrate, and search the index and to explore connections in the enriched and indexed documents.
+This solution builds a standalone web app in [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) to test, demonstrate, and search the index and to explore connections in the enriched and indexed documents.
 
 ## Scenario details
 
@@ -121,7 +121,3 @@ Read product documentation:
 Try the learning path:
 
 - [Implement knowledge mining with AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search)
-
-## Related resources
-
-- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

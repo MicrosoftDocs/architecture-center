@@ -118,7 +118,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 
 [!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
-Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight fault-tolerance library, to implement the Retry pattern in Java. The reference implementation adds the Retry pattern by decorating the service plan controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails. The retry policy for the reference implementation includes maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`.
+Use [Resilience4j](https://resilience4j.readme.io/docs/getting-started), a lightweight fault-tolerance library, to implement the Retry pattern in Java. The reference implementation adds the Retry pattern by decorating the service plan controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails. The retry policy for the reference implementation includes maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`.
 
 ```java
     @GetMapping("/list")
@@ -136,7 +136,7 @@ Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight 
 
 [!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
-Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3) to implement the Circuit Breaker pattern. The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
+Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j](https://resilience4j.readme.io/docs/getting-started) to implement the Circuit Breaker pattern. The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
 
 ### Implement the Cache-Aside pattern
 
@@ -162,7 +162,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
     The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process. It uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This service enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
-    The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
+    The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow) grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
 
     ```xml
     <dependency>
@@ -216,7 +216,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
         ...
     ```
 
-    To [integrate with Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure5x#access-a-web-application), the reference implementation uses the [OAuth 2.0 authorization](/azure/active-directory/develop/v2-oauth2-auth-code-flow) code grant flow. This flow enables a user to sign in with a Microsoft account. The following code snippet shows how to configure the `SecurityFilterChain` to use Microsoft Entra ID for authentication and authorization.
+    To [integrate with Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure5x#access-a-web-application), the reference implementation uses the [OAuth 2.0 authorization](/entra/identity-platform/v2-oauth2-auth-code-flow) code grant flow. This flow enables a user to sign in with a Microsoft account. The following code snippet shows how to configure the `SecurityFilterChain` to use Microsoft Entra ID for authentication and authorization.
 
     ```java
     @Configuration(proxyBeanMethods = false)

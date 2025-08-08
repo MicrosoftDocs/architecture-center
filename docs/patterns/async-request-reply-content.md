@@ -114,7 +114,7 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 ![Image of the structure of the Async Request Reply pattern in Functions](_images/async-request-fn.PNG)
 
-![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/async-request-reply).
+![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
 
 ### AsyncProcessingWorkAcceptor function
 
@@ -139,7 +139,7 @@ public static class AsyncProcessingWorkAcceptor
 
         string reqid = Guid.NewGuid().ToString();
 
-        string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
+        string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
 
         var messagePayload = JsonConvert.SerializeObject(customer);
         var message = new ServiceBusMessage(messagePayload);
@@ -212,7 +212,7 @@ public static class AsyncOperationStatusChecker
         else
         {
             // If it's NOT present, then we need to back off. Depending on the value of the optional "OnPending" parameter, choose what to do.
-            string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
+            string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
             switch (OnPending)
             {
@@ -304,4 +304,4 @@ The following information may be relevant when implementing this pattern:
 
 ## Related resources
 
-- [Backends for Frontends pattern](./backends-for-frontends.yml)
+- [Backends for Frontends pattern](./backends-for-frontends.md)

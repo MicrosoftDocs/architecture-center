@@ -181,7 +181,7 @@ It's important to understand the division of responsibility between the automoti
   
 - Encrypt data at rest and data in transit.
 
-- Use Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
+- Use Microsoft Entra identities and [Microsoft Entra Conditional Access](/entra/identity/conditional-access/plan-conditional-access) policies.
 
 - Use [row level security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL databases and Azure Data Explorer.
 
@@ -239,7 +239,7 @@ Other contributors:
 
 - [Devang Shah](https://www.linkedin.com/in/shahdevang) | Principal Program Manager
 - [Hans-Peter Bareiner](https://www.linkedin.com/in/hans-peter-bareiner-69039163) | Cloud Solution Architect
-- [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Sr. Software Engineer
+- [Jason Bouska](https://www.linkedin.com/in/jasonbouska/) | Senior Software Engineer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

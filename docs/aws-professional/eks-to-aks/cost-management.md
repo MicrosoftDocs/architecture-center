@@ -1,8 +1,8 @@
 ---
 title: Cost Management for Kubernetes
 description: Understand Kubernetes cluster and workload costs, learn how to optimize and govern costs, and compare AKS and Amazon EKS options.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/28/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -11,16 +11,6 @@ ms.custom:
 ms.collection:
   - migration
   - aws-to-azure
-categories:
-  - containers
-  - storage
-  - networking
-products:
-  - azure-cost-management
-  - azure-kubernetes-service
-  - azure-managed-disks
-  - azure-storage
-  - azure-virtual-machines
 ---
 
 # Cost management for Kubernetes
@@ -193,7 +183,7 @@ You can use the following options to scale an AKS cluster, which adds extra capa
 
 - The AKS [cluster autoscaler](/azure/aks/cluster-autoscaler#about-the-cluster-autoscaler) watches for pods that can't be scheduled on nodes because of resource constraints, and automatically increases the number of nodes.
 
-- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://github.com/virtual-kubelet/virtual-kubelet) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, which allows AKS to run with just enough capacity for an average workload. As the AKS cluster reaches its capacity limit, you can scale out more Container Instances pods without managing extra servers. You can combine this approach with the cluster autoscaler and manual scaling approaches.
+- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://virtual-kubelet.io/) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, which allows AKS to run with just enough capacity for an average workload. As the AKS cluster reaches its capacity limit, you can scale out more Container Instances pods without managing extra servers. You can combine this approach with the cluster autoscaler and manual scaling approaches.
 
 If you use on-demand scaling or the cluster autoscaler, account for the added VMs. Container Instances charges are based on the following factors:
 
@@ -289,9 +279,9 @@ Principal authors:
 
 Other contributors:
 
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ed Price](https://www.linkedin.com/in/priceed/) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop/) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

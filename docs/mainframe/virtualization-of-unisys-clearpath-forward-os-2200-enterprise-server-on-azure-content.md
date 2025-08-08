@@ -126,7 +126,7 @@ Unisys provides operational performance in Azure through its Bronze, Silver, Gol
 
 Principal authors:
 
-- [Philip Brooks](http://linkedin.com/in/philipbbrooks) | Senior Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior Program Manager
 - [Adam Gallagher](mailto:Adam.Gallagher@Unisys.com) | Senior Solution Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -140,7 +140,7 @@ For more information, contact **[legacy2azure@microsoft.com](mailto:legacy2azure
 - [ExpressRoute documentation](/azure/expressroute/expressroute-introduction)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Mainframe rehosting on Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [SMA OpCon in Azure](/azure/architecture/solution-ideas/articles/sma-opcon-azure)
+- [SMA OpCon in Azure](/azure/architecture/example-scenario/integration/sma-opcon-azure)
 - [Unisys cloud management](https://www.unisys.com/solutions/cloud-management)
 - [Unisys CPF MCP mainframe rehost to Azure by using Unisys virtualization](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost)
 - [Unisys cybersecurity](https://www.unisys.com/solutions/cybersecurity-solutions)

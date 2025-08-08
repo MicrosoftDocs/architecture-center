@@ -413,14 +413,14 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 Principal author:
 
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
- 
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+
 Other contributors:
 
- * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel)  | Principal Software Engineer
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/)  | Principal Software Engineer - Azure Patterns & Practices
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 ## Related resource
 

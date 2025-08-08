@@ -7,7 +7,7 @@ Many multitenant applications also have user-based permissions. Tenant mapping i
 This article provides guidance for technical decision-makers about the approaches you can consider to map requests to the appropriate tenant, and the tradeoffs involved in the approaches.
 
 > [!NOTE]
-> This page mostly discusses HTTP-based applications, like websites and APIs. However, many of same underlying principles apply to multitenant applications that use other communication protocols.
+> This page mostly discusses HTTP-based applications, like websites and APIs. However, many of the same underlying principles apply to multitenant applications that use other communication protocols.
 
 ## Approaches to identify tenants
 
@@ -15,7 +15,7 @@ There are multiple ways you can identify the tenant for an incoming request. Eac
 
 ### Domain names
 
-If you use [tenant-specific domain or subdomain names](./domain-names.yml), it's likely that requests can be easily mapped to tenants by using the `Host` header, the `X-Forwarded-Host` header, or another HTTP header that includes the original hostname for each request.
+If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants by using the `Host` header, the `X-Forwarded-Host` header, or another HTTP header that includes the original hostname for each request.
 
 However, consider the following questions:
 
@@ -101,7 +101,7 @@ The following common reverse proxies are used in Azure:
 It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the *audience* and *scope* claims.
 
 > [!NOTE]
-> This is part of the *assume zero trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
+> This is part of the *assume Zero Trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 
 When implementing request validation, you should consider the following:
 
@@ -126,7 +126,7 @@ Consider the following questions:
 
 ## Tenant migration
 
-Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-lifecycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
+Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
 
 - If your application uses domain names for mapping requests, then it might also require a DNS change at the time of the migration. The DNS change might take time to propagate to clients, depending on the time-to-live (TTL) of the DNS entries in your DNS service.
 - If your migration changes the addresses of any endpoints during the migration process, then consider temporarily redirecting requests for the tenant to a maintenance page that automatically refreshes.
@@ -137,16 +137,16 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 Principal author:
 
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.yml).
+Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).

@@ -6,9 +6,9 @@ Azure App Service and Azure Functions include many features that support multite
 
 ### Custom domain names
 
-Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.yml#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration for each new tenant.
+Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration for each new tenant.
 
-When you use [tenant-specific custom domain names](../considerations/domain-names.yml#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. It can become cumbersome to manage a lot of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
+When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. It can become cumbersome to manage a lot of custom domain names, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
 
 ### Integration with Azure Front Door
 
@@ -37,15 +37,11 @@ Azure App Service can [validate authentication tokens on behalf of your app](/az
 
 If any of the conditions aren't met, App Service can block the request, or it can redirect the user to your identity provider so that they can sign in.
 
-If your tenants use Microsoft Entra ID as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
+If your tenants use Microsoft Entra ID as their identity system, you can configure Azure App Service to use [the /common endpoint](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
 
-You can also integrate Azure App Service with Azure AD B2C for authentication of consumers.
+You can also integrate Azure App Service with Microsoft Entra External ID for authentication of consumers.
 
-More information:
-
-- [App Service authorization](/azure/app-service/overview-authentication-authorization)
-- [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
-- [Working with multitenant Microsoft Entra identities](../../../multitenant-identity/index.yml)
+For more information, see [App Service authorization](/azure/app-service/overview-authentication-authorization).
 
 ### Access restrictions
 
@@ -55,7 +51,7 @@ When you work with a multitenant solution, be aware of the maximum number of acc
 
 ## Isolation models
 
-When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
+When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation that you want to use. Refer to the [tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md) and to the guidance provided in the [architectural approaches for compute in multitenant solutions](../approaches/compute.md), to help you select the best isolation model for your scenario.
 
 When you work with Azure App Service and Azure Functions, you should be aware of the following key concepts:
 
@@ -140,12 +136,12 @@ Even with these controls in place, you might approach limits with a large number
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

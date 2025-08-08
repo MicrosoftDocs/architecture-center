@@ -2,8 +2,8 @@
 metadata:
   title: Caching guidance
   description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
-  ms.author: robbag
-  author: RobBagby
+  ms.author: pnp
+  author: claytonsiemens77
   ms.date: 07/25/2022
   ms.topic: conceptual
   ms.subservice: architecture-guide

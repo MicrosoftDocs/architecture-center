@@ -8,14 +8,6 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
-products:
-  - azure-machine-learning
-  - azure-pipelines
-  - azure-arc
-  - azure-synapse-analytics
-  - azure-event-hubs
-categories:
-  - ai-machine-learning
 ---
 
 # Machine learning operations
