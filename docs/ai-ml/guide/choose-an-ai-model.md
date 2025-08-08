@@ -57,7 +57,7 @@ Limited regional availability significantly influences the selection of an AI mo
 
 **Will the model be hosted on serverless or managed infrastructure, your own infrastructure, or on-device?**
 
-Models need to be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers. Or that compute could be local to your workload, such as running within process in your code. Some models that are available in a serverless platform from the provider, sometimes known as Models-as-a-Service (MaaS), might be too big or not licensed to be made available in your own compute. While some specialized models are not offered through your provider's hosting and are only available to run in your own inferencing environment.
+Models need to be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers. Or that compute could be local to your workload, such as running within process in your code. Some models that are available in a serverless platform from the provider, sometimes known as Models-as-a-Service (MaaS), might be too big or not licensed to be hosted in your own compute. Some specialized models might not be available through your provider's hosting and are only available to run in your own inferencing environment.
 
 Your workload requirements will constrain what the compute platform options are per task, which effectively applies a restriction on which models can be used based on where they can be deployed to meet efficiency, cost, and compliance requirements.
 
