@@ -7,6 +7,9 @@ metadata:
   ms.date: 04/01/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Replatform AIX workloads on Azure
 azureCategories:
   - migration

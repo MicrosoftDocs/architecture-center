@@ -7,8 +7,9 @@ metadata:
   ms.date: 04/02/2024
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Unisys mainframe migration with Avanade AMT
 summary: Learn about options for using the Avanade Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
 products:
