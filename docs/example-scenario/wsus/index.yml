@@ -2,8 +2,8 @@
 metadata:
   title: Plan deployment for updating Windows VMs in Azure
   description: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
-  author: vpaulreed
-  ms.author: preed
+  author: ckittel
+  ms.author: chkittel
   ms.date: 08/08/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
