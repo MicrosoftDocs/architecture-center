@@ -26,7 +26,7 @@ High availability and disaster recovery for SQL Server can be achieved on Azure 
 
 * [Azure Windows-based VM](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) supported by desired SQL Server version
 * [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-* [SnapCenter](https://docs.netapp.com/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html#how-snapcenter-backs-up-databases)
+* [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html)
 
 ### Alternatives
 
