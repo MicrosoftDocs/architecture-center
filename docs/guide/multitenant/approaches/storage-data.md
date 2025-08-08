@@ -32,7 +32,7 @@ Consider the extent to which you plan to scale, and clearly plan your data stora
 
 Multitenant data and storage services are susceptible to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). It's important to consider whether your tenants might affect each other's performance. For example, consider whether your tenants have overlapping peaks in their usage patterns over time. Also consider whether all of your customers use your solution at the same time each day and whether requests are distributed evenly. Those factors affect the level of isolation that you need to design for, the amount of resources that you need to provision, and the degree to which tenants can share resources.
 
-It's important to consider [Azure's resource and request quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) as part of this decision. For example, suppose that you deploy a single storage account to contain all of your tenants' data. If you exceed a specific number of storage operations per second, Azure Storage rejects your application's requests, which affects all of your tenants. This behavior is called *throttling*. It's important that you monitor for throttled requests.
+It's important to consider [Azure resource and request quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) as part of this decision. For example, suppose that you deploy a single storage account to contain all of your tenants' data. If you exceed a specific number of storage operations per second, Azure Storage rejects your application's requests, which affects all of your tenants. This behavior is called *throttling*. It's important that you monitor for throttled requests.
 
 ### Data isolation
 
@@ -48,7 +48,11 @@ When you design a solution that contains multitenant data services, there are di
 
 There's no single solution that works for every scenario. The option that you choose depends on several factors and your tenants' requirements. For example, if you design a business-to-consumer (B2C) solution, it might be reasonable to have a single data store for all of your data. However, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. 
 
-Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, then you might need to isolate them from other tenants or group them with tenants that have similar policies.
+Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). If any of the following conditions apply, you might need to isolate tenants from others or group them with tenants that have similar policies:
+
+- Tenants need to use their own encryption keys
+- Tenants have individual backup and restore policies
+- Tenants need to have their data stored in different geographical locations
 
 ### Complexity of implementation
 
@@ -60,7 +64,7 @@ A particular concern for multitenant data solutions is the level of customizatio
 
 ### Complexity of management and operations
 
-Consider how you plan to operate your solution and how your multitenancy approach affects your operations and processes. For example:
+Consider how you plan to operate your solution and how your multitenancy approach affects your operations and processes.
 
 - **Management:** Consider management operations, such as regular maintenance activities. If you use multiple servers, file stores, or databases, plan how to initiate and monitor the maintenance operations for each tenant's resources.
 
@@ -160,13 +164,13 @@ When you create multitenant data services, it's important to avoid situations th
 
 For relational databases, these anitpatterns include:
 
-- **Table-based isolation.** When you work within a single database, avoid creating individual tables for each tenant. A single database can't support large numbers of tenants when you use this approach, and it becomes increasingly difficult to query, manage, and update data. Instead, consider using a single set of multitenant tables with a tenant identifier column. Alternatively, you can use one of the patterns described in [Approaches and patterns to consider](#approaches-and-patterns-to-consider) to deploy separate databases for each tenant.
+- **Table-based isolation.** When you work within a single database, avoid creating individual tables for each tenant. A single database can't support large numbers of tenants when you use this approach, and it becomes increasingly difficult to query, manage, and update data. Instead, consider using a single set of multitenant tables with a tenant identifier column. Alternatively, you can use a [recommended pattern](#approaches-and-patterns-to-consider) to deploy separate databases for each tenant.
 
 - **Column-level tenant customization.** Avoid schema updates that only apply to a single tenant. For example, suppose that you have a single multitenant database. Avoid adding a new column to meet a specific tenant's requirements. It might be acceptable for a few customizations, but this method rapidly becomes unmanageable when you have many customizations to consider. Instead, consider revising your data model to track custom data for each tenant in a dedicated table.
 
-- **Manual schema changes.** Avoid updating your database schema manually, even if you only have a single shared database. It's easy to lose track of the updates that you apply, and, if you need to scale out to more databases, it's challenging to identify the correct schema to apply. Instead, build tooling or an automated pipeline to deploy your schema changes, and use it consistently. Track the schema version that you use for each tenant in a dedicated database or lookup table.
+- **Manual schema changes.** Avoid updating your database schema manually, even if you only have a single shared database. It's easy to lose track of the updates that you apply, and if you need to scale out to more databases, it's challenging to identify the correct schema to apply. Instead, build tooling or an automated pipeline to deploy your schema changes, and use it consistently. Track the schema version that you use for each tenant in a dedicated database or lookup table.
 
-- **Version dependencies.** Avoid having your application take a dependency on a single version of your database schema. As you scale, you might need to apply schema updates at different times for different tenants. Instead, ensure your application version is backwards-compatible with at least one previous schema version, and sequence destructive schema changes across multiple versions to support rollbacks.
+- **Version dependencies.** Avoid having your application take a dependency on a single version of your database schema. As you scale, you might need to apply schema updates at different times for different tenants. Instead, ensure that your application version is backwards-compatible with at least one previous schema version, and sequence destructive schema changes across multiple versions to support rollbacks.
 
 ## Databases
 
@@ -212,9 +216,9 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
-For more information about multitenancy and specific Azure services, see:
+For more information about multitenancy and specific Azure services, see the following resources:
 
 - [Multitenancy and Storage](../service/storage.md)
 - [Multitenancy and SQL Database](../service/sql-database.md)
