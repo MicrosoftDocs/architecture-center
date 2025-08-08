@@ -21,7 +21,7 @@ Choosing a model isn't a one-time activity. In your proof of concept or prototyp
 
 ## Key criteria for model selection
 
-There are several criteria that can influence your model selection. Some of these criteria might be more important to you based on your own unique workload characteristics and the organizational priorities that apply to your workload. The following list of criteria is ordered by general priority.
+There are several criteria that can influence your model selection. Some of these criteria might be more important to you based on your own unique workload characteristics and the organizational priorities that apply to your workload. Each of these criteria act as a filter to be applied to the thousands of available models. The following list of criteria is ordered by general priority.
 
 ### Task fit
 
