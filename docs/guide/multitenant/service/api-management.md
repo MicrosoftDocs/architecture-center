@@ -3,7 +3,7 @@ title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
 ms.author: pnp
-ms.date: 07/24/2024
+ms.date: 08/10/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 > [!NOTE]
 > This article focuses on how you can use API Management when you have your own multitenant applications that host APIs for internal or external use.
-> 
+>
 > Another form of multitenancy is to provide the API Management gateway as a service to other teams. For example, an organization might have a shared API Management instance that multiple application teams deploy to and use. This article doesn't discuss this form of multitenancy. Consider using [workspaces](/azure/api-management/workspaces-overview), which help you share an API Management instance across multiple teams who might have different levels of access.
 
 ## Isolation models
@@ -78,7 +78,7 @@ Alternatively, you can identify the tenant by using other methods. Here are some
 
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT that's issued by your identity provider. To use this approach, use the [validate-jwt](/azure/api-management/validate-jwt-policy) policy and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 
-- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain additional information about a tenant. To use this approach, use the [send-request](/azure/api-management/send-request-policy) policy. 
+- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain additional information about a tenant. To use this approach, use the [send-request](/azure/api-management/send-request-policy) policy.
 
    This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that impacts back-end lookup.
 
@@ -87,7 +87,7 @@ Alternatively, you can identify the tenant by using other methods. Here are some
 API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that you can use throughout your policies. For example, you might use a named value to store a tenant's back-end URL and then reuse that same value in several places within your policies. If you need to update the URL, you can update it in a single place.
 
 > [!WARNING]
-> In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings vary between tenants, make sure to include the tenant identifier in the name. For example, you can use a pattern like `tenantId-key:value` after you confirm that `tenantId` is suitable for the request. 
+> In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings vary between tenants, make sure to include the tenant identifier in the name. For example, you can use a pattern like `tenantId-key:value` after you confirm that `tenantId` is suitable for the request.
 >
 >Include the identifier to reduce the chance of accidentally referring to or being manipulated into referring to another tenant's value when you process a request for another tenant.
 
@@ -113,9 +113,86 @@ API Management has a powerful cache feature that you can use to cache entire HTT
 Use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach.
 
 > [!WARNING]
-> In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might vary between tenants, ensure that you include the tenant identifier in the cache key. 
+> In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might vary between tenants, ensure that you include the tenant identifier in the cache key.
 >
 >Include the identifier to reduce the chance of accidentally referring to being manipulated into referring to another tenant's value when you process a request for another tenant.
+
+### Large Language Model (LLM) APIs
+
+Use API Management's AI gateway features when your APIs call large language models (LLMs). These features help you control cost, performance, and isolation in multitenant solutions.
+
+#### Semantic caching
+
+If your APIs front Azure OpenAI models, consider using API Management's semantic caching to reduce cost and latency for repeated or near-duplicate prompts. See [Enable semantic caching](/azure/api-management/azure-openai-enable-semantic-caching), [semantic-cache-store](/azure/api-management/azure-openai-semantic-cache-store-policy), and [semantic-cache-lookup](/azure/api-management/azure-openai-semantic-cache-lookup-policy).
+
+You should partition the cache per tenant by using the `vary-by` element so prompts and answers don't cross tenants. Place the lookup policy in inbound processing and the store policy in outbound processing.
+
+Example (partition by subscription key):
+
+```xml
+<!-- inbound -->
+<azure-openai-semantic-cache-lookup
+   score-threshold="0.05"
+   embeddings-backend-id="embeddings-backend"
+   embeddings-backend-auth="system-assigned">
+   <vary-by>@(context.Subscription.Id)</vary-by>
+   <!-- or: <vary-by>@(context.Subscription.Key)</vary-by> -->
+</azure-openai-semantic-cache-lookup>
+
+<!-- outbound -->
+<azure-openai-semantic-cache-store duration="60" />
+```
+
+Example (partition by tenant claim or header):
+
+```xml
+<!-- inbound; requires validate-jwt if using a claim -->
+<azure-openai-semantic-cache-lookup
+   score-threshold="0.05"
+   embeddings-backend-id="embeddings-backend"
+   embeddings-backend-auth="system-assigned">
+   <vary-by>@(context.Principal?.Claims.GetValueOrDefault("tenantId", ""))</vary-by>
+   <!-- Alternative using a custom header: -->
+   <!-- <vary-by>@(context.Request.Headers.GetValueOrDefault("TenantID", ""))</vary-by> -->
+</azure-openai-semantic-cache-lookup>
+
+<!-- outbound -->
+<azure-openai-semantic-cache-store duration="60" />
+```
+
+#### Token-based limits for LLMs
+
+Use token-based limits in the AI gateway to cap usage per tenant, not just requests. For Azure OpenAI back ends use [azure-openai-token-limit](/azure/api-management/azure-openai-token-limit-policy); for OpenAI-compatible back ends or the Azure AI Model Inference API use [llm-token-limit](/azure/api-management/llm-token-limit-policy). See [AI gateway capabilities: Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy) for details.
+
+Choose a stable per-tenant counter key (for example, a subscription ID or tenant claim) so limits isolate tenants. Token usage is tracked independently at each gateway, region, or workspace; counters aren't aggregated across the entire instance.
+
+Example (limit each tenant to 60,000 tokens per minute by subscription):
+
+```xml
+<azure-openai-token-limit
+   counter-key="@(context.Subscription.Id)"
+   tokens-per-minute="60000"
+   estimate-prompt-tokens="false" />
+```
+
+Example (limit by tenant claim or header):
+
+```xml
+<!-- Using a tenant claim; requires validate-jwt earlier in the pipeline -->
+<azure-openai-token-limit
+   counter-key="@(context.Principal?.Claims.GetValueOrDefault(&quot;tenantId&quot;, &quot;&quot;))"
+   tokens-per-minute="60000"
+   estimate-prompt-tokens="false" />
+
+<!-- Or using a custom header populated by your edge/CDN/gateway -->
+<azure-openai-token-limit
+   counter-key="@(context.Request.Headers.GetValueOrDefault(&quot;TenantID&quot;, &quot;&quot;))"
+   tokens-per-minute="60000"
+   estimate-prompt-tokens="false" />
+```
+
+> [!NOTE]
+> Validate that the claim or header is present and non-empty before applying limits to avoid unintentionally collapsing many tenants under a single counter.
 
 ### Custom domains
 
@@ -128,6 +205,17 @@ You can also use API Management together with a service like [Azure Front Door](
 It's common to apply quotas or rate limits in a multitenant solution. Rate limits can help you mitigate the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). You can also use rate limits to enforce quality of service and to differentiate between different pricing tiers.
 
 Use API Management to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [quota](/azure/api-management/quota-policy) policy to enforce a quota for each subscription. Alternatively, consider using the [quota-by-key](/azure/api-management/quota-by-key-policy) policy to enforce quotas by using any other rate limit key, such as a tenant identifier that you obtained from the request URL or a JWT.
+
+For LLM-specific token limits, see [Token-based limits for LLMs](#token-based-limits-for-llms).
+
+> [!IMPORTANT]
+> Counter scope differs by policy and deployment topology:
+>
+> - The `rate-limit` and `rate-limit-by-key` policies keep counters per gateway replica. In multi-region or workspace gateway deployments, each regional/workspace gateway enforces its own counter.
+> - The `azure-openai-token-limit` and `llm-token-limit` policies also track tokens per gateway/region/workspace and don't aggregate across the entire service instance.
+> - The `quota` and `quota-by-key` policies are global at the service level and apply across regions for a given instance.
+>
+> If you need a globally consistent per-tenant throttle, prefer quotas, enforce limits at an upstream edge that sees all traffic, or route a tenant to a single gateway/region.
 
 ### Monetization
 
@@ -145,6 +233,9 @@ For more information about scaling API Management, see [Upgrade and scale an Azu
 
 API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, which allows for low-latency request processing, and manage them as a single logical instance.
 
+> [!IMPORTANT]
+> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need geo presence, use separate instances per region with external routing (for example, Azure Front Door) or consider self-hosted gateways.
+
 However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. This approach separates the management plane for each API Management instance.
 
 ## Contributors
@@ -154,7 +245,7 @@ However, if you need fully isolated API Management instances, you might also cho
 Principal authors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, Global Partner Solutions
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Sr. Partner Solution Architect, Enterprise Partner Solutions
 
 Other contributor:
 
