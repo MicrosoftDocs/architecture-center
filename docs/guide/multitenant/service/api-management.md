@@ -117,15 +117,15 @@ Use the [cache-store-value](/azure/api-management/cache-store-value-policy) and 
 >
 >Include the identifier to reduce the chance of accidentally referring to being manipulated into referring to another tenant's value when you process a request for another tenant.
 
-### Large Language Model (LLM) APIs
+### Large language model (LLM) APIs
 
 Use API Management's AI gateway features when your APIs call large language models (LLMs). These features help you control cost, performance, and isolation in multitenant solutions.
 
 #### Semantic caching
 
-If your APIs front Azure OpenAI models, consider using API Management's semantic caching to reduce cost and latency for repeated or near-duplicate prompts. See [Enable semantic caching](/azure/api-management/azure-openai-enable-semantic-caching), [semantic-cache-store](/azure/api-management/azure-openai-semantic-cache-store-policy), and [semantic-cache-lookup](/azure/api-management/azure-openai-semantic-cache-lookup-policy).
+If your APIs sit in front of Azure OpenAI models, consider using API Management's semantic caching to reduce cost and latency for repeated or near-duplicate prompts. See [Enable semantic caching](/azure/api-management/azure-openai-enable-semantic-caching), [semantic-cache-store](/azure/api-management/azure-openai-semantic-cache-store-policy), and [semantic-cache-lookup](/azure/api-management/azure-openai-semantic-cache-lookup-policy).
 
-You should partition the cache per tenant by using the `vary-by` element so prompts and answers don't cross tenants. Place the lookup policy in inbound processing and the store policy in outbound processing.
+You should partition the cache per tenant by using the `vary-by` element so prompts and answers are isolated to the tenant that they're intended for. Place the `lookup` policy in inbound processing and the `store` policy in outbound processing.
 
 Example (partition by subscription key):
 
@@ -162,9 +162,9 @@ Example (partition by tenant claim or header):
 
 #### Token-based limits for LLMs
 
-Use token-based limits in the AI gateway to cap usage per tenant, not just requests. For Azure OpenAI back ends use [azure-openai-token-limit](/azure/api-management/azure-openai-token-limit-policy); for OpenAI-compatible back ends or the Azure AI Model Inference API use [llm-token-limit](/azure/api-management/llm-token-limit-policy). See [AI gateway capabilities: Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy) for details.
+Use token-based limits in the AI gateway to cap usage for each tenant, not just for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/azure-openai-token-limit-policy); for OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). See [AI gateway capabilities: Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy) for details.
 
-Choose a stable per-tenant counter key (for example, a subscription ID or tenant claim) so limits isolate tenants. Token usage is tracked independently at each gateway, region, or workspace; counters aren't aggregated across the entire instance.
+Select a key that's unique to the tenant, such as a subscription ID or tenant ID token claim, so that limits effectively isolate tenants. Token usage is tracked independently at each gateway, region, or workspace; counters aren't aggregated across the entire instance.
 
 Example (limit each tenant to 60,000 tokens per minute by subscription):
 
@@ -211,7 +211,7 @@ For LLM-specific token limits, see [Token-based limits for LLMs](#token-based-li
 > [!IMPORTANT]
 > Counter scope differs by policy and deployment topology:
 >
-> - The `rate-limit` and `rate-limit-by-key` policies keep counters per gateway replica. In multi-region or workspace gateway deployments, each regional/workspace gateway enforces its own counter.
+> - The `rate-limit` and `rate-limit-by-key` policies maintain separate counters for each gateway replica. In multi-region or workspace gateway deployments, each regional/workspace gateway enforces its own counter.
 > - The `azure-openai-token-limit` and `llm-token-limit` policies also track tokens per gateway/region/workspace and don't aggregate across the entire service instance.
 > - The `quota` and `quota-by-key` policies are global at the service level and apply across regions for a given instance.
 >
@@ -234,7 +234,7 @@ For more information about scaling API Management, see [Upgrade and scale an Azu
 API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, which allows for low-latency request processing, and manage them as a single logical instance.
 
 > [!IMPORTANT]
-> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need geo presence, use separate instances per region with external routing (for example, Azure Front Door) or consider self-hosted gateways.
+> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need to deploy across multiple regions, use a separate instance for each region, and use external routing (for example, Azure Front Door) or consider self-hosted gateways.
 
 However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. This approach separates the management plane for each API Management instance.
 
@@ -245,7 +245,7 @@ However, if you need fully isolated API Management instances, you might also cho
 Principal authors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Sr. Partner Solution Architect, Enterprise Partner Solutions
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Senior Partner Solution Architect, Enterprise Partner Solutions
 
 Other contributor:
 

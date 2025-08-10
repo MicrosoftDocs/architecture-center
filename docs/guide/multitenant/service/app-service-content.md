@@ -100,7 +100,7 @@ This approach enables you to scale your solution to provide performance isolatio
 
 ### Azure Functions Flex Consumption plan
 
-Azure Functions includes the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan), which provides per-function scaling and supports [always ready instances](/azure/azure-functions/flex-consumption-plan#always-ready-instances) to reduce cold starts. Except for HTTP, Durable Functions, and Blob (Event Grid) triggers, each function scales independently. This can help you isolate tenant workloads when your tenancy model maps tenants to functions or function groups, and it can help you reduce the impact of a noisy tenant on other workloads.
+Azure Functions includes the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan), which provides per-function scaling and supports [always ready instances](/azure/azure-functions/flex-consumption-plan#always-ready-instances) to reduce cold starts. Each function scales independently, except for HTTP, Durable Functions, and Blob (Event Grid) triggers. This can help you isolate tenant workloads when your tenancy model maps tenants to functions or function groups, and it can help you reduce the impact of a noisy tenant on other workloads.
 
 Flex Consumption also supports [virtual network integration and private endpoints](/azure/azure-functions/flex-consumption-plan), which helps you apply the same network isolation practices that you use with App Service. These capabilities can simplify your network design and cost model for multitenant solutions that need serverless execution with predictable isolation.
 
@@ -124,11 +124,11 @@ If you need to send outbound traffic from a known static IP address or from a se
 If you don't need a static outbound IP address, but instead you need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
 > [!IMPORTANT]
-> When you integrate App Service with a NAT gateway, all traffic to Azure Storage must use private endpoints or service endpoints. This ensures storage access continues to work when egress is routed through your virtual network. In a multitenant solution, make sure your build, deployment, logging, and data paths that use Storage follow this pattern. For more information, see [Azure NAT Gateway integration](/azure/app-service/overview-nat-gateway-integration).
+> When you integrate App Service with Azure NAT Gateway, all traffic to Azure Storage must use private endpoints or service endpoints. This ensures storage access continues to work when egress is routed through your virtual network. In a multitenant solution, make sure your build, deployment, logging, and data paths that use Storage follow this pattern. For more information, see [Azure NAT Gateway integration](/azure/app-service/overview-nat-gateway-integration).
 
-### Network Security Perimeter
+### Network security perimeter
 
-Azure [Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (NSP) provides identity-based perimeters for platform services. Because App Service and Azure Functions run your code, NSP enforcement can't be fully applied to all flows. If you need to communicate with PaaS resources that are inside an NSP, integrate your apps with a virtual network and reach those resources over [private endpoints](/azure/app-service/overview-private-endpoint). This approach aligns with multitenant isolation practices and reduces data exfiltration risk across tenants.
+Azure [Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (NSP) provides identity-based perimeters for platform services. Because App Service and Azure Functions run your custom application code, NSP enforcement can't be fully applied to all flows. If you need to communicate with PaaS resources that are inside an NSP, integrate your apps with a virtual network and reach those resources over [private endpoints](/azure/app-service/overview-private-endpoint). This approach aligns with multitenant isolation practices and reduces data exfiltration risk across tenants.
 
 ### Quotas
 
@@ -155,7 +155,7 @@ Other contributors:
 
 - [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Sr. Partner Solution Architect, Enterprise Partner Solutions
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Senior Partner Solution Architect, Enterprise Partner Solutions
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
