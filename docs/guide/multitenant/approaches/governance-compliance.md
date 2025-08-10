@@ -27,7 +27,7 @@ When you store data on behalf of your tenants, you might have requirements or ob
 
 ### Isolation
 
-Review the [architectural approaches for storage and data in multitenant solutions](storage-data.yml) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
+Review the [architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
 Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. Common data sources include the following types of resources:
 
