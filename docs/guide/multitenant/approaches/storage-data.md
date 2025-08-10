@@ -162,7 +162,7 @@ Azure Cosmos DB provides [multiple-region writes](/azure/cosmos-db/nosql/how-to-
 
 When you create multitenant data services, it's important to avoid situations that inhibit your ability to scale.
 
-For relational databases, these anitpatterns include:
+For relational databases, these antipatterns include:
 
 - **Table-based isolation.** When you work within a single database, avoid creating individual tables for each tenant. A single database can't support large numbers of tenants when you use this approach, and it becomes increasingly difficult to query, manage, and update data. Instead, consider using a single set of multitenant tables with a tenant identifier column. Alternatively, you can use a [recommended pattern](#approaches-and-patterns-to-consider) to deploy separate databases for each tenant.
 
@@ -182,7 +182,7 @@ There are some features that can be useful for multitenancy. However, these feat
 
 - **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in SQL Server and Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-customer-managed-keys) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
 
-- **Resource pooling** enables shared resources and cost between multiple databases or containers. This feature is available in SQL Database [elastic pools](/azure/azure-sql/database/elastic-pool-overview), in [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database).
+- **Resource pooling** enables you to share resources and their costs between multiple databases or containers. This feature is available in SQL Database [elastic pools](/azure/azure-sql/database/elastic-pool-overview), in [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database).
 
 - **Sharding and partitioning** has stronger native support in some services than in others. This feature is available in Azure Cosmos DB by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview). Although SQL Database doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
