@@ -22,7 +22,7 @@ Regardless of your architecture and the components that you use to implement it,
 
 Clearly define your requirements before you plan your deployment strategy. Consider the following factors:
 
-- **Expected scale:** Determine whether you expect to support five or fewer tenants or grow to a large number of tenants.
+- **Expected scale:** Determine whether you expect to support only a few tenants, such as five or fewer, or grow to a large number of tenants.
 
 - **Automated or supported onboarding:** Specify whether tenants should complete onboarding through an automated procedure or initiate a request that requires manual onboarding. Define any manual approval steps from your team, such as to prevent the misuse of your service.
 - **Provisioning time:** Establish how quickly the onboarding process must be completed. If you don't have a clear answer, define whether this step should be measured in seconds, minutes, hours, or days.
@@ -123,7 +123,7 @@ Consider the following approaches when you deploy resources in a multitenant sol
 
 - **Use an automated deployment pipeline to deploy shared resources that don't depend on the number of tenants.** Create tenant-specific resources within your application.
 
-When you consider the two approaches, you should distinguish between treating your tenant list as a *configuration* or as *data*. This distinction also influences how you build a [control plane](../considerations/control-planes.md) for your system.
+When you consider the two approaches, distinguish between treating your tenant list as a *configuration* or as *data*. This distinction also influences how you build a [control plane](../considerations/control-planes.md) for your system.
 
 ### Tenant list as configuration
 
@@ -148,8 +148,8 @@ However, as the number of tenants increases, often around 10 or more, it becomes
 
 When you treat your tenant list as data, you still deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you imperatively deploy or configure your resources. For example, your control plane can use [Azure SDKs](https://azure.microsoft.com/downloads) to create a specific resource or initiate the deployment of a parameterized template.
 
-:::image type="complex" source="media/deployment-configuration/tenants-data.png" alt-text="Diagram showing the process of onboarding a tenant, when the tenant list is maintained as data." border="false" lightbox="media/deployment-configuration/tenants-data.png":::
-The diagram shows a four-step process for tenant creation. It begins with the API component on the left, which initiates the flow by sending data to the creation workflow in the center, as indicated by arrow 1. the creation workflow is labeled step 2. From there, two paths emerge: arrow 3 directs the flow to Azure on the right, and arrow 4 leads upward to tenants.
+:::image type="complex" source="media/deployment-configuration/tenants-data.png" alt-text="Diagram that shows the process of onboarding a tenant, when the tenant list is maintained as data." border="false" lightbox="media/deployment-configuration/tenants-data.png":::
+The diagram shows a four-step process for tenant creation. It begins with the API component on the left, which initiates the flow by sending data to the creation workflow in the center, as indicated by arrow 1. The creation workflow is labeled step 2. From there, two paths emerge: arrow 3 directs the flow to Azure on the right, and arrow 4 leads upward to tenants.
 :::image-end:::
 
 The onboarding process typically includes the following asynchronous steps:
@@ -173,7 +173,7 @@ For more information, see [Considerations for multitenant control planes](../con
 
 Contoso runs a multitenant solution for their customers. They have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They deploy a single set of Azure App Service resources and an Azure SQL logical server that all tenants share. They also deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram. Contoso uses Bicep to deploy their Azure resources.
 
-:::image type="complex" source="media/deployment-configuration/example-architecture.png" alt-text="Architecture diagram showing shared resources and dedicated resources for each tenant." border="false" lightbox="media/deployment-configuration/example-architecture.png":::
+:::image type="complex" source="media/deployment-configuration/example-architecture.png" alt-text="Architecture diagram that shows shared resources and dedicated resources for each tenant." border="false" lightbox="media/deployment-configuration/example-architecture.png":::
 The diagram shows a shared resource architecture in an Azure environment. At the top, three shared components are shown: Azure SQL Server, App Service plan, and App Service app. Beneath them, individual tenants labeled tenant 1, tenant 2, and tenant N are depicted. Each tenant connects to their own dedicated Azure SQL database.
 :::image-end:::
 
@@ -181,8 +181,8 @@ The diagram shows a shared resource architecture in an Azure environment. At the
 
 Contoso might deploy all their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants. The Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loop-resources) to deploy a database for each of the listed tenants, as shown in the following diagram.
 
-:::image type="complex" source="media/deployment-configuration/example-configuration.png" alt-text="Diagram showing a pipeline deploying both shared and tenant-specific resources." border="false" lightbox="media/deployment-configuration/example-configuration.png":::
-The diagram shows a deployment process to Azure that uses a pipeline that connects to two input files: a Bicep file and a parameter file. The Bicep file includes an App Service plan, an App Service app, Azure SQL Server, and multiple Azure SQL databases. The parameter file lists tenant 1, tenant 2, and continuing through tenant N. The pipeline targets an Azure environment.
+:::image type="complex" source="media/deployment-configuration/example-configuration.png" alt-text="Diagram that shows a pipeline deploying both shared and tenant-specific resources." border="false" lightbox="media/deployment-configuration/example-configuration.png":::
+The diagram shows a deployment process to Azure that uses a pipeline that connects to two input files: a Bicep file and a parameter file. The Bicep file includes an App Service plan, an App Service app, Azure SQL Server, and multiple Azure SQL databases. The parameter file lists tenant 1, tenant 2, and continues through tenant N. The pipeline targets an Azure environment.
 :::image-end:::
 
 If Contoso follows this model, they must do the following steps:
@@ -198,7 +198,7 @@ Alternatively, Contoso might separate the responsibility for the Azure deploymen
 
 Contoso uses a Bicep file that defines shared resources to deployed. The shared resources support all tenants and include a tenant catalog database, also known as a *tenant list database*, as shown in the following diagram.
 
-:::image type="complex" source="media/deployment-configuration/example-data-pipeline.png" alt-text="Diagram showing the workflow to deploy the shared resources by using a pipeline." border="false" lightbox="media/deployment-configuration/example-data-pipeline.png":::
+:::image type="complex" source="media/deployment-configuration/example-data-pipeline.png" alt-text="Diagram that shows the workflow to deploy the shared resources by using a pipeline." border="false" lightbox="media/deployment-configuration/example-data-pipeline.png":::
 The diagram shows the deployment of shared resources in Azure that uses a pipeline and a Bicep file. The flow starts at the pipeline, which targets an Azure environment. The Azure shared resources section includes four components: App Service plan, App Service app, Azure SQL Server, and tenant list. These resources are defined in the Bicep file, which includes specifications for the App Service plan, App Service app, Azure SQL Server, and a tenant list database.
 :::image-end:::
 
@@ -212,7 +212,7 @@ The API asynchronously starts a workflow that onboards their new tenants. The wo
 
 After the database is deployed, the workflow adds the tenant to the tenant list database, as shown in the following diagram. The application tier initiates ongoing database schema updates.
 
-:::image type="complex" source="media/deployment-configuration/example-data-workflow.png" alt-text="Diagram showing the workflow to deploy a database for a new tenant." border="false" lightbox="media/deployment-configuration/example-data-workflow.png":::
+:::image type="complex" source="media/deployment-configuration/example-data-workflow.png" alt-text="Diagram that shows the workflow to deploy a database for a new tenant." border="false" lightbox="media/deployment-configuration/example-data-workflow.png":::
 The diagram shows a deployment process in Azure involving tenant-specific and shared resources. It begins with an API that points to a workflow. Within the workflow, two actions are defined: deploy database and update tenant list. The deploy database action points to Azure tenant-specific resources, including SQL databases for tenant 1, tenant 2, and tenant N. The update tenant list action points to the SQL tenant list within Azure shared resources.
 :::image-end:::
 
