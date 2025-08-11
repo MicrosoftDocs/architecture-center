@@ -1,14 +1,14 @@
-APIs play an increasingly central role in how companies and customers access services, both within organizations and across external channels. Internally, APIs provide access to line-of-business (LoB) applications, custom-built solutions, and non-Microsoft integrations. Externally, more companies aim to increase productivity and generate revenue through their APIs. As this trend grows, API Management becomes a central component in a standardized approach to managing, governing, and publishing APIs for both internal and external audiences.
+APIs play an increasingly central role in how companies and customers access services, both within organizations and across external channels. Internally, APIs provide access to line-of-business (LoB) applications, custom-built solutions, and non-Microsoft integrations. Externally, more companies aim to increase productivity and generate revenue through their APIs. As this trend grows, API Management has become a central component in a standardized approach to managing, governing, and publishing APIs for both internal and external audiences.
 
-Azure Application Gateway serves as a security checkpoint for your APIs. Instead of allowing users to connect directly over the internet, you route all traffic through the Application Gateway. This setup adds extra access controls to help protect your APIs. With this approach, you can use a single API Management instance to support both internal APIs within your organization and external APIs outside your organization, while keeping any publicly exposed APIs secured behind the gateway.
+Azure Application Gateway serves as a security checkpoint for your APIs. Instead of allowing users to connect directly over the internet, you instead route all traffic through the Application Gateway. This setup adds extra access controls to help protect your APIs. With this approach, you can use a single API Management instance to support both internal APIs within your organization and external APIs outside your organization, while keeping any publicly exposed APIs secured behind the gateway.
 
 > [!NOTE]
 > This architecture is used as the foundation of the guidance for [Azure API Management in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
 
 ## Architecture
 
-:::image type="complex" source="./media/app-gateway-internal-api-management-function.svg" lightbox="./media/app-gateway-internal-api-management-function.svg" alt-text="Diagram that shows the architecture of the API Management in a landing zone.":::
-   This architectural diagram starts with an all-encompassing box that represents the scope of a subscription, a Private DNS zone where private domains will get resolved, and the scope of a virtual network named APIM-CS virtual network. On top of the subscription is a box that indicates it's an on-premises workload. The box has a server icon within it. A pipe indicates a site-to-site connection, or Azure ExpressRoute connects to the API Management instance in the Azure subscription. Three smaller boxes are inside the big box that shows the Azure subscription. Each individual box represents a separate subnet, with an attached network security group. From the left most, there's a public IP address that's attached to Application Gateway on the left-most box on the top row. Application Gateway also lives within one of the three smaller boxes, with the subnet named Application Gateway subnet. To the right is another box that contains the API Management instance, with the subnet named API Management subnet. Next to it's the third box on the top row, which contains a private endpoint in the subnet named PE subnet. From left to right, are the following boxes: key vault, application insights, and log analytics workspace. There are two sets of workflows. The first workflow is indicated in black circles, and the other workflow is indicated in blue circles, which will be explained in later sections. The black workflow indicates the access of APIs that are available externally. The flow starts from the user accessing the Public IP address. The arrow then points to the direction of the Application Gateway, from the Application Gateway to the private endpoint, and from the private endpoint to the Function App. The blue workflow starts from a server on-premises, with an arrow that points to the API Management instance, through a pipeline icon that indicates either a site-to-site connection or via ExpressRoute. The rest of the flow is the same as described previously: from API Management to private endpoint, and from private endpoint to Azure Function.
+:::image type="complex" source="./media/app-gateway-internal-api-management-function.svg" lightbox="./media/app-gateway-internal-api-management-function.svg" alt-text="The diagram shows a secure baseline architecture for API Management.":::
+   A key icon at the top left represents the Azure subscription. A network interface icon labeled Public IP addresses connects with a rightward arrow to an icon that has two opposing arrows labeled Application Gateway. This gateway sits inside a rectangular area labeled Application Gateway subnet. A brick wall with a globe icon labeled Web Application Firewall policies connects to the Application Gateway, which indicates integrated traffic inspection. Below the Application Gateway subnet, there are three icons: a magnifying glass over a document for Log Analytics workspaces, a graph icon for App Insights, and a globe icon for azure-api.net. A rightward arrow from the Application Gateway leads to a cloud icon labeled API Management Premium, which sits inside a separate rectangular area labeled API Management subnet. A downward arrow from API Management connects to a signal tower icon labeled Private endpoint, which appears inside a third rectangular area labeled Private endpoint subnet. A rightward arrow from the private endpoint leads to a key-in-circle icon labeled Key vaults. Directional arrows throughout the diagram indicate the flow of traffic and secure connectivity between components.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/api-management-landing-zone-accelerator.vsdx) of this architecture.*
@@ -17,47 +17,37 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Workflow
 
-#### Hybrid scenario (blue circles)
+- Public IP addresses are assigned to the Application Gateway, which serves as the entry point for external traffic.
 
-This scenario requires either a site-to-site VPN or an Azure ExpressRoute connection to your on-premises environment.
+- The Application Gateway is deployed in its own subnet and protected by Web Application Firewall (WAF) policies to inspect and filter incoming requests.
 
-1. An on-premises application requires access to an internal API hosted via API Management.
+- Traffic is routed from the Application Gateway to API Management (Premium), which resides in a separate API Management subnet. The API Management instance is configured in internal mode, which prevents direct public access.
 
-1. API Management connects to the back-end APIs hosted on Azure Functions. This connection uses a private endpoint, which is available through the Azure Functions Premium plan.
+- Private endpoints are used to securely connect API Management to back-end services, such as Azure key vaults, which are hosted in a dedicated private endpoint subnet.
 
-1. The private endpoint securely accesses the internal API that's hosted on Azure Functions.
+- Key vaults store sensitive information like secrets and certificates, accessible only through the private network.
 
-#### External access scenario (black circles)
+- Log Analytics workspaces and Application Insights are integrated for centralized logging, monitoring, and telemetry.
 
-1. An external application accesses a public IP address or a custom fully qualified domain name (FQDN), which is attached to Application Gateway.
-
-1. Application Gateway serves as the web application firewall, which requires PFX certificates for Secure Sockets Layer (SSL) termination.
-
-1. API Management connects to the back-end APIs, which are hosted on Azure Functions, through a private endpoint. This private endpoint is available with the Azure Functions Premium plan.
-
-1. The private endpoint securely accesses the externally available API that's hosted on Azure Functions.
+- APIs are exposed through a custom domain, such as `azure-api.net`, via the Application Gateway.
 
 ### Components
 
-- **[API Management](/azure/well-architected/service-guides/api-management/reliability)** is a managed service that allows you to manage services across hybrid and multicloud environments. API Management acts as a facade to abstract the back-end architecture. It provides control and security for API observability and consumption by both internal and external users.
+- **[API Management](/azure/well-architected/service-guides/api-management/reliability)** is a managed service that allows you to manage services across hybrid and multicloud environments. In this architecture, API Management serves as a facade to abstract the back-end architecture. It provides control and security for API observability and consumption by both internal and external users.
 
-- **[Azure Defender for APIs](/azure/defender-for-cloud/defender-for-apis-deploy)** provides protection, detection, and response for your APIs throughout their life cycle. It helps you monitor your APIs, improve security, and respond quickly to threats by providing visibility, vulnerability management, and real-time threat detection.
+- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that serves as a layer 7 load balancer and [web application firewall](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, but Application Gateway adds complementary capabilities such as WAF.
 
-- **[Azure Functions](/azure/well-architected/service-guides/azure-functions-security)** is a serverless solution that allows you to focus more on blocks of code that can be executed with minimal infrastructure management. Functions can be hosted in [various hosting plans](/azure/azure-functions/functions-scale), whereas this reference architecture uses the Premium plan. You can also use the flex consumption or Dedicated (App Service) plan as an alternative option.
+- **[Private DNS zones](/azure/dns/private-dns-privatednszone)** are a feature of Azure DNS that allow you to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A private DNS zone can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). In this architecture, a private DNS zone is required to ensure proper name resolution within the virtual network.
 
-- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that acts as a layer 7 load balancer and [web application firewall](/azure/web-application-firewall/ag/ag-overview). In this scenario, the Application Gateway protects the internal API Management instance, enabling the use of both internal and external modes. Application Gateway plays a crucial role in the architecture. API Management focuses on securing APIs, but Application Gateway adds complementary capabilities such as Web Application Firewall (WAF).
+- **[Application Insights](/azure/well-architected/service-guides/application-insights)** is an extensible application performance management service that helps developers detect anomalies, diagnose problems, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. In this architecture, Application Insights monitors the behaviors of the deployed application.
 
-- **[Azure DNS](/azure/dns/dns-overview)** **[Private DNS zones](/azure/dns/private-dns-privatednszone)** allow you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. A Private DNS zone can be aligned to one or more virtual networks, through [virtual network links](/azure/dns/private-dns-virtual-network-links). Because the Azure Functions in this reference architecture are exposed via a private endpoint, a private DNS zone is required to ensure proper name resolution within the virtual network.
+- **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a cloud-based data analysis tool that allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. In this architecture, Log Analytics aggregates all the platform resource logs for more analysis and reporting.
 
-- **[Azure Monitor](/azure/azure-monitor/overview)** **[Application Insights](/azure/well-architected/service-guides/application-insights)** helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
-
-- **[Azure Monitor](/azure/azure-monitor/overview)** **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. Log Analytics is configured as part of this reference architecture, to aggregate all the platform resource logs for more analysis and reporting.
-
-- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service that securely stores and accesses secrets, which range from API keys and passwords to certificates and cryptographic keys. This reference architecture uses Key Vault to store the SSL certificates that's used by the Application Gateway.
+- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service that securely stores and accesses secrets. These secrets range from API keys and passwords to certificates and cryptographic keys. In this architecture, Key Vault stores the Secure Socket Layer (SSL) certificates that Application Gateway uses.
 
 ### Alternatives
 
-For the back-end services that the API Management instance connects to, several alternatives are available, in addition to Azure Functions, which is used in this reference implementation:
+For the back-end services that the API Management instance connects to, several alternatives are available:
 
 - **[Azure App Service](/azure/app-service/overview)** is a fully managed HTTP-based service that builds, deploys, and scales web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all supported. Applications can run and scale in either Windows or Linux-based environments.
 
@@ -81,9 +71,9 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Deploy at least three [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones for each region. This method maximizes your availability and performance.
 
-- We recommend that ou use the Premium tier because it supports availability zones and multiregion deployments. This means that your services can continue to run even if one region or zone goes down. These features help protect your application during outages or disasters.
+- We recommend that you use the Premium tier because it supports availability zones and multiregion deployments. This means that your services can continue to run even if one region or zone goes down. These features help protect your application during outages or disasters.
 
-- From a disaster recovery standpoint when yous set up API Management, use a user-assigned managed identity instead of a system-assigned identity. This way, if you redeploy or remove the resource, your identity and its permissions (like access to Key Vault secrets) stay intact, making it easier to restore access. Also, automate your backups with Azure Pipelines and decide if you need to deploy your services in multiple regions for extra reliability.
+- From a disaster recovery standpoint when you set up API Management, use a user-assigned managed identity instead of a system-assigned identity. This way, if you redeploy or remove the resource, your identity and its permissions (like access to Key Vault secrets) stay intact, making it easier to restore access. Also, automate your backups with Azure Pipelines and decide if you need to deploy your services in multiple regions for extra reliability.
 
 - Virtual network peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub-spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
 
@@ -91,7 +81,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These features aren't a replacement for a [Web Application Firewall](/azure/web-application-firewall/overview), but they can provide extra protection against some threats. Adding validation policies can have performance implications, so we recommend that you use performance load tests to assess their impact on API throughput.
+- API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These features aren't a replacement for a [WAF](/azure/web-application-firewall/overview), but they can provide extra protection against some threats. Adding validation policies can have performance implications, so we recommend that you use performance load tests to assess their impact on API throughput.
 
 - Azure [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-deploy) provides full life cycle protection, detection, and response coverage for APIs that are published in API Management. One of the main capabilities is the ability to detect exploits of the Open Web Application Security Project (OWASP) API top 10 vulnerabilities through runtime observations of anomalies by using machine learning-based and rule-based detections.
 
@@ -105,7 +95,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Virtual network peering provides great performance in a region and enables private communication between virtual networks.
 
-- When you use a WAF, you introduce a layer that inspects incoming traffic for malicious behavior. This protection helps block common threats such as SQL injection and cross-site scripting. Combined with distributed denial-of-service (DDoS) protection, Application Gateway helps prevent excessive traffic or connection floods from overwhelming the API Management instance. To review how Application Gateway can protect your APIs, see [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis).
+- When you use a WAF, you introduce a layer that inspects incoming traffic for malicious behavior. This protection helps block common threats such as SQL injection and cross-site scripting. Application Gateway and distributed denial-of-service (DDoS) protection combined help prevent excessive traffic or connection floods from overwhelming the API Management instance. For more information, see [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis).
 
 - Using private endpoints for Azure Functions allows you to securely connect to your function apps over a private IP address within your virtual network. This setup prevents exposure of your functions to the public internet, which reduces the risk of unauthorized access. In this architecture, private endpoints ensure that only trusted resources within your network can access your Azure Functions.
 
@@ -115,7 +105,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - This deployment uses the [Premium plan](https://azure.microsoft.com/pricing/details/functions/) to support availability zone and virtual network capabilities. If you don't require dedicated instances, you can also use [Flex Consumption](/azure/azure-functions/flex-consumption-plan), which supports both network access and availability zones. Review the [price calculator](https://azure.com/e/802ca3c87e13413580e49bab4a9f67ea) for this deployment.
 
-- For proof of concept or prototypes, we recommend that you use other tiers of API Management, such as Developer or Standard.
+- For proof of concept or prototypes, we recommend that you use other API Management tiers, such as Developer or Standard.
 
 ### Operational Excellence
 
