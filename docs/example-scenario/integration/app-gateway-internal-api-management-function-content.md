@@ -17,13 +17,13 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Workflow
 
-- Public IP addresses are assigned to the Application Gateway, which serves as the entry point for external traffic. That endpoint is exposes APIs through a custom domain.
+- Public IP addresses are assigned to the Application Gateway, which serves as the entry point for external traffic. That endpoint exposes APIs through a custom domain.
 
 - The Application Gateway is deployed in its own subnet and protected by Web Application Firewall (WAF) policies to inspect and filter incoming requests.
 
 - Traffic is routed from the Application Gateway to API Management (Premium), which resides in a separate API Management subnet. The API Management instance is configured in internal mode, which prevents direct public access.
 
-- Private endpoints are used to securely connect API Management to back-end application servers that are exposed only to the virtual network. API Management also periodically connects dependencies, such as Azure Key Vaults. Typically all of this private connectivity happens with endpoints in a dedicated private endpoint subnet.
+- Private endpoints are used to securely connect API Management to back-end application servers that are exposed only to the virtual network. API Management also periodically connects dependencies, such as Azure key vaults. Typically, all of this private connectivity occurs with endpoints in a dedicated private endpoint subnet.
 
 - Log Analytics workspaces and Application Insights are integrated for logging, monitoring, and telemetry.
 
@@ -31,7 +31,7 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 - **[API Management](/azure/well-architected/service-guides/api-management/reliability)** is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
 
-- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that serves as a layer 7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
+- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
 
 - **[Private DNS zones](/azure/dns/private-dns-privatednszone)** are a feature of Azure DNS that allow you to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A private DNS zone can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). In this architecture, a private DNS zone is required to ensure proper name resolution within the virtual network.
 
@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - [Apply named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in API Management policies.
 
-- Use [Application Gateway for external access of an internal API Management instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect the API Management instance, defend against common web application exploits and vulnerabilities using WAF, and enable hybrid connectivity.
+- Use [Application Gateway for external access of an internal API Management instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect the API Management instance, defend against common web application exploits and vulnerabilities by using WAF, and enable hybrid connectivity.
 
 - Deploy the API Management gateway in a virtual network to support hybrid connectivity and increased security.
 
