@@ -171,7 +171,7 @@ For more information, see [Considerations for multitenant control planes](../con
 
 ### Example
 
-Contoso runs a multitenant solution for their customers. They have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They deploy a single set of Azure App Service resources and an Azure SQL logical server that all tenants share. They also deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram. Contoso uses Bicep to deploy their Azure resources.
+Contoso runs a multitenant solution for their customers. They have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [multitenant app with dedicated databases for each tenant](storage-data.md#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They deploy a single set of Azure App Service resources and an Azure SQL logical server that all tenants share. They also deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram. Contoso uses Bicep to deploy their Azure resources.
 
 :::image type="complex" source="media/deployment-configuration/example-architecture.png" alt-text="Architecture diagram that shows shared resources and dedicated resources for each tenant." border="false" lightbox="media/deployment-configuration/example-architecture.png":::
 The diagram shows a shared resource architecture in an Azure environment. At the top, three shared components are shown: Azure SQL Server, App Service plan, and App Service app. Beneath them, individual tenants labeled tenant 1, tenant 2, and tenant N are depicted. Each tenant connects to their own dedicated Azure SQL database.
@@ -234,5 +234,5 @@ Other contributors:
 ## Related resources
 
 - [Considerations for updating a multitenant solution](../considerations/updates.md).
-- [Architectural approaches for storage and data](storage-data.yml).
+- [Architectural approaches for storage and data](storage-data.md).
 - [Use Azure Resource Manager in a multitenant solution](../service/resource-manager.md).
