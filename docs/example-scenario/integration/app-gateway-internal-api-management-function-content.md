@@ -17,19 +17,15 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Workflow
 
-- Public IP addresses are assigned to the Application Gateway, which serves as the entry point for external traffic.
+- Public IP addresses are assigned to the Application Gateway, which serves as the entry point for external traffic. That endpoint is exposes APIs through a custom domain.
 
 - The Application Gateway is deployed in its own subnet and protected by Web Application Firewall (WAF) policies to inspect and filter incoming requests.
 
 - Traffic is routed from the Application Gateway to API Management (Premium), which resides in a separate API Management subnet. The API Management instance is configured in internal mode, which prevents direct public access.
 
-- Private endpoints are used to securely connect API Management to back-end services, such as Azure key vaults, which are hosted in a dedicated private endpoint subnet.
+- Private endpoints are used to securely connect API Management to back-end application servers that are exposed only to the virtual network. API Management also periodically connects dependencies, such as Azure Key Vaults. Typically all of this private connectivity happens with endpoints in a dedicated private endpoint subnet.
 
-- Key vaults store sensitive information like secrets and certificates, accessible only through the private network.
-
-- Log Analytics workspaces and Application Insights are integrated for centralized logging, monitoring, and telemetry.
-
-- Application Gateway exposes APIs through a custom domain, such as`azure-api.net`.
+- Log Analytics workspaces and Application Insights are integrated for logging, monitoring, and telemetry.
 
 ### Components
 
