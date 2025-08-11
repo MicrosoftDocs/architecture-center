@@ -85,7 +85,7 @@ The following table summarizes the key differences in capabilities.
 
 [3] You can search the [Maven repository](https://search.maven.org/) for community-contributed packages.
 
-[4] You can install Python packages by using either pip or Conda. You can install R packages from CRAN or GitHub. You can install packages in F# via nuget.org by using the [Packet dependency manager](https://fsprojects.github.io/Paket/).
+[4] You can install Python packages by using either pip or Conda. You can install R packages from CRAN or GitHub. You can install packages in F# via nuget.org by using the [Paket dependency manager](https://fsprojects.github.io/Paket/).
 
 ## Contributors
 

@@ -14,6 +14,9 @@ metadata:
   ms.custom:
     - example-scenario
     - arb-data
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Use Azure Synapse Analytics to design an enterprise BI solution
 azureCategories:
   - integration

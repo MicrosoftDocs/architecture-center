@@ -71,7 +71,7 @@ The following new and updated articles have recently been published in the Azure
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [Architectural Approaches for Governance and Compliance in Multitenant Solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#22c44510c0](https://github.com/MicrosoftDocs/architecture-center/commit/22c44510c0))
 - [Architectural approaches for networking in multitenant solutions](./guide/multitenant/approaches/networking.md)  ([#e54cbf0a57](https://github.com/MicrosoftDocs/architecture-center/commit/e54cbf0a57))
-- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#2ad4215274](https://github.com/MicrosoftDocs/architecture-center/commit/2ad4215274))
+- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.md)  ([#2ad4215274](https://github.com/MicrosoftDocs/architecture-center/commit/2ad4215274))
 - [Retry Storm antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#101c275703](https://github.com/MicrosoftDocs/architecture-center/commit/101c275703))
 - [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.md)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))

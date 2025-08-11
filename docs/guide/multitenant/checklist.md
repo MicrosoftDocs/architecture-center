@@ -93,7 +93,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - If you use shared infrastructure, plan for how to mitigate [noisy neighbor](../../antipatterns/noisy-neighbor/noisy-neighbor.yml) concerns. Ensure that one tenant can't reduce the performance of the system for other tenants.  
 
-- Determine how to scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.yml), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.  
+- Determine how to scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.md), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.  
 
 - Consider the scale limits for each Azure resource. [Organize your resources](./approaches/resource-organization.md) appropriately to avoid [resource organization antipatterns](./approaches/resource-organization.md#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
