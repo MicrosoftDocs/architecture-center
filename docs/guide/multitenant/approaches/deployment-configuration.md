@@ -36,14 +36,12 @@ Also consider onboarding and provisioning steps, automation, and resource manage
 
 Define and document every task required to onboard a tenant, even if the process is manual. The onboarding workflow typically includes the following steps:
 
-- Accept commercial agreements.
-
-- Collect the information that you need to configure your system for the new tenant.
-- Complete manual approval steps, for example to prevent fraud or misuse of your service.
-- Provision resources in Azure.
-- [Create or configure domain names](../considerations/domain-names.md).
-- Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmitting its credentials to the tenant.
-- Apply manual configuration changes, such as Domain Name System (DNS) record changes.
+1. Accept commercial agreements.
+1. Complete manual approval steps, for example to prevent fraud or misuse of your service.
+1. Provision resources in Azure.
+1. [Create or configure domain names](../considerations/domain-names.md).
+1. Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmitting its credentials to the tenant.
+1. Apply manual configuration changes, such as Domain Name System (DNS) record changes.
 
 Clearly document the workflow required to onboard a new tenant.
 
