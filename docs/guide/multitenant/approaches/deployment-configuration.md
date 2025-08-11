@@ -22,10 +22,12 @@ Regardless of your architecture and the components that you use to implement it,
 
 Clearly define your requirements before you plan your deployment strategy. Consider the following factors:
 
-- **Expected scale:** Determine whether you expect to support only a few tenants, such as five or fewer, or grow to a large number of tenants.
+- **Expected scale:** Determine whether you expect to support only a few tenants, such as five or fewer, or grow to a large number of tenants. As the number of tenants grows, automation becomes increasingly important.
 
 - **Automated or supported onboarding:** Specify whether tenants should complete onboarding through an automated procedure or initiate a request that requires manual onboarding. Define any manual approval steps from your team, such as to prevent the misuse of your service.
+
 - **Provisioning time:** Establish how quickly the onboarding process must be completed. If you don't have a clear answer, define whether this step should be measured in seconds, minutes, hours, or days.
+
 - **Azure Marketplace:** Confirm whether you plan to use Azure Marketplace to initiate deployment. If you do, meet the necessary [requirements to add new tenants](/azure/marketplace/plan-azure-application-offer).
 
 Also consider onboarding and provisioning steps, automation, and resource management responsibility.
@@ -55,7 +57,8 @@ You should use automated deployments for cloud-hosted solutions. In multitenant 
 
 - **Scale:** As your tenant population increases, manual deployment processes become increasingly complex and time-consuming. An automated deployment approach is easier to scale as the number of tenants grows.
 
-- **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error or inconsistent steps across tenants. These inconsistencies can leave your environment in a nonstandard state, which makes it harder for your team to manage the solution.
+- **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error or inconsistent steps across tenants. Your environment can then be left in an inconsistent state, which makes it harder for your team to manage the solution.
+
 - **Impact of outages:** Manual deployments are more risky and prone to outages than automated deployments. In a multitenant environment, a deployment error can cause a system-wide outage that affects every tenant, which increases the overall impact.
 
 When you deploy to a multitenant environment, follow these practices:
