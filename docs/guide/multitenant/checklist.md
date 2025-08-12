@@ -73,7 +73,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Operational Excellence considerations  
 
-- Use automation to manage the [tenant life cycle](./considerations/tenant-life-cycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).  
+- Use automation to manage the [tenant life cycle](./considerations/tenant-life-cycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.md).  
 
 - Understand the differences between [control planes](./considerations/control-planes.md) and data planes in your multitenant solution.  
 
@@ -85,7 +85,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - [Organize your Azure resources](./approaches/resource-organization.md) for isolation and scale.  
 
-- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.yml#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and relying on manual deployments.  
+- Avoid [deployment and configuration antipatterns](./approaches/deployment-configuration.md#antipatterns-to-avoid). Antipatterns include running separate versions of the solution for each tenant, hard-coding tenant-specific configurations or logic, and relying on manual deployments.  
 
 ## Performance Efficiency considerations  
 

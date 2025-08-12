@@ -34,7 +34,7 @@ There's no single template for a control plane or its responsibilities. Your sol
 
 In general, a control plane might have many of the following core responsibilities:
 
-- **Resource management:** It provisions and manages system resources that serve the workload, including tenant-specific resources. The control plane might [invoke and orchestrate a deployment pipeline](../approaches/deployment-configuration.yml#tenant-lists-as-configuration-or-data) or run deployment operations directly.
+- **Resource management:** It provisions and manages system resources that serve the workload, including tenant-specific resources. The control plane might [invoke and orchestrate a deployment pipeline](../approaches/deployment-configuration.md#tenant-lists-as-configuration-or-data) or run deployment operations directly.
 
 - **Resource configuration:** It [reconfigures shared resources](#manage-shared-components) to recognize new tenants. For example, the control plane might configure network routing to ensure that incoming traffic [reaches the correct tenant's resources](map-requests.yml), or you might need to scale your resource capacity.
 - **Tenant configuration:** It stores and manages the configuration of each tenant.
