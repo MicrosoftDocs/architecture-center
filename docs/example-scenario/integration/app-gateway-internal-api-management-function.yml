@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure API Management landing zone architecture
-  description: An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
+  title: Azure API Management Landing Zone Architecture
+  description: Learn about a secure enterprise API management architecture that uses Azure Application Gateway, API Management, and CI/CD pipeline deployment.
   author: petemessina 
   ms.author: petermessina
   ms.reviewer: aamurugan
-  ms.date: 06/18/2024
+  ms.date: 06/19/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: 
@@ -20,7 +20,7 @@ products:
   - azure-functions
   - dotnet
 name: Azure API Management landing zone architecture
-summary: An opinionated architecture to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
+summary: Learn about a secure enterprise API management architecture that uses Azure Application Gateway, API Management, and CI/CD pipeline deployment.
 thumbnailUrl: /azure/architecture/browse/thumbs/app-gateway-internal-api-management-function.png
 content: |
-  [!include[](app-gateway-internal-api-management-function-content.md)]
+  [!INCLUDE[](app-gateway-internal-api-management-function-content.md)]
