@@ -1,6 +1,6 @@
-This article provides an overview of deploying secure applications using the [App Service Environment][intro-to-app-svc-env]. To restrict application access from the internet, the [Azure Application Gateway][docs-appgw] service and [Azure Web Application Firewall][docs-waf] are used. This article also provides guidance about continuous integration and continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
+This article describes how to deploy secure applications by using the [App Service Environment][intro-to-app-svc-env]. [Azure Application Gateway][docs-appgw] and [Azure Web Application Firewall][docs-waf] restrict application access from the internet. This article also explains how to integrate continuous integration and continuous deployment (CI/CD) with  App Service Environments by using Azure DevOps.
 
-This scenario is commonly deployed in industries such as banking and insurance, where customers are conscious of platform-level security in addition to application level security. To demonstrate these concepts, we'll use an application that allows users to submit expense reports.
+Industries like banking and insurance often use this scenario because customers value platform-level and application-level security. To demonstrate these concepts, the following example application allows users to submit expense reports.
 
 ## Potential use cases
 
@@ -12,13 +12,14 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-![Diagram featuring the sample scenario architecture for Secure ILB App Service Environment Deployment.][architecture]
+:::image type="content" source="./media/fully-managed-secure-apps.svg" alt-text="Diagram featuring the sample scenario architecture for Secure ILB App Service Environment Deployment." border="false" lightbox="./media/fully-managed-secure-apps.svg":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
 ### Dataflow
 
 1. HTTP/HTTPS requests first hit the application gateway.
+
 1. Optionally (not shown in the diagram), you can have Microsoft Entra authentication enabled for the Web App. After the traffic first hits the application gateway, the user would be prompted to supply credentials to authenticate with the application.
 1. User requests flow through the internal load balancer (ILB) of the environment, which in turn routes the traffic to the Expenses Web App.
 1. The user then proceeds to create an expense report.
@@ -30,6 +31,7 @@ Consider this scenario for the following use cases:
 ### Components
 
 - The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, because the App Service Environment and the workloads that run on it are behind a virtual network, it also provides an extra layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB App Service Environment.
+
 - This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, solid-state drive (SSD) storage, and provides the maximum scale-out capabilities.
 - Azure App Service [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes extra overhead from the web servers hosting the web app to decrypt traffic again.
@@ -44,6 +46,7 @@ Consider this scenario for the following use cases:
 An App Service Environment can run regular web apps on Windows or, as in this example, web apps deployed inside the environment that are each running as Linux containers. An App Service Environment was selected to host these single-instance containerized applications. There are alternatives available&mdash;review the considerations below when designing your solution.
 
 - [Azure Container Apps][docs-container-apps]: is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
+
 - [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
 
 Other options for the data tier include:
@@ -59,6 +62,7 @@ A custom domain suffix defines a root domain used by the App Service Environment
 There are certain considerations when dealing with certificates on an ILB App Service Environment.
 
 - Valid SSL/TLS certificate must be stored in an Azure Key Vault in .PFX format.
+
 - Certificate must be less than 20 kb.
 - Your certificate must be a wildcard certificate for the selected custom domain name.
 - You need to configure a system assigned or user assigned managed identity for your App Service Environment. The managed identity is used to authenticate against the Azure Key Vault where the SSL/TLS certificate is stored.
@@ -67,6 +71,7 @@ There are certain considerations when dealing with certificates on an ILB App Se
 ### Network Access to Key Vault
 
 - The key vault can be accessed publicly or through a private endpoint accessible from the subnet that the App Service Environment is deployed to.
+
 - If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment.
 - The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
 
@@ -87,6 +92,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
+
 - Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - Review the following resources for additional guidance.
@@ -97,6 +103,7 @@ Reliability helps ensure that your application can meet the commitments that you
 #### Availability
 
 - Consider applying the [typical design patterns for availability](/azure/well-architected/reliability/design-patterns) when building your cloud application.
+
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
@@ -105,6 +112,7 @@ Reliability helps ensure that your application can meet the commitments that you
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
+
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
@@ -117,6 +125,7 @@ Explore the cost of running this scenario. All of the services are pre-configure
 We've provided three sample cost profiles based on amount of traffic you expect to get:
 
 - [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single small instance of an isolated web app. Each of the other components is scaled to a Basic tier that will minimize cost but still ensure that there's service-level agreement (SLA) support and enough capacity to handle a production-level workload.
+
 - [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled by a moderately sized single isolated App Service instance. Additionally, the capacity of the Application Gateway and Azure SQL Database are increased to support the added workload.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, isolated tier web apps deployed in multiple regions fronted by Traffic Manager are required. An additional Application Gateway and Virtual Network are added to the estimate. An Azure Traffic Manager is also included in the solution. The capacity of the Azure SQL Database is increased to support the additonal workload.
 
@@ -125,17 +134,20 @@ We've provided three sample cost profiles based on amount of traffic you expect 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
+
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
 - When building a cloud application, be aware of the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
 - Nicholas McCollum | Principal Customer Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -145,7 +157,7 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [high-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+- [High-availability enterprise deployment via an App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
 <!-- links -->
 
@@ -160,8 +172,6 @@ Principal author:
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 [ase-dns-configuration]: /azure/app-service/environment/how-to-custom-domain-suffix?pivots=experience-azp#dns-configuration
 [secure-default-hostnames]: https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571
-
-[architecture]: ./media/fully-managed-secure-apps.svg
 [small-pricing]: https://azure.com/e/9563539d508a4b68853a6b3c5168431e
 [medium-pricing]: https://azure.com/e/c3fb0809853c4cbabdcecae279dafe1f
 [large-pricing]: https://azure.com/e/42f54342044846e3bfb42f9f66847054
