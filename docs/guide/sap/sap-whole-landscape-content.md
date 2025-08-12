@@ -159,10 +159,11 @@ The corporate security policies will drive the architecture and separation of vo
 
 ### Data services
 
-The architecture contains Azure data services that help you extend and improve your SAP data platform. To help unlock business insights, we recommend you use services such as Azure Synapse Analytics, Azure Data Factory, and Azure Data Lake Storage. These data services help you analyze and visualize SAP data and non-SAP data.
+The architecture contains Azure data services that help you extend and improve your SAP data platform. To help unlock business insights, we recommend you use services such as Microsoft Fabric, Azure Data Factory, and Azure Data Lake Storage. These data services help you analyze and visualize SAP data and non-SAP data.
 
-For many data integration scenarios, an integration runtime is required. The Azure integration runtime is the compute infrastructure that Azure Data Factory and Azure Synapse Analytics pipelines use to provide data integration capabilities. We recommend the deployment of runtime virtual machines for these services for each environment separately. For more information, see:
+For many data integration scenarios, an integration runtime or an on-premises data gateway is required. The Azure integration runtime is the compute infrastructure that Azure Data Factory  uses to provide data integration capabilities, while an on-premises data gateway provides data integration capabilities for Microsoft Fabric data pipelines, shortcuts, and other Fabric integration and reporting tools.  We recommend the deployment of runtime virtual machines for these services for each environment separately. For more information, see:
 
+- [On premises data gateway](/data-integration/gateway/service-gateway-onprem)
 - [Azure integration runtime](/azure/data-factory/concepts-integration-runtime)
 - [Set up a self-hosted integration runtime to use in the SAP CDC solution](/azure/data-factory/sap-change-data-capture-shir-preparation)
 - [Copy data from SAP HANA](/azure/data-factory/connector-sap-hana?tabs=data-factory)
@@ -214,6 +215,10 @@ Principal authors:
 
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
 - [Pankaj Meshram](https://www.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
+
+Contributing author:
+
+- [Daniel Crawford](https://www.linkedin.com/in/daniel-crawford-b661373) | Senior Program Manager
 
 ## Next steps
 

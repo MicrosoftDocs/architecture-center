@@ -3,7 +3,7 @@ title: Architectural approaches for AI and ML in multitenant solutions
 description: This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 08/20/2024
+ms.date: 07/28/2025
 ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -60,9 +60,9 @@ You also might choose to acquire a pretrained base model, and then perform furth
 
 Consider how the growth of your solution affects your use of AI and ML components. Growth can refer to an increase in the number of tenants, the amount of data stored for each tenant, the number of users, and the volume of requests to your solution.
 
-**Training:** There are several factors that influence the resources that are required to train your models. These factors include the number of models you need to train, the amount of data that you train the models with, and the frequency at which you train or retrain models. If you create tenant-specific models, then as your number of tenants grows, the amount of compute resources and storage that you require will also be likely to grow. If you create shared models and train them based on data from all of your tenants, it's less likely that the resources for training will scale at the same rate as the growth in your number of tenants. However, an increase in the overall amount of training data will affect the resources that are consumed, to train both the shared and tenant-specific models.
+**Training:** There are several factors that influence the resources that are required to train your models. These factors include the number of models you need to train, the amount of data that you train the models with, and the frequency at which you train or retrain models. If you create tenant-specific models, then as your number of tenants grows, the amount of compute resources and storage that you require will also likely grow. If you create shared models and train them based on data from all of your tenants, it's less likely that the resources for training will scale at the same rate as the growth in your number of tenants. However, an increase in the overall amount of training data will affect the resources that are consumed, to train both the shared and tenant-specific models.
 
-**Inference:** The resources that are required for inference are usually proportional to the number of requests that access the models for inference. As the number of tenants increase, the number of requests is also likely to increase.
+**Inference:** The resources that are required for inference are usually proportional to the number of requests that access the models for inference. As the number of tenants increases, the number of requests is also likely to increase.
 
 It's a good general practice to use Azure services that scale well. Because AI/ML workloads tend to make use of containers, Azure Kubernetes Service (AKS) and Azure Container Instances (ACI) tend to be common choices for AI/ML workloads. AKS is usually a good choice to enable high scale, and to dynamically scale your compute resources based on demand. For small workloads, ACI can be a simple compute platform to configure, although it doesn't scale as easily as AKS.
 
@@ -76,7 +76,7 @@ Consider the performance requirements for the AI/ML components of your solution,
 
 Consider using Azure's high-performance computing capabilities for your AI and ML workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution would benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [FPGAs](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Servers. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). To learn more about optimizing compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
 
-Model training typically requires a lot of interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
+Model training typically requires a lot of interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 Consider profiling your solution's performance. For example, [Azure Machine Learning provides profiling capabilities](/azure/machine-learning/how-to-deploy-profile-model) that you can use when developing and instrumenting your solution.
 
@@ -84,15 +84,15 @@ Consider profiling your solution's performance. For example, [Azure Machine Lear
 
 When you build a solution to use AI and ML, you can choose to use prebuilt components, or to build custom components. There are two key decisions you need to make. The first is the *platform or service* you use for AI and ML. The second is whether you use pretrained models or build your own custom models.
 
-**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure AI Services and Azure OpenAI in Foundry Models provide APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure AI Services enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
+**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure AI Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure AI Foundry enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
 
-**Models:** Even when you don't use a full model that's provided by a service like Azure AI Services, you can still accelerate your development by using a pretrained model. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique called *transfer learning* or *fine-tuning*. Transfer learning enables you to extend an existing model and apply it to a different domain. For example, if you're building a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations, and use transfer learning to train the model for a specific user's music preferences.
+**Models:** Even when you don't use a full model that's provided by a service like Azure AI Foundry, you can still accelerate your development by using a pretrained model. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique called *fine-tuning* or *transfer learning*. Fine-tuning enables you to extend an existing model and apply it to a different domain. For example, if you're building a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations, and use fine-tuning to train the model for a specific user's music preferences.
 
-By using a prebuilt ML platform like Azure AI Services or Azure OpenAI, or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research, and avoid the need to recruit highly qualified data scientists to train, design, and optimize models. 
+By using a prebuilt ML platform like Azure AI Foundry or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research, and avoid the need to recruit highly qualified data scientists to train, design, and optimize models.
 
 ### Cost optimization
 
-Generally, AI and ML workloads incur the greatest proportion of their costs from the compute resources that are required for model training and inference. Review [Architectural approaches for compute in multitenant solutions](compute.md) to understand how to optimize the cost of your compute workload for your requirements. 
+Generally, AI and ML workloads incur the greatest proportion of their costs from the compute resources that are required for model training and inference. Review [Architectural approaches for compute in multitenant solutions](compute.md) to understand how to optimize the cost of your compute workload for your requirements.
 
 Consider the following requirements when planning your AI and ML costs:
 
@@ -100,7 +100,7 @@ Consider the following requirements when planning your AI and ML costs:
 - **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
 - **Monitor your utilization.** By observing the utilization of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. See [Azure Machine Learning Monitor](/azure/machine-learning/monitor-azure-machine-learning).
 - **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster utilization or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
-- **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants. 
+- **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants.
 - **Consider your budget.** Understand whether you have a fixed budget, and monitor your consumption accordingly. You can [set up budgets](/azure/machine-learning/concept-plan-manage-cost#create-budgets) to prevent overspending and to allocate quotas based on tenant priority.
 
 ## Approaches and patterns to consider
@@ -111,20 +111,31 @@ Azure provides a set of services to enable AI and ML workloads. There are severa
 
 It's a good practice to try to use prebuilt AI/ML services, where you can. For example, your organization might be beginning to look at AI/ML and want to quickly integrate with a useful service. Or, you might have basic requirements that don't require custom ML model training and development. Prebuilt ML services enable you to use inference without building and training your own models.
 
-Azure provides several services that provide AI and ML technology across a range of domains, including language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure's prebuilt AI/ML services include [Azure AI Services](https://azure.microsoft.com/products/ai-services), [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service), [Azure AI Search](/azure/search/search-what-is-azure-search), and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration, and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
+Azure provides several services that provide AI and ML technology across a range of domains, including language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure's prebuilt AI/ML services are provided by a unified AI application service, [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry), and that provides access to a variety of models including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service) (formerly Azure OpenAI Service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration, and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
-Many managed ML services don't require model training or data, so there's usually no tenant data isolation concerns. However, when you work with AI Search in a multitenant solution, review [Design patterns for multitenant SaaS applications and Azure AI Search](/azure/search/search-modeling-multitenant-saas-applications).
+Many managed ML services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and ML services do provide a model customization capability, including:
+
+- [Azure Custom Voice](/azure/ai-services/speech-service/custom-neural-voice)
+- [Custom Vision service](/azure/ai-services/custom-vision-service/overview)
+- [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
+- [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
+- Some [OpenAI models support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
+
+When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 Consider the scale requirements for the components in your solution. For example, many of the APIs within Azure AI Services support a maximum number of requests per second. If you deploy a single AI Services resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.md).
 
-> [!NOTE]
-> Some managed services enable you to train with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/computer-vision/how-to/add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
-
 ### Custom AI/ML architecture
 
-If your solution requires custom models, or you work in a domain that isn't covered by a managed ML service, then consider building your own AI/ML architecture. [Azure Machine Learning](/azure/machine-learning) provides a suite of capabilities to orchestrate the training and deployment of ML models. Azure Machine Learning supports many open-source machine learning libraries, including [PyTorch](https://azure.microsoft.com/develop/pytorch), [TensorFlow](/azure/machine-learning/how-to-train-tensorflow), [Scikit](/azure/machine-learning/how-to-train-scikit-learn), and [Keras](/azure/machine-learning/how-to-train-keras). You can continuously monitor models' performance metrics, detect data drift, and trigger retraining to improve model performance. Throughout the lifecycle of your ML models, Azure Machine Learning enables auditability and governance with built-in tracking and lineage for all your ML artifacts.
+If your solution requires custom models, or you work in a domain that isn't covered by a managed ML service, then consider building your own AI/ML architecture. [Azure Machine Learning](/azure/machine-learning) provides a suite of capabilities to orchestrate the training and deployment of ML models, including:
 
-When working in a multitenant solution, it's important to consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Azure Machine Learning provides a pipeline to train models, and to deploy them to an environment to be used for inference. In a multitenant context, consider whether models should be deployed to shared compute resources, or if each tenant has dedicated resources. Design your model deployment pipelines, based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.yml).
+- Use a variety of open-source machine learning libraries, including [PyTorch](https://azure.microsoft.com/develop/pytorch), [TensorFlow](/azure/machine-learning/how-to-train-tensorflow), [Scikit](/azure/machine-learning/how-to-train-scikit-learn), and [Keras](/azure/machine-learning/how-to-train-keras).
+- Continuously monitor models' performance metrics.
+- Detect *data drift*, which is when model input data changes over time.
+- Trigger retraining to improve model performance.
+- Throughout the lifecycle of your ML models, apply auditability and governance with built-in tracking and lineage (tracking of data and model relationships) for all your ML artifacts.
+
+When working in a multitenant solution, it's important to consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Azure Machine Learning provides a pipeline to train models, and to deploy them to an environment to be used for inference. In a multitenant context, consider whether models should be deployed to shared compute resources, or if each tenant has dedicated resources. Design your model deployment pipelines, based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.md).
 
 When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how you will manage the different models and training data for each tenant, as well as versions of the model.
 
@@ -136,7 +147,7 @@ The following diagram illustrates an example architecture that uses Azure Machin
 
 Azure provides several powerful analytics platforms that can be used for a range of purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
 
-You can consider using these platforms for AI/ML, when you need to scale your ML capabilities to a very large number of tenants, and when you need large-scale compute and orchestration. You also might consider using these platforms for AI/ML, when you need a broad analytics platform for other parts of your solution, such as for data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that covers all of your analytics and AI/ML needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
+You can consider using these platforms for AI/ML, when you need to scale your ML capabilities to a very large number of tenants, and when you need large-scale compute and orchestration. You also might consider using these platforms for AI/ML, when you need a broad analytics platform for other parts of your solution, such as for data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that covers all of your analytics and AI/ML needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## ML operational model
 
@@ -159,7 +170,7 @@ Other contributors:
 
 - [Paul Burpo](https://www.linkedin.com/in/paul-burpo/) | Principal Customer Engineer, FastTrack for Azure
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Solution Architect
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 - [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
 

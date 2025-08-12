@@ -48,7 +48,7 @@ In practice, things aren't as easy as they might look at first. Most importantly
 
 ## Implementation in Azure Cosmos DB
 
-This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/mspnp/transactional-outbox-pattern).
+This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/Azure-Samples/transactional-outbox-pattern).
 
 A `Contact` object in the sample service has the following structure:
 
@@ -236,7 +236,7 @@ private void RaiseDomainEvents(List<IDataObject<Entity>> dObjs)
 }
 ```
 
-On the last line, the [MediatR](https://github.com/jbogard/MediatR) package, an implementation of the mediator pattern in C#, is used to publish an event within the application. Doing so is possible because all events like `ContactNameUpdatedEvent` implement the `INotification` interface of the MediatR package.
+On the last line, the [MediatR](https://github.com/LuckyPennySoftware/MediatR) package, an implementation of the mediator pattern in C#, is used to publish an event within the application. Doing so is possible because all events like `ContactNameUpdatedEvent` implement the `INotification` interface of the MediatR package.
 
 These events need to be processed by a corresponding handler. Here, the `IEventsRepository` implementation comes into play. Here's the sample of the `NameUpdated` event handler:
 
@@ -553,7 +553,7 @@ Keep in mind that you shouldn't consider the sample code provided here productio
 
 ### Deploy this scenario
 
-You can find the source code, deployment files, and instructions to test this scenario on GitHub: <https://github.com/mspnp/transactional-outbox-pattern>.
+You can find the source code, deployment files, and instructions to test this scenario on GitHub: <https://github.com/Azure-Samples/transactional-outbox-pattern>.
 
 ## Contributors
 
@@ -561,7 +561,7 @@ You can find the source code, deployment files, and instructions to test this sc
 
 Principal author:
 
- - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Principal Software Engineer
+- [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

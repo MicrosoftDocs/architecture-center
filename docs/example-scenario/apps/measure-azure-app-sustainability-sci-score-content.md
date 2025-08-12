@@ -199,7 +199,7 @@ Other contributor:
 
 ## Next steps
 
-This article is aligned with the principles and methodology of the [Green Software Foundation](https://greensoftware.foundation/). The next step in creating a greener application is to embed the [Carbon Aware SDK](https://github.com/Green-Software-Foundation/carbon-aware-sdk) into your application so that triggers can be automated in real time when specific carbon conditions are met.
+This article is aligned with the principles and methodology of the [Green Software Foundation](https://greensoftware.foundation/). The next step in creating a greener application is to embed the [Carbon Aware SDK](https://carbon-aware-sdk.greensoftware.foundation/) into your application so that triggers can be automated in real time when specific carbon conditions are met.
 
 For recommendations to optimize Azure workloads, see [Sustainability cloud workload guidance](/azure/architecture/framework/sustainability).
 

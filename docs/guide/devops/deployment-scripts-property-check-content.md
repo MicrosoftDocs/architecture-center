@@ -225,5 +225,5 @@ Other contributor:
 ## Related resources
 
 - [Hub-spoke network topology with Azure Virtual WAN](../../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
-- [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.yml)
+- [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.md)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

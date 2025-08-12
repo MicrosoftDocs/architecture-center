@@ -69,7 +69,7 @@ Consider an event-driven architecture for applications that ingest and process a
    Two parallel arrows point from the Data sources section in separate flows. The first flow shows an arrow that points from Data sources to Data storage. An arrow points from Batch processing to Analytics and reporting. Another arrow points from Batch processing to Analytical data store and then from Analytical data store to Analytics and reporting. The second flow has an arrow point from Data sources to Real-time message ingestion. An arrow points from the adjacent Stream processing section to Analytics and reporting. An Orchestration section is at the bottom of the diagram.
 :::image-end:::
 
-**[Big data](./big-data.yml)** and **[big compute](./big-compute.yml)** are specialized architecture styles for workloads that match specific profiles. Big data splits a large dataset into chunks and performs parallel processing across the entire set for analysis and reporting. Big compute, also known as *high-performance computing*, performs parallel computations across thousands of cores. Common domains include simulations, modeling, and 3D rendering.
+**[Big data](./big-data.md)** and **[big compute](./big-compute.yml)** are specialized architecture styles for workloads that match specific profiles. Big data splits a large dataset into chunks and performs parallel processing across the entire set for analysis and reporting. Big compute, also known as *high-performance computing*, performs parallel computations across thousands of cores. Common domains include simulations, modeling, and 3D rendering.
 
 ## Architecture styles as constraints
 

@@ -75,4 +75,4 @@ Other contributor:
 
 ## Related resource
 
-- [Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml)
+- [Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md)

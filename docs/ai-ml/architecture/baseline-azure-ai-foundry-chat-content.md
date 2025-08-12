@@ -42,7 +42,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 1. The agent connects to the knowledge store (Azure AI Search) in the private network via a private endpoint.
 
-1. Requests to external knowledge stores or tools, such as Wikipedia or Bing, traverse Azure Firewall for inspection and egress policy enforcement.
+1. Requests to most external knowledge stores or tools, such as Wikipedia, traverse Azure Firewall for inspection and egress policy enforcement.
 
 1. The agent connects to its configured language model and passes relevant context.
 
@@ -395,7 +395,10 @@ The agent service uses the virtual network's DNS configuration to resolve privat
 
 The NSG attached to the agent egress subnet blocks all inbound traffic because no legitimate ingress should occur. Outbound NSG rules allow access only to private endpoint subnets within the virtual network and to Transmission Control Protocol (TCP) port 443 for internet-bound traffic. The NSG denies all other traffic.
 
-To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent only needs to access the [Grounding with Bing](/azure/ai-services/agents/how-to/tools/bing-grounding) public APIs, configure Azure Firewall to allow traffic to `api.bing.microsoft.com` on port 443 from this subnet. All other outbound destinations are denied.
+To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent only needs to access `https://example.org/api`, configured Azure Firewall to allow traffic to `api.example.org` on port 443 from this subnet and ensure the NSG allows that traffic as well.
+
+> [!NOTE]
+> Not all knowledge tools connected to your agents egress through this subnet. For example, [Grounding with Bing](/azure/ai-services/agents/how-to/tools/bing-grounding) public APIs ideally would be configured in your Azure Firewall to allow traffic to `api.bing.microsoft.com` on port 443 from this subnet. However, that specific tool is invoked from within the agent service through a mechanism that doesn't use the egress subnet. Test all built-in knowledge and tool connections you consider for your workload to see if they align with your network egress control policies.
 
 ##### Virtual network segmentation and security
 

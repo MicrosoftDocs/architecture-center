@@ -126,7 +126,7 @@ AKS maintains two node pools, which are separate groups of nodes. The system nod
 
 Create Private Link connections for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services by way of a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups.
 
-For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
 ## Plan the IP addresses
 
@@ -508,7 +508,7 @@ In the HPA resource, we recommend setting the minimum and maximum replica count.
 
 There might be a race condition where the HPA checks before a scaling operation finishes. The outcome might be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
-If your workload is event-driven, a popular open-source option is [Kubernetes event-driven autoscaling (KEDA)](https://github.com/kedacore/keda). Consider KEDA if an event source, such as message queue, drives your workload, rather than your workload being CPU-bound or memory-bound. KEDA supports many event sources or scalers. Use the list of event sources that KEDA can scale at [KEDA scalers](https://keda.sh/#scalers). The list includes the [Azure Monitor scaler](https://keda.sh/docs/latest/scalers/azure-monitor/), which is a convenient way to scale KEDA workloads based on Azure Monitor metrics.
+If your workload is event-driven, a popular open-source option is [Kubernetes event-driven autoscaling (KEDA)](https://keda.sh/). Consider KEDA if an event source, such as message queue, drives your workload, rather than your workload being CPU-bound or memory-bound. KEDA supports many event sources or scalers. Use the list of event sources that KEDA can scale at [KEDA scalers](https://keda.sh/#scalers). The list includes the [Azure Monitor scaler](https://keda.sh/docs/latest/scalers/azure-monitor/), which is a convenient way to scale KEDA workloads based on Azure Monitor metrics.
 
 ### Cluster autoscaler
 
@@ -575,7 +575,7 @@ When you enable availability zones, it isn't enough coverage in the unlikely eve
 
 - Provide the location where the redundant service has its secondary instance if an Azure resource supports geo-redundancy. For example, by enabling geo-replication for Container Registry, it automatically replicates images to the selected Azure regions. It also provides continued access to images even if the primary region experiences an outage.
 
-- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you need to distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.yml).
+- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you need to distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
 
 > [!NOTE]
 > The [AKS baseline for multiregion clusters reference architecture](../aks-multi-region/aks-multi-cluster.yml) extends the architecture in this article to include multiple regions in an active/active and highly available configuration.
@@ -668,7 +668,7 @@ Basic, cluster-level networking metrics are available through native [platform a
 
 The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-container-networking-services-overview) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
@@ -906,7 +906,6 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
-- [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml)
 
 ## Related resources
 

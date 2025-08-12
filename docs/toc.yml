@@ -26,7 +26,7 @@ items:
     - name: Big compute
       href: guide/architecture-styles/big-compute.yml
     - name: Big data
-      href: guide/architecture-styles/big-data.yml
+      href: guide/architecture-styles/big-data.md
     - name: Event-driven architecture
       href: guide/architecture-styles/event-driven.md
     - name: Microservices
@@ -190,7 +190,7 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
-        href: guide/technology-choices/load-balancing-overview.yml
+        href: guide/technology-choices/load-balancing-overview.md
       - name: VNet peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.yml
     - name: Choose a messaging service
@@ -693,26 +693,6 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
-          - name: AKS cluster for a PCI-DSS workload
-            items:
-            - name: Introduction
-              href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
-            - name: Architecture
-              href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml
-            - name: Network segmentation
-              href: reference-architectures/containers/aks-pci/aks-pci-network.yml
-            - name: Data protection
-              href: reference-architectures/containers/aks-pci/aks-pci-data.yml
-            - name: Vulnerability management
-              href: reference-architectures/containers/aks-pci/aks-pci-malware.yml
-            - name: Access controls
-              href: reference-architectures/containers/aks-pci/aks-pci-identity.yml
-            - name: Monitoring operations
-              href: reference-architectures/containers/aks-pci/aks-pci-monitor.yml
-            - name: Policy management
-              href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
-            - name: Summary
-              href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
@@ -1115,8 +1095,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
-      - name: Multiple Active Directory forests
-        href: example-scenario/azure-virtual-desktop/multi-forest.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework

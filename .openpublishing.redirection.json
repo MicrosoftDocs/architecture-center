@@ -5435,6 +5435,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/multi-forest.yml",
+      "redirect_url": "/entra/identity/domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml",
       "redirect_url": "/azure/architecture/guide/testing/mission-critical-deployment-testing",
       "redirect_document_id": false
@@ -7472,6 +7477,51 @@
     {
       "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
       "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-data.yml",
+      "redirect_url": "/azure/aks/pci-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-identity.yml",
+      "redirect_url": "/azure/aks/pci-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-intro.yml",
+      "redirect_url": "/azure/aks/pci-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-malware.yml",
+      "redirect_url": "/azure/aks/pci-malware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
+      "redirect_url": "/azure/aks/pci-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-network.yml",
+      "redirect_url": "/azure/aks/pci-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-policy.yml",
+      "redirect_url": "/azure/aks/pci-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml",
+      "redirect_url": "/azure/aks/pci-ra-code-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-summary.yml",
+      "redirect_url": "/azure/aks/pci-summary",
       "redirect_document_id": false
     }
   ]

@@ -141,7 +141,6 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
-- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg
