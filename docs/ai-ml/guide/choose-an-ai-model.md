@@ -17,13 +17,13 @@ In the rapidly evolving landscape of AI development, selecting the right model i
 
 ## Key criteria for model selection
 
-There are several criteria that can influence your model selection. Some of these criteria might be more important to you based on your own unique workload characteristics and the organizational priorities that apply to your workload. Each of these criteria act as a filter to be applied to the thousands of available models. The following list of criteria is ordered by general priority.
+There are several criteria that can influence your model selection. Some of these criteria might be more important to you based on your own unique workload characteristics and the organizational priorities that apply to your workload. Each of these criteria act as a filter to be applied to the thousands of available models. The following list of criteria is ordered by general priority, with the decisions factors that typically have the most influence at the top.
 
 #Note to Nitya - decision tree image will go here
 
 ### Task fit
 
-**What is the model intended to do: chat, reasoning, RAG, or multimodal processing?**
+**What is the model intended to do: chat, reasoning, embedding, RAG, or multimodal processing?**
 
 When selecting an AI model, you should select a model whose capabilities align with the specific task you want it to perform. Different models are optimized for different functions: some excel at natural language processing, others at image recognition, audio analysis, or multimodal tasks. For example, convolutional neural networks (CNNs) are ideal for visual data, while generative pre-trained transformer (GPT) models are better suited for text generation and understanding. By clearly defining your task — whether it's sentiment analysis, code generation, or real-time conversation — you can narrow down your options and choose a model that delivers the best performance, accuracy, and efficiency for your use case.
 
@@ -63,7 +63,7 @@ Limited regional availability significantly influences the selection of an AI mo
 
 Models need to be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers. Or that compute could be local to your workload, such as running within process in your code. Some models that are available in a serverless platform from the provider, sometimes known as Models-as-a-Service (MaaS), might be too big or not licensed to be hosted in your own compute. Some specialized models might not be available through your provider's hosting and are only available to run in your own inferencing environment.
 
-Your workload requirements will constrain what the compute platform options are per task, which effectively applies a restriction on which models can be used based on where they can be deployed to meet efficiency, cost, and compliance requirements.
+Your workload requirements will constrain what the compute platform options are per task, which effectively applies a restriction on which models can be used based on where they can be deployed to meet efficiency, cost, and compliance requirements. Depending on the available hosting, you might also have a choice in SDK to perform inferencing against that model. Some platforms provide a unified SDK that supports calling all hosted models, others require you to use the SDK specifically built by the model's provider.
 
 ### Domain specificity
 
@@ -82,29 +82,40 @@ In general, you want to pick a model that meets your quality standards while wor
 > [!NOTE]
 > Some cross-cutting concerns, like implementing responsible AI policies, might introduce additional performance limitations. While you should include these limitations in your evaluation, they shouldn’t influence your model choice.
 
-## Model tunability
+### Model tunability
 
 **How much customization do you need to perform?**
 
 Some AI models offer a many hyperparamaters that you can tune to meet your application needs. Examples of these models are deep neural networks or gradient boosting machines. These models offer fine-grained control over parameters such as learning rate and architecture, making them ideal for high-stakes tasks where accuracy is critical. In contrast, simpler models like linear regression or decision trees are easier to deploy and interpret, making them suitable for smaller datasets, real-time use cases, or teams with limited machine learning experience. However, tunability also affects generalization: overly complex models risk overfitting, while simpler ones may underfit but offer more stable performance. Resource constraints are another consideration, as highly tunable models often require more training time, memory, and automated tuning tools. 
 
+### Additional factors
+
+While the criteria above are usually closely aligned with your workload's functional and non-functional requirements, there are sometimes other factors that can be considered relevant to your decision making. These are typically the lowest priority for most workloads, but your workload could apply a higher level of importance to them in certain situations.
+
+- License
+- Multi-lingual capabilities
+- Support plan (community or paid)
+- Sustainability and environmental impact reporting
+- Update lifecycle (bug fixes and model revisions) and retirement strategy
+
+## Non-criteria for model selection
+
+There are some factors that you should probably not factor into your decision making, as they are rarely aligned with your workloads functional or non-functional requirements.
+
+- Cultural popularity
+- Publisher (OpenAI, Meta, Microsoft, xAI, and so on)
+
 ### Narrowing the search space
 
-To help you apply the selection criteria in an efficient manner when searching a catalog like Hugging Face or Azure AI Foundry, use available filters like tasks to help you reduce the number of models to choose from. You can also narrow the choices by searching for one or more specific model providers and researching the capabilities of their model versions.
+To help you apply the selection criteria in an efficient manner use a catalog such as those found in [Hugging Face](https://huggingface.co/models), [Azure AI Foundry](https://ai.azure.com/explore/models), and [GitHub models](https://github.com/marketplace?type=models). These services offer filters that align with many of the decision criteria above, like tasks, to help you reduce the number of models to choose from.
 
 ## Evaluation and benchmarking
 
-To perform a side-by-side AI model evaluation, start by defining a clear set of criteria based on your application’s specific needs, such as accuracy, speed, cost, context retention, and output quality. Then, run both models on the same representative dataset or set of tasks, ensuring consistent input and evaluation conditions. Compare the outputs qualitatively and quantitatively, using metrics like relevance, coherence, latency, and user satisfaction. It’s also helpful to involve stakeholders or end users in the evaluation process to gather feedback on which model better aligns with real-world expectations. This structured approach helps you make an informed decision about which model is the best fit for your use case.
+To perform a side-by-side AI model evaluation, start by defining a clear set of criteria based on your application’s specific needs, such as accuracy, speed, cost, context retention, and output quality. Then, run candidate models on the same representative dataset or set of tasks, ensuring consistent input and evaluation conditions. Compare the outputs qualitatively and quantitatively, using metrics like relevance, coherence, latency, and user satisfaction. It’s also helpful to involve stakeholders or end users in the evaluation process to gather feedback on which model better aligns with real-world expectations. This structured approach helps you make an informed decision about which model is the best fit for your use case.
 
-You can also use tools like Hugging Face’s benchmark collections to assess models for language support, reasoning, and safety. Using third-party benchmarking can help you understand how specific models have performed across many different real-world scenarios.
+You can also use tools like Hugging Face's benchmark collections to assess models for language support, reasoning, and safety. Using multiple benchmarking sources helps you understand how specific models have performed across many different real-world scenarios without fear of bias from your model host.
 
-## Derisking your model choice
-
-To future-proof your architecture:
-
-- Use abstraction layers like the Azure AI Inference SDK to avoid vendor lock-in.
-- Test models in parallel by switching environment variables and comparing outputs.
-- Avoid opaque routing unless observability and traceability are guaranteed.
+Your model host might have evaluation capabilities built into their platform, it's recommended you use those tools. For example, see [Evaluate generative AI models using Azure AI Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
 
 ## Fine-tuning and distillation
 
@@ -113,3 +124,14 @@ In many cases, you'll need to do some amount of fine-tuning to train your model 
 ## Plan for model changes
 
 Choosing a model isn't a one-time activity. In your proof of concept or prototype phase, you might choose a frontier model to start with to expedite the build-out. When you get to production, you might decide that a more specialized model, or even a small language model is a better fit. And as your workload evolves, you may find that the model you initially chose doesn't perform as anticipated, or your planned features aren't a good fit for that model. Likewise, to keep up with market advances, you might need to regularly swap out your model with new releases. For a detailed review of model lifecycle considerations, see the [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle) article.
+
+To future-proof your architecture, consider these de-risking approaches:
+
+- Use abstraction layers like the Azure AI Inference SDK to avoid vendor lock-in.
+- Test models in parallel by switching environment variables and comparing outputs.
+- Avoid opaque routing unless observability and traceability are guaranteed.
+
+## Next steps
+
+- [Explore Azure AI Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview)
+- [Foundry Models and capabilities](/azure/ai-foundry/foundry-models/concepts/models)
