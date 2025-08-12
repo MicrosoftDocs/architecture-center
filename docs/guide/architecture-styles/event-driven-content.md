@@ -1,3 +1,16 @@
+---
+title: Event-Driven Architecture Style
+description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 08/06/2025
+ms.topic: conceptual
+ms.subservice: architecture-guide
+ms.custom: arb-web
+---
+
+# Event-driven architecture style
+
 An event-driven architecture consists of *event producers* that generate a stream of events, *event consumers* that listen for these events, and *event channels* (often implemented as event brokers or ingestion services) that transfer events from producers to consumers.
 
 ## Architecture approach

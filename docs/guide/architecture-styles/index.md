@@ -59,7 +59,7 @@ Each service can be developed by a small, focused team. Individual services can 
    An arrow points from the Event producers section to the Event ingestion section. Three arrows point from the Event ingestion section to three individual sections that are all labeled Event consumers.
 :::image-end:::
 
-**[Event-Driven Architectures](./event-driven.yml)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
+**[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with low latency, such as Internet of Things (IoT) solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
 
@@ -94,7 +94,7 @@ The following table summarizes how each style manages dependencies, and the type
 | [N-tier][n-tier] | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
 | [Web-Queue-Worker](./web-queue-worker.yml) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource intensive tasks. |
 | [Microservices][microservices] | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
-| [Event-driven architecture](./event-driven.yml) | Producer or consumer. Independent view for each subsystem. | IoT and real-time systems. |
+| [Event-driven architecture](./event-driven.md) | Producer or consumer. Independent view for each subsystem. | IoT and real-time systems. |
 | [Big data](./big-data.yml) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
 | [Big compute](./big-compute.yml) | Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
 

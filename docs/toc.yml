@@ -28,7 +28,7 @@ items:
     - name: Big data
       href: guide/architecture-styles/big-data.yml
     - name: Event-driven architecture
-      href: guide/architecture-styles/event-driven.yml
+      href: guide/architecture-styles/event-driven.md
     - name: Microservices
       items:
       - name: Get started
