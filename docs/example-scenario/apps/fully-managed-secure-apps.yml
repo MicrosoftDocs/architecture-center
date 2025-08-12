@@ -2,9 +2,9 @@
 metadata:
   title: Securely managed web applications
   description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
-  author: fmustaf
-  ms.author: faisalm
-  ms.date: 05/31/2024
+  author: nimccoll
+  ms.author: nimccoll
+  ms.date: 06/20/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:
