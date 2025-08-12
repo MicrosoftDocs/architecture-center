@@ -29,31 +29,33 @@ This architecture assumes that the policies are in place from the [Azure landing
 
 ### Components
 
-- **[API Management](/azure/well-architected/service-guides/api-management/reliability)** is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
+- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that allows you to manage services across hybrid and multicloud environments. It provides control and security for API observability and consumption by both internal and external users. In this architecture, API Management serves as a facade to abstract the back-end architecture.
 
-- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a managed service that serves as a layer-7 load balancer and [WAF](/azure/web-application-firewall/ag/ag-overview). Application Gateway protects the internal API Management instance, which enables the use of both internal and external modes. In this architecture, API Management secures APIs, and Application Gateway adds complementary capabilities such as WAF.
 
-- **[Private Domain Name System (DNS) zones](/azure/dns/private-dns-privatednszone)** are a feature of Azure DNS that allow you to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A private DNS zone can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). In this architecture, a private DNS zone is required to ensure proper name resolution within the virtual network.
+- [Private Domain Name System (DNS) zones](/azure/dns/private-dns-privatednszone) are a feature of Azure DNS that allow you to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A private DNS zone can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). In this architecture, a private DNS zone is required to ensure proper name resolution within the virtual network.
 
-- **[Application Insights](/azure/well-architected/service-guides/application-insights)** is an extensible application performance management service that helps developers detect anomalies, diagnose problems, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. In this architecture, Application Insights monitors the behaviors of the deployed application.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is an extensible application performance management service that helps developers detect anomalies, diagnose problems, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. In this architecture, Application Insights monitors the behaviors of the deployed application.
 
-- **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a cloud-based data analysis tool that enables you to edit and run log queries against data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries to retrieve records or use Log Analytics for advanced analysis, then visualize the results. In this architecture, Log Analytics aggregates all the platform resource logs for analysis and reporting.
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a cloud-based data analysis tool that enables you to edit and run log queries against data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries to retrieve records or use Log Analytics for advanced analysis, then visualize the results. In this architecture, Log Analytics aggregates all the platform resource logs for analysis and reporting.
 
-- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service that securely stores and accesses secrets. These secrets range from API keys and passwords to certificates and cryptographic keys. In this architecture, Key Vault stores the Secure Sockets Layer (SSL) certificates that Application Gateway uses.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely stores and accesses secrets. These secrets range from API keys and passwords to certificates and cryptographic keys. In this architecture, Key Vault stores the Secure Sockets Layer (SSL) certificates that Application Gateway uses.
 
 ### Alternatives
 
 For the back-end services that the API Management instance connects to, several alternatives are available:
 
-- **[Azure App Service](/azure/app-service/overview)** is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
+- [Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. It supports .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications can run and scale in either Windows or Linux-based environments.
 
-- **[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)** is a managed Kubernetes offering that delivers fully managed clusters. It enables integrated continuous integration and continuous delivery (CI/CD), along with built-in governance and security.
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes offering that delivers fully managed clusters. It enables integrated continuous integration and continuous delivery (CI/CD), along with built-in governance and security.
 
-- **[Azure Logic Apps](/azure/logic-apps/logic-apps-overview)** is a cloud-based platform that creates and runs automated workflows. For more information, see an [example reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based platform that creates and runs automated workflows. For more information, see an [example reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
-- **[Azure Container Apps](/azure/container-apps/overview)** is a fully managed serverless container service that enables you to run microservices and containerized applications on a serverless platform.
+- [Azure Container Apps](/azure/container-apps/overview) is a fully managed serverless container service that enables you to run microservices and containerized applications on a serverless platform.
 
-For multiregion deployments, consider using **[Azure Front Door](/azure/frontdoor/front-door-overview)** to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content.
+For multiregion deployments, consider using [Azure Front Door](/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content.
+
+To see additional examples of how Application Gateway can protect APIs, see [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis).
 
 ## Considerations
 
@@ -65,7 +67,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Deploy at least three [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones for each region. This method maximizes your availability and performance.
 
-- We recommend that you use the Premium tier because it supports availability zones and multiregion deployments. This means that your services can continue to run even if one region or zone goes down. These features help protect your application during outages or disasters.
+- We recommend that you use the Premium tier because it supports availability zones and multiregion deployments. This capability means that your services can continue to run even if one region or zone goes down. These features help protect your application during outages or disasters.
 
 - For disaster recovery, set up API Management with a user-assigned managed identity instead of a system-assigned identity. If you redeploy or delete the resource, the identity and its permissions remain in place, so you can restore access more easily. Use Azure Pipelines to automate backups. Decide if you need to deploy your services in more than one region for better reliability.
 
@@ -82,7 +84,7 @@ validate API requests and responses against an OpenAPI schema. These features ar
 
 - API Management [workspaces](/azure/api-management/workspaces-overview) help you organize and isolate your APIs. This approach makes it easier to control who can access and manage them. Each workspace can have its own set of permissions, so you can limit access to only the people or teams who need it. This separation reduces the risk of accidental changes or unauthorized access and supports a more secure API environment.
 
-- [Apply named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in API Management policies.
+- [Use Key Vault secrets as named values in API Management policies](/azure/api-management/api-management-howto-properties) to protect sensitive information in API Management policies.
 
 - Use [Application Gateway for external access of an internal API Management instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect the API Management instance, defend against common web application exploits and vulnerabilities by using WAF, and enable hybrid connectivity.
 
