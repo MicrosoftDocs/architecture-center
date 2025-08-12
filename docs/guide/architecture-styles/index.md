@@ -95,7 +95,7 @@ The following table summarizes how each style manages dependencies, and the type
 | [Web-Queue-Worker](./web-queue-worker.yml) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource intensive tasks. |
 | [Microservices][microservices] | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
 | [Event-driven architecture](./event-driven.md) | Producer or consumer. Independent view for each subsystem. | IoT and real-time systems. |
-| [Big data](./big-data.yml) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
+| [Big data](./big-data.md) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
 | [Big compute](./big-compute.yml) | Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
 
 ## Consider challenges and benefits
