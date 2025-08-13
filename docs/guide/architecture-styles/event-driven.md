@@ -33,7 +33,7 @@ On the consumer side, there are some common variations:
 
 - **Simple event processing:** An event immediately triggers an action in the consumer. For example, you can use [Azure Functions](/azure/azure-functions/functions-overview) with an [Event Grid trigger](/azure/azure-functions/functions-bindings-event-grid-trigger) or [Azure Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus-trigger) so that your code runs when a message is published.
 
-- **Basic event correlation:** A consumer processes a few discrete business events, correlates them by some identifier, and persists information from earlier events for use when processing later events. Libraries like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/1-saga-basics/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) support this pattern.
+- **Basic event correlation:** A consumer processes a few discrete business events, correlates them by an identifier, and persists information from earlier events to use when it processes later events. Libraries like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/1-saga-basics/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) support this pattern.
 
 - **Complex event processing:** A consumer uses a technology like [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) to analyze a series of events and identify patterns in the event data. For example, you can aggregate readings from an embedded device over a time window and generate a notification if the moving average exceeds a specific threshold.
 
@@ -51,9 +51,13 @@ In the preceding diagram, each type of consumer is shown as a single box. To avo
 
 There are two primary topologies within many event-driven architectures:
 
-- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
+- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. 
 
-- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands and only to designated channels. These channels are often message queues. Consumers are expected to process these commands. This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
+   This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
+
+- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands, and only to designated channels. These channels are often message queues. Consumers are expected to process these commands.
+
+   This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
 
 ## When to use this architecture
 
@@ -71,12 +75,12 @@ You should use this architecture when the following conditions are true:
 
 ## Benefits
 
-The following are benefits of this architecture:
+This architecture provides the following benefits:
 
 - Producers and consumers are decoupled.
-- No point-to-point integrations. It's easy to add new consumers to the system.
+- There are no point-to-point integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they occur.
-- Highly scalable, elastic, and distributed.
+- It's highly scalable, elastic, and distributed.
 - Subsystems have independent views of the event stream.
 
 ## Challenges
@@ -87,7 +91,7 @@ The following are benefits of this architecture:
 
 - Processing events in order or only one time
 
-  For resiliency and scalability, each consumer type typically runs in multiple instances. This process can create a challenge if the events must be processed in order within a consumer type, or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
+  For resiliency and scalability, each consumer type typically runs in multiple instances. This process can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
 
 - Message coordination across services
 
@@ -95,11 +99,13 @@ The following are benefits of this architecture:
 
 - Error handling
 
-  Event-driven architecture primarily relies on asynchronous communication. A common challenge with asynchronous communication is error handling. One way to address this problem is to use a dedicated error-handler processor. When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
+  Event-driven architecture primarily relies on asynchronous communication. A common challenge that asynchronous communication presents is error handling. One way to address this problem is to use a dedicated error-handler processor. 
+   
+   When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
 
 - Data loss
 
-  Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never reaches the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component acknowledges the receipt of the event. These features are known as *client acknowledge mode* and *last participant support*.
+  Another challenge that asynchronous communication presents is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never reaches the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component acknowledges the receipt of the event. These features are known as *client acknowledge mode* and *last participant support*.
 
 - Implementation of a traditional request-response pattern
 
