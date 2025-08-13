@@ -13,7 +13,7 @@ ms.custom: arb-web
 
 An event-driven architecture consists of *event producers* that generate a stream of events, *event consumers* that listen for these events, and *event channels* (often implemented as event brokers or ingestion services) that transfer events from producers to consumers.
 
-## Architecture approach
+## Architecture
 
 :::image type="complex" border="false" source="./images/event-driven.svg" alt-text="Diagram that shows an event-driven architecture style." lightbox="./images/event-driven.svg":::
    An arrow points from the Event producers section to the Event ingestion section. Three arrows point from the Event ingestion section to three sections that are all labeled Event consumers.
@@ -37,7 +37,7 @@ On the consumer side, there are some common variations:
 
 - **Complex event processing:** A consumer uses a technology like [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) to analyze a series of events and identify patterns in the event data. For example, you can aggregate readings from an embedded device over a time window and generate a notification if the moving average exceeds a specific threshold.
 
-- **Event stream processing:** Use a data streaming platform, such as [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub), [Event Hubs](/azure/event-hubs/event-hubs-about), or [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview), as a pipeline to ingest events and feed them to stream processors. The stream processors act to process or transform the stream. There might be multiple stream processors for different subsystems of the application. This approach is a good fit for IoT workloads.
+- **Event stream processing:** Use a data streaming platform, such as [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub), [Event Hubs](/azure/event-hubs/event-hubs-about), or [Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview), as a pipeline to ingest events and feed them to stream processors. The stream processors act to process or transform the stream. There might be multiple stream processors for different subsystems of the application. This approach is well-suited for IoT workloads.
 
 The source of the events might be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that the data source requires.
 
@@ -51,18 +51,22 @@ In the preceding diagram, each type of consumer is shown as a single box. To avo
 
 There are two primary topologies within many event-driven architectures:
 
-- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in way to be restarted or replayed. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
+- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
 
-- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands and only to designated channels. These channels are usually message queues. Consumers are expected to process these commands. This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
+- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands and only to designated channels. These channels are often message queues. Consumers are expected to process these commands. This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
 
 ## When to use this architecture
 
-You should use this architecture when:
+You should use this architecture when the following conditions are true:
 
 - Multiple subsystems must process the same events.
+
 - Real-time processing with minimum time lag is required.
+
 - Complex event processing, such as pattern matching or aggregation over time windows, is required.
-- High volume and high velocity of data is required, as with, for example, IoT.
+
+- High volume and high velocity of data is required, such as with IoT.
+
 - You need to decouple producers and consumers for independent scalability and reliability goals.
 
 ## Benefits
@@ -87,11 +91,11 @@ The following are benefits of this architecture:
 
 - Message coordination across services
 
-  Business processes often have multiple services that publish and subscribe to messages to achieve a consistent outcome across a whole workload. You can use [workflow patterns](https://docs.particular.net/architecture/workflows) like the [Choreography](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) to reliably manage message flows across various services.
+  Business processes often have multiple services that publish and subscribe to messages to achieve a consistent outcome across an entire workload. You can use [workflow patterns](https://docs.particular.net/architecture/workflows) like [Choreography](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) to reliably manage message flows across various services.
 
 - Error handling
 
-  Event-driven architecture primarily relies on asynchronous communication. A common challenge with asynchronous communication is error handling. One way to address this problem is to use a dedicated error-handler processor. When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem and, if successful, resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
+  Event-driven architecture primarily relies on asynchronous communication. A common challenge with asynchronous communication is error handling. One way to address this problem is to use a dedicated error-handler processor. When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
 
 - Data loss
 
@@ -105,20 +109,20 @@ The following are benefits of this architecture:
 
 - Maintenance of the appropriate number of events
 
-  Generating an excessive number of fine-grained events can saturate and overwhelm the system. This volume of events makes it difficult to effectively analyze the overall flow of events. This problem is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, which results in unnecessary processing and responses from event consumers.
+  Generating an excessive number of fine-grained events can saturate and overwhelm the system. An excessive volume of events makes it difficult to effectively analyze the overall flow of events. This problem is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, which results in unnecessary processing and responses from event consumers.
 
   To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For example, if you have a compliance check component, it might be sufficient to publish only two types of events: *compliant* and *noncompliant*. This approach helps ensure that only relevant consumers process each event, which prevents unnecessary processing.
   
 ### Other considerations
 
-- The amount of data to include in an event can be a significant consideration that affects both performance and cost. You can simplify the processing code and eliminate extra lookups by placing all the relevant information needed for processing directly in the event. When you add only a minimal amount of information to an event, such as a few identifiers, you reduce transport time and cost. However, this approach requires the processing code to retrieve any extra information that it needs. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
+- The amount of data to include in an event can be a significant consideration that affects performance and cost. You can simplify the processing code and eliminate extra lookups by placing all the relevant information needed for processing directly in the event. When you add only a minimal amount of information to an event, such as a few identifiers, you reduce transport time and cost. However, this approach requires the processing code to retrieve any extra information that it needs. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't consume them or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
-- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
+- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high-request volumes.
 
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a specific domain might affect many components.
 
 ## Next step
 
-- [Community discussion video](https://particular.net/webinars/2023-orchestration-choreography-qa) about how to choose between choreography and orchestration.
+- [Community discussion video](https://particular.net/webinars/2023-orchestration-choreography-qa)
