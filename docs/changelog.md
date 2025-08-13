@@ -30,7 +30,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#4c78cd751b](https://github.com/MicrosoftDocs/architecture-center/commit/4c78cd751b))
 - [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
-- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
 - [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#39a0028b22](https://github.com/MicrosoftDocs/architecture-center/commit/39a0028b22))

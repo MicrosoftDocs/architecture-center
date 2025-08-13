@@ -1,6 +1,6 @@
 ---
-title: Use Azure API Management in a multitenant solution
-description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
+title: Use Azure API Management in a Multitenant Solution
+description: Learn about Azure API Management features for multitenant solutions, including tenant isolation models, routing, authentication, caching, and rate limiting.
 author: johndowns
 ms.author: pnp
 ms.date: 08/10/2025
@@ -23,13 +23,13 @@ ms.custom:
 
 API Management is typically deployed as a shared component with a single instance that serves requests for multiple tenants. However, based on your [tenancy model](../considerations/tenancy-models.md), there are many ways that you can deploy API Management. This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.md#deployment-stamps-pattern).
 
-Typically, the way you use API Management is similar, regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
+Typically, the way API Management is used remains consistent across different isolation models. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
 
 | Consideration | Shared instance with single-tenant back ends | Shared instance with shared multitenant back end | Instance for each tenant |
 |---|---|---|---|
 | Number of supported tenants | Many | Almost unbounded | One for each instance |
 | Cost | Lower | Lower | Higher |
-| Deployment complexity | Low: Single instance to manage for each stamp | Low: Single instance to manage for each stamp | High: Multiple instances to manage |
+| Deployment complexity | Low. Single instance to manage for each stamp. | Low. Single instance to manage for each stamp. | High. Multiple instances to manage. |
 | Routing configuration complexity | Higher | Lower | Lower |
 | Susceptibility to noisy-neighbor problems | Yes | Yes | No |
 | Tenant-level network isolation | No | No | Yes |
@@ -41,9 +41,9 @@ It's common to share an API Management instance between multiple tenants, which 
 
 #### Single-tenant back-end application
 
-If you deploy distinct back-end applications for each tenant, then you can deploy a single API Management instance and route traffic to the correct tenant back end for each request. This approach requires you to configure API Management with the back-end hostnames for each tenant or to have another way to map an incoming request to the correct tenant's back end.
+If you deploy distinct back-end applications for each tenant, then you can deploy a single API Management instance and route traffic to the correct tenant back end for each request. This approach requires you to configure API Management with the back-end host names for each tenant or to have another way to map an incoming request to the correct tenant's back end.
 
-Because it requires an extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant back end. However, the size of this performance overhead depends on how you design such a lookup.
+Because it requires an extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant back end. However, the size of this performance overhead depends on how you design this lookup.
 
 #### Shared multitenant back-end application
 
@@ -51,7 +51,7 @@ In scenarios where your tenants share a common back-end application, the API Man
 
 ### Instance for each tenant
 
-In some situations, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a small number of tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
+In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a small number of tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users across different geographic regions, you might want to consider whether the [multiregion deployment](#multiregion-deployments) feature in API Management meets your requirements.
@@ -70,13 +70,13 @@ Consider how you can identify the appropriate tenant within each incoming reques
 
 API Management provides [subscriptions](/azure/api-management/api-management-subscriptions) that you can use to authenticate requests. These subscriptions use a unique *subscription key* that helps identify the subscriber who is making the request. If you choose to use subscriptions, consider how you can map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, it's a good practice to use subscriptions to identify tenants.
 
-Alternatively, you can identify the tenant by using other methods. Here are some examples of approaches that run within a custom policy that you define:
+Alternatively, you can identify the tenant by using other methods. The following example approaches run within a custom policy that you define:
 
 - **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path, `tenant1`, and treat it as a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the subdomain, `tenant1`. To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 
 - **Use a request header.** For example, your client applications might add a custom `TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
 
-- **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT that's issued by your identity provider. To use this approach, use the [validate-jwt](/azure/api-management/validate-jwt-policy) policy and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
+- **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT that your identity provider issues. To use this approach, use the [validate-jwt](/azure/api-management/validate-jwt-policy) policy and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain additional information about a tenant. To use this approach, use the [send-request](/azure/api-management/send-request-policy) policy.
 
@@ -89,7 +89,7 @@ API Management supports [named values](/azure/api-management/api-management-howt
 > [!WARNING]
 > In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings vary between tenants, make sure to include the tenant identifier in the name. For example, you can use a pattern like `tenantId-key:value` after you confirm that `tenantId` is suitable for the request.
 >
->Include the identifier to reduce the chance of accidentally referring to or being manipulated into referring to another tenant's value when you process a request for another tenant.
+> Include the identifier to reduce the chance of accidentally referring to or being manipulated into referring to another tenant's value when you process a request for another tenant.
 
 ### Authenticate incoming requests
 
@@ -115,7 +115,7 @@ Use the [cache-store-value](/azure/api-management/cache-store-value-policy) and 
 > [!WARNING]
 > In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might vary between tenants, ensure that you include the tenant identifier in the cache key.
 >
->Include the identifier to reduce the chance of accidentally referring to being manipulated into referring to another tenant's value when you process a request for another tenant.
+> Include the identifier to reduce the chance of accidentally referring to being manipulated into referring to another tenant's value when you process a request for another tenant.
 
 ### Large language model (LLM) APIs
 
@@ -240,7 +240,7 @@ However, if you need fully isolated API Management instances, you might also cho
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -251,14 +251,11 @@ Other contributor:
 
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
-## Next steps
-
-Review the [architectural approaches for integration in multitenant solutions](../approaches/integration.md).
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
+- [Architectural approaches for integration in multitenant solutions](../approaches/integration.md)
 - [Architect multitenant solutions on Azure](../overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
 - [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)
