@@ -21,7 +21,7 @@ App Service and Azure Functions include many features that support multitenancy.
 
 App Service enables you to use [wildcard domain name system (DNS)](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard Transport Layer Security (TLS) certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants. This approach avoids the need for manual reconfiguration for each new tenant.
 
-When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. Managing a large number of custom domain names can be challenging, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
+When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. Managing a large number of custom domain names can be challenging, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits), such as how many custom domains can be applied to a single app.
 
 ### Integration with Azure Front Door
 
@@ -33,7 +33,7 @@ When you use Azure Front Door with a multitenant app, you can use it to manage y
    The image shows Azure Front Door and App service. Three arrows point from three host names to Azure Front Door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. An arrow labeled Host: contoso.azurewebsites.net points to App Service.
 :::image-end:::
 
-As in the previous example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header that the client sends is propagated through the `X-Forwarded-Host` header. Your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
+As in the previous example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool). The original `Host` header that the client sends is propagated through the `X-Forwarded-Host` header. Your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
 
 > [!WARNING]
 > If your application sends cookies or redirection responses, you must account for specific considerations. Changes to the request's `Host` header can invalidate these responses. For more information, see [host name preservation best practices](../../../best-practices/host-name-preservation.yml).
@@ -91,7 +91,7 @@ You might deploy a shared application on a single plan and use the shared applic
 
 This deployment strategy tends to be the most cost-efficient option, and it requires the least operational overhead because there are fewer resources to manage. You can scale the overall plan based on load or demand, and all tenants that share the plan benefit from the increased capacity.
 
-It's important to be aware of the [App Service quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as the maximum number of custom domains that can be added to a single app, and the maximum number of instances of a plan that can be provisioned.
+It's important to be aware of the [App Service quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits), such as the maximum number of custom domains that can be added to a single app, and the maximum number of instances of a plan that can be provisioned.
 
 To be able to use this model, your application code must be multitenancy-aware.
 
@@ -105,7 +105,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 
 - **Separation of upgrades:** Each tenant's application binaries can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps might be subject to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Also, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps might be subject to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Also, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 > [!NOTE]
 > Don't use [deployment slots](/azure/app-service/deploy-staging-slots) for different tenants. Slots don't provide resource isolation. They're designed for deployment scenarios when you need to have multiple versions of your app running for a short time, such as blue-green deployments and a canary rollout strategy.
@@ -130,7 +130,7 @@ Regardles of the platform that you use to host your API, consider using [Azure A
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies), which might include determining the tenant identifier from a token claim or other request metadata.
 
-- [Routing requests to different API back ends](/azure/api-management/api-management-transformation-policies#SetBackendService), which might be based on the request's tenant identifier. This routing can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.yml) with their own independent API applications, but you need to have a single API URL for all requests.
+- [Routing requests to different API back ends](/azure/api-management/set-backend-service-policy), which might be based on the request's tenant identifier. This routing can be helpful when you host multiple [deployment stamps](../../../patterns/deployment-stamp.yml) with their own independent API applications, but you need to have a single API URL for all requests.
 
 ## Networking and multitenancy
 
@@ -151,7 +151,7 @@ Azure [Network Security Perimeter (NSP)](/azure/private-link/network-security-pe
 
 ### Quotas
 
-Because App Service is a multitenant service, you need to be mindful of how you use shared resources. Networking requires special attention because there are [limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can interact with both inbound and outbound network connections. These limits include source network address translation (SNAT) and Transmission Control Protocol (TCP) port limits.
+Because App Service is a multitenant service, you need to be mindful of how you use shared resources. Networking requires special attention because there are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-service-limits) that affect how your application can interact with both inbound and outbound network connections. These limits include source network address translation (SNAT) and Transmission Control Protocol (TCP) port limits.
 
 If your application connects to a large number of databases or external services, then your app might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion suggests that your code isn't properly reusing TCP connections. Even in a multitenant environment, it's important to follow recommended practices for connection reuse to avoid hitting port limits.
 

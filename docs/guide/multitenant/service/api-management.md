@@ -56,7 +56,7 @@ In some scenarios, you might deploy an instance of API Management for each tenan
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users across different geographic regions, you might want to consider whether the [multiregion deployment](#multiregion-deployments) feature in API Management meets your requirements.
 
-When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
+When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
 Single-tenant instances typically have minimal routing configuration because you can route all requests to a single back end. This scenario doesn't require custom routing decisions, so there's no added performance impact. However, you typically incur a higher resource cost than if you deploy a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) enable you to reuse tenant-specific compute resources that you already deploy.
 
