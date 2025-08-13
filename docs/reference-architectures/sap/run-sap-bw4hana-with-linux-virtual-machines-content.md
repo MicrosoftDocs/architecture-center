@@ -220,7 +220,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), which includes Azure Log Analytics and Azure Application Insights and provides sophisticated tools for collecting and analyzing telemetry. It can help you maximize the performance and availability of your cloud and on-premises resources and applications. You can use Azure Monitor to monitor infrastructure and application anomalies, send alerts to administrators, and automate reactions to predefined conditions.
 
-For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services. Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
+For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services. Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and should be modified to meet your requirements.
 
 ### Performance Efficiency
 
@@ -248,8 +248,8 @@ At the SAP application layer, Azure offers a wide range of virtual machine sizes
 
 Principal author:
 
- - [Ben Trinh](https://www.linkedin.com/in/bentrinh) | Principal Architect
- 
+- [Ben Trinh](https://www.linkedin.com/in/bentrinh) | Principal Architect
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
