@@ -27,6 +27,6 @@ products:
   - azure-sql-database
   - azure-vpn-gateway
   - azure-web-application-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/fully-managed-secure-apps-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/fully-managed-secure-apps.png
 content: |
    [!INCLUDE[](fully-managed-secure-apps-content.md)]
