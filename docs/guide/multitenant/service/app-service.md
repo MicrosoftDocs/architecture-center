@@ -105,7 +105,7 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 
 - **Separation of upgrades:** Each tenant's application binaries can be upgraded independently of other apps on the same plan.
 
-However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Also, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+However, because the plan's compute resources are shared, the apps might be subject to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Also, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
 > [!NOTE]
 > Don't use [deployment slots](/azure/app-service/deploy-staging-slots) for different tenants. Slots don't provide resource isolation. They're designed for deployment scenarios when you need to have multiple versions of your app running for a short time, such as blue-green deployments and a canary rollout strategy.
@@ -114,7 +114,7 @@ However, because the plan's compute resources are shared, the apps might be subj
 
 The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all server resources allocated to that plan.
 
-This approach enables you to scale your solution to provide performance isolation for each tenant and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
+This approach enables you to scale your solution to provide performance isolation for each tenant and to avoid the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
 
 ### Azure Functions Flex Consumption plan
 
@@ -126,7 +126,7 @@ Flex Consumption also supports [virtual network integration and private endpoint
 
 You can host APIs on both App Service and Azure Functions. Your choice of platform depends on the specific feature set and scaling options that you need.
 
-Whichever platform that you use to host your API, consider using [Azure API Management](/azure/api-management) in front of your API application. API Management provides many features that can be helpful for multitenant solutions:
+Regardles of the platform that you use to host your API, consider using [Azure API Management](/azure/api-management) in front of your API application. API Management provides many features that can be helpful for multitenant solutions:
 
 - A centralized point for all [authentication](/azure/api-management/api-management-access-restriction-policies), which might include determining the tenant identifier from a token claim or other request metadata.
 

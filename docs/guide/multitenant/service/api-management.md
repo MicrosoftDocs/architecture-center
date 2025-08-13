@@ -12,7 +12,7 @@ ms.custom:
 
 # Use Azure API Management in a multitenant solution
 
-[Azure API Management](/azure/api-management/api-management-key-concepts) is a comprehensive API gateway and reverse proxy for APIs. It provides many features, including caching, response mocking, and a developer portal, that are useful for API-focused applications. This article summarizes some of the key features of API Management that are useful for multitenant solutions.
+[Azure API Management](/azure/api-management/api-management-key-concepts) is a comprehensive API gateway and reverse proxy for APIs. It provides many features that are useful for API-focused applications, including caching, response mocking, and a developer portal. This article summarizes some of the key features of API Management that are useful for multitenant solutions.
 
 > [!NOTE]
 > This article focuses on how you can use API Management when you have your own multitenant applications that host APIs for internal or external use.
@@ -47,7 +47,7 @@ Because it requires an extra lookup, this approach might not scale to large numb
 
 #### Shared multitenant back-end application
 
-In scenarios where your tenants share a common back-end application, the API Management routing process is simplified because you can route all requests to a single back end. If you use wildcard domains or provider-issued domains, you might be able to achieve almost unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's back end, there's no performance impact from customized routing decisions.
+In scenarios where your tenants share a common back-end application, the API Management routing process is simplified because you can route all requests to a single back end. If you use wildcard domains or provider-issued domains, you might be able to achieve almost unbounded scale by using this approach. Also, because requests don't need to be mapped to a tenant's back end, there's no performance impact from customized routing decisions.
 
 ### Instance for each tenant
 
@@ -100,7 +100,7 @@ For more information, see [Authentication and authorization to APIs in Azure API
 > [!NOTE]
 > If you use a subscription key or API key, it's a good practice to also use another method of authentication.
 >
-> A subscription key alone isn't a strong form of authentication, but it's useful for other scenarios, such as for tracking an individual tenant's API usage.
+> A subscription key alone isn't a strong form of authentication. However, it's useful for other scenarios, such as for tracking an individual tenant's API usage.
 
 ### Route to tenant-specific back ends
 
@@ -117,9 +117,9 @@ Use the [cache-store-value](/azure/api-management/cache-store-value-policy) and 
 >
 > Include the identifier to reduce the chance of accidentally referring to being manipulated into referring to another tenant's value when you process a request for another tenant.
 
-### Large language model (LLM) APIs
+### Large language model APIs
 
-Use API Management's AI gateway features when your APIs call large language models (LLMs). These features help you control cost, performance, and isolation in multitenant solutions.
+Use API Management's AI gateway features when your APIs call large language models. These features help you control cost, performance, and isolation in multitenant solutions.
 
 #### Semantic caching
 
@@ -160,13 +160,13 @@ Example (partition by tenant claim or header):
 <azure-openai-semantic-cache-store duration="60" />
 ```
 
-#### Token-based limits for LLMs
+#### Token-based limits for large language models
 
-Use token-based limits in the AI gateway to cap usage for each tenant, not just for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/azure-openai-token-limit-policy); for OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). See [AI gateway capabilities: Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy) for details.
+Use token-based limits in the AI gateway to cap usage for each tenant and  not only for individual requests. When you use Azure OpenAI back ends, use the [azure-openai-token-limit policy](/azure/api-management/azure-openai-token-limit-policy). For OpenAI-compatible back ends or the Azure AI Model Inference API, use the [llm-token-limit policy](/azure/api-management/llm-token-limit-policy). For more information, see [Token limit policy](/azure/api-management/genai-gateway-capabilities#token-limit-policy).
 
-Select a key that's unique to the tenant, such as a subscription ID or tenant ID token claim, so that limits effectively isolate tenants. Token usage is tracked independently at each gateway, region, or workspace; counters aren't aggregated across the entire instance.
+Select a key that's unique to the tenant, such as a subscription ID or tenant ID token claim, to ensure that limits effectively isolate each tenant. Token usage is tracked independently at each gateway, region, or workspace and counters aren't aggregated across the entire instance.
 
-Example (limit each tenant to 60,000 tokens per minute by subscription):
+The following example limits each tenant to 60,000 tokens per minute by subscription:
 
 ```xml
 <azure-openai-token-limit
@@ -175,7 +175,7 @@ Example (limit each tenant to 60,000 tokens per minute by subscription):
    estimate-prompt-tokens="false" />
 ```
 
-Example (limit by tenant claim or header):
+The following example limits by tenant claim or header:
 
 ```xml
 <!-- Using a tenant claim; requires validate-jwt earlier in the pipeline -->
@@ -206,16 +206,18 @@ It's common to apply quotas or rate limits in a multitenant solution. Rate limit
 
 Use API Management to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [quota](/azure/api-management/quota-policy) policy to enforce a quota for each subscription. Alternatively, consider using the [quota-by-key](/azure/api-management/quota-by-key-policy) policy to enforce quotas by using any other rate limit key, such as a tenant identifier that you obtained from the request URL or a JWT.
 
-For LLM-specific token limits, see [Token-based limits for LLMs](#token-based-limits-for-llms).
+For large language model-specific token limits, see [Token-based limits for large language models](#token-based-limits-for-large-language-models).
 
 > [!IMPORTANT]
 > Counter scope differs by policy and deployment topology:
 >
-> - The `rate-limit` and `rate-limit-by-key` policies maintain separate counters for each gateway replica. In multi-region or workspace gateway deployments, each regional/workspace gateway enforces its own counter.
-> - The `azure-openai-token-limit` and `llm-token-limit` policies also track tokens per gateway/region/workspace and don't aggregate across the entire service instance.
-> - The `quota` and `quota-by-key` policies are global at the service level and apply across regions for a given instance.
+> - The `rate-limit` and `rate-limit-by-key` policies maintain separate counters for each gateway replica. In multiregion or workspace gateway deployments, each regional or workspace gateway enforces its own counter.
 >
-> If you need a globally consistent per-tenant throttle, prefer quotas, enforce limits at an upstream edge that sees all traffic, or route a tenant to a single gateway/region.
+> - The `azure-openai-token-limit` and `llm-token-limit` policies also track tokens for each gateway, region, or workspace and don't aggregate across the entire service instance.
+>
+> - The `quota` and `quota-by-key` policies are global at the service level and apply across regions for a specific instance.
+>
+> If you need a globally consistent per-tenant throttle, prefer quotas, enforce limits at an upstream edge that sees all traffic, or route a tenant to a single gateway or region.
 
 ### Monetization
 
@@ -223,9 +225,9 @@ The API Management documentation [provides extensive guidance on monetizing APIs
 
 ### Capacity management
 
-An API Management instance supports a certain amount of [capacity](/azure/api-management/api-management-capacity), which represents the resources available to process your requests. When you use complex policies or deploy more APIs to the instance, you consume more capacity. You can manage the capacity of an instance in several ways, such as by purchasing more units. You can also dynamically scale the capacity of your instance.
+An API Management instance supports a specific amount of [capacity](/azure/api-management/api-management-capacity), which represents the resources available to process your requests. When you use complex policies or deploy more APIs to the instance, you consume more capacity. You can manage the capacity of an instance in several ways, such as by purchasing more units. You can also dynamically scale the capacity of your instance.
 
-Some multitenant instances might consume more capacity than single-tenant instances, like if you use many policies for routing requests to different tenant back ends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your use increase. You should also test the performance of your solution to understand your capacity needs ahead of time.
+Some multitenant instances might consume more capacity than single-tenant instances, like if you use many policies for routing requests to different tenant back ends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your usage increase. You should also test the performance of your solution to understand your capacity needs ahead of time.
 
 For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
@@ -234,7 +236,7 @@ For more information about scaling API Management, see [Upgrade and scale an Azu
 API Management [supports multiregion deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, which allows for low-latency request processing, and manage them as a single logical instance.
 
 > [!IMPORTANT]
-> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need to deploy across multiple regions, use a separate instance for each region, and use external routing (for example, Azure Front Door) or consider self-hosted gateways.
+> Multiregion deployment is supported only in the Premium (classic) tier. It's not available in the Consumption, Developer, Basic, Standard, Basic v2, Standard v2, or Premium v2 (preview) tiers. If you're on v2 tiers and need to deploy across multiple regions, use a separate instance for each region, and use external routing (such as Azure Front Door) or consider self-hosted gateways.
 
 However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. This approach separates the management plane for each API Management instance.
 
