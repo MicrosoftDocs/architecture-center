@@ -127,7 +127,7 @@ If your APIs sit in front of Azure OpenAI models, consider using API Management'
 
 You should partition the cache per tenant by using the `vary-by` element so prompts and answers are isolated to the tenant that they're intended for. Place the `lookup` policy in inbound processing and the `store` policy in outbound processing.
 
-Example (partition by subscription key):
+The following example shows how semantic cache entries are partitioned by subscription ID or key:
 
 ```xml
 <!-- inbound -->
@@ -143,7 +143,7 @@ Example (partition by subscription key):
 <azure-openai-semantic-cache-store duration="60" />
 ```
 
-Example (partition by tenant claim or header):
+The following example partitions the semantic cache by tenant claim or header:
 
 ```xml
 <!-- inbound; requires validate-jwt if using a claim -->
