@@ -1,6 +1,6 @@
 ---
 title: Event-Driven Architecture Style
-description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
+description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure that use messaging patterns and microservices.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/06/2025
