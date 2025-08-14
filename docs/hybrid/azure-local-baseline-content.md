@@ -43,9 +43,9 @@ The following sections provide more information about the scenarios and potentia
 
 #### Use Azure Arc with Azure Local
 
-Azure Local directly integrates with Azure using Azure Arc to lower the TCO and operational overhead. Azure Local is deployed and managed through Azure, which provides built-in integration of Azure Arc through deployment of the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) component. This resource bridge component is deployed as part of the Azure Local instance cloud deployment process. Azure Local machines are enrolled with [Azure Arc for servers](/azure-stack/hci/deploy/deployment-arc-register-server-permissions) as a prerequisite for starting the cloud deployment of your Azure Local instance. During deployment, mandatory extensions are installed on each machine, such as Lifecycle Manager, Microsoft Edge Device Management, and Telemetry and Diagnostics extensions. Post deployment, you can use Azure Monitor and Log Analytics to monitor the solution, by enabling [Insights for Azure Local](/azure-stack/hci/concepts/monitoring-overview). [Feature updates for Azure Local](/azure-stack/hci/release-information-23h2) are released every six months to enhance customer experience. Updates for Azure Local are controlled and managed using [Azure Update Manager][azure-update-management].
+Azure Local directly integrates with Azure using Azure Arc to lower the TCO and operational overhead. Azure Local is deployed and managed through Azure, which provides built-in integration of Azure Arc through deployment of the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) component. This resource bridge component is deployed as part of the Azure Local instance cloud deployment process. Azure Local machines are enrolled with [Azure Arc for servers](/azure/azure-local/deploy/deployment-arc-register-server-permissions) as a prerequisite for starting the cloud deployment of your Azure Local instance. During deployment, mandatory extensions are installed on each machine, such as Lifecycle Manager, Microsoft Edge Device Management, and Telemetry and Diagnostics extensions. Post deployment, you can use Azure Monitor and Log Analytics to monitor the solution, by enabling [Insights for Azure Local](/azure/azure-local/concepts/monitoring-overview). [Feature updates for Azure Local](/azure/azure-local/release-information-23h2) are released every six months to enhance customer experience. Updates for Azure Local are controlled and managed using [Azure Update Manager][azure-update-management].
 
-You can deploy workload resources such as [Azure Arc virtual machines (VMs)](/azure-stack/hci/manage/create-arc-virtual-machines), [Azure Arc-enabled Azure Kubernetes Service (AKS)][arc-enabled-aks], and [Azure Virtual Desktop session hosts](/azure/virtual-desktop/deploy-azure-virtual-desktop) that use the Azure portal by selecting an [Azure Local instance custom location](/azure-stack/hci/manage/azure-arc-vm-management-overview#components-of-azure-arc-vm-management) as the target for the workload deployment. These components provide centralized administration, management, and support. If you have active Software Assurance on your existing Windows Server Datacenter core licenses, you can reduce costs further by applying Azure Hybrid Benefit to Azure Local, Windows Server VMs, and AKS clusters. This optimization helps manage costs effectively for these services.
+You can deploy workload resources such as [Azure Arc virtual machines (VMs)](/azure/azure-local/manage/create-arc-virtual-machines), [Azure Arc-enabled Azure Kubernetes Service (AKS)][arc-enabled-aks], and [Azure Virtual Desktop session hosts](/azure/virtual-desktop/deploy-azure-virtual-desktop) that use the Azure portal by selecting an [Azure Local instance custom location](/azure/azure-local/manage/azure-arc-vm-management-overview#components-of-azure-arc-vm-management) as the target for the workload deployment. These components provide centralized administration, management, and support. If you have active Software Assurance on your existing Windows Server Datacenter core licenses, you can reduce costs further by applying Azure Hybrid Benefit to Azure Local, Windows Server VMs, and AKS clusters. This optimization helps manage costs effectively for these services.
 
 Azure and Azure Arc integration extend the capabilities of Azure Local virtualized and containerized workloads to include:
 
@@ -141,9 +141,9 @@ The output from the Azure Local sizing tool is a list of recommended hardware so
 
 ### Physical disk drives
 
-[Storage Spaces Direct][s2d-disks] supports multiple physical disk drive types that vary in performance and capacity. When you design an Azure Local instance, work with your chosen hardware OEM partner to determine the most appropriate physical disk drive types to meet the capacity and performance requirements of your workload. Examples include spinning Hard Disk Drives (HDDs), or Solid State Drives (SSDs) and NVMe drives. These drives are often called _flash drives_, or [Persistent memory (PMem) storage](/azure-stack/hci/concepts/deploy-persistent-memory), which is known as _storage-class memory (SCM)_.
+[Storage Spaces Direct][s2d-disks] supports multiple physical disk drive types that vary in performance and capacity. When you design an Azure Local instance, work with your chosen hardware OEM partner to determine the most appropriate physical disk drive types to meet the capacity and performance requirements of your workload. Examples include spinning Hard Disk Drives (HDDs), or Solid State Drives (SSDs) and NVMe drives. These drives are often called _flash drives_, or [Persistent memory (PMem) storage](/azure/azure-local/concepts/deploy-persistent-memory), which is known as _storage-class memory (SCM)_.
 
-The reliability of the platform depends on the performance of critical platform dependencies, such as physical disk types. Make sure to choose the right disk types for your requirements. Use all-flash storage solutions such as NVMe or SSD drives for workloads that have high-performance or low-latency requirements. These workloads include but aren't limited to highly transactional database technologies, production AKS clusters, or any mission-critical or business-critical workloads that have low-latency or high-throughput storage requirements. Use all-flash deployments to maximize storage performance. All-NVMe drive or all-SSD drive configurations, especially at a small scale, improve storage efficiency and maximize performance because no drives are used as a cache tier. For more information, see [All-flash based storage](/azure-stack/hci/concepts/cache#all-flash-deployment-possibilities).
+The reliability of the platform depends on the performance of critical platform dependencies, such as physical disk types. Make sure to choose the right disk types for your requirements. Use all-flash storage solutions such as NVMe or SSD drives for workloads that have high-performance or low-latency requirements. These workloads include but aren't limited to highly transactional database technologies, production AKS clusters, or any mission-critical or business-critical workloads that have low-latency or high-throughput storage requirements. Use all-flash deployments to maximize storage performance. All-NVMe drive or all-SSD drive configurations, especially at a small scale, improve storage efficiency and maximize performance because no drives are used as a cache tier. For more information, see [All-flash based storage](/azure/azure-local/concepts/cache#all-flash-deployment-possibilities).
 
 :::image type="complex" source="images/azure-local-baseline-storage-architecture.png" alt-text="Diagram that shows a multi-node Azure Local instance storage architecture for a hybrid storage solution, using NVMe drives as the cache tier and SSD drives for capacity." lightbox="images/azure-local-baseline-storage-architecture.png" border="false":::
     Diagram that shows a multi-node Azure Local instance storage architecture for a hybrid storage solution, using NVMe drives as the cache tier and SSD drives for capacity. The diagram shows the physical and logical layers used by Storage Spaces Direct (S2d) to provide highly available and resilient storage, it includes virtual machine (VM) live migration.
@@ -151,20 +151,20 @@ The reliability of the platform depends on the performance of critical platform 
 
 The performance of your cluster storage is influenced by the physical disk drive type, which varies based on the performance characteristics of each drive type and the caching mechanism that you choose. The physical disk drive type is an integral part of any Storage Spaces Direct design and configuration. Depending on the Azure Local workload requirements and budget constraints, you can choose to [maximize performance][s2d-drive-max-performance], [maximize capacity][s2d-drive-max-capacity], or implement a mixed-drive type configuration that [balances performance and capacity][s2d-drive-balance-performance-capacity].
 
-For general purpose workloads that require large capacity persistent storage, [a hybrid storage configuration](/azure-stack/hci/concepts/cache#hybrid-deployment-possibilities) could provide the most usable storage, such as using NVMe or SSDs drives for the cache tier and HDDs drives for capacity. The tradeoff is that spinning drives have lower performance / through-put capabilities compared to flash drives, which can impact storage performance if your workload exceeds the [cache working set][s2d-cache-sizing], and HDDs have a lower mean time between failure value compared to NVMe and SSD drives.
+For general purpose workloads that require large capacity persistent storage, [a hybrid storage configuration](/azure/azure-local/concepts/cache#hybrid-deployment-possibilities) could provide the most usable storage, such as using NVMe or SSDs drives for the cache tier and HDDs drives for capacity. The tradeoff is that spinning drives have lower performance / through-put capabilities compared to flash drives, which can impact storage performance if your workload exceeds the [cache working set][s2d-cache-sizing], and HDDs have a lower mean time between failure value compared to NVMe and SSD drives.
 
 Storage Spaces Direct provides a [built-in, persistent, real-time, read, write, server-side cache][s2d-cache] that maximizes storage performance. The cache should be sized and configured to accommodate the [working set of your applications and workloads][s2d-cache-sizing]. Storage Spaces Direct virtual disks, or _volumes_, are used in combination with cluster shared volume (CSV) in-memory read cache to [improve Hyper-V performance][azs-hci-csv-cache], especially for unbuffered input access to workload virtual hard disk (VHD) or virtual hard disk v2 (VHDX) files.
 
 > [!TIP]
-> For high-performance or latency-sensitive workloads, we recommend that you use an [all-flash storage (all NVMe or all SSD) configuration](/azure-stack/hci/concepts/choose-drives#option-1--maximizing-performance) and a cluster size of three or more physical machines. Deploying this design with the _default storage configuration_ settings uses [three-way mirroring](/azure-stack/hci/concepts/fault-tolerance#three-way-mirror) for the infrastructure and user volumes. This deployment strategy provides the highest performance and resiliency. When you use an all-NVMe or all-SSD configuration, you benefit from the full usable storage capacity of each flash drive. Unlike hybrid or mixed NVMe + SSD setups, there's no capacity reserved for caching when using a single drive type. This ensures optimal utilization of your storage resources. For more information about how to balance performance and capacity to meet your workload requirements, see [Plan volumes - When performance matters most][s2d-plan-volumes-performance].
+> For high-performance or latency-sensitive workloads, we recommend that you use an [all-flash storage (all NVMe or all SSD) configuration](/azure/azure-local/concepts/choose-drives#option-1--maximizing-performance) and a cluster size of three or more physical machines. Deploying this design with the _default storage configuration_ settings uses [three-way mirroring](/azure/azure-local/concepts/fault-tolerance#three-way-mirror) for the infrastructure and user volumes. This deployment strategy provides the highest performance and resiliency. When you use an all-NVMe or all-SSD configuration, you benefit from the full usable storage capacity of each flash drive. Unlike hybrid or mixed NVMe + SSD setups, there's no capacity reserved for caching when using a single drive type. This ensures optimal utilization of your storage resources. For more information about how to balance performance and capacity to meet your workload requirements, see [Plan volumes - When performance matters most][s2d-plan-volumes-performance].
 
 ### Network design
 
 Network design is the overall arrangement of components within the network's physical infrastructure and logical configurations. You can use the same physical network interface card (NIC) ports for all combinations of management, compute, and storage network intents. Using the same NIC ports for all intent-related purposes is called a _fully converged networking configuration_.
 
-Although a fully converged networking configuration is supported, the optimal configuration for performance and reliability is for the storage intent to use dedicated network adapter ports. Therefore, this baseline architecture provides example guidance for how to deploy a multi-node Azure Local instance using the storage switched network architecture with two network adapter ports that are converged for management and compute intents and two dedicated network adapter ports for the storage intent. For more information, see [Network considerations for cloud deployments of Azure Local](/azure-stack/hci/plan/cloud-deployment-network-considerations).
+Although a fully converged networking configuration is supported, the optimal configuration for performance and reliability is for the storage intent to use dedicated network adapter ports. Therefore, this baseline architecture provides example guidance for how to deploy a multi-node Azure Local instance using the storage switched network architecture with two network adapter ports that are converged for management and compute intents and two dedicated network adapter ports for the storage intent. For more information, see [Network considerations for cloud deployments of Azure Local](/azure/azure-local/plan/cloud-deployment-network-considerations).
 
-This architecture requires two or more physical machines and up to a maximum of 16 machines in scale. Each node requires four network adapter ports that are connected to two Top-of-Rack (ToR) switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure-stack/hci/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
+This architecture requires two or more physical machines and up to a maximum of 16 machines in scale. Each node requires four network adapter ports that are connected to two Top-of-Rack (ToR) switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure/azure-local/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
 
 #### Physical network topology
 
@@ -208,9 +208,9 @@ A summarization of the logical setup for this multi-node storage switched baseli
 
 - Dual ToR switches:
 
-  - Before you deploy the cluster, the two ToR network switches need to be configured with the required VLAN IDs, maximum transmission unit settings, and datacenter bridging configuration for the _management_, _compute_, and _storage_ ports. For more information, see [Physical network requirements for Azure Local](/azure-stack/hci/concepts/physical-network-requirements), or ask your switch hardware vendor or SI partner for assistance.
+  - Before you deploy the cluster, the two ToR network switches need to be configured with the required VLAN IDs, maximum transmission unit settings, and datacenter bridging configuration for the _management_, _compute_, and _storage_ ports. For more information, see [Physical network requirements for Azure Local](/azure/azure-local/concepts/physical-network-requirements), or ask your switch hardware vendor or SI partner for assistance.
   
-- Azure Local uses the [Network ATC approach](/azure-stack/hci/deploy/network-atc) to apply network automation and intent-based network configuration.
+- Azure Local uses the [Network ATC approach](/azure/azure-local/deploy/network-atc) to apply network automation and intent-based network configuration.
   
   - Network ATC is designed to ensure optimal networking configuration and traffic flow using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
   
@@ -240,13 +240,13 @@ A summarization of the logical setup for this multi-node storage switched baseli
 
 #### Network switch requirements
 
-Your Ethernet switches must meet the different specifications required by Azure Local and set by the Institute of Electrical and Electronics Engineers Standards Association (IEEE SA). For example, for multi-node storage switched deployments, the storage network is used for [RDMA via RoCE v2 or iWARP](/azure-stack/hci/concepts/host-network-requirements#rdma). This process requires IEEE 802.1Qbb PFC to ensure lossless communication for the [storage traffic class](/azure-stack/hci/concepts/host-network-requirements#rdma-traffic-class). Your ToR switches must provide support for IEEE 802.1Q for VLANs and IEEE 802.1AB for the Link Layer Discovery Protocol.
+Your Ethernet switches must meet the different specifications required by Azure Local and set by the Institute of Electrical and Electronics Engineers Standards Association (IEEE SA). For example, for multi-node storage switched deployments, the storage network is used for [RDMA via RoCE v2 or iWARP](/azure/azure-local/concepts/host-network-requirements#rdma). This process requires IEEE 802.1Qbb PFC to ensure lossless communication for the [storage traffic class](/azure/azure-local/concepts/host-network-requirements#rdma-traffic-class). Your ToR switches must provide support for IEEE 802.1Q for VLANs and IEEE 802.1AB for the Link Layer Discovery Protocol.
 
-If you plan to use existing network switches for an Azure Local deployment, review the [list of mandatory IEEE standards and specifications](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements) that the network switches and configuration must provide. When purchasing new network switches, review the [list of hardware vendor-certified switch models that support Azure Local network requirements](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
+If you plan to use existing network switches for an Azure Local deployment, review the [list of mandatory IEEE standards and specifications](/azure/azure-local/concepts/physical-network-requirements#network-switch-requirements) that the network switches and configuration must provide. When purchasing new network switches, review the [list of hardware vendor-certified switch models that support Azure Local network requirements](/azure/azure-local/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
 
 #### IP address requirements
 
-In a multi-node storage switched deployment, the number of IP addresses needed increases with the addition of each physical node, up to a maximum of 16 physical machines within a single cluster. For example, to deploy a two-node storage switched configuration of Azure Local, the cluster infrastructure requires a minimum of 11 x IP addresses to be allocated. More IP addresses are required if you use micro-segmentation or software-defined networking. For more information, see [Review two-node storage reference pattern IP address requirements for Azure Local](/azure-stack/hci/plan/two-node-ip-requirements).
+In a multi-node storage switched deployment, the number of IP addresses needed increases with the addition of each physical node, up to a maximum of 16 physical machines within a single cluster. For example, to deploy a two-node storage switched configuration of Azure Local, the cluster infrastructure requires a minimum of 11 x IP addresses to be allocated. More IP addresses are required if you use micro-segmentation or software-defined networking. For more information, see [Review two-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/two-node-ip-requirements).
 
 When you design and plan IP address requirements for Azure Local, remember to account for additional IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to deploy AKS on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
@@ -270,7 +270,7 @@ Key considerations for Azure Local outbound network requirements:
 
 ### Monitoring
 
-To enhance monitoring and alerting, enable [Monitor Insights on Azure Local](/azure-stack/hci/concepts/monitoring-overview). Insights can scale to monitor and manage multiple on-premises clusters using an Azure consistent experience. Insights uses cluster performance counters and event log channels to monitor key Azure Local features. Logs are collected by the DCR that's configured through Monitor and Log Analytics.
+To enhance monitoring and alerting, enable [Monitor Insights on Azure Local](/azure/azure-local/concepts/monitoring-overview). Insights can scale to monitor and manage multiple on-premises clusters using an Azure consistent experience. Insights uses cluster performance counters and event log channels to monitor key Azure Local features. Logs are collected by the DCR that's configured through Monitor and Log Analytics.
 
 Insights for Azure Local is built using Monitor and Log Analytics, which ensures an always up-to-date, scalable solution that's highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Local. These components provide a near real-time monitoring solution and enable the creation of graphs, customization of visualizations through aggregation and filtering, and configuration of custom resource health alert rules.
 
@@ -284,15 +284,15 @@ Azure Local is continuously updated to improve the customer experience and add n
 
 Update Manager is an Azure service that you can use to apply, view, and manage updates for Azure Local. This service provides a mechanism to view all Azure Local instances across your entire infrastructure and edge locations using the Azure portal to provide a centralized management experience. For more information, see the following resources:
 
-- [About Azure Local release information](/azure-stack/hci/release-information-23h2#about-azure-stack-hci-version-23h2-releases)
+- [About Azure Local release information](/azure/azure-local/release-information-23h2#about-azure-stack-hci-version-23h2-releases)
 
-- [Azure Local lifecycle cadence](/azure-stack/hci/update/about-updates-23h2#lifecycle-cadence)
+- [Azure Local lifecycle cadence](/azure/azure-local/update/about-updates-23h2#lifecycle-cadence)
 
-- [Review update phases of Azure Local](/azure-stack/hci/update/update-phases-23h2)
+- [Review update phases of Azure Local](/azure/azure-local/update/update-phases-23h2)
 
-- [Use Azure Update Manager to update Azure Local](/azure-stack/hci/update/azure-update-manager-23h2)
+- [Use Azure Update Manager to update Azure Local](/azure/azure-local/update/azure-update-manager-23h2)
 
-It's important to check for new driver and firmware updates regularly, such as every three to six months. If you use a Premier solution category version for your Azure Local hardware, the [Solution Builder Extension package updates](/azure-stack/hci/update/solution-builder-extension) are integrated with Update Manager to provide a simplified update experience. If you use Validated Nodes or an Integrated System category, there might be a requirement to download and run an OEM-specific update package that contains the firmware and driver updates for your hardware. To determine how updates are supplied for your hardware, contact your hardware OEM or SI partner.
+It's important to check for new driver and firmware updates regularly, such as every three to six months. If you use a Premier solution category version for your Azure Local hardware, the [Solution Builder Extension package updates](/azure/azure-local/update/solution-builder-extension) are integrated with Update Manager to provide a simplified update experience. If you use Validated Nodes or an Integrated System category, there might be a requirement to download and run an OEM-specific update package that contains the firmware and driver updates for your hardware. To determine how updates are supplied for your hardware, contact your hardware OEM or SI partner.
 
 #### Workload guest OS patching
 
@@ -373,7 +373,7 @@ Security considerations include:
 
 - **A secure foundation for the Azure Local platform**: [Azure Local][azs-hci-basic-security] is a secure-by-default product that uses validated hardware components with a TPM, UEFI, and Secure Boot to build a secure foundation for the Azure Local platform and workload security. When deployed with the default security settings, Azure Local has Application Control, Credential Guard, and BitLocker enabled. To simplify delegating permissions using the PoLP, use [Azure Local built-in role-based access control (RBAC) roles][azs-hci-rbac] such as Azure Local Administrator for platform administrators and Azure Local VM Contributor or Azure Local VM Reader for workload operators.
 
-- **Default security settings**: [Azure Local security default][azs-hci-security-default] applies default security settings for your Azure Local instance during deployment and [enables drift control](/azure-stack/hci/manage/manage-secure-baseline) to keep the physical machines in a known good state. You can use the security default settings to manage cluster security, drift control, and secured core server settings on your cluster.
+- **Default security settings**: [Azure Local security default][azs-hci-security-default] applies default security settings for your Azure Local instance during deployment and [enables drift control](/azure/azure-local/manage/manage-secure-baseline) to keep the physical machines in a known good state. You can use the security default settings to manage cluster security, drift control, and secured core server settings on your cluster.
 
 - **Security event logs**: [Azure Local syslog forwarding][azs-hci-security-syslog] integrates with security monitoring solutions by retrieving relevant security event logs to aggregate and store events for retention in your own SIEM platform.
 
@@ -395,7 +395,7 @@ Cost optimization considerations include:
 
 - **Automatic VM Guest patching for Azure Local VMs**: This feature helps reduce the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation and contributes to overall cost efficiency.
 
-- **Cost monitoring consolidation**: To consolidate monitoring costs, use [Azure Local Insights](/azure-stack/hci/concepts/monitoring-overview#insights) and patch using [Update Manager for Azure Local](/azure-stack/hci/update/about-updates-23h2). Insights uses Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Local integrates with Update Manager to simplify the task of keeping your clusters up to date by consolidating update workflows for various components into a single experience. Use Monitor and Update Manager to optimize resource allocation and contribute to overall cost efficiency.
+- **Cost monitoring consolidation**: To consolidate monitoring costs, use [Azure Local Insights](/azure/azure-local/concepts/monitoring-overview#insights) and patch using [Update Manager for Azure Local](/azure/azure-local/update/about-updates-23h2). Insights uses Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Local integrates with Update Manager to simplify the task of keeping your clusters up to date by consolidating update workflows for various components into a single experience. Use Monitor and Update Manager to optimize resource allocation and contribute to overall cost efficiency.
 
   For more information, see [Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
@@ -412,7 +412,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Operational excellence considerations include:
 
-- **Simplified provisioning and management experience integrated with Azure**: The [Cloud Based Deployment in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of [managing Azure Local instances][azs-hci-manage-cluster-at-scale] and [Azure Local VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview). You can automate the portal-based deployment of the Azure Local instance using [this ARM template][azs-hci-deploy-via-template]. Using templates provides consistency and automation to deploy Azure Local at scale, specifically in edge scenarios such as retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads.
+- **Simplified provisioning and management experience integrated with Azure**: The [Cloud Based Deployment in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of [managing Azure Local instances][azs-hci-manage-cluster-at-scale] and [Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview). You can automate the portal-based deployment of the Azure Local instance using [this ARM template][azs-hci-deploy-via-template]. Using templates provides consistency and automation to deploy Azure Local at scale, specifically in edge scenarios such as retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads.
 
 - **Automation capabilities for Virtual Machines**: Azure Local provides a wide range of automation capabilities for managing workloads, such as Azure Local VMs, with the [automated deployment of Azure Local VMs using Azure CLI, ARM, or Bicep template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and [Azure Update Manager][azure-update-management] to update each Azure Local instance. Azure Local also provides support for [Azure Local VM management][azs-hci-vm-automate-cli] using Azure CLI and [non-Azure Local VMs][azs-hci-manage-non-arc-vms] using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Local machines or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of extra automation scenarios for [VM workloads][arc-vm-extensions] through Azure Arc extensions.
 
@@ -430,7 +430,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 Performance efficiency considerations include:
 
-- **Workload storage performance**: Consider using the [DiskSpd](/azure-stack/hci/manage/diskspd-overview) tool to test workload storage performance capabilities of an Azure Local instance. You can use the VMFleet tool to generate load and measure the performance of a storage subsystem. Evaluate whether you should use [VMFleet](https://github.com/microsoft/diskspd/wiki/VMFleet) to measure storage subsystem performance.
+- **Workload storage performance**: Consider using the [DiskSpd](/previous-versions/azure/azure-local/manage/diskspd-overview) tool to test workload storage performance capabilities of an Azure Local instance. You can use the VMFleet tool to generate load and measure the performance of a storage subsystem. Evaluate whether you should use [VMFleet](https://github.com/microsoft/diskspd/wiki/VMFleet) to measure storage subsystem performance.
 
   - We recommend that you establish a baseline for your Azure Local instances performance before you deploy production workloads. DiskSpd uses various command-line parameters that enable administrators to test the storage performance of the cluster. The main function of DiskSpd is to issue read and write operations and output performance metrics, such as latency, throughput, and IOPs.
 
@@ -462,18 +462,18 @@ The following section provides an example list of the high-level tasks or typica
 
 1. **Contact the hardware OEM or SI partner to further qualify the suitability of the recommended hardware version versus your workload requirements**. If available, use OEM-specific sizing tools to determine OEM-specific hardware sizing requirements for the intended workloads. This step typically includes discussions with the hardware OEM or SI partner for the commercial aspects of the solution. These aspects include quotations, availability of the hardware, lead times, and any professional or value-add services that the partner provides to help accelerate your project or business outcomes.
 
-1. **Deploy two ToR switches for network integration**. For high availability solutions, Azure Local instances require two ToR switches to be deployed. Each physical node requires four NICs, two of which must be RDMA capable, which provides two links from each node to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
+1. **Deploy two ToR switches for network integration**. For high availability solutions, Azure Local instances require two ToR switches to be deployed. Each physical node requires four NICs, two of which must be RDMA capable, which provides two links from each node to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure/azure-local/concepts/physical-network-requirements#network-switches-for-azure-local).
 
 1. **Work with the hardware OEM or SI partner to arrange delivery of the hardware**. The SI partner or your employees are then required to integrate the hardware into your on-premises datacenter or edge location, such as racking and stacking the hardware, physical network, and power supply unit cabling for the physical machines.
 
-1. **Perform the Azure Local instance deployment**. Depending on your chosen solution version (Premier solution, Integrated system, or Validated Nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Local software](/azure-stack/hci/deploy/deployment-introduction). This step starts by onboarding the physical machines Azure Stack HCI OS into Azure Arc-enabled servers, then starting the Azure Local cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the _Support + Troubleshooting_ icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
+1. **Perform the Azure Local instance deployment**. Depending on your chosen solution version (Premier solution, Integrated system, or Validated Nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Local software](/azure/azure-local/deploy/deployment-introduction). This step starts by onboarding the physical machines Azure Stack HCI OS into Azure Arc-enabled servers, then starting the Azure Local cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the _Support + Troubleshooting_ icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
 
    > [!TIP]
    > ![GitHub logo](../_images/github.svg) The [Azure Stack HCI OS, version 23H2 system reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a switched multi node deployment of Azure Local using an ARM template and parameter file. Alternatively, [the Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Local instance, including its prerequisites resources.
 
 1. **Deploy highly available workloads on Azure Local using Azure portal, CLI, or ARM + Azure Arc templates for automation**. Use the _custom location_ resource of the new Azure Local instance as the target region when you [deploy workload resources such as Azure Local VMs, AKS, Azure Virtual Desktop session hosts, or other Azure Arc-enabled services](#use-azure-arc-with-azure-local) that you can enable through AKS extensions and containerization on Azure Local.
 
-1. **Install monthly updates to improve the security and reliability of the platform**. To keep your Azure Local instances up to date, it's important to install Microsoft software updates and hardware OEM driver and firmware updates. These updates improve the security and reliability of the platform. [Update Manager](/azure-stack/hci/update/azure-update-manager-23h2) applies the updates and provides a centralized and scalable solution to install updates across a single cluster or multiple clusters. Check with your hardware OEM partner to determine the process for installing hardware driver and firmware updates because this process can vary depending on your chosen hardware solution category type (Premier solution, Integrated system, or Validated Nodes). For more information, see [Infrastructure updates](#infrastructure-updates).
+1. **Install monthly updates to improve the security and reliability of the platform**. To keep your Azure Local instances up to date, it's important to install Microsoft software updates and hardware OEM driver and firmware updates. These updates improve the security and reliability of the platform. [Update Manager](/azure/azure-local/update/azure-update-manager-23h2) applies the updates and provides a centralized and scalable solution to install updates across a single cluster or multiple clusters. Check with your hardware OEM partner to determine the process for installing hardware driver and firmware updates because this process can vary depending on your chosen hardware solution category type (Premier solution, Integrated system, or Validated Nodes). For more information, see [Infrastructure updates](#infrastructure-updates).
 
 ## Related resources
 
@@ -487,11 +487,11 @@ The following section provides an example list of the high-level tasks or typica
 
 Product documentation:
 
-- [Azure Local release information](/azure-stack/hci/release-information-23h2)
+- [Azure Local release information](/azure/azure-local/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
-- [What is Azure Local monitoring?](/azure-stack/hci/concepts/monitoring-overview)
-- [Protect VM workloads with Site Recovery on Azure Local](/azure-stack/hci/manage/azure-site-recovery)
+- [What is Azure Local monitoring?](/azure/azure-local/concepts/monitoring-overview)
+- [Protect VM workloads with Site Recovery on Azure Local](/azure/azure-local/manage/azure-site-recovery)
 - [Monitor overview](/azure/azure-monitor/overview)
 - [Change tracking and inventory overview](/azure/automation/change-tracking/overview)
 - [Update Manager overview](/azure/update-manager/overview)
@@ -501,7 +501,7 @@ Product documentation:
 
 Product documentation for details on specific Azure services:
 
-- [Azure Local](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Local](https://azure.microsoft.com/products/local/)
 - [Azure Arc](https://azure.microsoft.com/products/azure-arc)
 - [Key Vault](https://azure.microsoft.com/products/key-vault)
 - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
@@ -530,33 +530,33 @@ Microsoft Learn modules:
 [arc-azure-policy]: /azure/azure-arc/servers/security-controls-policy
 [arc-enabled-aks]: /azure/aks/hybrid/cluster-architecture
 [arc-enabled-data-services]: /azure/azure-arc/data/overview
-[arc-enabled-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
+[arc-enabled-vms]: /azure/azure-local/manage/azure-arc-vm-management-overview
 [arc-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
 [az-auto-hybrid-worker]: /azure/automation/automation-hybrid-runbook-worker
 [azs-hci-aks-automate-cli]: /cli/azure/aksarc
 [azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
 [azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
-[azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
+[azs-hci-automate-arc-vms]: /azure/azure-local/manage/create-arc-virtual-machines?tabs=azurecli
 [azs-hci]: /azure/well-architected/service-guides/azure-local
-[azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
-[azs-hci-billing]: /azure-stack/hci/concepts/billing
-[azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
-[azs-hci-defender-for-cloud]: /azure-stack/hci/manage/manage-security-with-defender-for-cloud
-[azs-hci-deploy-via-portal]: /azure-stack/hci/deploy/deploy-via-portal
-[azs-hci-deploy-via-template]: /azure-stack/hci/deploy/deployment-azure-resource-manager-template
+[azs-hci-basic-security]: /azure/azure-local/concepts/security-features
+[azs-hci-billing]: /azure/azure-local/concepts/billing
+[azs-hci-csv-cache]: /azure/azure-local/manage/use-csv-cache#planning-considerations
+[azs-hci-defender-for-cloud]: /azure/azure-local/manage/manage-security-with-defender-for-cloud
+[azs-hci-deploy-via-portal]: /azure/azure-local/deploy/deploy-via-portal
+[azs-hci-deploy-via-template]: /azure/azure-local/deploy/deployment-azure-resource-manager-template
 [azs-hci-gpu-acceleration]: /windows-server/virtualization/hyper-v/deploy/use-gpu-with-clustered-vm?pivots=azure-stack-hci
 [azs-hci-k8s-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
-[azs-hci-manage-cluster-at-scale]: /azure-stack/hci/manage/manage-at-scale-dashboard
-[azs-hci-manage-non-arc-vms]: /azure-stack/hci/manage/vm-powershell
-[azs-hci-network-bandwidth-allocation]: /azure-stack/hci/concepts/plan-host-networking#traffic-bandwidth-allocation
-[azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
-[azs-hci-rbac]: /azure-stack/hci/manage/assign-vm-rbac-roles
-[azs-hci-security-default]: /azure-stack/hci/manage/manage-secure-baseline
-[azs-hci-security-syslog]: /azure-stack/hci/manage/manage-syslog-forwarding
+[azs-hci-manage-cluster-at-scale]: /azure/azure-local/manage/manage-at-scale-dashboard
+[azs-hci-manage-non-arc-vms]: /azure/azure-local/manage/vm-powershell
+[azs-hci-network-bandwidth-allocation]: /azure/azure-local/concepts/plan-host-networking#traffic-bandwidth-allocation
+[azs-hci-networking]: /azure/azure-local/concepts/plan-host-networking
+[azs-hci-rbac]: /azure/azure-local/manage/assign-vm-rbac-roles
+[azs-hci-security-default]: /azure/azure-local/manage/manage-secure-baseline
+[azs-hci-security-syslog]: /azure/azure-local/manage/manage-syslog-forwarding
 [azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview
@@ -567,11 +567,11 @@ Microsoft Learn modules:
 [key-vault]: /azure/key-vault/general/basic-concepts
 [ms-ata]: /advanced-threat-analytics/what-is-ata
 [ms-defender-for-cloud]: /azure/security-center/security-center-introduction
-[s2d-cache-sizing]: /azure-stack/hci/concepts/cache#sizing-the-cache
-[s2d-cache]: /azure-stack/hci/concepts/cache#server-side-architecture
+[s2d-cache-sizing]: /azure/azure-local/concepts/cache#sizing-the-cache
+[s2d-cache]: /azure/azure-local/concepts/cache#server-side-architecture
 [s2d-disks]: /windows-server/storage/storage-spaces/choosing-drives
 [s2d-drive-balance-performance-capacity]: /windows-server/storage/storage-spaces/choosing-drives#option-2--balancing-performance-and-capacity
 [s2d-drive-max-capacity]: /windows-server/storage/storage-spaces/choosing-drives#option-3--maximizing-capacity
 [s2d-drive-max-performance]: /windows-server/storage/storage-spaces/choosing-drives#option-1--maximizing-performance
-[s2d-plan-volumes-performance]: /azure-stack/hci/concepts/plan-volumes#when-performance-matters-most
+[s2d-plan-volumes-performance]: /azure/azure-local/concepts/plan-volumes#when-performance-matters-most
 [s2d-resiliency]: /windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
