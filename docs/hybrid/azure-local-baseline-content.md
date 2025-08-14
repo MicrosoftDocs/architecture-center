@@ -258,9 +258,7 @@ It is important to understand the outbound network connectivity requirements of 
 
 Outbound network connectivity is required from your Azure Local instance, this includes the physical machines, [Arc resource bridge (ARB)](/azure/azure-arc/resource-bridge/overview) appliance, AKS clusters and Azure Local VMs if using Azure Arc for VM Guest OS management. These devices have local agents or services that connect to the public endpoints using outbound network access for real time communication, this provides connectivity to the management / control plane resource providers that run in Azure. For example, connectivity is required for operators to be able to use Azure portal, Azure CLI or an ARM, Bicep or Terraform template to provision and/or manage Azure Local VMs and Arc enabled AKS clusters. Azure and the Arc resource bridge work in combination with your Azure Local instance's [custom location](/azure/azure-arc/platform/conceptual-custom-locations) resource, enabling you to target the specific Azure Local instance for any resource CRUD (_create, read, update or delete_) operations for your Arc-enabled workload resources.
 
-To enable connectivity typically involves configuring your firewall, proxy and/or internet egress technology to allowed access to the required outbound endpoints.
-
-Key considerations for Azure Local outbound network requirements:
+To enable connectivity typically involves configuring your firewall, proxy and/or internet egress technology to allow outbound access to the required public endpoints. Key considerations for Azure Local outbound network requirements:
 
 - Azure Local does not support SSL / TLS packet inspection along any of the networking path from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For details information, refer to [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
 
