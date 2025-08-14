@@ -46,7 +46,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
 
-- [Microsoft Fabric](https://learn.microsoft.com/fabric/): a unified data platform that accelerates time to value across data engineering, real-time analytics, data science and business intelligence.
+- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric): a unified data platform that accelerates time to value across data engineering, real-time analytics, data science and business intelligence.
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
