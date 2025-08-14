@@ -59,7 +59,7 @@ Network design refers to the overall arrangement of physical and logical compone
 
 The physical network topology shows the actual physical connections between nodes and networking components. The connections between nodes and networking components for a three-node storage switchless Azure Local deployment are:
 
-- Three nodes (or nodes):
+- Three nodes (or machines):
 
   - Each node is a physical server that runs on Azure Stack HCI OS.
   
@@ -139,6 +139,10 @@ To deploy a three-node storage switchless configuration of Azure Local with dual
 
 When you design and plan IP address requirements for Azure Local, remember to account for additional IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
+#### Outbound network connectivity
+
+Review the [outbound network connectivity section of the Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#outbound-network-connecivity), as the guidance and recommendations are applicable for both the storage switched and storage switchless architectures.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
@@ -180,6 +184,7 @@ Use the following deployment automation template as an example of how to deploy 
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps
