@@ -127,7 +127,7 @@ It's important to understand the workload performance and resiliency requirement
   
   - **Performance**: Input/output operations per second (IOPS) of the platform that determines the storage throughput capabilities for the workload when multiplied by the block size of the application.
 
-To design and plan an Azure Local deployment, we recommend that you use the [Azure Local sizing tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your HCI clusters. Using the sizing tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your cluster, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
+To design and plan an Azure Local deployment, we recommend that you use the [Azure Local sizing tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your Azure Local instances. Using the sizing tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your cluster, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
 
 The sizing tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
 
@@ -462,7 +462,7 @@ The following section provides an example list of the high-level tasks or typica
 
 1. **Contact the hardware OEM or SI partner to further qualify the suitability of the recommended hardware version versus your workload requirements**. If available, use OEM-specific sizing tools to determine OEM-specific hardware sizing requirements for the intended workloads. This step typically includes discussions with the hardware OEM or SI partner for the commercial aspects of the solution. These aspects include quotations, availability of the hardware, lead times, and any professional or value-add services that the partner provides to help accelerate your project or business outcomes.
 
-1. **Deploy two ToR switches for network integration**. For high availability solutions, HCI clusters require two ToR switches to be deployed. Each physical node requires four NICs, two of which must be RDMA capable, which provides two links from each node to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
+1. **Deploy two ToR switches for network integration**. For high availability solutions, Azure Local instances require two ToR switches to be deployed. Each physical node requires four NICs, two of which must be RDMA capable, which provides two links from each node to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
 
 1. **Work with the hardware OEM or SI partner to arrange delivery of the hardware**. The SI partner or your employees are then required to integrate the hardware into your on-premises datacenter or edge location, such as racking and stacking the hardware, physical network, and power supply unit cabling for the physical machines.
 
@@ -471,7 +471,7 @@ The following section provides an example list of the high-level tasks or typica
    > [!TIP]
    > ![GitHub logo](../_images/github.svg) The [Azure Stack HCI OS, version 23H2 system reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a switched multi node deployment of Azure Local using an ARM template and parameter file. Alternatively, [the Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Local instance, including its prerequisites resources.
 
-1. **Deploy highly available workloads on Azure Local using Azure portal, CLI, or ARM + Azure Arc templates for automation**. Use the _custom location_ resource of the new HCI cluster as the target region when you [deploy workload resources such as Azure Local VMs, AKS, Azure Virtual Desktop session hosts, or other Azure Arc-enabled services](#use-azure-arc-with-azure-local) that you can enable through AKS extensions and containerization on Azure Local.
+1. **Deploy highly available workloads on Azure Local using Azure portal, CLI, or ARM + Azure Arc templates for automation**. Use the _custom location_ resource of the new Azure Local instance as the target region when you [deploy workload resources such as Azure Local VMs, AKS, Azure Virtual Desktop session hosts, or other Azure Arc-enabled services](#use-azure-arc-with-azure-local) that you can enable through AKS extensions and containerization on Azure Local.
 
 1. **Install monthly updates to improve the security and reliability of the platform**. To keep your Azure Local instances up to date, it's important to install Microsoft software updates and hardware OEM driver and firmware updates. These updates improve the security and reliability of the platform. [Update Manager](/azure-stack/hci/update/azure-update-manager-23h2) applies the updates and provides a centralized and scalable solution to install updates across a single cluster or multiple clusters. Check with your hardware OEM partner to determine the process for installing hardware driver and firmware updates because this process can vary depending on your chosen hardware solution category type (Premier solution, Integrated system, or Validated Nodes). For more information, see [Infrastructure updates](#infrastructure-updates).
 
@@ -487,7 +487,7 @@ The following section provides an example list of the high-level tasks or typica
 
 Product documentation:
 
-- [Azure Stack HCI OS, version 23H2 release information](/azure-stack/hci/release-information-23h2)
+- [Azure Local release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
 - [What is Azure Local monitoring?](/azure-stack/hci/concepts/monitoring-overview)
