@@ -79,13 +79,13 @@ This architecture consists of physical server hardware that you can use to deplo
 
 The architecture requires the following mandatory resources and components:
 
-- [Azure Local][azs-hci] is a hyperconverged infrastructure (HCI) solution that's deployed on-premises or in edge locations using physical server hardware and networking infrastructure. Azure Local provides a platform to deploy and manage virtualized workloads such as VMs, Kubernetes clusters, and other services that are enabled by Azure Arc. Azure Local instances can scale from a single-node deployment to a maximum of sixteen physical machines using validated, integrated, or premium hardware categories that are provided by original equipment manufacturer (OEM) partners.
+- [Azure Local][azs-hci] is a hyperconverged infrastructure (HCI) solution that's deployed on-premises or in edge locations using physical server hardware and networking infrastructure. Azure Local provides a platform to deploy and manage virtualized workloads such as VMs, Kubernetes clusters, and other services that are enabled by Azure Arc. Azure Local instances can scale from a single-machine deployment to a maximum of sixteen physical machines using validated, integrated, or premium hardware categories that are provided by original equipment manufacturer (OEM) partners.
 
 - [Azure Arc][azure-arc] is a cloud-based service that extends the management model based on Azure Resource Manager to Azure Local and other non-Azure locations. Azure Arc uses Azure as the control and management plane to enable the management of various resources such as VMs, Kubernetes clusters, and containerized data and machine learning services.
 
 - [Azure Key Vault][key-vault] is a cloud service that you can use to securely store and access secrets. A secret is anything that you want to tightly restrict access to, such as API keys, passwords, certificates, cryptographic keys, local admin credentials, and BitLocker recovery keys.
 
-- [Cloud witness][cloud-witness] is a feature that uses Azure Storage to act as a failover cluster quorum. Azure Local (_two node clusters only_) use a cloud witness as the quorum for voting, which ensures high availability for the cluster. The storage account and witness configuration are created during the Azure Local cloud deployment process.
+- [Cloud witness][cloud-witness] is a feature that uses Azure Storage to act as a failover cluster quorum. Azure Local (_two machine instances only_) use a cloud witness as the quorum for voting, which ensures high availability for the cluster. The storage account and witness configuration are created during the Azure Local cloud deployment process.
 
 - [Update Manager][azure-update-management] is a unified service designed to manage and govern updates for Azure Local. You can use Update Manager to manage workloads that are deployed on Azure Local, including guest OS update compliance for Windows and Linux VMs that can be enabled using Azure policy. This unified approach streamlines patch management across Azure, on-premises environments, and other cloud platforms through a single dashboard.
 
@@ -111,13 +111,13 @@ It's important to understand the workload performance and resiliency requirement
 
 - Graphics processing unit (GPU) requirements of the workload, such as for AI or machine learning, inferencing, or graphics rendering.
 
-- The memory per node, or the quantity of physical memory required to run the workload.
+- The memory per machine, or the quantity of physical memory required to run the workload.
 
 - The number of physical machines in the instance that are 1 to 16 machines in scale. The maximum number of physical machines is four when you use the [storage switchless network architecture](/azure/architecture/hybrid/azure-local-switchless).
 
   - To maintain compute resiliency, you need to reserve at least N+1 physical machines worth of capacity in the cluster. This strategy enables node draining for updates or recovery from sudden outages like power outages or hardware failures.
 
-  - For business-critical or mission-critical workloads, consider reserving N+2 physical machines worth of capacity to increase resiliency. For example, if two physical machines in the cluster are offline, the workload can remain online. This approach provides resiliency for scenarios in which a node that's running a workload goes offline during a planned update procedure and results in two cluster physical machines being offline simultaneously.
+  - For business-critical or mission-critical workloads, consider reserving N+2 physical machines worth of capacity to increase resiliency. For example, if two physical machines in the cluster are offline, the workload can remain online. This approach provides resiliency for scenarios in which a machine that's running a workload goes offline during a planned update procedure and results in two cluster physical machines being offline simultaneously.
   
 - Storage resiliency, capacity, and performance requirements:
 
@@ -133,7 +133,7 @@ The sizing tool **Preferences** section guides you through questions that relate
 
 - Reserve a minimum of N+1 physical machines worth of capacity, or one node, across the cluster.
 
-- Reserve N+2 physical machines worth of capacity across the cluster for extra resiliency. This option enables the system to withstand a node failure during an update or other unexpected event that affects two machines simultaneously. It also ensures that there's enough capacity in the cluster for the workload to run on the remaining online machines.
+- Reserve N+2 physical machines worth of capacity across the cluster for extra resiliency. This option enables the system to withstand a machine failure during an update or other unexpected event that affects two machines simultaneously. It also ensures that there's enough capacity in the cluster for the workload to run on the remaining online machines.
 
 This scenario requires use of three-way mirroring for user volumes, which is the default for clusters that have three or more physical machines.
 
@@ -164,7 +164,7 @@ Network design is the overall arrangement of components within the network's phy
 
 Although a fully converged networking configuration is supported, the optimal configuration for performance and reliability is for the storage intent to use dedicated network adapter ports. Therefore, this baseline architecture provides example guidance for how to deploy a multi-node Azure Local instance using the storage switched network architecture with two network adapter ports that are converged for management and compute intents and two dedicated network adapter ports for the storage intent. For more information, see [Network considerations for cloud deployments of Azure Local](/azure/azure-local/plan/cloud-deployment-network-considerations).
 
-This architecture requires two or more physical machines and up to a maximum of 16 machines in scale. Each node requires four network adapter ports that are connected to two Top-of-Rack (ToR) switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure/azure-local/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
+This architecture requires two or more physical machines and up to a maximum of 16 machines in scale. Each machine requires four network adapter ports that are connected to two Top-of-Rack (ToR) switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure/azure-local/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
 
 #### Physical network topology
 
@@ -184,9 +184,9 @@ You need the following components when you design a multi-node storage switched 
   
 - Two or more physical machines and up to a maximum of 16 physical machines:
 
-  - Each node is a physical server that runs Azure Stack HCI OS.
+  - Each machine is a physical server that runs Azure Stack HCI OS.
   
-  - Each node requires four network adapter ports in total: two RDMA-capable ports for storage and two network adapter ports for management and compute traffic.
+  - Each machine requires four network adapter ports in total: two RDMA-capable ports for storage and two network adapter ports for management and compute traffic.
   
   - Storage uses the two dedicated RDMA-capable network adapter ports that connect with one path to each of the two ToR switches. This approach provides link-path redundancy and dedicated prioritized bandwidth for SMB Direct storage traffic.
   
@@ -196,7 +196,7 @@ You need the following components when you design a multi-node storage switched 
 
   - Dual ToR switches connect to the external network, such as your internal corporate LAN, to provide access to the required outbound URLs using your edge border network device. This device can be a firewall or router. These switches route traffic that goes in and out of the Azure Local instance, or north-south traffic.
   
-  - External north-south traffic connectivity supports the cluster management intent and compute intents. This is achieved using two switch ports and two network adapter ports per node that are converged through switch embedded teaming (SET) and a virtual switch within Hyper-V to ensure resiliency. These components work to provide external connectivity for Azure Local VMs and other workload resources deployed within the logical networks that are created in Resource Manager using Azure portal, CLI, or IaC templates.
+  - External north-south traffic connectivity supports the cluster management intent and compute intents. This is achieved using two switch ports and two network adapter ports per machine that are converged through switch embedded teaming (SET) and a virtual switch within Hyper-V to ensure resiliency. These components work to provide external connectivity for Azure Local VMs and other workload resources deployed within the logical networks that are created in Resource Manager using Azure portal, CLI, or IaC templates.
 
 #### Logical network topology
 
@@ -214,7 +214,7 @@ A summarization of the logical setup for this multi-node storage switched baseli
   
   - Network ATC is designed to ensure optimal networking configuration and traffic flow using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
   
-  - Intent-based policies simplify the network configuration requirements by automating the node network configuration based on parameter inputs that are specified as part of the Azure Local cloud deployment process.
+  - Intent-based policies simplify the network configuration requirements by automating the machine network configuration based on parameter inputs that are specified as part of the Azure Local cloud deployment process.
   
 - External communication:
 
@@ -234,7 +234,7 @@ A summarization of the logical setup for this multi-node storage switched baseli
   
   - There's _no default gateway_ configured on the two storage intent network adapter ports within the Azure Stack HCI OS.
   
-  - Each node can access Storage Spaces Direct capabilities of the cluster, such as remote physical drives that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
+  - Each cluster node can access Storage Spaces Direct capabilities of the cluster, such as remote physical drives that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each machine. SMB Multichannel is used for resiliency.
   
   - This configuration provides sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
@@ -246,7 +246,7 @@ If you plan to use existing network switches for an Azure Local deployment, revi
 
 #### IP address requirements
 
-In a multi-node storage switched deployment, the number of IP addresses needed increases with the addition of each physical node, up to a maximum of 16 physical machines within a single cluster. For example, to deploy a two-node storage switched configuration of Azure Local, the cluster infrastructure requires a minimum of 11 x IP addresses to be allocated. More IP addresses are required if you use micro-segmentation or software-defined networking. For more information, see [Review two-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/two-node-ip-requirements).
+In a multi-node storage switched deployment, the number of IP addresses needed increases with the addition of each physical machine, up to a maximum of 16 physical machines within a single cluster. For example, to deploy a two-node storage switched configuration of Azure Local, the cluster infrastructure requires a minimum of 11 x IP addresses to be allocated. More IP addresses are required if you use micro-segmentation or software-defined networking. For more information, see [Review two-node storage reference pattern IP address requirements for Azure Local](/azure/azure-local/plan/two-node-ip-requirements).
 
 When you design and plan IP address requirements for Azure Local, remember to account for additional IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to deploy AKS on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
@@ -313,7 +313,7 @@ Every architecture is susceptible to failures. You can anticipate failures and b
 | Component | Risk | Likelihood | Effect/mitigation/note | Outage |
 |-----------|------|------------|------------------------|--------|
 | Azure Local instance outage | Power, network, hardware, or software failure | Medium | To prevent a prolonged application outage caused by the failure of an Azure Local instance for business or mission-critical use cases, your workload should be architected using HA and DR principles. For example, you can use industry-standard workload data replication technologies to maintain multiple copies of persistent state data that are deployed using multiple Azure Local VMs or AKS instances that are deployed on separate Azure Local instances and in separate physical locations. | Potential outage. |
-| Azure Local single physical node outage | Power, hardware, or software failure | Medium | To prevent a prolonged application outage caused by the failure of a single Azure Local machine, your Azure Local instance should have multiple physical machines. Your workload capacity requirements during the cluster design phase determine the number of physical machines. We recommend that you have three or more physical machines. We also recommended that you use three-way mirroring, which is the default storage resiliency mode for clusters with three or more physical machines. To prevent a SPoF and increase workload resiliency, deploy multiple instances of your workload using two or more Azure Local VMs or container pods that run in multiple AKS worker nodes. If a single node fails, the Azure Local VMs and workload / application services are restarted on the remaining online physical machines in the cluster. | Potential outage. |
+| Azure Local single physical machine outage | Power, hardware, or software failure | Medium | To prevent a prolonged application outage caused by the failure of a single Azure Local machine, your Azure Local instance should have multiple physical machines. Your workload capacity requirements during the cluster design phase determine the number of physical machines. We recommend that you have three or more physical machines. We also recommended that you use three-way mirroring, which is the default storage resiliency mode for clusters with three or more physical machines. To prevent a SPoF and increase workload resiliency, deploy multiple instances of your workload using two or more Azure Local VMs or container pods that run in multiple AKS worker nodes. If a single machine fails, the Azure Local VMs and workload / application services are restarted on the remaining online physical machines in the cluster. | Potential outage. |
 | Azure Local VM or AKS worker node (workload) | Misconfiguration | Medium | Application users are unable to sign in or access the application. Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. You can redeploy the VM if necessary. Redeployment takes less than 10 minutes to deploy but can take longer according to the type of deployment. | Potential outage. |
 | Connectivity to Azure | Network outage | Medium | Azure Local requires network connectivity to Azure for control plane operations to be available. For example, for the ability to provision new Azure Local VMs or AKS clusters, install Solution Updates using Azure Update Manager, or monitor health status of the instance using Azure Monitor. If connectivity to Azure is unavailable, the instance will operate in a degraded state, where these capabilities are not available, however existing workloads that are already running on Azure Local will continue to run. [If network connectivity to Azure is not restored within 30 days](/azure/azure-local/faq#how-long-can-azure-local-run-with-the-connection-down), the instance will enter an "Out Of Policy" status, which can limit functionality. The [Azure Resource Bridge (ARB) appliance cannot be offline for more than 45-days](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#arc-resource-bridge-is-offline), as this can impact the validity of the security key that is used for authentication. | Management operations unavailable. |
 
@@ -462,7 +462,7 @@ The following section provides an example list of the high-level tasks or typica
 
 1. **Contact the hardware OEM or SI partner to further qualify the suitability of the recommended hardware version versus your workload requirements**. If available, use OEM-specific sizing tools to determine OEM-specific hardware sizing requirements for the intended workloads. This step typically includes discussions with the hardware OEM or SI partner for the commercial aspects of the solution. These aspects include quotations, availability of the hardware, lead times, and any professional or value-add services that the partner provides to help accelerate your project or business outcomes.
 
-1. **Deploy two ToR switches for network integration**. For high availability solutions, Azure Local instances require two ToR switches to be deployed. Each physical node requires four NICs, two of which must be RDMA capable, which provides two links from each node to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure/azure-local/concepts/physical-network-requirements#network-switches-for-azure-local).
+1. **Deploy two ToR switches for network integration**. For high availability solutions, Azure Local instances require two ToR switches to be deployed. Each physical machine requires four NICs, two of which must be RDMA capable, which provides two links from each machine to the two ToR switches. Two NICs, one connected to each switch, are converged for outbound north-south connectivity for the compute and management networks. The other two RDMA capable NICs are dedicated for the storage east-west traffic. If you plan to use existing network switches, ensure that the make and model of your switches are on the [approved list of network switches supported by Azure Local](/azure/azure-local/concepts/physical-network-requirements#network-switches-for-azure-local).
 
 1. **Work with the hardware OEM or SI partner to arrange delivery of the hardware**. The SI partner or your employees are then required to integrate the hardware into your on-premises datacenter or edge location, such as racking and stacking the hardware, physical network, and power supply unit cabling for the physical machines.
 
