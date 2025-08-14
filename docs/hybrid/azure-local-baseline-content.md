@@ -264,7 +264,7 @@ To enable connectivity typically involves configuring your firewall, proxy and/o
 
 - Azure Local does not support SSL / TLS packet inspection along any of the networking path from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For details information, refer to [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
 
-- Consider using the [Azure Arc gateway](/azure/azure-local/deploy/deployment-azure-arc-gateway-overview) to simplify connectivity requirements, as this significantly reduces the number of required endpoints that need to be added to your firewall or proxy "allow lists" for the deployment and management of Azure Local.
+- Consider using the [Azure Arc gateway](/azure/azure-local/deploy/deployment-azure-arc-gateway-overview) to simplify connectivity requirements, as this significantly reduces the number of required endpoints that need to be added to your firewall or proxy rules for the deployment and management of Azure Local.
 
 - When deploying Azure Local using a Proxy Server to control and manage internet egress access, review the [Proxy requirements](/azure/azure-local/plan/cloud-deployment-network-considerations#proxy-requirements)
 
