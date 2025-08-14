@@ -95,7 +95,7 @@ API Management supports [named values](/azure/api-management/api-management-howt
 
 API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). Consider the types of credentials that you should support and where they should be validated. For example, consider whether validation should happen in API Management, in your back-end applications, or in both places.
 
-For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview).
+For more information, see [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview).
 
 > [!NOTE]
 > If you use a subscription key or API key, it's a good practice to also use another method of authentication.
@@ -204,7 +204,7 @@ The following example limits by tenant claim or header:
 
 Use API Management to configure your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple fully qualified domain names (FQDNs).
 
-You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, Azure Front Door frequently handles custom domains and transport layer security (TLS) certificates and communicates with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header.
+You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, Azure Front Door frequently handles custom domains and Transport Layer Security (TLS) certificates and communicates with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header.
 
 ### Rate limits
 
