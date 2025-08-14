@@ -1,11 +1,11 @@
 This article describes how to deploy secure applications by using the [App Service Environment][intro-to-app-svc-env]. This architecture uses [Azure Application Gateway][docs-appgw] and [Azure Web Application Firewall][docs-waf] to restrict application access from the internet. This article also explains how to integrate continuous integration and continuous deployment (CI/CD) with App Service Environments by using Azure DevOps.
 
-Industries like banking and insurance often use this solution because customers value platform-level and application-level security. To demonstrate these concepts, the following example application allows users to submit expense reports.
+Industries like banking and insurance often use this solution because customers value both platform-level and application-level security. To demonstrate these concepts, the following example application allows users to submit expense reports.
 
 ## Architecture
 
 :::image type="complex" source="./media/fully-managed-secure-apps.svg" alt-text="Diagram that shows the example scenario architecture for a secure internal load balancer App Service Environment deployment." border="false" lightbox="./media/fully-managed-secure-apps.svg":::
-This diagram begins with an employee that accesses the Azure virtual network from an on-premises environment by using the IP range 192.168.0.0/16. This connection routes through a gateway via either ExpressRoute or a site-to-site VPN, which links to the gateway subnet (10.0.255.224/27) within the Azure virtual network (10.0.0.0/16). The gateway subnet contains a VPN gateway. From the gateway subnet, traffic flows into the web tier subnet (10.0.1.0/24), which hosts an App Service Environment. This environment is connected through an internal load balancer. Next to this subnet is the CI/CD subnet (10.0.2.0/24), which includes an Azure DevOps agent. External customers access services over the public internet. Their traffic is first filtered through DDoS protection before reaching the Application Gateway subnet (10.0.3.0/24). This subnet contains an application gateway equipped with a Web Application Firewall (WAF) and a layer-7 load balancer. The App Service Environment connects to an external Azure SQL database via virtual network service endpoints. The Azure DevOps agent connects to an external Azure DevOps instance.
+This diagram begins with an employee that accesses the Azure virtual network from an on-premises environment by using the IP range 192.168.0.0/16. This connection routes through a gateway via either ExpressRoute or a site-to-site VPN, which links to the gateway subnet (10.0.255.224/27) within the Azure virtual network (10.0.0.0/16). The gateway subnet contains a VPN gateway. From the gateway subnet, traffic flows into the web tier subnet (10.0.1.0/24), which hosts an App Service Environment. This environment is connected through an internal load balancer. Next to this subnet is the CI/CD subnet (10.0.2.0/24), which includes an Azure DevOps agent. External customers access services over the public internet. Their traffic is first filtered through DDoS protection before reaching the Application Gateway subnet (10.0.3.0/24). This subnet contains an application gateway equipped with a web application firewall and a layer-7 load balancer. The App Service Environment connects to an external Azure SQL database via virtual network service endpoints. The Azure DevOps agent connects to an external Azure DevOps instance.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -32,7 +32,7 @@ The following dataflow corresponds to the previous diagram:
 - The [Web Apps][docs-webapps] and [API Apps][docs-apiapps] features of App Service host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also provides autoscaling, custom domains, and other capabilities in a dedicated tier.
 - [Application Gateway][docs-appgw] is a layer-7 web traffic load balancer that manages traffic to the web application. It provides Secure Sockets Layer (SSL) offloading, which removes the overhead of decrypting traffic from the web servers that host the application.
 - [Web Application Firewall][docs-waf] is a feature of Application Gateway that enhances security. The web application firewall uses Open Worldwide Application Security Project (OWASP) rules to protect the web application against attacks, such as cross-site scripting, session hijacks, and SQL injection.
-- [Azure SQL Database][docs-sql-database] stores the application's data. Most of the data is relational, with some stored as documents and blobs.
+- [SQL Database][docs-sql-database] stores the application's data. Most of the data is relational, with some of the data stored as documents and blobs.
 - [Azure Virtual Network][azure-networking] provides various networking capabilities in Azure. You can peer virtual networks together and establish connections with on-premises datacenters via ExpressRoute or a site-to-site virtual private network (VPN). This scenario enables a [service endpoint][sql-service-endpoint] on the virtual network to ensure that the data flows only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] supports agile development by helping teams collaborate during sprints and by providing tools to create build and release pipelines.
 - An Azure build [VM][docs-azure-vm] enables the installed agent to pull down the respective build and deploy the web app to the environment.
@@ -43,7 +43,7 @@ An App Service Environment can run regular web apps on Windows or, as in this ex
 
 - [Azure Container Apps][docs-container-apps] is a serverless platform that reduces infrastructure overhead and saves cost while running containerized applications. It eliminates the need to manage server configuration, container orchestration, and deployment details. Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
 
-- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform designed to host complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that simplifies provisioning and configuring a Kubernetes cluster. You must have significant knowledge of the Kubernetes platform to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
+- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform designed to host complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that simplifies provisioning and configuring a Kubernetes cluster. You must have significant knowledge of the Kubernetes platform to support and maintain it, so hosting a small number of single-instance containerized web applications might not be the best option.
 
 Use the following alternative for the data tier:
 
@@ -61,11 +61,11 @@ Consider this solution for the following use cases:
 
 The Domain Name System (DNS) settings for the default domain suffix of the App Service Environment don't restrict application reachability to those names. The custom domain suffix feature for an ILB App Service Environment allows you to use your own domain suffix to access the applications hosted in your App Service Environment.
 
-A custom domain suffix defines a root domain used by the App Service Environment. For an ILB App Service Environment, the default root domain is `appserviceenvironment.net`. An ILB App Service Environment is internal to a customer's virtual network, so customers can use a root domain in addition to the default one that aligns with their virtual network environment. For example, Contoso Corporation might use a default root domain of `internal.contoso.com` for apps intended to be resolvable and reachable only within Contoso's virtual network. An app in this virtual network can be reached by accessing `APP-NAME.internal.contoso.com`.
+A custom domain suffix defines a root domain that the App Service Environment uses. For an ILB App Service Environment, the default root domain is `appserviceenvironment.net`. An ILB App Service Environment is internal to a customer's virtual network, so customers can use a root domain in addition to the default domain that aligns with their virtual network environment. For example, Contoso Corporation might use a default root domain of `internal.contoso.com` for apps intended to be resolvable and reachable only within Contoso's virtual network. An app in this virtual network can be reached by accessing `APP-NAME.internal.contoso.com`.
 
 The custom domain suffix applies to the App Service Environment. This feature differs from a custom domain binding on an individual App Service instance.
 
-If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for `*.scm.CUSTOM-DOMAIN`, the Source Control Manager (SCM) site becomes reachable from `APP-NAME.scm.CUSTOM-DOMAIN`. You can only access SCM over custom domain by using basic authentication. Single sign-on is only available when using the default root domain.
+If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for `*.scm.CUSTOM-DOMAIN`, the Source Control Manager (SCM) site becomes reachable from `APP-NAME.scm.CUSTOM-DOMAIN`. You can only access SCM over custom domain by using basic authentication. Single sign-on is only available when you use the default root domain.
 
 Consider the following factors when you manage certificates on an ILB App Service Environment:
 
@@ -74,7 +74,7 @@ Consider the following factors when you manage certificates on an ILB App Servic
 - Ensure that the certificate is less than 20 KB.
 - Use a wildcard certificate for the selected custom domain name.
 - Configure a system-assigned or user-assigned managed identity for your App Service Environment. The managed identity authenticates against the Azure key vault where the SSL or TLS certificate resides.
-- When you rotate your certificate in a key vault, the App Service Environment applies the change within 24 hours.
+- Expect the App Service Environment to apply certificate changes within 24 hours after rotation in a key vault.
 
 ### Network access to Azure Key Vault
 
@@ -130,7 +130,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Explore the cost of running this scenario. The following sample cost profiles are based on expected traffic. All services are preconfigured in the cost calculator.
 
-- [Small deployment][small-pricing]: This pricing example represents the components for a minimum production-level instance that serves a few thousand users each month. The app uses a single small instance of an isolated web app. Each extra component scales to a Basic tier to minimize cost while ensuring service-level agreement (SLA) support and enough capacity to handle a production-level workload.
+- [Small deployment][small-pricing]: This pricing example represents the components for a minimum production-level instance that serves a few thousand users each month. The app uses a single small instance of an isolated web app. Each extra component scales to a Basic tier to minimize cost while ensuring service-level agreement (SLA) support and sufficient capacity to handle a production-level workload.
 
 - [Medium deployment][medium-pricing]: This pricing example represents the components for a moderate-size deployment that serves approximately 100,000 users each month. A moderately sized single isolated App Service instance manages the traffic. The Application Gateway and SQL Database capacity increase to support the added workload.
 - [Large deployment][large-pricing]: This pricing example represents the components for a high-scale application that serves millions of users each month and moves terabytes of data. This level of usage requires high-performance, isolated-tier web apps deployed in multiple regions and fronted by Azure Traffic Manager. The estimate includes Traffic Manager and extra Application Gateway and Virtual Network instances. The capacity of the SQL Database increases to support the added workload.
