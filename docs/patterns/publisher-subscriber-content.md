@@ -134,6 +134,6 @@ The following patterns might be relevant when implementing this pattern:
 
 ## Related resources
 
-- The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
+- The [Event-driven architecture style](../guide/architecture-styles/event-driven.md) is an architecture style that uses pub/sub messaging.
 - [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
 - [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml)
