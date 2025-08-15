@@ -50,7 +50,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 - Use autoscaling to handle changes in load. See [Autoscaling best practices][autoscaling].
 - Use [asynchronous messaging](/azure/service-bus-messaging/service-bus-async-messaging) to decouple tiers.
-- Cache semistatic data. See [Caching best practices][caching].
+- Cache data that changes infrequently. See [Caching best practices][caching].
 - Configure the database tier for high availability, using a solution such as [SQL Server Always On availability groups][sql-always-on].
 - Place a web application firewall (WAF) between the front end and the Internet.
 - Place each tier in its own subnet, and use subnets as a security boundary.
@@ -92,12 +92,14 @@ Network security groups restrict access to each tier. For example, the database 
 
 - You can extend the Azure virtual network to your on-premises network using a site-to-site virtual private network (VPN) or Azure ExpressRoute. For more information, see [Hybrid network reference architecture][hybrid-network].
 
-- If your organization uses Active Directory to manage identity, you may want to extend your Active Directory environment to the Azure VNet.
+- If your organization uses Active Directory to manage identity, you might want to extend your Active Directory environment to the Azure VNet.
+
+### Next steps
+
+- [Create a secure n-tier app in Azure App Service](/articles/app-service/tutorial-secure-ntier-app)
 
 ### Related Resources
 
-- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
-- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 - [Azure Bastion](/azure/bastion/bastion-overview)
 - More information on messaging in an [N-tier architecture style on Azure](https://docs.particular.net/architecture/azure/n-tier)
 
