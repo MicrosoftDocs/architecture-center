@@ -6,7 +6,7 @@ Layers are a way to separate responsibilities and manage dependencies. Each laye
 
 Tiers are physically separated, running on separate machines. Contractually, the tier can have their communication models be strict or relaxed. In the strict model, a request must go through adjacent tiers, one by one, and can't skip any tier in between. For example, from the web application firewall to the web tier, then to middle tier 1, and so on. In contrast, in the relaxed approach, the request might skip some tiers if it's necessary. The strict approach has greater latency and overhead, and the relaxed approach has more couplings and subsequently it's more difficult to change. You can also combine both approaches in the same system.
 
-A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, it is not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
+A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, it's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the extra network communication.
 
 A traditional three-tier application has a presentation tier, a middle tier, and a database tier. The middle tier is optional. More complex applications can have more than three tiers. The diagram above shows an application with two middle tiers, encapsulating different areas of functionality.
 
@@ -71,7 +71,7 @@ The web and business tiers are stateless. Any VM can handle any request for that
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
 > [!NOTE]
-> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." Although our example is a web application, multi-tier architectures can also be used for other topologies, like desktop apps.  Use clear, descriptive names for your tiers that your team understands. You can also use these names in your Azure resources, for example, `vmss-appname-business-tier`.
+> The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." Although our example is a web application, multi-tier architectures can also be used for other topologies, like desktop apps. Use clear, descriptive names for your tiers that your team understands. You can also use these names in your Azure resources, for example, `vmss-appname-business-tier`.
 
 ### Additional considerations
 
