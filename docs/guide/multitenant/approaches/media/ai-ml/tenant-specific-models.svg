@@ -65,21 +65,21 @@
 		</linearGradient>
 	</defs>
 	<defs id="Markers">
-		<g id="lend13">
-			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
-		</g>
-		<marker id="mrkr13-30" class="st11" v:arrowType="13" v:arrowSize="2" v:setback="10.56" refX="-10.56" orient="auto"
-				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend13" transform="scale(-3.52,-3.52) "/>
-		</marker>
-		<marker id="mrkr13-57" class="st11" v:arrowType="13" v:arrowSize="2" v:setback="10.2" refX="10.2" orient="auto"
-				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend13" transform="scale(3.52) "/>
-		</marker>
-		<marker id="mrkr13-112" class="st22" v:arrowType="13" v:arrowSize="2" v:setback="13.08" refX="-13.08" orient="auto"
-				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend13" transform="scale(-4.36,-4.36) "/>
-		</marker>
+		        <g id="lend13">
+            <path d="M 3 1 L 0 0 L 3 -1 L 3 1" style="stroke:none; fill:black" vector-effect="non-scaling-stroke"/>
+        </g>
+        <marker id="mrkr13-30" class="st11" v:arrowType="13" v:arrowSize="2" v:setback="10.56" refX="-10.56" orient="auto"
+                markerUnits="strokeWidth" overflow="visible" shape-rendering="crispEdges">
+            <use xlink:href="#lend13" transform="scale(-3.52,-3.52)"/>
+        </marker>
+        <marker id="mrkr13-57" class="st11" v:arrowType="13" v:arrowSize="2" v:setback="10.2" refX="10.2" orient="auto"
+                markerUnits="strokeWidth" overflow="visible" shape-rendering="crispEdges">
+            <use xlink:href="#lend13" transform="scale(3.52)"/>
+        </marker>
+        <marker id="mrkr13-112" class="st22" v:arrowType="13" v:arrowSize="2" v:setback="13.08" refX="-13.08" orient="auto"
+                markerUnits="strokeWidth" overflow="visible" shape-rendering="crispEdges">
+            <use xlink:href="#lend13" transform="scale(-4.36,-4.36)"/>
+        </marker>
 	</defs>
 	<g v:mID="4" v:index="1" v:groupContext="backgroundPage">
 		<v:userDefs>
