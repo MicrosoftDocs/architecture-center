@@ -18,7 +18,7 @@ This article describes a container solution for hosting a large, storage-intensi
 - The internal load balancer distributes ingress traffic to pods within AKS.
 - Azure Key Vault stores secrets such as the private key, which is an X.509 certificate.
 - The WordPress application uses a private endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
-- All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the NFS protocol.
+- All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
 ### Components
 
@@ -88,7 +88,7 @@ Review the following cost considerations when you deploy this solution:
 - **Amount of hosted data**. It's important to consider the amount of data that you host, because Azure NetApp Files pricing is based on reserved capacity. To optimize costs, reserve the minimum capacity that you need for your data.
 - **Write percentage**. Consider how much new data you write to your website and the cost for storing it. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
 - **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **AKS cluster optimization**. To optimize your AKS cluster costs, follow general tips for AKS, such as guidance about VM size and Azure reservations. For more information, see [AKS cost optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
+- **AKS cluster optimization**. To optimize your AKS cluster costs, follow general tips for AKS, such as guidance about Virtual Machine (VM) size and Azure reservations. For more information, see [AKS cost optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
 
 ### Performance Efficiency
 
