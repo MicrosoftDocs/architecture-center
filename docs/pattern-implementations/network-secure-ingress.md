@@ -6,6 +6,7 @@ ms.author: pnp
 ms.date: 10/18/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
+ms.custom: sfi-image-nochange
 ---
 
 # Pattern implementation for network secure ingress

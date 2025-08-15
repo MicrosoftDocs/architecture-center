@@ -6,6 +6,7 @@ author: claytonsiemens77
 ms.date: 07/16/2025
 ms.topic: design-pattern
 ms.subservice: design-pattern
+ms.custom: sfi-image-nochange
 ---
 
 # Retry Storm antipattern

@@ -6,9 +6,10 @@ ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
+summary: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources.
 ms.custom:
   - arb-containers
-summary: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources.
+  - sfi-ropc-nochange
 ---
 
 # Health modeling for mission-critical workloads
