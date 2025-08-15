@@ -115,9 +115,9 @@ It's important to understand the workload performance and resiliency requirement
 
 - The number of physical machines in the instance that are 1 to 16 machines in scale. The maximum number of physical machines is four when you use the [storage switchless network architecture](/azure/architecture/hybrid/azure-local-switchless).
 
-  - To maintain compute resiliency, you need to reserve at least N+1 physical machines worth of capacity in the cluster. This strategy enables node draining for updates or recovery from sudden outages like power outages or hardware failures.
+  - To maintain compute resiliency, you need to reserve at least N+1 physical machines worth of capacity in the instance. This strategy enables node draining for updates or recovery from sudden outages like power outages or hardware failures.
 
-  - For business-critical or mission-critical workloads, consider reserving N+2 physical machines worth of capacity to increase resiliency. For example, if two physical machines in the cluster are offline, the workload can remain online. This approach provides resiliency for scenarios in which a machine that's running a workload goes offline during a planned update procedure and results in two cluster physical machines being offline simultaneously.
+  - For business-critical or mission-critical workloads, consider reserving N+2 physical machines worth of capacity to increase resiliency. For example, if two physical machines in the instance are offline, the workload can remain online. This approach provides resiliency for scenarios in which a machine that's running a workload goes offline during a planned update procedure and results in two instance physical machines being offline simultaneously.
   
 - Storage resiliency, capacity, and performance requirements:
 
@@ -127,15 +127,15 @@ It's important to understand the workload performance and resiliency requirement
   
   - **Performance**: Input/output operations per second (IOPS) of the platform that determines the storage throughput capabilities for the workload when multiplied by the block size of the application.
 
-To design and plan an Azure Local deployment, we recommend that you use the [Azure Local sizing tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your Azure Local instances. Using the sizing tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your cluster, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
+To design and plan an Azure Local deployment, we recommend that you use the [Azure Local sizing tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your Azure Local instances. Using the sizing tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your instance, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
 
-The sizing tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
+The sizing tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the instance. Make sure to:
 
-- Reserve a minimum of N+1 physical machines worth of capacity, (or one node), across the cluster. This ensures you can apply Solution Updates, (draining and restarting each node, one by one), without incurring workload downtime.
+- Reserve a minimum of N+1 physical machines worth of capacity, (or one node), across the instance. This ensures you can apply Solution Updates, (draining and restarting each node, one by one), without incurring workload downtime.
 
-- Reserve N+2 physical machines worth of capacity across the cluster for extra resiliency. This option enables the system to withstand a machine failure during an update or other unexpected event that affects two machines simultaneously. It also ensures that there's enough capacity in the cluster for the workload to run on the remaining online machines.
+- Reserve N+2 physical machines worth of capacity across the instance for additional resiliency. This option enables the system to withstand a machine failure during an update or other unexpected event that affects two machines simultaneously. It also ensures that there's enough capacity in the instance for the workload to run on the remaining online machines.
 
-This scenario requires use of three-way mirroring for user volumes, which is the default for clusters that have three or more physical machines.
+This scenario requires use of three-way mirroring for user volumes, which is the default for instances that have three or more physical machines.
 
 The output from the Azure Local sizing tool is a list of recommended hardware solution SKUs that can provide the required workload capacity and platform resiliency requirements based on the input values in the Sizer Project. For more information about available OEM hardware partner solutions, see [Azure Local Solutions Catalog](https://azurestackhcisolutions.azure.microsoft.com/#catalog). To help rightsize solution SKUs to meet your requirements, contact your preferred hardware solution provider or system integration (SI) partner.
 
