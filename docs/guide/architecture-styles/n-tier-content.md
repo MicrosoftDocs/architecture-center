@@ -95,7 +95,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 ### Next steps
 
-- [Create a secure n-tier app in Azure App Service](/articles/app-service/tutorial-secure-ntier-app)
+- [Create a secure n-tier app in Azure App Service](/azure/app-service/tutorial-secure-ntier-app)
 
 ### Related Resources
 
