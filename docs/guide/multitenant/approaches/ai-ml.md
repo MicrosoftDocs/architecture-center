@@ -13,11 +13,11 @@ ms.custom: arb-saas
 
 # Architectural approaches for AI and machine learning in multitenant solutions
 
-An ever-increasing number of multitenant solutions are built around artificial intelligence (AI) and machine learning. A multitenant AI and machine learning solution is one that provides similar machine learning-based capabilities to any number of tenants. Tenants generally can't see or share the data of any other tenant, but in some situations, tenants might use the same models as other tenants.
+An ever-increasing number of multitenant solutions are built around artificial intelligence (AI) and machine learning. A multitenant AI and machine learning solution is one that provides similar machine learning-based capabilities to any number of tenants. Tenants generally can't see or share the data of any other tenant, but in some cases, tenants might use the same models as other tenants.
 
-Multitenant AI and machine learning architectures need to consider the requirements for data and models, as well as the compute resources that are required to train models and to perform inference from models. It's important to consider how multitenant AI and machine learning models are deployed, distributed, and orchestrated, and to ensure that your solution is accurate, reliable, and scalable.
+Multitenant AI and machine learning architectures need to consider the requirements for data and models. These architectures also need to account for the compute resources required to train models and perform inference. It's important to consider how multitenant AI and machine learning models are deployed, distributed, and orchestrated, and to ensure that your solution is accurate, reliable, and scalable.
 
-As generative AI technologies, powered by both large and small language models, gain popularity, it's crucial to establish effective operational practices and strategies for managing these models in production environments via the adoption of Machine Learning Operations (MLOps) and GenAIOps (sometimes known as *LLMOps*).
+Generative AI technologies powered by both large and small language models continue to gain popularity. As a result, organizations must establish effective operational practices and strategies for managing these models in production environments by adopting Machine Learning Operations (MLOps) and generative AI operations (GenAIOps), sometimes known as *LLMOps*.
 
 ## Key considerations and requirements
 
@@ -25,13 +25,13 @@ When you work with AI and machine learning, it's important to separately conside
 
 ### Tenant isolation
 
-Ensure that tenants don't gain unauthorized or unwanted access to the data or models of other tenants. Treat models with a similar sensitivity to the raw data that trained them. Ensure that your tenants understand how their data is used to train models, and how models trained on other tenants' data might be used for inference purposes on their workloads.
+Ensure that tenants don't gain unauthorized or unwanted access to the data or models of other tenants. Treat models with a similar sensitivity to the raw data that trained them. Ensure that your tenants understand how their data is used to train models and how models trained on other tenants' data might be used for inference purposes on their workloads.
 
-There are three common approaches for working with machine learning models in multitenant solutions: tenant-specific models, shared models, and tuned shared models.
+The three common approaches for working with machine learning models in multitenant solutions are tenant-specific models, shared models, and tuned shared models.
 
 #### Tenant-specific models
 
-Tenant-specific models are trained only on the data for a single tenant, and then they're applied to that single tenant. Tenant-specific models are appropriate when your tenants' data is sensitive, or when there's little scope to learn from the data that's provided by one tenant, and you apply the model to another tenant. The following diagram illustrates how you might build a solution with tenant-specific models for two tenants:
+Tenant-specific models are trained only on the data for a single tenant and then they're applied to that single tenant. Use tenant-specific models when your tenants' data is sensitive or when you can't effectively apply insights from one tenant's data to another tenant. The following diagram illustrates how you might build a solution with tenant-specific models for two tenants.
 
 :::image type="complex" border="false" source="media/ai-ml/tenant-specific-models.svg" alt-text="Diagram that shows two tenant-specific models. Each model is trained with data from a single tenant." lightbox="media/ai-ml/tenant-specific-models.svg":::
    The diagram shows two horizontally aligned workflows labeled Tenant A and Tenant B. Each workflow begins with a blue cylindrical icon labeled Tenant A data or Tenant B data. A rightward arrow labeled Produces connects each data icon to a rectangular box labeled Training. Another rightward arrow labeled Produces points from the Training box to a box labeled Tenant A model or Tenant B model. From the right side of each model box, an arrow labeled Users points to a group icon that represents users. A downward arrow labeled Triggers that has a lightning bolt icon connects the user icon to a box labeled Inference. From the Inference box, a rightward arrow labeled Produces points to a box labeled Model output. A final arrow loops back from the right side of the Model output box to the user icon. The Microsoft Azure logo appears in the bottom left corner of the diagram.
@@ -39,13 +39,13 @@ Tenant-specific models are trained only on the data for a single tenant, and the
 
 #### Shared models
 
-In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source. The following diagram illustrates how all tenants can use a single pretrained model:
+In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source. The following diagram illustrates how all tenants can use a single pretrained model.
 
 :::image type="complex" border="false" source="media/ai-ml/shared-pretrained-models.svg" alt-text="Diagram that shows a single pretrained model. The model is used for inference by users from all tenants." lightbox="media/ai-ml/shared-pretrained-models.svg":::
-   The diagram shows three rectangular boxes arranged horizontally from left to right labeled Pre-trained model, Inference, and Model output. An arrow labeled Users points to the Pre-trained model box. Above the Inference box are is a user icon labeled All tenants' users. A downward arrow labeled Triggers connects the user icons to the Inference box. A rightward arrow labeled Produces points from the Inference box to the Model output box. A final arrow loops from the top of the Model output box back to the user icons. The Microsoft Azure logo appears in the bottom left corner.
+   The diagram shows three rectangular boxes arranged horizontally from left to right labeled Pretrained model, Inference, and Model output. An arrow labeled Users points to the Pretrained model box. Above the Inference box is a user icon labeled All tenants' users. A downward arrow labeled Triggers connects the user icons to the Inference box. A rightward arrow labeled Produces points from the Inference box to the Model output box. A final arrow loops from the top of the Model output box back to the user icons. The Microsoft Azure logo appears in the bottom left corner.
 :::image-end:::
 
-You also can build your own shared models by training them from the data provided by all of your tenants. The following diagram illustrates a single shared model, which is trained on data from all tenants:
+You also can build your own shared models by training them from the data that all your tenants provide. The following diagram illustrates a single shared model, which is trained on data from all tenants.
 
 :::image type="complex" border="false" source="media/ai-ml/shared-tenant-trained-models.svg" alt-text="Diagram that shows a single shared model that's trained on the data from multiple tenants. The model is used for inference by users from all tenants." lightbox="media/ai-ml/shared-tenant-trained-models.svg":::
    The diagram shows two blue cylindrical icons labeled Tenant A data and Tenant B data positioned side by side at the top. Both icons connect with arrows to a single rectangular box labeled Training. A rightward arrow labeled Produces points from the Training box to a rectangular box labeled Global model. An icon of two people labeled Users is placed above and between the Global model box and the Inference box. A downward arrow labeled Triggers points to the Inference box. A rightward arrow labeled Produces points from the Inference box to a rectangular box labeled Model output. The Microsoft Azure logo appears in the bottom left corner.
@@ -53,87 +53,93 @@ You also can build your own shared models by training them from the data provide
 
 > [!IMPORTANT]
 >
-> If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure identifying information is removed from your tenants' data.
+> If you train a shared model from your tenants' data, ensure that your tenants understand and agree to the use of their data. Ensure that identifying information is removed from your tenants' data.
 >
-> Consider what to do if a tenant objects to their data being used to train a model that will be applied to another tenant. For example, would you be able to exclude specific tenants' data from the training data set?
+> Consider what to do if a tenant objects to their data being used to train a model that will be applied to another tenant. For example, if a tenant objects to their data being used to train a model that will be applied to another tenant, you might need to exclude that tenant's data from the training dataset.
 
 #### Tuned shared models
 
-You also might choose to acquire a pretrained base model, and then perform further model tuning to make it applicable to each of your tenants, based on their own data. The following diagram illustrates this approach:
+You also might choose to acquire a pretrained base model, and then perform further model tuning to make it applicable to each of your tenants based on their own data. The following diagram illustrates this approach.
 
 :::image type="complex" border="false" source="media/ai-ml/specialized-shared-models.svg" alt-text="Diagram that shows a pretrained base model that is specialized for each tenant, with their own data." lightbox="media/ai-ml/specialized-shared-models.svg":::
-   The diagram shows two parallel workflows for Tenant A and Tenant B arranged vertically. Each workflow begins with a blue cylindrical icon labeled Tenant A data or Tenant B data. A rightward arrow connects each data icon to a rectangular box labeled Tuning for tenant A or Tuning for tenant B. Both tuning boxes connect to a shared rectangular box in the center labeled Pre-trained base model. From the base model, rightward arrows labeled Produces point to separate boxes labeled Tenant A model and Tenant B model. Each model box connects to a box labeled Inference. Above each inference box is a user icon labeled Tenant A's users or Tenant B's users with a downward arrow and lightning bolt icon labeled Triggers that points to the inference box. Rightward arrows labeled Produces connect each inference box to a final box labeled Model output. Microsoft Azure logo appears in the bottom left corner.
+   The diagram shows two parallel workflows for Tenant A and Tenant B arranged vertically. Each workflow begins with a blue cylindrical icon labeled Tenant A data or Tenant B data. A rightward arrow connects each data icon to a rectangular box labeled Tuning for tenant A or Tuning for tenant B. Both tuning boxes connect to a shared rectangular box in the center labeled Pretrained base model. From the base model, rightward arrows labeled Produces point to separate boxes labeled Tenant A model and Tenant B model. Each model box connects to a box labeled Inference. Above each inference box is a user icon labeled Tenant A's users or Tenant B's users that has a downward arrow and lightning bolt icon labeled Triggers that points to the inference box. Rightward arrows labeled Produces connect each inference box to a final box labeled Model output. Microsoft Azure logo appears in the bottom left corner.
 :::image-end:::
 
 ### Scalability
 
 Consider how the growth of your solution affects your use of AI and machine learning components. Growth can refer to an increase in the number of tenants, the amount of data stored for each tenant, the number of users, and the volume of requests to your solution.
 
-**Training:** There are several factors that influence the resources that are required to train your models. These factors include the number of models you need to train, the amount of data that you train the models with, and the frequency at which you train or retrain models. If you create tenant-specific models, then as your number of tenants grows, the amount of compute resources and storage that you require will also likely grow. If you create shared models and train them based on data from all of your tenants, it's less likely that the resources for training scale at the same rate as the growth in your number of tenants. However, an increase in the overall amount of training data affects the resources that are consumed, to train both the shared and tenant-specific models.
+**Training:** There are several factors that influence the resources that are required to train your models. These factors include the number of models that you need to train, the amount of data that you use to train the models, and the frequency at which you train or retrain models. If you create tenant-specific models, then as your number of tenants grows, the amount of compute resources and storage that you require will also likely grow. If you create shared models and train them by using data from all of your tenants, it's less likely that the training resources will scale at the same rate as the growth in your number of tenants. However, as the overall amount of training data increases, it affects the resources consumed to train both shared and tenant-specific models.
 
 **Inference:** The resources that are required for inference are often proportional to the number of requests that access the models for inference. As the number of tenants increases, the number of requests is also likely to increase.
 
-It's a good general practice to use Azure services that scale well. Because AI and machine learning workloads tend to make use of containers, Azure Kubernetes Service (AKS) and Azure Container Instances (ACI) tend to be common choices for AI and machine learning workloads. AKS is usually a good choice to enable high scale, and to dynamically scale your compute resources based on demand. For small workloads, ACI can be a simple compute platform to configure, although it doesn't scale as easily as AKS.
+It's a good general practice to use Azure services that scale well. Because AI and machine learning workloads tend to make use of containers, Azure Kubernetes Service (AKS) and Azure Container Instances (ACI) tend to be common choices for AI and machine learning workloads. AKS is usually a good choice to enable high scale and to dynamically scale your compute resources based on demand. You can use ACI for small workloads and it's relatively easy to configure. However, it doesn't scale as easily as AKS.
 
 ### Performance
 
-Consider the performance requirements for the AI and machine learning components of your solution, for both training and inference. It's important to clarify your latency and performance requirements for each process, so that you can measure and improve as required.
+Consider the performance requirements for the AI and machine learning components of your solution, including both training and inference. Clearly define the latency and performance expectations for each process so that you can measure and improve them as needed.
 
 **Training** is often performed as a batch process, which means that it might not be as performance-sensitive as other parts of your workload. However, you need to ensure that you provision sufficient resources to perform your model training efficiently, including as you scale.
 
 **Inference** is a latency-sensitive process that often requires a fast or even real-time response. Even if you don't need to perform inference in real time, ensure that you monitor the performance of your solution and use the appropriate services to optimize your workload.
 
-Consider using Azure's high-performance computing capabilities for your AI and machine learning workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution would benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [FPGAs](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Servers. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). To learn more about optimizing compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
+Consider using Azure's high-performance computing capabilities for your AI and machine learning workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution would benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [field-programmable gate arrays (FPGAs)](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Server. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). To learn more about how to optimize compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
 
 Model training typically requires many interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
-Consider profiling your solution's performance. For example, [Azure Machine Learning provides profiling capabilities](/azure/machine-learning/how-to-deploy-profile-model) that you can use when developing and instrumenting your solution.
+Consider profiling your solution's performance. For example, [Azure Machine Learning provides profiling capabilities](/azure/machine-learning/how-to-deploy-profile-model) that you can use when you develop and instrument your solution.
 
 ### Implementation complexity
 
-When you build a solution to use AI and machine learning, you can choose to use prebuilt components, or to build custom components. There are two key decisions you need to make. The first is the *platform or service* you use for AI and machine learning. The second is whether you use pretrained models or build your own custom models.
+When you build a solution to use AI and machine learning, you can choose to use prebuilt components or build custom components. There are two key decisions you need to make: the first is the *platform or service* to use for AI and machine learning, and the second is whether you to use pretrained models or build your own custom models.
 
-**Platforms:** There are many Azure services that you can use for your AI and machine learning workloads. For example, Azure AI Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure AI Foundry enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Machine Learning is a platform that enables you to build, train, and use your own machine learning models. Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
+**Platforms:** There are many Azure services that you can use for your AI and machine learning workloads. For example, Azure AI Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure AI Foundry enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Machine Learning is a platform that enables you to build, train, and use your own machine learning models. Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when you select an approach.
 
-**Models:** Even when you don't use a full model that's provided by a service like Azure AI Foundry, you can still accelerate your development by using a pretrained model. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique known as *fine-tuning* or *transfer learning*. Fine-tuning enables you to extend an existing model and apply it to a different domain. For example, if you're building a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations, and use fine-tuning to train the model for a specific user's music preferences.
+**Models:** Even when you don't use a full model that a service like Azure AI Foundry provides, you can still use a pretrained model to accelerate your development. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique known as *fine-tuning* or *transfer learning*. Fine-tuning enables you to extend an existing model and apply it to a different domain. For example, if you build a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations and use fine-tuning to train the model for a specific user's music preferences.
 
-By using a prebuilt machine learning platform like Azure AI Foundry or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research, and avoid the need to recruit highly qualified data scientists to train, design, and optimize models.
+By using a prebuilt machine learning platform like Azure AI Foundry or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research and avoid the need to recruit highly qualified data scientists to train, design, and optimize models.
 
 ### Cost optimization
 
 Generally, AI and machine learning workloads incur the greatest proportion of their costs from the compute resources that are required for model training and inference. Review [Architectural approaches for compute in multitenant solutions](compute.md) to understand how to optimize the cost of your compute workload for your requirements.
 
-Consider the following requirements when planning your AI and machine learning costs:
+Consider the following requirements when you plan your AI and machine learning costs:
 
 - **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
 
 - **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
 
-- **Monitor your utilization.** By observing the utilization of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. See [Machine Learning Monitor](/azure/machine-learning/monitor-azure-machine-learning).
+- **Monitor your usage.** By observing the usage of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. For more information, see [Monitor Machine Learning](/azure/machine-learning/monitor-azure-machine-learning).
 
-- **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster utilization or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
+- **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster usage or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
 
 - **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants.
 
-- **Consider your budget.** Understand whether you have a fixed budget, and monitor your consumption accordingly. You can [set up budgets](/azure/machine-learning/concept-plan-manage-cost#create-budgets) to prevent overspending and to allocate quotas based on tenant priority.
+- **Consider your budget.** Understand whether you have a fixed budget and monitor your consumption accordingly. You can [set up budgets](/azure/machine-learning/concept-plan-manage-cost#create-budgets) to prevent overspending and to allocate quotas based on tenant priority.
 
 ## Approaches and patterns to consider
 
-Azure provides a set of services to enable AI and machine learning workloads. There are several common architectural approaches used in multitenant solutions: to use prebuilt AI and machine learning solutions, to build a custom AI and machine learning architecture by using Machine Learning, and to use one of the Azure analytics platforms.
+Azure provides a set of services to enable AI and machine learning workloads. There are several common architectural approaches used in multitenant solutions:
+
+- Use prebuilt AI and machine learning solutions.
+
+- Build a custom AI and machine learning architecture by using Machine Learning.
+
+- Use one of the Azure analytics platforms.
 
 ### Use prebuilt AI and machine learning services
 
-It's a good practice to try to use prebuilt AI and machine learning services, where you can. For example, your organization might be beginning to look at AI and machine learning and want to quickly integrate with a useful service. Or, you might have basic requirements that don't require custom machine learning model training and development. Prebuilt machine learning services enable you to use inference without building and training your own models.
+It's a good practice to try to use prebuilt AI and machine learning services when you can. For example, your organization might be starting to explore AI and machine learning and want to quickly integrate with a useful service. Or you might have basic requirements that don't require custom machine learning model training and development. Prebuilt machine learning services enable you to use inference without building and training your own models.
 
-Azure provides several services that provide AI and machine learning technology across a range of domains, including language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure's prebuilt AI and machine learning services are provided by a unified AI application service, [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry), and that provides access to various models including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service) (formerly Azure OpenAI Service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration, and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
+Azure provides several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through a unified AI application service called [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry). This service gives users access to various models, including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service), formerly known as Azure OpenAI Service. Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
-Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability, including:
+Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
 - [Azure Custom Voice](/azure/ai-services/speech-service/custom-neural-voice)
 - [Custom Vision service](/azure/ai-services/custom-vision-service/overview)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
-- Some [OpenAI models support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning).
+- [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 
 When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
@@ -141,7 +147,7 @@ Consider the scale requirements for the components in your solution. For example
 
 ### Custom AI and machine learning architecture
 
-If your solution requires custom models, or you work in a domain that isn't covered by a managed machine learning service, then consider building your own AI and machine learning architecture. [Machine Learning](/azure/machine-learning) provides a suite of capabilities to orchestrate the training and deployment of machine learning models, including:
+If your solution requires custom models, or you work in a domain that isn't covered by a managed machine learning service, then consider building your own AI and machine learning architecture. [Machine Learning](/azure/machine-learning) provides a suite of capabilities to orchestrate the training and deployment of machine learning models:
 
 - Use various open-source machine learning libraries, including [PyTorch](https://azure.microsoft.com/develop/pytorch), [TensorFlow](/azure/machine-learning/how-to-train-tensorflow), [Scikit](/azure/machine-learning/how-to-train-scikit-learn), and [Keras](/azure/machine-learning/how-to-train-keras).
 
@@ -151,11 +157,11 @@ If your solution requires custom models, or you work in a domain that isn't cove
 
 - Trigger retraining to improve model performance.
 
-- Throughout the lifecycle of your machine learning models, apply auditability and governance with built-in tracking and lineage (tracking of data and model relationships) for all your machine learning artifacts.
+- Apply auditability and governance throughout the life cycle of your machine learning models. Use built-in tracking and lineage (which is the tracking of data and model relationships) for all your machine learning artifacts.
 
-When you work in a multitenant solution, it's important to consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Machine Learning provides a pipeline to train models, and to deploy them to an environment to be used for inference. In a multitenant context, consider whether models should be deployed to shared compute resources, or if each tenant has dedicated resources. Design your model deployment pipelines, based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.md).
+When you work in a multitenant solution, it's important to consider the [isolation requirements of your tenants](#tenant-isolation) during both the training and inference stages. You also need to determine your model training and deployment process. Machine learning provides a pipeline to train models and deploy them to an environment for inference. This process enables models to generate predictions or insights based on new data. In a multitenant context, consider whether models should be deployed to shared compute resources or if each tenant has dedicated resources. Design your model deployment pipelines based on your [isolation model](../considerations/tenancy-models.md) and your [tenant deployment process](deployment-configuration.md).
 
-When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how to manage the different models and training data for each tenant, as well as versions of the model.
+When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how to manage different models and training data for each tenant, along with the versions of each model.
 
 The following diagram illustrates an example architecture that uses Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
 
@@ -165,19 +171,19 @@ The following diagram illustrates an example architecture that uses Machine Lear
 
 ### Integrated AI and machine learning solutions
 
-Azure provides several powerful analytics platforms that can be used for a range of purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
+Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
 
-You can consider using these platforms for AI and machine learning, when you need to scale your machine learning capabilities to a very large number of tenants, and when you need large-scale compute and orchestration. You also might consider using these platforms for AI and machine learning, when you need a broad analytics platform for other parts of your solution, such as for data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that covers all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+You can consider using these platforms for AI and machine learning when you need to scale your machine learning capabilities to a very large number of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Microsoft Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Machine learning operational model
 
-When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. Review the [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.yml) and [Generative AI Operations (GenAIOps) maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) documents for further guidance.
+When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.yml) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
 
 ## Antipatterns to avoid
 
-- **Failure to consider isolation requirements:** It's important to carefully consider how you [isolate tenants' data and models](#tenant-isolation), both for training and inference. Failing to do so might violate legal or contractual requirements. It also might reduce the accuracy of your models to train across multiple tenants' data, if the data is substantially different.
+- **Failure to consider isolation requirements:** It's important to carefully consider how you [isolate tenants' data and models](#tenant-isolation) for both training and inference. Failing to isolate tenants' data and models might violate legal or contractual requirements. It also might reduce the accuracy of your models to train across multiple tenants' data if the data is substantially different.
 
-- **Noisy neighbors:** Consider whether your training or inference processes could be subject to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For example, if you have several large tenants and a single small tenant, ensure that the model training for the large tenants doesn't inadvertently consume all of the compute resources and starve the smaller tenants. Use resource governance and monitoring to mitigate the risk of a tenant's compute workload that's affected by the activity of the other tenants.
+- **Noisy neighbors:** Consider whether your training or inference processes might be subject to the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For example, if you have several large tenants and a single small tenant, ensure that the model training for the large tenants doesn't inadvertently consume all of the compute resources and starve the smaller tenants. Use resource governance and monitoring to mitigate the risk that the activity of other tenants affects a tenant's compute workload.
 
 ## Contributors
 
