@@ -37,6 +37,7 @@ This article describes a container solution for hosting a large, storage-intensi
 
 - Instead of using the Azure Cache for Redis managed service, you can use a self-hosted pod within the AKS cluster as the cache.
 - Instead of using a managed storage solution like Azure NetApp Files, you can use a self-hosted solution like [Rook-Ceph storage](https://rook.io). For more information, see how to [Use Rook Ceph on Azure Kubernetes Service](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
+- Instead of using Azure Kubernetes Service (AKS), you can use [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) to host containerized WordPress workloads. Azure Container Apps is a fully managed serverless container service that may suit simpler or smaller-scale scenarios. For large, storage-intensive, and highly customizable deployments, AKS is typically preferred.
 
 ## Scenario details
 
