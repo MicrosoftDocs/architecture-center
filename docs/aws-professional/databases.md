@@ -66,10 +66,25 @@ Azure provides a package of products and services designed to capture, organize,
 | Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br /><br />[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store that's typically used to offload nontransactional work from a database. |
 | Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Database Migration Service](https://azure.microsoft.com/campaigns/database-migration) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za) | Senior Cloud Solution Architect Manager
+
+Other contributor:
+
+- [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-94748b25/) |
+Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ### See also
 
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
 
-- [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake)
+- [Microsoft Fabric Blog](https://www.microsoft.com/microsoft-fabric/blog/)
