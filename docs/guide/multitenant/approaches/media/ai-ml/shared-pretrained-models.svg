@@ -74,7 +74,7 @@
 		</v:userDefs>
 		<title>VBackground-1</title>
 		<v:pageProperties width="11.1134" height="4.54016" v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24"
-				v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+				v:shadowOffsetX="0" v:shadowOffsetY="0"/>
 		<g id="shape1-1" v:mID="1" v:groupContext="shape">
 			<title>Solid</title>
 			<v:userDefs>
