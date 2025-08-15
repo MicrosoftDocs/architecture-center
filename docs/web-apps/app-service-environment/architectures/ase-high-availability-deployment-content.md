@@ -1,11 +1,11 @@
 > [!NOTE]
-> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 was [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
+> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 werea [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
 
 [Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a given region. Deploying resources across zones ensures that outages that are limited to a zone don't affect the availability of your applications. This architecture shows how you can improve the resiliency of an App Service Environment deployment by deploying it in a zone-redudant architecture. These zones aren't related to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
 
-Azure services that support availability zones can be zonal, zone redundant, or both. Zonal services can be deployed to a specific zone. Zone-redundant services can be automatically deployed across zones. For detailed guidance and recommendations, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports zone-redundant deployments.
+Azure services that support availability zones can be zonal, zone redundant, or both. Zonal services can be deployed to a specific zone. Zone-redundant services can be automatically deployed across zones. For detailed guidance and recommendations, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
 
-When you configure App Service Environment to be zone redundant, the platform automatically deploys instances of the Azure App Service plan in three zones in the selected region. Therefore, the minimum App Service plan instance count is always three.
+When you configure App Service Environment to be zone redundant, the platform automatically deploys instances of the Azure App Service plan in the maximum number of available zones in the selected region. There must be a minimum of two zones available in the region to enable zone redundancy. Therefore, the minimum App Service plan instance count is always two. The platform determines the number of zones available for an App Service Environment.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
@@ -21,7 +21,7 @@ The resources in the App Service Environment subnets in this reference implement
 
 This section describes the nature of availability for services used in this architecture:
 
-- [App Service Environment v3](/azure/app-service/environment/overview) can be configured for zone redundancy. You can only configure zone redundancy during creation of the App Service Environment and only in regions that support all App Service Environment v3 dependencies. Each App Service plan in a zone-redundant App Service Environment needs to have a minimum of three instances so that they can be deployed in three zones. The minimum charge is for nine instances. For more information,  see this [pricing guidance](/azure/app-service/environment/overview#pricing). For detailed guidance and recommendations, see [App Service Environment Support for Availability Zones](https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html).
+- [App Service Environment v3](/azure/app-service/environment/overview) can be configured for [zone redundancy](/azure/reliability/reliability-app-service-environment). You can configure zone redundancy at any time during the lifecycle of an App Service Environment in the [regions that support zone redundancy](/azure/app-service/environment/overview#regions). Each App Service plan in a zone-redundant App Service Environment needs to have a minimum of two instances so that they can be deployed in at least two zones and be zone redundant. You can have a mix of zone redundant and non-zone redundant plans if zone redundancy is enabled for the App Service Environment. If you want a specific plan to only have a single instance, you need to disable zone redundancy for that plan first. There is no additional charge for zone redundancy. You only pay for the Isolated v2 instances that use. For more information,  see this [pricing guidance](/azure/app-service/environment/overview#pricing). For detailed guidance and recommendations, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) spans all availability zones that are in a single region. The subnets in the virtual network also cross availability zones. For more information, see [the network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements).
 
@@ -53,14 +53,13 @@ This reference implementation uses the same production-level CI/CD pipeline as t
 
 You can deploy App Service Environment across availability zones to provide resiliency and reliability for your business-critical workloads. This configuration is also known as *zone redundancy*.
 
-When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across three zones in the selected region. Therefore, the minimum App Service plan instance count is always three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are deployed evenly. Otherwise, any remaining instances are added to the remaining zone or deployed across the remaining two zones.
+When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across two or more zones in the selected region. Therefore, the minimum App Service plan instance count is always two.
 
-- You configure availability zones when you create your App Service Environment.
-- All App Service plans created in that App Service Environment require a minimum of three instances. They'll automatically be zone redundant.
-- You can specify availability zones only when you create a new App Service Environment. You can't convert a pre-existing App Service Environment to use availability zones.
+- You [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment, or at any time during the lifecylce of the environment.
+- All App Service plans created in that App Service Environment require a minimum of two instances for zone redundancy to be enabled. You can selectively enable and disable zone redundancy for the individual App Service plans as long as the App Service Environment is zone redundant. To scale-in an App Service plan to a single instance, first disable zone redundancy for that plan, and then proceed with the scale-in operation.
 - Availability zones are supported only in a [subset of regions](/azure/reliability/availability-zones-region-support).
 
-For more information, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service?pivots=isolated).
+For more information, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service-environment).
 
 #### Resiliency
 
@@ -109,10 +108,10 @@ The cost considerations for the high availability architecture are similar to th
 
 The following differences can affect the cost:
 
-- You're charged for at least nine App Service plan instances in a zone-redundant App Service Environment. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
-- Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability.
+- There's no additional charge for availability zone support. You only pay for the instances you use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
+- Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability. There are additional charges associated with zone redundancy to support the data transfer between zones.
 
-The tradeoff for a highly available, resilient, and highly secure system is increased cost. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
+The tradeoff for a highly available, resilient, and highly secure system is increased cost for some Azure services. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
 
 ## Deploy this scenario
 
