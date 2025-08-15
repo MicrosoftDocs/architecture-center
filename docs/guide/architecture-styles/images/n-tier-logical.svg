@@ -1,2 +1,291 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="786" height="353.13" viewBox="0 0 786 353.13"><defs><style>
-text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;}.cls-1,.cls-3{fill:none;stroke:#afafaf;stroke-width:6px;}.cls-1{stroke-miterlimit:10;}.cls-2{fill:#afafaf;}.cls-3{stroke-linejoin:bevel;}.cls-4{fill:#3fa0ec;}.cls-5{font-size:18.04px;}.cls-5,.cls-7{fill:#fff;}.cls-6{letter-spacing:-0.04em;}.cls-11,.cls-7{font-size:18px;}.cls-8{letter-spacing:-0.03em;}.cls-9{letter-spacing:-0.04em;}.cls-10{fill:#8fb6cc;}.cls-11{fill:#213d47;}</style></defs><title>n-tier-logical</title><line class="cls-1" x1="561.76" y1="209.38" x2="681" y2="209.38"/><polygon class="cls-2" points="563.95 216.86 551 209.38 563.95 201.9 563.95 216.86"/><line class="cls-1" x1="538" y1="36.38" x2="670.24" y2="36.38"/><polygon class="cls-2" points="668.05 43.86 681 36.38 668.05 28.9 668.05 43.86"/><line class="cls-1" x1="537" y1="109.38" x2="670.24" y2="110.31"/><polygon class="cls-2" points="668 117.77 681 110.38 668.1 102.81 668 117.77"/><line class="cls-3" x1="537" y1="272.87" x2="671.23" y2="272.7"/><polygon class="cls-2" points="669.05 280.18 682 272.68 669.04 265.22 669.05 280.18"/><line class="cls-1" x1="561.76" y1="143.38" x2="681" y2="143.38"/><polygon class="cls-2" points="563.95 150.86 551 143.38 563.95 135.9 563.95 150.86"/><line class="cls-1" x1="290" y1="272.38" x2="464.24" y2="272.38"/><polygon class="cls-2" points="462.05 279.86 475 272.38 462.05 264.9 462.05 279.86"/><rect class="cls-4" x="214.5" y="0.38" width="76" height="352.75" rx="8" ry="8"/><text class="cls-5" transform="translate(234.45 169.75)"><tspan class="cls-6">W</tspan><tspan x="16.14" y="0">eb</tspan><tspan x="3.33" y="21.65">Tier</tspan></text><rect class="cls-4" x="474.75" width="76" height="186" rx="8" ry="8"/><text class="cls-7" transform="translate(485 86.01)">Middle<tspan x="5.7" y="21.6">Tier 1</tspan></text><rect class="cls-4" x="474.75" y="193.78" width="76" height="158" rx="8" ry="8"/><text class="cls-7" transform="translate(485 266.59)">Middle<tspan x="5.7" y="21.6">Tier 2</tspan></text><rect class="cls-4" x="324.75" y="242.73" width="115.75" height="60.1" rx="8" ry="8"/><text class="cls-7" transform="translate(339.75 276.59)">Messaging</text><rect class="cls-4" x="585" y="121.38" width="61.75" height="109" rx="8" ry="8"/><text class="cls-7" transform="translate(591.77 179.69)">Cache</text><line class="cls-1" x1="290" y1="72.38" x2="464.24" y2="73.32"/><polygon class="cls-2" points="462.01 80.79 475 73.38 462.09 65.83 462.01 80.79"/><rect class="cls-4" x="681" width="105" height="73" rx="8" ry="8"/><text class="cls-7" transform="translate(702.89 29.51)"><tspan class="cls-8">R</tspan><tspan x="10.24" y="0">emote</tspan><tspan x="2.64" y="21.6">Service</tspan></text><rect class="cls-4" x="681" y="81.78" width="105" height="270" rx="8" ry="8"/><text class="cls-7" transform="translate(714.98 220.58)">Data<tspan x="3.79" y="21.6">Tier</tspan></text><rect class="cls-4" x="110.25" y="83.88" width="70" height="185.75" rx="8" ry="8"/><text class="cls-7" transform="translate(126.99 180.71)"><tspan class="cls-9">W</tspan><tspan x="16.11" y="0">AF</tspan></text><line class="cls-1" x1="180" y1="176.76" x2="203.24" y2="176.76"/><polygon class="cls-2" points="201.05 184.24 214 176.76 201.05 169.28 201.05 184.24"/><path class="cls-10" d="M75,133a4,4,0,0,1,4,4V472a4,4,0,0,1-4,4H15a4,4,0,0,1-4-4V137a4,4,0,0,1,4-4H75m0-4H15a8,8,0,0,0-8,8V472a8,8,0,0,0,8,8H75a8,8,0,0,0,8-8V137a8,8,0,0,0-8-8Z" transform="translate(-7 -128.62)"/><text class="cls-11" transform="translate(15.22 179.83)">Client</text><line class="cls-1" x1="76" y1="176.76" x2="99.24" y2="176.76"/><polygon class="cls-2" points="97.05 184.24 110 176.76 97.05 169.28 97.05 184.24"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   width="786"
+   height="353.13"
+   viewBox="0 0 786 353.13"
+   version="1.1"
+   sodipodi:docname="n-tier-logical.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.2519084"
+     inkscape:cx="144.32203"
+     inkscape:cy="176.51695"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="4408"
+     inkscape:window-y="5"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;}.cls-1,.cls-3{fill:none;stroke:#afafaf;stroke-width:6px;}.cls-1{stroke-miterlimit:10;}.cls-2{fill:#afafaf;}.cls-3{stroke-linejoin:bevel;}.cls-4{fill:#3fa0ec;}.cls-5{font-size:18.04px;}.cls-5,.cls-7{fill:#fff;}.cls-6{letter-spacing:-0.04em;}.cls-11,.cls-7{font-size:18px;}.cls-8{letter-spacing:-0.03em;}.cls-9{letter-spacing:-0.04em;}.cls-10{fill:#8fb6cc;}.cls-11{fill:#213d47;}</style>
+  </defs>
+  <title
+     id="title1">n-tier-logical</title>
+  <line
+     class="cls-1"
+     x1="561.76"
+     y1="209.38"
+     x2="681"
+     y2="209.38"
+     id="line1" />
+  <polygon
+     class="cls-2"
+     points="563.95 216.86 551 209.38 563.95 201.9 563.95 216.86"
+     id="polygon1" />
+  <line
+     class="cls-1"
+     x1="538"
+     y1="36.38"
+     x2="670.24"
+     y2="36.38"
+     id="line2" />
+  <polygon
+     class="cls-2"
+     points="668.05 43.86 681 36.38 668.05 28.9 668.05 43.86"
+     id="polygon2" />
+  <line
+     class="cls-1"
+     x1="537"
+     y1="109.38"
+     x2="670.24"
+     y2="110.31"
+     id="line3" />
+  <polygon
+     class="cls-2"
+     points="668 117.77 681 110.38 668.1 102.81 668 117.77"
+     id="polygon3" />
+  <line
+     class="cls-3"
+     x1="537"
+     y1="272.87"
+     x2="671.23"
+     y2="272.7"
+     id="line4" />
+  <polygon
+     class="cls-2"
+     points="669.05 280.18 682 272.68 669.04 265.22 669.05 280.18"
+     id="polygon4" />
+  <line
+     class="cls-1"
+     x1="561.76"
+     y1="143.38"
+     x2="681"
+     y2="143.38"
+     id="line5" />
+  <polygon
+     class="cls-2"
+     points="563.95 150.86 551 143.38 563.95 135.9 563.95 150.86"
+     id="polygon5" />
+  <line
+     class="cls-1"
+     x1="290"
+     y1="272.38"
+     x2="464.24"
+     y2="272.38"
+     id="line6" />
+  <polygon
+     class="cls-2"
+     points="462.05 279.86 475 272.38 462.05 264.9 462.05 279.86"
+     id="polygon6" />
+  <rect
+     class="cls-4"
+     x="214.5"
+     y="0.38"
+     width="76"
+     height="352.75"
+     rx="8"
+     ry="8"
+     id="rect6" />
+  <rect
+     class="cls-4"
+     x="2.0542374"
+     y="2.5288136"
+     width="71.11525"
+     height="346.97711"
+     rx="7.4858165"
+     ry="7.8690777"
+     id="rect6-4"
+     style="fill:#ffffff;stroke-width:0.959382;fill-opacity:1" />
+  <text
+     class="cls-5"
+     transform="translate(234.45 169.75)"
+     id="text8"><tspan
+       class="cls-6"
+       id="tspan6">W</tspan><tspan
+       x="16.14"
+       y="0"
+       id="tspan7">eb</tspan><tspan
+       x="3.33"
+       y="21.65"
+       id="tspan8">Tier</tspan></text>
+  <rect
+     class="cls-4"
+     x="474.75"
+     width="76"
+     height="186"
+     rx="8"
+     ry="8"
+     id="rect8" />
+  <text
+     class="cls-7"
+     transform="translate(485 86.01)"
+     id="text9">Middle<tspan
+   x="5.7"
+   y="21.6"
+   id="tspan9">Tier 1</tspan></text>
+  <rect
+     class="cls-4"
+     x="474.75"
+     y="193.78"
+     width="76"
+     height="158"
+     rx="8"
+     ry="8"
+     id="rect9" />
+  <text
+     class="cls-7"
+     transform="translate(485 266.59)"
+     id="text10">Middle<tspan
+   x="5.7"
+   y="21.6"
+   id="tspan10">Tier 2</tspan></text>
+  <rect
+     class="cls-4"
+     x="324.75"
+     y="242.73"
+     width="115.75"
+     height="60.1"
+     rx="8"
+     ry="8"
+     id="rect10" />
+  <text
+     class="cls-7"
+     transform="translate(339.75 276.59)"
+     id="text11">Messaging</text>
+  <rect
+     class="cls-4"
+     x="585"
+     y="121.38"
+     width="61.75"
+     height="109"
+     rx="8"
+     ry="8"
+     id="rect11" />
+  <text
+     class="cls-7"
+     transform="translate(591.77 179.69)"
+     id="text12">Cache</text>
+  <line
+     class="cls-1"
+     x1="290"
+     y1="72.38"
+     x2="464.24"
+     y2="73.32"
+     id="line12" />
+  <polygon
+     class="cls-2"
+     points="462.01 80.79 475 73.38 462.09 65.83 462.01 80.79"
+     id="polygon12" />
+  <rect
+     class="cls-4"
+     x="681"
+     width="105"
+     height="73"
+     rx="8"
+     ry="8"
+     id="rect12" />
+  <text
+     class="cls-7"
+     transform="translate(702.89 29.51)"
+     id="text14"><tspan
+       class="cls-8"
+       id="tspan12">R</tspan><tspan
+       x="10.24"
+       y="0"
+       id="tspan13">emote</tspan><tspan
+       x="2.64"
+       y="21.6"
+       id="tspan14">Service</tspan></text>
+  <rect
+     class="cls-4"
+     x="681"
+     y="81.78"
+     width="105"
+     height="270"
+     rx="8"
+     ry="8"
+     id="rect14" />
+  <text
+     class="cls-7"
+     transform="translate(714.98 220.58)"
+     id="text15">Data<tspan
+   x="3.79"
+   y="21.6"
+   id="tspan15">Tier</tspan></text>
+  <rect
+     class="cls-4"
+     x="110.25"
+     y="83.88"
+     width="70"
+     height="185.75"
+     rx="8"
+     ry="8"
+     id="rect15" />
+  <text
+     class="cls-7"
+     transform="translate(126.99 180.71)"
+     id="text17"><tspan
+       class="cls-9"
+       id="tspan16">W</tspan><tspan
+       x="16.11"
+       y="0"
+       id="tspan17">AF</tspan></text>
+  <line
+     class="cls-1"
+     x1="180"
+     y1="176.76"
+     x2="203.24"
+     y2="176.76"
+     id="line17" />
+  <polygon
+     class="cls-2"
+     points="201.05 184.24 214 176.76 201.05 169.28 201.05 184.24"
+     id="polygon17" />
+  <path
+     class="cls-10"
+     d="M75,133a4,4,0,0,1,4,4V472a4,4,0,0,1-4,4H15a4,4,0,0,1-4-4V137a4,4,0,0,1,4-4H75m0-4H15a8,8,0,0,0-8,8V472a8,8,0,0,0,8,8H75a8,8,0,0,0,8-8V137a8,8,0,0,0-8-8Z"
+     id="path17"
+     transform="translate(-7 -128.62)" />
+  <text
+     class="cls-11"
+     transform="translate(15.22 179.83)"
+     id="text18">Client</text>
+  <line
+     class="cls-1"
+     x1="76"
+     y1="176.76"
+     x2="99.24"
+     y2="176.76"
+     id="line18" />
+  <polygon
+     class="cls-2"
+     points="97.05 184.24 110 176.76 97.05 169.28 97.05 184.24"
+     id="polygon18" />
+</svg>
