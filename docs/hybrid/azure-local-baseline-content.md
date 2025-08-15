@@ -131,7 +131,7 @@ To design and plan an Azure Local deployment, we recommend that you use the [Azu
 
 The sizing tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
 
-- Reserve a minimum of N+1 physical machines worth of capacity, or one node, across the cluster.
+- Reserve a minimum of N+1 physical machines worth of capacity, (or one node), across the cluster. This ensures you can apply Solution Updates, (draining and restarting each node, one by one), without incurring workload downtime.
 
 - Reserve N+2 physical machines worth of capacity across the cluster for extra resiliency. This option enables the system to withstand a machine failure during an update or other unexpected event that affects two machines simultaneously. It also ensures that there's enough capacity in the cluster for the workload to run on the remaining online machines.
 
@@ -270,7 +270,7 @@ To enable connectivity typically involves configuring your firewall, proxy and/o
 
 ### Monitoring
 
-To enhance monitoring and alerting, enable [Monitor Insights on Azure Local](/azure/azure-local/concepts/monitoring-overview). Insights can scale to monitor and manage multiple on-premises clusters using an Azure consistent experience. Insights uses cluster performance counters and event log channels to monitor key Azure Local features. Logs are collected by the DCR that's configured through Monitor and Log Analytics.
+To enhance monitoring and alerting, enable [Monitor Insights on Azure Local](/azure/azure-local/concepts/monitoring-overview). Insights can scale to monitor and manage multiple on-premises instances using an Azure consistent experience. Insights uses cluster performance counters and event log channels to monitor key Azure Local features. Logs are collected by the DCR that's configured through Monitor and Log Analytics.
 
 Insights for Azure Local is built using Monitor and Log Analytics, which ensures an always up-to-date, scalable solution that's highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Local. These components provide a near real-time monitoring solution and enable the creation of graphs, customization of visualizations through aggregation and filtering, and configuration of custom resource health alert rules.
 
