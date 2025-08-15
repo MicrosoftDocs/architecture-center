@@ -7,6 +7,9 @@ metadata:
   ms.date: 03/19/2025
   ms.topic: solution-idea
   ms.subservice: solution-idea
+  ms.collection:
+    - migration
+    - onprem-to-azure
 products:
   - azure-data-factory
   - azure-data-lake

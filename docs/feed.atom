@@ -2,12 +2,100 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-08-04T17:44:20.248Z</updated>
+    <updated>2025-08-11T16:21:47.973Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Storage and Data in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data"/>
+        <updated>2025-08-10T22:10:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn about approaches, including common patterns and antipatterns, to support multitenancy for the storage and data components of your solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Big Data Architecture Style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/big-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/big-data"/>
+        <updated>2025-08-06T16:54:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about big data architectures on Azure with batch processing, real-time analytics, and IoT solutions. Explore benefits and best practices.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a Conversation Knowledge Mining Solution by using Azure AI Services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data"/>
+        <updated>2025-08-08T15:20:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and OpenAI.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is a data lake?]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake"/>
+        <updated>2025-08-05T20:19:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the advantages of using data lake storage repositories, which can hold terabytes and petabytes of data in its native, raw format.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure API Management in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/api-management</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/api-management"/>
+        <updated>2025-08-10T22:54:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the features of Azure API Management that are useful when you work in multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Service and Azure Functions considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service"/>
+        <updated>2025-08-10T22:54:02.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry Storm Antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm"/>
+        <updated>2025-08-10T21:51:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to prevent retry storms in cloud applications by using smart retry strategies, circuit breakers, and telemetry insights.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Plan deployment for updating Windows VMs in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/wsus/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/wsus/index"/>
+        <updated>2025-08-08T18:50:56.000Z</updated>
+        <summary type="html"><![CDATA[A discussion of how best to configure your environment for Windows Server Update Services (WSUS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Advanced Azure Kubernetes Service (AKS) Microservices Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced"/>
+        <updated>2025-08-08T14:41:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-region load balancing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway"/>
+        <updated>2025-08-05T22:27:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2025-08-05T22:02:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Load Balancing Options]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
@@ -377,19 +465,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Architectural approaches for storage and data in multitenant solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data"/>
-        <updated>2025-07-17T02:56:42.000Z</updated>
-        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the storage and data components of your solution.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Retry Storm antipattern]]></title>
+        <title type="html"><![CDATA[Retry Storm Antipattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm</id>
         <link href="https://learn.microsoft.com/azure/architecture/antipatterns/retry-storm"/>
         <updated>2025-07-16T20:39:09.000Z</updated>
-        <summary type="html"><![CDATA[Understand the Retry Storm antipattern, so you can avoid retrying failed requests to a service too often.]]></summary>
+        <summary type="html"><![CDATA[Learn how to prevent retry storms in cloud applications by using smart retry strategies, circuit breakers, and telemetry insights.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -870,14 +950,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
         <updated>2025-06-19T03:21:00.000Z</updated>
         <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity"/>
-        <updated>2025-06-16T20:00:32.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing access controls as per Requirement 7, 8, and 9 of PCI-DSS 3.2.1.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

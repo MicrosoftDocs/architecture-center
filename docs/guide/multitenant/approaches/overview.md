@@ -15,7 +15,7 @@ ms.custom:
 
 You can design and build multitenant solutions in Azure in several ways. At one extreme, you can share every resource in your solution among all of your tenants. At the other extreme, you can deploy isolated resources for every tenant. It might seem simple to deploy separate resources for every tenant, and it can work for a few tenants. However, it typically lacks cost efficiency and makes resource management difficult. Several approaches fall between these extremes. Each approach requires trade-offs between scale, isolation, cost efficiency, performance, implementation complexity, and manageability.
 
-This section describes approaches for the main categories of Azure services that comprise a solution, including [compute](compute.md), [storage and data](storage-data.yml), [networking](networking.md), [deployment](deployment-configuration.yml), [identity](identity.md), [messaging](messaging.md), [AI and machine learning](ai-ml.md), and [Internet of Things (IoT)](iot.md). For each category, it includes antipatterns to avoid and key patterns and approaches to consider when you design a multitenant solution.
+This section describes approaches for the main categories of Azure services that comprise a solution, including [compute](compute.md), [storage and data](storage-data.md), [networking](networking.md), [deployment](deployment-configuration.md), [identity](identity.md), [messaging](messaging.md), [AI and machine learning](ai-ml.md), and [Internet of Things (IoT)](iot.md). For each category, it includes antipatterns to avoid and key patterns and approaches to consider when you design a multitenant solution.
 
 ## Deployment Stamps pattern
 

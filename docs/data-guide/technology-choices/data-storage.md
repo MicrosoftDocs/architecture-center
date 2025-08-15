@@ -193,5 +193,5 @@ Principal author:
 ## Related resources
 
 - [Big data architectures](../big-data/index.yml)
-- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.md)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)

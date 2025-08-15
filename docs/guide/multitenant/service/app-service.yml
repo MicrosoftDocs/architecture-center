@@ -4,7 +4,7 @@ metadata:
   description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenant systems.
   author: johndowns
   ms.author: pnp
-  ms.date: 08/01/2024 
+  ms.date: 08/10/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom:

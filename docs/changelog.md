@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/04/2025
+ms.date: 08/11/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -17,6 +17,25 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## August 2025
+
+### New articles
+
+- [Architectural Approaches for Storage and Data in Multitenant Solutions](./guide/multitenant/approaches/storage-data.md)
+- [Big Data Architecture Style](./guide/architecture-styles/big-data.md)
+- [Build a Conversation Knowledge Mining Solution by using Azure AI Services](./ai-ml/idea/unlock-insights-from-conversational-data.yml)
+
+### Updated articles
+
+- [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#4c78cd751b](https://github.com/MicrosoftDocs/architecture-center/commit/4c78cd751b))
+- [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
+- [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
+- [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
+- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#39a0028b22](https://github.com/MicrosoftDocs/architecture-center/commit/39a0028b22))
+- [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#7715f6b1b2](https://github.com/MicrosoftDocs/architecture-center/commit/7715f6b1b2))
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#ced27a9a36](https://github.com/MicrosoftDocs/architecture-center/commit/ced27a9a36))
 
 ## July 2025
 
@@ -71,10 +90,9 @@ The following new and updated articles have recently been published in the Azure
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [Architectural Approaches for Governance and Compliance in Multitenant Solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#22c44510c0](https://github.com/MicrosoftDocs/architecture-center/commit/22c44510c0))
 - [Architectural approaches for networking in multitenant solutions](./guide/multitenant/approaches/networking.md)  ([#e54cbf0a57](https://github.com/MicrosoftDocs/architecture-center/commit/e54cbf0a57))
-- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#2ad4215274](https://github.com/MicrosoftDocs/architecture-center/commit/2ad4215274))
-- [Retry Storm antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
+- [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#101c275703](https://github.com/MicrosoftDocs/architecture-center/commit/101c275703))
-- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.yml)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
+- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.md)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
 - [Architectural Approaches for Tenant Integration and Data Access](./guide/multitenant/approaches/integration.md)  ([#2d3e279874](https://github.com/MicrosoftDocs/architecture-center/commit/2d3e279874))
 - [Azure Cache for Redis Considerations for Multitenancy](./guide/multitenant/service/cache-redis.md)  ([#74b0437dc4](https://github.com/MicrosoftDocs/architecture-center/commit/74b0437dc4))
 - [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#c89a4b5fc6](https://github.com/MicrosoftDocs/architecture-center/commit/c89a4b5fc6))
@@ -141,7 +159,6 @@ The following new and updated articles have recently been published in the Azure
 - [SAP S/4 HANA for Large Instances](./solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
 - [Modern Data Platform Architecture for SMBs](./solution-ideas/articles/small-medium-modern-data-platform.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#69a84710fd](https://github.com/MicrosoftDocs/architecture-center/commit/69a84710fd))
-- [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#c33187a67c](https://github.com/MicrosoftDocs/architecture-center/commit/c33187a67c))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#f631aedcfa](https://github.com/MicrosoftDocs/architecture-center/commit/f631aedcfa))
 - [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
 - [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#8ae080a36b](https://github.com/MicrosoftDocs/architecture-center/commit/8ae080a36b))
