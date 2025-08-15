@@ -83,7 +83,7 @@
 				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
 				<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 			</v:userDefs>
-			<rect x="0" y="0" width="800.165" height="326.891" class="st1"/>
+			<rect x="0" y="0" width="800.165" height="326.891" style="fill:#ffffff;stroke:none"/>
 		</g>
 	</g>
 	<g v:mID="0" v:index="2" v:groupContext="foregroundPage">
