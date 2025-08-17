@@ -23,11 +23,11 @@ This section describes the nature of availability for services used in this arch
 
 - [App Service Environment v3](/azure/app-service/environment/overview) can be configured for [zone redundancy](/azure/reliability/reliability-app-service-environment). You can configure zone redundancy at any time during the lifecycle of an App Service Environment in the [regions that support zone redundancy](/azure/app-service/environment/overview#regions). Each App Service plan in a zone-redundant App Service Environment needs to have a minimum of two instances so that they can be deployed in at least two zones and be zone redundant. You can have a mix of zone redundant and non-zone redundant plans if zone redundancy is enabled for the App Service Environment. If you want a specific plan to only have a single instance, you need to disable zone redundancy for that plan first. There is no additional charge for zone redundancy. You only pay for the Isolated v2 instances that use. For more information, see this [pricing guidance](/azure/app-service/environment/overview#pricing). For detailed guidance and recommendations, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) spans all availability zones that are in a single region. The subnets in the virtual network also cross availability zones. For more information, see [the network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements).
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) spans all availability zones that are in a single region. The subnets in the virtual network also cross availability zones. For more information, see [the network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements), and [Reliabiity in Azure Virtual Network](/azure/reliability/reliability-virtual-network).
 
-- [Application Gateway v2](https://azure.microsoft.com/products/application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones per region. Therefore, a single application gateway is sufficient for a highly available system, as shown in the reference architecture. The reference architecture uses the WAF SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities, based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+- [Azure Application Gateway v2](https://azure.microsoft.com/products/application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones per region. Therefore, a single application gateway is sufficient for a highly available system, as shown in the reference architecture. The reference architecture uses the WAF SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities, based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Reliability in Azure Application Gateway v2](/azure/reliability/reliability-application-gateway-v2).
 
-- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall/) has built-in support for high availability. It can cross multiple zones without any additional configuration.
+- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall/) has built-in support for high availability. It can use multiple zones without any additional configuration.
 
   If you need to, you can also configure a specific availability zone when you deploy the firewall. See [Azure Firewall and Availability Zones](/azure/firewall/overview#availability-zones) for more information. (This configuration isn't used in the reference architecture.)
 
@@ -65,7 +65,7 @@ For more information, see [Reliability in Azure App Service](/azure/reliability/
 
 The applications that run in App Service Environment form the [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application running in App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, `votingApp`. This health probe checks whether the web API and the Redis cache are healthy. You can see the code that implements this probe in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
 
-```dotnetcli
+```csharp
 var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionEndpoints:VotingDataAPIBaseUri"))
 {
     Path = "/health"
@@ -79,7 +79,7 @@ services.AddHealthChecks()
 The following code shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_ha.azcli) script configures the backend pools and the health probe for the application gateway:
 
 ```bash
-# Generates parameters file for appgw script
+# Generates parameters file for Azure Application Gateway script
 cat <<EOF > appgwApps.parameters.json
 [
   {
