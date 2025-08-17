@@ -55,7 +55,7 @@ You can deploy App Service Environment across availability zones to provide resi
 
 When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across two or more zones in the selected region. Therefore, the minimum App Service plan instance count is always two.
 
-- You [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment, or at any time during the lifecylce of the environment.
+- You [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment, or at any time during the lifecycle of the environment.
 - All App Service plans created in that App Service Environment require a minimum of two instances for zone redundancy to be enabled. You can selectively enable and disable zone redundancy for the individual App Service plans as long as the App Service Environment is zone redundant. To scale-in an App Service plan to a single instance, first disable zone redundancy for that plan, and then proceed with the scale-in operation.
 - Availability zones are supported only in a [subset of regions](/azure/reliability/availability-zones-region-support).
 
