@@ -83,7 +83,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 
-- For higher security, place a perimeter network, also called a DMZ, in front of the application. The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. For more information, see [Network DMZ reference architecture][dmz].
+- For higher security, place a perimeter network, also called a DMZ, in front of the application. The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. For more information, see [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 - For high availability, place two or more NVAs in an availability set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
 
@@ -91,20 +91,16 @@ Network security groups restrict access to each tier. For example, the database 
 
 - You can extend the Azure virtual network to your on-premises network using a site-to-site virtual private network (VPN) or Azure ExpressRoute. For more information, see [Hybrid network reference architecture][hybrid-network].
 
-- If your organization uses Active Directory to manage identity, you might want to extend your Active Directory environment to the Azure VNet.
-
-### Next steps
+### Next step
 
 - [Create a secure n-tier app in Azure App Service](/azure/app-service/tutorial-secure-ntier-app)
 
-### Related Resources
+### Related resource
 
-- [Azure Bastion](/azure/bastion/bastion-overview)
 - More information on messaging in an [N-tier architecture style on Azure](https://docs.particular.net/architecture/azure/n-tier)
 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
-[dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
 [ha-nva]: ../../networking/guide/network-virtual-appliance-high-availability.md
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
