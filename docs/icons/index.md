@@ -38,7 +38,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
-|August 2025|Added ten new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Promethus along with a few icons used in Azure Portal hub experiences.|
+|August 2025|Added ten new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Promethus along with a few icons used in Azure portal hub experiences.|
 |March 2025|Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons.|
 |November 2024|Added 10 new icons such as Azure AI Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
 |July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
