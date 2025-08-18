@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 08/11/2025
+ms.date: 08/18/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,13 +22,22 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Event-Driven Architecture Style](./guide/architecture-styles/event-driven.md)
+- [Architectural Approaches for the Deployment and Configuration of Multitenant Solutions](./guide/multitenant/approaches/deployment-configuration.md)
 - [Architectural Approaches for Storage and Data in Multitenant Solutions](./guide/multitenant/approaches/storage-data.md)
 - [Big Data Architecture Style](./guide/architecture-styles/big-data.md)
 - [Build a Conversation Knowledge Mining Solution by using Azure AI Services](./ai-ml/idea/unlock-insights-from-conversational-data.yml)
 
 ### Updated articles
 
+- [Securely Managed Web Applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#3c46023f4e](https://github.com/MicrosoftDocs/architecture-center/commit/3c46023f4e))
+- [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml)  ([#c8f307de2a](https://github.com/MicrosoftDocs/architecture-center/commit/c8f307de2a))
+- [Protect APIs by using Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#dd7b7cdd27](https://github.com/MicrosoftDocs/architecture-center/commit/dd7b7cdd27))
 - [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#4c78cd751b](https://github.com/MicrosoftDocs/architecture-center/commit/4c78cd751b))
+- [Azure Local baseline reference architecture](./hybrid/azure-local-baseline.yml)  ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
+- [Azure Local storage switchless architecture](./hybrid/azure-local-switchless.yml)  ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
+- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#85e7ed16c7](https://github.com/MicrosoftDocs/architecture-center/commit/85e7ed16c7))
+- [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md)  ([#4eacd2c846](https://github.com/MicrosoftDocs/architecture-center/commit/4eacd2c846))
 - [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
 - [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
@@ -82,17 +91,16 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#ed02f09c26](https://github.com/MicrosoftDocs/architecture-center/commit/ed02f09c26))
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#910a86755b](https://github.com/MicrosoftDocs/architecture-center/commit/910a86755b))
 - [Choose a Kubernetes at the Edge Compute Option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)  ([#723bb4b356](https://github.com/MicrosoftDocs/architecture-center/commit/723bb4b356))
-- [Protect APIs with Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
+- [Protect APIs by using Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
 - [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#7cca2c974e](https://github.com/MicrosoftDocs/architecture-center/commit/7cca2c974e))
 - [Use an Identity as a Service platform](./guide/design-principles/identity.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [IoT Hub-based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [Considerations for Multitenant Control Planes](./guide/multitenant/considerations/control-planes.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#b96cc0b45f](https://github.com/MicrosoftDocs/architecture-center/commit/b96cc0b45f))
 - [Architectural Approaches for Governance and Compliance in Multitenant Solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#22c44510c0](https://github.com/MicrosoftDocs/architecture-center/commit/22c44510c0))
-- [Architectural approaches for networking in multitenant solutions](./guide/multitenant/approaches/networking.md)  ([#e54cbf0a57](https://github.com/MicrosoftDocs/architecture-center/commit/e54cbf0a57))
+- [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md)  ([#e54cbf0a57](https://github.com/MicrosoftDocs/architecture-center/commit/e54cbf0a57))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#7bdeda6e95](https://github.com/MicrosoftDocs/architecture-center/commit/7bdeda6e95))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md)  ([#101c275703](https://github.com/MicrosoftDocs/architecture-center/commit/101c275703))
-- [Architectural approaches for the deployment and configuration of multitenant solutions](./guide/multitenant/approaches/deployment-configuration.md)  ([#d5bbbb8383](https://github.com/MicrosoftDocs/architecture-center/commit/d5bbbb8383))
 - [Architectural Approaches for Tenant Integration and Data Access](./guide/multitenant/approaches/integration.md)  ([#2d3e279874](https://github.com/MicrosoftDocs/architecture-center/commit/2d3e279874))
 - [Azure Cache for Redis Considerations for Multitenancy](./guide/multitenant/service/cache-redis.md)  ([#74b0437dc4](https://github.com/MicrosoftDocs/architecture-center/commit/74b0437dc4))
 - [Multitenancy and Azure Storage](./guide/multitenant/service/storage.md)  ([#c89a4b5fc6](https://github.com/MicrosoftDocs/architecture-center/commit/c89a4b5fc6))

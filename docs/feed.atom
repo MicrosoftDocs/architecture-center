@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-08-11T16:21:47.973Z</updated>
+    <updated>2025-08-18T17:44:01.187Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Event-Driven Architecture Style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven"/>
+        <updated>2025-08-14T16:51:10.000Z</updated>
+        <summary type="html"><![CDATA[Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure that use messaging patterns and microservices.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for the Deployment and Configuration of Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration"/>
+        <updated>2025-08-11T20:53:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy and configure multitenant solutions in Azure by using automation, scalable architecture, and best practices for onboarding tenants.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Architectural Approaches for Storage and Data in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data</id>
@@ -33,11 +49,67 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Securely Managed Web Applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/fully-managed-secure-apps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/fully-managed-secure-apps"/>
+        <updated>2025-08-14T16:36:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy secure applications by using the App Service Environment, Azure Application Gateway, and Web Application Firewall.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure API Management Landing Zone Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function"/>
+        <updated>2025-08-12T21:29:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a secure enterprise API management architecture that uses Azure Application Gateway, API Management, and CI/CD pipeline deployment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect APIs by using Azure Application Gateway and Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis"/>
+        <updated>2025-08-11T19:03:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn best practices for networking in Azure multitenant solutions, including hub-and-spoke topologies, virtual networks, and regional deployment strategies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[What is a data lake?]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-lake"/>
         <updated>2025-08-05T20:19:31.000Z</updated>
         <summary type="html"><![CDATA[Learn about the advantages of using data lake storage repositories, which can hold terabytes and petabytes of data in its native, raw format.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Local baseline reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-baseline"/>
+        <updated>2025-08-18T14:21:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Local for highly available virtualized and containerized workloads]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Local storage switchless architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-switchless</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-switchless"/>
+        <updated>2025-08-18T14:21:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Local infrastructure by using a storage switchless architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HA enterprise deployment using ASE]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment"/>
+        <updated>2025-08-17T22:21:16.000Z</updated>
+        <summary type="html"><![CDATA[Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Networking in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking"/>
+        <updated>2025-08-11T19:49:17.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to consider for networking in a multitenant solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -401,11 +473,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Protect APIs with Azure Application Gateway and Azure API Management]]></title>
+        <title type="html"><![CDATA[Protect APIs by using Azure Application Gateway and Azure API Management]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis</id>
         <link href="https://learn.microsoft.com/azure/architecture/web-apps/api-management/architectures/protect-apis"/>
         <updated>2025-07-17T21:57:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to protect APIs with API Management and Application Gateway.]]></summary>
+        <summary type="html"><![CDATA[Learn best practices for networking in Azure multitenant solutions, including hub-and-spoke topologies, virtual networks, and regional deployment strategies.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -457,7 +529,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Architectural approaches for networking in multitenant solutions]]></title>
+        <title type="html"><![CDATA[Architectural Approaches for Networking in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/networking"/>
         <updated>2025-07-17T04:16:14.000Z</updated>
@@ -478,14 +550,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
         <updated>2025-07-16T19:25:25.000Z</updated>
         <summary type="html"><![CDATA[Learn about deployment options for both platform and application landing zones in Azure to help ensure governance and cost efficiency.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural approaches for the deployment and configuration of multitenant solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/deployment-configuration"/>
-        <updated>2025-07-15T22:59:21.000Z</updated>
-        <summary type="html"><![CDATA[This article describes approaches to consider when deploying and configuring a multitenant solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
