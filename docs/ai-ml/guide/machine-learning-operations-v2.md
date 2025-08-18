@@ -258,7 +258,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+- [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs.
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a service that ingests data streams that client applications generate. It then ingests and stores streaming data, which preserves the sequence of events received. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
@@ -625,6 +625,7 @@ Other contributors:
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
+- [Daniel Crawford](https://www.linkedin.com/in/daniel-crawford-b661373/) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -639,7 +640,7 @@ Other contributors:
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps documentation](/azure/devops)
 - [GitHub Docs](https://docs.github.com)
-- [Synapse Analytics documentation](/azure/synapse-analytics)
+- [Microsoft Fabric documentation](/fabric/fundamentals/)
 - [Event Hubs documentation](/azure/event-hubs)
 - [How Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [What are Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
