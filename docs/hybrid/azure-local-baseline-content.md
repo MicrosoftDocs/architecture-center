@@ -262,7 +262,7 @@ Outbound network connectivity is required from your Azure Local instance, this i
 
 To enable connectivity typically involves configuring your firewall, proxy and/or internet egress technology to allow outbound access to the required public endpoints. Key considerations for Azure Local outbound network requirements:
 
-- Azure Local does not support SSL / TLS packet inspection along any of the networking path from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For details information, refer to [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
+- Azure Local does not support SSL / TLS packet inspection along any of the networking paths from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For details information, refer to [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
 
 - Consider using the [Azure Arc gateway](/azure/azure-local/deploy/deployment-azure-arc-gateway-overview) to simplify connectivity requirements, as this significantly reduces the number of required endpoints that need to be added to your firewall or proxy rules for the deployment and management of Azure Local.
 
