@@ -74,7 +74,7 @@ items:
             href: ../multitenant/approaches/integration.md
           - name: IoT
             href: ../multitenant/approaches/iot.md
-          - name: AI and ML
+          - name: AI and machine learning
             href: ../multitenant/approaches/ai-machine-learning.md
         - name: Service-specific guidance
           items:
