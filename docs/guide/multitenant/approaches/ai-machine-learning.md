@@ -165,7 +165,7 @@ When you use open-source models, you might need to retrain these models by using
 
 The following diagram illustrates an example architecture that uses Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
 
-:::image type="complex" border="false" source="media/ai-ml/approach-azure-ml.svg" alt-text="Diagram that shows an architecture that uses Machine Learning." lightbox="media/ai-ml/approach-azure-ml.svg":::
+:::image type="complex" border="false" source="media/ai-ml/approach-azure-machine-learning.svg" alt-text="Diagram that shows an architecture that uses Machine Learning." lightbox="media/ai-ml/approach-azure-machine-learning.svg":::
    The diagram shows a large box on the left labeled Azure Machine Learning workspace. Inside this box are three sections labeled Projects, Experiments, and Data plane. Three arrows extend from the Data plane section to three separate boxes labeled Tenant A model, Tenant B model, and Tenant C model. Each tenant model box connects via an arrow that points from a central box labeled Azure Machine Learning compute. An arrow points from a box labeled Shared API that contains an icon with interlinked green and blue chains to the Azure Machine Learning compute box. Three arrows extend from three groups of user icons labeled Tenant A users, Tenant B users, and Tenant C users and point to the Shared API box. Microsoft Azure logo appears in the bottom left corner.
 :::image-end:::
 
