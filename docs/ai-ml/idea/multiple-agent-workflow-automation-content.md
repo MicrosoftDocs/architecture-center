@@ -149,4 +149,4 @@ Other contributor:
 ## Next steps
 
 - [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) using Semantic Kernel
-- [Azure AI Foundry Agent Service documentation](/azure/ai-foundry/concepts/agents)
+- [Azure AI Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)
