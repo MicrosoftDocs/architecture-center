@@ -22,6 +22,8 @@ Azure provides several different relational database services that are the equiv
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 
+[SQL Database in Microsoft Fabric (preview)](https://learn.microsoft.com/fabric/database/sql/overview) uses the same engine as Azure SQL Database but is deeply integrated with other workloads in the Microsoft Fabric platform.
+
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
 Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
@@ -46,7 +48,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
 
-- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric): a unified data platform that accelerates time to value across data engineering, warehouse, real-time analytics, data science and business intelligence.
+- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric): a unified data platform that accelerates time to value across data engineering, data warehouse, lakehouse, real-time analytics, data science and business intelligence.
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
@@ -60,10 +62,10 @@ Azure provides a package of products and services designed to capture, organize,
 
 | Type | AWS Service | Azure Service | Description |
 | -----| ----------- | ------------- | ----------- |
-| Relational database | [RDS](https://aws.amazon.com/rds) | [SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
+| Relational database | [RDS](https://aws.amazon.com/rds) | [SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)<br/><br/>[SQL Database in Microsoft Fabric (preview)](https://learn.microsoft.com/fabric/database/sql/overview) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
 | Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview) | Database offering that automatically scales compute based on the workload demand. You're billed per second for the actual compute used. |
-| NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br /><br />[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure CosmosDb for NoSQL but is tightly integrated into Microsoft Fabric platform. |
-| Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br /><br />[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store that's typically used to offload nontransactional work from a database. |
+| NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br/><br/>[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric (preview)](https://learn.microsoft.com/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure Cosmos DB for NoSQL but is tightly integrated into Microsoft Fabric platform. |
+| Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br/><br/>[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store that's typically used to offload nontransactional work from a database. |
 | Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Database Migration Service](https://azure.microsoft.com/campaigns/database-migration) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
 
 ## Contributors
@@ -76,7 +78,7 @@ Principal author:
 
 Other contributor:
 
-- [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-94748b25/) |
+- [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-uk/) |
 Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -87,6 +89,6 @@ Senior Cloud Solution Architect
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
 
-- [Microsoft Fabric overview](/fabric/fundamentals/microsoft-fabric-overview)
+- [Microsoft Fabric overview](https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview)
 
 - [Microsoft Fabric Blog](https://www.microsoft.com/microsoft-fabric/blog/)
