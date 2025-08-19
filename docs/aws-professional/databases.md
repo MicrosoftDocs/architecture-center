@@ -18,7 +18,7 @@ ms.collection:
 
 Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (Amazon RDS). These include:
 
-- [SQL Database](/azure/sql-database/sql-database-technical-overview)
+- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 
@@ -44,17 +44,17 @@ Costs for Amazon RDS are determined by the amount of hardware resources that you
 
 Azure provides a package of products and services designed to capture, organize, analyze, and visualize large amounts of data consisting of the following services:
 
-- [HDInsight](/azure/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
+- [Azure HDInsight](/azure/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
 
-- [Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
+- [Azure Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
 
 - [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric): a unified data platform that accelerates time to value across data engineering, data warehouse, lakehouse, real-time analytics, data science and business intelligence.
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
+- [Azure Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
 
-- [Stream Analytics](/azure/stream-analytics): real-time data analysis.
+- [Azure Stream Analytics](/azure/stream-analytics): real-time data analysis.
 
 - [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to create rich interactive data visualizations.
 
