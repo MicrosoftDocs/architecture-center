@@ -17,7 +17,7 @@ An ever-increasing number of multitenant solutions are built around AI and machi
 
 Multitenant AI and machine learning architectures need to consider the requirements for data and models. These architectures also need to account for the compute resources required to train models and perform inference. It's important to consider how multitenant AI and machine learning models are deployed, distributed, and orchestrated, and to ensure that your solution is accurate, reliable, and scalable.
 
-Generative AI technologies powered by both large and small language models continue to gain popularity. As a result, organizations must establish effective operational practices and strategies for managing these models in production environments by adopting machine learning operations and generative AI operations (GenAIOps), sometimes known as *LLMOps*.
+Generative AI technologies powered by both large and small language models continue to gain popularity. As a result, organizations must establish effective operational practices and strategies for managing these models in production environments by adopting machine learning operations (MLOps) and generative AI operations (GenAIOps), sometimes known as *LLMOps*.
 
 ## Key considerations and requirements
 
@@ -73,7 +73,7 @@ Consider how the growth of your solution affects your use of AI and machine lear
 
 **Inference:** The resources that are required for inference are often proportional to the number of requests that access the models for inference. As the number of tenants increases, the number of requests is also likely to increase.
 
-It's a good general practice to use Azure services that scale well. Because AI and machine learning workloads tend to make use of containers, Azure Kubernetes Service (AKS) and Azure Container Instances tend to be common choices for AI and machine learning workloads. AKS is often a good choice to enable high scale and to dynamically scale your compute resources based on demand. You can use ACI for small workloads. It's relatively easy to configure but doesn't scale as easily as AKS.
+It's a good general practice to use Azure services that scale well. Because AI and machine learning workloads tend to make use of containers, Azure Kubernetes Service (AKS) and Azure Container Instances tend to be common choices for AI and machine learning workloads. AKS is often a good choice to enable high scale and to dynamically scale your compute resources based on demand. You can use Container Instances for small workloads. It's relatively easy to configure but doesn't scale as easily as AKS.
 
 ### Performance
 
