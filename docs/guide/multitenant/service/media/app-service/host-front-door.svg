@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 801.29 182.44">
-<rect width="100%" height="100%" fill="#ffffff"/>
+  <rect width="100%" height="100%" fill="#ffffff"/>
   <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
   <defs>
     <linearGradient id="linear-gradient" x1="-211.1" y1="-369.03" x2="-211.1" y2="-328.78" gradientTransform="translate(564 -243.92) scale(1 -1)" gradientUnits="userSpaceOnUse">
@@ -22,20 +22,12 @@
   <g isolation="isolate">
     <g id="Shapes">
       <g>
-        <g mix-blend-mode="multiply" opacity=".8">
-          <rect x="298.23" y="46.04" width="110" height="128" fill="#155ea1"/>
-          <rect x="298.23" y="46.04" width="110" height="128" fill="#155ea1"/>
-        </g>
         <g>
           <rect x="297.73" y="45.54" width="110" height="128" fill="#fff"/>
           <rect x="297.73" y="45.54" width="110" height="128" fill="#c6e3f3"/>
         </g>
       </g>
       <g>
-        <g mix-blend-mode="multiply" opacity=".8">
-          <rect x="681.63" y="46.04" width="110" height="128" fill="#155ea1"/>
-          <rect x="681.63" y="46.04" width="110" height="128" fill="#155ea1"/>
-        </g>
         <g>
           <rect x="681.13" y="45.54" width="110" height="128" fill="#fff"/>
           <rect x="681.13" y="45.54" width="110" height="128" fill="#c6e3f3"/>
