@@ -3,7 +3,7 @@ title: Compare AWS and Azure database technology
 description: Compare database technology differences between Azure and AWS. Review the Amazon RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity-zz-zz
 ms.author: yubaijna
-ms.date: 07/25/2022
+ms.date: 08/19/2025
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
 ms.collection: 
@@ -86,5 +86,7 @@ Senior Cloud Solution Architect
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
+
+- [Microsoft Fabric overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview)
 
 - [Microsoft Fabric Blog](https://www.microsoft.com/microsoft-fabric/blog/)
