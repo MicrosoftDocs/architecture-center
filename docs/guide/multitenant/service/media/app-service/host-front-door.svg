@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 801.29 182.44">
+<rect width="100%" height="100%" fill="#ffffff"/>
   <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
   <defs>
     <linearGradient id="linear-gradient" x1="-211.1" y1="-369.03" x2="-211.1" y2="-328.78" gradientTransform="translate(564 -243.92) scale(1 -1)" gradientUnits="userSpaceOnUse">
@@ -80,7 +81,10 @@
     </g>
     <g id="Text">
       <text transform="translate(333.82 21.2)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="14" font-weight="700"><tspan x="0" y="0">Azure </tspan><tspan x="-17.02" y="16.8">Front Door</tspan></text>
-      <text transform="translate(691.32 21.2)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="14" font-weight="700"><tspan x="0" y="0">Azure Service </tspan><tspan x="31.99" y="16.8">app</tspan></text>
+      <text transform="translate(691.32 21.2)" fill="#2f2f2f" font-family="SegoeUI-Bold, 'Segoe UI'" font-size="14" font-weight="700">
+  <tspan x="0" y="0">Azure App </tspan>
+  <tspan x="0" y="16.8">Service</tspan>
+</text>
       <text transform="translate(84.41 72.44)" fill="#2f2f2f" font-size="14"><tspan x="0" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">Host: </tspan><tspan x="38.55" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">invoices.fabrikam.com</tspan></text>
       <text transform="translate(4.25 114.24)" fill="#2f2f2f" font-size="14"><tspan x="0" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">Host: </tspan><tspan x="38.55" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">payments.worldwideimporters.com</tspan></text>
       <text transform="translate(439.63 114.24)" fill="#2f2f2f" font-size="14"><tspan x="0" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">Host: </tspan><tspan x="38.55" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">contoso.azurewebsites.net</tspan></text>
