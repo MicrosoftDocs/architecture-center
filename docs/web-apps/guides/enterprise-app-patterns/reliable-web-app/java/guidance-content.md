@@ -1,5 +1,7 @@
 ---
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 [!INCLUDE [intro 1](../includes/intro-1.md)]
