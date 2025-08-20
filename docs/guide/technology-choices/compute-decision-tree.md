@@ -22,7 +22,7 @@ Azure provides many ways to host your application code. The term *compute* refer
 Use the following flowchart to select a candidate compute service.
 
 :::image type="complex" border="false" source="/images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="/images/compute-choices.svg":::
-   <Long description that ends with a period.>
+   Diagram that shows
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this architecture.*
@@ -272,7 +272,7 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 [cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [durable-functions]: /azure/azure-functions/durable/durable-functions-overview
-[event-driven]: ../architecture-styles/event-driven.yml
+[event-driven]: ../architecture-styles/event-driven.md
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity
 [function-plans]: /azure/azure-functions/functions-scale
 [microservices]: ../architecture-styles/microservices.md
