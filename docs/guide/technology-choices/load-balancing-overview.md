@@ -110,7 +110,7 @@ When your workload includes several services that require load balancing, assess
   >
   > Using a regional resource as a router for globally distributed back ends introduces a regional single point of failure. It also incurs extra latency because traffic is forced through one region before going to another and then back again.
 
-- **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.yml#scalability).
+- **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.md#scalability).
 
 - **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
 
