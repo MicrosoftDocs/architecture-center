@@ -9,6 +9,7 @@ ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
+  - sfi-image-nochange
 ---
 
 # Evaluate AKS cluster health
