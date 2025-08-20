@@ -2,7 +2,7 @@ Multitenant solutions often require special consideration when you measure and a
 
 ## Key considerations and requirements
 
-Consider the requirements you have for measuring the consumption for your solution. This is discussed in more detail on [Measure the consumption of each tenant](../considerations/measure-consumption.md). 
+Consider the requirements you have for measuring the consumption for your solution. This is discussed in more detail on [Measure the consumption of each tenant](../considerations/measure-consumption.md).
 
 ### Purpose of measurement
 
@@ -52,7 +52,7 @@ With this tagging strategy, it's easy to filter the cost information to a single
 
 In situations where you don't have a direct relationship between an Azure resource and a tenant, consider instrumenting your application to collect telemetry.
 
-Your application tier might already collect logs and metrics that are helpful to answer questions about metering, for example:
+Your application tier might already collect logs and metrics that are helpful for answering questions about metering, for example:
 
 - Approximately how many API requests are made per tenant?
 - What times of the day are specific tenants busiest?
@@ -66,7 +66,7 @@ If you need to track precise details about consumption or usage for billing purp
 
 ### Use Azure Reservations and Azure savings plan to reduce costs
 
-**Azure Reservations:** [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) enable you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types. 
+**Azure Reservations:** [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) enable you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types.
 
 Reservations can be used effectively in a multitenant solution. Note the following considerations:
 

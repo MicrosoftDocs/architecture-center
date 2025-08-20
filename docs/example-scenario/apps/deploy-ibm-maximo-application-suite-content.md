@@ -152,6 +152,7 @@ In some cases, such as for regulatory compliance, you might require an air-gappe
 We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
+
 - [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.16/installing/disconnected_install/installing-mirroring-installation-images.html)
 - [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/installing-azure-private.html)
 
@@ -174,7 +175,7 @@ For all other machines, we recommend configuring VMs across [availability zones]
 
 - **Worker nodes**. A minimum of two machines per availability zone within the selected region. We recommend a vCPU count of at least 8. Our reference uses 6x [Standard_D8s_v4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series) nodes.
 
-MAS core requires 13 vCPUs for a standard-sized base installation. Sizing for the worker nodes varies based on which MAS applications your configuration deploys and the load on your environment. For example, Manage for 10 users requires another 2 vCPUs. We recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/ibm-maximo-application-suite-system-requirements) to get a good sizing estimate.
+MAS core requires 13 vCPUs for a standard-sized base installation. Sizing for the worker nodes varies based on which MAS applications your configuration deploys and the load on your environment. For example, Manage for 10 users requires another 2 vCPUs. We recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/ibm-maximo-application-suite-870-system-requirements) to get a good sizing estimate.
 
 Try to keep the types of VMs similar to each other to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 VM for your control nodes, also use a v4 VM for your worker nodes.
 

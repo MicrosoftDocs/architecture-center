@@ -2,8 +2,6 @@
 
 This reference architecture shows an end-to-end stream processing pipeline. The four stages of this pipeline are ingest, process, store, and analyze and report. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are then stored for further analysis.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
-
 ## Architecture
 
 :::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks.svg":::
@@ -368,10 +366,6 @@ SparkMetric_CL
 
   Consider writing automated integration tests to improve the quality and reliability of the Databricks code and its lifecycle.
 
-## Deploy this scenario
-
-To deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
-
 ## Next step
 
 - [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
@@ -384,5 +378,4 @@ To deploy and run the reference implementation, follow the steps in the [GitHub 
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [event-hubs-pricing]: https://azure.microsoft.com/pricing/details/event-hubs/
-[github]: https://github.com/mspnp/azure-databricks-streaming-analytics
 [azure-databricks-pricing]: https://azure.microsoft.com/pricing/details/databricks/

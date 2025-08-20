@@ -52,7 +52,7 @@ When running microservices in the baseline cluster, you'll need to configure net
 If you need a regulated environment, make the baseline implementation highly secure and restrict interactions to and from of the cluster. This use case is demonstrated in a cluster that's designed to run a financially regulated workload.
 
 > [!div class="nextstepaction"]
-> [Baseline cluster for a regulated use case](./aks-pci/aks-pci-intro.yml)
+> [Baseline cluster for a regulated use case](/azure/aks/pci-intro)
 
 ### Business continuity and disaster recovery
 

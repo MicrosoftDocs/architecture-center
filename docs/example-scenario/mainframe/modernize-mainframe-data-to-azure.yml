@@ -7,6 +7,9 @@ metadata:
   ms.date: 02/26/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Modernize mainframe and midrange data
 azureCategories:
   - migration

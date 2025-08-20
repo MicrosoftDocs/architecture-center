@@ -40,8 +40,6 @@ This solution uses the following Azure components.
 
 [Vision](https://azure.microsoft.com/products/ai-services/ai-vision) uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses the latest OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) isn't optimized for large documents but supports more languages. The accuracy of OCR results can vary based on the quality of the scan and the image. This solution uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
-
 #### Language
 
 [Language](/azure/ai-services/language-service/overview) uses [text analytics](/azure/ai-services/language-service/overview#available-features) capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) to extract text information from unstructured documents.
