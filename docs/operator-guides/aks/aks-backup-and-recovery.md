@@ -76,7 +76,7 @@ Following are some examples of backup and recovery solutions that you can use wi
 
 ### AKS Backup
 
-[AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's a simple, Azure-native process, which lets you back up and restore the containerized applications and data running in your AKS clusters.
+[AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's an Azure-native process that lets you back up and restore the containerized applications and data running in your AKS clusters.
 
 AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. It integrates with the [Azure Backup Center](/azure/backup/backup-center-overview) to provide a single area in the Azure portal that can help you govern, monitor, operate, and analyze backups at scale.
 
@@ -84,7 +84,7 @@ See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service
 
 ### Kasten
 
-[Kasten](https://www.kasten.io/) is a commercial product, which provides operations teams with an easy-to-use and secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
+[Kasten](https://www.kasten.io/) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
 
 When Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
 
