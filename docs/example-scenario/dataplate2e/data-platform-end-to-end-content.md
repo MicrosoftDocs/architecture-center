@@ -175,7 +175,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ### Components
 
-The following Azure services have been used in the architecture:
+The following services are used in this architecture:
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 - [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
@@ -195,13 +195,14 @@ The following Azure services have been used in the architecture:
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 - [Azure Policy](/azure/governance/policy/overview)
-- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
 
 ### Alternatives
 
 - In the architecture above, Azure Synapse pipelines are responsible for data pipeline orchestration. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) pipelines also provide the same capabilities as described in this article.
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) can also be used as the compute engine used to process structured and unstructured data directly on the data lake.
+
+  When using Azure Databricks, you can connect your Power Apps serving layer directly to Delta Lake tables in Azure Databricks without exporting data. Consider this path when business teams need near real-time reads from curated lakehouse tables.
 
 - In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Synapse Spark pools and Azure Databricks can also be used to perform the same role through the execution of notebooks.
 
@@ -320,4 +321,3 @@ Principal author:
 - Explore the [Data Engineer Learning Paths at Microsoft learn](/training/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
 
 - Review the documentation and deploy the reference architecture using the [deployment guidance available on GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
-
