@@ -15,44 +15,46 @@ ms.custom:
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It can help you identify and diagnose problems, analyze user behavior, and track key metrics. This article describes some of the features of Application Insights that are useful for multitenant systems. It also describes various tenancy models.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, as you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Considerations for measuring consumption in multitenant solutions](../considerations/measure-consumption.md).
+> Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, a task that you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Measure the consumption of each tenant](../considerations/measure-consumption.md).
 
 ## Isolation models
 
-When you implement a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. Here are some factors that might influence your choice:
+When you implement a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. The following factors might influence your choice:
 
-- How many tenants do you plan to have?
-- Do you share your application tier among multiple tenants, or do you deploy separate deployment stamps for each tenant?
-- Are you or your customers sensitive about storing data alongside other tenants' data?
-- Is the application tier of your solution multitenant, and the data tier single tenant?
-- Do telemetry requirements vary among tenants?
+- How many tenants that you plan to have.
+- Whether you share your application tier among multiple tenants or deploy separate deployment stamps for each tenant.
+- You or your customers are sensitive about storing data alongside other tenants' data.
+- The application tier of your solution is multitenant, and the data tier is single tenant.
+- Whether telemetry requirements vary among tenants.
 
 > [!TIP]
-> The main factors that determine the cost of Application Insights are the amount of data that you send to it and how long the data is retained. In a multitenant application, the overall cost is the same for a dedicated Application Insights instance as it is for a shared instance. For more information, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+> The main factors that determine the cost of Application Insights are the amount of data that you send to it and how long the data is retained. In a multitenant application, the overall cost is the same for a dedicated Application Insights instance as it is for a shared instance. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-This table summarizes the differences between the main tenancy models for Application Insights:
+The following table summarizes the differences between the main tenancy models for Application Insights:
 
-| Consideration | Globally shared Application Insights instance| One Application Insights instance per region/stamp | One Application Insights instance per tenant |
+| Consideration | Globally shared Application Insights instance| One Application Insights instance for each region or stamp | One Application Insights instance for each tenant |
 |-|-|-|-|
 | **Data isolation** | Low | Low | High |
 | **Performance isolation** | Low | Medium | High |
 | **Deployment complexity** | Low to medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
 | **Operational complexity** | Low | Medium | High |
-| **Example scenario** | Large multitenant solution with a shared application tier | Multitenant solution with regional deployments to better serve a global customer base | Individual application instances per tenant |
+| **Example scenario** | Large multitenant solution that has a shared application tier | Multitenant solution that has regional deployments to better serve a global customer base | Individual application instances for each tenant |
 
 ### Globally shared Application Insights instance
 
-You can use a single instance of Application Insights to track telemetry for tenants in a multitenant application, as shown here:
+You can use a single instance of Application Insights to track telemetry for tenants in a multitenant application.
 
-![Diagram that shows the globally shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
+:::image type="complex" border="false" source="media/application-insights/global-shared-app-insights.png" alt-text="Diagram that shows the globally shared Application Insights isolation model." lightbox="media/application-insights/global-shared-app-insights.png":::
+   The diagram consists of three sections. The leftmost section contains icons that represent tenants. The middle section contains boxes that represent stamps. The rightmost section represents Application Insights. Arrows point from Tenant 1 and Tenant 2 to the application in Stamp A. Arrows point from Tenant 3 and Tenant 4 to the application in Stamp B. An arrow points from Tenant 5 to the application in Stamp A. Arrows point from the stamps to the Application Insights section.
+:::image-end:::
 
-Benefits of this approach include simplified configuration and management of the application, because you only need to instrument the application code once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+One benefit of this approach is simplified configuration and management of the application. You only need to instrument the application code once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
 
-When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. Because all tenants share the same Log Analytics workspace and instrumentation keys, security and privacy might also be a concern.
+When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have many tenants. All tenants share the same Log Analytics workspace and instrumentation keys, so security and privacy might also be a concern.
 
-To address these concerns, you might need to implement logic and mechanisms to ensure that data can be filtered by tenant and that your operations team can properly see per-tenant data. You can implement filtering by adding a [custom property](#custom-properties-and-metrics) to capture the tenant ID as part of every telemetry item. The tenant ID can then be used to query the data.
+To address these concerns, you might need to implement logic and mechanisms to ensure that you can filter data by tenant and that your operations team can properly see per-tenant data. You can implement filtering by adding a [custom property](#custom-properties-and-metrics) to capture the tenant ID as part of every telemetry item. You can then use the tenant ID to query the data.
 
-### One Application Insights instance per stamp
+### One Application Insights instance for each stamp
 
 Multitenant solutions often include multiple stamps, which might be deployed in different Azure regions. Stamps enable you to serve tenants that are local to a particular region so you can provide better performance. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
 
