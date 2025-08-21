@@ -4,7 +4,7 @@ This architecture isn't focused on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and it can vary between different application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
-Kubernetes is a powerful ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster should be designed and operated. Running an AKS cluster involves a mix of closed-source components from a variety of vendors, including Microsoft; and open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you're acknowledging that your workload needs its capabilities, and that the workload team is prepared to invest on an ongoing basis.
+Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster should be designed and operated. Running an AKS cluster involves a mix of closed-source components from a variety of vendors, including Microsoft; and open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you're acknowledging that your workload needs its capabilities, and that the workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline). Use it as an alternative starting point and configure the reference architecture based on your needs.
 
@@ -291,11 +291,11 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 [!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
 
-AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and offer high performance. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
 In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
 
-In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
+In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
 
 For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 

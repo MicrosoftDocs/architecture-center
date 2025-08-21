@@ -79,7 +79,7 @@ If you encounter performance issues with an Azure Container Registry, consider t
 - [Configure the geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
 - [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
-These guides can help you ensure seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
+These guides can help you achieve reliable image retrieval for your AKS cluster and support stable operation of your workloads.
 
 ## Integrate a third-party container registry
 

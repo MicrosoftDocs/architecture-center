@@ -158,7 +158,7 @@ Build and release pipelines for a mission-critical application must be fully aut
 
 Automated pipelines are required for building, testing, and deploying a mission workload in preproduction *and* production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
 
-Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities. 
+Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities.
 
 > Refer to [Well-Architected mission-critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
@@ -184,7 +184,7 @@ Monitoring data for global resources and regional resources should be stored ind
 
 In this architecture, monitoring resources within a region must be independent from the stamp itself, because if you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps.
 
-Similarly, data from shared services such as, Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace.
+Similarly, data from shared services such as Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace.
 
 #### Data archiving and analytics
 
@@ -219,7 +219,7 @@ The description of this flow is in the following sections.
 
 6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
 
-7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Azure Cosmos DB. The SDK determines the optimal order of available Azure Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
+7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including support to configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Azure Cosmos DB. The SDK determines the optimal order of available Azure Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
 
 8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Azure Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
 
