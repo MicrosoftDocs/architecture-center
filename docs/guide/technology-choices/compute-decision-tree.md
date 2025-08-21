@@ -43,25 +43,25 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 If you're not familiar with the Azure service selected in the previous section, see the following overview documentation:
 
-- [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
+- [Azure App Service](/azure/app-service) is a managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 
-- [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [Azure Batch](/azure/batch/batch-technical-overview) is a managed service for running large-scale parallel and high-performance computing (HPC) applications.
 
-- [Azure Functions](/azure/azure-functions/functions-overview): A service that provides managed functions that run based on a variety of trigger types for event-driven applications.
+- [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview) is a service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
 
-- [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a service that provides managed functions that run based on a variety of trigger types for event-driven applications.
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): A service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes service for running containerized applications.
 
-- [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
+- [Azure Red Hat OpenShift](/azure/openshift) is a fully managed OpenShift cluster for running containers in production with Kubernetes.
 
-- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview): A distributed systems platform that can run in many environments, including Azure or on-premises.
+- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) is a distributed systems platform that can run in many environments, including Azure or on-premises.
 
-- [Azure Batch](/azure/batch/batch-technical-overview): A managed service for running large-scale parallel and high-performance computing (HPC) applications.
+- [Azure VMware Solution](/azure/azure-vmware/introduction) is a managed service for running VMware workloads natively on Azure.
 
-- [Azure VMware Solution](/azure/azure-vmware/introduction): A managed service for running VMware workloads natively on Azure.
+- [Azure Virtual Machines](/azure/virtual-machines) is a service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 
 ## Understand the hosting models
 
@@ -74,11 +74,11 @@ For hosting models, cloud services fall into three categories:
 - **Functions as a service (FaaS)** lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
 
   > [!NOTE]
-  > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
+  > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps that provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
 There's a spectrum from IaaS to fully managed PaaS. For example, Azure VMs can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
 
-There's a trade-off between control and ease of management. IaaS gives the most control, flexibility, and portability. However, you have to provision, configure, and manage the VMs and network components that you create. FaaS services automatically manage nearly all aspects of running an application. PaaS provides partial management while requiring some user configuration.
+There's a trade-off between control and ease of management. IaaS provides the most control, flexibility, and portability. However, you have to provision, configure, and manage the VMs and network components that you create. FaaS services automatically manage nearly all aspects of running an application. PaaS provides partial management while requiring some user configuration.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |---|---|---|---|---|---|
@@ -155,16 +155,16 @@ There's a trade-off between control and ease of management. IaaS gives the most 
 
 | Service | Autoscaling | Load balancer | Scale limit<a href="#note3d"><sup>3</sup></a> |
 |---|---|---|---|
-| Virtual Machines | Virtual machine scale sets | Azure Load Balancer | Platform image: 1,000 nodes for each scale set, Custom image: 600 nodes for each scale set |
+| Virtual Machines | Virtual machine scale sets | Azure Load Balancer | Platform image: 1,000 nodes for each scale set. Custom image: 600 nodes for each scale set. |
 | App Service | Built-in service | Integrated | 30 instances, 100 with App Service Environment |
 | Azure Functions | Built-in service | Integrated | 200 instances for each function app |
-| AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Azure Load Balancer or Azure Application Gateway | 5,000 nodes when you use [Uptime SLA][uptime-sla] |
+| AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Load Balancer or Azure Application Gateway | 5,000 nodes when you use [uptime SLA][uptime-sla] |
 | Container Apps | Scaling rules<a href="#note4d"><sup>4</sup></a> | Integrated | 15 environments for each region (default limit), unlimited container apps for each environment and replicas for each container app (depending on available cores) |
 | Container Instances | Not supported | No built-in support | 100 container groups for each subscription (default limit) |
-| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Azure Load Balancer or Azure Application Gateway | 250 nodes for each cluster (default limit) |
-| Service Fabric | Virtual machine scale sets | Azure Load Balancer | 100 nodes for each virtual machine scale set |
-| Batch | Not applicable | Azure Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
-| Azure VMware Solution | Built-in service<a href="#note5d"><sup>5</sup></a> | Integrated<a href="#note6d"><sup>6</sup></a> | Per VMware vCenter can manage between 3 ~ 16 VMware ESXi hosts |
+| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Load Balancer or Azure Application Gateway | 250 nodes for each cluster (default limit) |
+| Service Fabric | Virtual machine scale sets | Load Balancer | 100 nodes for each virtual machine scale set |
+| Batch | Not applicable | Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
+| Azure VMware Solution | Built-in service<a href="#note5d"><sup>5</sup></a> | Integrated<a href="#note6d"><sup>6</sup></a> | Per VMware vCenter can manage between 3 and 16 VMware ESXi hosts |
 
 **Notes**
 
@@ -184,33 +184,33 @@ There's a trade-off between control and ease of management. IaaS gives the most 
 
 | Service | Multiregion failover option |
 |---|---|
-| Virtual Machines | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Virtual Machines | Azure Traffic Manager, Azure Front Door, and cross-region Load Balancer |
 | App Service | Azure Traffic Manager and Azure Front Door |
 | Azure Functions | Azure Traffic Manager and Azure Front Door |
 | AKS | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Container Apps | Azure Traffic Manager and Azure Front Door |
 | Container Instances | Azure Traffic Manager and Azure Front Door |
 | Azure Red Hat OpenShift | Azure Traffic Manager and Azure Front Door |
-| Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
+| Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Load Balancer |
 | Batch | Not applicable |
 | Azure VMware Solution | Not applicable |
 
-For guided learning on service guarantees, see [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
+For guided learning on service guarantees, see [Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
 ## Security
 
-Review and understand the available security controls and visibility for each service:
+Review and understand the available security controls and visibility for each of the following services:
 
-- [Azure Windows VM](/azure/virtual-machines/windows/security-baseline)
-- [Azure Linux VM](/azure/virtual-machines/linux/security-baseline)
+- [AKS](/azure/aks/security-baseline)
 - [App Service](/azure/app-service/overview-security)
 - [Azure Functions](/azure/azure-functions/security-baseline)
-- [AKS](/azure/aks/security-baseline)
-- [Container Instances](/azure/container-instances/security-baseline)
-- [Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
-- [Service Fabric](/azure/service-fabric/security-baseline)
-- [Batch](/azure/batch/security-baseline)
+- [Azure Linux VM](/azure/virtual-machines/linux/security-baseline)
 - [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
+- [Azure Windows VM](/azure/virtual-machines/windows/security-baseline)
+- [Batch](/azure/batch/security-baseline)
+- [Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
+- [Container Instances](/azure/container-instances/security-baseline)
+- [Service Fabric](/azure/service-fabric/security-baseline)
 
 ## Other criteria
 
@@ -231,10 +231,10 @@ Review and understand the available security controls and visibility for each se
 
 Along with the previous comparison tables, do a more detailed evaluation of the following aspects of the candidate service:
 
-- [Service limits](/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing)
-- [SLA](https://azure.microsoft.com/support/legal/sla)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services)
+- [SLA](https://azure.microsoft.com/support/legal/sla)
+- [Service limits](/azure/azure-subscription-service-limits)
 
 ## Contributors
 
