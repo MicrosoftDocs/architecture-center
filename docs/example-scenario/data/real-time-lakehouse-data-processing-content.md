@@ -39,7 +39,7 @@ Note: A similar architecture can also be implemented using Microsoft Fabric, whi
 
 1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This usage scenario is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
 
-1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure Cognitive Search. Azure Cosmos DB and Cognitive Search can fulfill most scenarios that require low latency query responses.For example, if a retail application stores product catalog data in Cosmos DB, but needs full-text search capabilities with flexible indexing, Azure AI Search can index the data and provide advanced search features like autocomplete, synonyms, and semantic ranking. This is particularly useful when Cosmos DB’s indexing limitations hinder complex search scenarios.
+1. The Azure Cosmos DB partitioning strategy might not efficiently support all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure AI Search. Cosmos DB and AI Search can fulfill most scenarios that require low latency query responses. For example, if a retail application stores product catalog data in Cosmos DB, but needs full-text search capabilities with flexible indexing, AI Search can index the data and provide advanced search features like autocomplete, synonyms, and semantic ranking. This is particularly useful when Cosmos DB’s indexing limitations hinder complex search scenarios.
 
 ### Components
 
