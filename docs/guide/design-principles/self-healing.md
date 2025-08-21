@@ -18,7 +18,7 @@ Design an application that's self-healing when failures occur. Use the following
 - Respond to failures gracefully.
 - Log and monitor failures to provide operational insight.
 
-## Design your application self-heal when failures occur
+## Design your application to self-heal when failures occur
 
 Align your response to failures with your workload's availability requirements. For example, if you require high availability, you might deploy to multiple availability zones in a region. To avoid outages when an Azure region experiences disruption, you can automatically fail over to a secondary region. This approach increases cost and can reduce performance compared to a single-region deployment.
 
@@ -34,9 +34,9 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Implement health endpoint monitoring.** Each service should expose a health endpoint that indicates its current state and the state of its dependencies. External monitoring systems, load balancers, and orchestrators use these health endpoints to determine whether a service is healthy and route traffic accordingly. For more information, see the [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
-**Protect failing remote services (Circuit Breaker).** It's good practice to retry after a transient failure, but persistent failure can overload a failing service and cause cascading failures. Use the [Circuit Breaker pattern](../../patterns/circuit-breaker.md) to fail fast without making the remote call when an operation is likely to fail.
+**Protect failing remote services.** It's good practice to retry after a transient failure, but persistent failure can overload a failing service and cause cascading failures. Use the [Circuit Breaker pattern](../../patterns/circuit-breaker.md) to fail fast without making the remote call when an operation is likely to fail.
 
-**Isolate critical resources (Bulkhead).** Failures in one subsystem can cascade if resources, such as threads or sockets, aren't released promptly, which can lead to resource exhaustion. Use the [Bulkhead pattern](../../patterns/bulkhead.yml) to partition a system into isolated groups so that a failure in one partition doesn't affect the entire system.
+**Isolate critical resources.** Failures in one subsystem can cascade if resources, such as threads or sockets, aren't released promptly, which can lead to resource exhaustion. Use the [Bulkhead pattern](../../patterns/bulkhead.yml) to partition a system into isolated groups so that a failure in one partition doesn't affect the entire system.
 
 **Perform load leveling.** Applications can experience sudden spikes in traffic that overwhelm services on the back end. Use the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to queue work items to run asynchronously. The queue acts as a buffer that smooths out load peaks.
 
@@ -54,7 +54,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Use leader election.** When you need to coordinate a task, use the [Leader Election pattern](../../patterns/leader-election.yml) to select a coordinator. This approach ensures that the coordinator isn't a single point of failure. If the coordinator fails, the system selects a new one. Rather than implementing a custom leader election algorithm, consider a prebuilt solution such as [Apache ZooKeeper](https://zookeeper.apache.org/).
 
-**Test with fault injection.** The success path often receives thorough testing, but the failure path doesn't. A system can run in production for a long time before a failure path is triggered. Use fault injection to test the resiliency of the system to failures by triggering or simulating failures.
+**Test with fault injection.** The success path often receives thorough testing, but the failure path doesn't. A system can run in production for a long time before a failure path is triggered. Use fault injection to test the system's resiliency to failures by triggering or simulating failures.
 
 **Implement chaos engineering.** Chaos engineering extends the concept of fault injection by randomly introducing failures or abnormal conditions into production instances. Tools such as [Azure Chaos Studio](/azure/chaos-studio/) help you run controlled chaos experiments that identify weaknesses in your self-healing strategy.
 
