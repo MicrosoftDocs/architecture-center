@@ -97,7 +97,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Event Hubs offers 90-day data retention on the premium and dedicated tiers. For failover scenarios, you can set up a secondary namespace in the paired region and activate it during failover.Enable zone redundancy to ensure resilience against datacenter failures. Event hubs capture can be used to persist data to Azure Data Lake Storage for replay and recovery scenarios.
+- Event Hubs offers 90-day data retention on the premium and dedicated tiers. For failover scenarios, you can set up a secondary namespace in the paired region and activate it during failover. Enable zone redundancy to ensure resilience against datacenter failures. Event hubs capture can be used to persist data to Azure Data Lake Storage for replay and recovery scenarios.
 
 - Azure Synapse Spark pool jobs are recycled every seven days as nodes are taken down for maintenance. Consider this activity as you work through the service level agreements (SLAs) tied to the system. This limitation isn't an issue for many scenarios where recovery time objective (RTO) is around 15 minutes. Ensure autoscaling is configured to handle load spikes and node failures.
 
