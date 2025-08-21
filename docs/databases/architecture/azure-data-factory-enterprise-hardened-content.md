@@ -68,6 +68,8 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 :::image type="content" source="_images/azure-data-factory-hardened.png" lightbox="_images/azure-data-factory-hardened.png" alt-text="Diagram that shows the hardened medallion architecture." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened-logical.vsdx) of this architecture.*
+
 ### Workflow
 
 The following workflow corresponds to the preceding diagram:
