@@ -22,7 +22,7 @@ Note: A similar architecture can also be implemented using Microsoft Fabric, whi
 
 1. Other batch data sources can use Azure Synapse pipelines to copy data to Data Lake Storage and make it available for processing. An end-to-end extract, transform, and load (ETL) workflow might need to chain different steps or add dependencies between steps. Azure Synapse pipelines can orchestrate workflow dependencies within the overall processing framework.
 
-1. Azure Synapse Spark pools use fully supported Apache Spark structured streaming APIs to process data in the Spark streaming framework. The data processing step incorporates data quality checks and high-level business rule validations.
+1. Azure Synapse Spark pools use fully supported Apache Spark structured streaming APIs to process data in the Spark Streaming framework. The data processing step incorporates data quality checks and high-level business rule validations.
 
 1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing for existing data lakes.
 
