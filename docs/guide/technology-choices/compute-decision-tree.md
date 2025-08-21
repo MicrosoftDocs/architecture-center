@@ -8,9 +8,9 @@ ms.reviewer: ssumner
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
+- arb-web
 - fcp
 - linux-related-content
-- arb-web
 ---
 
 # Choose an Azure compute service
@@ -21,8 +21,8 @@ Azure provides many ways to host your application code. The term *compute* refer
 
 Use the following flowchart to select a candidate compute service.
 
-:::image type="complex" border="false" source="/images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="/images/compute-choices.svg":::
-   Diagram that shows
+:::image type="complex" border="false" source="images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="images/compute-choices.svg":::
+   The image shows a flowchart for selecting an appropriate Azure service based on whether the user is migrating an existing workload or building a new one. The flowchart begins with a Start node and splits into two primary branches labeled Migrate and Build new. The Migrate branch includes decision points that assess whether the application is optimized for the cloud and whether it can be containerized. Depending on the answers, the flow leads to services such as Azure App Service, Azure VMware Solution, or Virtual machine. The Build new branch includes decision points that evaluate the need for full control, high-performance computing, event-driven workloads, managed web hosting, and orchestration requirements. These decisions guide the user toward services such as Virtual machine, Azure Batch, Azure Functions, Azure App Service, Azure Container Instances, Azure Service Fabric, Azure Red Hat OpenShift, Azure Kubernetes Service, or Azure Container Apps. A branching section for your own orchestration implementation on Azure Virtual Machines includes VMware Tanzu on Azure Virtual Machines, Kubernetes on Azure Virtual Machines, and OpenShift on Azure Virtual Machines. At the bottom of the image, two boxed sections list container-exclusive services and container-compatible services. The container-exclusive section includes Azure Container Instances, Azure Red Hat OpenShift, Kubernetes on Azure Virtual Machines, OpenShift on Azure Virtual Machines, and VMware Tanzu on Azure Virtual Machines. The container-compatible section includes Azure Batch, Azure Functions, Azure Service Fabric, and Azure App Service.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this architecture.*
