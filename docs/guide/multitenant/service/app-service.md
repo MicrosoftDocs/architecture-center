@@ -29,7 +29,7 @@ App Service and Azure Functions can integrate with [Azure Front Door](/azure/fro
 
 When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single host name. All traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
 
-:::image type="complex" border="false" source="media/app-service/host-front-door.svg" alt-text="Diagram that shows requests coming into Azure Front Door by using various host names." lightbox="media/app-service/host-front-door.svg":::
+:::image type="complex" border="false" source="media/app-service/host-front-door.png" alt-text="Diagram that shows requests coming into Azure Front Door by using various host names." lightbox="media/app-service/host-front-door.png":::
    The image shows Azure Front Door and App service. Three arrows point from three host names to Azure Front Door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. An arrow labeled Host: contoso.azurewebsites.net points to App Service.
 :::image-end:::
 
