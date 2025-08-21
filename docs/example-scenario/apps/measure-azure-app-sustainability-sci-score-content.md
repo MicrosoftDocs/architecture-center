@@ -124,7 +124,8 @@ You can display your data and calculations in various ways, including customized
 After you know your sustainability score, you might wonder how you can improve it.
 
 If you can score your application's carbon impact by using proxies, the next step is to focus on defining actions that can be triggered by unfavorable conditions in the score. Some examples of these conditions are:
-- Energy production and demand is at an all-time high and is therefore expensive to produce.
+
+- Energy production and demand are at an all-time high and is therefore expensive to produce.
 - Electricity isn't available. This condition could be caused by a natural disaster or geopolitical conflict.
 - Sudden unavailability of edge infrastructure caused by resource over-consumption or supply chain issues.
 

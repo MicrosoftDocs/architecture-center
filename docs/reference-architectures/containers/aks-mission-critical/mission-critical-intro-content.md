@@ -184,7 +184,7 @@ Monitoring data for global resources and regional resources should be stored ind
 
 In this architecture, monitoring resources within a region must be independent from the stamp itself, because if you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps.
 
-Similarly, data from shared services such as, Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace.
+Similarly, data from shared services such as Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace.
 
 #### Data archiving and analytics
 

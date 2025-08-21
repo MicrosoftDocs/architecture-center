@@ -16,7 +16,7 @@ The following are some example use cases in which you could use this architectur
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end-user S a a S application." source="./media/saas-starter-web-app-architecture.svg" lightbox="./media/saas-starter-web-app-architecture.svg" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end-user SaaS application." source="./media/saas-starter-web-app-architecture.svg" lightbox="./media/saas-starter-web-app-architecture.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/saas-starter-web-app-architecture.pptx) of this architecture.*
 

@@ -142,7 +142,7 @@ Taking advantage of sampling and continually assessing the appropriate amount of
 Use the [Event Hubs output binding for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-output) to simplify publishing to an event stream from a function. The benefits of using this binding include:
 
 - **Resource management:** The binding handles both the client and connection lifecycles for you, and reduces the potential for issues that can arise with port exhaustion and connection pool management.
-- **Less code:** The binding abstracts the underlying SDK and reduces the amount of code that you need to publish events. It helps you write and maintain code with less boilerplate lines.
+- **Less code:** The binding abstracts the underlying SDK and reduces the amount of code that you need to publish events. It helps you write and maintain code with fewer boilerplate lines.
 - **Batching:** For several languages, batching is supported to efficiently publish to an event stream. Batching can improve performance and help streamline the code that sends the events.
 
 We strongly recommend that you review the list of [Languages that Functions supports](/azure/azure-functions/supported-languages) and the developer guides for those languages. The **Bindings** section for each language provides detailed examples and documentation.
