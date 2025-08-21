@@ -117,7 +117,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - To optimize cost efficiency in Azure Cosmos DB, tailor your indexing policies to include only necessary paths, reducing storage and RU consumption. Choose the appropriate API and consistency level to match workload needs without overprovisioning. Use autoscale throughput to dynamically adjust RU/s based on demand, and consolidate workloads into fewer containers when possible to minimize overhead. Regularly monitor usage with Azure Cost Management and set alerts to avoid unexpected charges.
 
-- You can estimate pricing using the Azure Pricing Calculator[here](https://azure.microsoft.com/en-us/pricing/calculator/)
+- You can estimate pricing using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Performance Efficiency
 
