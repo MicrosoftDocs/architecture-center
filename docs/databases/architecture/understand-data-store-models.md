@@ -1,11 +1,11 @@
 ---
-title: Understand data store models
+title: Understanding data models
 description: Learn the major Azure data store models, how they differ, and how to choose and combine them using comparative characteristics of relational and non-relational options.
-author: PageWriter-MSFT
-ms.author: pnp
+author: claytonsiemens77
+ms.author: csiemens
 ms.topic: conceptual
 ms.subservice: architecture-guide
-# ms.date: 07/25/2022   # Do not update until a full freshness pass is completed.
+ms.date: 08/21/2025
 ---
 
 # Understand data store models
