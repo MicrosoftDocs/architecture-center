@@ -15,7 +15,7 @@ ms.custom:
 
 # Choose an Azure compute service
 
-Azure provides many ways to host your application code. The term *compute* refers to the hosting model for the resources that your application runs on. This article helps choose a compute service for your application.
+Azure provides many ways to host your application code. The term *compute* refers to the hosting model for the resources that your application runs on. This article helps you choose a compute service for your application.
 
 ## Architecture
 
@@ -29,7 +29,7 @@ Use the following flowchart to select a candidate compute service.
 
 The previous diagram refers to two migration strategies:
 
-- **Lift and shift:** A strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
+- **Lift and shift:** A strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also known as *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
 
 - **Cloud optimized:** A strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
@@ -53,7 +53,7 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): A service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
 
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
 
@@ -67,18 +67,18 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 For hosting models, cloud services fall into three categories:
 
-- **Infrastructure as a service (IaaS):** Lets you provision VMs along with the associated networking and storage components. Then you can deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the VMs.
+- **Infrastructure as a service (IaaS)** lets you provision VMs along with the associated networking and storage components. Then you can deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the VMs.
 
-- **Platform as a service (PaaS):** Provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. App Service and Container Apps are PaaS services.
+- **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. App Service and Container Apps are PaaS services.
 
-- **Functions as a service (FaaS):** Lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
+- **Functions as a service (FaaS)** lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
 
   > [!NOTE]
   > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
-There's a spectrum from IaaS to pure PaaS. For example, Azure VMs can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
+There's a spectrum from IaaS to fully managed PaaS. For example, Azure VMs can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
 
-There's a trade-off between control and ease of management. IaaS gives the most control, flexibility, and portability. However, you have to provision, configure, and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS falls somewhere in between.
+There's a trade-off between control and ease of management. IaaS gives the most control, flexibility, and portability. However, you have to provision, configure, and manage the VMs and network components that you create. FaaS services automatically manage nearly all aspects of running an application. PaaS provides partial management while requiring some user configuration.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |---|---|---|---|---|---|
@@ -97,17 +97,17 @@ There's a trade-off between control and ease of management. IaaS gives the most 
 
 1. <span id="note1">If you use a Consumption plan. For an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
 
-1. <span id="note2">Higher service-level agreement (SLA) with two or more instances.</span>
+1. <span id="note2">Higher service-level agreement (SLA) that has two or more instances.</span>
 
 1. <span id="note3">Recommended for production environments.</span>
 
-1. <span id="note4">Can scale down to zero after job completes.</span>
+1. <span id="note4">Can scale down to zero after the job completes.</span>
 
 1. <span id="note5">Three for primary nodes and three for worker nodes.</span>
 
-1. <span id="note6">When using [Durable Functions][durable-functions].</span>
+1. <span id="note6">When you use [Durable Functions][durable-functions].</span>
 
-1. <span id="note7">Require minimum number of [three nodes][azure-vmware-plans].</span>
+1. <span id="note7">Requires a minimum number of [three nodes][azure-vmware-plans].</span>
 
 ## Networking
 
@@ -201,8 +201,8 @@ For guided learning on service guarantees, see [Core Cloud Services - Azure arch
 
 Review and understand the available security controls and visibility for each service:
 
-- [Azure Windows virtual machine](/azure/virtual-machines/windows/security-baseline)
-- [Azure Linux virtual machine](/azure/virtual-machines/linux/security-baseline)
+- [Azure Windows VM](/azure/virtual-machines/windows/security-baseline)
+- [Azure Linux VM](/azure/virtual-machines/linux/security-baseline)
 - [App Service](/azure/app-service/overview-security)
 - [Azure Functions](/azure/azure-functions/security-baseline)
 - [AKS](/azure/aks/security-baseline)
