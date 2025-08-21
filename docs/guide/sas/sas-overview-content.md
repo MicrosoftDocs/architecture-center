@@ -310,7 +310,8 @@ For Kubernetes, this process is more complex because it needs to be done on the 
 SAS platforms support various data sources:
 
 - An [Azure Data Lake Storage account](https://communities.sas.com/t5/SAS-Communities-Library/SAS-Viya-3-5-CAS-accessing-Azure-Data-Lake-files/ta-p/635147) that uses a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace)
-- [Azure Synapse Analytics](https://blogs.sas.com/content/subconsciousmusings/2020/12/04/3-steps-to-better-models-with-sas-and-azure-synapse/)
+- [Microsoft Fabric and SAS Viya](https://techcommunity.microsoft.com/blog/analyticsonazure/aiml-with-microsoft-fabric-and-sas-viya-a-discussion-about-right-approach-to-dri/4086504)
+- [Microsoft Fabric and SAS Decision Builder](https://blogs.sas.com/content/sgf/2024/07/08/sas-decision-builder-in-microsoft-fabric/)
 - Apache Hadoop and Hive on [Azure HDInsight](https://communities.sas.com/t5/SAS-Communities-Library/SAS-Viya-CAS-accessing-Azure-HDInsight/ta-p/700597)
 - SQL Server
 - SQL Server using Open Database Connectivity (ODBC)
