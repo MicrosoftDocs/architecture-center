@@ -67,7 +67,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an intelligent, scalable, relational database service built for the cloud. In this architecture, it serves as the data store for the accounting service, which uses [Entity Framework Core](/ef/core/) to interface with the database. The bootstrapper service is responsible for setting up the SQL tables in the database. Then it runs one time before it establishes the connection to the accounting service.
 
-- [Traefik](https://traefik.io/traefik) is a leading modern reverse proxy and load balancer that makes it easy to deploy microservices. In this architecture, use Traefik's dynamic configuration feature to do path-based routing from the UI, which is a Vue.js single-page application. This configuration also enables direct API calls to the back-end services for testing.
+- [Traefik](https://traefik.io/traefik) is a reverse proxy and load balancer used to route network traffic to microservices. In this architecture, use Traefik's dynamic configuration feature to do path-based routing from the UI, which is a Vue.js single-page application. This configuration also enables direct API calls to the back-end services for testing.
 
 ### Alternatives
 
@@ -123,7 +123,7 @@ The following list outlines several security features that are omitted in this a
 
 - Use a web application firewall (WAF) to protect against common vulnerabilities. Use Azure Front Door or Azure Application Gateway to [implement a WAF](/azure/web-application-firewall/) in this architecture.
 
-- Consider using the built-in authentication and authorization feature for Container Apps, known as *Easy Auth*. Easy Auth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+- Consider using the built-in authentication and authorization feature for Container Apps, known as *Easy Auth*. Easy Auth handles integration with identity providers outside your web app, which can reduce the amount of code you need to maintain.
 
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. For example, the basic architecture authenticates to SQL Server via password in a connection string. When possible, use Microsoft Entra IDs to authenticate to Azure SQL Server.
 

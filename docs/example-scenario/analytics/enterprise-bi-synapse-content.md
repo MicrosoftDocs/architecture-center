@@ -143,9 +143,10 @@ Power BI Premium supports several options to connect to data sources on Azure. Y
 - [DirectQuery](/power-bi/connect-data/desktop-directquery-about): Data is pulled directly from relational storage.
 - [Composite model](/power-bi/transform-model/desktop-composite-models): Combine *Import* for some tables and *DirectQuery* for others.
 
-This scenario uses the DirectQuery dashboard because it has a small amount of data and low model complexity. DirectQuery delegates the query to the powerful compute engine underneath and uses extensive security capabilities on the source. DirectQuery ensures that results are always consistent with the latest source data.
+This scenario uses the DirectQuery dashboard because it has a small amount of data and low model complexity. DirectQuery delegates the query to the underlying compute engine and uses security capabilities on the source. DirectQuery ensures that results are always consistent with the latest source data.
 
-Import mode provides the fastest query response time. Consider import mode if: 
+Import mode can provide the lowest query latency. Consider import mode if:
+
 - The model fits entirely within the memory of Power BI.
 - The data latency between refreshes is acceptable.
 - You require complex transformations between the source system and the final model.
