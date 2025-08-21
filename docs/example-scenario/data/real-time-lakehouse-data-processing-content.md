@@ -123,7 +123,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- You can scale Event Hubs through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity. Tune throughput units (TUs) based on expected event volume.Use Capture to write directly to Data Lake in Avro or Parquet format for efficient downstream processing.
+- You can scale Event Hubs through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity. Tune throughput units (TUs) based on expected event volume. Use Capture to write directly to Data Lake in Avro or Parquet format for efficient downstream processing.
 
 - You can set up Azure Synapse Spark pools with small, medium, or large virtual machine (VM) SKUs, based on the workload. You can also configure autoscale on Azure Synapse Spark pools to account for spiky workloads. If you need more compute resources, the clusters automatically scale up to meet the demand, and scale down after processing is complete.
 
