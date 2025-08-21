@@ -233,8 +233,8 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 
 - [Cost](https://azure.microsoft.com/pricing)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services)
-- [SLA](https://azure.microsoft.com/support/legal/sla)
 - [Service limits](/azure/azure-subscription-service-limits)
+- [SLA](https://azure.microsoft.com/support/legal/sla)
 
 ## Contributors
 
