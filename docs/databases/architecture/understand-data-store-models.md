@@ -8,7 +8,7 @@ ms.subservice: architecture-guide
 ms.date: 08/21/2025
 ---
 
-# Understand data store models
+# Understanding data models
 
 Modern solutions handle diverse data (transactions, events, documents, telemetry, binary assets, analytical facts). A single data store rarely satisfies all access patterns efficiently. Most production systems adopt *polyglot persistence*: selecting multiple storage models intentionally. This article centralizes the canonical definitions of the primary data store models available on Azure and provides comparative tables to speed model selection before you pick specific services.
 
