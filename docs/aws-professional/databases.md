@@ -21,7 +21,7 @@ Azure provides several different relational database services that are the equiv
 - [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
-- [SQL Database in Microsoft Fabric (preview)](/fabric/database/sql/overview)
+- [SQL Database in Microsoft Fabric](/fabric/database/sql/overview)
 - [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
@@ -67,8 +67,8 @@ Azure provides a package of products and services designed to capture, organize,
 | Type | AWS Service | Azure Service | Description |
 | -----| ----------- | ------------- | ----------- |
 | Relational database | [RDS](https://aws.amazon.com/rds) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
-| Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview)<br/><br/>[SQL Database in Microsoft Fabric (preview)](/fabric/database/sql/overview)<br/><br/>[Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) | Database offering that automatically scales compute based on the workload demand. You're billed per second for the actual compute used. |
-| NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br/><br/>[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric (preview)](/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure Cosmos DB for NoSQL but is tightly integrated into the Microsoft Fabric platform. |
+| Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview)<br/><br/>[SQL Database in Microsoft Fabric](/fabric/database/sql/overview)<br/><br/>[Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) | Database offering that automatically scales compute based on the workload demand. You're billed per second for the actual compute used. |
+| NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br/><br/>[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure Cosmos DB for NoSQL but is tightly integrated into the Microsoft Fabric platform. |
 | Caching | [ElastiCache](https://aws.amazon.com/elasticache)<br/><br/>[Amazon MemoryDB for Redis](https://aws.amazon.com/memorydb/) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store that's typically used to offload nontransactional work from a database. |
 | Database migration | [Database Migration Service](https://aws.amazon.com/dms) | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration)<br/><br/>[Microsoft Fabric Migration Assistant for Data Warehouse](/fabric/data-warehouse/migration-assistant) | A service that executes the migration of database schema and data from one database format to a specific database technology in the cloud. |
 
@@ -78,7 +78,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 Principal author:
 
-- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za) | Senior Cloud Solution Architect Manager
+- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za/) | Senior Cloud Solution Architect Manager
 
 Other contributor:
 
@@ -92,7 +92,5 @@ Senior Cloud Solution Architect
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
-
-- [Microsoft Fabric overview](/fabric/fundamentals/microsoft-fabric-overview)
 
 - [Microsoft Fabric Blog](https://www.microsoft.com/microsoft-fabric/blog/)
