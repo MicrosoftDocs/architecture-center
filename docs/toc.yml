@@ -139,12 +139,6 @@ items:
         items:
           - name: Big data storage
             href: data-guide/technology-choices/data-storage.md
-          - name: Compare NoSQL and relational
-            href: /azure/cosmos-db/relational-nosql
-          - name: Choose an API in Cosmos DB
-            href: /azure/cosmos-db/choose-api
-          - name: PostgreSQL options
-            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
           - name: Search data store
             href: data-guide/technology-choices/search-options.md
           - name: Select a data store

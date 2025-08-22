@@ -42,7 +42,7 @@ Mainframe and midrange systems update on-premises application databases at regul
    - Azure Database for PostgreSQL
    - Azure Cosmos DB
    - Azure Data Lake Storage
-   - Azure Database for MySQL 
+   - Azure Database for MySQL
 
 1. SQL Server Integration Services (SSIS) extracts, transforms, and loads data.
 1. The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and Azure services.
@@ -59,15 +59,15 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics combines the best of the following technologies and services:
 
-   - SQL technologies for enterprise data warehousing
+  - SQL technologies for enterprise data warehousing
 
-   - Spark technologies for big data
+  - Spark technologies for big data
 
-   - Azure Data Explorer for log and time series analytics
+  - Azure Data Explorer for log and time series analytics
 
-   - Azure Pipelines for data integration and ETL and ELT workflows
+  - Azure Pipelines for data integration and ETL and ELT workflows
 
-   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
+  - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
