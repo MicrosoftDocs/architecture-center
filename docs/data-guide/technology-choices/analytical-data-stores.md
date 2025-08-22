@@ -1,8 +1,8 @@
 ---
 title: Choose an Analytical Data Store in Azure
 description: Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.
-author: rajasekharreddy-duddugunta, mohit-agarwal
-ms.author: rduddugunta,mohagarwal
+author: rajasekharreddy-duddugunta, mohitagarwal-ms
+ms.author: rduddugunta mohagarwal
 ms.date: 03/26/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -132,7 +132,7 @@ The following tables summarize the key differences in capabilities.
 
 ## Next steps
 
-- [Bring your Data to OneLake with Lakehouse](fabric/onelake/create-lakehouse-onelake)
+- [Bring your Data to OneLake with Lakehouse](/fabric/onelake/create-lakehouse-onelake)
 - [Create a Fabric Warehouse](/fabric/data-warehouse/create-warehouse)
 - [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse)
 - [Analyze data in a relational data warehouse](/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads)
