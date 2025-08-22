@@ -5055,6 +5055,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/web-apps/serverless/architectures/code.yml",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/serverless/architectures/web-app.yml",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/security/hardened-web-app.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
