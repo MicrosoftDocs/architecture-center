@@ -19,7 +19,7 @@ App Service and Azure Functions include many features that support multitenancy.
 
 ### Custom domain names
 
-App Service enables you to use [wildcard Domain Name System (DNS)](/azure/app-service/app-service-web-tutorial-custom-domain) and to add your own [wildcard Transport Layer Security (TLS) certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants. This approach avoids the need for manual reconfiguration for each new tenant.
+App Service enables you to use [wildcard Domain Name System (DNS) records](/azure/app-service/app-service-web-tutorial-custom-domain) and to add your own [wildcard Transport Layer Security (TLS) certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants. This approach avoids the need for manual reconfiguration for each new tenant.
 
 When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have a large number of custom domain names that need to be added to your app. Managing a large number of custom domain names can be challenging, especially when they require individual TLS certificates. App Service provides [managed TLS certificates](/azure/app-service/configure-ssl-certificate), which reduces the work required when you work with custom domains. However, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits), such as how many custom domains can be applied to a single app.
 
@@ -29,16 +29,16 @@ App Service and Azure Functions can integrate with [Azure Front Door](/azure/fro
 
 When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single host name. All traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
 
-:::image type="complex" border="false" source="media/app-service/host-front-door.png" alt-text="Diagram that shows requests coming into Azure Front Door by using various host names." lightbox="media/app-service/host-front-door.png":::
+:::image type="complex" border="false" source="media/app-service/host-front-door.png" alt-text="Diagram that shows requests coming into Azure Front Door by using various host names. The requests are passed to the App Service app using a single host name." lightbox="media/app-service/host-front-door.png":::
    The image shows Azure Front Door and App service. Three arrows point from three host names to Azure Front Door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. An arrow labeled Host: contoso.azurewebsites.net points to App Service.
 :::image-end:::
 
-As in the previous example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool). The original `Host` header that the client sends is propagated through the `X-Forwarded-Host` header. Your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
+As in the previous example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header). The original `Host` header that the client sends is propagated through the `X-Forwarded-Host` header. Your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
 
 > [!WARNING]
 > If your application sends cookies or redirection responses, you must account for specific considerations. Changes to the request's `Host` header can invalidate these responses. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.yml).
 
-You can use [private endpoints](/azure/time-series-insights/concepts-private-links) or App Service [access restrictions](https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173) to ensure that traffic flows through Azure Front Door before reaching your app.
+You can use [private endpoints](/azure/app-service/overview-private-endpoint) or App Service [access restrictions](/azure/app-service/app-service-ip-restrictions) to ensure that traffic flows through Azure Front Door before reaching your app.
 
 For more information, see [Use Azure Front Door in a multitenant solution](./front-door.md).
 
@@ -55,8 +55,6 @@ If any of the conditions aren't met, App Service can block the request, or it ca
 If your tenants use Microsoft Entra ID as their identity system, you can configure App Service to use [the /common endpoint](/entra/identity-platform/howto-convert-app-to-be-multi-tenant) to validate user tokens. This configuration ensures that their tokens are validated and accepted, regardless of the user's Microsoft Entra tenant.
 
 You can also integrate App Service with Microsoft Entra External ID for authentication of consumers.
-
-
 ### Access restrictions
 
 You can restrict the traffic to your app by using [access restrictions](/azure/app-service/app-service-ip-restrictions). You can use these rules to specify the IP address ranges or the virtual networks that are allowed to connect to the app.
