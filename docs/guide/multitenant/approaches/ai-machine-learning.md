@@ -1,6 +1,6 @@
 ---
 title: Architectural Approaches for AI and Machine Learning in Multitenant Solutions
-description: Learn approaches for AI and machine learning multitenancy, including tenant isolation, model training, inference, and Azure AI services.
+description: Learn approaches for AI and machine learning multitenancy, including tenant isolation, model training, inference, and how to use Azure AI services.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 07/28/2025
@@ -39,7 +39,7 @@ Tenant-specific models are trained only on the data for a single tenant and then
 
 #### Shared models
 
-In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source. The following diagram illustrates how all tenants can use a single pretrained model.
+In solutions that use shared models, all tenants perform inference based on the same shared model. Shared models might be pretrained models that you acquire or obtain from a community source. The following diagram illustrates how all tenants can use a single pretrained model for inference.
 
 :::image type="complex" border="false" source="media/ai-ml/shared-pretrained-models.svg" alt-text="Diagram that shows a single pretrained model. The model is used for inference by users from all tenants." lightbox="media/ai-ml/shared-pretrained-models.svg":::
    The diagram shows three rectangular boxes arranged horizontally from left to right labeled Pretrained model, Inference, and Model output. An arrow labeled Users points from the Inference box to the Pretrained model box. Above the Inference box is a user icon labeled All tenants' users. A downward arrow labeled Triggers connects the user icons to the Inference box. A rightward arrow labeled Produces points from the Inference box to the Model output box. A final arrow loops from the top of the Model output box back to the user icons.  The Microsoft Azure logo appears in the bottom left corner.
