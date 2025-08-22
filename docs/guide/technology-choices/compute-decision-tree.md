@@ -95,19 +95,19 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 **Notes:**
 
-1. <span id="note1">For Azure Functions, the Consumption plan is serverless. For an App Service plan, functions run on the VMs allocated for that plan. [Choose the correct service plan for Azure Functions][function-plans].</span>
+1. <sup><span id="note1">For Azure Functions, the Consumption plan is serverless. For an App Service plan, functions run on the VMs allocated for that plan. [Choose the correct service plan for Azure Functions][function-plans].</span></sup>
 
-1. <span id="note2">Higher service-level agreement (SLA) that has two or more instances.</span>
+1. <sup><span id="note2">Higher service-level agreement (SLA) that has two or more instances.</span></sup>
 
-1. <span id="note3">Recommended for production environments.</span>
+1. <sup><span id="note3">Recommended for production environments.</span></sup>
 
-1. <span id="note4">Can scale down to zero after the job completes.</span>
+1. <sup><span id="note4">Can scale down to zero after the job completes.</span></sup>
 
-1. <span id="note5">Three primary nodes and three worker nodes.</span>
+1. <sup><span id="note5">Three primary nodes and three worker nodes.</span></sup>
 
-1. <span id="note6">When you use [durable functions][durable-functions].</span>
+1. <sup><span id="note6">When you use [durable functions][durable-functions].</span></sup>
 
-1. <span id="note7">Requires a minimum number of [three nodes][azure-vmware-plans].</span>
+1. <sup><span id="note7">See [Hosts][azure-vmware-plans].</span></sup>
 
 ## Networking
 
@@ -126,11 +126,11 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 **Notes:**
 
-1. <span id="note1b">Requires App Service Environment or a dedicated compute pricing tier.</span>
+1. <sup><span id="note1b">Requires App Service Environment or a dedicated compute pricing tier.</span></sup>
 
-1. <span id="note2b">Use [App Service Hybrid Connections][app-service-hybrid].</span>
+1. <sup><span id="note2b">Use [App Service Hybrid Connections][app-service-hybrid].</span></sup>
 
-1. <span id="note3b">Requires an App Service plan or [Azure Functions Premium plan][func-premium].</span>
+1. <sup><span id="note3b">Requires an App Service plan or [Azure Functions Premium plan][func-premium].</span></sup>
 
 ## DevOps
 
@@ -149,7 +149,7 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 **Note:**
 
-1. <span id="note1c">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web apps.</span>
+1. <sup><span id="note1c">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web apps.</span></sup>
 
 ## Scalability
 
@@ -168,30 +168,30 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 **Notes:**
 
-1. <span id="note1d">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
+1. <sup><span id="note1d">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span></sup>
 
-1. <span id="note2d">See [Automatically scale a cluster to meet application demands on AKS](/azure/aks/cluster-autoscaler).</span>
+1. <sup><span id="note2d">See [Automatically scale a cluster to meet application demands on AKS](/azure/aks/cluster-autoscaler).</span></sup>
 
-1. <span id="note3d">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+1. <sup><span id="note3d">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.</sup>
 
-1. <span id="note4d">See [Set scaling rules in Container Apps](/azure/container-apps/scale-app)</span>.
+1. <sup><span id="note4d">See [Set scaling rules in Container Apps](/azure/container-apps/scale-app)</span>.</sup>
 
-1. <span id="note5d">See [Scale Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
+1. <sup><span id="note5d">See [Scale Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.</sup>
 
-1. <span id="note6d">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
+1. <sup><span id="note6d">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.</sup>
 
 ## Availability
 
 | Service | Multiregion failover option |
 |---|---|
 | Virtual Machines | Azure Traffic Manager, Azure Front Door, and cross-region Load Balancer |
-| App Service | Azure Traffic Manager and Azure Front Door |
-| Azure Functions | Azure Traffic Manager and Azure Front Door |
-| AKS | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
-| Container Apps | Azure Traffic Manager and Azure Front Door |
-| Container Instances | Azure Traffic Manager and Azure Front Door |
-| Azure Red Hat OpenShift | Azure Traffic Manager and Azure Front Door |
-| Service Fabric | Azure Traffic Manager, Azure Front Door, and cross-region Load Balancer |
+| App Service | Traffic Manager and Azure Front Door |
+| Azure Functions | Traffic Manager and Azure Front Door |
+| AKS | Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Container Apps | Traffic Manager and Azure Front Door |
+| Container Instances | Traffic Manager and Azure Front Door |
+| Azure Red Hat OpenShift | Traffic Manager and Azure Front Door |
+| Service Fabric | Traffic Manager, Azure Front Door, and cross-region Load Balancer |
 | Batch | Not applicable |
 | Azure VMware Solution | Not applicable |
 
@@ -251,7 +251,7 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 
 ## Next step
 
-- [Azure compute options](/training/modules/intro-to-azure-compute)
+- [Azure compute options](/training/paths/azure-fundamentals-describe-azure-architecture-services/)
 
 ## Related resources
 
