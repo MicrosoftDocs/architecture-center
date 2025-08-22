@@ -84,7 +84,7 @@ You should consider using one Application Insights instance for each tenant if a
 - You need different configurations for various tenants.
 - The service limits of a single Application Insights instance don't meet your needs.  
 
-This approach makes it difficult to aggregate and compare data across tenants because you must query multiple Application Insights instances separately. If you use this approach, consider using [cross-resource queries and Azure Monitor workbooks](#unify-multiple-application-insights-instances-into-a-single-view).
+This approach makes it difficult to aggregate and compare data across tenants because you must query multiple Application Insights instances separately. If you use this approach, consider using [cross-resource queries and Azure Monitor workbooks](#combine-multiple-application-insights-instances-into-a-single-view).
 
 ## Application Insights features that support multitenancy
 
