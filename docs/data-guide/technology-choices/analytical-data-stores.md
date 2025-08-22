@@ -1,7 +1,7 @@
 ---
 title: Choose an Analytical Data Store in Azure
 description: Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.
-author: rajasekharreddy-duddugunta
+author: rajasekharreddy-duddugunta, mohit-agarwal
 ms.author: rduddugunta,mohagarwal
 ms.date: 03/26/2025
 ms.topic: conceptual
