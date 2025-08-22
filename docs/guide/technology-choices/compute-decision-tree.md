@@ -22,14 +22,14 @@ Azure provides many ways to host your application code. The term *compute* refer
 Use the following flowchart to select a candidate compute service.
 
 :::image type="complex" border="false" source="images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="images/compute-choices.svg":::
-   The image shows a flowchart for selecting an appropriate Azure service based on whether the user is migrating an existing workload or building a new one. The flowchart begins with a Start node and splits into two primary branches labeled Migrate and Build new. The Migrate branch includes decision points that assess whether the application is optimized for the cloud and whether it can be containerized. Depending on the answers, the flow leads to services such as Azure App Service, Azure VMware Solution, or Virtual machine. The Build new branch includes decision points that evaluate the need for full control, high-performance computing, event-driven workloads, managed web hosting, and orchestration requirements. These decisions guide the user toward services such as Virtual machine, Azure Batch, Azure Functions, Azure App Service, Azure Container Instances, Azure Service Fabric, Azure Red Hat OpenShift, Azure Kubernetes Service, or Azure Container Apps. A branching section for your own orchestration implementation on Azure Virtual Machines includes VMware Tanzu on Azure Virtual Machines, Kubernetes on Azure Virtual Machines, and OpenShift on Azure Virtual Machines. At the bottom of the image, two boxed sections list container-exclusive services and container-compatible services. The container-exclusive section includes Azure Container Instances, Azure Red Hat OpenShift, Kubernetes on Azure Virtual Machines, OpenShift on Azure Virtual Machines, and VMware Tanzu on Azure Virtual Machines. The container-compatible section includes Azure Batch, Azure Functions, Azure Service Fabric, and Azure App Service.
+   The image shows a flowchart for selecting an appropriate Azure service based on whether the user is migrating an existing workload or building a new one. The flowchart begins with a Start node and splits into two primary branches labeled Migrate and Build new. The Migrate branch includes decision points that assess whether the application is optimized for the cloud and whether it can be lifted and shifted. Depending on the answers, the flow leads to services such as Azure App Service, Azure VMware Solution, or Virtual Machines. The Build new branch includes decision points that evaluate the need for full control, high-performance computing, event-driven workloads, managed web hosting, and orchestration requirements. These decisions guide the user toward services such as Virtual Machines, Azure Batch, Azure Functions, App Service, Azure Container Instances, Azure Service Fabric, Azure Red Hat OpenShift, Azure Kubernetes Service, or Azure Container Apps. A branching section for your own orchestration implementation on Virtual Machines includes VMware Tanzu on Virtual Machines, Kubernetes on Virtual Machines, and OpenShift on Virtual Machines. At the bottom of the image, two boxed sections list container-exclusive services and container-compatible services. The container-exclusive section includes Azure Container Instances, Azure Red Hat OpenShift, Kubernetes on Virtual Machines, OpenShift on Virtual Machines, and VMware Tanzu on Virtual Machines. The container-compatible section includes Azure Batch, Azure Functions, Service Fabric, and App Service.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this architecture.*
 
 The previous diagram refers to two migration strategies:
 
-- **Lift and shift:** A strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also known as *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
+- **Lift and shift:** A strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also known as *rehosting*. For more information, see [Azure cloud migration and modernization center](https://azure.microsoft.com/migration).
 
 - **Cloud optimized:** A strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
@@ -41,7 +41,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 ## Understand the basic features
 
-If you're not familiar with the Azure service selected in the previous section, see the following overview documentation:
+If you're not familiar with the Azure service that you select in the previous section, see the following overview documentation:
 
 - [Azure App Service](/azure/app-service) is a managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 
@@ -49,7 +49,7 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 - [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview) is a service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement them without having to provision any VMs or adopt a higher-level service.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview) is a service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement containers without having to provision virtual machines (VMs) or adopt a higher-level service.
 
 - [Azure Functions](/azure/azure-functions/functions-overview) is a service that provides managed functions that run based on a variety of trigger types for event-driven applications.
 
@@ -61,29 +61,29 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 - [Azure VMware Solution](/azure/azure-vmware/introduction) is a managed service for running VMware workloads natively on Azure.
 
-- [Azure Virtual Machines](/azure/virtual-machines) is a service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
+- [Azure Virtual Machines](/azure/virtual-machines) is a service where you deploy and manage VMs inside an Azure virtual network.
 
 ## Understand the hosting models
 
 For hosting models, cloud services fall into three categories:
 
-- **Infrastructure as a service (IaaS)** lets you provision VMs along with the associated networking and storage components. Then you can deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the VMs.
+- **Infrastructure as a service (IaaS)** lets you provision VMs along with the associated networking and storage components. Then you can deploy any software and applications on those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure, and you manage the VMs.
 
 - **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. App Service and Container Apps are PaaS services.
 
 - **Functions as a service (FaaS)** lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
 
   > [!NOTE]
-  > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps that provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
+  > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Azure Logic Apps for serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
-There's a spectrum from IaaS to fully managed PaaS. For example, Azure VMs can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
+There's a spectrum from IaaS to fully managed PaaS. For example, Azure VMs can automatically scale by using virtual machine scale sets. This capability isn't strictly PaaS, but it resembles the management features in PaaS.
 
 There's a trade-off between control and ease of management. IaaS provides the most control, flexibility, and portability. However, you have to provision, configure, and manage the VMs and network components that you create. FaaS services automatically manage nearly all aspects of running an application. PaaS provides partial management while requiring some user configuration.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |---|---|---|---|---|---|
 | Virtual Machines | Agnostic | Agnostic | 1 <a href="#note2"><sup>2</sup></a> | Stateless or stateful | Agnostic |
-| App Service | Applications, containers | Multiple apps for each instance by using App Service plan | 1 | Stateless | Built in |
+| App Service | Applications, containers | Multiple apps for each instance by using App Service plan | 1 | Stateless | Built-in |
 | Azure Functions | Functions, containers | Serverless <a href="#note1"><sup>1</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | Stateless or stateful <a href="#note6"><sup>6</sup></a> | Not applicable |
 | AKS | Containers | Multiple containers for each node | 3 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
 | Container Apps | Containers | Serverless | Serverless | Stateless or stateful | Agnostic |
@@ -93,9 +93,9 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 | Batch | Scheduled jobs | Multiple apps for each VM | 1 <a href="#note4"><sup>4</sup></a> | Stateless | No |
 | Azure VMware Solution | Agnostic | Agnostic | 3 <a href="#note7"><sup>7</sup></a> | Stateless or stateful | Agnostic |
 
-**Notes**
+**Notes:**
 
-1. <span id="note1">If you use a Consumption plan. For an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+1. <span id="note1">For Azure Functions, the Consumption plan is serverless. For an App Service plan, functions run on the VMs allocated for that plan. [Choose the correct service plan for Azure Functions][function-plans].</span>
 
 1. <span id="note2">Higher service-level agreement (SLA) that has two or more instances.</span>
 
@@ -103,9 +103,9 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 1. <span id="note4">Can scale down to zero after the job completes.</span>
 
-1. <span id="note5">Three for primary nodes and three for worker nodes.</span>
+1. <span id="note5">Three primary nodes and three worker nodes.</span>
 
-1. <span id="note6">When you use [Durable Functions][durable-functions].</span>
+1. <span id="note6">When you use [durable functions][durable-functions].</span>
 
 1. <span id="note7">Requires a minimum number of [three nodes][azure-vmware-plans].</span>
 
@@ -124,13 +124,13 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 | Batch | Supported | Supported |
 | Azure VMware Solution | [Supported](/azure/azure-vmware/configure-site-to-site-vpn-gateway) | [Supported](/azure/azure-vmware/enable-managed-snat-for-workloads) |
 
-**Notes**
+**Notes:**
 
 1. <span id="note1b">Requires App Service Environment or a dedicated compute pricing tier.</span>
 
 1. <span id="note2b">Use [App Service Hybrid Connections][app-service-hybrid].</span>
 
-1. <span id="note3b">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
+1. <span id="note3b">Requires an App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
 
@@ -143,13 +143,13 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 | Container Apps | Local container runtime | Agnostic | Revision management |
 | Container Instances | Local container runtime | Agnostic | Not applicable |
 | Azure Red Hat OpenShift | Minikube, Docker, others | Agnostic | Rolling update |
-| Service Fabric | Local node cluster | Guest executable, Service model, Actor model, Containers | Rolling upgrade (for each service) |
+| Service Fabric | Local node cluster | Guest executable, Service model, Actor model, containers | Rolling upgrade for each service |
 | Batch | Not supported | Command-line application | Not applicable |
 | Azure VMware Solution | Agnostic | Agnostic | No built-in support |
 
-**Notes**
+**Note:**
 
-1. <span id="note1c">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
+1. <span id="note1c">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web apps.</span>
 
 ## Scalability
 
@@ -161,12 +161,12 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 | AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Load Balancer or Azure Application Gateway | 5,000 nodes when you use [uptime SLA][uptime-sla] |
 | Container Apps | Scaling rules<a href="#note4d"><sup>4</sup></a> | Integrated | 15 environments for each region (default limit), unlimited container apps for each environment and replicas for each container app (depending on available cores) |
 | Container Instances | Not supported | No built-in support | 100 container groups for each subscription (default limit) |
-| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Load Balancer or Azure Application Gateway | 250 nodes for each cluster (default limit) |
+| Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Load Balancer or Application Gateway | 250 nodes for each cluster (default limit) |
 | Service Fabric | Virtual machine scale sets | Load Balancer | 100 nodes for each virtual machine scale set |
 | Batch | Not applicable | Load Balancer | Core limit of 900 dedicated and 100 low-priority (default limit) |
-| Azure VMware Solution | Built-in service<a href="#note5d"><sup>5</sup></a> | Integrated<a href="#note6d"><sup>6</sup></a> | Per VMware vCenter can manage between 3 and 16 VMware ESXi hosts |
+| Azure VMware Solution | Built-in service<a href="#note5d"><sup>5</sup></a> | Integrated<a href="#note6d"><sup>6</sup></a> | 3 to 16 VMware ESXi hosts per VMware vCenter |
 
-**Notes**
+**Notes:**
 
 1. <span id="note1d">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
 
@@ -176,7 +176,7 @@ There's a trade-off between control and ease of management. IaaS provides the mo
 
 1. <span id="note4d">See [Set scaling rules in Container Apps](/azure/container-apps/scale-app)</span>.
 
-1. <span id="note5d">See [Scale a Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
+1. <span id="note5d">See [Scale Azure VMware Solution](/azure/azure-vmware/tutorial-scale-private-cloud)</span>.
 
 1. <span id="note6d">See [VMware NSX](/azure/azure-vmware/configure-nsx-network-components-azure-portal)</span>.
 
@@ -204,9 +204,9 @@ Review and understand the available security controls and visibility for each of
 - [AKS](/azure/aks/security-baseline)
 - [App Service](/azure/app-service/overview-security)
 - [Azure Functions](/azure/azure-functions/security-baseline)
-- [Azure Linux VM](/azure/virtual-machines/linux/security-baseline)
+- [Virtual Machines for Linux](/azure/virtual-machines/linux/security-baseline)
 - [Azure VMware Solution](/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline)
-- [Azure Windows VM](/azure/virtual-machines/windows/security-baseline)
+- [Virtual Machines for Windows](/azure/virtual-machines/windows/security-baseline)
 - [Batch](/azure/batch/security-baseline)
 - [Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
 - [Container Instances](/azure/container-instances/security-baseline)
@@ -218,7 +218,7 @@ Review and understand the available security controls and visibility for each of
 |---|---|---|---|
 | Virtual Machines | Configured in VM | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [N-tier][n-tier], [big compute][big-compute] (HPC) |
 | App Service | Supported | [App Service pricing][cost-app-service] | [Web-queue-worker][w-q-w] |
-| Azure Functions | Supported | [Functions pricing][cost-functions] | [Microservices][microservices], [event-driven architecture][event-driven] |
+| Azure Functions | Supported | [Azure Functions pricing][cost-functions] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | AKS | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Container Apps |  [Ingress controller](/azure/container-apps/ingress) | [Container Apps pricing][cost-container-apps] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Container Instances | Use [sidecar](../../patterns/sidecar.yml) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
@@ -234,7 +234,7 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 - [Cost](https://azure.microsoft.com/pricing)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services)
 - [Service limits](/azure/azure-subscription-service-limits)
-- [SLA](https://azure.microsoft.com/support/legal/sla)
+- [SLAs](https://azure.microsoft.com/support/legal/sla)
 
 ## Contributors
 
