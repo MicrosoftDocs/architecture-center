@@ -94,7 +94,6 @@ Here are some additional implementations to consider:
 
 - [App Service networking features](/azure/app-service/networking-features)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
-- [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
 
 ### AWS or Google Cloud professionals
 
