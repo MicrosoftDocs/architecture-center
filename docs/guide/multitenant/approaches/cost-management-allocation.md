@@ -12,26 +12,26 @@ ms.custom:
 
 # Architectural approaches for cost management and allocation in a multitenant solution
 
-Multitenant solutions often require special consideration when you measure, allocate, and optimize costs. This article includes key guidance to help you evaluate and manage costs effectively as a solution architect working with multitenant applications.
+Multitenant solutions often require special consideration when you measure, allocate, and optimize costs. This article includes key guidance to help you evaluate and manage costs effectively as a solution architect that works with multitenant applications.
 
 ## Key considerations and requirements
 
-Consider the requirements you have for measuring consumption in your solution. These requirements are discussed in more detail in [Measure the consumption of each tenant](../considerations/measure-consumption.md).
+Consider the requirements that you have for measuring consumption in your solution. These requirements are discussed in more detail in [Measure the consumption of each tenant](../considerations/measure-consumption.md).
 
 ### Purpose of measurement
 
 It's important to decide what your goal is. Consider the following example goals:
 
 - **Calculate an approximate cost of goods sold for each tenant.**  
-For example, if you deploy a significant number of shared resources, you might only be interested in a rough approximation of the cost incurred for each tenant.
+For example, if you deploy a significant number of shared resources, you might only require a rough approximation of the cost incurred for each tenant.
 
 - **Calculate the exact cost that each tenant incurs.** For example, if you charge your tenants for the exact amount of consumption that they incur, you need to have precise information about how much each tenant's resources cost.
 
-- **Identify outlier tenants that cost significantly more than others.** For example, if you provide a [flat-rate pricing model](../considerations/pricing-models.md#flat-rate-pricing), you might need to determine whether any tenants are consuming a disproportionate amount of your provisioned capacity, so that you can apply fair-use policies. In many scenarios, this use case doesn't require precise measurement of costs.
+- **Identify outlier tenants that cost significantly more than other tenants.** For example, if you provide a [flat-rate pricing model](../considerations/pricing-models.md#flat-rate-pricing), you might need to determine whether any tenants are consuming a disproportionate amount of your provisioned capacity so that you can apply fair-use policies. In many scenarios, this use case doesn't require precise measurement of costs.
 
-- **Reduce the overall Azure cost for your solution.** For example, you might want to look at the cost of every component, and then determine whether you have over-provisioned for the workload.
+- **Reduce the overall Azure cost for your solution.** For example, you might want to assess the cost of every component, and then determine whether you have over-provisioned for the workload.
 
-By understanding the goal of measuring the consumption by a tenant, you can determine whether the cost allocations need to be approximate or highly precise, which affects the specific tools you can use and the practices you can follow.
+By understanding the goal of measuring consumption by a tenant, you can determine whether cost allocations need to be approximate or highly precise. This distinction affects the specific tools that you can use and the practices that you should follow.
 
 ### Shared components
 
@@ -45,16 +45,16 @@ You also need to consider how you measure and allocate the costs of shared compo
 
 Azure enables you to [apply tags to your resources](/azure/azure-resource-manager/management/tag-resources). A tag is a key-value pair. You use tags to add custom metadata. Tags are useful for many management operations, and they're also useful for analyzing the cost of your Azure consumption. After you apply tags, you can [determine costs associated with each tag](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-costs-for-a-specific-tag).
 
-The way you use tags in a multitenant solution is likely to be different, depending on your architecture.
+The way that you use tags in a multitenant solution is likely to vary depending on your architecture.
 
-In some solutions, you might deploy dedicated resources for each tenant, such as if you deploy dedicated [Deployment Stamps](../../../patterns/deployment-stamp.yml) for each tenant. In these situations, it's clear that any Azure consumption for those resources should be allocated to that tenant, and so you can tag your Azure resources with the tenant ID.
+In some solutions, you might deploy dedicated resources for each tenant. For example, you might deploy dedicated [Deployment Stamps](../../../patterns/deployment-stamp.yml) for each tenant. In these scenarios, it's clear that any Azure consumption associated with those resources should be allocated to the corresponding tenant. To support this approach, you can tag your Azure resources with the tenant ID.
 
-In other situations, you might have sets of shared resources. For example, when you apply the [Sharding pattern](../../../patterns/sharding.yml), you might deploy multiple databases and spread your tenants across them. Consider tagging the resources with an identifier for the *group* of tenants. You might not be able to easily allocate costs to a single tenant, but you can at least narrow down the cost to a set of tenants, when you use this approach. You can also use the consumption information to help you rebalance tenants across the shards, if you notice that a specific shard is accruing higher costs than the others.
+In other scenarios, you might have sets of shared resources. For example, when you apply the [Sharding pattern](../../../patterns/sharding.yml), you might deploy multiple databases and spread your tenants across them. Consider tagging the resources with an identifier for the *group* of tenants. You might not be able to easily allocate costs to a single tenant. However, you can use this approach to narrow down the cost to a defined group of tenants. You can also use the consumption information to help you rebalance tenants across the shards if you notice that a specific shard accrues higher costs than the other shards.
 
 > [!NOTE]
 > There's a [limit to the number of tags](/azure/azure-resource-manager/management/tag-resources#limitations) that can be applied to a resource. When you work with shared resources, it's best not to add a tag for every tenant that shares the resource. Instead, consider adding a tag with the shard ID or another way to identify the group of tenants.
 
-Consider an example multitenant solution that's built using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and a [vertically partitioned tenancy model](../considerations/tenancy-models.md#vertically-partitioned-deployments). Each deployment stamp includes a shared web server and sharded databases. Tags can be applied to each of the Azure components, as shown in the following diagram.
+Consider an example multitenant solution that's built by using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and a [vertically partitioned tenancy model](../considerations/tenancy-models.md#vertically-partitioned-deployments). Each deployment stamp includes a shared web server and sharded databases. You can apply tags to each of the Azure components, as shown in the following diagram.
 
 :::image type="complex" border="false" source="media/cost-management-allocation/tags.png" alt-text="Diagram that shows two stamps, with tags added to each component." lightbox="media/cost-management-allocation/tags.png":::
    The image shows three tenants: Tenant A, Tenant B, Tenant C. It shows Deployment stamp 1 and Deployment stamp 2. Arrows points from Tenant A and Tenant B. The Deployment stamp 1 contains the web server and Tenants A and B. A line connects a section labeled stamp-id:d1 to the Deployment stamp 1. A line connects a section labeled stamp-id:d1, shard-id:s1 to the Deployment stamp 1. An arrow points from Tenant C to the Deployment stamp 2 section. The Deployment stamp 2 section includes a Web server section that's dedicated to Tenant C and Tenant C. An arrow connects a section labeled stamp-id:d2, tenant-id:c to the Web server section. Another line connects a section labeled stamp-id:d2, shard-id:s2, tenant-id:c to Tenant C.
@@ -70,49 +70,49 @@ With this tagging strategy, it's easy to filter the cost information to a single
 
 ### Instrument your application
 
-In situations where you don't have a direct relationship between an Azure resource and a tenant, consider instrumenting your application to collect telemetry.
+In scenarios where you don't have a direct relationship between an Azure resource and a tenant, consider instrumenting your application to collect telemetry.
 
-Your application tier might already collect logs and metrics that are helpful for answering questions about metering, for example:
+Your application tier might already collect logs and metrics that are helpful for answering questions about metering. Consider the following usage characteristics:
 
-- Approximately how many API requests are made per tenant?
-- What times of the day are specific tenants busiest?
-- How do tenant A's usage patterns compare to tenant B's usage patterns?
+- The number of API requests made for each tenant over time.
+- The peak activity periods for specific tenants throughout the day.
+- The differences in usage patterns between tenant A and tenant B.
 
-In Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview) often captures these metrics. By using [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling), you can enrich the telemetry captured by Application Insights, to include a tenant identifier or other custom data.
+In Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview) often captures these metrics. By using [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling), you can enrich the telemetry captured by Application Insights to include a tenant identifier or other custom data.
 
-However, Application Insights and other logging and monitoring solutions aren't appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution, because capturing every piece of telemetry can often become expensive.
+However, Application Insights and other logging and monitoring solutions aren't appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution because capturing every piece of telemetry can often become expensive.
 
-If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs), to capture large volumes of telemetry, and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics), to process it in real time.
+If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs) to capture large volumes of telemetry and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to process it in real time.
 
 ### Use Azure Reservations and Azure savings plan to reduce costs
 
-**Azure Reservations:** [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) enable you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types.
+**[Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)** enables you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types.
 
-Reservations can be used effectively in a multitenant solution. Note the following considerations:
+Reservations can be used effectively in a multitenant solution. Consider the following factors:
 
 - When you deploy a multitenant solution that includes shared resources, consider the baseline level of consumption that you need for the workload. You might consider a reservation for that baseline consumption, and then you'd pay standard rates for higher consumption during unpredictable peaks.
 
 - When you deploy resources for each tenant, consider whether you can pre-commit to the resource consumption for a specific tenant, or across your portfolio of tenants.
 
-Azure Reservations enables you to [scope your reservations](/azure/cost-management-billing/reservations/prepare-buy-reservation#scope-reservations) to apply to a resource group, a subscription, or a set of subscriptions. This means that you can take advantage of reservations, even if you shard your workload across multiple subscriptions.
+Azure Reservations enables you to [scope your reservations](/azure/cost-management-billing/reservations/prepare-buy-reservation#scope-reservations) to apply to a resource group, a subscription, or a set of subscriptions. This capability means that you can take advantage of reservations, even if you shard your workload across multiple subscriptions.
 
-Reservation scopes can also be helpful, when you have tenants with unpredictable workloads. For example, consider a solution in which tenant A only needs one instance of a specific resource, but tenants B and C each need two. Then tenant B becomes less busy, so you reduce the instance count, and tenant A gets busier, so you increase the instance count. Your reservations are applied to the tenants that need them.
+Reservation scopes can also be helpful when you have tenants with unpredictable workloads. For example, consider a solution in which tenant A only needs one instance of a specific resource, but tenants B and C each need two instances. Then tenant B becomes less busy, so you reduce the instance count, and tenant A gets busier, so you increase the instance count. Your reservations are applied to the tenants that need them.
 
-**Azure savings plan for compute:** Azure savings plan for compute is a flexible cost-saving plan that generates significant savings over pay-as-you-go prices. You agree to a one-year or three-year contract and receive discounts on eligible compute services. These services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. Savings apply to these compute services regardless of the region, instance size, or operating system. For more information, see [Azure savings plan overview](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and [Azure savings plan documentation](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+**Azure savings plan for compute** is a flexible cost-saving plan that generates significant savings over pay-as-you-go prices. You agree to a one-year or three-year contract and receive discounts on eligible compute services. These services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. Savings apply to these compute services regardless of the region, instance size, or operating system. For more information, see [Azure savings plan overview](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and [Azure savings plan documentation](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
 
-**Combine reservations and a savings plan.** To further optimize cost and flexibility, you can combine an Azure savings plan with Azure Reservations.
+**Combine reservations and a savings plan** to further optimize cost and flexibility by using an Azure savings plan with Azure Reservations.
 
 ## Antipatterns to avoid
 
-- **Not tracking costs at all.** It's important to have at least an approximate idea of the costs that you incur and how each tenant impacts the cost of delivering your solution. Otherwise, if your costs change over time, you have no baseline to compare against. You also might not be able to predict how a growth in tenants will affect your costs and profitability.
+- **Ignore cost tracking entirely.** It's important to have at least an approximate idea of the costs that you incur and how each tenant affects the cost of delivering your solution. Otherwise, if your costs change over time, you have no baseline to compare against. You also might not be able to predict how a growth in tenants can affect your costs and profitability.
 
-- **Making assumptions or guessing.** Ensure that your cost measurement is based on real information. You might not require precise measurements, but base your estimates on actual data.
+- **Assume or guess without data.** Ensure that your cost measurement is based on real information. You might not require precise measurements, but base your estimates on actual data.
 
-- **Unnecessary precision.** You might not need to have a detailed accounting of every cost that's incurred for every tenant. Building unnecessarily precise cost measurement and optimization processes can be counterproductive because it adds engineering complexity and creates brittle processes.
+- **Over-engineer for precision.** You might not need to have a detailed accounting of every cost that every tenant incurs. Building unnecessarily precise cost measurement and optimization processes can be counterproductive because it adds engineering complexity and creates brittle processes.
 
-- **Real-time measurement.** Most solutions don't need up-to-the-minute cost measurements. Because metering and consumption data can be complex to process, you should log the necessary data and then asynchronously aggregate and process the data later.
+- **Measure costs in real time.** Most solutions don't need up-to-the-minute cost measurements. Because metering and consumption data can be complex to process, you should log the necessary data and then asynchronously aggregate and process the data later.
 
-- **Using monitoring tools for billing.** As described in [Instrument your application](#instrument-your-application), ensure that you use tools that are designed for cost monitoring and metering. Application monitoring solutions aren't typically good candidates for this type of data, especially when you need high precision.
+- **Use monitoring tools for billing.** Ensure that you [use tools that are designed for cost monitoring and metering](#instrument-your-application). Application monitoring solutions aren't typically good candidates for this type of data, especially when you need high precision.
 
 ## Contributors
 
@@ -127,8 +127,8 @@ Other contributors:
 - [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Related resource
 
 - [Measure the consumption of each tenant](../considerations/measure-consumption.md)
