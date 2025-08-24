@@ -1,6 +1,6 @@
 ---
 title: Architectural Approaches for Cost Management and Allocation in a Multitenant Solution
-description: Learn cost management and allocation approaches for multitenant solutions, including Azure resource tagging, consumption tracking, and optimization.
+description: Learn about cost management and allocation approaches for multitenant solutions, including Azure resource tagging, consumption tracking, and optimization.
 author: johndowns
 ms.author: pnp
 ms.date: 08/19/2025 
