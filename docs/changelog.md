@@ -39,7 +39,7 @@ The following new and updated articles have recently been published in the Azure
 - [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#85e7ed16c7](https://github.com/MicrosoftDocs/architecture-center/commit/85e7ed16c7))
 - [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md)  ([#4eacd2c846](https://github.com/MicrosoftDocs/architecture-center/commit/4eacd2c846))
 - [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
-- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.md)  ([#178776ad8f](https://github.com/MicrosoftDocs/architecture-center/commit/178776ad8f))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
 - [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#39a0028b22](https://github.com/MicrosoftDocs/architecture-center/commit/39a0028b22))
