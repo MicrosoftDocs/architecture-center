@@ -83,7 +83,7 @@ Consider the performance requirements for the AI and machine learning components
 
 **Inference:** Inference is a latency-sensitive process that often requires a fast or even real-time response. Even if you don't need to perform inference in real time, ensure that you monitor the performance of your solution and use the appropriate services to optimize your workload.
 
-Consider using Azure high-performance computing capabilities for your AI and machine learning workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution can benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [field-programmable gate arrays (FPGAs)](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Server. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). For more information about how to optimize compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
+Consider using Azure high-performance computing capabilities for your AI and machine learning workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution can benefit from using CPUs, GPUs, field-programmable gate arrays (FPGAs)], or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Server. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). For more information about how to optimize compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
 
 Model training typically requires many interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
@@ -105,9 +105,7 @@ Generally, AI and machine learning workloads incur the greatest proportion of th
 
 Consider the following requirements when you plan your AI and machine learning costs:
 
-- **Determine compute SKUs for training.** For example, use [Machine Learning guidance](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training) to choose appropriate SKUs.
-
-- **Determine compute SKUs for inference.** For example, use the [cost estimate guidance for inference in Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
+- **Determine compute SKUs for training and inference.** You might use different SKUs for training and for inference. Select SKUs that meet your requirements for performance and cost, and that are available in the regions you use. For more information, see [Compute recommendations for AI workloads on Azure infrastructure (IaaS)](/azure/cloud-adoption-framework/scenarios/ai/infrastructure/compute).
 
 - **Monitor your usage.** By observing the usage of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. For more information, see [Monitor Machine Learning](/azure/machine-learning/monitor-azure-machine-learning).
 
