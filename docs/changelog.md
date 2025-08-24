@@ -88,7 +88,7 @@ The following new and updated articles have recently been published in the Azure
 - [SAP landscape architecture](./guide/sap/sap-whole-landscape.yml)  ([#ee8c5f9f5a](https://github.com/MicrosoftDocs/architecture-center/commit/ee8c5f9f5a))
 - [Microservices Assessment and Readiness](./guide/technology-choices/microservices-assessment.md)  ([#1f3f4a3c49](https://github.com/MicrosoftDocs/architecture-center/commit/1f3f4a3c49))
 - [Design for self healing](./guide/design-principles/self-healing.md)  ([#3e62723717](https://github.com/MicrosoftDocs/architecture-center/commit/3e62723717))
-- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#ed02f09c26](https://github.com/MicrosoftDocs/architecture-center/commit/ed02f09c26))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-machine-learning.md)  ([#ed02f09c26](https://github.com/MicrosoftDocs/architecture-center/commit/ed02f09c26))
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#910a86755b](https://github.com/MicrosoftDocs/architecture-center/commit/910a86755b))
 - [Choose a Kubernetes at the Edge Compute Option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)  ([#723bb4b356](https://github.com/MicrosoftDocs/architecture-center/commit/723bb4b356))
 - [Protect APIs by using Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#09b01c5b46](https://github.com/MicrosoftDocs/architecture-center/commit/09b01c5b46))
