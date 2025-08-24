@@ -65,7 +65,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Deploy at least three [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones for each region. This method maximizes your availability and performance.
+- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones for each region. This method maximizes your availability and performance.
 
 - We recommend that you use the Premium tier because it supports availability zones and multiregion deployments. This capability means that your services can continue to run even if one region or zone goes down. These features help protect your application during outages or disasters.
 
