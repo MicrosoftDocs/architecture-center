@@ -10,7 +10,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 
 ### Components
 
-You can deploy each of the following sandbox configurations or only the ones that you need:
+The Azure Sandbox project encapsulates functionality using modules. You can deploy all of the following modules, or only the ones that you need:
 
 - Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
 - Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
@@ -18,6 +18,8 @@ You can deploy each of the following sandbox configurations or only the ones tha
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
 - [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
 - [Azure Virtual WAN](https://azure.microsoft.com/products/virtual-wan) and point-to-site VPN
+
+For more information on the use of modules in IaC projects, see [Recommendations for using infrastructure as code](https://learn.microsoft.com/azure/well-architected/operational-excellence/infrastructure-as-code-design#use-the-right-balance-when-encapsulating-functionality) in the Azure Well-Architected Framework.
 
 ## Deploy the sandbox
 
@@ -27,9 +29,9 @@ The Azure Sandbox environment requires the following prerequisites:
 - An [Azure subscription](https://azure.microsoft.com/support/legal/offer-details)
 - The appropriate [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) role assignments
 - A [service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
-- A [configured client environment](https://github.com/Azure-Samples/azuresandbox#configure-client-environment)
+- A [Terraform execution environment](https://github.com/Azure-Samples/azuresandbox?tab=readme-ov-file#terraform-execution-environment)
 
-For more information about how to prepare for a sandbox deployment, see [Prerequisites](https://github.com/Azure-Samples/azuresandbox#prerequisites).
+For more information about how to prepare for a sandbox deployment, see [Prerequisites](https://github.com/Azure-Samples/azuresandbox?tab=readme-ov-file#prerequisites).
 
 To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone), consider the following strategies:
 
@@ -42,7 +44,7 @@ To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with 
 
 For more information, see [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments).
 
-To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). For more information about how to deploy your sandbox environment, see [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) and [known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
+To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting Started (Interactive Execution)](https://github.com/Azure-Samples/azuresandbox?tab=readme-ov-file#getting-started-interactive-execution).
 
 ## Use cases
 
@@ -107,8 +109,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Use integrated Microsoft Entra authentication to authorize access to Azure platform as a service (PaaS) services like SQL Database and Azure Storage.
 
 - Start with a [least privilege approach](/azure/well-architected/security/identity-access#role-assignment) to authorize sandbox use.
-  - Limit `Owner` Azure RBAC role assignments to sandbox subscription owners.
-  - Limit `Contributor` Azure RBAC role assignments to sandbox subscription users.
+  - Limit `Owner` Azure RBAC role assignments to sandbox subscription owners and users.
   - Use Microsoft Entra Privileged Identity Management (PIM) to manage privileged Azure RBAC role assignments scoped to sandbox subscriptions, such as `Owner`, `Contributor`, and `User Access Administrator`.
 
 - Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or de-identified data.
@@ -130,7 +131,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
   - Consider using host encryption or Azure Disk Encryption for encryption of data in transit. For managed disks attached to VMs, data is encrypted at rest by default.
 - Avoid the use of public IP addresses. Use Azure Bastion for secure remote access to VMs.
 - Use private endpoints to communicate with Azure services.
-- Disable public network access to Azure services like Storage and SQL Database.
+- Disable public network access to Azure services like Key Vault, Storage and SQL Database.
 - Disable [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and use [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
 
 ### Secure operations
