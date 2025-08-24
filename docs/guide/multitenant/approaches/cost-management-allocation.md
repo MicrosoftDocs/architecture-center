@@ -80,7 +80,7 @@ Your application tier might already collect logs and metrics that are helpful fo
 
 In Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview) often captures these metrics. By using [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling), you can enrich the telemetry captured by Application Insights to include a tenant identifier or other custom data.
 
-However, Application Insights and other logging and monitoring solutions aren't appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution because capturing every piece of telemetry can often become expensive.
+However, Application Insights and other logging and monitoring solutions aren't appropriate for precise cost measurement or for metering purposes. Application Insights is designed to [sample data](/azure/azure-monitor/app/opentelemetry-sampling), especially when your application has a high volume of requests. Sampling is designed to reduce the cost of monitoring your solution because capturing every piece of telemetry can often become expensive.
 
 If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs) to capture large volumes of telemetry and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to process it in real time.
 
