@@ -234,7 +234,7 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 [w-q-w]: ../architecture-styles/web-queue-worker.yml
 [microservices]: ../architecture-styles/microservices.md
 [event-driven]: ../architecture-styles/event-driven.md
-[big-compute]: ../architecture-styles/big-compute.yml
+[big-compute]: ../architecture-styles/big-compute.md
 
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity
