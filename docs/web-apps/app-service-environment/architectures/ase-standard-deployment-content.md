@@ -8,7 +8,7 @@ This reference architecture demonstrates a common enterprise workload that uses 
 ## Architecture
 
 :::image type="complex" source="../_images/app-service-environment.png" alt-text="Diagram that shows an architecture for an App Service Environment deployment." lightbox="../_images/app-service-environment.png" border="false":::
-The diagram shows a secure, zone‑redundant App Service Environment inside an Azure virtual network. Traffic enters through an Application Gateway from the internet, then routes to the ILB of the App Service Environment that hosts a web app, a private API, and a function app. Traffic flows to the web app. Outbound traffic flows through Azure Firewall. The environment connects to Azure services such as Service Bus, Azure Cosmos DB, SQL Server, and Key Vault through private endpoints and private DNS. Azure Cache for Redis provides in‑network caching. A dashed arrow points from GitHub Actions outside the virtual network to a jumpbox virtual machine in a subnet. Another dashed arrow points from this subnet to the App Service Environment subnet. Microsoft Entra ID is in the right top corner of the diagram to imply that it handles authentication.
+The diagram shows a secure, zone‑redundant App Service Environment inside an Azure virtual network. Traffic enters through an Application Gateway from the internet, then routes to the ILB of the App Service Environment that hosts a web app, a private API, and a function app. Traffic flows to the web app. Outbound traffic flows through Azure Firewall. The environment connects to Azure services such as Service Bus, Azure Cosmos DB, SQL Server, and Key Vault through private endpoints and private DNS. Azure Cache for Redis provides in‑network caching. A dashed arrow points from GitHub Actions outside the virtual network to a jumpbox virtual machine (VM) in a subnet. Another dashed arrow points from this subnet to the App Service Environment subnet. Microsoft Entra ID is in the right top corner of the diagram to imply that it handles authentication.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment.vsdx) of this architecture.*
@@ -47,11 +47,11 @@ The following services help secure the App Service Environment in this architect
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) restricts the outbound traffic from the web application. Outgoing traffic that doesn't go through the private endpoint channels and a route table required by App Service Environment routes to the firewall subnet. For simplicity, this architecture configures all private endpoints on the services subnet.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) provides access rights and permissions management to Azure resources and services. [*Managed identities*](/entra/identity/managed-identities-azure-resources/overview) assign identities to services and apps. Microsoft Entra ID manages the identities. These identities can authenticate to any service that supports Microsoft Entra authentication. This approach removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) provides access rights and permissions management to Azure resources and services. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) assign identities to services and apps. Microsoft Entra ID manages the identities. These identities can authenticate to any service that supports Microsoft Entra authentication. This approach removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) stores secrets and credentials that the apps require. Use this option instead of storing secrets directly in the application.
 
-- [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. The App Service Environment is in the virtual network, so a virtual machine serves as a jumpbox inside the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
+- [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. The App Service Environment is in the virtual network, so a VM serves as a jumpbox inside the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
 ### Multisite configuration
 
@@ -219,25 +219,25 @@ properties: {
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For more informatino, see the[Cost Optimization pillar in the Well-Architected Framework](/azure/well-architected/cost-optimization). To help save money, [Azure reservations](/azure/cost-management-billing/reservations/prepare-buy-reservation) provide one-year or three-years plans for many Azure resources..
 
-Here are some points to consider for some of the key services used in this architecture.
+Consider the following cost factors for some key services in this architecture.
 
 #### App Service Environment v3
 
-There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows). An App Service Environment is deployed using the Isolated v2 Service Plan. Within this plan, there are multiple options for CPU sizes, from I1v2 through I6v2. This reference implementation uses three I1v2s per instance.
+App Service has various [pricing options](https://azure.microsoft.com/pricing/details/app-service/windows). An App Service Environment is deployed via the Isolated v2 service plan. This plan includes multiple options for CPU sizes, from I1v2 through I6v2. This reference implementation uses three I1v2 instances.
 
 #### Application Gateway
 
-[Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) provides various pricing options. This implementation uses the Application Gateway Standard v2 and WAF v2 SKU, which supports autoscaling and zone redundancy. See [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) for more information about the pricing model used for this SKU.
+Application Gateway includes several [pricing options](https://azure.microsoft.com/pricing/details/application-gateway/). This implementation uses the Application Gateway Standard v2 and WAF v2 SKU, which supports autoscaling and zone redundancy. For more information, see [Scale Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 #### Azure Cache for Redis
 
-[Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache) provides the various pricing options for this service. This architecture uses the *Premium SKU*, for the virtual network support.
+Azure Cache for Redis has various [pricing options](https://azure.microsoft.com/pricing/details/cache). This architecture uses the Premium SKU for virtual network support.
 
-#### Additional dependencies
+#### Other dependencies
 
-Following are pricing pages for other services that are used to lock down the App Service Environment:
+Other services that help secure the App Service Environment also have several pricing options:
 
 - [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
 - [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
@@ -247,26 +247,28 @@ Following are pricing pages for other services that are used to lock down the Ap
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The deployment scripts in this reference architecture are used to deploy App Service Environment, other services, and the applications inside App Service Environment. Once these applications are deployed, enterprises might want to have a plan for continuous integration and deployment for app maintenance and upgrades. This section shows some of the common ways developers use for CI/CD of App Service Environment applications.
+The deployment scripts in this reference architecture deploy App Service Environment, other services, and the applications inside App Service Environment. After these applications are deployed, enterprises might plan for continuous integration and continuous deployment (CI/CD) for app maintenance and upgrades. This section describes common methods that developers use for CI/CD of App Service Environment applications.
 
-Apps can be deployed to an internal App Service Environment only from within the virtual network. The following three methods are widely used to deploy App Service Environment apps:
+You can deploy apps to an internal App Service Environment only from within the virtual network. Use one of the following methods to deploy App Service Environment apps:
 
-- **Manually inside the Virtual Network:** Create a virtual machine inside the App Service Environment virtual network with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
+- **Use a VM inside the virtual network.** Create a VM inside the App Service Environment virtual network by using the required tools for deployment. To open up the RDP connection to the VM, use a network security group configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This method works well to set up an initial build and test development environment. Don't use it for a production environment because it can't scale the required deployment throughput.
 
-- **Point to site connection from local workstation:** This allows you to extend your App Service Environment virtual network to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
+- **Use a point-to-site connection from a local workstation.** Extend your App Service Environment virtual network to your development machine. Deploy from your local workstation. This method also works well for an initial development environment but doesn't suit a production environment.
 
-- **Through Azure Pipelines:** This implements a complete CI/CD pipeline, ending in an agent located inside the virtual network. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, and then deploys to the App Service Environment subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the App Service Environment virtual network](/azure/devops/pipelines/agents/v2-windows).
+- **Use Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted build agent between Azure Pipelines and the App Service Environment virtual network](/azure/devops/pipelines/agents/v2-windows).
 
-Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how these are used to automate CI/CD for each application.
+We recommend that you use Azure Pipelines for production environments. To automate the build and deployment processes, script CI/CD with the [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema). The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) file implements such a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) and the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). For more information about how these tools help automate CI/CD for each application, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 
-Some enterprises may not want to maintain a permanent build agent inside the virtual network. In that case, you can choose to create a build agent within the DevOps pipeline, and tear it down once the deployment is completed. This adds another step in the DevOps, however it lowers the complexity of maintaining the VM. You may even consider using containers as build agents, instead of VMs. Build agents can also be completely avoiding by deploying from a *zipped file placed outside the virtual network*, typically in a storage account. The storage account will need to be accessible from the App Service Environment. The pipeline should be able to access the storage. At the end of the release pipeline, a zipped file can be dropped into the blob storage. The App Service Environment can then pick it up and deploy. Be aware of the following limitations of this approach:
+Some enterprises might not want to maintain a permanent build agent inside the virtual network. In that case, you can create a build agent within the DevOps pipeline and tear it down after the deployment finishes. This appraoch adds another step in DevOps but simplifies VM maintenance.
 
-- There is a disconnect between the DevOps and the actual deployment process, leading to difficulties in monitoring and tracing any deployment problems.
+Also consider using containers as build agents instead of VMs. Avoid build agents completely by deploying from a *zipped file placed outside the virtual network*, typically in a storage account. The App Service Environment and the pipeline must have access to the storage account. The end of the release pipeline can drop a zipped file into the blob storage. The App Service Environment can then pick it up and deploy. This approach includes the following limitations:
 
-- In a locked down environment with secured traffic, you may need to change the rules to access the zipped file on the storage.
-- You will need to install specific extensions and tools on the App Service Environment to be able to deploy from the zip.
+- This method disconnects DevOps from the actual deployment process, which makes monitoring and tracing deployment problems difficult.
 
-To know some more ways the apps can be deployed to the App Service plans, read [the App Service articles focusing on deployment strategies](/azure/app-service/deploy-run-package).
+- In a locked-down environment with secured traffic, you might need to update access rules for the zipped file in storage.
+- You must install specific extensions and tools on the App Service Environment to deploy from the zip.
+
+For more information about app deployment methods, see [Run your app in App Service](/azure/app-service/deploy-run-package).
 
 ### Performance Efficiency
 
@@ -274,11 +276,11 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 #### Design scalable apps
 
-The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required.
+This reference architecture structures the application so that you can scale individual components based on usage. Each web app, API, and function deploys in its own App Service plan. You can monitor each app for performance bottlenecks, then [scale it up](/azure/app-service/manage-scale-up) when needed.
 
-#### Autoscaling Application Gateway
+#### Autoscale Application Gateway
 
-Autoscaling can be enabled on Azure Application Gateway V2. This allows Application Gateway to scale up or down based on the traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) to scale between zero and 10 additional instances. See [Scaling Application Gateway and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2) for more details.
+Application Gateway supports autoscaling. This feature enables Application Gateway to scale up or down based on traffic load patterns. This reference architecture configures `autoscaleConfiguration` in the [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) file to scale between zero and 10 extra instances. For more information, see [Scale Application Gateway and Web Application Firewall](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#scaling-application-gateway-and-waf-v2).
 
 ## Deploy this scenario
 
@@ -301,12 +303,11 @@ Other contributors:
 
 ## Next steps
 
-- [Run your app in Azure App Service directly from a ZIP package](/azure/app-service/deploy-run-package)
+- [Run your app in App Service directly from a ZIP package](/azure/app-service/deploy-run-package)
 - [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema)
-- [Get your management addresses from API](/azure/app-service/environment/management-addresses#get-your-management-addresses-from-api)
-- [Azure Key Vault](/azure/key-vault)
+- [Key Vault](/azure/key-vault)
 - [Azure Pipelines](/azure/devops/pipelines)
 
 ## Related resources
 
-To learn how to extend this architecture to support high availability, read [High availability app deployment via App Service Environment](./ase-high-availability-deployment.yml).
+- [High availability app deployment via App Service Environment](./ase-high-availability-deployment.yml).
