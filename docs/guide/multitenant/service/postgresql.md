@@ -1,6 +1,6 @@
 ---
 title: Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution
-description: Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Reference guidance and examples.
+description: Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 07/11/2025
@@ -32,13 +32,13 @@ The following deployment modes are available for Azure Database for PostgreSQL a
 When you use Azure Database for PostgreSQL to build a multitenant application, the following features can enhance your solution.
 
 > [!NOTE]
-> Some features are only available in specific [deployment modes](#deployment-modes). The following guidance indicates these features.
+> Some features are only available in specific [deployment modes](#deployment-modes). The following guidance describes which features are available.
 
 ### Row-level security
 
 Row-level security is useful for enforcing tenant-level isolation when you use shared tables. In PostgreSQL, you implement row-level security by applying *row security policies* to tables to restrict access to rows by tenant.
 
-Implementing row-level security on a table might affect performance. You might need to create other indexes on tables that have row-level security enabled to ensure that performance isn't impacted. When you use row-level security, it's important to use performance testing techniques to validate that your workload meets your baseline performance requirements.
+Implementing row-level security on a table might affect performance. You might need to create other indexes on tables that have row-level security enabled to ensure that performance isn't affected. When you use row-level security, it's important to use performance testing techniques to validate that your workload meets your baseline performance requirements.
 
 For more information, see [Secure your Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/security-overview).
 
@@ -105,9 +105,9 @@ For more information, see [Azure confidential computing for Azure Database for P
 
 Data stored in Azure Database for PostgreSQL flexible server is encrypted at rest by default by using Microsoft-managed keys, but you can also use customer-managed keys (CMKs) to allow tenants to specify their own encryption keys.
 
-When you use [CMKs](/azure/postgresql/flexible-server/security-data-encryption), you can provide your own encryption keys stored in [Azure Key Vault](/azure/key-vault/general/overview). In multitenant environments, this approach enables you to use different encryption keys for different tenants, even when their data is stored in the same database server. This capability also allows tenants to have control over their own encryption keys, and if they need to deactivate their account, deleting the encryption key ensures that their data is no longer accessible.
+When you use [CMKs](/azure/postgresql/flexible-server/security-data-encryption), you can provide your own encryption keys stored in [Azure Key Vault](/azure/key-vault/general/overview). In multitenant environments, this approach enables you to use different encryption keys for different tenants, even when their data is stored in the same database server. This capability also gives tenants control over their own encryption keys. If a tenant chooses to deactivate their account, deleting the associated key ensures that their data is no longer accessible.
 
-Azure Database for PostgreSQL flexible server supports [automatic key version updates](/azure/postgresql/flexible-server/security-data-encryption#cmk-key-version-updates) for CMKs. This feature automatically updates to new key versions after rotation in Key Vault, without requiring manual key version management. In multitenant environments where regulatory compliance requires regular key rotation, this automation reduces manual operational tasks and maintains data protection without service interruption.
+Azure Database for PostgreSQL flexible server supports [automatic key version updates](/azure/postgresql/flexible-server/security-data-encryption#cmk-key-version-updates) for CMKs. This feature automatically updates to new key versions after rotation in Key Vault and doesn't require manual key version management. In multitenant environments where regulatory compliance requires regular key rotation, this automation reduces manual operational tasks and maintains data protection without service interruption.
 
 For more information, see the following articles:
 
