@@ -3876,6 +3876,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/multitenant/approaches/ai-ml.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/ai-machine-learning",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
       "redirect_url": "/azure/event-grid/overview",
       "redirect_document_id": false
