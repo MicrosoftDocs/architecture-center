@@ -15,13 +15,13 @@ ms.custom:
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It can help you identify and diagnose problems, analyze user behavior, and track key metrics. This article describes some of the features of Application Insights that are useful for multitenant systems. It also describes various tenancy models.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, a task that you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Measure the consumption of each tenant](../considerations/measure-consumption.md).
+> Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, which is a task that you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Measure the consumption of each tenant](../considerations/measure-consumption.md).
 
 ## Isolation models
 
 When you implement a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. The following factors might influence your choice:
 
-- How many tenants that you plan to have.
+- The number of tenants that you plan to have.
 - Whether you share your application tier among multiple tenants or deploy separate deployment stamps for each tenant.
 - You or your customers are sensitive about storing data alongside other tenants' data.
 - The application tier of your solution is multitenant, and the data tier is single tenant.
@@ -34,11 +34,11 @@ The following table summarizes the differences between the main tenancy models f
 
 | Consideration | Globally shared Application Insights instance| One Application Insights instance for each region or stamp | One Application Insights instance for each tenant |
 |-|-|-|-|
-| **Data isolation** | Low | Low | High |
-| **Performance isolation** | Low | Medium | High |
-| **Deployment complexity** | Low to medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
-| **Operational complexity** | Low | Medium | High |
-| **Example scenario** | Large multitenant solution that has a shared application tier | Multitenant solution that has regional deployments to better serve a global customer base | Individual application instances for each tenant |
+| Data isolation | Low | Low | High |
+| Performance isolation | Low | Medium | High |
+| Deployment complexity | Low to medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
+| Operational complexity | Low | Medium | High |
+| Example scenario | Large multitenant solution that has a shared application tier | Multitenant solution that has regional deployments to better serve a global customer base | Individual application instances for each tenant |
 
 ### Globally shared Application Insights instance
 
@@ -48,7 +48,7 @@ You can use a single instance of Application Insights to track telemetry for ten
    The diagram consists of three sections. The first section contains icons that represent tenants. The second section contains boxes that represent stamps. The third section represents Application Insights. Arrows point from Tenant 1 and Tenant 2 to the application in Stamp A. Arrows point from Tenant 3 and Tenant 4 to the application in Stamp B. An arrow points from Tenant 5 to the application in Stamp C. Arrows point from the stamps to the Application Insights section.
 :::image-end:::
 
-One benefit of this approach is simplified configuration and management of the application. You only need to instrument the application code once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+One benefit of this approach is simplified configuration and management of the application. You only need to instrument the application code one time. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
 
 When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have many tenants. All tenants share the same Log Analytics workspace and instrumentation keys, so security and privacy might also be a concern.
 
@@ -56,7 +56,7 @@ To address these concerns, you might need to implement logic and mechanisms to e
 
 ### One Application Insights instance for each stamp
 
-Multitenant solutions often include multiple stamps, which might be deployed in different Azure regions. Stamps enable you to serve tenants that are local to a particular region so you can provide better performance. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
+Multitenant solutions often include multiple stamps, which might be deployed in different Azure regions. Stamps enable you to serve tenants that are local to a specific region so you can provide better performance. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
 
 You might decide to deploy an Application Insights instance in each stamp and share the instance among all tenants that use the stamp. The following diagram illustrates this approach.
 
@@ -66,7 +66,7 @@ You might decide to deploy an Application Insights instance in each stamp and sh
 
 This approach provides more flexibility with resource limits because the limits apply to each instance of Application Insights.
 
-### One Application Insights instance per tenant
+### One Application Insights instance for each tenant
 
 You might decide to use a dedicated Application Insights instance for each tenant. The following diagram illustrates this approach.
 
@@ -76,7 +76,7 @@ You might decide to use a dedicated Application Insights instance for each tenan
 
 This approach gives you more flexibility and control over tenants' telemetry data and provides the strongest data isolation. When you use this model, you can configure tenant-specific settings and retention policies.
 
-When you use this approach, you need to deploy several Application Insights instances, manage tenant-specific settings in a tenant catalog, and change application code when new tenants are onboarded. The decision to deploy a dedicated Application Insights instance for each tenant is separate from the decision to deploy an application tier for each tenant. For example, you can decide to deploy a single application instance in a stamp that's shared by multiple tenants but deploy one Application Insights instance for each tenant.
+When you use this approach, you need to deploy several Application Insights instances, manage tenant-specific settings in a tenant catalog, and change application code when new tenants are onboarded. The decision to deploy a dedicated Application Insights instance for each tenant is separate from the decision to deploy an application tier for each tenant. For example, you can decide to deploy a single application instance in a stamp that multiple tenants share but deploy one Application Insights instance for each tenant.
 
 You should consider using one Application Insights instance for each tenant if any of the following conditions apply:
 
@@ -98,17 +98,17 @@ You can use `TelemetryClient` or telemetry initializers to add custom properties
 
 #### TelemetryClient
 
-[TelemetryClient](/azure/azure-monitor/app/api-custom-events-metrics) is an object that you can use to track any telemetry item. You can access the custom properties of any telemetry item via its `Properties` dictionary. The advantage of using `TelemetryClient` is that you have full control over what custom properties to add, and when to add them. The disadvantage is that you need to access and modify each telemetry item that you want to enrich with custom properties.
+[TelemetryClient](/azure/azure-monitor/app/api-custom-events-metrics) is an object that you can use to track any telemetry item. You can access the custom properties of any telemetry item via its `Properties` dictionary. The advantage of using `TelemetryClient` is that you have full control over what custom properties to add, and when to add them. The disadvantage of using `TelemetryClient` is that you need to access and modify each telemetry item that you want to enrich with custom properties.
 
 #### Telemetry initializers
 
-You can use [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to add information to all telemetry items or to modify properties that are set by the standard telemetry modules.
+You can use [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to add information to all telemetry items or to modify properties that the standard telemetry modules set.
 
-When you share an Application Insights instance across multiple tenants, a telemetry initializer often provides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
+When you share an Application Insights instance across multiple tenants, a telemetry initializer often provides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage of using telemetry initializers is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
 
 When you use either mechanism to add custom properties to telemetry data, you can use features of Application Insights to monitor and analyze multitenant applications in more granular and meaningful ways:
 
-- Use metrics explorer to create charts and graphs that show the performance and usage of the application for each tenant.
+- Use Azure Monitor metrics explorer to create charts and graphs that show the performance and usage of the application for each tenant.
 
 - Use Log Analytics to write complex queries that filter, aggregate, and join telemetry data based on tenant-specific properties or metrics.
 
@@ -130,11 +130,11 @@ You can use [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-o
 
 ## Latency
 
-The time it takes for data on a monitored system to become available for analysis is known as [latency](/azure/azure-monitor/logs/data-ingestion-time). A shared Application Insights instance in a multitenant application doesn't incur more latency than a dedicated one unless the shared instance is throttled and the throttling prevents data from being ingested. In that scenario, latency increases.
+The time it takes for data on a monitored system to become available for analysis is known as [*latency*](/azure/azure-monitor/logs/data-ingestion-time). A shared Application Insights instance in a multitenant application doesn't incur more latency than a dedicated one unless the shared instance is throttled and the throttling prevents data from being ingested. In that scenario, latency increases.
 
 ## Rate limiting on ingestion
 
-You can implement ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/opentelemetry-sampling) to limit the amount of telemetry data that's ingested by your service each day. Sampling helps prevent Application Insights from throttling telemetry because of ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, to stay within the limits.
+You can implement ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/opentelemetry-sampling) to limit the amount of telemetry data that your service ingests each day. Sampling helps prevent Application Insights from throttling telemetry because of ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, to stay within the limits.
 
 ## Contributors
 
