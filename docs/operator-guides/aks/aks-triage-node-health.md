@@ -91,7 +91,7 @@ You can use the *Kubernetes / Compute Resources / Node (Pods)* dashboard to see 
 
 If your cluster includes Windows agent nodes, you can use the *Kubernetes / USE Method / Node (Windows)* dashboard to visualize the Prometheus metrics that are collected from these nodes. This dashboard provides a comprehensive view of resource consumption and performance for Windows nodes within your cluster.
 
-Take advantage of these dedicated dashboards so you can easily monitor and analyze important metrics related to CPU, memory, and other resources in both Linux and Windows agent nodes. This visibility enables you to identify potential bottlenecks, optimize resource allocation, and ensure efficient operation across your AKS cluster.
+Take advantage of these dedicated dashboards so you can monitor and analyze important metrics related to CPU, memory, and other resources in both Linux and Windows agent nodes. This visibility enables you to identify potential bottlenecks, optimize resource allocation, and ensure efficient operation across your AKS cluster.
 
 ## Step 2: Verify the control plane and worker node connectivity
 

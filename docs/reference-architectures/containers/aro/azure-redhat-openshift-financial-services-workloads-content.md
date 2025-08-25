@@ -42,13 +42,13 @@ This scenario uses an application that runs on an Azure Red Hat OpenShift cluste
 
 You can use Azure Red Hat OpenShift to access the OpenShift ecosystem. When you run OpenShift on-premises, most of the included platform services apply to Azure Red Hat OpenShift. You can use these platform services as alternatives to some of the Azure services mentioned in this article.
 
-Non-Microsoft alternatives are available. For example, you can host your container registry on-premises or use OpenShift GitOps instead of GitHub Actions. You can also use non-Microsoft monitoring solutions that work seamlessly with Azure Red Hat OpenShift environments. This article focuses on Azure alternatives that customers often use to build their solutions on Azure Red Hat OpenShift.
+Non-Microsoft alternatives are available. For example, you can host your container registry on-premises or use OpenShift GitOps instead of GitHub Actions. You can also use non-Microsoft monitoring solutions that work with Azure Red Hat OpenShift environments. This article focuses on Azure alternatives that customers often use to build their solutions on Azure Red Hat OpenShift.
 
 ## Scenario details
 
 FSI and other regulated industry Azure Red Hat OpenShift customers often have stringent requirements for their environments. This architecture outlines comprehensive criteria and guidelines that financial institutions can use to design solutions that meet their unique requirements when they use Azure Red Hat OpenShift in a hybrid cloud environment.
 
-This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement stringent controls on private link usage, establish private registries, ensure network segregation, and deploy robust encryption protocols for data at rest and data in transit. Identity and access management and role-based access control (RBAC) both ensure secure user administration within Azure Red Hat OpenShift clusters.
+This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement stringent controls on private link usage, establish private registries, ensure network segregation, and deploy encryption for data at rest and in transit. Identity and access management and role-based access control (RBAC) both ensure secure user administration within Azure Red Hat OpenShift clusters.
 
 To add resilience, you can distribute resources across availability zones for fault tolerance. Compliance obligations involve non-Microsoft risk assessments, regulatory adherence, and disaster recovery protocols. To improve observability, you can add logging, monitoring, and backup mechanisms to uphold operational efficiency and regulatory compliance. The guidelines in this article provide a comprehensive framework that you can use to deploy and manage Azure Red Hat OpenShift solutions that are specifically tailored to the needs of the financial services industry.
 

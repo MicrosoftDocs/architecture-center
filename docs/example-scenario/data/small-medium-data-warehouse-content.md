@@ -1,4 +1,4 @@
-This article describes several ways that small and midsize-sized businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These comprehensive data warehousing solutions seamlessly integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics 365, and other Microsoft technologies. These solutions provide an easy entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
+This article describes several ways that small and midsize-sized businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These data warehousing solutions integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics 365, and other Microsoft technologies. These solutions provide an initial entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
 
 SMBs that use on-premises SQL Server for data warehousing solutions under 500 GB might benefit from using this pattern. They use various tools for data ingestion into their data warehousing solution, including SQL Server Integration Services (SSIS), SQL Server Analysis Services (SSAS), SQL Server Reporting Services (SSRS), common SQL stored procedures, external extract, transform, load (ETL) and extract, load, transform (ELT) tools, SQL Server Agent jobs, and SQL snapshot replication. Data synchronization operations are typically snapshot-based, performed in batches, and don't require real-time reporting.
 
@@ -30,7 +30,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
 1. Fabric data pipelines or Azure Data Factory pipelines orchestrate the ingestion of transactional data into the data warehousing solution.
 
-   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into SQL Database and SQL Managed Instance. You can quickly implement this lift-and-shift approach, which ensures a seamless transition from an on-premises SQL solution to a future Fabric SaaS environment. You can modernize databases incrementally after the lift and shift.
+   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into SQL Database and SQL Managed Instance. You can implement this lift-and-shift approach to transition from an on-premises SQL solution to a future Fabric SaaS environment. You can modernize databases incrementally after the lift and shift.
 
    - The pipelines can pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than replatforming the data.
 
@@ -50,7 +50,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
    - Early prototyping for data warehouse entities.
 
-Fabric is tightly integrated with potential consumers of your multisource datasets, including Power BI front-end reports, Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
+Fabric integrates with potential consumers of your multisource datasets, including Power BI front-end reports, Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
 
 ### Components
 
@@ -60,7 +60,7 @@ Fabric is tightly integrated with potential consumers of your multisource datase
 
 - [SSMS](/sql/ssms/sql-server-management-studio-ssms) is an integrated environment for managing SQL infrastructure that you can use to develop and maintain legacy artifacts, such as stored procedures.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs seamlessly integrates with Azure data services and can ingest data from anywhere.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs integrates with Azure data services and can ingest data from many sources.
 
 ### Alternatives
 
@@ -72,9 +72,9 @@ Fabric is tightly integrated with potential consumers of your multisource datase
 
 ## Scenario details
 
-When SMBs modernize their on-premises data warehouses for the cloud, they can either adopt big data tools for future scalability or use traditional SQL-based solutions for cost efficiency, ease of maintenance, and a smooth transition. A hybrid approach provides the best of both worlds and enables easy migration of existing data estates while using modern tools and AI capabilities. SMBs can keep their SQL-based data sources running in the cloud and modernize them as needed.
+When SMBs modernize their on-premises data warehouses for the cloud, they can either adopt big data tools for future scalability or use traditional SQL-based solutions for cost efficiency, maintenance, and a predictable transition. A hybrid approach enables migration of existing data estates while using modern tools and AI capabilities. SMBs can keep their SQL-based data sources running in the cloud and modernize them as needed.
 
-This article describes several strategies for SMBs to modernize legacy data stores and explore big data tools and capabilities without stretching current budgets and skill sets. These comprehensive Azure data warehousing solutions seamlessly integrate with Azure and Microsoft services, including AI services, Microsoft Dynamics 365, and Microsoft Power Platform.
+This article describes several strategies for SMBs to modernize legacy data stores and explore big data tools and capabilities without stretching current budgets and skill sets. These Azure data warehousing solutions integrate with Azure and Microsoft services, including AI services, Microsoft Dynamics 365, and Microsoft Power Platform.
 
 ### Potential use cases
 
