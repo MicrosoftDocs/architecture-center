@@ -83,7 +83,7 @@ In this scenario, the HPC cluster is created entirely within Azure.
    In this diagram, a box represents a virtual network. The virtual network contains icons that represent cluster nodes, an RDMA network, and the cluster head node. A double-sided arrow connects the virtual network box to storage outside of the virtual network.
 :::image-end:::
 
-The head node provides management and job scheduling services to the cluster. For tightly coupled tasks, use an RDMA network that provides high-bandwidth, low-latency communication between VMs. For more information, see [Deploy an HPC Pack 2016 cluster in Azure][deploy-hpc-azure].
+The head node provides management and job scheduling services to the cluster. For tightly coupled tasks, use an RDMA network that provides high-bandwidth, low-latency communication between VMs. For more information, see [Overview of Microsoft HPC Pack 2019][deploy-hpc-azure].
 
 ### Burst an HPC cluster to Azure
 
