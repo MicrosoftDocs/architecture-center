@@ -119,7 +119,7 @@ Consider the following factors:
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a managed service that uses a SQL-based query language to enable real-time analytics. Use this service for simple processing tasks like filtering, aggregating, and joining data streams. It integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Stream Analytics best suits low-complexity, real-time tasks where a simple, managed solution with SQL-based queries is sufficient.
 
-- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability), [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security), and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
+- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability), [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
 
 - [Fabric eventstreams](/fabric/real-time-intelligence/event-streams/overview) is a real-time data streaming capability within Fabric, which is a unified analytics platform. Eventstreams enables seamless ingestion, processing, and integration of streaming data for real-time analytics and applications. Users can access eventstreams with minimal technical expertise. It provides drag-and-drop interfaces to set up data pipelines.
 
@@ -127,7 +127,7 @@ Consider the following factors:
 
 #### General capabilities
 
-| Capability | Stream Analytics | Spark Structured Streaming (Fabric, Azure Databricks, Azure Synapse Analytics) | Fabric eventstreams| Azure Functions|
+| Capability | Stream Analytics | Spark Structured Streaming (Fabric, Azure Databricks) | Fabric eventstreams| Azure Functions|
 | --- | --- | --- | --- | --- | 
 | Micro-batch processing| Yes | Yes | Yes| No | 
 | Event-based processing| No | No | Yes| Yes | 
