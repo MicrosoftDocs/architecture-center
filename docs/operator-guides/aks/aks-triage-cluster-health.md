@@ -27,7 +27,7 @@ In the Azure portal, select your AKS cluster resource. These tools and features 
 - [*Diagnose and solve problems*](/azure/aks/aks-diagnostics): You can use this tool to help identify and resolve issues within your cluster.
 
 - [*Resource health*](/azure/service-health/resource-health-overview): You can use this tool to help diagnose and obtain support for service problems that might affect your Azure resources. This tool provides information about your resources' current and past health status.
-- *Advisor recommendations*: [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry. Advisor suggests solutions so you can enhance cost-effectiveness, performance, reliability, and security.
+- *Advisor recommendations*: [Azure Advisor](/azure/advisor/advisor-overview) provides best-practice guidance for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry. Advisor suggests actions to improve cost-effectiveness, performance, reliability, and security.
 - *Logs*: Use this feature to access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. You can monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
 
 Use these tools and features so you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
@@ -45,7 +45,7 @@ To check the cluster health, you might choose:
 
 ### Resource health
 
-Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can affect your cluster's health. Set up a resource alert so you can easily monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses:
+Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can affect your cluster's health. Set up a resource alert so you can monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses:
 
 - **Available**: This status indicates that there are no events detected that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, a *recently resolved* notification appears.
 

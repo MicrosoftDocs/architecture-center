@@ -35,7 +35,7 @@ The components interact in these ways:
 
 The solution uses the following components:
 
-- [Azure NetApp Files][Azure NetApp Files] makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
+- [Azure NetApp Files][Azure NetApp Files] enables migration and operation of file-based applications without code changes. This shared file-storage service is jointly developed by Microsoft and NetApp, a Microsoft partner.
 - [Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses Windows VMs.
 - [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, this database solution runs SQL Server on VMs. SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this solution also provides the performance, security, and analytics of SQL Server. You can continue to use your current SQL Server version. You can also access the latest SQL Server updates and releases.
 - [Azure Virtual Network][Azure Virtual Network] is a networking service that manages virtual private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of the Azure infrastructure.
@@ -56,11 +56,11 @@ This image shows the benefits of using SQL Server with Azure NetApp Files.
 
 *Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
-#### Simple and reliable service
+#### Hosted service
 
-As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade SMB volumes for SQL Server and other workloads.
+As an Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files like other Azure storage options. Azure NetApp Files uses reliability features from the NetApp data management software ONTAP. With this software, you can provision enterprise-grade SMB volumes for SQL Server and other workloads.
 
-#### Highly performant systems
+#### Low-latency performance
 
 [Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well suited for using the SMB protocol to run SQL Server workloads over networks.
 
@@ -148,7 +148,7 @@ These factors make Azure NetApp Files less costly than disk storage solutions. F
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
+- As [Low-latency performance][Low-latency performance section of this article] discusses, Azure NetApp Files provides built-in scalability.
 - With SQL Server on Azure Virtual Machines, you can add or remove VMs when data and compute requirements change. You can also switch to a higher or lower memory-to-vCore ratio. For more information, see [VM size: Performance best practices for SQL Server on Azure VMs][VM size: Performance best practices for SQL Server on Azure VMs - Overview].
 
 ## Deploy this scenario
@@ -170,7 +170,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Principal author:
 
-* [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
+- [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
 
 ## Next steps
 
@@ -197,7 +197,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
-[Highly performant systems section of this article]: #highly-performant-systems
+[Low-latency performance section of this article]: #low-latency-performance
 [Install SQL Server with SMB fileshare storage]: /sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
 [Key benefits diagram in .svg format]: ./media/sql-server-azure-netapp-files-key-values.svg
 [Main architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-architecture.svg

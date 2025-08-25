@@ -15,20 +15,20 @@ The architecture consists of the following components and capabilities:
 - [Azure Arc enabled servers][azure-arc-enabled-servers-service-page]. This hybrid service allows you to manage your Windows and Linux machines, hosted outside of Azure, on your corporate network or other cloud provider. This is similar to how you manage native Azure VMs.
 - [Azure Arc enabled SQL Server][azure-arc-enabled-sql-server-service-page]. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer's datacenter, on the edge or in a multicloud environment.
 - [Kubernetes][kubernetes-open-source]. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
-- [Azure Kubernetes Service][azure-kubernetes-service-service-page]. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
+- [Azure Kubernetes Service][azure-kubernetes-service-service-page]. This is a service that provides a managed Kubernetes cluster in Azure.
 - [Azure Kubernetes Service (AKS) on Azure Local][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Local.
 - [Azure Arc-enabled Kubernetes][azure-arc-enabled-kubernetes-service-page]. This hybrid service allows you to streamline deployment and management of Kubernetes clusters inside or outside of Azure.
 - [Azure Arc-enabled data services][azure-arc-enabled-data-services-service-page]. This hybrid service makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 - [Azure SQL Managed Instance][sql-managed-instance-service-page]. This intelligent, scalable cloud database service combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service.
 - [Azure Arc enabled SQL Managed Instance][azure-arc-enabled-sql-managed-instance-service-page]. This Azure SQL data service can be created on your choice of infrastructure that hosts Azure Arc enabled data services.
-- [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview) is an Azure Arc service that helps you simplify the management of your hybrid IT estate distributed across VMware vSphere and Azure.
-- [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) is an Azure Arc service that helps you simplify the management of your hybrid IT estate distributed across SCVMM managed environment and Azure.
+- [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview) is an Azure Arc service that helps you manage your hybrid IT estate distributed across VMware vSphere and Azure.
+- [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) is an Azure Arc service that helps you manage your hybrid IT estate distributed across SCVMM managed environment and Azure.
 - [Azure Resource Manager][azure-resource-manager-service-page]. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags to secure and organize your resources after deployment.
 - [Azure Monitor][azure-monitor-service-page]. This cloud-based service maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
 - [Log Analytics][azure-log-analytics-service-page]. This is the primary tool in the Azure portal for writing log queries and interactively analyzing their results.
 - [Microsoft Sentinel][azure-sentinel-service-page]. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
 - [Microsoft Defender for Cloud][azure-security-center-service-page]. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
-- [Azure Backup][azure-backup-service-page]. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+- [Azure Backup][azure-backup-service-page]. The Azure Backup service provides secure, cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
 ## Scenario details
 

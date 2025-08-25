@@ -349,7 +349,7 @@ SparkMetric_CL
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
-- Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources according to the infrastructure-as-code process. By using templates, you can easily automate deployments with [Azure DevOps services][az-devops] or other continuous integration and continuous delivery (CI/CD) solutions.
+- Use the [Azure Resource Manager template][arm-template] to deploy the Azure resources according to the infrastructure-as-code process. By using templates, you can automate deployments with [Azure DevOps services][az-devops] or other continuous integration and continuous delivery (CI/CD) solutions.
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process. This approach simplifies the automation process.
 

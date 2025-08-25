@@ -31,7 +31,7 @@ Some components can affect admission controllers, such as *mutating and validati
   
 - [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests. For troubleshooting reference (such as *APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
-Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
+Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to support the consistent operation of a service mesh.
 
 ## Check the status of the Azure Policy add-on for AKS clusters
 

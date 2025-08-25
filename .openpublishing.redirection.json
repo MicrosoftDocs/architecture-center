@@ -3876,6 +3876,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/multitenant/approaches/ai-ml.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/ai-machine-learning",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
       "redirect_url": "/azure/event-grid/overview",
       "redirect_document_id": false
@@ -5052,6 +5057,16 @@
     {
       "source_path": "docs/networking/prefixes/add-ip-space-peered-vnet.yml",
       "redirect_url": "/azure/virtual-network/update-virtual-network-peering-address-space",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/serverless/architectures/code.yml",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/serverless/architectures/web-app.yml",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
       "redirect_document_id": false
     },
     {

@@ -61,7 +61,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB has open-source APIs for MongoDB, PostgreSQL, and Cassandra. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as data stores for each microservice.
 
-- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
+- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
 
 - **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy-traffic loads. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside).
 
