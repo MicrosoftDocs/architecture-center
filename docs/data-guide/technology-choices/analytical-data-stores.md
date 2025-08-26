@@ -1,8 +1,8 @@
 ---
 title: Choose an Analytical Data Store in Azure
 description: Evaluate analytical data store options for big data by reviewing key selection criteria and a capability matrix to compare database models and features.
-author: rajasekharreddy-duddugunta, mohitagarwal-ms
-ms.author: rduddugunta mohagarwal
+author: rajasekharreddy-duddugunta
+ms.author: rduddugunta
 ms.date: 03/26/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -128,6 +128,16 @@ The following tables summarize the key differences in capabilities.
 [3] Fabric Eventhouse and Real-Time Intelligence workloads can ingest data from secure sources like Kafka, Azure Event Hubs, and AMQP, with routing through secure endpoints.
 
 [4] It can be applied at the Fabric SQL Endpoint Level
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
+
+- [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 
 ## Next steps
