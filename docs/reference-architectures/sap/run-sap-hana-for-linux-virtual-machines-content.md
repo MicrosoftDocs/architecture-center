@@ -58,7 +58,7 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 * [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
 * [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
 * [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability)
-* [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview)
+* [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage)
 
 ## Considerations
 
