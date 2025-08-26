@@ -449,7 +449,7 @@ Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
-- [Enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
+- [Enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
 - [High availability enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
 [afd-overview]: /azure/frontdoor/front-door-overview  

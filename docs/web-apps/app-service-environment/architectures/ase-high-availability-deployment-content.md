@@ -15,7 +15,7 @@ When you configure App Service Environment to be zone redundant, the platform au
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-high-availability.vsdx) of this architecture.*
 
-The resources in the App Service Environment subnets in this reference implementation are the same as the ones in the [standard App Service Environment deployment architecture](./ase-standard-deployment.yml). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Cache for Redis to provide higher availability. Note that the scope of this reference architecture is limited to a single region.
+The resources in the App Service Environment subnets in this reference implementation are the same as the ones in the [standard App Service Environment deployment architecture](./app-service-environment-standard-deployment.yml). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Cache for Redis to provide higher availability. Note that the scope of this reference architecture is limited to a single region.
 
 ### Workflow
 

@@ -40,7 +40,7 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 - [Baseline zone-redundant web application](app-service/architectures/baseline-zone-redundant.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
-- [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
+- [Enterprise deployment using App Service Environment](../web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
 - [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
 ## Best practices
