@@ -33,7 +33,7 @@ Each model section includes a concise definition, typical workloads, data charac
 | Analytics / OLAP / MPP | Large-scale historical aggregation, BI | Microsoft Fabric (OneLake + Warehouse), Synapse, Azure Data Explorer, Analysis Services, Databricks |
 | Object & file | Large binary or semi-structured file storage | Blob Storage, Data Lake Storage Gen2, Azure Files |
 | Search & indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
-| External / similarity (vector) (covered elsewhere) | Semantic or ANN similarity | (See vector search article) |
+| Vector | Semantic or ANN similarity |  Azure AI Search, Azure Cosmos DB variants |
 
 > A single service may offer multiple models (multi-model). Prefer the best-fit model instead of forcing an awkward multi-model consolidation that complicates operations.
 
