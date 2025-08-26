@@ -23,8 +23,8 @@ When you implement a multitenant system that uses Application Insights, you need
 
 - The number of tenants that you plan to have.
 - Whether you share your application tier among multiple tenants or deploy separate deployment stamps for each tenant.
-- You or your customers are sensitive about storing data alongside other tenants' data.
-- The application tier of your solution is multitenant, and the data tier is single tenant.
+- Whether you or your customers are sensitive about storing data alongside other tenants' data.
+- Whether you want to approach tenancy differently in different tiers. For example, the application tier of your solution can be multitenant while the data tier is single tenant.
 - Whether telemetry requirements vary among tenants.
 
 > [!TIP]
@@ -105,6 +105,9 @@ You can use `TelemetryClient` or telemetry initializers to add custom properties
 You can use [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to add information to all telemetry items or to modify properties that the standard telemetry modules set.
 
 When you share an Application Insights instance across multiple tenants, a telemetry initializer often provides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage of using telemetry initializers is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
+
+
+### How to use your telemetry data
 
 When you use either mechanism to add custom properties to telemetry data, you can use features of Application Insights to monitor and analyze multitenant applications in more granular and meaningful ways:
 
