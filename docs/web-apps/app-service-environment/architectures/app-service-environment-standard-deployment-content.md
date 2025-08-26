@@ -311,6 +311,6 @@ Other contributors:
 - [Key Vault](/azure/key-vault)
 - [Azure Pipelines](/azure/devops/pipelines)
 
-## Related resources
+## Related resource
 
 - [High availability app deployment via App Service Environment](./ase-high-availability-deployment.yml).
