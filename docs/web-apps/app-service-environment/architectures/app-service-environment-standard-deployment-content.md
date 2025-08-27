@@ -41,7 +41,7 @@ The web apps are the only components that can access the internet via Azure Appl
 
 The following services help secure the App Service Environment in this architecture:
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private Azure cloud network that your enterprise owns. It provides enhanced network-based security and isolation. This architecture deploys an App Service Environment into a subnet of the enterprise-owned virtual network. App Service Environment allows your enterprise to tightly control that network space and the resources that it accesses by using network security groups and private endpoints. 
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private Azure cloud network that your enterprise owns. It provides enhanced network-based security and isolation. This architecture deploys an App Service Environment into a subnet of the enterprise-owned virtual network. App Service Environment allows your enterprise to tightly control that network space and the resources that it accesses by using network security groups (NSGs) and private endpoints. 
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application-level web traffic load balancer that has Transport Layer Security (TLS) or Secure Sockets Layer (SSL) offloading and a WAF. It accepts incoming traffic on a public IP address and routes it to the application endpoint in the ILB App Service Environment. This application-level routing can route traffic to multiple apps within the same ILB App Service Environment. For more information, see [Application Gateway multisite hosting](/azure/application-gateway/multiple-site-overview).
 
@@ -79,7 +79,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 #### App Service Environment
 
-An internal App Service Environment resides in the enterprise virtual network, hidden from the public internet. It enables you to secure back-end services, such as web APIs and functions, at the network level. Any App Service Environment app that has an HTTP endpoint can be accessed through the ILB from within the virtual network. Application Gateway forwards requests to the web app through the ILB. The web app itself goes through the ILB to access the API. The critical back-end components, like the API and the function, can't be accessed from the public internet.
+An internal App Service Environment resides in the enterprise virtual network and is hidden from the public internet. It enables you to secure back-end services, such as web APIs and functions, at the network level. Any App Service Environment app that has an HTTP endpoint can be accessed through the ILB from within the virtual network. Application Gateway forwards requests to the web app through the ILB. The web app itself goes through the ILB to access the API. The critical back-end components, like the API and the function, can't be accessed from the public internet.
 
 The App Service Environment assigns a default domain name to each app service and automatically creates a default certificate for each domain name. This certificate helps secure traffic between the gateway and the app and might be required in some scenarios. The default certificate doesn't appear in the client browser and only responds to the certificate configured on Application Gateway.
 
@@ -151,17 +151,17 @@ webApplicationFirewallConfiguration: {
 
 #### Virtual Network
 
-You can associate [network security groups](/azure/virtual-network/security-overview#how-traffic-is-evaluated) with one or more subnets in the virtual network. These groups define security rules that allow or deny traffic to flow between various Azure resources. This architecture associates a separate network security group for each subnet, which enables fine-tuned rules based on the services in that subnet.
+You can associate [NSGs](/azure/virtual-network/security-overview#how-traffic-is-evaluated) with one or more subnets in the virtual network. These groups define security rules that allow or deny traffic to flow between various Azure resources. This architecture associates a separate NSG for each subnet, which enables fine-tuned rules based on the services in that subnet.
 
-- The configuration for the network security group of the App Service Environment subnet is in the file [ase.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/ase.bicep).
+- The configuration for the NSG of the App Service Environment subnet is in the file [ase.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/ase.bicep).
 
-- The configuration for the network security group for the Application Gateway subnet is in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep).
+- The configuration for the NSG for the Application Gateway subnet is in the file [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep).
 
 Both configurations use the resource `"type": "Microsoft.Network/networkSecurityGroups"`.
 
 [Private endpoints](/azure/private-link/private-endpoint-overview) enable enhanced-security private connectivity between clients and Azure services over a private network. They provide a privately accessed IP address for the Azure service, which enables enhanced-security traffic to an Azure Private Link resource. The platform validates network connections and allows only connections that target the specified Private Link resource. 
 
-Private endpoints support network policies, such as network security groups, user-defined routes, and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Azure Service Bus, SQL Server, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
+Private endpoints support network policies, such as NSGs, user-defined routes, and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Azure Service Bus, SQL Server, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
 
 To enable private endpoints, you also need to configure private DNS zones. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -190,7 +190,7 @@ You can help secure access to App Service Environment applications by tightly co
 
 #### Key Vault
 
-Some services support managed identities and use Azure RBAC to set up permissions for the app. For example, see the built-in [Service Bus roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). You must have *User Access Administrator* access to the subscription to grant these permissions. The *Contributor* role can deploy these services. To allow a wider team of developers to run the deployment scripts, you can use the native access control provided by each service.
+Some services support managed identities and use Azure RBAC to set up permissions for the app. For example, see the built-in [Service Bus roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). You must have *User Access Administrator* access to the subscription to grant these permissions. The *Contributor* role can deploy these services. To allow a wider team of developers to run the deployment scripts, you can use the native access control that each service provides.
 
 - For Service Bus, use [shared access signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 
@@ -250,11 +250,11 @@ Other services that help secure the App Service Environment also have several pr
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The deployment scripts in this reference architecture deploy App Service Environment, other services, and the applications inside App Service Environment. After these applications are deployed, your enterprise might plan for continuous integration and continuous deployment (CI/CD) for app maintenance and upgrades. This section describes common methods that developers use for CI/CD of App Service Environment applications.
+The deployment scripts in this reference architecture deploy App Service Environment, other services, and the applications inside App Service Environment. After these applications are deployed, your enterprise might plan for CI/CD for app maintenance and upgrades. This section describes common methods that developers use for CI/CD of App Service Environment applications.
 
 You can deploy apps to an internal App Service Environment only from within the virtual network. Use one of the following methods to deploy App Service Environment apps:
 
-- **Use a VM inside the virtual network.** Create a VM inside the App Service Environment virtual network by using the required tools for deployment. To open up the RDP connection to the VM, use a network security group configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This method works well to set up an initial build and test development environment. Don't use this method for a production environment because it can't scale the required deployment throughput.
+- **Use a VM inside the virtual network.** Create a VM inside the App Service Environment virtual network by using the required tools for deployment. To open up the RDP connection to the VM, use an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the App Service Environment subnet. This method works well to set up an initial build and test development environment. Don't use this method for a production environment because it can't scale the required deployment throughput.
 
 - **Use a point-to-site connection from a local workstation.** Extend your App Service Environment virtual network to your development machine. Deploy from your local workstation. This method also works well for an initial development environment but doesn't suit a production environment.
 
