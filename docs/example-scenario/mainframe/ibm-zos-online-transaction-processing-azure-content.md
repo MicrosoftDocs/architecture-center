@@ -82,7 +82,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
   - [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it executes batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a fully managed platform as a service (PaaS)that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a fully managed platform as a service (PaaS) that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
 
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes open-source Redis and Redis Enterprise, a commercial product from Redis Labs, as a managed service. You can improve the performance of high-throughput OLTP applications by designing them to scale and to use an in-memory data store such as Azure Cache for Redis. In this architecture, it accelerates data access for high-throughput OLTP workloads that replace mainframe transaction processing systems.
 
@@ -124,7 +124,7 @@ The following monitoring tools provide comprehensive data analysis and valuable 
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive platform for collecting, analyzing, and acting on telemetry from Azure and on-premises environments. In this architecture, it serves as the central hub for monitoring infrastructure, applications, and services.
 
-  - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric) are a feature of Azure Monitor that notify users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
+  - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric) are a feature of Azure Monitor that notifies users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that uses a powerful language to analyze log data. In this architecture, it enables deep diagnostics, supports custom dashboards, and integrates with alerts and workbooks for operational insights.
 
