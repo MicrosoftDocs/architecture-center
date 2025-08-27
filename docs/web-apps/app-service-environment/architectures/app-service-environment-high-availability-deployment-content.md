@@ -1,13 +1,11 @@
 > [!NOTE]
 > [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
 
-[Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a given region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redudant architecture. These zones aren't related to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
+[Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a given region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redudant architecture. These zones don't relate to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
 
-Azure services that support availability zones can be zonal, zone-redundant, or both. You can deploy zonal services to a specific zone. You can automatically deploy zone-redundant services across zones. For more information, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
+Azure services that support availability zones can be zonal, zone-redundant, or both. You can deploy zonal services to a specific zone. And you can automatically deploy zone-redundant services across zones. For more information, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
 
-When you configure App Service Environment for zone redundancy, the platform automatically deploys instances of the Azure App Service plan in the maximum number of available zones in the selected region. At least two zones must be available in the region to enable zone redundancy. Therefore, the minimum App Service plan instance count is always two. The platform determines the number of zones available for an App Service Environment.
-
-![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
+When you configure an App Service Environment for zone redundancy, the platform automatically deploys instances of the Azure App Service plan in the maximum number of available zones in the selected region. At least two zones must be available in the region to enable zone redundancy. Therefore, the minimum App Service plan instance count is always two. The platform determines the number of zones available for an App Service Environment.
 
 ## Architecture
 
@@ -21,25 +19,25 @@ The diagram presents a structured layout of a Microsoft Azure network architectu
 
 The resources in the App Service Environment subnets in this reference implementation match the resources in the [standard App Service Environment deployment architecture](./ase-standard-deployment.yml). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Cache for Redis to provide higher availability. The scope of this reference architecture is limited to a single region.
 
-### Workflow
+### Components
 
-This section describes the nature of availability for services in this architecture. The following workflow corresponds to the previous diagram:
+This section describes the nature of availability for services in this architecture.
 
-- [App Service Environment v3](/azure/app-service/environment/overview) supports [zone redundancy](/azure/reliability/reliability-app-service-environment). You can configure zone redundancy at any time during the life cycle of an App Service Environment in the [regions that support zone redundancy](/azure/app-service/environment/overview#regions). Each App Service plan in a zone-redundant App Service Environment must include at least two instances to ensure deployment across two or more zones. You can combine zone-redundant and non-zone-redundant plans within the same App Service Environment. To configure a plan with only one instance, disable zone redundancy for that plan first. Zone redundancy doesn't incur extra charges. You pay only for the Isolated v2 instances in use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing) and [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
+- [App Service Environment v3](/azure/app-service/environment/overview) supports [zone redundancy](/azure/reliability/reliability-app-service-environment). In [regions that support zone redundancy](/azure/app-service/environment/overview#regions), you can configure zone redundancy at any time during the life cycle of an App Service Environment. Each App Service plan in a zone-redundant App Service Environment must include at least two instances to ensure deployment across two or more zones. You can combine zone-redundant and non-zone-redundant plans within the same App Service Environment. To configure a plan that has only one instance, first disable zone redundancy for that plan. Zone redundancy doesn't incur extra charges. You pay only for the Isolated v2 instances in use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing) and [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) spans all availability zones within a single region. The subnets in the virtual network also extend across availability zones. For more information, see [Network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements) and [Reliability in Virtual Network](/azure/reliability/reliability-virtual-network).
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) spans all availability zones within a single region. The subnets in the virtual network also extend across availability zones. For more information, see [Network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements) and [Reliability in Virtual Network](/azure/reliability/reliability-virtual-network).
 
-- [Azure Application Gateway v2](https://azure.microsoft.com/products/application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones in each region. Therefore, a single application gateway provides high availability, as shown in the reference architecture. The reference architecture uses the Web Application Firewall SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities. This protection is based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Reliability in Application Gateway v2](/azure/reliability/reliability-application-gateway-v2).
+- [Azure Application Gateway v2](/azure/well-architected/service-guides/azure-application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones in each region. Therefore, a single application gateway provides high availability, as shown in the reference architecture. The reference architecture uses the Web Application Firewall SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities. This protection is based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Reliability in Application Gateway v2](/azure/reliability/reliability-application-gateway-v2).
 
-- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall/) includes built-in support for high availability. It can use multiple zones without extra configuration.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) includes built-in support for high availability. It can use multiple zones without extra configuration.
 
-  You can also configure a specific availability zone when you deploy the firewall. For more information, see [Azure Firewall and availability zones](/azure/firewall/overview#availability-zones). The reference architecture doesn't use this configuration.
+  You can also configure a specific availability zone when you deploy the firewall. For more information, see [Azure Firewall availability zone support](/azure/reliability/reliability-firewall#availability-zone-support). The reference architecture doesn't use this configuration.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a highly available, highly redundant global service that spans availability zones and regions. For more information, see [Advance Microsoft Entra ID availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
+- [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) is a highly available, highly redundant global service that spans availability zones and regions. For more information, see [Advance Microsoft Entra ID availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
 
-- [GitHub Actions](https://azure.microsoft.com/products/devops/pipelines) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jumpbox in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
+- [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jumpbox in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
 
 ## Considerations
 
@@ -49,9 +47,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-#### Jump boxes
+#### Jumpboxes
 
-This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jump box VM. But you can use one jump box for each of the three zones. This architecture uses only one jump box because the jump box doesn't affect the availability of the app. It supports deployment and testing.
+This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jumpbox VM. But you can use one jumpbox for each of the three zones. This architecture uses only one jumpbox because the jumpbox doesn't affect the availability of the app. The jumpbox supports deployment and testing.
 
 #### App Service Environment
 
@@ -59,7 +57,7 @@ You can deploy App Service Environment across availability zones to provide resi
 
 When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across two or more zones in the selected region. Therefore, the minimum App Service plan instance count is always two.
 
-- You [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment or at any point in the life cycle of the environment.
+- You can [configure availability zones](/azure/app-service/environment/configure-zone-redundancy-environment) when you create your App Service Environment or at any point in the life cycle of the environment.
 
 - All App Service plans that you create in that App Service Environment require a minimum of two instances to enable zone redundancy. If the App Service Environment is zone redundant, you can selectively enable and disable zone redundancy for the individual App Service plans. To scale-in an App Service plan to a single instance, disable zone redundancy for that plan, then proceed with the scale-in operation.
 - Only a [subset of regions](/azure/reliability/availability-zones-region-support) support availability zones.
@@ -68,7 +66,7 @@ For more information, see [Reliability in App Service](/azure/reliability/reliab
 
 #### Resiliency
 
-The applications that run in App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web front end, `votingApp`. This health probe checks the health status of the web API and the Redis cache. The code in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs) implements this probe.
+The applications that run in the App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in the App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web front end, `votingApp`. This health probe checks the health status of the web API and the Redis cache. The code in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs) implements this probe.
 
 ```csharp
 var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionEndpoints:VotingDataAPIBaseUri"))
