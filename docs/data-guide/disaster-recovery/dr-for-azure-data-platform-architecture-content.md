@@ -257,6 +257,42 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - As of October 2024, [Microsoft Purview doesn't support automated business continuity and disaster recovery (BCDR)](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
 
+ - **Microsoft Fabric: OneLake**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Enable BCDR for capacity.
+    - Notes
+        - OneLake supports geo-redundant storage.
+
+- **Microsoft Fabric: SQL database in Fabric**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Manual geo-backup or geo-replication for active/active setups across regions.
+    - Notes
+        - Geo-redundancy must be manually configured.
+
+- **Microsoft Fabric: Data Engineering**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Memory Optimized SKU
+    - DR uplift options:
+        - Backup notebooks and Lakehouse data in another region.
+    - Notes
+        - Notebooks can be redeployed via CI/CD.
+
+- **Microsoft Fabric: Data Warehouse**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Manual geo-backup or geo-replication for active/active setups across regions.
+    - Notes
+        - No built-in geo-replication.
+
 ### Stateless data platform-specific services
 
 - **Azure Synapse: Pipelines**
@@ -311,6 +347,35 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - In AI Search business continuity (and disaster recovery) is achieved through multiple AI Search services.
         - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
+
+- **Microsoft Fabric: Real-Time Intelligence**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Use Eventhouse with GRS to ensure stream data i durable across paired regions. 
+    - Notes
+        - GRS provides stream redundancy across paired regions. 
+
+
+- **Microsoft Fabric: Data Factory**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Cross-region pipeline deployment.
+    - Notes
+        - Pipelines can be redeployed via CI/CD in a secondary region.
+        - If On-Prem or vNet Data Gateay are used in Data pipelines, they'll remain the customer's responsibility for recovery from a disaster.
+
+- **Microsoft Fabric: Data Science**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Dual-workspace mirroring of ML assets.
+    - Notes
+        - Notebooks and models must be manually exported and stored in a secondary workspace.
 
 ## Stateful vs stateless components
 The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
