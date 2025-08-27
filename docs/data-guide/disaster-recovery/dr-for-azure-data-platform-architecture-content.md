@@ -293,6 +293,15 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - No built-in geo-replication.
 
+- **Microsoft Fabric: Mirrored Database**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Manual geo-backup or geo-replication for active/active setups across regions.
+    - Notes
+        - Mirrored databases replicate external data into OneLake using CDC.
+
 ### Stateless data platform-specific services
 
 - **Azure Synapse: Pipelines**
