@@ -2,7 +2,7 @@
 
 This article presents a solution for using Azure Kubernetes Service (AKS) to quickly process and analyze a large volume of streaming data from devices.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. Splunk is a registered trademark of Cisco. *
+*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. Splunk is a registered trademark of Cisco.*
 
 ## Architecture
 
@@ -22,23 +22,33 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 ### Components
 
-The solution uses the following key technologies:
+- [Apache Kafka](https://kafka.apache.org) is a distributed event streaming platform designed for high-throughput, low-latency data feeds. In this architecture, it receives real-time data from AKS microservices and streams it to Azure HDInsight for large-scale analytics.
 
-- [API Management](/azure/api-management/api-management-key-concepts)
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps)
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)
-- [Container Registry](/azure/container-registry/container-registry-intro)
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)
-- [HDInsight](/azure/hdinsight/hdinsight-overview)
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
-- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
+
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a gateway for publishing, securing, and analyzing APIs. In this architecture, it receives incoming data from sensors and routes it to the AKS cluster for processing.
+
+- [Azure Cache for Redis](/en-us/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices. It supports scalable and elastic storage to ensure fast access to high-volume streaming data.
+
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
+
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, it runs Apache Spark jobs to analyze streamed data from Kafka and supports machine learning workloads.
+
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes container orchestration service. In this architecture, it hosts containerized microservices that ingest, process, and route streaming data from sensors to various storage and analytics layers.
+
+- [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
+
+- [Container Registry](/en-us/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images used to deploy microservices in the AKS cluster.
+
+- [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Azure HDInsight and creates visual dashboards for business intelligence.
 
 ## Scenario details
 
 This solution is a good fit for a scenario that involves millions of data points, where data sources include Internet of Things (IoT) devices, sensors, and vehicles. In such a situation, processing the large volume of data is one challenge. Quickly analyzing the data is another demanding task, as organizations seek to gain insight into complex scenarios.
 
-Containerized microservices in AKS form a key part of the solution. These self-contained services ingest and process the real-time data stream. They also scale as needed. The containers' portability makes it possible for the services to run in different environments and process data from multiple sources. To develop and deploy the microservices, DevOps and continuous integration/continuous delivery (CI/CD) are used. These approaches shorten the development cycle.
+Containerized microservices in AKS form a key part of the solution. These self-contained services ingest and process the real-time data stream. They also scale as needed. The containers' portability makes it possible for the services to run in different environments and process data from multiple sources. To develop and deploy the microservices, DevOps and CI/CD are used. These approaches shorten the development cycle.
 
 To store the ingested data, the solution uses Azure Cosmos DB. This database elastically scales throughput and storage, which makes it a good choice for large volumes of data.
 
@@ -60,10 +70,10 @@ This solution benefits the following areas:
 Product documentation:
 
 - [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
-- [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
+- [What is API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [AKS](/azure/aks/intro-kubernetes)
+- [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
@@ -71,7 +81,7 @@ Product documentation:
 
 Microsoft training modules:
 
-- [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images)
+- [Build and store container images with Container Registry](/training/modules/build-and-store-container-images)
 - [Configure Azure App Service plans](/training/modules/configure-app-service-plans)
 - [Work with Azure Cosmos DB](/training/modules/work-with-cosmos-db)
 - [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
@@ -81,4 +91,4 @@ Microsoft training modules:
 
 ## Related resource
 
-- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)

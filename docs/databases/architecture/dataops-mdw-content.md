@@ -33,21 +33,19 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 ### Components
 
-The solution uses these components:
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that enables data movement and orchestration. In this architecture, it initiates the pipeline by copying data from the Contoso city parking web service API into the landing zone of the data lake.
 
-* [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake built on Azure Blob Storage that supports tiered storage and replayable pipelines. In this architecture, it serves as the central repository for both raw and processed data across landing, malformed, and validated data zones.
 
-* [Azure Databricks](/azure/databricks/introduction)
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform designed for big data and machine learning. In this architecture, it performs two critical transformation steps. First, it cleanses and standardizes raw data while filtering malformed records to a separate schema. Then it converts validated data into a format suitable for data warehouse storage and makes processed data available to data scientists for model training.
 
-* [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools that support continuous integration and continuous delivery (CI/CD), version control, and release automation. In this architecture, it manages deployment across development, staging, and production environments for pipeline components, which ensures automated deployment of infrastructure and application changes.
 
-* [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
+- [Azure Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, keys, and certificates. In this architecture, it stores sensitive configuration settings and credentials used throughout the pipeline, providing centralized and secure configuration management.
 
-* [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Synapse Analytics](/azure/synapse-analytics/) is an integrated analytics service that combines big data and data warehousing capabilities. In this architecture, it serves as the data warehouse that ingests transformed data from Data Lake Storage via PolyBase for fast querying and reporting.
 
-* [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-
-* [Power BI](/power-bi/fundamentals/power-bi-overview)
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics tool that delivers interactive visualizations and dashboards. In this architecture, it connects to Azure Synapse Analytics to present parking usage data insights to city planners for informed decision-making.
 
 ## Scenario details
 

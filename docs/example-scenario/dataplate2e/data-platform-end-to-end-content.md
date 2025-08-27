@@ -175,26 +175,41 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ### Components
 
-The following services are used in this architecture:
+- [Azure AI Services](/azure/cognitive-services/) provide prebuilt models for vision, language, and decision-making tasks. In this architecture, they enrich datasets during processing through integration with Synapse pipelines and Stream Analytics.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
-- [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
-- [Azure AI services](/azure/ai-services/what-are-ai-services)
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs)
-- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub/reliability)
-- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-- [Microsoft Purview](/purview/purview)
-- [Azure Data Share](/azure/data-share/overview)
-- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
-- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management)
-- [Azure Key Vault](/azure/key-vault/general/overview)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-- [Azure Policy](/azure/governance/policy/overview)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database. In this architecture, it stores operational data and uses Synapse Link to enable near real-time analytics without affecting operational workloads.
+
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage. In this architecture, it serves as the central repository organized into Raw, Enriched, and Curated layers for all data types across batch and streaming scenarios.
+
+- [Azure Data Share](/azure/data-share/overview) enables secure data sharing across organizations. In this architecture, it distributes curated datasets from the data lake or Synapse to internal teams or external partners.
+
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides CI/CD and automation capabilities. In this architecture, it manages deployment pipelines for Synapse workloads and machine learning models.
+
+- [Azure IoT Hub](/azure/well-architected/service-guides/azure-iot-hub) is a cloud gateway for IoT devices. In this architecture, it ingests telemetry data and routes it to Event Hubs for stream processing or directly to the data lake for storage.
+
+- [Azure Key Vault](/azure/key-vault/general/overview) securely stores secrets, keys, and certificates. In this architecture, it manages credentials for Synapse pipelines, ML models, and data access across the platform.
+
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a platform for building and deploying ML models. In this architecture, it provides custom models that integrate with Synapse pipelines and Stream Analytics for data enrichment.
+
+- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes telemetry data. In this architecture, it monitors performance, reliability, and usage across all data platform components.
+
+- [Azure Policy](/azure/governance/policy/overview) enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the data platform.
+
+- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) processes real-time streaming data. In this architecture, it implements the "Hot Path" for Lambda architecture, and processes data from Event Hubs and IoT Hub with machine learning model integration.
+
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview) is an integrated analytics platform. In this architecture, it orchestrates data pipelines, provides SQL Serverless and Spark compute for transformations, and serves as the data warehouse through SQL pools.
+
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) ingests real-time data streams. In this architecture, it receives streaming data from applications and IoT devices, with capture capabilities for cold path storage in the data lake.
+
+- [Microsoft Cost Management](/azure/cost-management-billing/cost-management-overview) tracks and optimizes cloud spending. In this architecture, it monitors costs across all data services to ensure financial governance.
+
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides security posture management. In this architecture, it secures data workloads and monitors for security threats across the data platform.
+
+- [Microsoft Entra ID](/entra/id/) manages identity and access. In this architecture, it provides authentication and authorization for users and services across all data platform components.
+
+- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) provides business intelligence and visualization. In this architecture, it connects to Synapse SQL pools, Data Explorer pools, and the data lake to create dashboards and reports.
+
+- [Microsoft Purview](/azure/purview/overview) provides unified data governance. In this architecture, it catalogs data assets, tracks lineage from Synapse pipelines, and applies data classification and sensitivity labels.
 
 ### Alternatives
 

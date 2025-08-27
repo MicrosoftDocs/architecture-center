@@ -12,12 +12,31 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 
 You can deploy each of the following sandbox configurations or only the ones that you need:
 
-- Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
-- Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
-- [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/products/virtual-machines/sql-server)
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
-- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
-- [Azure Virtual WAN](https://azure.microsoft.com/products/virtual-wan) and point-to-site VPN
+## 🧩 Azure Sandbox architecture components
+
+- [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is a Windows Server VM that runs Active Directory Domain Services (AD DS). In this architecture, it provides centralized authentication, domain joining for VMs, and policy management across the sandbox environment.
+
+- [Application virtual network](/azure/virtual-network/virtual-networks-overview) is a separate virtual network that hosts application workloads and databases. In this architecture, it provides network isolation for test applications while enabling secure communication with shared services through virtual network peering.
+
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides secure RDP and SSH access to VMs without public IP addresses. In this architecture, it enables secure remote access to sandbox VMs directly through the Azure portal while minimizing the attack surface.
+
+- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) is a managed MySQL database service with private networking support. In this architecture, it provides a database platform for testing open-source applications while demonstrating private endpoint connectivity patterns.
+
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service accessible via SMB protocol. In this architecture, it provides shared storage for both Windows and Linux VMs, hosting scripts, configuration files, and enabling cross-platform file sharing scenarios.
+
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native firewall service with threat intelligence. In this architecture, it controls traffic between virtual networks and the internet, enforcing network segmentation and security policies across the sandbox environment.
+
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it demonstrates modern cloud-native database patterns and is accessed via private endpoints to simulate secure enterprise architectures.
+
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides secure remote connectivity. In this architecture, it offers point-to-site VPN access for developers and administrators who need full network connectivity to sandbox resources from remote locations.
+
+- [Linux jump box](/azure/virtual-machines/linux/overview) is a domain-joined Linux VM preloaded with DevOps tools including Azure CLI, PowerShell, and Terraform. In this architecture, it serves as a DevOps automation platform and demonstrates cross-platform domain integration scenarios.
+
+- [Shared services virtual network](/azure/virtual-network/virtual-networks-overview) is a dedicated virtual network that hosts centralized infrastructure services. In this architecture, it provides the network foundation for domain controllers, DNS services, and shared security services that support the entire sandbox environment.
+
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM running SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
+
+- [Windows Server jump box](/azure/architecture/patterns/jump-box) is a domain-joined Windows VM with administrative tools including RSAT, Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 
 ## Deploy the sandbox
 
