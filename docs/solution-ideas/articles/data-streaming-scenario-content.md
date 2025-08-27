@@ -48,7 +48,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 This solution is a good fit for a scenario that involves millions of data points, where data sources include Internet of Things (IoT) devices, sensors, and vehicles. In such a situation, processing the large volume of data is one challenge. Quickly analyzing the data is another demanding task, as organizations seek to gain insight into complex scenarios.
 
-Containerized microservices in AKS form a key part of the solution. These self-contained services ingest and process the real-time data stream. They also scale as needed. The containers' portability makes it possible for the services to run in different environments and process data from multiple sources. To develop and deploy the microservices, DevOps and CI/CD are used. These approaches shorten the development cycle.
+Containerized microservices in AKS form a key part of the solution. These self-contained services ingest and process the real-time data stream. They also scale as needed. The containers' portability makes it possible for the services to run in different environments and process data from multiple sources. To develop and deploy the microservices, DevOps and continuous integration/continuous delivery (CI/CD) are used. These approaches shorten the development cycle.
 
 To store the ingested data, the solution uses Azure Cosmos DB. This database elastically scales throughput and storage, which makes it a good choice for large volumes of data.
 
@@ -70,10 +70,10 @@ This solution benefits the following areas:
 Product documentation:
 
 - [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
-- [What is API Management?](/azure/api-management/api-management-key-concepts)
+- [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
-- [AKS](/azure/aks/intro-kubernetes)
-- [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
@@ -81,7 +81,7 @@ Product documentation:
 
 Microsoft training modules:
 
-- [Build and store container images with Container Registry](/training/modules/build-and-store-container-images)
+- [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images)
 - [Configure Azure App Service plans](/training/modules/configure-app-service-plans)
 - [Work with Azure Cosmos DB](/training/modules/work-with-cosmos-db)
 - [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
@@ -91,4 +91,4 @@ Microsoft training modules:
 
 ## Related resource
 
-- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)

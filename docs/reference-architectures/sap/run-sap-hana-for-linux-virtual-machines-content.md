@@ -104,7 +104,7 @@ Make sure to verify your target region's [resource capacity](/azure/site-recover
 
 The preceding architecture depicts a highly available deployment, with SAP HANA contained on two or more virtual machines. The following components are used.
 
-**Load balancers.**  [Load Balancer](/azure/load-balancer/load-balancer-overview) is used to distribute traffic to SAP HANA virtual machines. When you incorporate Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer. The Basic SKU balancer doesn't support zonal redundancy and [deprecated](/azure/load-balancer/skus). In this architecture, Load Balancer acts as the virtual IP address for SAP HANA. Network traffic is sent to the active VM with primary database instance. SAP HANA active/read-enabled architecture is optionally available ([SLES](/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)/[RHEL](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)) where a second virtual IP addressed on the load balancer is used to direct network traffic to the secondary SAP HANA instance on another VM for read-intense workloads.
+**Load balancers.** [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is used to distribute traffic to SAP HANA virtual machines. When you incorporate Azure Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer. The Basic SKU balancer doesn't support zonal redundancy and [deprecated](/azure/load-balancer/skus). In this architecture, Load Balancer acts as the virtual IP address for SAP HANA. Network traffic is sent to the active VM with primary database instance. SAP HANA active/read-enabled architecture is optionally available ([SLES](/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)/[RHEL](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)) where a second virtual IP addressed on the load balancer is used to direct network traffic to the secondary SAP HANA instance on another VM for read-intense workloads.
 
 The Standard Load Balancer provides a layer of security by default. Virtual machines that are behind the Standard Load Balancer don't have outbound internet connectivity. To enable outbound internet in these virtual machines, you need to update your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. In addition, you can also use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview) to get outbound connectivity.
 
@@ -226,14 +226,14 @@ Principal author:
 
 Learn more about the component technologies:
 
-- [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Use the SAP Business Warehouse connector in Power BI Desktop](/power-bi/connect-data/desktop-sap-bw-connector)
 - [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - [What is the Azure Backup service?](/azure/backup/backup-overview)
 - [About Site Recovery](/azure/site-recovery/site-recovery-overview)
-- [What is Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [Connect to SAP HANA databases in Power BI](/power-bi/connect-data/desktop-sap-hana)
 - [What is Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)

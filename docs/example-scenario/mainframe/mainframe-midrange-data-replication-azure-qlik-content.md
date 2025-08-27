@@ -66,11 +66,11 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform used for high-throughput data pipelines, streaming analytics, and mission-critical applications. In this architecture, it ingests Db2 change data and integrates with Qlik for real-time data movement and transformation.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. In this architecture, it transforms and analyzes large volumes of ingested data by using machine learning models and supports development in R, Python, Java, Scala, and Spark SQL.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, it transforms and analyzes large volumes of ingested data by using machine learning models and supports development in R, Python, Java, Scala, and Spark SQL.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage for storing structured and unstructured data. In this architecture, it serves as the persistent storage layer for processed change log data from on-premises systems.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming and event ingestion service capable of handling millions of messages per second. In this architecture, it captures Db2, IMS, and VSAM change data messages and forwards them to analytics platforms or custom adapters for transformation and storage.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. You can transform and store event hub data by using a real-time analytics provider or a custom adapter. In this architecture, it captures Db2, IMS, and VSAM change data messages and forwards them to analytics platforms or custom adapters for transformation and storage.
 
 #### Storage and databases
 
@@ -80,7 +80,7 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads and integrates easily with modern applications.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed PostgreSQL service with built-in intelligence and native Azure integration. In this architecture, it hosts relational data that benefits from advanced indexing, analytics, and compatibility with open-source tools.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data that benefits from advanced indexing, analytics, and compatibility with open-source tools.
 
 - [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services that support migration, modernization, and development. This family includes the following offerings:
 

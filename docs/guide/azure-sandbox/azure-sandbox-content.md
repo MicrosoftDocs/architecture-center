@@ -34,7 +34,7 @@ You can deploy each of the following sandbox configurations or only the ones tha
 
 - [Shared services virtual network](/azure/virtual-network/virtual-networks-overview) is a dedicated virtual network that hosts centralized infrastructure services. In this architecture, it provides the network foundation for domain controllers, DNS services, and shared security services that support the entire sandbox environment.
 
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM running SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
 - [Windows Server jump box](/azure/architecture/patterns/jump-box) is a domain-joined Windows VM with administrative tools including RSAT, Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 

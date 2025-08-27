@@ -53,9 +53,9 @@ This solution idea uses the following Azure components.
 
 - [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real-time. In this architecture, it serves as the central analytics engine for ingesting, querying, and visualizing IoT data.
 
-- [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature within the Web UI. They allow users to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
+- [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature within the Web UI. They allow users to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
 
-- [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) is a browser-based interface for working with Azure Data Explorer clusters. It supports writing, running, and sharing KQL commands and queries. In this architecture, it provides a workspace for analysts to query and explore IoT telemetry.
+- [Azure Data Explorer web UI](/azure/data-explorer/web-query-data) is a browser-based interface for working with Azure Data Explorer clusters. It supports writing, running, and sharing KQL commands and queries. In this architecture, it provides a workspace for analysts to query and explore IoT telemetry.
 
 - [Time series analysis](/azure/data-explorer/time-series-analysis) is a built-in capability in Azure Data Explorer. It enables users to explore temporal patterns, trends, and seasonality in time-based data. In this architecture, it reveals long-term trends and cyclical behavior in IoT sensor readings.
 
@@ -79,7 +79,7 @@ This solution uses Azure Data Explorer to get near real-time IoT telemetry analy
 
 - Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
 - Facilities management, for energy and environment optimization.
-- [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
+- Combining real-time road conditions with weather data for safer autonomous driving
 
 ## Contributors
 
