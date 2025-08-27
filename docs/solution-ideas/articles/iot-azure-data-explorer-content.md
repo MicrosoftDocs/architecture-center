@@ -79,7 +79,7 @@ This solution uses Azure Data Explorer to get near real-time IoT telemetry analy
 
 - Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
 - Facilities management, for energy and environment optimization.
-- Combining real-time road conditions with weather data for safer autonomous driving
+- Combining real-time road conditions with weather data for safer autonomous driving.
 
 ## Contributors
 
