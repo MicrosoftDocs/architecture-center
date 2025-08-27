@@ -53,7 +53,7 @@ productDirectory:
     - title: Choose the right technology
       imageSrc: /media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-decision-tree.yml
+        - url: ./guide/technology-choices/compute-decision-tree.md
           text: Choose a compute service
         - url: /azure/architecture/guide/choose-azure-container-service
           text: Choose a container service
@@ -116,7 +116,7 @@ conceptualContent:
         url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
       - text: Choose your Azure compute service
-        url: ./guide/technology-choices/compute-decision-tree.yml
+        url: ./guide/technology-choices/compute-decision-tree.md
         itemType: reference
 
     - title: AI & Machine Learning

@@ -104,7 +104,7 @@ items:
     - name: Choose a compute service
       items:
       - name: Azure compute services
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
     - name: Choose a container option
@@ -528,7 +528,7 @@ items:
     - name: Guides
       items:
       - name: Choose a compute service
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
       - name: Build workloads with Azure Spot Virtual Machines
