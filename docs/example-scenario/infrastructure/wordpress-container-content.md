@@ -26,7 +26,7 @@ This article describes a container solution for hosting a large, storage-intensi
 
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this solution, Azure Cache for Redis hosts a key-value cache that is shared among all pods and used for WordPress performance optimization plug-ins to improve response times.
 
-- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this scenario, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this architecture, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices, and should be enabled on perimeter virtual networks.
 
@@ -40,7 +40,7 @@ This article describes a container solution for hosting a large, storage-intensi
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 load balancer that distributes inbound traffic based on rules and health probe results with low latency and high throughput. In this architecture, the load balancer distributes traffic from the content delivery network to the front-end web servers by spreading traffic across multiple servers for scalability.
 
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario, network security group rules restrict traffic flow between the application components in the subnets.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, network security group rules restrict traffic flow between the application components in the subnets.
 
 ### Alternatives
 

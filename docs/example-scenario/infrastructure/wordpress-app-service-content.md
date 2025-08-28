@@ -27,7 +27,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a distributed network service that efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, Content Delivery Network serves as an alternative to Azure Front Door for content delivery optimization.
 
-- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this scenario, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this architecture, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices, and should be enabled on perimeter virtual networks.
 
@@ -39,7 +39,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable, optimized object storage service that provides a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage hosts all static content for the WordPress application.
 
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario, network security group rules restrict traffic flow between the application components in the subnets.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, network security group rules restrict traffic flow between the application components in the subnets.
 
 - [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution template for hosting WordPress on App Service. In this architecture, the template provides a preconfigured WordPress deployment that includes App Service and the other Azure services described in this section.
 
