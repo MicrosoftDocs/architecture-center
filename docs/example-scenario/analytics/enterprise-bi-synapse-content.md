@@ -20,7 +20,7 @@ Consider the following design approaches:
 - Enterprise BI for small and medium businesses that use an [Azure SQL ecosystem and Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 - Data warehousing completely on Fabric for customers that prefer SaaS
 
-The architecture in this article assumes that you use Azure Synapse Analytics data warehouse as the persistent layer of the enterprise semantic model and you use Power BI for business intelligence. This PaaS approach has the flexibility to accommodate various business requirements and preferences.
+The architecture in this article assumes that you use Microsoft Fabric data Lakehouse/Warehouse as the persistent layer of the enterprise semantic model and you use Power BI for business intelligence. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
 
 ## Architecture
 
@@ -38,7 +38,7 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 #### Ingestion and data storage
 
-- [Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/adls-gen2) is a temporary staging area during data ingestion. You can use [PolyBase to copy data into an Azure Synapse Analytics dedicated SQL pool](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-synapse-analytics).
+- [Microsoft Fabric OneLake](/fabric/data-engineering/lakehouse-overview) is a temporary staging area during data ingestion. You can use [PolyBase to copy data into an Azure Synapse Analytics dedicated SQL pool](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-synapse-analytics).
 
 - [Azure Synapse Analytics](/azure/synapse-analytics) is a distributed system that performs analytics on large data. It supports massive parallel processing, so it can run high-performance analytics. The Azure Synapse Analytics dedicated SQL pool is a target for ongoing ingestion from the on-premises environment. The SQL pool can serve data to [Power BI](/power-bi/fundamentals/power-bi-overview) via DirectQuery and perform further processing.
 
