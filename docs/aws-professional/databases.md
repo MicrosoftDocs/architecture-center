@@ -9,7 +9,6 @@ ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Relational database technologies on Azure and AWS
@@ -25,7 +24,7 @@ Azure provides several different relational database services that are the equiv
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
-Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels. In Microsoft Fabric, the cost is based on the Capacity SKU purchased, which entitles you to a set of Capacity Units (CUs). These CUs are shared across all Fabric workloads, such as Data Warehouse and SQL Database in Microsoft Fabric.
+Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels. In Microsoft Fabric, the cost is based on the Capacity SKU purchased, which entitles you to a set of Capacity Units (CUs). These CUs are shared across all Fabric workloads, such as SQL Database in Microsoft Fabric.
 
 ### See also
 
@@ -34,8 +33,6 @@ Costs for Amazon RDS are determined by the amount of hardware resources that you
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 - [SQL Database in Microsoft Fabric tutorial](/fabric/database/sql/tutorial-introduction)
-
-- [Microsoft Fabric Data Warehouse Tutorial](/fabric/data-warehouse/tutorial-introduction)
 
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
