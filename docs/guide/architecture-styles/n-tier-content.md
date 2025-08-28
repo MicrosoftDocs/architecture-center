@@ -61,7 +61,7 @@ This section describes an N-tier architecture running on VMs.
 > [!NOTE]
 > Using VMs to host an N-teir architecture might be of particular interest if you're migrating an existing application to Azure with minimal refactoring. Otherwise, consider using [managed services to implement the architecture](/azure/app-service/tutorial-secure-ntier-app), such as Azure App Service or Azure Container Apps.
 
-[ ![Physical diagram of an N-tier architecture](./images/n-tier-physical-bastion.png) ](./images/n-tier-physical-bastion.png#lightbox)
+[ ![Physical diagram of an N-tier architecture.](./images/n-tier-physical-bastion.png) ](./images/n-tier-physical-bastion.png#lightbox)
 
 Each tier consists of a Virtual Machine Scale Set with two or more VMs. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
