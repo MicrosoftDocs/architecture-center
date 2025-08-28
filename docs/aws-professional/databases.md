@@ -13,6 +13,8 @@ ms.collection:
 
 # Relational database technologies on Azure and AWS
 
+This article helps map familiar AWS database services to the equivalent offerings from Microsoft.
+
 ## Amazon RDS and Azure relational database services
 
 Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (Amazon RDS). These include:
@@ -22,9 +24,9 @@ Azure provides several different relational database services that are the equiv
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 - [SQL Database in Microsoft Fabric](/fabric/database/sql/overview)
 
-Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
+Other database engines such as [SQL Server](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM instances.
 
-Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels. In Microsoft Fabric, the cost is based on the Capacity SKU purchased, which entitles you to a set of Capacity Units (CUs). These CUs are shared across all Fabric workloads, such as SQL Database in Microsoft Fabric.
+Costs for Amazon RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels. In Microsoft Fabric, the cost is based on the capacity SKU purchased, which entitles you to a set of Capacity Units (CUs). These CUs are shared across all Fabric workloads, such as SQL Database in Microsoft Fabric.
 
 ### See also
 
@@ -62,7 +64,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 | Type | AWS Service | Azure Service | Description |
 | -----| ----------- | ------------- | ----------- |
-| Relational database | [RDS](https://aws.amazon.com/rds) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
+| Relational database | [Amazon RDS](https://aws.amazon.com/rds) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) | Managed relational database services in which resiliency, scale and maintenance are primarily handled by the Azure platform. |
 | Serverless relational database | [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless) | [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview)<br/><br/>[SQL Database in Microsoft Fabric](/fabric/database/sql/overview) | Database offering that automatically scales compute based on the workload demand. You're billed per second for the actual compute used. |
 | Data Warehouse | [Amazon Redshift](https://aws.amazon.com/redshift/) | [Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing) | Warehouse in Microsoft Fabric is a lake-centric, distributed relational data warehouse that supports scalable SQL-based analytics and integrates tightly with Fabric workloads for unified analytics experience. |
 | NoSQL | [DynamoDB](https://aws.amazon.com/dynamodb) (Key-Value)<br/><br/>[SimpleDB](https://aws.amazon.com/simpledb/)<br/><br/>[Amazon DocumentDB](https://aws.amazon.com/documentdb) (Document)<br/><br/>[Amazon Neptune](https://aws.amazon.com/neptune/) (Graph) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)<br/><br/> [Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)| Azure Cosmos DB is a globally distributed, multi-model database that natively supports multiple data models including key-value pairs, documents, graphs, and columnar. Cosmos DB in Microsoft Fabric uses the same architecture as Azure Cosmos DB for NoSQL but is tightly integrated into the Microsoft Fabric platform. |
@@ -79,15 +81,14 @@ Principal author:
 
 Other contributor:
 
-- [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-uk/) |
-Senior Cloud Solution Architect
+- [Richard Fitzgerald](https://www.linkedin.com/in/richard-fitzgerald-uk/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-### See also
+### Additional resources
 
-- [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
+- [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.md)
 
-- [Microsoft Fabric Blog](https://www.microsoft.com/microsoft-fabric/blog/)
+- [Microsoft Fabric community blogs](https://community.fabric.microsoft.com/t5/Fabric-community-blogs/ct-p/fabricblogs)
