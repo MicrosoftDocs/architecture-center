@@ -19,16 +19,15 @@ A closed layer architecture limits the dependencies between layers. However, it 
 
 ## When to use this architecture
 
-N-tier architectures are typically implemented as Infrastructure-as-a-Service (IaaS) applications, with each tier running on a separate set of Virtual Machines (VMs). However, an N-tier application doesn't need to be pure IaaS. Often, it's advantageous to use managed services for some parts of the architecture, particularly caching, messaging, and data storage.
+Consider an N-tier architecture when:
 
-Consider an N-tier architecture for:
+- Architectural requirements are still evolving.
+- Migrating an on-premises application to Azure with minimal changes.
+- Developing applications that span both on-premises and cloud environments.
 
-- Simple web applications.
-- A good starting point when architectural requirements aren't clear yet.
-- Migrating an on-premises application to Azure with minimal refactoring.
-- Unified development of on-premises and cloud applications.
+N-tier architectures are common in traditional on-premises systems, making them a natural fit for transitioning existing workloads to Azure.
 
-N-tier architectures are common in traditional on-premises applications, so it's a natural fit for migrating existing workloads to Azure.
+N-tier architectures can be effectively implemented using managed services, which offer scalability, reliability, and reduced operational overhead. Modern applications often benefit from using managed solutions for key components such as compute, caching, messaging, and data storage.
 
 ## Benefits
 
@@ -40,9 +39,8 @@ N-tier architectures are common in traditional on-premises applications, so it's
 
 ## Challenges
 
-- It's easy to end up with a middle tier that just does CRUD operations on the database, adding extra latency without doing any useful work.
+- It's easy to build a middle tier with basic CRUD operations that adds latency without delivering meaningful value.
 - Monolithic design prevents independent deployment of features.
-- Managing an IaaS application is more work than an application that uses only managed services.
 - It can be difficult to manage network security in a large system.
 - Testing and monitoring become more difficult when user requests and data move through multiple tiers.
 
@@ -58,15 +56,18 @@ N-tier architectures are common in traditional on-premises applications, so it's
 
 ## N-tier architecture on virtual machines
 
-This section describes a recommended N-tier architecture running on VMs.
+This section describes an N-tier architecture running on VMs.
+
+> [!NOTE]
+> Using VMs to host an N-teir architecture might be of particular interest if you're migrating an existing application to Azure with minimal refactoring. Otherwise, consider using [managed services to implement the architecture](/azure/app-service/tutorial-secure-ntier-app), such as Azure App Service or Azure Container Apps.
 
 ![Physical diagram of an N-tier architecture](./images/n-tier-physical-bastion.png)
 
-Each tier consists of two or more VMs, placed in an availability set or virtual machine scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
+Each tier consists of a Virtual Machine Scale Set with two or more VMs. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
 Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group rules and route tables to individual tiers.
 
-The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
+The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend [SQL Server](azure/azure-sql/virtual-machines/), using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
@@ -85,7 +86,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - For higher security, place a perimeter network, also called a DMZ, in front of the application. The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. For more information, see [Network DMZ reference architecture][dmz].
 
-- For high availability, place two or more NVAs in an availability set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
+- For high availability, use two or more NVAs in a Virtual Machine Scale Set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
 
 - Don't allow direct RDP or SSH access to VMs that are running application code. Instead, consider using Azure Bastion to securely connect to virtual machines via private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines. For more information, see [Azure Bastion overview](/azure/bastion/bastion-overview).
 
