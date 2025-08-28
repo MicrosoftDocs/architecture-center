@@ -4,7 +4,7 @@ This guidance builds on the [Azure Synapse Analytics end-to-end scenario][e2e-an
 
 - Microsoft Fabric Data Factory pipelines to ingest data in a metadata driven framework from a SQL database into Fabric Lakehouse/Warehouse. This batch method of extraction should be preferred for maximum flexibility in the ingestion process
 
-- Microsoft Fabric Mirroring for SQL Server to ingest data in a low-code GUI based managed process for full and incremental loads. This can be scheduled to be batch or close to near real times depending on data volumes & CDC enablement at source SQL Server.
+- Microsoft Fabric Mirroring/COPY Job for SQL Server to ingest data in a low-code GUI based process for full and incremental loads. This is a cost effective managed process for continous ingestion of data into OneLake via Mirroring or highly scalable ingeston through COPY JOBS.
 
 - Microsoft Fabric Real Time Intelligence Eventsteams for real time event driven ingestion framework for SQL Server CDC source processes.
 
