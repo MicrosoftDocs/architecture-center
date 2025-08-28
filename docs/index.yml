@@ -3,7 +3,7 @@ metadata:
   title: Azure Architecture Center
   description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 12/09/2024
+  ms.date: 08/27/2025
   ms.collection: collection
   ms.author: pnp
   author: claytonsiemens77
@@ -13,7 +13,7 @@ title: Azure Architecture Center
 summary: Design solutions on Azure using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
 brand: azure
 
-# Ref: https://review.learn.microsoft.com/en-us/help/platform/navigation-how-create-hub-page?branch=main#hub-page-template
+# Ref: https://learn.microsoft.com/help/platform/navigation-how-create-hub-page#hub-page-template
 
 highlightedContent:
   items:
@@ -34,8 +34,8 @@ highlightedContent:
       itemType: whats-new
 
 productDirectory:
-  title: Architecting applications on Azure
-  summary: Explore best practices and patterns for building applications on Microsoft Azure.
+  title: Architect workloads on Azure
+  summary: Explore best practices and patterns for building workloads on Microsoft Azure.
   items:
     - title: Design for the cloud
       imageSrc: /media/common/i_design.svg
@@ -53,7 +53,7 @@ productDirectory:
     - title: Choose the right technology
       imageSrc: /media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-decision-tree.yml
+        - url: ./guide/technology-choices/compute-decision-tree.md
           text: Choose a compute service
         - url: /azure/architecture/guide/choose-azure-container-service
           text: Choose a container service
@@ -116,7 +116,7 @@ conceptualContent:
         url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
       - text: Choose your Azure compute service
-        url: ./guide/technology-choices/compute-decision-tree.yml
+        url: ./guide/technology-choices/compute-decision-tree.md
         itemType: reference
 
     - title: AI & Machine Learning
