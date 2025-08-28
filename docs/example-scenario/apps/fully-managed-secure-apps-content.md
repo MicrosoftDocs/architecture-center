@@ -165,7 +165,7 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [High-availability enterprise deployment via an App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [High-availability enterprise deployment via an App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 
 <!-- links -->
 

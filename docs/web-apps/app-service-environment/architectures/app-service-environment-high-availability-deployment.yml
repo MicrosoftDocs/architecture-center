@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: High Availability Enterprise Deployment that uses App Service Environment
-  description: Learn about the recommended architecture to deploy an enterprise application by using App Services Environment in multiple availability zones.
+  description: Learn about the recommended architecture to deploy an enterprise application by using App Service Environment in multiple availability zones.
   author: deepbhattacharyya
   ms.author: deepbh
   ms.date: 08/15/2025
@@ -15,7 +15,7 @@ name: High availability enterprise deployment that uses App Service Environment
 azureCategories:
   - management-and-governance
   - featured
-summary: Learn about the recommended architecture to deploy an enterprise application by using App Services Environment in multiple availability zones.
+summary: Learn about the recommended architecture to deploy an enterprise application by using App Service Environment in multiple availability zones.
 products:
   - entra-id
   - azure-application-gateway
