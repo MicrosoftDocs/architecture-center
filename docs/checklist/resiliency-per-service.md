@@ -16,71 +16,12 @@ ms.custom:
 
 # Resiliency checklist for specific Azure services
 
-Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-## App Service
-
-**Use Standard or Premium tier.** These tiers support staging slots and automated backups. For more information, see [Azure App Service plans in-depth overview](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
-
-**Avoid scaling up or down.** Instead, select a tier and instance size that meet your performance requirements under typical load, and then [scale out](/azure/app-service-web/web-sites-scale) the instances to handle changes in traffic volume. Scaling up and down may trigger an application restart.
-
-**Store configuration as app settings.** Use app settings to hold configuration settings as app settings. Define the settings in your Resource Manager templates, or using PowerShell, so that you can apply them as part of an automated deployment / update process, which is more reliable. For more information, see [Configure web apps in Azure App Service](/azure/app-service-web/web-sites-configure).
-
-**Create separate App Service plans for production and test.** Don't use slots on your production deployment for testing. All apps within the same app service plan share the same VM instances. If you put production and test deployments in the same plan, it can negatively affect the production deployment. For example, load tests might degrade the live production site. By putting test deployments into a separate plan, you isolate them from the production version.
-
-**Separate web apps from web APIs.** If your solution has both a web front end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
-
-**Deploy zone-redundant App Service plans.** In supported regions, App Service plans can be deployed as zone redundant, which means that the instances are automatically distributed across availability zones. App Service automatically distributes traffic between the zones, and handles failover if a zone experiences an outage. For more information, see [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service).
-
-**Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL BACPAC file, which costs DTUs.
-
-**Deploy to a staging slot.** Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information, see [Set up staging environments for web apps in Azure App Service](/azure/app-service-web/web-sites-staged-publishing).
-
-**Create a deployment slot to hold the last-known-good (LKG) deployment.** When you deploy an update to production, move the previous production deployment into the LKG slot. This makes it easier to roll back a bad deployment. If you discover a problem later, you can quickly revert to the LKG version. For more information, see [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml).
-
-**Enable diagnostics logging**, including application logging and web server logging. Logging is important for monitoring and diagnostics. See [Enable diagnostics logging for web apps in Azure App Service](/azure/app-service-web/web-sites-enable-diagnostic-log)
-
-**Log to blob storage.** This makes it easier to collect and analyze the data.
-
-**Create a separate storage account for logs.** Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
-
-**Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root cause analysis of failures.
-
-## Azure Load Balancer
-
-**Select Standard SKU.** Standard load balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be affected. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not affected by region failures either.
-
-**Provision at least two instances.** Deploy Azure Load Balancer with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you should pair load balancer with Virtual Machine Scale Sets.
-
-**Use outbound rules.** Outbound rules ensure that you are not faced with connection failures as a result of Source Network Address Translation (SNAT) port exhaustion. Learn more about [outbound connectivity](/azure/load-balancer/outbound-rules). While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard load balancer or any subnet deployment with [VNet network address translation (NAT)](/azure/virtual-network/nat-overview).
-
-## Azure Public IPs
-
-**Select Standard SKU.** Standard Public IPs provide availability zones and zone resiliency unlike Basic Public IPs. If using a service that needs a public IP, select a zone-redundant public IP. For existing IPs, upgrade them from Basic to Standard to get the benefits of [zone-redundant by default](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone).
-
-## Application Gateway
-
-**Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/application-gateway), you must provision two or more medium or larger instances.
-
-## Azure Cosmos DB
-
-**Configure zone redundancy.** When you use zone redundancy, Azure Cosmos DB synchronously replicates all writes across availability zones. It automatically fails over in the event of a zone outage. For more information, see [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
-
-**Replicate the database across regions.** Azure Cosmos DB allows you to associate any number of Azure regions with an Azure Cosmos DB database account. An Azure Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally).
-
-## Event Hubs
-
-**Use checkpoints**. An event consumer should write its current position to persistent storage at some predefined interval. That way, if the consumer experiences a fault (for example, the consumer crashes, or the host fails), then a new instance can resume reading the stream from the last recorded position. For more information, see [Event consumers](/azure/event-hubs/event-hubs-features#event-consumers).
-
-**Handle duplicate messages.** If an event consumer fails, message processing is resumed from the last recorded checkpoint. Any messages that were already processed after the last checkpoint will be processed again. Therefore, your message processing logic must be idempotent, or the application must be able to deduplicate messages.
-
-**Handle exceptions.**. An event consumer typically processes a batch of messages in a loop. You should handle exceptions within this processing loop to avoid losing an entire batch of messages if a single message causes an exception.
-
-**Use a dead-letter queue.** If processing a message results in a nontransient failure, put the message onto a dead-letter queue, so that you can track the status. Depending on the scenario, you might retry the message later, apply a compensating transaction, or take some other action. Note that Event Hubs does not have any built-in dead-letter queue functionality. You can use Azure Queue Storage or Service Bus to implement a dead-letter queue, or use Azure Functions or some other eventing mechanism.
-
-**Configure zone redundancy**. When zone redundancy is enabled on your namespace, Event Hubs automatically replicates changes between multiple availability zones. If one availability zone fails, failover happens automatically. For more information, see [Availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones).
-
-**Implement disaster recovery (DR) by failing over to a secondary Event Hubs namespace.** For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+> [!IMPORTANT]
+> Per service reliability product documentation is found in the [Reliability guides by service](/azure/reliability/overview-reliability-guidance). For prescriptive reliability considerations and recommendations when designing or evaluating a workload, see the Reliability section for your service in its [Azure Well-Architected Framework service guides](/azure/well-architected/service-guides/).
+>
+> The recommendations on this page are being migrated to these locations.
 
 ## Azure Cache for Redis
 
