@@ -131,13 +131,13 @@ For additional high availability and disaster recovery reference architectures, 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
 [docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
-[docs-load-balancer]: /azure/load-balancer/load-balancer-overview
+[docs-load-balancer]: /azure/well-architected/service-guides/azure-load-balancer
 [docs-nsg]: /azure/virtual-network/security-overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/well-architected/service-guides/traffic-manager/reliability
+[docs-traffic-manager]: /azure/well-architected/service-guides/azure-traffic-manager
 [docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
-[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
+[docs-availability-sets]: /azure/virtual-machines/availability-set-overview
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication

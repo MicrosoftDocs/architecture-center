@@ -27,7 +27,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a distributed network service that efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, Content Delivery Network serves as an alternative to Azure Front Door for content delivery optimization.
 
-- [Azure Database for MySQL - flexible server](/azure/mysql/flexible-server/overview) is a fully managed relational database service based on the open-source MySQL database engine. In this scenario, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this scenario, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices, and should be enabled on perimeter virtual networks.
 
