@@ -49,6 +49,20 @@ Relational database management systems organize data into normalized tables with
 
 **Example scenarios:** Order management, inventory, financial ledger, billing, operational reporting.
 
+### Selecting an Azure service for relational data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+|**Service**|**Best for**|**Key features**|**Example use case**
+:-----:|:-----:|:-----:|:-----:
+|**Azure SQL Database**|Cloud-native apps|Fully managed, elastic pools, Hyperscale, built-in HA, advanced security|Building a modern SaaS application with scalable SQL backend
+|**Azure SQL Managed Instance**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes
+|**Azure Database for PostgreSQL**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS
+|**Azure Database for MySQL**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site
+|**Azure Database for MariaDB**|Lightweight web apps|Open-source compatibility, simple deployment|Supporting a legacy MariaDB-based web application
+|**Azure SQL Database (Hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput
+
+
 ## Non-relational data stores
 
 Non-relational (NoSQL) databases optimize for flexible schemas, horizontal scale, and specific access or aggregation patterns. They typically relax some aspects of relational behavior (schema rigidity, transaction scope) for scalability or agility.
@@ -61,6 +75,16 @@ Store semi-structured documents (often JSON) where each document contains an ent
 **Workloads:** Product catalogs, content management, profile stores.  
 **Services:** Azure Cosmos DB (NoSQL / Mongo API).
 
+### Selecting an Azure service for document data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+| Service | Best For | Key Features | Example Use Case |
+|--------|----------|--------------|------------------|
+| **Azure Cosmos DB (MongoDB API)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
+| **Azure Cosmos DB (Core SQL API)** | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, TTL, change feed | Building a multi-tenant SaaS platform with flexible schemas |
+
+
 ### Column-family (wide-column) data stores
 Organize sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
 
@@ -68,6 +92,16 @@ Organize sparse data into rows with dynamic columns grouped as column families f
 **Considerations:** Up-front row key and column family design; secondary index support varies; query flexibility lower than relational.  
 **Workloads:** IoT telemetry, time-series style tall data (when dedicated time series DB not chosen), personalization, analytics pre-aggregation.  
 **Services:** Azure Cosmos DB for Cassandra API, HBase on HDInsight.
+
+### Selecting an Azure service for column-family data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+| Service | Best For | Key Features | Example Use Case |
+|--------|----------|--------------|------------------|
+| **Azure Cosmos DB (Cassandra API)** | Apps using Cassandra drivers | Managed Cassandra, global distribution, autoscale | IoT device telemetry ingestion with Cassandra compatibility |
+| **Azure HBase on HDInsight** | Hadoop ecosystem, batch analytics | HDFS integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
+| **Azure Data Explorer (Kusto)** | High-ingest telemetry, time-series analytics | KQL, fast ad hoc queries, time-window functions | Real-time analytics for application logs and metrics |
 
 ### Key/value data stores
 Associate opaque values with unique keys; operations are simple (get/put/delete) and atomic per key.
@@ -77,6 +111,15 @@ Associate opaque values with unique keys; operations are simple (get/put/delete)
 **Workloads:** Caching, sessions, feature flags, user profiles, recommendation lookups.  
 **Services:** Azure Cache for Redis, Azure Cosmos DB Table / NoSQL APIs, Azure Table Storage.
 
+### Selecting an Azure service for key/value data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+| Service | Best For | Key Features | Example Use Case |
+|--------|----------|--------------|------------------|
+| **Azure Cache for Redis** | High-speed caching, session state, pub/sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
+| **Azure Cosmos DB (Table API)** | Durable key-value storage with global scale | Schema-less, multi-region, autoscale | Storing user preferences and settings in a mobile app |
+
 ### Graph data stores
 Represent entities (nodes) and relationships (edges) with properties; optimized for traversals across many hops.
 
@@ -84,6 +127,15 @@ Represent entities (nodes) and relationships (edges) with properties; optimized 
 **Considerations:** Overhead if relationships are shallow; requires careful modeling for performance; not ideal for bulk analytical scans.  
 **Workloads:** Social networks, fraud rings, knowledge graphs, supply chain dependencies.  
 **Services:** Azure Cosmos DB (Gremlin API), SQL Server graph features.
+
+### Selecting an Azure service for graph data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+| Service | Best For | Key Features | Example Use Case |
+|--------|----------|--------------|------------------|
+| **Azure Cosmos DB (Gremlin API)** | Property graph traversal with Gremlin | Global scale, multi-region writes, Gremlin support | Modeling social network relationships |
+| **SQL Server Graph Extensions** | Graphs within relational schema | T-SQL integration, node/edge tables, hybrid workloads | Adding graph-based fraud detection to a relational database |
 
 ### Time series data stores
 Manage high-ingest, append-only measurements indexed by time. Optimize for window aggregations and retention policies.
@@ -93,6 +145,15 @@ Manage high-ingest, append-only measurements indexed by time. Optimize for windo
 **Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data.  
 **Services:** Azure Data Explorer, Time Series Insights.
 
+### Selecting an Azure service for time series data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+|Service|Best for|Key features|Example use case|
+|:-----:|:-----:|:-----:|:-----:
+|**Azure Data Explorer**|High-volume telemetry and log analytics|Fast ingestion, powerful KQL query language, time-series analysis, scalable storage|Monitoring millions of IoT devices and analyzing logs in real time|
+|**Azure Time Series Insights Gen2**|Industrial IoT time-series data|Built-in visualization, time-series model, hierarchical data exploration, integration with IoT Hub|Visualizing sensor data from factory equipment to detect anomalies|
+
 ### Object data stores
 Persist large binary or semi-structured objects with metadata (immutable or infrequently changing).
 
@@ -100,6 +161,15 @@ Persist large binary or semi-structured objects with metadata (immutable or infr
 **Considerations:** Whole-object operations; metadata query limited; eventual listing behaviors.  
 **Workloads:** Media assets, backups, data lake raw zones, log archives.  
 **Services:** Azure Blob Storage, Data Lake Storage Gen2.
+
+### Selecting an Azure service for object data stores
+
+Use this table to help determine which Azure service meets your use case requirements.
+
+|Service|Best for|Key features|Example use case|
+:-----:|:-----:|:-----:|:-----:
+|**Azure Data Lake Storage Gen2**|Big data analytics and hierarchical data|Hadoop-compatible file system (HDFS), hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data using Azure Synapse or Databricks|
+|**Azure Blob Storage**|General-purpose object storage|Flat namespace, tiered storage (hot, cool, archive), simple REST API|Hosting images, documents, backups, and static website content|
 
 ### Search and indexing data stores  <a id="search-and-indexing-data-stores"></a>
 Provide inverted indexes or secondary indexes for rapid relevance ranking and multi-field filtering across semi-structured text.
