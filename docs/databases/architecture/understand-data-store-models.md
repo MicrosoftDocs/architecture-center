@@ -49,15 +49,21 @@ Relational database management systems organize data into normalized tables with
 
 ### Selecting an Azure service for relational data stores
 
+- **[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)** is a fully managed relational database for modern cloud applications using SQL Server engine.
+- **[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)** is a near-complete SQL Server environment in the cloud, ideal for lift-and-shift migrations.
+- **[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)** is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
+- **[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)** is a managed PostgreSQL service supporting open-source extensions and flexible deployment options.
+- **[Azure Database for MySQL](/azure/mysql/flexible-server/overview)** is a fully managed MySQL database for web apps and open-source workloads.
+
 Use this table to help determine which Azure service meets your use case requirements.
 
 |**Service**|**Best for**|**Key features**|**Example use case**
 :-----:|:-----:|:-----:|:-----:
 |**[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)**|Cloud-native apps|Fully managed, elastic pools, Hyperscale, built-in HA, advanced security|Building a modern SaaS application with scalable SQL backend
 |**[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes
+|**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput
 |**[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS
 |**[Azure Database for MySQL](/azure/mysql/flexible-server/overview)**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site
-|**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput
 
 
 ## Non-relational data stores
@@ -65,6 +71,7 @@ Use this table to help determine which Azure service meets your use case require
 Non-relational (NoSQL) databases optimize for flexible schemas, horizontal scale, and specific access or aggregation patterns. They typically relax some aspects of relational behavior (schema rigidity, transaction scope) for scalability or agility.
 
 ### Document data stores
+
 Store semi-structured documents (often JSON) where each document contains an entity or aggregate. Per-document schema flexibility enables gradual evolution.
 
 **Strengths:** Natural application object mapping, denormalized aggregates, multi-field indexing.  
@@ -75,13 +82,15 @@ Store semi-structured documents (often JSON) where each document contains an ent
 
 #### Selecting an Azure service for document data stores
 
+- **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** is a globally distributed database with MongoDB wire protocol compatibility and automatic scaling.
+- **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a schema-less, multi-region NoSQL database with low-latency reads and writes.
+
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
 | **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
-| **Azure Cosmos DB (Core SQL API)** | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, TTL, change feed | Building a multi-tenant SaaS platform with flexible schemas |
-
+| **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, TTL, change feed | Building a multi-tenant SaaS platform with flexible schemas |
 
 ### Column-family (wide-column) data stores
 
@@ -94,6 +103,10 @@ Organize sparse data into rows with dynamic columns grouped as column families f
 **Workloads:** IoT telemetry, time-series style tall data (when dedicated time series DB not chosen), personalization, analytics pre-aggregation.  
 
 #### Selecting an Azure service for column-family data stores
+
+- **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** is a scalable, managed Cassandra service with global distribution and enterprise-grade SLAs.
+- **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** a scalable NoSQL store for big data workloads built on Apache HBase and Hadoop ecosystem.
+- **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** is a lightning-fast analytics engine for telemetry, logs, and time-series data using KQL.
 
 Use this table to help determine which Azure service meets your use case requirements.
 
@@ -115,6 +128,9 @@ Associate opaque values with unique keys; operations are simple (get/put/delete)
 
 #### Selecting an Azure service for key/value data stores
 
+- **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** is a fast, in-memory data store for caching, session state, and real-time analytics.
+- **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** is a key-value store optimized for fast access to structured NoSQL data.
+
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
@@ -134,6 +150,9 @@ Represent entities (nodes) and relationships (edges) with properties; optimized 
 
 #### Selecting an Azure service for graph data stores
 
+- **[Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/overview)** is a graph database service for modeling complex relationships using the Gremlin query language.
+- **[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** extends the capabilities of SQL Server, Azure SQL Database, and Azure SQL Managed Instance to enable modeling and querying complex relationships using graph structures directly within a relational database.
+
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
@@ -142,8 +161,8 @@ Use this table to help determine which Azure service meets your use case require
 | **[SQL Server Graph Extensions](/sql/relational-databases/graphs/sql-graph-overview)** | Graphs within relational schema | T-SQL integration, node/edge tables, hybrid workloads | Adding graph-based fraud detection to a relational database |
 
 #### Time series data stores
-Manage high-ingest, append-only measurements indexed by time. Optimize for window aggregations and retention policies.
 
+Manage high-ingest, append-only measurements indexed by time. Optimize for window aggregations and retention policies.
 
 **Strengths:** Compression, windowed query performance, out-of-order ingestion handling.  
 
@@ -166,6 +185,9 @@ Persist large binary or semi-structured objects with metadata (immutable or infr
 **Workloads:** Media assets, backups, data lake raw zones, log archives.  
 
 #### Selecting an Azure service for object data stores
+
+- **[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)** is a big data-optimized object store that combines hierarchical namespace and HDFS compatibility for advanced analytics and large-scale data processing.
+- **[Azure Blob Storage](azure/storage/blobs/storage-blobs-introduction)** is a scalable, general-purpose object store for unstructured data like images, documents, and backups, with tiered access for cost optimization
 
 Use this table to help determine which Azure service meets your use case requirements.
 
