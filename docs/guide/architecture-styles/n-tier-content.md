@@ -27,7 +27,7 @@ Consider an N-tier architecture when:
 
 N-tier architectures are common in traditional on-premises systems, making them a natural fit for transitioning existing workloads to Azure.
 
-N-tier architectures can be effectively implemented using managed services, which offer scalability, reliability, and reduced operational overhead. Modern applications often benefit from using managed solutions for key components such as compute, caching, messaging, and data storage.
+N-tier architectures can be effectively implemented using managed services, which offer scalability, reliability, and reduced operational overhead or virtual machines. These workloads often benefit from also using managed solutions for key components such as caching, messaging, and data storage.
 
 ## Benefits
 
@@ -39,7 +39,7 @@ N-tier architectures can be effectively implemented using managed services, whic
 
 ## Challenges
 
-- It's easy to build a middle tier with basic CRUD operations that adds latency without delivering meaningful value.
+- It's easy to end up with a middle tier that just performs basic CRUD operations, adding latency and complexity without delivering meaningful value.
 - Monolithic design prevents independent deployment of features.
 - It can be difficult to manage network security in a large system.
 - Testing and monitoring become more difficult when user requests and data move through multiple tiers.
@@ -48,7 +48,7 @@ N-tier architectures can be effectively implemented using managed services, whic
 
 - Use autoscaling to handle changes in load. See [Autoscaling best practices][autoscaling].
 - Use [asynchronous messaging](/azure/service-bus-messaging/service-bus-async-messaging) to decouple tiers.
-- Data that doesn't change often can be cached. See [Caching best practices][caching].
+- Data that doesn't change often should be cached. See [Caching best practices][caching].
 - Configure the database tier for high availability, using a solution such as [SQL Server Always On availability groups][sql-always-on].
 - Place a web application firewall (WAF) between the front end and the Internet.
 - Place each tier in its own subnet, and use subnets as a security boundary.
@@ -67,7 +67,7 @@ Each tier consists of a Virtual Machine Scale Set with two or more VMs. Multiple
 
 Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group rules and route tables to individual tiers.
 
-The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend [SQL Server](/azure/azure-sql/virtual-machines/), using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
+The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. Where possible, you'd use a managed database, but VM hosted databases are possible as well. For Windows, we recommend [SQL Server](/azure/azure-sql/virtual-machines/), using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
@@ -88,7 +88,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - For high availability, use two or more NVAs in a Virtual Machine Scale Set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
 
-- Don't allow direct RDP or SSH access to VMs that are running application code. Instead, consider using Azure Bastion to securely connect to virtual machines via private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines. For more information, see [Azure Bastion overview](/azure/bastion/bastion-overview).
+- Don't allow direct RDP or SSH access to VMs that are running application code. Instead, use Azure Bastion to securely connect to virtual machines via private IP address. It provides RDP/SSH connectivity to your virtual machines. For more information, see [Azure Bastion overview](/azure/bastion/bastion-overview).
 
 - You can extend the Azure virtual network to your on-premises network using a site-to-site virtual private network (VPN) or Azure ExpressRoute. For more information, see [Hybrid network reference architecture][hybrid-network].
 
