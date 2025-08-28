@@ -40,7 +40,7 @@ This article describes a container solution for hosting a large, storage-intensi
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 load balancer that distributes inbound traffic based on rules and health probe results with low latency and high throughput. In this architecture, the load balancer distributes traffic from the content delivery network to the front-end web servers by spreading traffic across multiple servers for scalability.
 
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, network security group rules restrict traffic flow between the application components in the subnets.
+- [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
 ### Alternatives
 

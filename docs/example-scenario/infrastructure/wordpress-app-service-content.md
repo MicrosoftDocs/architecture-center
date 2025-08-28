@@ -39,7 +39,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable, optimized object storage service that provides a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage hosts all static content for the WordPress application.
 
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, network security group rules restrict traffic flow between the application components in the subnets.
+- [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
 - [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution template for hosting WordPress on App Service. In this architecture, the template provides a preconfigured WordPress deployment that includes App Service and the other Azure services described in this section.
 
