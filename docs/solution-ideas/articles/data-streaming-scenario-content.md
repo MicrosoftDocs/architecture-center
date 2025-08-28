@@ -22,11 +22,13 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 ### Components
 
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes container orchestration service. In this architecture, it hosts containerized microservices that ingest, process, and route streaming data from sensors to various storage and analytics layers.
+
 - [Apache Kafka](https://kafka.apache.org) is a distributed event streaming platform designed for high-throughput, low-latency data feeds. In this architecture, it receives real-time data from AKS microservices and streams it to Azure HDInsight for large-scale analytics.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
-
 - [API Management](/azure/well-architected/service-guides/azure-api-management) is a gateway for publishing, securing, and analyzing APIs. In this architecture, it receives incoming data from sensors and routes it to the AKS cluster for processing.
+
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
 
 - [Azure Cache for Redis](/en-us/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
 
@@ -35,8 +37,6 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
 
 - [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, it runs Apache Spark jobs to analyze streamed data from Kafka and supports machine learning workloads.
-
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes container orchestration service. In this architecture, it hosts containerized microservices that ingest, process, and route streaming data from sensors to various storage and analytics layers.
 
 - [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
 
