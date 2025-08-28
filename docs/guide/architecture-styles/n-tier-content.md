@@ -67,7 +67,7 @@ Each tier consists of a Virtual Machine Scale Set with two or more VMs. Multiple
 
 Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group rules and route tables to individual tiers.
 
-The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend [SQL Server](azure/azure-sql/virtual-machines/), using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
+The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend [SQL Server](/azure/azure-sql/virtual-machines/), using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
 
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
