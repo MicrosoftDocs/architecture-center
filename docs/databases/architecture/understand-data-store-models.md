@@ -42,7 +42,9 @@ Each model section includes a concise definition, typical workloads, data charac
 Relational database management systems organize data into normalized tables with schema-on-write, enforcing integrity and supporting ACID transactions and rich SQL queries.
 
 **Use when** you require multi-row transactional consistency, complex joins, strong relational constraints, and mature tooling around reporting, administration, and governance.
+
 **Constraints:** Horizontal scale generally requires sharding or partitioning; normalization can increase join cost for read-heavy denormalized views.
+
 **Workloads:** Order management, inventory, financial ledger, billing, operational reporting.
 
 ### Selecting an Azure service for relational data stores
@@ -66,7 +68,9 @@ Non-relational (NoSQL) databases optimize for flexible schemas, horizontal scale
 Store semi-structured documents (often JSON) where each document contains an entity or aggregate. Per-document schema flexibility enables gradual evolution.
 
 **Strengths:** Natural application object mapping, denormalized aggregates, multi-field indexing.  
+
 **Considerations:** Document size growth, selective transactional scope, need for careful data shape design for high-scale queries.  
+
 **Workloads:** Product catalogs, content management, profile stores.  
 
 #### Selecting an Azure service for document data stores
@@ -80,10 +84,13 @@ Use this table to help determine which Azure service meets your use case require
 
 
 ### Column-family (wide-column) data stores
+
 Organize sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
 
-**Strengths:** High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families.  
+**Strengths:** High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families.
+
 **Considerations:** Up-front row key and column family design; secondary index support varies; query flexibility lower than relational.  
+
 **Workloads:** IoT telemetry, time-series style tall data (when dedicated time series DB not chosen), personalization, analytics pre-aggregation.  
 
 #### Selecting an Azure service for column-family data stores
@@ -97,10 +104,13 @@ Use this table to help determine which Azure service meets your use case require
 | **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** | High-ingest telemetry, time-series analytics | KQL, fast ad hoc queries, time-window functions | Real-time analytics for application logs and metrics |
 
 ### Key/value data stores
+
 Associate opaque values with unique keys; operations are simple (get/put/delete) and atomic per key.
 
-**Strengths:** Extreme simplicity, low latency, linear scalability.  
+**Strengths:** Extreme simplicity, low latency, linear scalability.
+
 **Considerations:** Limited query expressiveness; redesign needed for value-based lookups; large value overwrite cost.  
+
 **Workloads:** Caching, sessions, feature flags, user profiles, recommendation lookups.  
 
 #### Selecting an Azure service for key/value data stores
@@ -113,10 +123,13 @@ Use this table to help determine which Azure service meets your use case require
 | **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Durable key-value storage with global scale | Schema-less, multi-region, autoscale | Storing user preferences and settings in a mobile app |
 
 ### Graph data stores
+
 Represent entities (nodes) and relationships (edges) with properties; optimized for traversals across many hops.
 
 **Strengths:** Relationship-first querying patterns; efficient variable-depth traversals.  
+
 **Considerations:** Overhead if relationships are shallow; requires careful modeling for performance; not ideal for bulk analytical scans.  
+
 **Workloads:** Social networks, fraud rings, knowledge graphs, supply chain dependencies.  
 
 #### Selecting an Azure service for graph data stores
@@ -131,8 +144,11 @@ Use this table to help determine which Azure service meets your use case require
 #### Time series data stores
 Manage high-ingest, append-only measurements indexed by time. Optimize for window aggregations and retention policies.
 
+
 **Strengths:** Compression, windowed query performance, out-of-order ingestion handling.  
+
 **Considerations:** Tag cardinality management, retention cost, downsampling strategy.  
+
 **Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data.  
 
 ### Selecting an Azure service for time series data stores
@@ -144,7 +160,9 @@ Manage high-ingest, append-only measurements indexed by time. Optimize for windo
 Persist large binary or semi-structured objects with metadata (immutable or infrequently changing).
 
 **Strengths:** Virtually unlimited scale, tiered cost, durability, parallel read capability.  
+
 **Considerations:** Whole-object operations; metadata query limited; eventual listing behaviors.  
+
 **Workloads:** Media assets, backups, data lake raw zones, log archives.  
 
 #### Selecting an Azure service for object data stores
@@ -156,11 +174,14 @@ Use this table to help determine which Azure service meets your use case require
 |**[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)**|Big data analytics and hierarchical data|Hadoop-compatible file system (HDFS), hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data using Azure Synapse or Databricks|
 |**[Azure Blob Storage](azure/storage/blobs/storage-blobs-introduction)**|General-purpose object storage|Flat namespace, tiered storage (hot, cool, archive), simple REST API|Hosting images, documents, backups, and static website content|
 
-### Search and indexing data stores  <a id="search-and-indexing-data-stores"></a>
+### Search and indexing data stores
+
 Provide inverted indexes or secondary indexes for rapid relevance ranking and multi-field filtering across semi-structured text.
 
-**Strengths:** Full-text queries, scoring, linguistic analysis, fuzzy matching.  
-**Considerations:** Eventual consistency of indexes; separate ingestion / indexing pipeline; cost of large index updates.  
+**Strengths:** Full-text queries, scoring, linguistic analysis, fuzzy matching.
+
+**Considerations:** Eventual consistency of indexes; separate ingestion / indexing pipeline; cost of large index updates.
+
 **Workloads:** Site/product search, log search, metadata filtering, multi-attribute discovery.  
 
 #### Selecting an Azure service for search data stores
@@ -172,7 +193,9 @@ Refer to the [Choose a search data store in Azure](/azure/architecture/data-guid
 Store and retrieve high-dimensional vector representations of data—often generated by machine learning models.
 
 **Strengths:** Semantic search, ANN algorithms.
+
 **Considerations:** Indexing complexity, storage overhead, latency vs accuracy, integration challenges.
+
 **Workloads:** Semantic document search, recommendation engines, image and video retrieval, fraud and anomaly detection.
 
 #### Selecting an Azure service for vector search data stores
@@ -185,7 +208,7 @@ Refer to the [Choose an Azure service for vector search](/azure/architecture/gui
 
 Store big data and persist it throughout an analytics pipeline lifecycle.
 
-*Strengths**: Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis.
+**Strengths**: Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis.
 
 **Considerations**: Cost and complexity of orchestration, query latency for ad hoc workloads, governance across multiple data domains.
 
