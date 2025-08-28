@@ -224,8 +224,6 @@ Store and retrieve high-dimensional vector representations of data—often gener
 
 Refer to the [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) article for guidance on choosing the right vector data store for your workload.
 
-## Comparative characteristics (core non-relational models)  <a id="comparison-core-non-relational-models"></a>
-
 ### Anaytics data stores
 
 Store big data and persist it throughout an analytics pipeline lifecycle.
@@ -240,6 +238,7 @@ Store big data and persist it throughout an analytics pipeline lifecycle.
 
 Refer to the [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores) article for guidance on choosing the analytics data store for your workload.
 
+## Comparative characteristics (core non-relational models)  <a id="comparison-core-non-relational-models"></a>
 
 | Aspect | Document | Column-family | Key/value | Graph |
 |--------|----------|---------------|-----------|-------|
