@@ -53,18 +53,19 @@ Relational database management systems organize data into normalized tables with
 - **[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)** is a near-complete SQL Server environment in the cloud, ideal for lift-and-shift migrations.
 - **[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)** is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
 - **[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)** is a managed PostgreSQL service supporting open-source extensions and flexible deployment options.
+- **[Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction)** is a managed PostgreSQL service designed for high performance and geo-replication.
 - **[Azure Database for MySQL](/azure/mysql/flexible-server/overview)** is a fully managed MySQL database for web apps and open-source workloads.
 
 Use this table to help determine which Azure service meets your use case requirements.
 
-|**Service**|**Best for**|**Key features**|**Example use case**
-:-----:|:-----:|:-----:|:-----:
-|**[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)**|Cloud-native apps|Fully managed, elastic pools, Hyperscale, built-in HA, advanced security|Building a modern SaaS application with scalable SQL backend
-|**[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes
-|**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput
-|**[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS
+|**Service**|**Best for**|**Key features**|**Example use case**|
+:-----:|:-----:|:-----:|:-----:|
+|**[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)**|Cloud-native apps|Fully managed, elastic pools, Hyperscale, built-in HA, advanced security|Building a modern SaaS application with scalable SQL backend|
+|**[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes|
+|**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput|
+|**[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS|
+|**[Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction)**|High performance, globally distributed relational workloads|[Citus extenion](https://github.com/citusdata/citus), distributed tables|Multi-tenat SaaS app|
 |**[Azure Database for MySQL](/azure/mysql/flexible-server/overview)**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site
-
 
 ## Non-relational data stores
 
@@ -72,7 +73,7 @@ Non-relational (NoSQL) databases optimize for flexible schemas, horizontal scale
 
 ### Document data stores
 
-Store semi-structured documents (often JSON) where each document contains an entity or aggregate. Per-document schema flexibility enables gradual evolution.
+Store semi-structured documents (often JSON) where each document consists of named fields and data. The data can be simple values or complex elements such as lists and child collections. Per-document schema flexibility enables gradual evolution.
 
 **Strengths:** Natural application object mapping, denormalized aggregates, multi-field indexing.  
 
@@ -82,19 +83,19 @@ Store semi-structured documents (often JSON) where each document contains an ent
 
 #### Selecting an Azure service for document data stores
 
-- **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** is a globally distributed database with MongoDB wire protocol compatibility and automatic scaling.
 - **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a schema-less, multi-region NoSQL database with low-latency reads and writes.
+- **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** is a globally distributed database with MongoDB wire protocol compatibility and automatic scaling.
 
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
-| **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
 | **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, TTL, change feed | Building a multi-tenant SaaS platform with flexible schemas |
+| **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
 
 ### Column-family (wide-column) data stores
 
-Organize sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
+A column-family database organizes sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
 
 **Strengths:** High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families.
 
@@ -104,7 +105,8 @@ Organize sparse data into rows with dynamic columns grouped as column families f
 
 #### Selecting an Azure service for column-family data stores
 
-- **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** is a scalable, managed Cassandra service with global distribution and enterprise-grade SLAs.
+- **[Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra)** is a fully managed service for pure open-source Apache Cassandra clusters.
+- **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** is a scalable, managed Apache Cassandra service with global distribution and enterprise-grade SLAs.
 - **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** a scalable NoSQL store for big data workloads built on Apache HBase and Hadoop ecosystem.
 - **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** is a lightning-fast analytics engine for telemetry, logs, and time-series data using KQL.
 
@@ -112,13 +114,16 @@ Use this table to help determine which Azure service meets your use case require
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
-| **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** | Apps using Cassandra drivers | Managed Cassandra, global distribution, autoscale | IoT device telemetry ingestion with Cassandra compatibility |
+| **[Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra)** | Migrated Cassandra workloads | User profile and personalization data for web apps. |
+| **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** | New app deployments using Cassandra drivers | Managed Cassandra, global distribution, autoscale | IoT device telemetry ingestion with Cassandra compatibility |
 | **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** | Hadoop ecosystem, batch analytics | HDFS integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
 | **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** | High-ingest telemetry, time-series analytics | KQL, fast ad hoc queries, time-window functions | Real-time analytics for application logs and metrics |
 
+*Refer to the [comparison article](/azure/cosmos-db/cassandra/choose-service) to help you determine whether using Azure Managed Instance for Apache Cassandra or Azure Cosmos DB for Apache Cassandra is the best choice for your use case.*
+
 ### Key/value data stores
 
-Associate opaque values with unique keys; operations are simple (get/put/delete) and atomic per key.
+A key/value store associates each data value with a unique key. Most key/value stores only support simple query, insert, and delete operations. To modify a value (either partially or completely), an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.
 
 **Strengths:** Extreme simplicity, low latency, linear scalability.
 
@@ -140,7 +145,7 @@ Use this table to help determine which Azure service meets your use case require
 
 ### Graph data stores
 
-Represent entities (nodes) and relationships (edges) with properties; optimized for traversals across many hops.
+A graph database stores information as nodes and edges, where edges define relationships and both can have properties like table columns. It efficiently analyzes connections between entities, such as employees and departments.
 
 **Strengths:** Relationship-first querying patterns; efficient variable-depth traversals.  
 
@@ -158,11 +163,11 @@ Use this table to help determine which Azure service meets your use case require
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
 | **[Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/overview)** | Property graph traversal with Gremlin | Global scale, multi-region writes, Gremlin support | Modeling social network relationships |
-| **[SQL Server Graph Extensions](/sql/relational-databases/graphs/sql-graph-overview)** | Graphs within relational schema | T-SQL integration, node/edge tables, hybrid workloads | Adding graph-based fraud detection to a relational database |
+| **[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** | Graphs within relational schema | T-SQL integration, node/edge tables, hybrid workloads | Adding graph-based fraud detection to a relational database |
 
 #### Time series data stores
 
-Manage high-ingest, append-only measurements indexed by time. Optimize for window aggregations and retention policies.
+Time series data stores manage a set of values organized by time. They support features like time-based queries and aggeregations and are optimized for ingesting and analyzing large volumes of data in near real-time.
 
 **Strengths:** Compression, windowed query performance, out-of-order ingestion handling.  
 
@@ -198,7 +203,7 @@ Use this table to help determine which Azure service meets your use case require
 
 ### Search and indexing data stores
 
-Provide inverted indexes or secondary indexes for rapid relevance ranking and multi-field filtering across semi-structured text.
+A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.
 
 **Strengths:** Full-text queries, scoring, linguistic analysis, fuzzy matching.
 
@@ -212,7 +217,7 @@ Refer to the [Choose a search data store in Azure](/azure/architecture/data-guid
 
 ### Vector search data stores
 
-Store and retrieve high-dimensional vector representations of data—often generated by machine learning models.
+Vector search data stores store and retrieve high-dimensional vector representations of data, often generated by machine learning models.
 
 **Strengths:** Semantic search, ANN algorithms.
 
@@ -226,7 +231,7 @@ Refer to the [Choose an Azure service for vector search](/azure/architecture/gui
 
 ### Anaytics data stores
 
-Store big data and persist it throughout an analytics pipeline lifecycle.
+Analytics data stores store big data and persist it throughout an analytics pipeline lifecycle.
 
 **Strengths**: Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis.
 
