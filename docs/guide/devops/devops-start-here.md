@@ -95,7 +95,7 @@ The following articles are about best practices that are specific to DevOps and 
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
-- [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
+- [Reliability guides by service](/azure/reliability/overview-reliability-guidance)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)
 - [Monitoring best practices for reliability in Azure applications](/azure/architecture/framework/resiliency/monitor-best-practices)
 - [Overview of the Azure Security Benchmark (v1)](/security/benchmark/azure/overview-v1)
