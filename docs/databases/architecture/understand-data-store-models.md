@@ -21,7 +21,9 @@ Use this sequence:
 
 ## How to use this guide
 
-Each model section includes a concise definition, typical workloads, data characteristics, example scenarios, and links to representative Azure services. Two comparative tables summarize non-relational model traits so you avoid duplicative re-reading. Specialized decision material (criteria catalog, governance, decision tree) lives in separate referenced articles.
+Each model section includes a concise definition, typical workloads, data characteristics, example scenarios, and links to representative Azure services. Each section also includes a table to help you choose the right Azure service for your use case. In some cases, there are separate articles to help you make more informed choices about Azure service options. Those articles are linked in the respective model sections.
+
+Two comparative tables summarize non-relational model traits so you avoid duplicative re-reading. 
 
 ## Classification overview
 
@@ -30,11 +32,12 @@ Each model section includes a concise definition, typical workloads, data charac
 | Relational (OLTP) | Strongly consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL |
 | Non-relational (document / key/value / column-family / graph) | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Cache for Redis, Managed Cassandra, HBase |
 | Time series | High-ingest timestamped metrics and events | Azure Data Explorer, Time Series Insights |
-| Object & file | Large binary or semi-structured file storage | Blob Storage, Data Lake Storage Gen2, Azure Files |
+| Object & file | Large binary or semi-structured file storage | Blob Storage, Data Lake Storage Gen2 |
 | Search & indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or ANN similarity |  Azure AI Search, Azure Cosmos DB variants |
-| Analytics / OLAP / MPP | Large-scale historical aggregation, BI | Microsoft Fabric (OneLake + Warehouse), Synapse, Azure Data Explorer, Analysis Services, Databricks |
+| Analytics / OLAP / MPP | Large-scale historical aggregation, BI | Microsoft Fabric, Synapse, Azure Data Explorer, Analysis Services, Databricks |
 
+>[!NOTE]
 > A single service may offer multiple models (multi-model). Prefer the best-fit model instead of forcing an awkward multi-model consolidation that complicates operations.
 
 ## Relational data stores
