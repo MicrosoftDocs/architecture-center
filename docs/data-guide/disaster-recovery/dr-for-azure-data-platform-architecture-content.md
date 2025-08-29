@@ -1,6 +1,8 @@
 ## Use case definition
 To support this worked example, the fictitious firm "Contoso" will be used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
+Business Continuity and Disaster Recovery (BCDR) across Microsoft Azure services operates under a shared responsibility model. Microsoft is responsible for ensuring the availability, resilience, and security of the underlying infrastructure and platform services. However, customers are accountable for implementing disaster recovery strategies tailored to their specific workloads. This includes configuring cross-regional failover, backup and restore mechanisms, and application-level recovery processes. Microsoft provides tools, guidance, and best practices to help customers design and validate BCDR plans that meet their recovery time objectives (RTO) and recovery point objectives (RPO). For more details, refer to the [Shared responsibility in the cloud]
+
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
 [![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
@@ -29,24 +31,15 @@ Within this foundational structure, Contoso has implemented the following elemen
 
 The workflow is read left to right, following the flow of data:
 
-- **Data sources** - The sources or types of data that the data platform can consume from.
-- **Data sources** - Microsoft Fabric supports ingestion from structured, semi-structured, and unstructured sources via OneLake shortcuts, Data Factory, Notebooks and Event Streams. [updated]
-- **Ingest** - The Platform's capability to ingest data from various sources of varying structure and speed. This design reflects a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
-- **Ingest** - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams and Data Activator, enabling Lambda-style architecture. [updated]
-- **Store** - The capability to securely store data at scale that has been ingested onto the platform.
-- **Store** - Data is stored in OneLake, Fabric’s unified data lake. It supports Delta format, Parquet, and CSV, with built-in geo-redundancy and BCDR options. [updated]
-- **Process** - The Platform's capability to process data, making it "fit for purpose" for downstream processes like cleansing, standardizing and modeling. The pre-processing of data typically ensures that it's in a "position and a condition, ready for use."
-- **Process** - Use Data Engineering (Spark) and Data Factory for ETL/ELT. Notebooks and Spark jobs process data into curated Lakehouses. [updated]
-- **Enrich** - The capability to enhance data processed on the platform via statistical, machine learning, or other modeling techniques or prebuilt Azure AI services.
-- **Enrich** - Leverage Data Science experiences for ML modeling, AutoML, and integration with Azure ML. Use Copilot in Fabric for AI-assisted enrichment. [updated]
-- **Serve** - The Platform's capability to shape and present data for downstream consumption.
-- **Serve** - Data is served via Warehouse, Lakehouse, and Mirrored Database endpoints. SQL analytics endpoints support BI tools like Power BI. [updated]
-- **Data consumers** - The individuals, applications or downstream processes that consume data from the platforms' various serving touchpoints.
-- **Data consumers** - Power BI users, business analysts, and apps consume data via semantic models, dashboards, and APIs exposed by Fabric endpoints. [updated]
-- **Discover and govern** - The Platform's capabilities to govern the data it contains and ensure it's indexed, discoverable/searchable, well-described, with full lineage, and is transparent to its end users and consuming processes.
-- **Discover and govern** - Use Purview integration, OneLake catalog, and Fabric governance tools for lineage, metadata, and access control. [updated]
-- **Platform** - The foundation upon which the platform is built, that is, Contoso's Azure foundations as described above.
-- **Platform** - Built on Microsoft Fabric, hosted on Azure. Unified SaaS experience with integrated compute, storage, and governance. Replaces Synapse with Fabric-native services. [updated]
+- **Data sources** - Microsoft Fabric supports ingestion from structured, semi-structured, and unstructured sources via OneLake shortcuts, Data Factory, Notebooks and Event Streams.
+- **Ingest** - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams and Data Activator, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+- **Store** - Data is stored in OneLake, Fabric’s unified data lake. It supports Delta format, Parquet, and CSV, with built-in geo-redundancy and BCDR options.
+- **Process** - Use Data Engineering (Spark) and Data Factory for ETL/ELT. Notebooks and Spark jobs process data into curated Lakehouses.
+- **Enrich** - Leverage Data Science experiences for ML modeling, AutoML, and integration with Azure ML. Use Copilot in Fabric for AI-assisted enrichment.
+- **Serve** - Data is served via Warehouse, Lakehouse, and Mirrored Database endpoints. SQL analytics endpoints support BI tools like Power BI.
+- **Data consumers** - Power BI users, business analysts, and apps consume data via semantic models, dashboards, and APIs exposed by Fabric endpoints.
+- **Discover and govern** - Use Purview integration, OneLake catalog, and Fabric governance tools for lineage, metadata, and access control.
+- **Platform** - Built on Microsoft Fabric, hosted on Azure. Unified SaaS experience with integrated compute, storage, and governance. Replaces Synapse with Fabric-native services.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
@@ -287,7 +280,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Microsoft Fabric: Data Engineering**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Memory Optimized SKU
+    - Contoso SKU selection: Fabric Capacity (Memory Optimized SKU)
     - DR uplift options:
         - Backup notebooks and Lakehouse data in another region.
     - Notes
@@ -371,7 +364,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Use Eventhouse with GRS to ensure stream data i durable across paired regions. 
+        - Use Eventhouse with GRS to ensure stream data is durable across paired regions. 
     - Notes
         - GRS provides stream redundancy across paired regions. 
 
