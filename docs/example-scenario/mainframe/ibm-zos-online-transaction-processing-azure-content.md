@@ -62,13 +62,11 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global HTTP load balancer with instant failover capabilities. In this architecture, it accelerates content delivery and ensures high availability for geographically distributed mainframe users.
 
-- [Content Delivery Network](/azure/cdn/cdn-overview) is a distributed caching service that optimizes static content delivery by storing cached copies on edge servers to enable faster response times for users. It uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global. In this architecture, it improves performance for mainframe screen elements and static assets across global edge locations.
+  - [Content Delivery Network](/azure/cdn/cdn-overview) is a distributed caching service that optimizes static content delivery by storing cached copies on edge servers to enable faster response times for users. It uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global. In this architecture, it improves performance for mainframe screen elements and static assets across global edge locations.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a private connectivity service that establishes a dedicated connection between on-premises infrastructure and Azure. In this architecture, it provides secure network access for users familiar with mainframe terminal connectivity who require private connections.
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a service that distributes incoming network traffic across multiple back-end resources that distributes layer 4 TCP and UDP traffic across resources. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management (IAM) service that supports secure access and integrates with on-premises environments. In this architecture, it replaces mainframe security systems by authenticating users and enforcing access policies for migrated applications.
 
 - [Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic routing service that helps distribute user requests across multiple endpoints. In this architecture, it distributes traffic across regional endpoints to optimize availability for mainframe users across different geographic locations.
 
@@ -90,8 +88,6 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 - [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Azure Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
 
-- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) a fully managed Spring service that's jointly built and operated by Microsoft and VMware. You can use Azure Spring Apps to easily deploy, manage, and run Spring microservices and write Spring applications by using Java or .NET. In this architecture, it hosts Java applications that replace COBOL and PL/I business logic from the mainframe system.
-
 #### Storage and database
 
 This architecture addresses scalable and secure cloud storage as well as managed databases for migrating mainframe data and supporting modern application requirements.
@@ -112,7 +108,7 @@ This architecture addresses scalable and secure cloud storage as well as managed
 
   - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is an infrastructure as a service (IaaS) offering that provides full SQL Server functionality. In this architecture, it supports legacy workloads that require specific database engine features during migration.
 
-- [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) is a high-performance feature that accelerates transaction processing in SQL Database and SQL Managed Instance. In this architecture, it provides the high-performance transaction processing capabilities that mainframe OLTP workloads require.
+  - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) is a high-performance feature that accelerates transaction processing in SQL Database and SQL Managed Instance. In this architecture, it provides the high-performance transaction processing capabilities that mainframe OLTP workloads require.
 
 - [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) for various mainframe data migration scenarios.
 
@@ -126,7 +122,7 @@ The following monitoring tools provide comprehensive data analysis and valuable 
 
   - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric) are a feature of Azure Monitor that notifies users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
 
-- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that uses a powerful language to analyze log data. In this architecture, it enables deep diagnostics, supports custom dashboards, and integrates with alerts and workbooks for operational insights.
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that uses a powerful language to analyze log data. In this architecture, it enables deep diagnostics, supports custom dashboards, and integrates with alerts and workbooks for operational insights.
 
 ## Scenario details
 
