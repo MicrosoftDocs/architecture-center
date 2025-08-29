@@ -93,8 +93,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Resiliency checklist for services
-      href: checklist/resiliency-per-service.md
     - name: Failure mode analysis for services
       href: resiliency/failure-mode-analysis.md
   - name: Technology choices
