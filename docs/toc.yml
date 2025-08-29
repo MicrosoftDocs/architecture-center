@@ -135,12 +135,12 @@ items:
             href: guide/technology-choices/data-store-considerations.md
       - name: Selecting a data store model
         items:
+          - name: Select a data store
+            href: guide/technology-choices/data-store-decision-tree.md
           - name: Big data storage
             href: data-guide/technology-choices/data-storage.md
           - name: Search data store
             href: data-guide/technology-choices/search-options.md
-          - name: Select a data store
-            href: guide/technology-choices/data-store-decision-tree.md
           - name: Vector search
             href: guide/technology-choices/vector-search.md
       - name: Data movement
