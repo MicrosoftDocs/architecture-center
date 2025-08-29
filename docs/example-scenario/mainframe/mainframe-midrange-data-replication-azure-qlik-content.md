@@ -58,8 +58,6 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that enables encrypted communication between Azure and on-premises environments over the public internet. In this architecture, it provides secure site-to-site or point-to-site VPN access for hybrid connectivity.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that integrates with on-premises Active Directory. In this architecture, it manages user authentication, authorization, and directory synchronization across hybrid environments.
-
 #### Application
 
 Azure provides managed services that support more secure, scalable, and efficient application deployment. This architecture uses application tier services that can help you optimize your application architecture.
@@ -78,7 +76,7 @@ This architecture addresses scalable and more secure cloud storage as well as ma
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service that supports open-source APIs for MongoDB and Cassandra. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads and integrates easily with modern applications.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data that benefits from advanced indexing, analytics, and compatibility with open-source tools.
 
@@ -108,9 +106,7 @@ Monitoring tools provide comprehensive data analysis and valuable insights into 
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive platform for collecting, analyzing, and acting on telemetry from Azure and on-premises environments. In this architecture, it serves as the central observability layer, which enables proactive monitoring and diagnostics across infrastructure and applications.
 
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. In this architecture, it aggregates data from VMs, platform logs, and applications into a unified workspace for analysis and alerting.
-
-- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that enables deep analysis of log data using a powerful query language. In this architecture, it supports diagnostics, custom dashboards, and operational insights by joining and aggregating data across multiple sources.
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that enables deep analysis of log data using a powerful query language. In this architecture, it supports diagnostics, custom dashboards, and operational insights by joining and aggregating data across multiple sources.
 
 ### Alternatives
 

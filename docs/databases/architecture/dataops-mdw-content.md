@@ -39,11 +39,9 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform designed for big data and machine learning. In this architecture, it performs two critical transformation steps. First, it cleanses and standardizes raw data while filtering malformed records to a separate schema. Then it converts validated data into a format suitable for data warehouse storage and makes processed data available to data scientists for model training.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools that support continuous integration and continuous delivery (CI/CD), version control, and release automation. In this architecture, it manages deployment across development, staging, and production environments for pipeline components, which ensures automated deployment of infrastructure and application changes.
-
 - [Azure Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, keys, and certificates. In this architecture, it stores sensitive configuration settings and credentials used throughout the pipeline, providing centralized and secure configuration management.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/) is an integrated analytics service that combines big data and data warehousing capabilities. In this architecture, it serves as the data warehouse that ingests transformed data from Data Lake Storage via PolyBase for fast querying and reporting.
+- [Azure Synapse Analytics](/azure/synapse-analytics/) is an integrated analytics service that combines big data and data warehousing capabilities. In this architecture, it serves as the data warehouse that ingests transformed data from Data Lake Storage via PolyBase for querying and reporting.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics tool that delivers interactive visualizations and dashboards. In this architecture, it connects to Azure Synapse Analytics to present parking usage data insights to city planners for informed decision-making.
 
