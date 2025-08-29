@@ -32,7 +32,7 @@ Note: A similar architecture can also be implemented using Microsoft Fabric, whi
 
 1. Power BI uses the data exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
-1. You can also use captured raw data in the Data Lake Store landing zone and validated data in the Delta format for:
+1. You can also use captured raw data in Data Lake Store and validated data in the Delta format for:
 
    - Further ad-hoc and exploratory analysis through Azure Synapse SQL serverless pools.
    - Machine learning through Azure Machine Learning.
