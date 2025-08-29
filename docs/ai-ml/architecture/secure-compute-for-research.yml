@@ -12,6 +12,7 @@ metadata:
     - fcp
     - arb-aiml
     - arb-telco
+ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
   - compute

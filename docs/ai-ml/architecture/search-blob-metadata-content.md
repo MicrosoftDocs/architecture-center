@@ -20,9 +20,10 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 ### Components
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and in Microsoft 365 documents.
-- [Table Storage](/azure/storage/tables/table-storage-overview) provides storage for nonrelational structured data. In this scenario, it's used to store the metadata for each document.
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and in Microsoft 365 documents. In this architecture, Blob Storage is the primary storage location for documents that the solution indexes and searches.
+- [Table Storage](/azure/storage/tables/table-storage-overview) provides storage for nonrelational structured data. In this architecture, it's used to store the metadata for each document.
+
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience. In this architecture, AI Search indexes document content from Blob Storage and metadata from Table Storage so that users can search across both data sources.
 
 ### Alternatives
 

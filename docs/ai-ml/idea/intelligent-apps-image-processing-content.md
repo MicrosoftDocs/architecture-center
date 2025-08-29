@@ -20,11 +20,15 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite and is used to retrieve information about each image.
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images.
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure Functions.
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite and is used to retrieve information about each image. In this architecture, it analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
+
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images. In this architecture, Azure Functions orchestrates workflow steps, including calling the AI Vision API, processing analysis results, and persisting metadata in the database.
+
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) triggers an event when a new image is uploaded to blob storage. In this architecture, Azure Event Grid initiates automated processing workflows by alerting Azure Functions of new uploads.
+
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes. In this architecture, Blob Storage is the primary repository for incoming image data, serving as both the source for processing and a reference for image access.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API. In this architecture, Cosmos DB is the structured, scalable database for persisting analysis results and image metadata. It enables efficient data retrieval for front-end applications.
 
 ### Alternatives
 

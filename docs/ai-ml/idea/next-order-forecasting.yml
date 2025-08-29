@@ -16,6 +16,7 @@ products:
   - azure-data-lake
   - azure-sql-database
   - power-apps
+ai-usage: ai-assisted
 name: Use AI to forecast customer orders 
 summary: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.
 thumbnailUrl: /azure/architecture/browse/thumbs/order-forecasting.png

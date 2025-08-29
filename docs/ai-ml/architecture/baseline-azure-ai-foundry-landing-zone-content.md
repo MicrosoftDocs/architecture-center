@@ -46,7 +46,7 @@ Like most application landing zone implementations, the workload team primarily 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#components).
 
-- **[Azure AI Foundry accounts and projects](/azure/ai-foundry/what-is-ai-foundry)** enable the workload team to host generative AI models as a service, implement content safety, and establish workload-specific connections to knowledge sources and tools.
+- **[Azure AI Foundry accounts and projects](/azure/ai-foundry/what-is-ai-foundry)** enable the workload team to host generative AI models as a service, implement content safety, and establish workload-specific connections to knowledge sources and tools. In this architecture, Azure AI Foundry is the foundation for deploying and managing generative AI capabilities within the application landing zone.
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in projects and accounts. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan). In this scenario, all model consumption usually flows through a gateway that your AI platform team provides.
   
@@ -54,49 +54,49 @@ The following resources remain mostly unchanged from the [baseline architecture]
   
   Foundry Agent Service treats model dependencies in a specific way, so challenges can occur when you consume centrally hosted models. You might need to use an alternative orchestrator.
 
-- **[Foundry Agent Service](/azure/ai-services/agents/overview)** provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests.
+- **[Foundry Agent Service](/azure/ai-services/agents/overview)** provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests. In this architecture, it acts as the central logic engine for chat-based AI workloads.
 
   Use the [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) in this architecture. Connect your agent to a dedicated subnet in your spoke virtual network, and route egress traffic through your connectivity subscription.
 
   The workload team supplies dedicated Azure resources for agent state, chat history, and file storage. These resources are [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db), [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage), and [Azure AI Search](/azure/search/search-what-is-azure-search). Your Foundry Agent Service instance manages these resources and their data exclusively. Other application components in your workload or other workloads in your organization shouldn't use them.
 
-- **Azure App Service** hosts the web application that contains the chat user interface (UI). App Service has three instances in different Azure zones.
+- **Azure App Service** hosts the web application that contains the chat user interface (UI). In this architecture, it delivers the end-user facing component, with multiple instances across zones for availability.
 
   An Azure Storage account hosts the web application's code as a ZIP file, which mounts within App Service.
 
-- **AI Search** retrieves relevant indexed data for application user queries. AI Search serves as the workload knowledge store for the [Retrieval Augmented Generation pattern](/azure/search/retrieval-augmented-generation-overview). This pattern extracts an appropriate query from a prompt, queries AI Search, and uses the results as grounding data for a generative AI foundation model.
+- **AI Search** retrieves relevant indexed data for application user queries. AI Search serves as the workload knowledge store for the [Retrieval Augmented Generation pattern](/azure/search/retrieval-augmented-generation-overview). In this architecture, it extracts an appropriate query from a prompt, queries AI Search, and uses the results as grounding data for a generative AI foundation model.
 
-- **Azure Application Gateway** serves as the reverse proxy to route user requests to the chat UI hosted in App Service. The selected SKU also hosts an Azure web application firewall to protect the front-end application from potentially malicious traffic.
+- **Azure Application Gateway** acts as the reverse proxy to route user requests to the chat UI hosted in App Service. In this architecture, it hosts an Azure web application firewall to help protect the front-end application from potentially malicious traffic.
 
-  **Azure Key Vault** stores the application gateway's Transport Layer Security (TLS) certificate.
+- **Azure Key Vault** stores the application gateway's Transport Layer Security (TLS) certificate. In this architecture, it helps ensure encrypted communications and secure credential management for the application gateway.
 
-- **Azure Monitor, Azure Monitor Logs, and Application Insights** collect, store, and visualize observability data.
+- **Azure Monitor, Azure Monitor Logs, and Application Insights** collect, store, and visualize observability data. In this architecture, they enable monitoring, diagnostics, and operational insights for all workload components.
 
-- **Azure Policy** applies workload-specific policies to help govern, secure, and apply controls at scale.
+- **Azure Policy** applies workload-specific policies to help govern, secure, and apply controls at scale. In this architecture, it enforces governance and compliance rules on resources that the workload team manages.
 
 The workload team also maintains the following resources:
 
-- **Spoke virtual network subnets and the network security groups (NSGs)** on those subnets maintain segmentation and control traffic flow.
+- **Spoke virtual network subnets and the network security groups (NSGs)** maintain segmentation and control traffic flow between subnets. In this architecture, they enforce network boundaries and security between workload components.
 
-- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions.
+- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions. In this architecture, they ensure that sensitive services are only accessible within the private network, which reduces exposure to the public internet.
 
 #### Platform team-owned resources
 
 The platform team owns and maintains the following centralized resources. This architecture assumes that these resources are pre-provisioned and treats them as dependencies.
 
-- **Azure Firewall in the hub network** routes, inspects, and restricts egress traffic that originates from the workload, including agent traffic. Workload egress traffic goes to the internet, cross-premises destinations, or to other application landing zones.
+- **Azure Firewall in the hub network** routes, inspects, and restricts egress traffic that originates from the workload, including agent traffic. Workload egress traffic goes to the internet, cross-premises destinations, or to other application landing zones. In this architecture, Azure Firewall enforces centralized security and compliance by inspecting and controlling outbound connections to the internet and other networks.
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this component. In this architecture, the platform team manages it under the connectivity subscription.
 
-- **Azure Bastion in the hub network** provides secure operational access to workload components and allows access to Azure AI Foundry components.
+- **Azure Bastion in the hub network** provides secure operational access to workload components and allows access to Azure AI Foundry components. In this architecture, Azure Bastion ensures that administrators and support staff can securely connect to virtual machines without exposing RDP/SSH ports to the public internet.
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this component.
 
-- The **spoke virtual network** is where the workload is deployed.
+- The **spoke virtual network** is where the workload is deployed. In this architecture, the platform team manages the spoke network and ensures network segmentation and connectivity with the hub network for centralized security and shared services.
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this network.
 
-- **User-defined routes (UDRs)** enforce tunneling to the hub network.
+- **User-defined routes (UDRs)** enforce tunneling to the hub network. In this architecture, UDRs enable consistent monitoring and policy enforcement by ensuring that all outbound traffic from the workload's virtual network passes through the platform-managed firewall.
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this network.
 
@@ -104,13 +104,13 @@ The platform team owns and maintains the following centralized resources. This a
 
   *Change from the baseline:* These policies are new in this architecture. The platform team applies policies that constrain your workload. Some policies might duplicate existing workload constraints or introduce new constraints.
 
-- **Azure private DNS zones** host `A` records for private endpoints. For more information, see [Azure Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
+- **Azure private DNS zones** host `A` records for private endpoints. In this architecture, DNS zones support Private Link connectivity so that workload components can securely resolve and connect to PaaS and other Azure services via private endpoints. For more information, see [Azure Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this network. In this architecture, the platform team manages this component under the connectivity subscription.
 
 - **DNS resolution service** supports spoke virtual networks and cross-premises workstations. This service typically uses Azure Firewall as a DNS proxy or Azure DNS Private Resolver. In this architecture, the service resolves private endpoint DNS records for all DNS requests from the spoke. DNS Private Resolver and linked rulesets is the recommended way for the platform team to enable this architecture resolution requirements due to the DNS resolution characteristics of Foundry Agent Service.
 
-- **Azure DDoS Protection** helps protect public IP addresses from distributed attacks.
+- **Azure DDoS Protection** helps protect public IP addresses from distributed attacks. In this architecture, DDoS Protection helps safeguard shared network resources and ensure the availability of services exposed to the internet.
 
   *Change from the baseline:* In the baseline architecture, the workload team purchases DDoS Protection.
 
