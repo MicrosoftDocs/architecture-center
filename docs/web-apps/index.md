@@ -41,7 +41,7 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
 - [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
-- [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [High availability enterprise deployment using App Service Environment](../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 
 ## Best practices
 
