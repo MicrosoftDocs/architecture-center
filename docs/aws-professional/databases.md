@@ -54,7 +54,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): a modern data lake solution in Azure that combines the scalability and durability of Blob Storage with hierarchical namespace support. It is optimized for big data analytics and integrates seamlessly with services like Azure Synapse Analytics, Azure Databricks, and Microsoft Fabric.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): a modern data lake solution in Azure that combines the scalability and durability of Blob Storage with hierarchical namespace support. It is optimized for big data analytics and integrates seamlessly with services like Azure Databricks, and Microsoft Fabric.
 
 - [Azure Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
 
