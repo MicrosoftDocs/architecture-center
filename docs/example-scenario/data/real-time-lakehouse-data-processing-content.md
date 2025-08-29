@@ -61,7 +61,7 @@ This solution uses the following Azure components:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. 
 
-- [Azure AI Search](https://azure.microsoft.com/services/search) Azure AI Search is an alternative when Cosmos DB indexing limitations prevent flexible querying. For example, if a retail application stores product catalog data in Cosmos DB, but users need to search by product name, description, and tags with typo tolerance and autocomplete, Azure AI Search can index the data and provide advanced search features like semantic ranking and synonyms. This is particularly useful when Cosmos DB’s indexing model is too rigid for complex search scenarios. You can query the indexed data by using a REST API or the .NET SDK. To get data from two separate indexes, you can combine them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types).
+- [Azure AI Search](/azure/search/search-what-is-azure-search) is a powerful alternative when Cosmos DB’s indexing model is too rigid for advanced search scenarios. It enables flexible querying with features like typo tolerance, autocomplete, semantic ranking, and synonym matching. You can query indexed data using a REST API or the .NET SDK. If you need to retrieve data from multiple indexes, you can either consolidate them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types) to model nested structures.
 
 ## Scenario details
 
