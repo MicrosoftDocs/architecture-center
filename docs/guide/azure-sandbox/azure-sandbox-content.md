@@ -12,7 +12,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 
 You can deploy each of the following sandbox configurations or only the ones that you need:
 
-## 🧩 Azure Sandbox architecture components
+#### Azure Sandbox architecture components
 
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is a Windows Server VM that runs Active Directory Domain Services (AD DS). In this architecture, it provides centralized authentication, domain joining for VMs, and policy management across the sandbox environment.
 
