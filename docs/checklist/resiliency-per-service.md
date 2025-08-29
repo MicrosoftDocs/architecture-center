@@ -23,10 +23,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 >
 > The recommendations on this page are being migrated to these locations.
 
-## Azure Synapse Analytics
-
-**Do not disable geo-backup.** By default, Azure Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
-
 ## SQL Server running in a VM
 
 **Back up the database**. If you are already using [Azure Backup](/azure/backup) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql). With this approach, there is one Backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&preserve-view=true).
@@ -73,8 +69,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2
 [diagnostics-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[search-optimization]: /azure/search/search-reliability
 [site-recovery]: /azure/site-recovery
 [site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
-[sql-restore]: /azure/sql-database/sql-database-recovery-using-backups
 [vm-manage-availability]: /azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set
