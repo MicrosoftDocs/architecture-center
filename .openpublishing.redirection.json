@@ -1858,6 +1858,10 @@
       "redirect_url": "/azure/cloud-adoption-framework/organize/organization-structures"
     },
     {
+      "source_path": "docs/checklist/resiliency-per-service.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance"
+    },
+    {
       "source_path": "docs/cloud-adoption/organization/raci-alignment.md",
       "redirect_url": "/azure/cloud-adoption-framework/organize/raci-alignment"
     },
