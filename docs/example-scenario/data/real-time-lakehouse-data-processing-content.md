@@ -127,8 +127,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - You can set up Azure Synapse Spark pools with small, medium, or large virtual machine (VM) SKUs, based on the workload. You can also configure autoscale on Azure Synapse Spark pools to account for spiky workloads. If you need more compute resources, the clusters automatically scale up to meet the demand, and scale down after processing is complete.
 
-- Delta Lake plays a central role in ensuring high-performance, reliable, and scalable data processing in this architecture. Use `OPTIMIZE` with `ZORDER BY` on frequently queried columns (e.g., timestamps, customer IDs) to co-locate related data blocks, significantly improving query performance by reducing I/O scans.
-Streaming ingestion often creates many small files. Use `OPTIMIZE` to compact these into larger files, which improves read efficiency and reduces metadata overhead. Enable Auto Optimize and Auto Compaction features in Delta Lake to automatically compact small files and optimize data layout during write operations, reducing the need for manual intervention.
+- Delta Lake plays a central role in ensuring high-performance, reliable, and scalable data processing in this architecture:
+
+- Enable Auto Optimize and Auto Compaction features in Delta Lake to automatically manage small files and optimize data layout during write operations. These features are ideal for streaming or frequent micro-batch ingestion scenarios, as they reduce the need for manual intervention.
+- Use `OPTIMIZE` to manually compact small files into larger ones. This is especially useful when streaming ingestion has already created many small files, and you want to improve read efficiency and reduce metadata overhead.
+- Use `OPTIMIZE` with `ZORDER BY` on frequently queried columns (such as timestamps or customer IDs) to co-locate related data. This query improves query performance by reducing the amount of data scanned during reads.
 
 - To optimize performance in dedicated SQL pools for near real-time analytics: 
 - Use appropriate distribution methods (hash, round-robin, replicated)
