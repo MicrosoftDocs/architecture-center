@@ -85,8 +85,6 @@ This article describes how a fictional city planning office could use this solut
 
 * Support monitoring.
 
-* Centralized configuration in a secure storage like Azure Key Vault.
-
 ### Potential use cases
 
 This article uses the fictional city of Contoso to describe the use case scenario. In the narrative, Contoso owns and manages parking sensors for the city. It also owns the APIs that connect to and get data from the sensors. They need a platform that will collect data from many different sources. The data then must be validated, cleansed, and transformed to a known schema. Contoso city planners can then explore and assess report data on parking use with data visualization tools, like Power BI, to determine whether they need more parking or related resources.
