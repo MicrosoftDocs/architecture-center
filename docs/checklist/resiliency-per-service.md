@@ -23,20 +23,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 >
 > The recommendations on this page are being migrated to these locations.
 
-## SQL Database
-
-**Use Standard or Premium tier.** These tiers provide a longer point-in-time restore period (35 days). For more information, see [SQL Database options and performance](/azure/sql-database/sql-database-service-tiers).
-
-**Enable SQL Database auditing.** Auditing can be used to diagnose malicious attacks or human error. For more information, see [Get started with SQL database auditing](/azure/sql-database/sql-database-auditing-get-started).
-
-**Use Active Geo-Replication** Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, or simply needs to be taken offline, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. For more information, see [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview).
-
-**Use sharding.** Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database](/azure/sql-database/sql-database-elastic-scale-introduction).
-
-**Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
-
-**Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
-
 ## Azure Synapse Analytics
 
 **Do not disable geo-backup.** By default, Azure Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
