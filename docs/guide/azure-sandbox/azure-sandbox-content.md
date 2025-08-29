@@ -1,6 +1,4 @@
-Azure Sandbox is a collection of interdependent [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing) configurations for implementing common [Azure](https://azure.microsoft.com/overview/what-is-azure) services on a single [subscription](/azure/azure-glossary-cloud-terminology#subscription). This collection provides a flexible and cost effective sandbox environment for experimenting with Azure services and capabilities.
-
-Depending on your Azure offer type and region, a fully provisioned Azure Sandbox environment can be expensive to run. You can reduce costs by stopping or deallocating virtual machines (VMs) when not in use or by skipping optional configurations that you don't plan to use.
+[Azure Sandbox](https://github.com/Azure-Samples/azuresandbox) is a Terraform-based project designed to simplify the deployment of sandbox environments in Azure. It provides a modular and reusable framework for implementing foundational infrastructure which can accelerate the development of innovative new solutions in Azure.
   
 ## Architecture
 
@@ -10,7 +8,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 
 ### Components
 
-The Azure Sandbox project encapsulates functionality using modules. You can deploy all of the following modules, or only the ones that you need:
+The Azure Sandbox is composed of modular components that can be deployed individually or together, depending on your needs. Because a fully provisioned environment may be costly (the costs vary depending on your Azure subscription type and region), you can manage expenses by stopping or deallocating virtual machines when not in use or by deploying only the following modules that are essential for your scenario:
 
 - Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
 - Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
