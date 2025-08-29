@@ -130,7 +130,14 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Delta Lake plays a central role in ensuring high-performance, reliable, and scalable data processing in this architecture. Use `OPTIMIZE` with `ZORDER BY` on frequently queried columns (e.g., timestamps, customer IDs) to co-locate related data blocks, significantly improving query performance by reducing I/O scans.
 Streaming ingestion often creates many small files. Use `OPTIMIZE` to compact these into larger files, which improves read efficiency and reduces metadata overhead. Enable Auto Optimize and Auto Compaction features in Delta Lake to automatically compact small files and optimize data layout during write operations, reducing the need for manual intervention.
 
-- To optimize performance in dedicated SQL pools for near real-time analytics, use appropriate distribution methods (hash, round-robin, replicated) and partition large tables by time or region to improve query pruning. Leverage materialized views and result set caching for frequently accessed data, and maintain up-to-date statistics and indexes to support efficient query execution. Assign resource classes to manage memory and concurrency, and monitor performance using built-in tools like SQL Insights and DMVs. These practices help ensure low-latency, high-throughput performance in large-scale analytical workloads.
+- To optimize performance in dedicated SQL pools for near real-time analytics: 
+- Use appropriate distribution methods (hash, round-robin, replicated)
+- Partition large tables by time or region to improve query pruning. 
+- Use materialized views and result set caching for frequently accessed data.
+- Maintain up-to-date statistics and indexes to support efficient query execution. 
+- Assign resource classes to manage memory and concurrency.
+- Monitor performance using built-in tools like SQL Insights and DMVs. 
+These practices help ensure low-latency, high-throughput performance in large-scale analytical workloads.
 
 - To optimize Azure Cosmos DB for performance in real-time analytics scenarios, configure appropriate indexing policies to reduce query latency and storage overhead, and choose the right consistency level to balance performance with data accuracy. Use partitioning effectively to distribute workloads evenly and avoid hot partitions. Enable multi-region writes for low-latency global access and monitor throughput using RUs to scale dynamically based on demand. These practices help ensure responsive, scalable performance for high-ingestion, low-latency workloads.
 
