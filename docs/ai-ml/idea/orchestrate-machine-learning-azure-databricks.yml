@@ -9,7 +9,7 @@ metadata:
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: solution-idea
   ms.custom: arb-aiml
-ai-usage: ai-assisted
+  ai-usage: ai-assisted
 name: Use Azure Databricks to orchestrate MLOps
 azureCategories:
   - ai-machine-learning
