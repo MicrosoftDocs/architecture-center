@@ -9,7 +9,7 @@ metadata:
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
   ms.custom: arb-aiml
-ai-usage: ai-assisted
+  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
 products:

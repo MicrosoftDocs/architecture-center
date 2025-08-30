@@ -71,7 +71,7 @@ This architecture builds on the [basic Azure AI Foundry chat reference architect
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is the secure, scalable entry point for all HTTP and HTTPS traffic to the chat UI. In this architecture, it provides Transport Layer Security (TLS) termination and path-based routing. It also distributes requests across availability zones, which supports high availability and performance for the web application tier. Its back end is the App Service instance that hosts the application code.
 
-  - [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) integrates with Application Gateway to protect the chat UI from common web vulnerabilities and attacks. In this archittecture, it inspects and filters HTTP requests, which provides a security layer for public-facing applications.
+  - [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) integrates with Application Gateway to protect the chat UI from common web vulnerabilities and attacks. In this architecture, it inspects and filters HTTP requests, which provides a security layer for public-facing applications.
 
   - [Azure Key Vault](/azure/key-vault/general/overview) securely stores and manages the TLS certificates that Application Gateway requires. Centralized certificate management in Key Vault supports automated rotation, auditing, and compliance with organizational security standards. This architecture doesn't require stored keys or other secrets.
 

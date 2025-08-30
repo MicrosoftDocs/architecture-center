@@ -11,7 +11,7 @@ metadata:
   ms.custom:
     - arb-aiml
     - arb-telco
-ai-usage: ai-assisted
+  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
   - media
