@@ -13,7 +13,10 @@ ms.subservice: architecture-guide
 A data lake is a centralized storage repository that holds vast amounts of data in its native, raw format. Unlike traditional databases, data lakes are designed to scale cost-effectively from terabytes to petabytes, making them suitable for handling massive and diverse datasets. These datasets may include structured data (like relational tables), semi-structured data (like JSON, XML, or logs), and unstructured data (like images, audio, or video). The key advantage of a data lake is that it preserves data in its original state, deferring transformation until the data is actually needed — a concept known as schema-on-read. This contrasts with a [data warehouse](../relational-data/data-warehousing.yml), which enforces structure and applies transformations as data is ingested (schema-on-write).
 
 
-![A diagram that shows various data lake use cases.](./images/data-lake-use-cases-new.jpg)
+<p align="center">
+  <img src="docs/data-guide/scenarios/images/data-lake-use-cases-new.jpg" alt="Data Lake use cases" width="600"/>
+</p>
+<p align="center"><em>Figure 1: Data Lake use cases</em></p>
 
 **Key Use Cases of a Data Lake**
 
@@ -75,7 +78,7 @@ The following table compares data lakes and data warehouses.
 - **Data integrity risks**: Without strong validation and monitoring, errors or incomplete ingestions can compromise the reliability of the lake’s contents.
 - **Data quality and governance**: The variety of sources and formats makes it difficult to enforce consistent standards. Implementing metadata management, cataloging, and governance frameworks is critical.
 - **Performance at scale**: Query performance and storage efficiency can degrade as the lake grows, requiring optimization strategies such as partitioning, indexing, and caching.
-- **Security and access control (often overlooked)**: Ensuring appropriate permissions, encryption, and auditing is essential to prevent misuse of sensitive data.
+- **Security and access control**: Ensuring appropriate permissions, encryption, and auditing is essential to prevent misuse of sensitive data.
 - **Discoverability**: Without proper cataloging, lakes can devolve into “data swamps” where valuable information is present but inaccessible or misunderstood.
 
 By recognizing these challenges upfront, organizations can design a resilient data lake architecture that balances scalability with governance, performance, and cost efficiency.
