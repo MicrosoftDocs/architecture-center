@@ -116,7 +116,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Certificates updated in the key vault are automatically rotated in API Management, which reflects the changes within four hours.
 
-- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones in each region. This method maximizes availability and performance.
+- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two or more availability zones in each region. [Monitor the capacity metrics](/azure/api-management/api-management-capacity), and provision sufficient capacity units so that you can continue to operate even if the units in one availability zone are lost. This method maximizes availability and performance.
 
 - If you use a DevOps tool, such as Azure DevOps or GitHub, then cloud-hosted agents or runners operate over the public internet. Because API Management in this architecture is set to an internal network, you need to use a DevOps agent that has access to the virtual network. The DevOps agent helps you deploy policies and other changes to the APIs in your architecture. You can use these [CI/CD templates](/azure/api-management/devops-api-development-templates) to separate the process into parts so that your development teams can deploy changes for each API. DevOps runners initiate the templates to handle these individual deployments.
 
