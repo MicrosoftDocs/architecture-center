@@ -10,11 +10,11 @@ ms.subservice: architecture-guide
 
 # What is a data lake?
 
-A data lake is a centralized storage repository that holds vast amounts of data in its native, raw format. Unlike traditional databases, data lakes are designed to scale cost-effectively from terabytes to petabytes, making them suitable for handling massive and diverse datasets. These datasets may include structured data (like relational tables), semi-structured data (like JSON, XML, or logs), and unstructured data (like images, audio, or video). The key advantage of a data lake is that it preserves data in its original state, deferring transformation until the data is actually needed — a concept known as schema-on-read. This contrasts with a [data warehouse](../relational-data/data-warehousing.yml), which enforces structure and applies transformations as data is ingested (schema-on-write).
+A data lake is a centralized storage repository that holds vast amounts of data in its native, raw format. Unlike traditional databases, data lakes are designed to scale cost-effectively from terabytes to petabytes, making them suitable for handling massive and diverse datasets. These datasets may include structured data (like relational tables), semi-structured data (like JSON, XML, or logs), and unstructured data (like images, audio, or video). The key advantage of a data lake is that it preserves data in its original state, deferring transformation until the data is needed — a concept known as schema-on-read. This contrasts with a [data warehouse](../relational-data/data-warehousing.yml), which enforces structure and applies transformations as data is ingested (schema-on-write).
 
 
 <p align="center">
-  <img src="docs/data-guide/scenarios/images/data-lake-use-cases-new.jpg" alt="Data Lake use cases" width="600"/>
+  <img src="./images/data-lake-use-cases-new.jpg" alt="Data Lake use cases" width="600"/>
 </p>
 <p align="center"><em>Figure 1: Data Lake use cases</em></p>
 
@@ -37,7 +37,7 @@ A data lake is a centralized storage repository that holds vast amounts of data 
 
 A modern data lake solution comprises two core elements:
 
-- **Storage**: Built for durability, fault tolerance, virtually infinite scalability, and high-throughput ingestion of diverse data types.
+- **Storage**: Built for durability, fault tolerance, infinite scalability, and high-throughput ingestion of diverse data types.
 - **Processing**: Powered by engines such as Apache Spark in Azure Databricks, Microsoft Fabric, enabling large-scale transformations, analytics, and machine learning.
 
 Additionally, mature solutions incorporate metadata management, security, and governance to ensure data quality, discoverability, and compliance.
@@ -54,7 +54,7 @@ A data lake can also serve as the upstream source for a data warehouse. In this 
 
 **Event Streaming and IoT Scenarios**
 
-Data lakes are particularly effective for event streaming and IoT use cases, where high-velocity data must be persisted at scale without upfront schema constraints. They can ingest and store both relational and non-relational event streams, handle high volumes of small writes with low latency, and support massive parallel throughput. This makes them well suited for applications such as real-time monitoring, predictive maintenance, and anomaly detection.
+Data lakes are effective for event streaming and IoT use cases, where high-velocity data must be persisted at scale without upfront schema constraints. They can ingest and store both relational and non-relational event streams, handle high volumes of small writes with low latency, and support massive parallel throughput. This makes them well suited for applications such as real-time monitoring, predictive maintenance, and anomaly detection.
 
 Together, these capabilities position the data lake as a flexible foundation for modern data architectures, capable of supporting both exploratory workloads and structured downstream analytics.
 
