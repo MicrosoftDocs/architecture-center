@@ -92,7 +92,7 @@ When you build a comprehensive data lake solution on Azure, consider the followi
 
 - [Azure Databricks](/azure/databricks/introduction/) is a cloud-based data analytics and machine learning platform that combines the best of Apache Spark with deep integration into the Microsoft Azure ecosystem. It provides a collaborative environment where data engineers, data scientists, and analysts can work together to ingest, process, analyze, and model large volumes of data.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is an Microsoft’s enterprise grade and cloud-based data integration and ETL (Extract, Transform, Load) service. It’s designed to let you move, transform, and orchestrate data workflows across different sources, whether in the cloud or on-premises.
+- [Azure Data Factory](/azure/data-factory/introduction) is an Microsoft Azure's cloud-based data integration and ETL (Extract, Transform, Load) service. It’s designed to let you move, transform, and orchestrate data workflows across different sources, whether in the cloud or on-premises.
 
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is Microsoft’s all-in-one, end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and business intelligence into a single software-as-a-service (SaaS) experience.
 
