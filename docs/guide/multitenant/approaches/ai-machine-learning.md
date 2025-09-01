@@ -169,7 +169,7 @@ The following diagram illustrates an example architecture that uses Machine Lear
 
 ### Integrated AI and machine learning solutions
 
-Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
+Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/fabric/data-science/).
 
 You can consider using these platforms for AI and machine learning when you need to scale your machine learning capabilities to a very large number of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
@@ -198,6 +198,7 @@ Other contributors:
 - [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Solution Architect
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
