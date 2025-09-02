@@ -67,7 +67,7 @@ The networking components include the following resources:
 
 **Availability**. Your VM might be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service-level agreement (SLA)][vm-sla].
 
-**Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
+**Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups. For performance-sensitive workloads, consider the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables VM backups without using the Volume Shadow Copy Service (VSS), reducing performance impact.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 

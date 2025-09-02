@@ -234,7 +234,3 @@ Principal author:
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
 - [What is Microsoft Entra Connect?](/entra/identity/hybrid/connect/whatis-azure-ad-connect)
 - Learn more about the [Azure Virtual Desktop Well-Architected Framework](/azure/well-architected/azure-virtual-desktop/overview)
-
-## Related resources
-
-- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).

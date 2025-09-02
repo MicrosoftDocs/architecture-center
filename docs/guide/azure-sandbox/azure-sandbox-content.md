@@ -14,10 +14,10 @@ You can deploy each of the following sandbox configurations or only the ones tha
 
 - Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
 - Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
-- [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/products/virtual-machines/sql-server)
+- [SQL Server on Azure Virtual Machines (VMs)](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
-- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
-- [Azure Virtual WAN](https://azure.microsoft.com/products/virtual-wan) and point-to-site VPN
+- [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization)
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) and point-to-site VPN
 
 ## Deploy the sandbox
 

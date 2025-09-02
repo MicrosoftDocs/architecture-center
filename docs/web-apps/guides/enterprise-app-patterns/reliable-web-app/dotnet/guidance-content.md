@@ -1,5 +1,7 @@
 ---
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 [!INCLUDE [intro 1](../includes/intro-1.md)]
@@ -143,7 +145,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
         }));
     ```
 
-- *Use retry programming libraries.* For HTTP communications, integrate a standard resilience library like [Polly](https://github.com/App-vNext/Polly) or `Microsoft.Extensions.Http.Resilience`. These libraries provide comprehensive retry mechanisms that are crucial for managing communications with external web services. For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object:
+- *Use retry programming libraries.* For HTTP communications, integrate a standard resilience library like [Polly](https://www.pollydocs.org/) or `Microsoft.Extensions.Http.Resilience`. These libraries provide comprehensive retry mechanisms that are crucial for managing communications with external web services. For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object:
 
     ```csharp
     private void AddConcertSearchService(IServiceCollection services)

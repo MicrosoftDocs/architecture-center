@@ -114,7 +114,7 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 ![Image of the structure of the Async Request Reply pattern in Functions](_images/async-request-fn.PNG)
 
-![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/async-request-reply).
+![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
 
 ### AsyncProcessingWorkAcceptor function
 

@@ -147,7 +147,7 @@ The [Microsoft System Center Management Pack for AD FS 2012 R2][oms-adfs-pack] p
 
 - The overall health of the AD FS system and web applications (relying parties) and for critical problems and warnings
 
-Another option is to [monitor AD FS by using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft online services. It achieves this reliability by providing monitoring capabilities for your key identity components. It also makes the key data points about these components easily accessible.
+Another option is to [monitor AD FS by using Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs). [Connect Health](/entra/identity/hybrid/connect/whatis-azure-ad-connect) provides monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft online services. It achieves this reliability by providing monitoring capabilities for your key identity components. It also makes the key data points about these components accessible.
 
 ## Considerations
 
@@ -157,7 +157,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Create an AD FS farm with a minimum of two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account doesn't make the entire farm inaccessible.
+Create an AD FS farm with a minimum of two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps ensure that a failure in a single storage account doesn't make the entire farm inaccessible.
 
 Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are a minimum of two VMs in each set. Each availability set must have a minimum of two update domains and two fault domains.
 

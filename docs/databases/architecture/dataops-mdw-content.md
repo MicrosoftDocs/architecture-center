@@ -37,7 +37,7 @@ The solution uses these components:
 
 * [Azure Data Factory](/azure/data-factory/introduction)
 
-* [Azure Databricks](/azure/databricks/introduction)
+* [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)
 
 * [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 

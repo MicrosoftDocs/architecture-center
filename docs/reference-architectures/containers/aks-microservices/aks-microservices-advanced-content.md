@@ -2,11 +2,9 @@ This reference architecture describes several configurations to consider when yo
 
 This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which Microsoft recommends as the starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
 
-![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
-
 ## Architecture
 
-:::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.svg" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this implementation uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
+:::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.svg" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this architecture uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
    An arrow labeled peering connects the two main sections of the diagram: spoke and hub. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, an arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, Azure Cloud Services, and FQDNs. These services and FQDNs are outside of the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
 :::image-end:::
 
@@ -63,7 +61,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB has open-source APIs for MongoDB, PostgreSQL, and Cassandra. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as data stores for each microservice.
 
-- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
+- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
 
 - **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy-traffic loads. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside).
 
@@ -81,13 +79,13 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 Instead of using an application routing add-on, you can use alternatives like [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) and [Istio gateway add-on](/azure/aks/istio-deploy-ingress). For a comparison of ingress options in AKS, see [Ingress in AKS](/azure/aks/concepts-network-ingress). Application Gateway for Containers is an evolution of Application Gateway ingress controller and provides extra features such as traffic splitting and weighted round-robin load balancing.
 
-You can use ArgoCD as the GitOps tool instead of Flux v2. Both [Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
+You can use ArgoCD as the GitOps tool instead of Flux. Both [Flux](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
 
 Instead of storing credentials for Azure Cosmos DB and Azure Cache for Redis in key vaults, we recommend that you use managed identities to authenticate because password-free authentication mechanisms are more secure. For more information, see [Use managed identities to connect to Azure Cosmos DB from an Azure VM](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos) and [Authenticate a managed identity by using Microsoft Entra ID to access Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Cache for Redis also supports [authentication by using managed identities](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ## Scenario details
 
-The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices that this article describes. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location and see a continuously updated estimated time of arrival.
+In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location and see a continuously updated estimated time of arrival.
 
 ## Recommendations
 
@@ -188,8 +186,9 @@ limits:
 ```
 
 For more information about resource quotas, see:
-- [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
-- [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/).
+
+- [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
+- [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
 
 ### Autoscaling
 
@@ -199,7 +198,7 @@ Kubernetes supports *autoscaling* to increase the number of pods allocated to a 
 
 The Cluster Autoscaler (CA) scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
 
-The following example shows the CA configuration from the Bicep template:
+The following example shows the CA configuration from the cluster's Bicep template:
 
 ```bicep
 autoScalerProfile: {
@@ -220,6 +219,7 @@ autoScalerProfile: {
   'ok-total-unready-count': '3'
 }
 ```
+
 The following lines in the Bicep template set example minimum and maximum nodes for the cluster autoscaler:
 
 ```bicep
@@ -270,7 +270,7 @@ In this architecture, VPA increases the CPU and memory requests and limits for m
 
 The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
 
-In the Fabrikam drone delivery example, KEDA scales out the workflow microservice depending on the Service Bus queue depth and based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
+In the Fabrikam drone delivery scenario, KEDA scales out the workflow microservice depending on the Service Bus queue depth and based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
 
 ### Health probes
 
@@ -328,7 +328,7 @@ Consider the following points when you plan for security.
 
 - Not all Azure services support using Microsoft Entra ID for data plane authentication. To store credentials or application secrets for those services, for non-Microsoft services, or for API keys, use Key Vault. Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
-- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice. The reference implementation uses separate key vaults for each microservice.
+- In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
 - If the microservice needs to communicate to resources, such as external URLs, outside of the cluster, control the access through Azure Firewall. If the microservice doesn't need to make any outbound calls, use [network isolated clusters](/azure/aks/network-isolated).
 
@@ -344,7 +344,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - In the Free tier, AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources that the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
-- Consider using the Free tier of AKS for development workloads, and use the [Standard and Premium tiers](/azure/aks/free-standard-pricing-tiers) for production workloads. 
+- Consider using the Free tier of AKS for development workloads, and use the [Standard and Premium tiers](/azure/aks/free-standard-pricing-tiers) for production workloads.
 
 - Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
@@ -354,7 +354,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Consider the following points when you plan for manageability.
 
-- Manage the AKS cluster infrastructure via an automated deployment pipeline. The [reference implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) for this architecture provides a [GitHub Actions](https://help.github.com/actions) workflow that you can reference when you build your pipeline.
+- Manage the AKS cluster infrastructure via an automated deployment pipeline, such as [GitHub Actions](https://help.github.com/actions) workflows.
 
 - The workflow file deploys the infrastructure only, not the workload, into the already-existing virtual network and Microsoft Entra configuration. Deploying the infrastructure and the workload separately lets you address distinct life cycle and operational concerns.
 
@@ -393,7 +393,7 @@ Consider the following points when you plan for scalability.
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/baseline-aks.yml)
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../guide/architecture-styles/microservices.md)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Build a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)

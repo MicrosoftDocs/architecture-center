@@ -33,7 +33,7 @@ Key technologies used to implement this architecture:
 Typical uses for this architecture include:
 
 - **Replace or supplement on-premises file servers**. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files. This migration can take the advantage of high availability and scalability while minimizing client changes.
-- **Lift and shift**. Azure Files makes it easy to "lift and shift" applications that expect a file share to store application or user data to the cloud.
+- **Lift and shift**. Azure Files supports "lift and shift" of applications that expect a file share to store application or user data to the cloud.
 - **Backup and disaster recovery**. You can use Azure Files as storage for backups or for disaster recovery to improve business continuity. You can use Azure Files to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
 - **Azure File Sync**. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud. This replication improves performance and distributes caching of data to where it's being used.
 
@@ -110,7 +110,7 @@ For more information, see [Azure Files scalability and performance targets][Azur
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
+- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
   > [!NOTE]
   > Access to Azure file shares is always authenticated. Azure file shares don't support anonymous access. Besides identity-based authentication over SMB, users can authenticate to Azure file share also by using storage access key and Shared Access Signature.
@@ -141,7 +141,6 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
-- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg

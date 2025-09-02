@@ -19,7 +19,7 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service best suits your application.        |
+|[Choose an Azure compute service](compute-decision-tree.md)  | Decide which compute service best suits your application.        |
 |[Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)|     Learn about two compute options for microservices: service orchestrator and serverless architecture.    |
 |[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
 
@@ -110,7 +110,7 @@ These articles can help you explore the networking technologies that are availab
 
 |Article |Summary  |
 |---------|---------|
-|[Load balancing options](load-balancing-overview.yml)     |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
+|[Load balancing options](load-balancing-overview.md)    |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
 |[Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)     |   Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.      |
 
 ## Choose a messaging service

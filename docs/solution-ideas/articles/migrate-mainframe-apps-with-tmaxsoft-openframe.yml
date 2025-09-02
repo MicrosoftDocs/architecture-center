@@ -10,14 +10,9 @@ metadata:
   ms.category:
     - mainframe
     - migration
-  ms.custom:
-    - fcp
-  keywords:
-    - Mainframe applications
-    - tmaxsoft
-    - mainframe migration
-    - lift and shift
-    - rehosting
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame
 azureCategories:
   - migration

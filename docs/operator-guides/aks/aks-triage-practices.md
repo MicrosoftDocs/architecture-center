@@ -59,6 +59,5 @@ Other contributors:
 ## Next steps
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-- [AKS periscope](https://github.com/Azure/aks-periscope)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS resources](/azure/aks)

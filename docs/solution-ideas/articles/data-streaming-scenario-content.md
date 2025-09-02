@@ -24,7 +24,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 The solution uses the following key technologies:
 
-- [API Management](/azure/api-management/api-management-key-concepts)
+- [API Management](/azure/well-architected/service-guides/azure-api-management)
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)
 - [Container Registry](/azure/container-registry/container-registry-intro)

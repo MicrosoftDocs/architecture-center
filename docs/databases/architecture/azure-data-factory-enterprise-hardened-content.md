@@ -56,7 +56,7 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
-- Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
+- Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/fabric/enterprise/powerbi/service-admin-entra-b2b) authorization and access controls.
 
 - Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
 
@@ -67,6 +67,8 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 ## Architecture
 
 :::image type="content" source="_images/azure-data-factory-hardened.png" lightbox="_images/azure-data-factory-hardened.png" alt-text="Diagram that shows the hardened medallion architecture." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened-logical.vsdx) of this architecture.*
 
 ### Workflow
 

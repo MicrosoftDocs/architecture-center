@@ -267,7 +267,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) enables applications to 
 
 - *Use SDK retry functionality.* For services that have specialized SDKs, like Service Bus or Blob Storage, use the built-in retry mechanisms. These built-in mechanisms are optimized for the service's typical use cases, can handle retries more effectively, and require less configuration.
 
-- *Use standard resilience libraries for HTTP clients.* For HTTP clients, you can use Resilience4j together with Spring's RestTemplate or WebClient to handle retries in HTTP communications. You can wrap RestTemplate with Resilience4j's retry logic to handle transient HTTP errors effectively.
+- *Use standard resilience libraries for HTTP clients.* For HTTP clients, you can use [Resilience4j](https://resilience4j.readme.io/docs/getting-started) together with Spring's RestTemplate or WebClient to handle retries in HTTP communications. You can wrap RestTemplate with Resilience4j's retry logic to handle transient HTTP errors effectively.
 
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss. For example, use peek-lock modes when they're available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 

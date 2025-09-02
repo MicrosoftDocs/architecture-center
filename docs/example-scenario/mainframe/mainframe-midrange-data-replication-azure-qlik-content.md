@@ -76,7 +76,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 This architecture addresses scalable and more secure cloud storage as well as managed databases for flexible and intelligent data management.
 
-- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues). Azure Files is an effective tool for migrating mainframe workloads.
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). Azure Files is an effective tool for migrating mainframe workloads.
 
 - [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. This family includes:
 

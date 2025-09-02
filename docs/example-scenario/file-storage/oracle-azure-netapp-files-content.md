@@ -29,13 +29,13 @@ This solution has many uses:
 You can run a small-to-medium sized Oracle database on an Azure VM with one or more storage volumes for storing the database files, redo logs, and optionally a backup volume.
 
 :::image type="complex" source="./media/capacity-pool-architecture.png" alt-text="Diagram depicting Oracle VMs deployed on Azure NetApp Files." lightbox="./media/capacity-pool-architecture.png" border="false":::
-    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. 
+    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM.
 :::image-end:::
 
 Deploy multiple data volumes for consolidating multiple smaller Oracle instances onto a single Azure VM.
 
 :::image type="complex" source="./media/small-oracle-deployment.png" alt-text="Diagram of consolidated Oracle databases on an Azure VM." lightbox="./media/small-oracle-deployment.png"  border="false":::
-    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. The different data and log volumes are represented inside of the application volume group. 
+    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. The different data and log volumes are represented inside of the application volume group.
 :::image-end:::
 
 ### Preparing the Azure NetApp Files service
@@ -46,7 +46,7 @@ If you're migrating existing Oracle databases from on-premises to Azure, you can
 
 Available throughput for the volumes in a capacity pool is defined by the size and [service level (Standard, Premium, or Ultra)](/azure/azure-netapp-files/azure-netapp-files-service-levels) of the selected capacity pool. Auto QoS capacity pools assign throughput to volumes directly related to the volume size. You can also assign throughput to volumes independently of their size, for which you can configure your capacity pool to use [manual QoS](/azure/azure-netapp-files/manage-manual-qos-capacity-pool).
 
-### Data protection 
+### Data protection
 
 To protect against unlikely zonal failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
 
@@ -56,7 +56,7 @@ To protect against unlikely zonal failures make use of Oracle Data Guard to repl
 
 ### Scalability
 
-By using multiple storage volumes for database files, you can achieve additional scalability and flexibility. You can scale up to eight volumes for database files by using [application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-introduction) to deploy the volumes. This ensures that volumes are laid out in optimal locations within the Azure infrastructure and with lowest possible latency access by the VMs.
+By using multiple storage volumes for database files, you can achieve additional scalability and flexibility. You can scale up to eight volumes for database files by using [application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-introduction) to deploy the volumes. This approach helps place volumes in optimal locations within the Azure infrastructure for low-latency access by the VMs.
 
 :::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." lightbox="./media/application-volume-group-deployment.png" border="false":::
   Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
@@ -110,11 +110,11 @@ This image shows the benefits of using Azure NetApp Files with Oracle Database.
    The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs require high performance. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
 :::image-end:::
 
-### Simple and reliable service
+### Hosted service
 
-As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade NFS volumes for Oracle Database and other enterprise application workloads.
+As an Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can provision enterprise-grade NFS volumes for Oracle Database and other enterprise application workloads.
 
-### Highly performant systems
+### Low-latency performance
 
 [Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well-suited for using the NFS protocol to run Oracle Database workloads over networks.
 
@@ -194,7 +194,7 @@ These factors make Azure NetApp Files less costly than disk storage solutions.
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-As the [Highly performant systems][Highly performant systems section of this article] section discusses, Azure NetApp Files provides built-in scalability.
+As the [Low-latency performance][Low-latency performance section of this article] section discusses, Azure NetApp Files provides built-in scalability.
 
 ## Deploy this scenario
 
@@ -213,8 +213,8 @@ As the [Highly performant systems][Highly performant systems section of this art
 
 Principal author:
 
-* [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
-* [Arnt de Gier](https://www.linkedin.com/in/arntdegier/) | Technical Marketing Engineer for Azure NetApp Files
+- [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
+- [Arnt de Gier](https://www.linkedin.com/in/arntdegier/) | Technical Marketing Engineer for Azure NetApp Files
 
 ## Next steps
 
@@ -237,15 +237,13 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Azure Virtual Network]: /azure/well-architected/service-guides/virtual-network
 [Benefits of using Azure NetApp Files with Oracle Database]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
-[Data Guard architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-availability.svg
 [Capacity management FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#capacity-management-faqs
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [Enterprise-scale data management section of this article]: #enterprise-scale-data-management
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
-[Highly performant systems section of this article]: #highly-performant-systems
+[Low-latency performance section of this article]: #low-latency-performance
 [Implement Oracle Data Guard on an Azure Linux virtual machine]: /azure/virtual-machines/workloads/oracle/configure-oracle-dataguard
-[Key benefits diagram in .svg format]: ./media/oracle-azure-netapp-files-key-values.svg
 [Linux NFS mount options best practices for Azure NetApp Files]: /azure/azure-netapp-files/performance-linux-mount-options
 [Oracle Database]: /azure/well-architected/oracle-iaas/get-started
 [Oracle database performance on Azure NetApp Files single volumes]: /azure/azure-netapp-files/performance-oracle-single-volumes

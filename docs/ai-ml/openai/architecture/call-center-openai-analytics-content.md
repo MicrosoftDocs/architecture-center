@@ -68,7 +68,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Find the availability service-level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 - To design high-availability applications with Storage accounts, see the [configuration options](/azure/storage/common/geo-redundant-design).
-- To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
+- To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 ### Security
 

@@ -4,6 +4,10 @@ items:
   items:
     - name: Explore ideas about
       items:
+      - name: Audio processing
+        items:
+        - name: Unlock insights from conversational data
+          href: idea/unlock-insights-from-conversational-data.yml
       - name: Image processing
         items:
         - name: Image classification
@@ -34,7 +38,7 @@ items:
           href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
-      - name: Chat bots
+      - name: Chat with data
         items:
         - name: Basic Azure AI Foundry chat reference architecture
           href: architecture/basic-azure-ai-foundry-chat.yml
@@ -72,7 +76,7 @@ items:
       items:
       - name: Machine learning options
         href: guide/data-science-and-machine-learning.md
-      - name: AI agent design patterns
+      - name: AI agent orchestration patterns
         href: guide/ai-agent-design-patterns.md
       - name: Developing and evaluating RAG solutions
         items:
@@ -88,7 +92,7 @@ items:
           href: guide/rag/rag-generate-embeddings.md
         - name: Information-retrieval phase
           href: guide/rag/rag-information-retrieval.md
-        - name: LLM end-to-end evaluation phase
+        - name: Model end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.md
       - name: Design a secure multitenant RAG inferencing solution
         href: guide/secure-multitenant-rag.md

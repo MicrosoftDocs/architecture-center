@@ -33,7 +33,7 @@ Azure provides several ways to manage your resources:
 
 - [Azure CLI](/azure/azure-resource-manager/templates/deploy-cli). Azure CLI provides a command-line interface that you can use to create and manage Azure resources. Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 
-- [Azure PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). You can use the Azure modules for PowerShell to run automated management tasks by using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
+- [Azure PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). You can use the Azure modules for PowerShell to run automated management tasks by using a script. PowerShell is available for [Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
 
 - [ARM Templates](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell). Azure Resource Manager (ARM) templates provide JSON template-based resource management capabilities that are similar to those of the AWS CloudFormation service.
 
