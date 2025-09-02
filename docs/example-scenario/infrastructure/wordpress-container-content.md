@@ -26,19 +26,19 @@ This article describes a container solution for hosting a large, storage-intensi
 
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this solution, Azure Cache for Redis hosts a key-value cache that is shared among all pods and used for WordPress performance optimization plug-ins to improve response times.
 
-- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the open-source MySQL database engine. In this architecture, the flexible server deployment option stores WordPress data while providing granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices, and should be enabled on perimeter virtual networks.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and is enabled on the perimeter network.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door efficiently delivers web content to users by storing cached content on edge servers in point-of-presence locations near end users, minimizing latency for the WordPress site.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a fully managed, performance-intensive and latency-sensitive storage solution. In this solution, Azure NetApp Files hosts all the WordPress content so that all the pods have access to the shared data through high-performance file storage.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. In this architecture, virtual networks provide isolation and segmentation while filtering and routing traffic, with the two networks connected via virtual network peering.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. In this architecture, virtual networks provide isolation and segmentation.
 
-- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and controlling access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides centralized and secure management of sensitive configuration data and credentials for the WordPress application.
+- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and controlling access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 load balancer that distributes inbound traffic based on rules and health probe results with low latency and high throughput. In this architecture, the load balancer distributes traffic from the content delivery network to the front-end web servers by spreading traffic across multiple servers for scalability.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 load balancer that distributes inbound traffic based on rules and health probe results with low latency and high throughput. In this architecture, the load balancer distributes traffic from Azure Front Door to the ingress controller pods.
 
 - [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
