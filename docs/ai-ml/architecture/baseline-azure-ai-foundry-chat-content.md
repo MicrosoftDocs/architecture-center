@@ -38,7 +38,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent via the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Azure AI Foundry by using its managed identity.
 
-1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent uses a configured language model and connected tools and knowledge stores.
+1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model, connected tools, and connected knowledge stores.
 
 1. The agent connects to the knowledge store (Azure AI Search) in the private network via a private endpoint.
 

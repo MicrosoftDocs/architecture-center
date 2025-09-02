@@ -54,7 +54,7 @@ The following new and updated articles have recently been published in the Azure
 - [Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel](./ai-ml/idea/multiple-agent-workflow-automation.yml)  ([#974aefb04b](https://github.com/MicrosoftDocs/architecture-center/commit/974aefb04b))
 - [Azure Local baseline reference architecture](./hybrid/azure-local-baseline.yml)  ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
 - [Azure Local storage switchless architecture](./hybrid/azure-local-switchless.yml)  ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
-- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#85e7ed16c7](https://github.com/MicrosoftDocs/architecture-center/commit/85e7ed16c7))
+- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)  ([#85e7ed16c7](https://github.com/MicrosoftDocs/architecture-center/commit/85e7ed16c7))
 - [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md)  ([#4eacd2c846](https://github.com/MicrosoftDocs/architecture-center/commit/4eacd2c846))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md)  ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
 - [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
