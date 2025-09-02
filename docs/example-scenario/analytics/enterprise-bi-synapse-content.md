@@ -38,7 +38,12 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 #### Ingestion and data storage
 
-- [Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is single, unified, logical data lake for your whole organization. This SaaS offers various data storage option such as a [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) for data engineering lakehouse workloads, [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for data warehouse workloads, and [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
+- [Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is single, unified, logical data lake for your whole organization. This SaaS offers various data storage option such as a [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) for data engineering lakehouse workloads, [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for data warehouse workloads, and [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse) for high volume time series and log datasets.
+
+- [Microsoft Fabric Data Factory Pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) to build complex ETL and data factory workflows that can perform many different tasks at scale. Control flow capabilities are built into data pipelines that allow you to build workflow logic, which provides loops and conditionals. Here, metadata driven frameworks are used for incremental ingestion for multiple tables at scale.
+
+- [Microsoft Fabric Data Factory Mirroing](/fabric/mirroring/sql-server) provides an easy experience to avoid complex ETL (Extract Transform Load) and integrate your existing SQL Server estate with the rest of your data in Microsoft Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric's OneLake. [Microsoft Fabric Data Factory COPY Job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination--no pipelines required. With a simple, guided experience, you can set up data transfers using built-in patterns for both batch and incremental copy with very highly scalable performance. 
+
 
 
 
