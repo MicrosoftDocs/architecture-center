@@ -42,7 +42,7 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Prefer simple sentences over those with dependent clauses.
 - Be descriptive, not emotional.
 - Avoid the passive voice. Use "you" as the subject where necessary.
-- Avoid generalizations or marketing terms such as "best solution" or "easy to use" or "fast to implement." You don't know the constraints of the reader or their situation, so you can't make general statements like these.
+- Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
 
 ## Content types
 
