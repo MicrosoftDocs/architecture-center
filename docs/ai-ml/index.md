@@ -531,7 +531,6 @@ For general information about custom AI on Azure, see the following resources:
 
 Many industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Volkswagen: Machine translation speaks Volkswagen in 60 languages](https://www.microsoft.com/customers/story/1542868888535759612-volkswagen-group-automotive-azure)
 - [Healthcare for all with Kry using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
 - [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
