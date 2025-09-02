@@ -1,16 +1,16 @@
 --- 
-title: Choose an Azure data service
+title: Getting started with choosing a data store
 description: Use this guide to decide which data service best suits your application.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 03/28/2023
+ms.date: 09/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure
 ---
 
-# Review your data options
+# Getting started with choosing a data store
 
 When you prepare your landing zone environment for your cloud adoption, you need to determine the data requirements for hosting your workloads. Azure database products and services support various data storage scenarios and capabilities. How you configure your landing zone environment to support your data requirements depends on your workload governance, technical, and business requirements.
 
@@ -149,5 +149,12 @@ Policies can be scoped to resources, resource groups, subscriptions, and managem
 
 ## Next steps
 
-- Review [database security best practices](/azure/azure-sql/database/security-best-practice).
-- Review a comparison of [Azure SQL deployment options](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+- Review the [Understanding data models](/azure/databases/architecture/understand-data-store-models) guide for a thorough overview of data models and available Azure services.
+
+**Choosing a specialized data store guidance**
+
+Use the following articles to help you choose a specialized data store.
+
+- [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+- [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
+- [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
