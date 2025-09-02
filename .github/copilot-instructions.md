@@ -48,13 +48,13 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 
 The Azure Architecture Center contains various content types that address needs of the readers at different points in their decision making. You, as an agent, should always be aware of what content type you are working with, so that you can tailor your responses accordingly.
 
-- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](docs/microservices/model/domain-analysis.md).
-- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](docs/guide/technology-choices/vector-search.md).
-- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](docs/patterns/valet-key-content.md).
-- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](docs/ai-ml/idea/next-order-forecasting-content.md) article.
+- **Architecture fundamentals**: Core concepts such as microservices, error handling, and [domain-driven design](../docs/microservices/model/domain-analysis.md).
+- **Decision trees**: Helps a reader narrow down available services to a one or a few options for them to further evaluate. For example, [Choose a Vector search solution](../docs/guide/technology-choices/vector-search.md).
+- **Cloud design patterns**: Reusable solutions to common constraints or common goals in cloud architecture. For example, the [Valet Key pattern](../docs/patterns/valet-key-content.md).
+- **Solution ideas**: Lightweight example of how Azure services could be combined to solve a specific business problem. Does not typically address Well-Architected Framework concerns. Designed to spark an exploration by the reader. These are not production ready. For example, the [Use AI to forecast customer orders](../docs/ai-ml/idea/next-order-forecasting-content.md) article.
 - **Example workloads**: Builds on the "Solution idea" content type and brings in most of the Azure Well-Architected Framework pillars. They must address Cost Optimization.
-- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](docs/reference-architectures/containers/aks/baseline-aks-content.md).
-- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](docs/ai-ml/guide/machine-learning-operations-v2.md).
+- **Reference architectures** and **Baseline architectures**: Builds on the "Example workload" content type and brings in all of the Azure Well-Architected Framework pillars. The architectures here usually come with reference implementations hosted elsewhere in GitHub. These are production ready. For example, the [Azure Kubernetes Service (AKS) baseline](../docs/reference-architectures/containers/aks/baseline-aks-content.md).
+- **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](../docs/ai-ml/guide/machine-learning-operations-v2.md).
 
 These content types do not directly map to the file system. Their destinations are instead marked with metadata in the file. While there might be some patterns of usage, the filesystem is largely disorganized in relationship to the content types.
 
@@ -62,6 +62,16 @@ These content types do not directly map to the file system. Their destinations a
 
 - Invoke the GitHub Copilot for Azure `#azure_query_learn` agent tool to query existing Microsoft Learn documentation as needed.
 - Invoke the Web Search for Copilot `#websearch` agent tool to query general knowledge from the Internet as needed.
+
+## Sourcing policy
+
+- Prioritize Microsoft Learn as the primary source of truth.
+- Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
+
+## Proactive edits (scope)
+
+- Allowed without asking: copyedits that do not change meaning (grammar, spelling, concision), removal of weasel words, and minor structure cleanups (headings, lists) that preserve meaning.
+- Not allowed without request: content rewrites and adding/removing sections
 
 ## Folder and file structure
 
@@ -73,9 +83,9 @@ These content types do not directly map to the file system. Their destinations a
 
 ## Freshness updates
 
-Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. We don't ever update `ms.date` unless a full freshness pass is complete on the data.
+Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
 
-The following items must be addressed during a freshness update, no exceptions, and the person doing the update will need to self-attest to addressing these items:
+The following items must be addressed during a freshness update (when explicitly requested), no exceptions, and the person doing the update will need to self-attest to addressing these items:
 
 - Links are not broken, they lead to the article they are supposed to lead to without redirection.
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.
