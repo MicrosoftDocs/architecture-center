@@ -44,6 +44,8 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 - [Microsoft Fabric Data Factory Mirroing](/fabric/mirroring/sql-server) provides an easy experience to avoid complex ETL (Extract Transform Load) and integrate your existing SQL Server estate with the rest of your data in Microsoft Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric's OneLake. [Microsoft Fabric Data Factory COPY Job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination--no pipelines required. With a simple, guided experience, you can set up data transfers using built-in patterns for both batch and incremental copy with very highly scalable performance. 
 
+- [Microsoft Fabric Eventstreams](/fabric/real-time-intelligence/event-streams/add-source-sql-server-change-data-capture) allows yincremeantal data ingestion in a SQL Server database on VM using CDC extraction for very high throught put real time data ingestion. This pattern is suitable for usecases that needs real time dashboarding and alerting.
+
 
 
 
