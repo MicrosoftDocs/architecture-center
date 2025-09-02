@@ -20,7 +20,54 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each application or service you deploy to your landing zone environment, use the following information as a starting point to help you determine the appropriate data store services to use.
 
-### Key questions
+### ✅ Functional requirements
+
+Consider the nature of your data and how it will be used:
+
+- **Data format**: Structured (tables), semi-structured (JSON, XML), or unstructured (images, documents).
+- **Data relationships**: Need for joins, graph traversal, or hierarchical structures.
+- **Consistency model**: Strong, eventual, or configurable consistency.
+- **Schema flexibility**: Schema-on-write (rigid) vs. schema-on-read (flexible).
+- **Concurrency needs**: Optimistic vs. pessimistic locking; high-write scenarios.
+- **Data lifecycle**: Short-lived vs. long-term archival; hot vs. cold data.
+- **Data movement**: ETL/ELT requirements, integration with pipelines.
+
+### ⚙️ Nonfunctional Requirements
+
+Evaluate performance and scalability expectations:
+
+- **Latency & throughput**: Real-time vs. batch processing.
+- **Scalability**: Vertical vs. horizontal scaling; global distribution.
+- **Reliability & availability**: SLA requirements, failover strategies.
+- **Limits**: Storage size, throughput caps, partitioning constraints.
+
+### 💰 Cost & Management Considerations
+
+Factor in operational overhead and budget:
+
+- **Managed vs. Self-Hosted**: PaaS vs. IaaS trade-offs.
+- **Region Availability**: Data residency and compliance needs.
+- **Cost Optimization**: Use of tiered storage, partitioning, and caching.
+- **Licensing & Portability**: Vendor lock-in, open-source compatibility.
+
+### 🔐 Security & Governance
+
+Ensure alignment with organizational policies:
+
+- **Encryption**: At rest and in transit.
+- **Authentication & Authorization**: Role-based access, identity integration.
+- **Auditing & Monitoring**: Activity logs, alerts, and diagnostics.
+- **Networking**: Private endpoints, firewall rules, VNet integration.
+
+### 👩‍💻 DevOps & Team Readiness
+
+Assess your team's ability to support and evolve the solution:
+
+- **Skill Sets**: Familiarity with query languages, SDKs, and tooling.
+- **Client Support**: Language bindings, driver availability.
+- **Tooling Integration**: CI/CD pipelines, observability tools.
+
+## Key questions
 
 Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
 
