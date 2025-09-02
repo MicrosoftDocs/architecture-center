@@ -51,7 +51,7 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. Fabric FSKUs will provide the compute for Power BI semantic models as explained in [Power BI Premium capacity F64](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus) contains the BI semantic model. Power BI acan access the data via Import, DirectQuery or DirectLake connectivity.
+- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. Fabric FSKUs will provide the compute for Power BI semantic models as explained in [Power BI Premium capacity F64](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus). Power BI acan access the data via Import, DirectQuery or DirectLake connectivity.
 
 ### Components
 
