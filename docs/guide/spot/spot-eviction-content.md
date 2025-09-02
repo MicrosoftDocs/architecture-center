@@ -160,6 +160,6 @@ The following workflow corresponds to the previous diagram:
 
 ## Related resources
 
-- [Architectural approaches for cost management and allocation in a multitenant solution](../../guide/multitenant/approaches/cost-management-allocation.yml)
+- [Architectural approaches for cost management and allocation in a multitenant solution](../../guide/multitenant/approaches/cost-management-allocation.md)
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
