@@ -38,11 +38,9 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 #### Ingestion and data storage
 
-- [Microsoft Fabric OneLake](/fabric/data-engineering/lakehouse-overview) is a temporary staging area during data ingestion. You can use [PolyBase to copy data into an Azure Synapse Analytics dedicated SQL pool](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-synapse-analytics).
+- [Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is single, unified, logical data lake for your whole organization. This SaaS offers various data storage option such as a [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) for data engineering lakehouse workloads, [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for data warehouse workloads, and [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
 
-- [Azure Synapse Analytics](/azure/synapse-analytics) is a distributed system that performs analytics on large data. It supports massive parallel processing, so it can run high-performance analytics. The Azure Synapse Analytics dedicated SQL pool is a target for ongoing ingestion from the on-premises environment. The SQL pool can serve data to [Power BI](/power-bi/fundamentals/power-bi-overview) via DirectQuery and perform further processing.
 
-- [Azure Synapse Analytics pipelines](/azure/data-factory/concepts-pipelines-activities) orchestrate data ingestion and transformation within the Azure Synapse Analytics workspace.
 
 #### Analysis and reporting
 
