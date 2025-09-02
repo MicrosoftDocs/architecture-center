@@ -449,8 +449,8 @@ Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
+- [High availability enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 - [Enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
-- [High availability enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
 [afd-overview]: /azure/frontdoor/front-door-overview  
 [afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway  

@@ -21,7 +21,7 @@ Azure provides a range of container hosting services that are designed to accomm
 This guide includes this introduction article and another article about [considerations that are shared](container-service-general-considerations.md) across all workload types.
 
 > [!NOTE]
-> If you aren't committed to containerization, [choose a different compute option](technology-choices/compute-decision-tree.yml) to host your workload.
+> If you aren't committed to containerization, [choose a different compute option](technology-choices/compute-decision-tree.md) to host your workload.
 
 This introductory article outlines the Azure container services covered in this guide and compares their service models based on configurability and predefined solutions, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to assess the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
 

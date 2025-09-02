@@ -99,7 +99,7 @@ The architecture includes the following optional supporting services to enhance 
 
 - [Defender for Cloud][ms-defender-for-cloud] is a comprehensive infrastructure security management system. It enhances the security posture of your datacenters and delivers advanced threat protection for hybrid workloads, whether they reside in Azure or elsewhere, and across on-premises environments.
 
-- [Azure Backup][azure-backup] is a cloud-based service that provides a simple, secure, and cost-effective solution to back up your data and recover it from the Microsoft Cloud. Azure Backup Server is used to take backup of VMs that are deployed on Azure Local and store them in the Backup service.
+- [Azure Backup][azure-backup] is a cloud-based service that provides a secure and cost-effective solution to back up your data and recover it from the Microsoft Cloud. Azure Backup Server is used to take backup of VMs that are deployed on Azure Local and store them in the Backup service.
 
 - [Site Recovery][azure-site-recovery] is a disaster recovery service that provides BCDR capabilities by enabling business apps and workloads to fail over if there's a disaster or outage. Site Recovery manages replication and failover of workloads that run on physical servers and VMs between their primary site (on-premises) and a secondary location (Azure).
 

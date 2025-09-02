@@ -171,6 +171,14 @@ When you use DirectQuery with an Azure Synapse Analytics provisioned pool:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Azure Synapse Analytics reliability
+
+Do not disable geo-backup. By default, Azure Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. This gives you a base RPO of 24 hours. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
+
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -199,7 +207,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario.
 
-#### Azure Synapse Analytics
+#### Azure Synapse Analytics cost optimization
 
 Azure Synapse Analytics is a serverless architecture that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per terabyte, so your costs increase as you ingest data.
 
@@ -211,7 +219,7 @@ Three main components influence the price of a pipeline:
 - Data flows cluster size and implementation
 - Operation charges
 
-For pricing details, see the *Data Integration* tab on [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics). 
+For pricing details, see the *Data Integration* tab on [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics).
 
 The price varies depending on components or activities, frequency, and the number of integration runtime units.
 
@@ -291,6 +299,7 @@ For more information, see the following resources:
 This article uses the [Power BI Premium F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 (8 vCores) to F1024 (128 vCores).
 
 To determine how much capacity you need:
+
 - [Evaluate the load](/fabric/enterprise/optimize-capacity) on your capacity.
 - Install the Fabric [capacity metrics app](/fabric/enterprise/metrics-app-install) for ongoing monitoring.
 - Consider using workload-related [capacity optimization techniques](/fabric/enterprise/optimize-capacity#compute-optimization-by-fabric-experience).

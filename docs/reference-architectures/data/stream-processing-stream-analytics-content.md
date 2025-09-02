@@ -84,7 +84,7 @@ using (var client = pool.GetObject())
 
 ### Stream processing
 
-The stream processing job is defined using a SQL query with several distinct steps. The first two steps simply select records from the two input streams.
+The stream processing job is defined using a SQL query with several distinct steps. The first two steps select records from the two input streams.
 
 ```sql
 WITH
@@ -228,7 +228,7 @@ Windowing functions and temporal joins require additional SU. When possible, use
 
 If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
 
-- Steps 1 and 2 are simple `SELECT` statements that select records within a single partition.
+- Steps 1 and 2 are `SELECT` statements that select records within a single partition.
 - Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
 - Step 4 aggregates across all of the partitions. This step cannot be parallelized.
 
