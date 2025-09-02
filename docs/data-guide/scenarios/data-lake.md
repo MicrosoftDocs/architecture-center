@@ -18,7 +18,7 @@ A data lake is a centralized storage repository that holds vast amounts of data 
 </p>
 <p align="center"><em>Figure 1: Data Lake use cases</em></p>
 
-**Key Use Cases of a Data Lake**
+**Key use cases of a data lake**
 
 - **Data ingestion and movement**: Collect and consolidate data from cloud services, IoT devices, on-premises systems, and streaming sources into a single repository.
 - **Big data processing**: Handle high-volume, high-velocity data at scale using distributed processing frameworks.
@@ -27,7 +27,7 @@ A data lake is a centralized storage repository that holds vast amounts of data 
 - **Data archiving and compliance**: Store historical or raw datasets for long-term retention, auditability, and regulatory needs.
 
 
-**Advantages of a Data Lake**
+**Advantages of a data lake**
 
 - **Retains raw data for future use**: By storing data in its original format, a data lake preserves information that may later prove valuable for unanticipated insights.
 - **Self-service exploration**: Analysts and data scientists can query data directly, encouraging experimentation and discovery.
@@ -47,12 +47,12 @@ Additionally, mature solutions incorporate metadata management, security, and go
 
 We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses may not capture.
 
-**Data Lake as a Source for Data Warehouses**
+**Data lake as a source for data warehouses**
 
 A data lake can also serve as the upstream source for a data warehouse. In this pattern, raw data is first ingested into the lake and then transformed into a structured, queryable format through an [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline. By contrast, certain relational sources may load directly into the warehouse via ETL, bypassing the lake when speed or simplicity is preferred. Choosing between the two approaches depends on factors like data complexity, governance needs, and downstream analytics requirements.
 
 
-**Event Streaming and IoT Scenarios**
+**Event streaming and IoT scenarios**
 
 Data lakes are effective for event streaming and IoT use cases, where high-velocity data must be persisted at scale without upfront schema constraints. They can ingest and store both relational and non-relational event streams, handle high volumes of small writes with low latency, and support massive parallel throughput. This makes them well suited for applications such as real-time monitoring, predictive maintenance, and anomaly detection.
 
@@ -71,7 +71,7 @@ The following table compares data lakes and data warehouses.
 | **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
 | **Use case fit**            | Best for big data, machine learning, and exploratory analytics               | Ideal for business intelligence, reporting, and structured data analysis       |
 
-## Challenges of Data Lakes
+## Challenges of data lakes
 
 - **Scalability and complexity**: Managing petabytes of raw, unstructured, and semi-structured data requires robust infrastructure, distributed processing, and careful cost management.
 - **Processing bottlenecks**: As data volume and diversity increase, transformation and query workloads can introduce latency, requiring careful pipeline design and workload orchestration.
@@ -103,11 +103,11 @@ When you build a comprehensive data lake solution on Azure, consider the followi
 
 Principal author:
 
- - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad-96768a42/) | Cloud Consultant
+- [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad-96768a42/) | Cloud Consultant
 
 Contributors:
 
- - [Raphael Sayegh](https://www.linkedin.com/in/raphael-sayegh/) | Cloud Solution Architect
+- [Raphael Sayegh](https://www.linkedin.com/in/raphael-sayegh/) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
