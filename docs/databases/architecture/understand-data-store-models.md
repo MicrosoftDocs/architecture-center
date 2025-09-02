@@ -31,7 +31,7 @@ Two comparative tables summarize non-relational model traits so you avoid duplic
 |----------|-----------------|------------------------------------|
 | Relational (OLTP) | Strongly consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL |
 | Non-relational (document / key/value / column-family / graph) | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Cache for Redis, Managed Cassandra, HBase |
-| Time series | High-ingest timestamped metrics and events | Azure Data Explorer, Time Series Insights |
+| Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
 | Object & file | Large binary or semi-structured file storage | Blob Storage, Data Lake Storage Gen2 |
 | Search & indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or ANN similarity |  Azure AI Search, Azure Cosmos DB variants |
