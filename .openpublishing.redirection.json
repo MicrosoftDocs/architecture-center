@@ -7548,12 +7548,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/docs/guide/technology-choices/data-options.md",
+      "source_path": "docs/guide/technology-choices/data-options.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": true
     },
     {
-      "source_path": "/docs/guide/technology-choices/data-store-considerations.md",
+      "source_path": "docs/guide/technology-choices/data-store-considerations.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
     }
