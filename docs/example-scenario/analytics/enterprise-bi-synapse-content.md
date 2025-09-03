@@ -61,7 +61,7 @@ This scenario uses the following components:
 
 - [Fabric OneLake Storage](/fabric/onelake/onelake-overview) provides unified cloud storage for all structured & unstructured data for the whole organization.
 - [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering to host data warehouse workloads for large datasets.
-- [Power BI Premium](/power-bi/enterprise/service-premium-what-is) is a BI tool that presents and visualizes data in this scenario.
+- [Power BI Premium](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow.
 
 ### Simplified architecture
@@ -72,11 +72,11 @@ The diagram shows a dataflow where Azure Synapse Analytics pipelines ingest rela
 
 ## Scenario details
 
-In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Azure Synapse Analytics to perform analysis, then deliver these insights via Power BI to users and analytics.
+In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Microsoft Fabric to perform ingestion, analysis, and deliver these analytic insights via Power BI to end users.
 
 ### Authentication
 
-Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on connects users to the data source in an Azure Synapse Analytics provisioned pool. Authorization occurs on the source.
+Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on connects users to the data in Fabric Warehouse & Power BI semantic model. Authorization occurs on the source.
 
 ### Incremental loading
 
