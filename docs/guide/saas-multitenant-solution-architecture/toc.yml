@@ -55,9 +55,9 @@ items:
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation
-            href: ../multitenant/approaches/cost-management-allocation.yml
+            href: ../multitenant/approaches/cost-management-allocation.md
           - name: Deployment and configuration
-            href: ../multitenant/approaches/deployment-configuration.yml
+            href: ../multitenant/approaches/deployment-configuration.md
           - name: Compute
             href: ../multitenant/approaches/compute.md
           - name: Control planes
@@ -65,7 +65,7 @@ items:
           - name: Networking
             href: ../multitenant/approaches/networking.md
           - name: Storage and data
-            href: ../multitenant/approaches/storage-data.yml
+            href: ../multitenant/approaches/storage-data.md
           - name: Messaging
             href: ../multitenant/approaches/messaging.md
           - name: Identity
@@ -74,8 +74,8 @@ items:
             href: ../multitenant/approaches/integration.md
           - name: IoT
             href: ../multitenant/approaches/iot.md
-          - name: AI and ML
-            href: ../multitenant/approaches/ai-ml.md
+          - name: AI and machine learning
+            href: ../multitenant/approaches/ai-machine-learning.md
         - name: Service-specific guidance
           items:
           - name: Overview
@@ -89,7 +89,7 @@ items:
           - name: Compute
             items:
             - name: App Service and Functions
-              href: ../multitenant/service/app-service.yml
+              href: ../multitenant/service/app-service.md
             - name: Azure Container Apps
               href: ../multitenant/service/container-apps.md
             - name: Azure Kubernetes Service (AKS)

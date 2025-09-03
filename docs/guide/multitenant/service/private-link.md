@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
+  - sfi-image-nochange
 ---
 
 # Guidance for using Azure Private Link in a multitenant solution

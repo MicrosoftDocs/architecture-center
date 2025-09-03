@@ -48,7 +48,17 @@ This custom, multiple-agent automation engine addresses the challenge of coordin
 
 This solution uses custom-coded, specialized AI agents that collaborate to break down complex organizational tasks into manageable components. Each agent contributes domain-specific knowledge and capabilities. This approach enables the system to manage sophisticated workflows that would otherwise require human coordination across multiple departments. The architecture scales through containerized deployment, preserves learning via persistent data storage, and supports continuous improvement through automated integration and delivery pipelines.
 
+Another application of this architecture is in code modernization and legacy system migration, where organizations face the dual challenge of technical complexity and business continuity requirements. Legacy systems often lack proper documentation, contain outdated programming languages, and embed critical business logic that must be preserved during migration. The multiple-agent approach works in this scenario by coordinating specialized expertise across technical translation, business analysis, quality assurance, and documentation generation.
+
 ### Potential use cases
+
+### Code modernization and migration
+
+**Legacy SQL query translation:** Coordinate multiple specialized agents to translate SQL queries across different database dialects while preserving business logic and performance characteristics. A SQL analysis agent identifies dialect-specific constructs, a translation agent converts syntax to the target platform, a validation agent tests query equivalence, and a documentation agent generates migration notes. This approach addresses the common challenge of maintaining functional equivalence when migrating from platforms like Oracle to Azure SQL Database or PostgreSQL.
+
+**Legacy application modernization:** Orchestrate agents specializing in code analysis, business logic extraction, architecture assessment, and modernization planning. Agents collaborate to analyze legacy codebases, extract embedded business rules, assess technical debt, generate modernization roadmaps, and create comprehensive documentation that captures institutional knowledge often lost during transitions.
+
+**Database schema migration:** Coordinate agents for schema analysis, data type mapping, constraint translation, and validation testing. The multiple-agent system ensures that complex database structures, relationships, and business rules are accurately translated while maintaining data integrity and performance requirements.
 
 #### Enterprise process automation
 
@@ -118,6 +128,10 @@ Pricing varies by region and usage, so it isn't possible to predict exact costs 
 
 To deploy an implementation of this architecture, follow the steps in the [GitHub repo](https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator).
 
+### Code modernization implementation
+
+For a specific implementation of this multi-agent workflows that perform SQL query modernization, see the [Modernize your code implementation](https://github.com/microsoft/Modernize-your-code-solution-accelerator). It demonstrates how multiple AI agents coordinate to translate SQL queries between different database dialects, generating documentation and validation reports throughout the process.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -132,6 +146,7 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Next steps
 
 - [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) using Semantic Kernel
+- [Azure AI Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)

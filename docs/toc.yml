@@ -28,7 +28,7 @@ items:
     - name: Big data
       href: guide/architecture-styles/big-data.md
     - name: Event-driven architecture
-      href: guide/architecture-styles/event-driven.yml
+      href: guide/architecture-styles/event-driven.md
     - name: Microservices
       items:
       - name: Get started
@@ -93,8 +93,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Resiliency checklist for services
-      href: checklist/resiliency-per-service.md
     - name: Failure mode analysis for services
       href: resiliency/failure-mode-analysis.md
   - name: Technology choices
@@ -104,7 +102,7 @@ items:
     - name: Choose a compute service
       items:
       - name: Azure compute services
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
     - name: Choose a container option
@@ -137,34 +135,18 @@ items:
             href: guide/technology-choices/data-store-considerations.md
       - name: Selecting a data store model
         items:
-          - name: Big data storage
-            href: data-guide/technology-choices/data-storage.md
-          - name: Compare NoSQL and relational
-            href: /azure/cosmos-db/relational-nosql
-          - name: Choose an API in Cosmos DB
-            href: /azure/cosmos-db/choose-api
-          - name: PostgreSQL options
-            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
-          - name: Search data store
-            href: data-guide/technology-choices/search-options.md
           - name: Select a data store
             href: guide/technology-choices/data-store-decision-tree.md
-      - name: Database scenarios
-        items:
-        - name: OLAP solutions
-          href: data-guide/relational-data/online-analytical-processing.md
-        - name: OLTP solutions
-          href: data-guide/relational-data/online-transaction-processing.md
-        - name: Data lakes
-          href: data-guide/scenarios/data-lake.md
-        - name: Vector search
-          href: guide/technology-choices/vector-search.md
+          - name: Big data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Search data store
+            href: data-guide/technology-choices/search-options.md
+          - name: Vector search
+            href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: ETL guide
-          href: data-guide/relational-data/etl.yml
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
@@ -534,7 +516,7 @@ items:
     - name: Guides
       items:
       - name: Choose a compute service
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
       - name: Build workloads with Azure Spot Virtual Machines

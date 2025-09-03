@@ -109,4 +109,4 @@ Other contributors:
 
 ## Related resource
 
-[Storage and data approaches for multitenancy](../approaches/storage-data.yml)
+[Storage and data approaches for multitenancy](../approaches/storage-data.md)

@@ -165,4 +165,3 @@ Each client has a dedicated BFF service running as an Azure function that serves
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
-- [Serverless web application reference architecture](../web-apps/serverless/architectures/web-app.yml)

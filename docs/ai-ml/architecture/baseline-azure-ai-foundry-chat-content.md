@@ -18,7 +18,7 @@ The chat UI follows the [baseline Azure App service web application](../../web-a
 This architecture uses the [Foundry Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints, which ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
+> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/azure-ai-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
 
 ## Architecture
 
@@ -38,7 +38,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent via the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Azure AI Foundry by using its managed identity.
 
-1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent uses a configured language model and connected tools and knowledge stores.
+1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model, connected tools, and connected knowledge stores.
 
 1. The agent connects to the knowledge store (Azure AI Search) in the private network via a private endpoint.
 
@@ -248,7 +248,7 @@ This separation provides two key benefits:
 For example, if your chat UI application needs to store transactional state in Azure Cosmos DB, provision a separate Azure Cosmos DB account and database for that purpose, rather than reusing the account or database that Foundry Agent Service manages. Even if cost or operational simplicity motivates resource sharing, the risk of a reliability event affecting unrelated workload features outweighs the potential savings in most enterprise scenarios.
 
 > [!IMPORTANT]
-> If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, such as collections, containers, or indexes, that Foundry Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Foundry Agent Service data plane APIs for data manipulation, and treat the underlying data as opaque and monitor-only.
+> If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, such as collections, containers, or indexes, that Foundry Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Foundry Agent Service data plane APIs for data manipulation, such as executing right to be forgotten (RTBF) requests. Treat the underlying data as opaque and monitor-only.
 
 #### Multi-region design
 
@@ -607,7 +607,7 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 
 ## Deploy this scenario
 
-To deploy and run this reference implementation, follow the deployment guide in the [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline/).
+To deploy and run this reference implementation, follow the deployment guide in the [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/azure-ai-foundry-baseline).
 
 ## Contributors
 

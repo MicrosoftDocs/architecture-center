@@ -27,7 +27,7 @@ When you store data on behalf of your tenants, you might have requirements or ob
 
 ### Isolation
 
-Review the [architectural approaches for storage and data in multitenant solutions](storage-data.yml) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
+Review the [architectural approaches for storage and data in multitenant solutions](storage-data.md) to understand how to isolate tenants' data. Consider whether tenants have requirements to use their own data encryption keys.
 
 Whichever isolation approaches you implement, be prepared for tenants to request an audit of their data. It's a good practice to document all of the data stores in which tenants' data might be kept. Common data sources include the following types of resources:
 
@@ -85,7 +85,7 @@ If different tenants need you to follow different compliance standards, plan to 
 
 ### Resource tags
 
-Use [resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources or the stamp identifier when you scale by using the [Deployment Stamps pattern](#deployment-stamps-pattern). By using resource tags, you can quickly identify resources that are associated with specific tenants or stamps.
+Use [resource tags](cost-management-allocation.md#allocate-costs-by-using-resource-tags) to track the tenant identifier for tenant-specific resources or the stamp identifier when you scale by using the [Deployment Stamps pattern](#deployment-stamps-pattern). By using resource tags, you can quickly identify resources that are associated with specific tenants or stamps.
 
 ### Access control
 
@@ -153,4 +153,4 @@ Other contributors:
 
 ## Related resource
 
-- [Approaches for cost management and allocation](cost-management-allocation.yml)
+- [Approaches for cost management and allocation](cost-management-allocation.md)
