@@ -189,7 +189,13 @@ This scenario addresses the most demanding security concerns by using a combinat
 Some common security questions include:
 
 - Define who can see what data.
-  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Azure Synapse Analytics provides multiple [data protection capabilities](/azure/synapse-analytics/guidance/security-white-paper-data-protection) to achieve compliance.
+  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Microsoft Fabric provides holistic security coverage [data protection capabilities](/fabric/security/security-overview) to achieve compliance.
+  - [OneLake Security](/fabric/onelake/security/get-started-security) controls all access to OneLake data with different permissions inherited from the parent item or workspace permissions.
+
+      Workspace: a collaborative environment for creating and managing items. Workspace roles can be managed at this level.
+      Item: a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it using OneLake. Items inherit permissions from the workspace roles, but can have additional permissions as well.
+
+Folders: folders within an item that are used for storing and managing data, such as Tables/ or Files/
 
 - Determine how to verify a user's identity.
   - Use Azure Synapse Analytics to control who can access what data via [access control](/azure/synapse-analytics/guidance/security-white-paper-access-control) and [authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication).
