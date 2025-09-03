@@ -200,13 +200,14 @@ Some common security questions include:
       - Folders: folders within an item that are used for storing and managing data, such as Tables/ or Files/
 
 - Determine how to verify a user's identity.
-  - Use Azure Synapse Analytics to control who can access what data via [access control](/azure/synapse-analytics/guidance/security-white-paper-access-control) and [authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication).
+  - Use Microsoft Fabric to control who can access what data via [access control](/fabric/security/white-paper-landing-page) and [authentication](/fabric/security/workspace-identity-authenticate).
 - Choose a network security technology to protect the integrity, confidentiality, and access of your networks and data.
-  - Help secure Azure Synapse Analytics by using [network security](/azure/synapse-analytics/guidance/security-white-paper-network-security) options.
+  - Help secure Microsoft Fabric by using [network security](/fabric/security/protect-inbound-traffic) options.
 - Choose tools to detect and notify you of threats.
   - Use Azure Synapse Analytics [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities, such as SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
 - Determine how to protect data in your storage account.
-  - Use Azure Storage accounts for workloads that require fast and consistent response times or that have a high number of input/output operations (IOPs) per second. Storage accounts can store all your data objects and have several [storage account security options](/azure/well-architected/service-guides/azure-blob-storage#security).
+  - Use Azure Storage accounts for workloads that require fast and consistent response times or that have a high number of input/output operations (IOPs) per second. Storage accounts can store all your data objects and have several [storage account security options(/azure/well-architected/service-guides/azure-blob-storage#security).
+
 
 ### Cost Optimization
 
