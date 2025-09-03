@@ -54,7 +54,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 This architecture builds on the [basic Azure AI Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
-- [Foundry Agent Service](/azure/ai-services/agents/overview) provides the orchestration layer for chat interactions. In this architecture, it hosts and manages agents that do the following tasks:
+- [Foundry Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously by orchestrating models, tools, and workflows across environments. In this architecture, Foundry Agent Service provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
 
   - Process user requests
   - Coordinate calls to tools and other agents
