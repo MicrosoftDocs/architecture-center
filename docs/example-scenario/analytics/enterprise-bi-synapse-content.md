@@ -237,7 +237,7 @@ The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to exec
 
 #### OneLake storage
 
-Consider using the Azure Storage reserved capacity to reduce storage costs. With this model, you get a discount if you reserve fixed storage capacity for one or three years. For more information, see [Optimize costs for blob storage with reserved capacity][az-storage-reserved]. This scenario doesn't use persistent storage.
+OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](/pricing/details/microsoft-fabric/)
 
 #### Power BI Premium
 
