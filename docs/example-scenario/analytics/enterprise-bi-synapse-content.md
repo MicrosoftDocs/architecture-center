@@ -114,22 +114,13 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
       - A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
       - A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
 
-:::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot that shows the metadata-driven Copy Data tool in Azure Synapse Analytics." lightbox="./media/metadata-copy.png":::
+:::image type="content" source="./media/metadata-copy.png" alt-text="Logic of metadata driven framework." lightbox="./media/metadata-copy.png":::
 
-Before the tool loads the data, it creates three pipelines to iterate over the tables in the database.
+A completed pipeline will look as below. More details about implementation can be found at [Incremental Ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse)
 
-The pipelines do the following tasks:
+:::image type="content" source="./media/metadata-ingestion-pipeline.png" alt-text="Completed pipeline metadata driven framework." lightbox="./media/metadata-copy.png":::
 
-- Count the number of objects, such as tables, to be copied in the pipeline run.
 
-- Iterate over each object to be loaded or copied.
-- After a pipeline iterates over each object, it does the following tasks:
-  - Checks whether a delta load is required. Otherwise, the pipeline completes a normal full load.
-
-  - Retrieves the high watermark value from the control table.
-  - Copies data from the source tables into the staging account in Data Lake Storage.
-  - Loads data into the dedicated SQL pool via the selected copy method, such as the PolyBase or Copy command.
-  - Updates the high watermark value in the control table.
 
 ### Load data into an Azure Synapse Analytics SQL pool
 
