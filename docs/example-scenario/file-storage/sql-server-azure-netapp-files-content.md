@@ -24,7 +24,7 @@ High availability and disaster recovery for SQL Server can be achieved on Azure 
 
 ### Components
 
-* [Azure Windows-based VM](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) supported by desired SQL Server version, which provide the flexibility of virtualization but eliminates the maintenance demands of physical hardware
+* [Azure Windows-based VM](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) that provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware
 * [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), a high performance, Azure native storage system, used in this context for storing database and log files
 * [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html), a simple and scalable platform that provides application-consistent data protection for applications, databases
 
