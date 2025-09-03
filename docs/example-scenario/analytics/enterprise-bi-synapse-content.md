@@ -213,33 +213,29 @@ Some common security questions include:
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario.
+This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario. Use the [Fabric pricing overview](/pricing/details/microsoft-fabric/) for detailed information on Fabric F SKUs and [Fabric Capacity Estimator](/microsoft-fabric/capacity-estimator) to generate an estimate of overall Fabric consumption.
 
-#### Azure Synapse Analytics
+#### Microsoft Fabric Serverless Architecture
 
-Azure Synapse Analytics is a serverless architecture that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per terabyte, so your costs increase as you ingest data.
+Microsoft Fabric is a serverless architecture that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per terabyte, so your costs increase as you ingest data.
 
-#### Azure Synapse Analytics pipelines
+#### Microsoft Fabric Factory pipelines
 
 Three main components influence the price of a pipeline:
 
-- Data pipeline activities and integration runtime hours
-- Data flows cluster size and implementation
-- Operation charges
+- Data pipeline activities for Orchestration
+- Data flows Gen2 for compute
+- Data Movement for Copy Job
 
-For pricing details, see the *Data Integration* tab on [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics). 
+For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview). 
 
-The price varies depending on components or activities, frequency, and the number of integration runtime units.
+The price varies depending on components or activities, frequency, and overall compute associated with orchestration. 
 
-For the sample dataset, which uses the standard Azure-hosted integration runtime, *copy data activity* serves as the core of the pipeline. It runs on a daily schedule for all the entities (tables) in the source database. The scenario doesn't contain data flows. And it doesn't incur operational costs because the pipelines run less than one million operations per month.
+#### Microsoft Fabric Data Lakehouse or Warehouse
 
-#### Azure Synapse Analytics dedicated pool and storage
+The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to execute ad-hoc queries for analysis, as well as allowing Power BI semantic models to import or direct query the data. The cost assoicated with a Lakehouse or Warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint.
 
-For the sample dataset, you can provision 500 data warehouse units (DWUs) to provide a smooth experience for analytical loads. You can maintain compute during business hours for reporting purposes. If the solution moves to production, use reserved data warehouse capacity as a cost-efficient strategy. Use various techniques to maximize cost and performance metrics.
-
-For pricing details for an Azure Synapse Analytics dedicated pool, see the *Data Warehousing* tab on [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics). Under the dedicated consumption model, customers incur costs for each provisioned DWU, per hour of uptime. Also consider data storage costs, including the size of your data at rest, snapshots, and geo-redundancy.
-
-#### Blob storage
+#### OneLake storage
 
 Consider using the Azure Storage reserved capacity to reduce storage costs. With this model, you get a discount if you reserve fixed storage capacity for one or three years. For more information, see [Optimize costs for blob storage with reserved capacity][az-storage-reserved]. This scenario doesn't use persistent storage.
 
