@@ -168,11 +168,11 @@ When the BI model grows or dashboard complexity increases, you can switch to com
 
 Within the composite model, datasets serve as a virtual pass-through layer. When users interact with visualizations, Power BI generates SQL queries to Microsoft Fabric Data Warehouse. Power BI determines whether to use in-memory or DirectQuery storage based on efficiency. The engine decides when to switch from in-memory to DirectQuery and pushes the logic to the Fabric Data Warehouse. Depending on the context of the query tables, they can act as either cached (imported) or non-cached composite models. You can choose which table to cache into memory, combine data from one or more DirectQuery sources, or combine DirectQuery source data and imported data.
 
-When you use DirectQuery with an Azure Synapse Analytics provisioned pool:
+When you use DirectQuery with an Fabric Data Warehouse or Lakehouse :
 
-- Use Azure Synapse Analytics [result set caching](/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching) to cache query results in the user database for repetitive use. This approach improves query performance to milliseconds and reduces compute resource usage. Queries that use cached results sets don't consume any concurrency slots in Azure Synapse Analytics, so they don't count against existing concurrency limits.
+- Use Fabric [Z-Ordering & V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql) to improve query performance by optimizing storage of underlying table data in delta format files.
 
-- Use Azure Synapse Analytics [materialized views](/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning) to precompute, store, and maintain data like a table. Queries that use all data or a subset of the data in materialized views can achieve faster performance without needing to directly reference the defined materialized view to use it.
+- Use Fabric Lakehouse [materialized views](fabric/data-engineering/materialized-lake-views/overview-materialized-lake-view) to precompute, store, and maintain data like a table. Queries that use all data or a subset of the data in materialized views can achieve faster performance without needing to directly reference the defined materialized view to use it.
 
 ## Considerations
 
@@ -184,7 +184,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cloud modernization introduces security concerns, such as data breaches, malware infections, and malicious code injection. You need a cloud provider or service solution that can address your concerns because inadequate security measures can create major problems.
 
-This scenario addresses the most demanding security concerns by using a combination of layered security controls: network, identity, privacy, and authorization controls. An Azure Synapse Analytics provisioned pool stores most of the data. Power BI accesses the data via DirectQuery through single sign-on. You can use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
+This scenario addresses the most demanding security concerns by using a combination of layered security controls: network, identity, privacy, and authorization controls. A Microsoft Fabric Data Warehouse stores most of the data. Power BI accesses the data via DirectQuery through single sign-on. You can use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
 
 Some common security questions include:
 
