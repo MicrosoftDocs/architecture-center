@@ -122,15 +122,15 @@ A completed pipeline will look as below. More details about implementation can b
 
 
 
-### Load data into an Azure Synapse Analytics SQL pool
+### Load data into an Microsoft Fabric Data Warehouse
 
-The [copy activity](/azure/data-factory/copy-activity-overview) copies data from the SQL database into the Azure Synapse Analytics SQL pool. This example's SQL database is in Azure, so it uses the Azure integration runtime to read data from the SQL database and write the data into the specified staging environment.
+The [copy activity](/fabric/data-factory/copy-data-activity) copies data from the SQL database into the Fabric Data Warehouse. This example's SQL database is in Azure, so it uses a connection set up within the Fabric portal under "Manage Connection & Gateways".
 
 The copy statement then loads data from the staging environment into the Azure Synapse Analytics dedicated pool.
 
-### Use Azure Synapse Analytics pipelines
+### Use Microsoft Fabric Data Factory Pipelines
 
-Pipelines in Azure Synapse Analytics define an ordered set of activities to complete an incremental load pattern. Manual or automatic triggers start the pipeline.
+Pipelines in Microsoft Fabric Data Factory pipelines define an ordered set of activities to complete an incremental load pattern. Manual or automatic triggers start the pipeline.
 
 ### Transform the data
 
@@ -138,7 +138,6 @@ The sample database in this reference architecture is small, so replicated table
 
 In a production environment, consider creating staging tables that have round-robin distribution. Then transform and move the data into production tables that have clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records.
 
-Columnstore indexes don't perform optimally for singleton lookups, or looking up a single row. If you need to perform frequent singleton lookups, you can add a nonclustered index to a table, which increases speed. However, singleton lookups are typically less common in data warehouse scenarios than online transaction processing workloads. For more information, see [Index tables in Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
 
 > [!NOTE]
 > Clustered columnstore tables don't support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. If you use those data types, consider a heap or clustered index. You might also consider putting these columns into a separate table.
