@@ -2,11 +2,11 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::image-end:::
+:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::
+   This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
+:::image-end:::
 
-This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
-
-Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -130,7 +130,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Resiliency
 
-- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
+- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 - [Back up and recover your Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/disaster-recovery).
 

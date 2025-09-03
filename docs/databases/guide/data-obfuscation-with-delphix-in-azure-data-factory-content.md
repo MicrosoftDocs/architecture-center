@@ -21,11 +21,11 @@ The data flows through the scenario as follows:
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It includes Azure Data Factory pipelines to provide data integration.
-- [Azure Storage](/azure/storage/common/storage-introduction) stores the data extracted from source datastores and the masked data that will be loaded into destination data stores.
-- Optional: [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
-- Other Components: Based on the datastores used as source and destination, other components may need to be added. These datastores can vary depending on your requirements.
+- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It provides a code-free UI for intuitive authoring and unified monitoring and management. In this architecture, Azure Data Factory orchestrates the entire data masking workflow, including extracting data, initiating masking jobs, monitoring operations, and loading masked data into destination stores.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this architecture, Azure Synapse Analytics can serve as the destination for masked data and includes Azure Data Factory pipelines for data integration.
+- [Azure Storage](/azure/storage/common/storage-introduction) provides scalable cloud storage for structured and unstructured data. In this architecture, it stores both the raw source data and the masked output data. Azure Storage serves as the intermediary storage layer for data that loads into destination data stores.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private, isolated network environment in Azure. In this architecture, Virtual Network provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- Other components might include various source and destination datastores depending on the specific use case. These componants integrate into the architecture based on the data sources that you use, such as SAP, Salesforce, or Oracle EBS.
 
 ### Alternatives
 
