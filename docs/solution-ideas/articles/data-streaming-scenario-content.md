@@ -30,7 +30,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
 
-- [Azure Cache for Redis](/en-us/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices.
 
@@ -40,7 +40,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 - [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
 
-- [Container Registry](/en-us/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images containing the microservices.
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images containing the microservices.
 
 - [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Azure HDInsight and creates visual dashboards for business intelligence.
 
