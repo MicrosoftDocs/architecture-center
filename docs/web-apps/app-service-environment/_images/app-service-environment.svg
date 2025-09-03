@@ -1910,7 +1910,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
 			</v:userDefs>
 			<title>SQL Server.1193</title>
-			<desc>SQL Server</desc>
+			<desc>Azure SQL Database</desc>
 			<g id="shape1536-499" v:mID="1536" v:groupContext="shape" transform="translate(0,-0.339129)">
 				<title>Sheet.1536</title>
 				<v:userDefs>
@@ -1980,8 +1980,8 @@
 			</g>
 			<g id="shape1535-513" v:mID="1535" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
-				<v:textRect cx="12.5625" cy="738.977" width="72" height="13.2037"/>
-				<text x="-13.73" y="742.28" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server</text>			</g>
+				<v:textRect cx="10.9432" cy="739.85" width="99" height="13.2037"/>
+				<text x="-38.22" y="743.15" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure SQL Database</text>			</g>
 		</g>
 		<g id="shape1542-515" v:mID="1542" v:groupContext="shape" transform="translate(668.25,-133.25)">
 			<title>Sheet.1542</title>
