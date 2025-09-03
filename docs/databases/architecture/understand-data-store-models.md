@@ -88,6 +88,7 @@ Store semi-structured documents (often JSON) where each document consists of nam
 
 - **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a schema-less, multi-region NoSQL database with low-latency reads and writes.
 - **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** is a globally distributed database with MongoDB wire protocol compatibility and automatic scaling.
+- **[Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)** is a schema-less, NoSQL database with low-latency reads and writes, simplified management experience and built-in analytics of Microsoft Fabric.
 
 Use this table to help determine which Azure service meets your use case requirements.
 
@@ -95,6 +96,7 @@ Use this table to help determine which Azure service meets your use case require
 |--------|----------|--------------|------------------|
 | **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, TTL, change feed | Building a multi-tenant SaaS platform with flexible schemas |
 | **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
+| **[Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)** | Real-time analytics over NoSQL data | Automatic ETL to One Lake with tight Microsoft Fabric integration | Transactional apps with real-time analytical dashboards |
 
 ### Column-family (wide-column) data stores
 
@@ -109,7 +111,6 @@ A column-family database organizes sparse data into rows with dynamic columns gr
 #### Selecting an Azure service for column-family data stores
 
 - **[Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra)** is a fully managed service for pure open-source Apache Cassandra clusters.
-- **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** is a scalable, managed Apache Cassandra service with global distribution and enterprise-grade SLAs.
 - **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** a scalable NoSQL store for big data workloads built on Apache HBase and Hadoop ecosystem.
 - **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** is a lightning-fast analytics engine for telemetry, logs, and time-series data using KQL.
 
@@ -117,12 +118,9 @@ Use this table to help determine which Azure service meets your use case require
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
-| **[Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra)** | Migrated Cassandra workloads | User profile and personalization data for web apps. |
-| **[Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/overview)** | New app deployments using Cassandra drivers | Managed Cassandra, global distribution, autoscale | IoT device telemetry ingestion with Cassandra compatibility |
+| **[Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra)** | New and migrated Cassandra workloads | Fully managed, native Apache Cassandra | IoT device telemetry ingestion with Cassandra compatibility |
 | **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** | Hadoop ecosystem, batch analytics | HDFS integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
 | **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** | High-ingest telemetry, time-series analytics | KQL, fast ad hoc queries, time-window functions | Real-time analytics for application logs and metrics |
-
-*Refer to the [comparison article](/azure/cosmos-db/cassandra/choose-service) to help you determine whether using Azure Managed Instance for Apache Cassandra or Azure Cosmos DB for Apache Cassandra is the best choice for your use case.*
 
 ### Key/value data stores
 
@@ -138,13 +136,14 @@ A key/value store associates each data value with a unique key. Most key/value s
 
 - **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** is a fast, in-memory data store for caching, session state, and real-time analytics.
 - **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** is a key-value store optimized for fast access to structured NoSQL data.
-
+- **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a document data store, optimized for fast access to structured NoSQL data and provides horizontal scalability.
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
 | **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** | High-speed caching, session state, pub/sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
-| **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Durable key-value storage with global scale | Schema-less, multi-region, autoscale | Storing user preferences and settings in a mobile app |
+| **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Migrating existing Azure Table Storage workloads | Azure Table Storage API compatibility | Storing user preferences and settings in a mobile app |
+| **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | High speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
 ### Graph data stores
 
@@ -158,15 +157,7 @@ A graph database stores information as nodes and edges, where edges define relat
 
 #### Selecting an Azure service for graph data stores
 
-- **[Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/overview)** is a graph database service for modeling complex relationships using the Gremlin query language.
-- **[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** extends the capabilities of SQL Server, Azure SQL Database, and Azure SQL Managed Instance to enable modeling and querying complex relationships using graph structures directly within a relational database.
-
-Use this table to help determine which Azure service meets your use case requirements.
-
-| Service | Best For | Key Features | Example Use Case |
-|--------|----------|--------------|------------------|
-| **[Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/overview)** | Property graph traversal with Gremlin | Global scale, multi-region writes, Gremlin support | Modeling social network relationships |
-| **[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** | Graphs within relational schema | T-SQL integration, node/edge tables, hybrid workloads | Adding graph-based fraud detection to a relational database |
+**[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** is the only current Azure service recommended for storing graph data. The graph extension extends the capabilities of SQL Server, Azure SQL Database, and Azure SQL Managed Instance to enable modeling and querying complex relationships using graph structures directly within a relational database.
 
 #### Time series data stores
 
@@ -180,7 +171,7 @@ Time series data stores manage a set of values organized by time. They support f
 
 ### Selecting an Azure service for time series data stores
 
-**[Azure Data Explorer](/azure/data-explorer/data-explorer-overview)** is the only current Azure service recommended for storing time series data.
+**[Azure Data Explorer](/azure/data-explorer/data-explorer-overview)** is the only current Azure service recommended for storing time series data. Azure Data Explorer is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
 
 ### Object data stores
 
