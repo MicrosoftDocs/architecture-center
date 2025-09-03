@@ -271,32 +271,6 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This section provides details about sizing decisions to accommodate this dataset.
 
-#### Azure Synapse Analytics provisioned pool
-
-You can use various [data warehouse configurations](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
-
-|DWUs |Number of compute nodes  |Number of distributions per node|
-|---------------------|:------------------:|:-------------------------:|
-|DW100c               |1                   |60                         |
-|                     | `-- TO --`         |                           |
-|DW30000c             |60                  |1                          |
-
-To see the performance benefits of scaling out, especially for larger DWUs, use at least a 1-TB dataset. To find the best number of DWUs for your dedicated SQL pool, try scaling up and down. Run queries that have different numbers of DWUs after you load your data. Scaling is quick, so you can easily experiment with various performance levels.
-
-##### Find the best number of DWUs
-
-For a dedicated SQL pool in development, select a small number of DWUs as a starting point, such as *DW400c* or *DW200c*. Monitor your application performance for each number of DWUs. Assume a linear scale, and determine how much you need to increase or decrease the DWUs. Continue making adjustments until you reach an optimum performance level for your business requirements.
-
-##### Scale an Azure Synapse Analytics SQL pool
-
-For scalability and performance optimization features of pipelines in Azure Synapse Analytics and of the copy activity that you use, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
-
-For more information, see the following resources:
-
-- [Scale compute for an Azure Synapse Analytics SQL pool with the Azure portal](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
-- [Scale compute for a dedicated SQL pool with Azure PowerShell](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
-- [Scale compute for a dedicated SQL pool in Azure Synapse Analytics by using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
-- [Manage compute for a dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
 #### Power BI Premium and Fabric
 
