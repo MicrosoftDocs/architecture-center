@@ -1,6 +1,6 @@
 This article describes how to transfer data from an on-premises data warehouse to a cloud environment and then use a business intelligence (BI) model to serve the data. You can use this approach as an end goal or a first step toward full modernization with cloud-based components.
 
-This guidance builds on the [Azure Synapse Analytics end-to-end scenario][e2e-analytics]. This process has multiple options to extract data from on-premises SQL Server. Then it performs data transformation for analysis. 
+This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. This process has multiple options to extract data from on-premises SQL Server. Then it performs data transformation for analysis. 
 
 - Microsoft Fabric Data Factory pipelines to ingest data in a metadata driven framework from a SQL database into Fabric Lakehouse/Warehouse. This batch method of extraction should be preferred for maximum flexibility in the ingestion process
 
