@@ -19,9 +19,11 @@ The architecture consists of the following components:
 
 ### Components
 
-- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability)
-- [Azure Files](/azure/well-architected/service-guides/azure-files)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file sharing service from Microsoft Azure that lets you create file shares accessible via SMB or network file system (NFS) protocols, with the scalability, security, and flexibility of the cloud. In this architecture, it enables scalable, secure file storage for applications and users and supports lift-and-shift scenarios and hybrid access.
+
+- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability) are the foundational containers in Microsoft Azure that hold all your cloud storage data and provide a unified namespace for storing blobs, files, queues, tables, and disks. In this architecture, they serve as the foundational storage layer and ensure high availability, durability, and performance across workloads.
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. In this architecture, it governs authentication, authorization, and conditional access for users, apps, and services across the environment.
 
 ## Scenario details
 
