@@ -49,15 +49,15 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable cloud storage solution for various data types, including object, file, disk, queue, and table storage. In this architecture, it stores VM disk snapshots in immutable blob containers to preserve digital evidence in a tamper-proof format.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares that can be accessed via the industry-standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file storage service that provides shared file systems that can be accessed via the industry-standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol, and the Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
 
-- [Key Vault](/azure/key-vault/general/overview) securely manages secrets, keys, and certificates. In this architecture, it stores BEKs and hash values of disk snapshots to protect access and verify the integrity of digital evidence.
+- [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores BEKs and hash values of disk snapshots to protect access and verify the integrity of digital evidence.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
 
-- [Azure Monitor](/azure/azure-monitor/overview) provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
 
 #### Automation
 

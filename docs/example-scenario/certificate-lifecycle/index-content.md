@@ -99,7 +99,7 @@ The Key Vault extension is a tool installed on servers to automate certificate r
 
   - For more information about installation procedures on Windows servers, see [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
   - For more information about installation steps for Linux servers, see [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux).
-  - For more information on Azure Arc-enabled servers, see [Key Vault extension for Azure Arc-enabled servers](https://techcommunity.microsoft.com/t5/azure-arc-blog/in-preview-azure-key-vault-extension-for-arc-enabled-servers/ba-p/1888739).
+  - For more information about Azure Arc-enabled servers, see [Key Vault extension for Azure Arc-enabled servers](https://techcommunity.microsoft.com/t5/azure-arc-blog/in-preview-azure-key-vault-extension-for-arc-enabled-servers/ba-p/1888739).
 
 > [!NOTE]
 > You can run the following sample scripts from Azure Cloud Shell to configure the Key Vault extension:
@@ -136,7 +136,7 @@ The runbook must have an associated [webhook](/azure/automation/automation-webho
 
 #### Storage account queue
 
-The storage account queue is a message queue within Azure Storage. In this architecture, it stores the messages that contain the name of the certificate being renewed and the key vault that contains the certificate. Configure the storage account queue in the event subscription of the Event Grid system topic. The queue handles decoupling the script from the certificate expiration notification event. It supports persisting the event within a queue message. This approach helps ensure that the renewal process for certificates is repeated through scheduled jobs even if there are problems that occur during the script's run.
+The storage account queue is a message queue within Azure Storage. In this architecture, it stores the messages that contain the name of the certificate being renewed and the key vault that contains the certificate. Configure the storage account queue in the event subscription of the Event Grid system topic. The queue handles decoupling the script from the certificate expiration notification event. It supports persisting the event within a queue message. This approach helps ensure that the renewal process for certificates is repeated through scheduled jobs even if problems occur during the script's run.
 
 #### Hybrid Runbook Worker
 

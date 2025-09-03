@@ -106,9 +106,9 @@ This solution uses the following components:
 
   - [Azure Data Factory](/fabric/data-factory/data-factory-overview) is a cloud-based ETL and orchestration service. In this architecture, it automates data movement and transformation across diverse sources, which supports both scheduled and event-driven ingestion.
 
-  - [Data engineering](/fabric/data-engineering/data-engineering-overview) includes tools to collect, store, process, and analyze large datasets. It powers the transformation and preparation of data within the lakehouse by using Spark notebooks and pipelines.
+  - [Data engineering](/fabric/data-engineering/data-engineering-overview) is a workload in Microsoft Fabric that provides tools to collect, store, process, and analyze large datasets. It powers the transformation and preparation of data within the lakehouse by using Spark notebooks and pipelines.
   
-  - [Data Science](/fabric/data-science/data-science-overview) provides tools to build machine learning models and gain insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
+  - [Data Science](/fabric/data-science/data-science-overview) is a workload in Fabric that provides tools to build machine learning models and generate insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
