@@ -143,11 +143,12 @@ In a production environment, ETL transformations can also be implemented via [Fa
 
 ### Use Power BI Premium to access, model, and visualize data
 
-Power BI Premium supports several options to connect to data sources on Azure. You can use Azure Synapse Analytics provisioned pools to do the following tasks:
+Power BI Premium on Fabric Capacities supports several options to connect to data sources on Azure. You can use Fabric Data Warehouse to do the following tasks:
 
 - Import: The data is imported into the Power BI model.
 - [DirectQuery](/power-bi/connect-data/desktop-directquery-about): Data is pulled directly from relational storage.
 - [Composite model](/power-bi/transform-model/desktop-composite-models): Combine *Import* for some tables and *DirectQuery* for others.
+- [DirectLake](/fabric/fundamentals/direct-lake-overview): is a storage mode option for tables in a Power BI semantic model that's stored in a Microsoft Fabric workspace. It's optimized for large volumes of data that can be quickly loaded into memory from Delta tables stored in OneLake that enables high performance interactive analysis on very large tables.
 
 This scenario uses the DirectQuery dashboard because it has a small amount of data and low model complexity. DirectQuery delegates the query to the underlying compute engine and uses security capabilities on the source. DirectQuery ensures that results are always consistent with the latest source data.
 
