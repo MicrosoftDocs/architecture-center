@@ -206,7 +206,7 @@ Some common security questions include:
 - Choose tools to detect and notify you of threats.
   - Use Azure Synapse Analytics [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities, such as SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
 - Determine how to protect data in your storage account.
-  - Use Azure Storage accounts for workloads that require fast and consistent response times or that have a high number of input/output operations (IOPs) per second. Storage accounts can store all your data objects and have several [storage account security options(/azure/well-architected/service-guides/azure-blob-storage#security).
+  - Use Azure Storage accounts for workloads that require fast and consistent response times or that have a high number of input/output operations (IOPs) per second. Storage accounts can store all your data objects and have several [storage account security options](/azure/well-architected/service-guides/azure-blob-storage#security).
 
 
 ### Cost Optimization
