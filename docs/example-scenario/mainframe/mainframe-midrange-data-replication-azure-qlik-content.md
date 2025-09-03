@@ -50,7 +50,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 This architecture consists of several Azure cloud services and is divided into four categories of resources: networking and identity, application, storage, and monitoring. The following sections describe the services for each resource and their roles.
 
-#### Networking and identity
+#### Networking
 
 When you design application architecture, it's crucial to prioritize networking and identity components to help ensure security, performance, and manageability during interactions over the public internet or private connections.
 
