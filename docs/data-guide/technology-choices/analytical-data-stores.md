@@ -75,7 +75,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  | 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Is a managed service? | Yes | Yes |Yes | Yes | Yes | Yes | Yes | 
-| Primary database model | Unified data lake, relational, delta lake format using apache parquet | Relational SQL Model with T-SQL Support | Kusto Engine with KQL Database | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
+| Primary database model | Unified data lake, relational, user managed delta lake format using apache parquet | Unified data lake, relational, system managed delta lake format using apache parquet | Kusto Engine with KQL Database | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
 | SQL language support | Yes<sup>1</sup> | Yes | Yes | Yes | Yes | Yes | No |
 | Optimized for speed serving layer | Yes  | Yes  | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes<sup>4</sup> | Yes | No | 
 
