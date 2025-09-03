@@ -98,15 +98,21 @@ Here's the general flow for the ELT pipeline:
 
 This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-link] as a data source. The incremental data load pattern ensures that only data that's modified or added after the most recent pipeline run is loaded.
 
-### Metadata-driven copy tool
+### Metadata-driven ingestion framework
 
-The built-in [metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Synapse Analytics pipelines incrementally loads all tables that are contained in the relational database.
+The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse) within Fabric Data Factory pipelines incrementally loads all tables that are contained in the relational database. While the article refers to a data warehouse as a source, it can be replaced with an Azure SQL DB as source.
 
-1. Use a wizard interface to connect the Copy Data tool to the source database.
+1. Pick a watermark column. Choose one column in your source table that helps track new or changed records. This column usually contains values that increase when rows are added or updated (like a timestamp or ID). We'll use the highest value in this column as our "watermark" to know where we left off.
 
-1. After it connects, configure incremental loading or full loading for each table.
-1. The Copy Data tool creates the pipelines and SQL scripts needed to generate the control table. This table stores data, such as the high watermark value or column for each table, for the incremental loading process.
-1. After these scripts run, the pipeline loads all source data warehouse tables into the Azure Synapse Analytics dedicated pool.
+1. Set up a table to store your last watermark value.
+
+1. Build a pipeline that does the following:
+
+The pipeline includes these activities:
+
+Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where we'll stop this time). Both values get passed to the copy activity.
+A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
+A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot that shows the metadata-driven Copy Data tool in Azure Synapse Analytics." lightbox="./media/metadata-copy.png":::
 
