@@ -32,7 +32,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 - [Azure Cache for Redis](/en-us/azure/azure-cache-for-redis) is an in-memory data store that supports fast data access. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices. It supports scalable and elastic storage to ensure fast access to high-volume streaming data.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
 
@@ -40,7 +40,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 - [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
 
-- [Container Registry](/en-us/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images used to deploy microservices in the AKS cluster.
+- [Container Registry](/en-us/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images containing the microservices.
 
 - [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Azure HDInsight and creates visual dashboards for business intelligence.
 
