@@ -126,7 +126,6 @@ A completed pipeline will look as below. More details about implementation can b
 
 The [copy activity](/fabric/data-factory/copy-data-activity) copies data from the SQL database into the Fabric Data Warehouse. This example's SQL database is in Azure, so it uses a connection set up within the Fabric portal under "Manage Connection & Gateways".
 
-The copy statement then loads data from the staging environment into the Azure Synapse Analytics dedicated pool.
 
 ### Use Microsoft Fabric Data Factory Pipelines
 
@@ -134,9 +133,9 @@ Pipelines in Microsoft Fabric Data Factory pipelines define an ordered set of ac
 
 ### Transform the data
 
-The sample database in this reference architecture is small, so replicated tables that have no partitions are created. For production workloads, distributed tables can improve query performance. For more information, see [Guidance for designing distributed tables in Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). The example scripts run the queries via a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
+If transformation is needed, then [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) can be used to design low code AI-assited ETL transformations to change nature of data. It uses the PowerQuery engine to execute transformations and writes output of transformation to Fabric Data Warehouse
 
-In a production environment, consider creating staging tables that have round-robin distribution. Then transform and move the data into production tables that have clustered columnstore indexes, which offer the best overall query performance. Columnstore indexes are optimized for queries that scan many records.
+In a production environment, ETL transformations can also be implemented via [Fabric Notebooks](/fabric/data-engineering/how-to-use-notebook) for a Spark driven frameworks that works well for large datasets.
 
 
 > [!NOTE]
