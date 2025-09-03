@@ -110,9 +110,9 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
 
 The pipeline includes these activities:
 
-Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where we'll stop this time). Both values get passed to the copy activity.
-A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
-A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
+   1. Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where 1. we'll stop this time). Both values get passed to the copy activity.
+   1. A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
+   1. A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Screenshot that shows the metadata-driven Copy Data tool in Azure Synapse Analytics." lightbox="./media/metadata-copy.png":::
 
