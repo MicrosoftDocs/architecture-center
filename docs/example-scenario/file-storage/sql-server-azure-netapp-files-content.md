@@ -16,7 +16,7 @@ SQL Server can be deployed in Azure on Azure virtual machines (VMs) making use o
 
 You can also deploy a high availability workflow. 
 
-:::image type="complex" source="./media/high-availability.png.png" alt-text="Architecture diagram displaying a SQL Server deployment with Azure NetApp Files." border="false":::
+:::image type="complex" source="./media/high-availability.png" alt-text="Architecture diagram displaying a SQL Server deployment with Azure NetApp Files." border="false":::
    A large rectangle representing an Azure region surrounds the whole diagram. Inside the region, there's another rectangle representing availability zone one. Availability zone one contains the Azure NetApp Files delegated subnet and the VM subnet, the latter of which contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL logs, and SQL backup.
 :::image-end:::
 
