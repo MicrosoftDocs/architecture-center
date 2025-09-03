@@ -59,8 +59,8 @@ This scenario uses the following components:
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an Azure-hosted PaaS SQL server. This architecture uses SQL Database to demonstrate the flow of data for the migration scenario. 
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides flexible cloud storage for unstructured data that's used for persisting intermediate migration results.
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service for data warehousing and big data systems. Azure Synapse Analytics serves as main compute and persistent storage in enterprise semantic modeling and servicing.
+- [Fabric OneLake Storage](/fabric/onelake/onelake-overview) provides unified cloud storage for all structured & unstructured data for the whole organization.
+- [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering to host data warehouse workloads for large datasets.
 - [Power BI Premium](/power-bi/enterprise/service-premium-what-is) is a BI tool that presents and visualizes data in this scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow.
 
