@@ -249,21 +249,17 @@ For more information, see [Power BI pricing](https://powerbi.microsoft.com/prici
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse Analytics workspace across multiple environments. For more information, see [Continuous integration and continuous delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery).
+- Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Microsoft Fabric workspace artifcats across multiple environments. For more information, see [Continuous integration and continuous delivery for Microsoft Fabric workspace](/fabric/cicd/manage-deployment).
 - Put each workload in a separate deployment template, and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process. This approach simplifies the automation process. This architecture has four main workloads:
-  - The data warehouse server and related resources
-  - Azure Synapse Analytics pipelines
+  - The data warehouse and related resources
+  - Data Factory pipelines
   - Power BI assets, including dashboards, apps, and datasets
   - An on-premises to cloud simulated scenario
 
 - Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before you move to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
 - Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
-- Use [Azure Monitor][azure-monitor] to analyze the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights about your data warehouse workload. Use the Azure portal to monitor your data warehouse. It provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+- Use [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) for comprehensive monitoring of Fabric capacity consumption, [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed monitoring of Fabric Workspace telemetry logs.
 
-For more information, see the following resources:
-
-- [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
-- [Create an Azure Synapse Analytics workspace by using the Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 
 ### Performance Efficiency
 
@@ -287,9 +283,8 @@ To determine how much capacity you need:
 
 Principal authors:
 
-- [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
-- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect
-- [George Stevens](https://www.linkedin.com/in/george-stevens/) | Cloud Solution Architect
+- [Bibhu Acharya](https://www.linkedin.com/in/bibhu-acharya-1848b1132/) | Principal Cloud Solution Architect
+
 
 Other contributors:
 
@@ -303,8 +298,8 @@ Other contributors:
 - [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
-- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
+- [What is Microsoft Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
+- [Pipelines and activities in Microsoft Fabric Data Factory](/fabric/data-factory/data-factory-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
 ## Related resources
@@ -316,10 +311,9 @@ Other contributors:
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [e2e-analytics]: /azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
-[synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [adventureworksdw-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [enterprise-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
 [bi-model]: /power-bi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
 [pbi-premium-capacities]: /power-bi/enterprise/service-premium-what-is#capacities-and-skus
-[synapse-dedicated-pool]: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
+
