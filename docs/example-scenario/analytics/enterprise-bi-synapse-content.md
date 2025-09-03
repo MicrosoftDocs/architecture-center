@@ -80,7 +80,7 @@ Microsoft Entra ID authenticates users who connect to Power BI dashboards and ap
 
 ### Incremental loading
 
-When you run an automated extract, transform, load (ETL) or extract, load, transform (ELT) process, you should load only the data that changed since the previous run. This process is called an [incremental load](/azure/data-factory/tutorial-incremental-copy-overview). Conversely, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
+When you run an automated extract, transform, load (ETL) or extract, load, transform (ELT) process, you should load only the data that changed since the previous run. This process is called an [incremental load](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse). Conversely, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
 
 You can use [temporal tables](/sql/relational-databases/tables/temporal-tables) in SQL Server. Temporal tables are system-versioned tables that store data change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, you can add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
