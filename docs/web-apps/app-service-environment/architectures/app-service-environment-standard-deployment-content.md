@@ -262,16 +262,21 @@ You can deploy apps to an internal App Service Environment only from within the 
 
 We recommend that you use Azure Pipelines or another CI/CD tool for production environments. To automate the build and deployment processes, script CI/CD by using the [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema). The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) file implements such a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) and the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). For more information about how these tools help automate CI/CD for each application, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 
-Some enterprises might not want to maintain a permanent build agent inside the virtual network. In that case, you can create a build agent within the DevOps pipeline and tear it down after the deployment finishes. This approach adds another step for DevOps but simplifies VM maintenance.
+Some enterprises might not want to maintain a permanent build agent inside the virtual network. In that case, consider one of these options:
 
-Also consider using containers as build agents instead of VMs. Avoid build agents completely by deploying from a zipped file placed outside the virtual network, typically in a storage account. The App Service Environment and the pipeline must have access to the storage account. The end of the release pipeline can drop a zipped file into the blob storage. The App Service Environment can then pick it up and deploy. This approach includes the following limitations:
+- **Dynamically create a build agent:** Create a build agent within the DevOps pipeline and tear it down after the deployment finishes. This approach adds another step for DevOps but simplifies VM maintenance.
 
-- This method disconnects DevOps from the actual deployment process, which makes monitoring and tracing deployment problems difficult.
+- **Containers:** Use containers as build agents instead of VMs.
 
-- In a locked-down environment with secured traffic, you might need to update access rules for the zipped file in storage.
-- You must install specific extensions and tools on the App Service Environment to deploy from the ZIP file.
+- **Deploy without an agent:** Avoid build agents completely by deploying from a zipped file placed outside the virtual network, typically in a storage account. The App Service Environment and the pipeline must have access to the storage account. The end of the release pipeline can drop a zipped file into the blob storage. The App Service Environment can then pick it up and deploy.
 
-For more information about app deployment methods, see [Run your app in App Service](/azure/app-service/deploy-run-package).
+    This approach includes the following limitations:
+
+    - This method disconnects DevOps from the actual deployment process, which makes monitoring and tracing deployment problems difficult.
+    - In a locked-down environment with secured traffic, you might need to update access rules for the zipped file in storage.
+    - You must install specific extensions and tools on the App Service Environment to deploy from the ZIP file.
+
+    For more information about app deployment methods, see [Run your app in App Service](/azure/app-service/deploy-run-package).
 
 ### Performance Efficiency
 
