@@ -56,7 +56,6 @@ Relational database management systems organize data into normalized tables with
 - **[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)** is a near-complete SQL Server environment in the cloud, ideal for lift-and-shift migrations.
 - **[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)** is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
 - **[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)** is a managed PostgreSQL service supporting open-source extensions and flexible deployment options.
-- **[Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction)** is a managed PostgreSQL service designed for high performance and geo-replication.
 - **[Azure Database for MySQL](/azure/mysql/flexible-server/overview)** is a fully managed MySQL database for web apps and open-source workloads.
 
 Use this table to help determine which Azure service meets your use case requirements.
@@ -67,7 +66,6 @@ Use this table to help determine which Azure service meets your use case require
 |**[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes|
 |**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput|
 |**[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS|
-|**[Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction)**|High performance, globally distributed relational workloads|[Citus extenion](https://github.com/citusdata/citus), distributed tables|Multi-tenat SaaS app|
 |**[Azure Database for MySQL](/azure/mysql/flexible-server/overview)**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site
 
 ## Non-relational data stores
