@@ -41,9 +41,9 @@ The solution presents two options for triggering the pipelines that capture the 
   - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
   - [Storage version](https://github.com/Azure/SynapseRTSStorage)
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the core service that this solution uses for data ingestion, processing, and analytics.
+- [Azure Synapse Analytics](/azure/synapse-analytics/get-started) is the core service that this solution uses for data ingestion, processing, and analytics.
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
 - [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
 
@@ -53,9 +53,9 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Azure Synapse Analytics triggers](/azure/data-factory/concepts-pipeline-execution-triggers) provide an automated way to run pipelines. You can schedule these triggers. You can also set up event-based triggers, such as [storage event triggers](/azure/data-factory/how-to-create-event-trigger) and [custom event triggers](/azure/data-factory/how-to-create-custom-event-trigger). The solution uses both types of event-based triggers.
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid) is a highly scalable, serverless event broker. You can use Event Grid to deliver events to subscriber destinations.
+- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a highly scalable, serverless event broker. You can use Event Grid to deliver events to subscriber destinations.
 
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information. In this solution, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps that display analytics information. In this solution, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
 
 ## Scenario details
 
