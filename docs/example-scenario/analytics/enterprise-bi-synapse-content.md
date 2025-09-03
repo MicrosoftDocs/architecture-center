@@ -139,7 +139,7 @@ In a production environment, ETL transformations can also be implemented via [Fa
 
 
 > [!NOTE]
-> Clustered columnstore tables don't support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. If you use those data types, consider a heap or clustered index. You might also consider putting these columns into a separate table.
+> Use [Native Execution](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) engine for running data engineering or etl workloads.
 
 ### Use Power BI Premium to access, model, and visualize data
 
