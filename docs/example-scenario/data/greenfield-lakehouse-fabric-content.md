@@ -100,7 +100,7 @@ Power Automate is a low-code application platform that you can use to automate r
 
 This solution uses the following components:
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables seamless integration across all data tasks.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables integration across all data tasks.
 
   - [OneLake](/fabric/onelake/onelake-overview) is the central data hub in Fabric, designed as an open data lake. It stores structured and unstructured data in its native format and serves as the unified storage layer for all components in the lakehouse architecture.
 
@@ -112,7 +112,7 @@ This solution uses the following components:
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
-  - [Copilot](/fabric/get-started/copilot-fabric-overview) is a natural language interface that generates insights and visualizations. In this architecture, it helps users interact with data in Fabric and Power BI by asking questions or requesting reports.
+  - [Copilot](/fabric/get-started/copilot-fabric-overview) is a natural language interface that generates insights and visualizations. In this architecture, it helps users interact with data in Fabric and Power BI.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence tool for creating dashboards and reports. In this architecture, it visualizes lakehouse data by using semantic models and Direct Lake mode for fast, in-memory performance.
 

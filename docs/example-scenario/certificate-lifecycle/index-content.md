@@ -95,7 +95,7 @@ The solution uses various components to handle automatic certificate renewal on 
 
 #### Key Vault extension
 
-The Key Vault extension is a tool installed on servers to automate certificate retrieval from Key Vault. This extension plays a vital role in automating certificate renewal and must be installed on servers that require the automation. In this architecture, this extension periodically polls Key Vault for updated certificates and automatically installs them on the server by using the certificate. This process ensures that servers always use the latest version.
+The Key Vault extension is a tool installed on servers to automate certificate retrieval from Key Vault. This extension plays a vital role in automating certificate renewal and must be installed on servers that require the automation. In this architecture, this extension periodically polls Key Vault for updated certificates and automatically installs them on the server.
 
   - For more information about installation procedures on Windows servers, see [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
   - For more information about installation steps for Linux servers, see [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux).
@@ -144,7 +144,7 @@ The Hybrid Runbook Worker allows runbooks to run on-premises or non-Azure machin
 
 #### Key Vault
 
-Key Vault is a secure repository for secrets, keys, and certificates. In this architecture, it stores certificates from a nonintegrated CA and emits expiration events that trigger the renewal workflow. In the **Event section** of the key vault, associate the Event Grid system topic with the webhook of the Automation account and a subscription.
+Key Vault is a secure repository for secrets, keys, and certificates. In this architecture, it stores certificates from a nonintegrated CA and emits expiration events that trigger the renewal workflow. The Event Grid system topic is integrated with the webhook of the Automation account.
 
 #### Event Grid
 

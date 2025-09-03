@@ -36,7 +36,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
 
-- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is an Azure compute service that you can use to deploy and manage a group of identical, load-balanced virtual machines. In this architecture, it hosts the Moodle application and automatically scales the number of VMs up or down based on demand. This action ensures high availability, performance, and cost efficiency during peak usage periods.
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is an Azure compute service that you can use to deploy and manage a group of identical, load-balanced virtual machines. In this architecture, it hosts the Moodle application and automatically scales the number of VMs up or down based on demand.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a high-performance file storage service. You can use this service to migrate and run the most demanding enterprise-file workloads in the cloud, such as native SMBv3, NFSv3, and NFSv4.1 file shares, databases, data warehouses, and high-performance computing applications. In this architecture, it stores Moodle's learning content and user-uploaded files. It provides scalable, low-latency access and cross-zone replication for high availability and disaster recovery.
 
