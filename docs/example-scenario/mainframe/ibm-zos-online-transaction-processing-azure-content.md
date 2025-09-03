@@ -66,7 +66,7 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a private connectivity service that establishes a dedicated connection between on-premises infrastructure and Azure. In this architecture, it provides secure network access for users familiar with mainframe terminal connectivity who require private connections.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a service that distributes incoming network traffic across multiple back-end resources that distributes layer 4 TCP and UDP traffic across resources. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
+[Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a service that distributes incoming network traffic across multiple back-end resources and handles layer 4 TCP and UDP traffic. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
 
 - [Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic routing service that helps distribute user requests across multiple endpoints. In this architecture, it distributes traffic across regional endpoints to optimize availability for mainframe users across different geographic locations.
 
