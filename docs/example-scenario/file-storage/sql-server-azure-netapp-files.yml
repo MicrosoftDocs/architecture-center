@@ -5,7 +5,7 @@ metadata:
   description: Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
   author: gvanteylingen
   ms.author: b-arntdegier
-  ms.date: 08/07/2025
+  ms.date: 09/03/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:

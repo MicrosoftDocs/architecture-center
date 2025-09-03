@@ -93,7 +93,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-* **Lower VM size**
+* **Smaller VM size**
 
 	Network-attached storage, limited by network bandwidth rather than disk I/O, can perform better than disk I/O. This is due to the ingrained constraint of cloud resources and the fact that VM SKUs generally have higher network limits than disk limits. This solution supports smaller VM sizes with better performance. Smaller VMs are less costly and carry lower SQL Service license costs, while network attached storage doesn't have an I/O cost factor. 
  
@@ -118,7 +118,8 @@ Principal author:
 
 ## Next steps
 
-With this knowledge in hand, your next step is to deploy your first [SQL database on Azure with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files).
+- [Azure NetApp Files quickstart](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes)
+- [Create an SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb)
 
 ## Related resources
 
