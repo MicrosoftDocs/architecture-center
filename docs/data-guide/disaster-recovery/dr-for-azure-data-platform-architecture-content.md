@@ -31,15 +31,15 @@ Within this foundational structure, Contoso has implemented the following elemen
 
 The workflow is read left to right, following the flow of data:
 
-- **Data sources** - Microsoft Fabric supports ingestion from structured, semi-structured, and unstructured sources via OneLake shortcuts, Data Factory, Notebooks and Event Streams.
-- **Ingest** - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams and Data Activator, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+- **Data sources** - Microsoft Fabric supports ingestion from structured, semi-structured, and unstructured sources via OneLake shortcuts, mirroring, Data Factory, Notebooks and Event Streams.
+- **Ingest** - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
 - **Store** - Data is stored in OneLake, Fabric’s unified data lake. It supports Delta format, Parquet, and CSV, with built-in geo-redundancy and BCDR options.
 - **Process** - Use Data Engineering (Spark) and Data Factory for ETL/ELT. Notebooks and Spark jobs process data into curated Lakehouses.
 - **Enrich** - Leverage Data Science experiences for ML modeling, AutoML, and integration with Azure ML. Use Copilot in Fabric for AI-assisted enrichment.
-- **Serve** - Data is served via Warehouse, Lakehouse, and Mirrored Database endpoints. SQL analytics endpoints support BI tools like Power BI.
-- **Data consumers** - Power BI users, business analysts, and apps consume data via semantic models, dashboards, and APIs exposed by Fabric endpoints.
-- **Discover and govern** - Use Purview integration, OneLake catalog, and Fabric governance tools for lineage, metadata, and access control.
-- **Platform** - Built on Microsoft Fabric, hosted on Azure. Unified SaaS experience with integrated compute, storage, and governance. Replaces Synapse with Fabric-native services.
+- **Serve** - Data is served via Warehouse, Lakehouse, and mirrored database endpoints. SQL analytics endpoints support BI tools like Power BI.
+- **Data consumers** - Power BI users, business analysts, and apps consume data via semantic models, dashboards, and APIs exposed by Microsoft Fabric endpoints.
+- **Discover and govern** - Use Purview integration, OneLake catalog, and Microsoft Fabric governance tools for lineage, metadata, and access control.
+- **Platform** - Unified SaaS experience with integrated compute, storage, and governance.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
@@ -368,7 +368,6 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - GRS provides stream redundancy across paired regions. 
 
-
 - **Microsoft Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
@@ -377,16 +376,17 @@ The following tables present a breakdown of each Azure service and component use
         - Cross-region pipeline deployment.
     - Notes
         - Pipelines can be redeployed via CI/CD in a secondary region.
-        - If On-Prem or vNet Data Gateay are used in Data pipelines, they'll remain the customer's responsibility for recovery from a disaster.
+        - When On-Prem or vNet Data Gateway are used in data pipelines, responsibility for disaster recovery remains with the customer.
 
 - **Microsoft Fabric: Data Science**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Dual-workspace mirroring of ML assets.
+        - Create workspaces in two different regions, then copy your data and import notebooks, machine learning experiments and models into the secondary workspace.
     - Notes
-        - Notebooks and models must be manually exported and stored in a secondary workspace.
+        - Disaster recovery for Data Science in Microsoft Fabric involves manual copying and recreation of resources in a secondary region, with no built-in cross region replication.
+        - For further details regarding disaster recovery for Fabric Data Science, refer to Disaster recovery guidance for Fabric Data Science - Microsoft Fabric | Microsoft Learn
 
 ## Stateful vs stateless components
 The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
