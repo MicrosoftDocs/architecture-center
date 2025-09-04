@@ -234,7 +234,7 @@ Other contributor:
   [hybrid container service module]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
   [IP address planning]: /azure/aks/aksarc/aks-hci-ip-address-planning
   [logical networks]: /azure/azure-local/manage/create-logical-networks
-  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+  [Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [MetalLB extension]: /azure/aks/aksarc/load-balancer-overview
   [network requirements]: /azure/aks/aksarc/aks-hci-network-system-requirements
   [Calico]: /azure/aks/aksarc/concepts-security
