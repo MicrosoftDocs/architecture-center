@@ -8,7 +8,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 ## Architecture
 
 :::image type="complex" source="media/mainframe-midrange-data-replication-azure-qlik.svg" alt-text="Diagram of an architecture that uses Qlik to migrate data to Azure." lightbox="media/mainframe-midrange-data-replication-azure-qlik.svg" border="false":::
-   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like Kafka and Azure Event Hubs, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, Azure Synapse Analytics, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
+   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like Kafka and Azure Event Hubs, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
@@ -19,15 +19,14 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 1. **Replication server:** The Qlik replication server software passes the change log information to Kafka and Azure Event Hubs. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
 
-1. **Stream ingestion:** Kafka and Event Hubs provide message brokers to receive and store change log information.
+1. **Stream ingestion:** Eventstream and Eventhouse provides for stage and prep.
 
-1. **Kafka Connect:** The Kafka Connect API receives data from Kafka to update Azure data stores like Azure Data Lake Storage, Azure Databricks, and Azure Synapse Analytics.
+     - **Eventstream:** Collects and routes real-time events, delivering them via the hot path to Eventhouse to enable near-realtime analytics.
+     - **Eventhouse:** Acts as the real-time analytical store in Fabric for querying and analytics.
+     - **OneLake:** Unified data lake for historical analysis and large-scale data preparation for advanced analytics via the cold path. Stores curated or replicated data from Eventhouse (through OneLake availability) or ingests directly from Eventstream.
 
-1. **Data Lake Storage:** Data Lake Storage is a staging area for the change log data.
 
-1. **Azure Databricks:** Azure Databricks processes the change log data and updates the corresponding files on Azure.
-
-1. **Azure data services:** Azure provides the following efficient data storage services.
+1. **Azure data services:** Azure provides the following efficient data storage services and data procesing services.
 
    - **Relational database services:**
 
@@ -37,12 +36,13 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
      - Azure Database for PostgreSQL
      - Azure Database for MySQL
      - Azure Cosmos DB
+     
 
      There are many factors to consider when you choose a data storage service. Consider the type of workload, cross-database queries, two-phase commit requirements, the ability to access the file system, amount of data, required throughput, and latency.
 
    - **Azure Cosmos DB:** Azure Cosmos DB is a NoSQL database that provides quick response, automatic scalability, and guaranteed speed at any scale.
 
-   - **Azure Synapse Analytics:** Azure Synapse Analytics is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. Use it to query data by using either serverless or dedicated resources at scale.
+   - **Azure Databricks:** Azure Databricks processes the change log data and updates the corresponding files on Azure.
 
    - **Microsoft Fabric:** Microsoft Fabric is an all-in-one analytics solution for enterprises. It covers everything from data movement to data science, real-time analytics, and business intelligence. It provides a comprehensive suite of services, including data lake, data engineering, and data integration.
 
@@ -188,6 +188,12 @@ Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
+
+Others Contributors:
+
+- [Dharmendra Keshari](https://www.linkedin.com/in/dharmendra-keshari-a7043398/) | Cloud Solution Architect
+
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
