@@ -48,7 +48,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that can host event-driven workloads that have short-lived processes. In this architecture, Functions enables workloads to process incoming documents and trigger model processing pipelines.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this architecture. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing massive amounts of unstructured data in the cloud. In this architecture, Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. In this architecture, Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with a hierarchical namespace.
 
@@ -62,7 +62,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it labels data, trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
 
-  - Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects). It supports model training workflows within the architecture.
+  - Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects). It supports model training workflows within this architecture.
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 

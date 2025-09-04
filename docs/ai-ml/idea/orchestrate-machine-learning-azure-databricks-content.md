@@ -67,7 +67,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 - A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. This architecture uses a lakehouse to get data management and performance capabilities that you typically find in data warehouses but with the low-cost, flexible object stores that data lakes provide.
 
-  - [**Delta Lake**](/azure/databricks/delta/) is the recommended open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Azure Data Lake Storage and provides a high-performance query engine.
+  - [**Delta Lake**](/azure/databricks/delta/) is the recommended open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
 
 - [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning life cycle. In this architecture, MLflow tracks experiments, manages model versions, and facilitates model deployment to various inference platforms. MLflow has the following components:
 

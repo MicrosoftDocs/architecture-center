@@ -20,15 +20,15 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite and is used to retrieve information about each image. In this architecture, it analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite. In this architecture, it retrieves information about each image. It analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images. In this architecture, Azure Functions orchestrates workflow steps, including calling the AI Vision API, processing analysis results, and persisting metadata in the database.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless solution that you can use to build robust apps with less code, less infrastructure, and lower costs. In this architecture, Azure Functions provides the back-end API for the web application. This platform also provides event processing for uploaded images. Azure Functions orchestrates workflow steps, including calling the AI Vision API, processing analysis results, and persisting metadata in the database.
 
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) triggers an event when a new image is uploaded to blob storage. In this architecture, Azure Event Grid initiates automated processing workflows by alerting Azure Functions of new uploads.
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a fully managed event-routing service that enables uniform event consumption by using a publish-subscribe model. In this architecture, Azure Event Grid triggers an event when a new image is uploaded to blob storage and initiates automated processing workflows by alerting Azure Functions of new uploads.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes. In this architecture, Blob Storage is the primary repository for incoming image data, serving as both the source for processing and a reference for image access.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing massive amounts of unstructured data in the cloud. In this architecture, it stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes. Blob Storage is the primary repository for incoming image data, serving as both the source for processing and a reference for image access.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API. In this architecture, Cosmos DB is the structured, scalable database for persisting analysis results and image metadata. It enables efficient data retrieval for front-end applications.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fast NoSQL database that includes open APIs for any scale. In this architecture, Azure Cosmos DB stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ### Alternatives
 

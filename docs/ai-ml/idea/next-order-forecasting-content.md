@@ -69,9 +69,9 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ### Components
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that speeds up time to insight across data warehouses and big data systems. In this architecture, Azure Synapse connects SQL technologies with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that speeds up time to insight across data warehouses and big data systems. In this architecture, Azure Synapse Analytics connects SQL technologies with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
-- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that automates data movement and transformation. In this architecture, Data Factory is responsible for ingesting data from diverse sources and moving it through the pipeline for processing and analysis.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that automates data movement and transformation. In this architecture, Azure Data Factory is responsible for ingesting data from diverse sources and moving it through the pipeline for processing and analysis.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. This solution uses a local data store for machine learning data and a premium data cache for training the machine learning model.
 
