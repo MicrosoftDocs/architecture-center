@@ -121,6 +121,8 @@ items:
         href: guide/technology-choices/storage-options.md
     - name: Choose a data store
       items:
+      - name: Getting started with data stores in Azure
+        href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data stores in Azure
         href: data-guide/technology-choices/data-store-classification.md
       - name: Understand data store models
@@ -129,10 +131,6 @@ items:
             href: guide/technology-choices/data-store-overview.md
           - name: Non-relational data store
             href: data-guide/big-data/non-relational-data.yml
-          - name: Review data options
-            href: guide/technology-choices/data-options.md
-          - name: Criteria for choosing a data store
-            href: guide/technology-choices/data-store-considerations.md
       - name: Selecting a data store model
         items:
           - name: Select a data store
