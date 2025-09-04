@@ -72,7 +72,7 @@ Use this table to help determine which Azure service meets your use case require
 
 Non-relational (NoSQL) databases optimize for flexible schemas, horizontal scale, and specific access or aggregation patterns. They typically relax some aspects of relational behavior (schema rigidity, transaction scope) for scalability or agility.
 
-### Document data stores
+### Document data stores <a id="document-data-stores"></a>
 
 Store semi-structured documents (often JSON) where each document consists of named fields and data. The data can be simple values or complex elements such as lists and child collections. Per-document schema flexibility enables gradual evolution.
 
@@ -96,7 +96,7 @@ Use this table to help determine which Azure service meets your use case require
 | **[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview)** | Apps using MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
 | **[Cosmos DB in Microsoft Fabric](/fabric/database/cosmos-db/overview)** | Real-time analytics over NoSQL data | Automatic ETL to One Lake with tight Microsoft Fabric integration | Transactional apps with real-time analytical dashboards |
 
-### Column-family (wide-column) data stores
+### Column-family (wide-column) data stores <a id="columnar-data-stores"></a>
 
 A column-family database organizes sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
 
@@ -120,7 +120,7 @@ Use this table to help determine which Azure service meets your use case require
 | **[Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)** | Hadoop ecosystem, batch analytics | HDFS integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
 | **[Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview)** | High-ingest telemetry, time-series analytics | KQL, fast ad hoc queries, time-window functions | Real-time analytics for application logs and metrics |
 
-### Key/value data stores
+### Key/value data stores <a id="key/value-data-stores"></a>
 
 A key/value store associates each data value with a unique key. Most key/value stores only support simple query, insert, and delete operations. To modify a value (either partially or completely), an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.
 
@@ -143,7 +143,7 @@ Use this table to help determine which Azure service meets your use case require
 | **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Migrating existing Azure Table Storage workloads | Azure Table Storage API compatibility | Storing user preferences and settings in a mobile app |
 | **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | High speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
-### Graph data stores
+### Graph data stores <a id="graph-data-stores"></a>
 
 A graph database stores information as nodes and edges, where edges define relationships and both can have properties like table columns. It efficiently analyzes connections between entities, such as employees and departments.
 
@@ -157,7 +157,7 @@ A graph database stores information as nodes and edges, where edges define relat
 
 **[SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview)** is the only current Azure service recommended for storing graph data. The graph extension extends the capabilities of SQL Server, Azure SQL Database, and Azure SQL Managed Instance to enable modeling and querying complex relationships using graph structures directly within a relational database.
 
-#### Time series data stores
+#### Time series data stores <a id="time-series-data-stores"></a>
 
 Time series data stores manage a set of values organized by time. They support features like time-based queries and aggeregations and are optimized for ingesting and analyzing large volumes of data in near real-time.
 
@@ -171,7 +171,7 @@ Time series data stores manage a set of values organized by time. They support f
 
 **[Azure Data Explorer](/azure/data-explorer/data-explorer-overview)** is the only current Azure service recommended for storing time series data. Azure Data Explorer is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
 
-### Object data stores
+### Object data stores <a id="object-data-stores"></a>
 
 Persist large binary or semi-structured objects with metadata (immutable or infrequently changing).
 
@@ -193,7 +193,7 @@ Use this table to help determine which Azure service meets your use case require
 |**[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)**|Big data analytics and hierarchical data|Hadoop-compatible file system (HDFS), hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data using Azure Synapse or Databricks|
 |**[Azure Blob Storage](azure/storage/blobs/storage-blobs-introduction)**|General-purpose object storage|Flat namespace, tiered storage (hot, cool, archive), simple REST API|Hosting images, documents, backups, and static website content|
 
-### Search and indexing data stores
+### Search and indexing data stores <a id="search-engine-databases"></a>
 
 A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.
 
@@ -221,7 +221,7 @@ Vector search data stores store and retrieve high-dimensional vector representat
 
 Refer to the [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) article for guidance on choosing the right vector data store for your workload.
 
-### Anaytics data stores
+### Anaytics data stores <a id="data-analytics"></a>
 
 Analytics data stores store big data and persist it throughout an analytics pipeline lifecycle.
 
@@ -309,34 +309,39 @@ Common anti-patterns:
 
 ## Next steps
 
-- Model selection criteria: [Criteria for choosing a data store](./data-store-considerations.md)
-- Flow-based entry: [Data store decision tree](./data-store-decision-tree.md)
-- Governance & landing zone: [Choose an Azure data service](./data-options.md)
-- Big data storage considerations: [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+**Choosing a specialized data store guidance**
+
+Use the following articles to help you choose a specialized data store.
+
+- [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+- [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
+- [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
+
+**Explore reference architectures**
+
+Learn about reference architectures using the Azure services discussed in this article.
+
+- The [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) architecture uses Azure SQL Database as its relational data store.
+- The [Deploy microservices with Azure Container Apps and Dapr](/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr) architecture uses Azure Database, Cosmos DB, and Azure Cache for Redis as data stores.
+- The [Automate document classification in Azure](azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions) architecture uses Cosmos DB as its data store.
 
 ## Related resources
 
-- Cloud adoption data service requirements: [Cloud Adoption Framework data options](/azure/cloud-adoption-framework/ready/considerations/data-options)
-- Storage options overview: [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
-- Analytics architectures: [Big data architectures](../../databases/guide/big-data-architectures.md)
-- Relational vs NoSQL concepts: [Relational vs NoSQL data](/dotnet/architecture/cloud-native/relational-vs-nosql-data)
+- Learn about [online analytical processing (OLAP)](/azure/architecture/data-guide/relational-data/online-analytical-processing).
+- Learn about [online transaction processing (OLTP](/azure/architecture/data-guide/relational-data/online-transaction-processing).
+- Learn about [data lakes](/azure/architecture/data-guide/scenarios/data-lake).
+- Learn about [extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl).
+- Review the [Cloud Adoption Framework Secure methodology](/azure/cloud-adoption-framework/secure/overview) for detailed guidance on data security across your adoption journey.
+- Review the [Zero Trust Framework data security](/security/zero-trust/deploy/data) guidance.
 
 <!-- Legacy anchor aliases (from consolidated sources) -->
 <a id="columnar-data-stores"></a>
 <a id="column-family-databases"></a>
 <a id="key/value-data-stores"></a>
-<a id="key-value-data-stores"></a>
 <a id="document-data-stores"></a>
 <a id="graph-data-stores"></a>
 <a id="time-series-data-stores"></a>
 <a id="object-data-stores"></a>
 <a id="external-index-data-stores"></a>
 <a id="search-engine-databases"></a>
-<a id="typical-requirements"></a>
 <a id="data-analytics"></a>
-<a id="shared-files"></a>
-
-<!-- Notes for maintainers:
-- Keep model definitions concise; expand deep operational guidance elsewhere.
-- Update comparative tables if adding new service capabilities (add column notes, not full list duplication).
--->
