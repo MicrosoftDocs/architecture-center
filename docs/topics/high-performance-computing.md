@@ -338,17 +338,9 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
-- [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
-- [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
-- [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
-- [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
-- [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 - [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
-- [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
-- [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-- [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+- [Microsoft Research](https://www.microsoft.com/research/video/fast-lmm-and-windows-azure-put-genetics-research-on-faster-track/)
 - [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
-- [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 ## Other important information
 
