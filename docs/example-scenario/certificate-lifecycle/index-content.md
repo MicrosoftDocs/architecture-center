@@ -8,7 +8,7 @@ In cybersecurity, setting up automatic certificate renewal is important to maint
 
 Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal) issued by an integrated certification authority (CA) such as *DigiCert* or *GlobalSign*. For a nonintegrated CA, a [manual](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#renew-a-nonintegrated-ca-certificate) approach is required.
 
-This article bridges the gap by providing an automatic renewal process tailored to certificates from nonintegrated CAs. This process seamlessly stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
+This article bridges the gap by providing an automatic renewal process tailored to certificates from nonintegrated CAs. This process stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
 
 An automatic renewal process reduces human error and minimizes service interruptions. When you automate certificate renewal, it accelerates the renewal process and decreases the likelihood of errors that might occur during manual handling. When you use the capabilities of Key Vault and its extensions, you can build an efficient automatic process to optimize operations and reliability.
 
