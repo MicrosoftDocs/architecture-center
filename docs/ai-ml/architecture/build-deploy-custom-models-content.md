@@ -92,7 +92,7 @@ Major challenges in model customization include:
 
 - Managing training infrastructure, such as compute and storage, and their integrations.
 
-- Deploying models securely at scale for seamless integration with consuming applications.
+- Deploying models at scale for applications to consume.
 
 ### Potential use cases
 

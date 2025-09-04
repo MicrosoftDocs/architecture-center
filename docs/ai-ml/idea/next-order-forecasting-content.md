@@ -65,7 +65,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
    To present the scored model visually to customers, you can use the Web Apps feature of Azure App Service, a Power BI dashboard, or Power Apps. These tools can present the recommendations for the SKU and predicted quantities graphically in an intuitive and engaging way.
 
-   Customers are alerted to recommended SKUs and predicted quantities, so they can place orders proactively. The recommendations can help streamline the ordering process, reduce the likelihood of stockouts, and enhance customer satisfaction. If you use a Power BI dashboard or Power Apps, you can provide your customers with a seamless and efficient ordering experience.
+   Customers are alerted to recommended SKUs and predicted quantities, so they can place orders proactively. The recommendations can help streamline the ordering process, reduce the likelihood of stockouts, and enhance customer satisfaction. If you use a Power BI dashboard or Power Apps, you can provide your customers with a informative ordering experience.
 
 ### Components
 
@@ -95,15 +95,15 @@ This article describes how merchandise distributors can use AI and machine learn
 
 - Azure Machine Learning provides data modeling and deployment in this solution. Alternatively, you can use [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) to build the solution with a code-first approach. To choose best the technology for your scenario, consider your team's preferences and expertise. Azure Machine Learning is a good choice if you prefer a user-friendly graphical interface. Azure Databricks is suited well for developers who want the flexibility of a code-first approach that enables more customization.
 
-   You can also use Azure Databricks instead of Azure Synapse to explore and manipulate data in this solution. Both options provide powerful data exploration and manipulation tools. Azure Synapse provides a unified workspace that includes features that make it easier to connect to and integrate data from various sources (Azure and third-party). Azure Databricks mainly provides data processing and analysis. 
+  You can also use Azure Databricks instead of Azure Synapse to explore and manipulate data in this solution. Both options provide powerful data exploration and manipulation tools. Azure Synapse provides a unified workspace that includes features that make it easier to connect to and integrate data from various sources (Azure and third-party). Azure Databricks mainly provides data processing and analysis.
 
-   Azure Synapse includes a SQL engine that you can use to query and manipulate data with SQL syntax. Azure Databricks uses a notebook-based interface that supports the use of Python, R, Scala, and SQL. 
-- Power BI is a popular tool for visualization. Grafana is another viable option. The main difference is that Grafana is open source, whereas Power BI is a SaaS product offered by Microsoft. If you prioritize customization and the use of open-source tools, Grafana is a better choice. If you prioritize a more seamless integration with other Microsoft products, and product support, Power BI is a better choice.
+  Azure Synapse includes a SQL engine that you can use to query and manipulate data with SQL syntax. Azure Databricks uses a notebook-based interface that supports the use of Python, R, Scala, and SQL.
+- Power BI is a popular tool for visualization. Grafana is another viable option. The main difference is that Grafana is open source, whereas Power BI is a SaaS product offered by Microsoft. If you prioritize customization and the use of open-source tools, Grafana is a better choice. If you prioritize a more coupled integration with other Microsoft products, and product support, Power BI is a better choice.
 - Rather than using an endpoint for each model, you can bundle multiple models into a single model for deployment to a single managed endpoint. Bundling models for deployment is known as *model orchestration*. Potential drawbacks of using this approach include increased complexity, potential conflicts between models, and increased risk of downtime if the single endpoint fails.
 
 ## Scenario details
 
-The merchandise distribution industry has historically struggled to gain insights into customer behavior and purchasing patterns, which makes it difficult to provide personalized product recommendations, improve customer satisfaction, and drive sales. By using AI and machine learning, merchandise distributors are transforming the industry. 
+The merchandise distribution industry has historically struggled to gain insights into customer behavior and purchasing patterns, which makes it difficult to provide personalized product recommendations, improve customer satisfaction, and drive sales. By using AI and machine learning, merchandise distributors are transforming the industry.
 
 They're adopting Next Order Forecasting (NOF), a methodology that they use to recommend products and quantities based on customer purchasing patterns. This methodology benefits customers by consolidating orders and reducing transportation and logistics costs. It also allows distributors to establish smart contracts with regular customers. These contracts enable distributors to proactively recommend products and quantities at a regular cadence, manage inventory, influence manufacturing efficiencies, save money, and promote sustainability. For example, by implementing accurate forecasting, distributors of perishable items can manage optimum levels of inventory and therefore avoid dumping excess stock into landfills.
 
