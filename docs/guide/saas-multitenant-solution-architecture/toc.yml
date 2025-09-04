@@ -55,7 +55,7 @@ items:
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation
-            href: ../multitenant/approaches/cost-management-allocation.yml
+            href: ../multitenant/approaches/cost-management-allocation.md
           - name: Deployment and configuration
             href: ../multitenant/approaches/deployment-configuration.md
           - name: Compute

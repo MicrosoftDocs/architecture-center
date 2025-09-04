@@ -1614,6 +1614,10 @@
       "redirect_url": "/azure/cloud-adoption-framework/migrate/migration-considerations/assess/estimate"
     },
     {
+      "source_path": "docs/web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment"
+    },
+    {
       "source_path": "docs/cloud-adoption/migrate/migration-considerations/assess/evaluate.md",
       "redirect_url": "/azure/cloud-adoption-framework/migrate/migration-considerations/assess/evaluate"
     },
@@ -1856,6 +1860,10 @@
     {
       "source_path": "docs/cloud-adoption/organization/organization-structures.md",
       "redirect_url": "/azure/cloud-adoption-framework/organize/organization-structures"
+    },
+    {
+      "source_path": "docs/checklist/resiliency-per-service.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance"
     },
     {
       "source_path": "docs/cloud-adoption/organization/raci-alignment.md",

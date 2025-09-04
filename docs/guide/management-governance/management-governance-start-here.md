@@ -60,7 +60,7 @@ The following sections provide links to reference architectures in some key mana
 
 ### High availability
 
-- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Deploy highly available NVAs](../../networking/guide/network-virtual-appliance-high-availability.md)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
