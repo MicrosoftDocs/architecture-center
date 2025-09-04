@@ -4,7 +4,7 @@ metadata:
   description: Deploying Azure Kubernetes Service (AKS) apps with Azure Pipelines.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 05/18/2024
+  ms.date: 09/15/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.category:
