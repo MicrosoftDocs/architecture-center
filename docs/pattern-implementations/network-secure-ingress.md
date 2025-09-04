@@ -70,13 +70,13 @@ This implementation includes the following details:
 
 ### Web request
 
-- [Azure Web Application Firewall](/azure/web-application-firewall/overview): The Premium tier of Web Application Firewall supports Microsoft-managed rules that help protect against common exploits.
-- [Azure Private Link](/azure/private-link/private-link-overview): Private endpoints in Azure Private Link expose an Azure PaaS service to a private IP address in a virtual network. This exposure allows the communication to flow across the Microsoft backbone network and not on the public internet.
-- [Azure Front Door Premium tier](/azure/frontdoor/front-door-overview): Azure Front Door provides Layer 7 global load balancing. Azure Front Door has integration with Web Application Firewall. The Premium tier supports:
-  - [Azure Private Link](/azure/frontdoor/private-link): Private Link support allows Azure Front Door to communicate with PaaS services or workloads running in a private virtual network over the Microsoft backbone network.
-  - [Microsoft-managed rule sets](/azure/frontdoor/standard-premium/tier-comparison): The premium tier of Azure Front Door supports the premium tier of Web Application Firewall, which supports the managed rule set in the WAF.
-- [Azure Storage](/azure/storage/common/storage-account-overview): This implementation uses Blob Storage accounts to represent a static website or workload.
-- [Internal load balancer](/azure/load-balancer/load-balancer-overview): This implementation doesn't use the internal load balancer. It's pictured to represent a private workload running behind that load balancer. The routing to the storage account is the same as it would be to load balancers.
+- [Azure Web Application Firewall](/azure/web-application-firewall/overview) is a security service that protects web applications from common threats and vulnerabilities by using Microsoft-managed rule sets. In this architecture, the Premium tier integrates with Azure Front Door Premium to inspect and block malicious HTTP and HTTPS traffic before it reaches back-end services.
+- [Azure Private Link](/azure/private-link/private-link-overview) is a service that enables private connectivity to Azure PaaS services over the Microsoft backbone network. In this architecture, it allows Azure Front Door to securely access storage accounts without exposing them to the public internet.
+- [Azure Front Door Premium](/azure/frontdoor/front-door-overview) is a global application delivery network that provides layer-7 load balancing, routing, and security features. In this architecture, it serves as the secure global gateway. It routes traffic to regional workloads and enforces Web Application Firewall policies while communicating privately via Private Link. The Premium tier supports the following components:
+  - [Private Link](/azure/frontdoor/private-link) enables Azure Front Door to connect to PaaS services or workloads in a private virtual network over the Microsoft backbone network.
+  - [Microsoft-managed rule sets](/azure/frontdoor/standard-premium/tier-comparison) are available only in the Premium tier of Azure Front Door, which integrates with the Premium tier of Web Application Firewall for protection against common exploits.
+- [Azure Storage](/azure/storage/common/storage-account-overview) is a scalable cloud storage service for structured and unstructured data. In this architecture, Blob Storage accounts simulate static web workloads and serve as the origin targets for Azure Front Door routing.
+- An [ILB](/azure/load-balancer/load-balancer-overview) distributes private IP traffic within a virtual network or across connected networks. Although not used directly in this implementation, it's represented in the architecture to show how private workloads behind an ILB can be routed similarly to storage accounts.
 
 ### Operations
 

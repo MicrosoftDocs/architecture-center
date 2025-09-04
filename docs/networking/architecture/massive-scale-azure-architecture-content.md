@@ -20,11 +20,14 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that provides a private connection between your on-premises environment and Azure resources.
-- [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides optimized and automated branch to branch connectivity through Azure. It provides transit for networking and routing via ExpressRoute between your on-premises resources and your Azure resources.
-  - Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Traffic between networks and on-premises environments remains inspected.
-  - Labels simplify the routing by eliminating the need to extensively propagate the routes of individual networks to all route tables.
-- Network Virtual Appliances are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that provides a private connection between your on-premises environment and Azure resources. In this architecture, ExpressRoute enables high-throughput, low-latency connectivity across multiple regions by using redundant circuits to support critical workloads.
+
+- [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides optimized and automated branch to branch connectivity through Azure. In this architecture, Virtual WAN serves as the transit backbone and routes traffic between spokes, hubs, and on-premises environments via ExpressRoute.
+  - Custom route tables are user-defined routing configurations within Virtual WAN hubs. In this architecture, they optimize traffic flow by allowing network-to-network traffic to bypass firewalls while maintaining inspection for traffic between networks and on-premises systems.
+  
+  - Labels are logical tags that simplify route propagation in Virtual WAN. In this architecture, they eliminate the need to manually propagate individual network routes to all route tables, which streamlines routing configuration and infrastructure-as-code deployments.
+
+- NVAs are virtual machines that control routing to manage the flow of network traffic. In this architecture, NVAs are deployed in security virtual networks attached to each hub to inspect traffic between spokes and between Azure and on-premises environments. Large organizations that have established investment in firewall technology and management often require NVAs.
 
 ### Alternatives
 
