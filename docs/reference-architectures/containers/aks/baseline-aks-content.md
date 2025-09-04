@@ -757,7 +757,7 @@ For cluster and workload operations (DevOps) considerations, see the [Operationa
 
 After you do provisioning, you have a working cluster, but you might still have some required steps before you can deploy workloads. The process of preparing your cluster is called bootstrapping. Bootstrapping can consist of deploying prerequisite images onto cluster nodes, creating namespaces, and doing other tasks that fulfill the requirements of your organization's use case.
 
-To decrease the gap between a provisioned cluster and a properly configured one, cluster operators should think about what their unique bootstrapping process looks like. They need to prepare the relevant assets in advance. For example, if having Kured running on each node before deploying application workloads is important, the cluster operator should verify that a Container Registry instance that contains the target Kured image, already exists *before* they provision the cluster.
+To decrease the gap between a provisioned cluster and a properly configured one, cluster operators should think about what their unique bootstrapping process looks like. They need to prepare the relevant assets in advance. For example, if you decide to use a service mesh like [Linkerd or Consul Connect](/azure/aks/servicemesh-about#next-steps), you typically need to deploy the mesh before application workloads can be scheduled. Before the cluster operator provisions the cluster, they should first validate that the service mesh's images are available within a previously created container registry. This validation helps prevent deployment delays or failures.
 
 You can configure the bootstrapping process by using one of the following methods:
 

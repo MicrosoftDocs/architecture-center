@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise deployment using Azure ASE
-  description: Learn about the recommended architecture for deploying an enterprise application by using App Services Environment version 3 in Azure.
+  title: Enterprise Deployment that uses App Service Environment
+  description: Learn about the recommended architecture for deploying an enterprise application by using App Service Environment version 3 in Azure.
   author: SuhasRao
   ms.author: susudhee
   ms.date: 12/04/2024
@@ -11,11 +11,11 @@ metadata:
     - management-and-governance
     - featured
   ms.custom: arb-web
-name: Enterprise deployment using Azure App Service Environment
+name: Enterprise deployment that uses App Service Environment
 azureCategories:
   - management-and-governance
   - featured
-summary: Recommended architecture for deploying an enterprise application using App Services Environment.
+summary: Recommended architecture for deploying an enterprise application by using App Service Environment.
 products:
   - entra-id
   - azure-application-gateway
@@ -25,4 +25,4 @@ products:
   - azure-private-link
 thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment.png
 content: |
-   [!INCLUDE[](ase-standard-deployment-content.md)]
+   [!INCLUDE[](app-service-environment-standard-deployment-content.md)]
