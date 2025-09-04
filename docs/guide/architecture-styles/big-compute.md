@@ -95,7 +95,7 @@ In this scenario, you run HPC Pack on-premises and use Azure VMs for burst capac
 
 ## Related resources
 
-- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree.yml)
+- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree.md)
 - [HPC on Azure](../../topics/high-performance-computing.md)
 
 <!-- links -->
