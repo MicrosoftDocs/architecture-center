@@ -87,7 +87,7 @@ The head node provides management and job scheduling services to the cluster. Fo
 
 ### Burst an HPC cluster to Azure
 
-In this scenario, an organization runs HPC Pack on-premises and uses Azure VMs for burst capacity. The cluster head node is on-premises. Azure ExpressRoute or Azure VPN Gateway connects the on-premises network to the Azure virtual network.
+In this scenario, you run HPC Pack on-premises and use Azure VMs for burst capacity. The cluster head node is on-premises. Azure ExpressRoute or Azure VPN Gateway connects the on-premises network to the Azure virtual network.
 
 :::image type="complex" border="false" source="./images/big-compute-hybrid.png" alt-text="Diagram that shows a hybrid big compute cluster." lightbox="./images/big-compute-hybrid.png":::
    The diagram contains two boxes. One box represents the on-premises environment. It contains icons that represent cluster nodes and the cluster head node. The other box represents a virtual network. It contains cluster nodes. Double-sided arrows that represent Expressroute or VPN Gateway connect the on-premises box and the virtual network box. Another double-sided arrow connects the virtual network box to storage outside of the virtual network.
