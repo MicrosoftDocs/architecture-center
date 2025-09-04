@@ -76,7 +76,7 @@ This implementation includes the following details:
   - [Private Link](/azure/frontdoor/private-link) enables Azure Front Door to connect to PaaS services or workloads in a private virtual network over the Microsoft backbone network.
   - [Microsoft-managed rule sets](/azure/frontdoor/standard-premium/tier-comparison) are available only in the Premium tier of Azure Front Door, which integrates with the Premium tier of Web Application Firewall for protection against common exploits.
 - [Azure Storage](/azure/storage/common/storage-account-overview) is a scalable cloud storage service for structured and unstructured data. In this architecture, Blob Storage accounts simulate static web workloads and serve as the origin targets for Azure Front Door routing.
-- An [ILB](/azure/load-balancer/load-balancer-overview) distributes private IP traffic within a virtual network or across connected networks. Although not used directly in this implementation, it's represented in the architecture to show how private workloads behind an ILB can be routed similarly to storage accounts.
+- An [ILB](/azure/load-balancer/load-balancer-overview) distributes private IP traffic within a virtual network or across connected networks. This implementation doesn't directly use an ILB, but it's represented in the architecture to show how private workloads behind an ILB can be routed similarly to storage accounts.
 
 ### Operations
 
@@ -86,11 +86,11 @@ To illustrate providing access to network secure access for operational purposes
 
 Here are details about the components for operations:
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview): This implementation uses the virtual network to contain the components required for an administrator to securely communicate with the storage account over the private Microsoft backbone network.
-- [Azure Virtual Machines](/azure/virtual-machines/overview): This implementation uses a VM as a jumpbox for administrators to connect to. The VM is deployed in the private virtual network.
-- [Azure Bastion](/azure/bastion/bastion-overview): Azure Bastion allows the administrator to securely connect to the jumpbox VM over Secure Shell (SSH) without requiring the VM to have a public IP address.
-- [Private Link endpoint](/azure/private-link/private-endpoint-overview): The private endpoint is assigned a private IP address from the virtual network and connects to the storage account PaaS service. This connection allows resources in the private virtual network to communicate with the storage account over the private IP address.
-- [Private Azure DNS zone](/azure/dns/private-dns-privatednszone): The private Azure DNS zone is a DNS service that's used to resolve the Azure storage account's Private Link host name to the private endpoint's private IP address.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is a networking service that enables secure communication between resources. In this architecture, the virtual network contains the components required for an administrator to securely communicate with the storage account over the private Microsoft backbone network.
+- [Azure Virtual Machines](/azure/virtual-machines/overview) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, a VM serves as a jumpbox for administrators to securely access network-secured resources.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed PaaS that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without exposing public IP addresses. In this architecture, it enables administrators to connect to the jumpbox VM over SSH for secure operations.
+- A [Private Link endpoint](/azure/private-link/private-endpoint-overview) is a network interface that connects to Azure services via Private Link and assigns a private IP address from the virtual network. In this architecture, the private endpoint connects to the storage account PaaS service. This connection allows resources in the private virtual network to communicate with the storage account over the private IP address.
+- A [private Azure DNS zone](/azure/dns/private-dns-privatednszone) is a Domain Name System (DNS) service that resolves domain names to private IP addresses within a virtual network. In this architecture, it resolves the storage account's Private Link host name to its private IP, which enables secure access from the VM.
 
 ## Web request flow
 
