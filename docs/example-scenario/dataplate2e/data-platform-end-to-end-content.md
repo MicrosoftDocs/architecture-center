@@ -18,13 +18,13 @@ The solution described in this article combines a range of Azure services that w
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
 > [!NOTE]
-> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle. Azure Data Lake is organized by different layers and containers as follows:
+> In the following sections, Azure Data Lake Storage is used as the home for data throughout the various stages of the data lifecycle. Data Lake Storage is organized by different layers and containers as follows:
 >
 > - The Raw layer is the landing area for data coming in from source systems. As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
 > - In the next stage of the lifecycle, data moves to the Enriched layer where data is cleaned, filtered, and possibly transformed.
 > - Data then moves to the Curated layer, which is where consumer-ready data is maintained.
 >
-> Please refer to the [Data lake zones and containers](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/best-practices/data-lake-zones) documentation for a full review of Azure Data Lake layers and containers and their uses.
+> Please refer to the [Data lake zones and containers](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/best-practices/data-lake-zones) documentation for a full review of Data Lake Storage layers and containers and their uses.
 
 #### Azure data services, cloud native HTAP with Azure Cosmos DB and Dataverse
 
@@ -58,7 +58,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
 
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
+1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
 
 ##### Process
 
@@ -90,7 +90,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
 
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data to preserve the original format, as acquired from the data sources.
+1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data to preserve the original format, as acquired from the data sources.
 
 ##### Process
 
@@ -123,7 +123,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) by following the best practices about which layers to create, what folder structures to use in each layer, and what files format to use for each analytics scenario.
 
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data by preserving the original format, as acquired from the data sources.
+1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data by preserving the original format, as acquired from the data sources.
 
 ##### Process
 
@@ -147,13 +147,13 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Ingest
 
-1. Use [Azure Event Hubs or Azure IoT Hubs](/azure/iot-hub/iot-hub-compare-event-hubs) to ingest data streams generated by client applications or IoT devices. Event Hubs or IoT Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hubs or IoT Hub endpoints and retrieve messages for processing.
+1. Use [Azure Event Hubs or Azure IoT Hub](/azure/iot-hub/iot-hub-compare-event-hubs) to ingest data streams generated by client applications or IoT devices. Event Hubs or IoT Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hubs or IoT Hub endpoints and retrieve messages for processing.
 
 ##### Store
 
 1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
 
-1. Configure [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical) following the pattern for semi-structured data sources described above.
+1. Configure [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical) following the pattern for semi-structured data sources described above.
 
 ##### Process
 
@@ -175,11 +175,11 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ### Components
 
-- [Azure AI Services](/azure/cognitive-services/) is a suite of cloud-based artificial intelligence tools that enable developers and organizations to build intelligent applications without requiring extensive AI or data science expertise. Azure AI Services provides prebuilt models for vision, language, and decision-making tasks. In this architecture, they enrich datasets during processing through integration with Synapse pipelines and Stream Analytics.
+- [Azure AI services](/azure/cognitive-services/) is a suite of cloud-based artificial intelligence tools that enable developers and organizations to build intelligent applications without requiring extensive AI or data science expertise. Azure AI Services provides prebuilt models for vision, language, and decision-making tasks. In this architecture, they enrich datasets during processing through integration with Synapse pipelines and Stream Analytics.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database. In this architecture, it stores operational data and uses Synapse Link to enable near real-time analytics without affecting operational workloads.
 
-- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage. In this architecture, it serves as the central repository organized into Raw, Enriched, and Curated layers for all data types across batch and streaming scenarios.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage. In this architecture, it serves as the central repository organized into Raw, Enriched, and Curated layers for all data types across batch and streaming scenarios.
 
 - [Azure Data Share](/azure/data-share/overview) is a managed data exchange service that enables secure, governed sharing of data between Azure tenants. In this architecture, it distributes curated datasets from the data lake or Synapse to internal teams or external partners.
 
@@ -289,9 +289,9 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
-- [Azure Data Lake Gen 2](https://azure.microsoft.com/pricing/details/storage/data-lake) is charged based on the amount of data stored and based on the number of transactions to read and write data.
+- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake) is charged based on the amount of data stored and based on the number of transactions to read and write data.
 
-- [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs) and [Azure IoT Hubs](https://azure.microsoft.com/pricing/details/iot-hub) are charged based on the amount of compute resources required to process your message streams.
+- [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs) and [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) are charged based on the amount of compute resources required to process your message streams.
 
 - [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning) charges come from the amount of compute resources used to train and deploy your machine-learning models.
 
