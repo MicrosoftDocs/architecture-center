@@ -70,7 +70,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
 
 - **[Azure Key Vault](/azure/key-vault/general/basic-concepts)** is a cloud service for securely storing and accessing secrets, keys, and certificates. In this architecture, it stores the application gateway's Transport Layer Security (TLS) certificate and helps ensure encrypted communications and secure credential management for the application gateway.
 
-- **[Azure Monitor](/azure/azure-monitor/fundamentals/overview)**, **[Azure Monitor Logs](/azure-monitor/logs/get-started-queries)**, and **[Application Insights](/azure/well-architected/service-guides/application-insights)** collect, store, and visualize observability data. In this architecture, they enable monitoring, diagnostics, and operational insights for all workload components.
+- **[Azure Monitor](/azure/azure-monitor/fundamentals/overview)**, **[Azure Monitor Logs](/azure/azure-monitor/logs/get-started-queries)**, and **[Application Insights](/azure/well-architected/service-guides/application-insights)** collect, store, and visualize observability data. In this architecture, they enable monitoring, diagnostics, and operational insights for all workload components.
 
 - **[Azure Policy](/azure/governance/policy/overview)** applies workload-specific policies to help govern, secure, and apply controls at scale. In this architecture, it enforces governance and compliance rules on resources that the workload team manages.
 
