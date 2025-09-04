@@ -98,23 +98,23 @@ Power Automate is a low-code application platform that you can use to automate r
 
 ### Components
 
-The following components are used in this solution.
+This solution uses the following components:
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview): An end-to-end cloud-based data analytics platform that's designed for enterprises. It provides a unified environment for various data tasks, like data ingestion, transformation, analysis, and visualization.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables integration across all data tasks.
 
-  - [OneLake](/fabric/onelake/onelake-overview): The central hub for all your data in Fabric. It's designed as an open data lake, which means that it can store data in its native format, regardless of structure.
+  - [OneLake](/fabric/onelake/onelake-overview) is the central data hub in Fabric, designed as an open data lake. It stores structured and unstructured data in its native format and serves as the unified storage layer for all components in the lakehouse architecture.
 
-  - [Data Factory](/fabric/data-factory/data-factory-overview): A cloud-based ETL and orchestration service for automated data movement and transformation. It allows you to automate data movement and transformation at scale across various data sources.
+  - [Azure Data Factory](/fabric/data-factory/data-factory-overview) is a cloud-based ETL and orchestration service. In this architecture, it automates data movement and transformation across diverse sources, which supports both scheduled and event-driven ingestion.
 
-  - [Data engineering](/fabric/data-engineering/data-engineering-overview): Tools that enable the collection, storage, processing, and analysis of large volumes of data.
+  - [Data engineering](/fabric/data-engineering/data-engineering-overview) is a workload in Microsoft Fabric that provides tools to collect, store, process, and analyze large datasets. It powers the transformation and preparation of data within the lakehouse by using Spark notebooks and pipelines.
+  
+  - [Data Science](/fabric/data-science/data-science-overview) is a workload in Fabric that provides tools to build machine learning models and generate insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
 
-  - [Data Science](/fabric/data-science/data-science-overview): Tools that enable you to complete end-to-end data science workflows for data enrichment and to gain business insights.
+  - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
-  - [Real-Time Intelligence](/fabric/real-time-intelligence/overview): A service that provides stream ingestion and processing capabilities. It allows you to gain insights from constantly flowing data to enable quicker decision-making that's based on real-time trends and anomalies.
+  - [Copilot](/fabric/get-started/copilot-fabric-overview) is a natural language interface that generates insights and visualizations. In this architecture, it helps users interact with data in Fabric and Power BI.
 
-  - [Copilot](/fabric/get-started/copilot-fabric-overview): A tool that you can use to analyze data, generate insights, and create visualizations and reports in Fabric and Power BI by using natural language.
-
-- [Power BI](/power-bi/fundamentals/power-bi-overview): A business intelligence tool for creating interactive dashboards and reports for visualizing data and gaining insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence tool for creating dashboards and reports. In this architecture, it visualizes lakehouse data by using semantic models and Direct Lake mode for fast, in-memory performance.
 
 ### Alternatives
 
