@@ -340,7 +340,6 @@ There are many customers who have seen great success by using Azure for their HP
 
 - [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
 - [Microsoft Research](https://www.microsoft.com/research/video/fast-lmm-and-windows-azure-put-genetics-research-on-faster-track/)
-- [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
 
 ## Other important information
 
