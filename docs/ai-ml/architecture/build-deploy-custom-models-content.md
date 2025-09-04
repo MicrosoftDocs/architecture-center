@@ -92,7 +92,7 @@ Major challenges in model customization include:
 
 - Managing training infrastructure, such as compute and storage, and their integrations.
 
-- Deploying models securely at scale for seamless integration with consuming applications.
+- Deploying models at scale for applications to consume.
 
 ### Potential use cases
 
@@ -130,7 +130,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Resiliency
 
-- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
+- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 - [Back up and recover your Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/disaster-recovery).
 

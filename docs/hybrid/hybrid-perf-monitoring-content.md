@@ -34,11 +34,15 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 The architecture consists of the following components:
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Azure Policy](/azure/governance/policy/overview)
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs)
-- [Azure Storage](/azure/storage/common/storage-introduction)
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service for streaming events. In this architecture, it connects Azure Monitor to external SIEM tools by streaming logs and metrics for advanced analytics and long-term retention.
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a unified platform for collecting and analyzing telemetry across environments. In this architecture, it serves as the central monitoring solution for performance, availability, and diagnostics across Azure, on-premises, and third-party cloud resources.
+
+- [Azure Policy](/azure/governance/policy/overview) is a governance tool for enforcing rules and automating resource configuration. In this architecture, it ensures consistent deployment of monitoring agents and enforces compliance across hybrid systems.
+
+- [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based storage solution that supports blobs, files, queues, and tables. In this architecture, it retains monitoring data and diagnostic logs, providing scalable, durable, and secure storage for long-term retention and analysis.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) are scalable compute resources for running workloads in Azure. In this architecture, they host business applications and are monitored using Azure Monitor and diagnostic agents to ensure performance and availability.
 
 ## Recommendations
 

@@ -17,9 +17,9 @@ items:
       - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
-          href: app-service-environment/architectures/ase-standard-deployment.yml
-        - name: High availability deployment
-          href: app-service-environment/architectures/ase-high-availability-deployment.yml
+          href: app-service-environment/architectures/app-service-environment-standard-deployment.yml
+        - name: High-availability deployment
+          href: app-service-environment/architectures/app-service-environment-high-availability-deployment.yml
         - name: Securely managed web apps
           href: ../example-scenario/apps/fully-managed-secure-apps.yml          
       - name: Manage your APIs with Azure API Management (APIM)

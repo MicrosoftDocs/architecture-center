@@ -113,7 +113,7 @@ Reliability helps ensure that your application can meet the commitments that you
 - Consider applying the [typical design patterns for availability](/azure/well-architected/reliability/design-patterns) when you build your cloud application.
 
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- For other availability considerations, see [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md).
+- For other availability considerations, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 ### Security
 
@@ -165,16 +165,12 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [High-availability enterprise deployment via an App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [High-availability enterprise deployment via an App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 
 <!-- links -->
 
 [intro-to-app-svc-env]: /azure/app-service/environment/overview
-[create-wildcard-cert-letsencrypt]: /archive/blogs/mihansen/creating-wildcard-ssl-certificates-with-lets-encrypt
-[ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
-[bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
-[private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/creation
 [azure-networking]: /azure/well-architected/service-guides/virtual-network
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
@@ -195,7 +191,6 @@ Principal author:
 [docs-azure-devops]: /azure/devops/user-guide/what-is-azure-devops
 [docs-azure-vm]: /azure/well-architected/service-guides/virtual-machines
 [docs-azure-scale-ase]: /azure/app-service/environment/using#how-scale-works
-[docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
 [docs-container-apps]: /azure/container-apps
 [docs-web-app-patterns]: /azure/architecture/web-apps/guides/enterprise-app-patterns/overview
@@ -203,9 +198,6 @@ Principal author:
 [docs-zone-redundancy-ase]: /azure/app-service/environment/configure-zone-redundancy-environment
 
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
-[pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
-[resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: /azure/architecture/framework/resiliency/principles
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
