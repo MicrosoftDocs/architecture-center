@@ -172,7 +172,7 @@ When you use DirectQuery with an Fabric Data Warehouse or Lakehouse :
 
 - Use Fabric [Z-Ordering & V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql) to improve query performance by optimizing storage of underlying table data in delta format files.
 
-- Use Fabric Lakehouse [materialized views](fabric/data-engineering/materialized-lake-views/overview-materialized-lake-view) to precompute, store, and maintain data like a table. Queries that use all data or a subset of the data in materialized views can achieve faster performance without needing to directly reference the defined materialized view to use it.
+- Use Fabric Lakehouse [materialized views](/fabric/data-engineering/materialized-lake-views/overview-materialized-lake-view) to precompute, store, and maintain data like a table. Queries that use all data or a subset of the data in materialized views can achieve faster performance without needing to directly reference the defined materialized view to use it.
 
 ## Considerations
 
