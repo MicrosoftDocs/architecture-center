@@ -15,15 +15,21 @@ Use Azure Pipelines to deploy AKS applications.
 
 ### Dataflow
 
-1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
-2. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These tests require secrets, so this pipeline gets those secrets from Azure Key Vault.
-3. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Registry.
-4. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-5. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. A manual validation task is run if the tests succeed, requiring a person to validate the deployment and resume the pipeline. The manual validation step is optional. Some organizations will automatically deploy.
-6. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
-7. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
-8. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
-9. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
+1. A pull request (PR) to Azure Repos Git or GitHub repository triggers a PR pipeline. This pipeline runs fast quality checks. The checks include
+   - Building the code, which may require pulling dependencies from a dependency management system.
+   - The use of tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/episode-fifty-nine).
+   - Unit Tests
+     
+If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
+
+2. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. If the integration tests require secrets, the pipeline gets those [secrets from Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault?view=azure-devops). If any of the checks fail, the pipeline ends and the developer will have to make the required changes. 
+4. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Registry.
+5. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
+6. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. A manual validation task is run if the tests succeed, requiring a person to validate the deployment and resume the pipeline. The manual validation step is optional. Some organizations will automatically deploy. If any of the checks fail, the pipeline ends and the developer will have to make the required changes.
+7. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
+8. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
+9. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
+10. Both container images in Azure Container Registry and running containers in Azure Kubernetes Service are scanned by [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). 
 
 ### Components
 
@@ -31,6 +37,7 @@ Use Azure Pipelines to deploy AKS applications.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images.
 - [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
 - [Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
+- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) performs vulnerability assessment of containers published to Azure Container Registry and running containers in Azure Kubernetes Service. 
 
 ## Next steps
 
