@@ -46,11 +46,11 @@ The solution shown in this architecture correctly configures on-premises DNS set
 
 The solution in the architecture diagram uses the following components:
 
-- **Client** (component **1** or **2**) is typically a Windows, Linux, or macOS desktop that accesses file shares by using the SMB protocol. In this architecture, clients connect to Azure Files either directly over a private network or through a local file server that has Azure File Sync and cloud tiering enabled.
+- A **client** (component **1** or **2**) is typically a Windows, Linux, or macOS desktop that accesses file shares by using the SMB protocol. In this architecture, clients connect to Azure Files either directly over a private network or through a local file server that has Azure File Sync and cloud tiering enabled.
 
-- **DC and DNS servers** (component **3**) include a domain controller (DC) that handles authentication and a DNS server that resolves names to IP addresses. You can combine DC and DNS servers into a single server or separate them into different servers. In this architecture, they authenticate users and forward DNS queries for Azure Files and Azure File Sync to the DNS infrastructure in Azure.
+- **Domain controller (DC) and DNS servers** (component **3**) include a DC that handles authentication and a DNS server that resolves names to IP addresses. You can combine DC and DNS servers into a single server or separate them into different servers. In this architecture, they authenticate users and forward DNS queries for Azure Files and Azure File Sync to the DNS infrastructure in Azure.
 
-- The **file server** (component **4**) is an on-premises server that hosts file shares and integrates with Azure File Sync. In this architecture, it enables local caching of frequently accessed files and synchronizes data and ACLs with Azure Files.
+- A **file server** (component **4**) is an on-premises server that hosts file shares and integrates with Azure File Sync. In this architecture, it enables local caching of frequently accessed files and synchronizes data and ACLs with Azure Files.
 
 - A **customer edge router or VPN device** (component **5**) connects an on-premises network to Azure. In this architecture, it establishes a secure ExpressRoute or VPN tunnel to the Azure virtual network for private access to Azure Files and Azure File Sync.
 
@@ -60,9 +60,9 @@ The solution in the architecture diagram uses the following components:
 
 - A **DNS server or Azure DNS Private Resolver** (component **8**) serves as a DNS service within an [Azure virtual network](/azure/well-architected/service-guides/virtual-network). In this architecture, it uses the [Azure DNS](/azure/dns/dns-overview) recursive resolver to resolve the private domain name and return a private IP address to the client. It does this operation after it receives a forwarded DNS query from an on-premises DNS server.
 
-- **Azure File Sync** (component **9**) is a service that centralizes file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is a feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. In this architecture, this feature enables hybrid file sharing by extending on-premises file servers to the cloud.
+- **Azure File Sync** (component **9**) is a service that centralizes file shares in Azure, while maintaining the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is a feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. In this architecture, this feature enables hybrid file sharing by extending on-premises file servers to the cloud.
 
-- **[Azure Files](/azure/well-architected/service-guides/azure-files)** (component **10**) is a fully managed file share service that supports SMB access and integrates with on-premises AD DS and [Microsoft Entra Domain Services](/entra/identity/domain-services/overview). In this architecture, Azure Files serves as the cloud-based storage layer for enterprise file sharing and can be accessed from both on-premises and cloud environments.
+- **[Azure Files](/azure/well-architected/service-guides/azure-files)** (component **10**) is a managed file share service that supports SMB access and integrates with on-premises AD DS and [Microsoft Entra Domain Services](/entra/identity/domain-services/overview). In this architecture, Azure Files serves as the cloud-based storage layer for enterprise file sharing and can be accessed from both on-premises and cloud environments.
 
   You can mount file shares from Azure Files concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. And you can cache SMB Azure file shares nearer to where the data is used, on Windows servers that have Azure File Sync for fast access.
 

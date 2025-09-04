@@ -31,19 +31,19 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 - **Firewall:** Use one or more of the following firewalls in your architecture. For more information, see [Alternatives](#alternatives).
 
-  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, intelligent network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a fully stateful, managed firewall that has built-in high availability and unrestricted cloud scalability. It has Standard and Premium performance tiers. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides extra features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS). In this architecture, Azure Firewall can serve as a layer-3 firewall that enforces policies, inspects traffic, and logs transactions to support TIC 3.0 compliance.
+  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a stateful, managed firewall that has built-in high availability and unrestricted cloud scalability. It includes Standard and Premium performance tiers. Azure Firewall Premium includes the functionality of Azure Firewall Standard and provides extra features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS). In this architecture, Azure Firewall can serve as a layer-3 firewall that enforces policies, inspects traffic, and logs transactions to support TIC 3.0 compliance.
 
-  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that includes a web application firewall. WAF provides enhanced centralized protection of your web applications. In this architecture, Application Gateway can manage and secure inbound web traffic, which protects applications from common exploits and logging traffic for compliance.
+  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that includes a web application firewall. WAF provides enhanced centralized protection of web applications. In this architecture, Application Gateway can manage and secure inbound web traffic, which protects applications from common exploits and logging traffic for compliance.
 
-  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that includes content delivery network capabilities and integrated WAF. In this architecture, Azure Front Door can accelerate and secure global application access while logging traffic for centralized analysis and compliance. Content delivery network capabilities help accelerate and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities.
+  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that includes content delivery network capabilities and integrated WAF. In this architecture, Azure Front Door can accelerate and secure global application access while logging traffic for centralized analysis and compliance. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities.
 
   - A non-Microsoft firewall is an NVA that runs on an Azure virtual machine and uses firewall services from partner vendors. Microsoft supports a large ecosystem of partner vendors that provide firewall services. In this architecture, a non-Microsoft firewall can provide customizable firewall services and export logs via Syslog to a forwarder virtual machine for ingestion into the Log Analytics workspace.
 
 - **Logging and authentication:**
 
-  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a centralized repository available in the Azure portal for collecting and analyzing log data. In this architecture, it stores firewall and identity logs, which enables custom queries and forwarding to Event Hubs for CISA CLAW ingestion.
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a centralized repository for collecting and analyzing log data. In this architecture, it stores firewall and identity logs, which enables custom queries and forwarding to Event Hubs for CISA CLAW ingestion.
 
-  - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry. In this architecture, Azure Monitor gathers performance and diagnostic data from network and identity components.
+  - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and acting on telemetry. In this architecture, Azure Monitor gathers performance and diagnostic data from network and identity components.
 
   - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access service that provides identity features, single sign-on, and multifactor authentication across Azure workloads. In this architecture, it secures access to Azure resources and generates identity logs for compliance monitoring.
 
@@ -51,7 +51,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
   - [Event Hubs Standard](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it receives logs from Log Analytics and streams them to CISA TALON for centralized analysis.
 
-  - CISA TALON is a centralized log aggregation service operated by CISA that ingests telemetry data from cloud environments for cybersecurity monitoring and compliance. In this architecture, TALON authenticates by using a CISA-supplied certificate and collects logs from Azure Event Hubs. It pulls the logs into the CLAW system to support TIC 3.0 compliance and centralized visibility.f
+  - CISA TALON is a centralized log aggregation service operated by CISA that ingests telemetry data from cloud environments for cybersecurity monitoring and compliance. In this architecture, TALON authenticates by using a CISA-supplied certificate and collects logs from Event Hubs. It pulls the logs into the CLAW system to support TIC 3.0 compliance and centralized visibility.
 
 ### Alternatives
 
