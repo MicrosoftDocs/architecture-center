@@ -292,7 +292,7 @@ The following recommendations help address DR concerns:
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the AI Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
 
-- **AI Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project if it's been accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host.
+- **AI Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host, minimizing change coordination with all project dependencies.
 
 As an added preventative measure for the Azure AI Foundry agent service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against the AI Search, Cosmos DB, and Storage resources from being accidentally deleted.
 
