@@ -341,7 +341,7 @@ The following example policies might lead to workload deployment complexities:
 
 - **Policy:** *AI Foundry models should not be preview.*
 
-  **Complication:** You might be in development using a preview model that you anticipate to be generally available by the time you enable the agent capability in your production workload.
+  **Complication:** You might be in development using a preview model that you anticipate being generally available by the time you enable the agent capability in your production workload.
 
 Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution.
 
@@ -474,7 +474,7 @@ All data storage services in this architecture support Microsoft-managed or cust
 
 #### Microsoft Defender for Cloud
 
-Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process does not automatically enable these Defender plans, ensure you take on this responsibility as the workload team. Purview integration for the AI components in this workload is enabled through the Defender for AI services plan.
+Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process doesn't automatically enable these Defender plans, ensure you take on this responsibility as the workload team. Purview integration for the AI components in this workload is enabled through the Defender for AI services plan.
 
 ### Cost Optimization
 
