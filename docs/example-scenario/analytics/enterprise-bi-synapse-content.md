@@ -2,9 +2,9 @@ This article describes how to transfer data from an on-premises data warehouse t
 
 This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. This process has multiple options to extract data from on-premises SQL Server. Then it performs data transformation for analysis. 
 
-- Microsoft Fabric Data Factory pipelines to ingest data in a metadata driven framework from a SQL database into Fabric Lakehouse/Warehouse. This batch method of extraction should be preferred for maximum flexibility in the ingestion process
+- Microsoft Fabric Data Factory pipelines to ingest data in a metadata driven framework from an SQL database into Fabric Lakehouse/Warehouse. This batch method of extraction should be preferred for maximum flexibility in the ingestion process
 
-- Microsoft Fabric Mirroring/COPY Job for SQL Server to ingest data in a low-code GUI based process for full and incremental loads. This is a cost effective managed process for continous ingestion of data into OneLake via Mirroring or highly scalable ingeston through COPY JOB.
+- Microsoft Fabric Mirroring/COPY Job for SQL Server to ingest data in a low-code GUI based process for full and incremental loads. This is a cost effective managed process for continuous ingestion of data into OneLake via Mirroring or highly scalable ingestion through COPY JOB.
 
 - Microsoft Fabric Real Time Intelligence Eventsteams for real time event driven ingestion framework for SQL Server CDC source processes.
 
