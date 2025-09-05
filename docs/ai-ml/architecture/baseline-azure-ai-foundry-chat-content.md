@@ -294,7 +294,7 @@ The following recommendations help address DR concerns:
 
 - **AI Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host, minimizing change coordination with all project dependencies.
 
-As an added preventative measure for the Azure AI Foundry agent service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against the AI Search, Cosmos DB, and Storage resources from being accidentally deleted.
+As an added preventative measure for the Azure AI Foundry agent service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against catastrophic loss of state in AI Search, Cosmos DB, and Storage.
 
 Before you move to production, build a recovery runbook that addresses failures in both application-owned state and agent-owned state.
 
