@@ -56,72 +56,73 @@ This architecture consists of several Azure cloud services. It's divided into fo
 
 When you design application architecture, it's crucial to prioritize networking and identity components to help ensure security, performance, and manageability during interactions over the public internet or private connections. The following components in the architecture are essential to address this requirement effectively.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) carries private connections between on-premises infrastructures and Azure datacenters.
+- [An Azure WAF](/azure/web-application-firewall/overview) is a web application firewall that protects applications from malicious attacks and common web vulnerabilities, such as SQL injection and cross-site scripting. In this architecture, it secures the migrated mainframe applications by filtering and inspecting incoming traffic to web-facing services.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with an on-premises directory.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 application delivery controller. In this architecture, it manages HTTP traffic routing and provides load balancing for the migrated mainframe web applications.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides global HTTP load balancing with instant failover. Its caching option can quicken the delivery of static content.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global HTTP load balancer with instant failover capabilities. In this architecture, it accelerates content delivery and ensures high availability for geographically distributed mainframe users.
 
-- [Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) directs incoming Domain Name System requests based on your choice of traffic-routing methods.
+  - [Content Delivery Network](/azure/cdn/cdn-overview) is a distributed caching service that optimizes static content delivery by storing cached copies on edge servers to enable faster response times for users. It uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global. In this architecture, it improves performance for mainframe screen elements and static assets across global edge locations.
 
-- [An Azure WAF](/azure/web-application-firewall/overview) helps protect web apps from malicious attacks and common web vulnerabilities, such as SQL injection and cross-site scripting.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a private connectivity service that establishes a dedicated connection between on-premises infrastructure and Azure. In this architecture, it provides secure network access for users familiar with mainframe terminal connectivity who require private connections.
 
-- [Content Delivery Network](/azure/cdn/cdn-overview) caches static content in edge servers to enable rapid responses and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
+[Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a service that distributes incoming network traffic across multiple back-end resources and handles layer 4 TCP and UDP traffic. In this architecture, it balances traffic for containerized applications and microservices that replace mainframe transaction processing components.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities.
-
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 (TCP or User Datagram Protocol) load balancer. In this architecture, it provides load balancing options for Azure Spring Apps and AKS.
+- [Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic routing service that helps distribute user requests across multiple endpoints. In this architecture, it distributes traffic across regional endpoints to optimize availability for mainframe users across different geographic locations.
 
 #### Application
 
 Azure provides managed services that support more secure, scalable, and efficient deployment of applications. The application-tier services that the preceding architecture uses can help you optimize your application architecture.
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can restrict access to your apps or allow third parties.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure. In this architecture, it hosts microservices that replace monolithic mainframe transaction processing components like CICS and IMS.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated according to the mainframe application and can be stateless to orchestrate a microservices-based system.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated according to the mainframe application and can be stateless to orchestrate a microservices-based system. In this architecture, it delivers REST APIs and web interfaces that replace 3270 terminal screens and mainframe user interfaces.
 
-- WebJobs is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For more information, see [Run background tasks with WebJobs in App Service](/azure/app-service/webjobs-create).
+  - [WebJobs](/azure/app-service/webjobs-create) is a feature of App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. In this architecture, it executes batch processing tasks and [background tasks](/azure/app-service/webjobs-create) that were previously handled by mainframe job schedulers.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a fully managed platform as a service (PaaS) that supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended and which apps can access it. You can also restrict access to your apps or allow third parties. In this architecture, it manages access to modernized APIs that expose mainframe business logic and controls how legacy data is accessed by new applications.
 
-- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. You can use Azure Spring Apps to easily deploy, manage, and run Spring microservices and write Spring applications by using Java or .NET.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes open-source Redis and Redis Enterprise, a commercial product from Redis Labs, as a managed service. You can improve the performance of high-throughput OLTP applications by designing them to scale and to use an in-memory data store such as Azure Cache for Redis. In this architecture, it accelerates data access for high-throughput OLTP workloads that replace mainframe transaction processing systems.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service. It provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things, and build simple APIs and microservices. Use microservices to create servers that connect to Azure services and are always up to date. In this architecture, it handles event-driven processing and lightweight business logic components migrated from mainframe transaction managers.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with Internet of Things, and build simple APIs and microservices. Use microservices to create servers that connect to Azure services and are always up to date.
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes open-source Redis and Redis Enterprise, a commercial product from Redis Labs, as a managed service. You can improve the performance of high-throughput OLTP applications by designing them to scale and to use an in-memory data store such as Azure Cache for Redis.
+- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system. Azure Service Bus enables reliable messaging between distributed systems. In this architecture, it facilitates asynchronous communication between migrated mainframe components that previously used mainframe messaging systems.
 
 #### Storage and database
 
-This architecture addresses scalable and more secure cloud storage as well as managed databases for flexible and intelligent data management.
+This architecture addresses scalable and secure cloud storage as well as managed databases for migrating mainframe data and supporting modern application requirements.
 
-- [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). Azure Files is an effective tool for migrating mainframe workloads.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides open-source APIs for MongoDB and Cassandra. You can use Azure Cosmos DB to migrate mainframe, nontabular data to Azure. In this architecture, it stores nonrelational data migrated from mainframe systems like VSAM files and provides global distribution for international user bases.
 
-- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides flexible options for application migration, modernization, and development. This family includes:
-  - [SQL Server on Azure Virtual Machines (VMs)](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
-  - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability)
-  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
-  - [Azure SQL Edge](/azure/azure-sql-edge/overview)
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service. In this architecture, it supports applications that require open-source database compatibility during the mainframe modernization process.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides open-source APIs for MongoDB and Cassandra. You can use Azure Cosmos DB to migrate mainframe, nontabular data to Azure.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services. In this architecture, it hosts relational data migrated from mainframe databases with advanced indexing and analytics capabilities.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, intelligent, and scalable PostgreSQL that has native connectivity with Azure services.
+- [Azure SQL](/azure/azure-sql/) is a family of cloud-based SQL database services. In this architecture, it hosts relational data migrated from mainframe databases like DB2 and IMS DB:
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed, scalable MySQL database.
+  - [Azure SQL Edge](/azure/azure-sql-edge/overview) is a specialized version of the SQL Server database engine that's optimized for IoT and edge deployments. In this architecture, it processes data close to edge devices in scenarios where mainframe applications have been distributed to edge locations.
 
-- In-Memory OLTP is a feature of [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) and [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) that provides fast in-memory data storage. For more information, see [Optimize performance by using in-memory technologies in SQL Database](/azure/azure-sql/in-memory-oltp-overview).
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it supports modernized workloads with elastic scaling for variable mainframe transaction loads.
+
+  - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a fully managed, cloud-based deployment option that provides near 100% SQL Server compatibility. In this architecture, it hosts migrated mainframe databases with minimal code changes and built-in high availability.
+
+  - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is an infrastructure as a service (IaaS) offering that provides full SQL Server functionality. In this architecture, it supports legacy workloads that require specific database engine features during migration.
+
+  - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) is a high-performance feature that accelerates transaction processing in SQL Database and SQL Managed Instance. In this architecture, it provides the high-performance transaction processing capabilities that mainframe OLTP workloads require.
+
+- [Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and more secure cloud services for data, apps, and workloads that provides foundational cloud storage services. In this architecture, it supports [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) for various mainframe data migration scenarios.
 
 #### Monitoring
 
 The following monitoring tools provide comprehensive data analysis and valuable insights into application performance.
 
-- [Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on personal data from your Azure and on-premises environments.
-   
-   Azure Monitor alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides code-level telemetry for applications. It monitors the application, detects anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics. In this architecture, it tracks application performance, detects anomalies, and supports distributed tracing and custom metrics to ensure reliability and responsiveness.
 
-- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that you use to query Azure Monitor Logs by using a powerful query language. You can interact with the results of your queries or use them with other Azure Monitor features, such as log query alerts or workbooks. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive platform for collecting, analyzing, and acting on telemetry from Azure and on-premises environments. In this architecture, it serves as the central hub for monitoring infrastructure, applications, and services.
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
+  - [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric) are a feature of Azure Monitor that notifies users when metrics or logs exceed defined thresholds. In this architecture, they trigger automated responses or escalate problems to operations teams for timely intervention.
+
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a query tool within Azure Monitor that uses a powerful language to analyze log data. In this architecture, it enables deep diagnostics, supports custom dashboards, and integrates with alerts and workbooks for operational insights.
 
 ## Scenario details
 
