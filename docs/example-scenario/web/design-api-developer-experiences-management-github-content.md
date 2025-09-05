@@ -48,19 +48,17 @@ The processing sequence in this solution flows as follows:
 
 The solution is composed of the following software as a service (SaaS) offerings:
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed platform as a service (PaaS) that allows organizations to publish APIs to both internal and external consumers. In this architecture, API Management serves as the central API gateway that decouples API hosting from the published gateway. It provides governance layers that have policies for [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), and it includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) for API documentation. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
 
-  API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), you can throttle API requests based on a key or subscription. API Management includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
-
-- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects. It provides important features that you can use in solutions:
+- [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a software development platform that provides version control and collaboration features. In this architecture, GitHub hosts the enhanced developer portal. It provides the following features:
 
   - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
 
-  - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) help you to activate community collaboration.
+  - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) enable community collaboration.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications. In this architecture, App Service hosts the consumer portal and account portal components that provide the marketplace experience, user registration, and account management features for API consumers.
 
-- [Azure Active Directory (Azure AD) B2C](/azure/active-directory-b2c/overview) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/entra/identity-platform/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory B2C (Azure AD B2C)](/azure/active-directory-b2c/overview) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. In this architecture, Azure AD B2C handles user registration, authentication, and identity management for API consumers. These tasks support integration with identity providers and the [Microsoft identify platform](/entra/identity-platform/v2-overview).
 
 ## Scenario details
 

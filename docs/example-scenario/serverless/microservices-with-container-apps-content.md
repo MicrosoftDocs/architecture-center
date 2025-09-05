@@ -44,7 +44,7 @@ The drone delivery service uses a series of Azure services in concert with one a
 
 #### Azure Container Apps
 
-[Azure Container Apps](/azure/container-apps/overview) is the primary component and serverless container platform. In this architecture, Container Apps hosts all the microservices.
+[Azure Container Apps](/azure/container-apps/overview) is a serverless container platform that simplifies container orchestration and management. In this architecture, Container Apps serves as the primary hosting platform for all microservices.
 
 The following features replace many of the complexities of the previous AKS architecture:
 
@@ -57,21 +57,21 @@ The following features replace many of the complexities of the previous AKS arch
 
 #### External storage and other components
 
-**[Azure Key Vault](/azure/key-vault/general/overview)** is a service for securely storing and accessing secrets, such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets.
+**[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service for securely storing and accessing secrets, such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets.
 
-**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images. In this architecture, it's the source for all container images that are deployed to the Container Apps environment. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](/azure/container-registry/container-registry-intro)** is a managed registry service for storing and managing private container images. In this architecture, it's the source for all container images that are deployed to the Container Apps environment. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data by using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB acts as the primary NoSQL database with open-source APIs for MongoDB and Cassandra where the stateless microservices write their state and application data.
+**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB acts as the primary NoSQL database with open-source APIs for MongoDB and Cassandra where the stateless microservices write their state and application data.
 
-**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, it handles asynchronous messaging between the ingestion service and workflow service.
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow service.
 
-**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** adds a caching layer to the application architecture. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** is an in-memory caching service based on the Redis cache. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
+**[Azure Monitor](/azure/azure-monitor)** is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You can use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
 
-**[Application Insights](/azure/well-architected/service-guides/application-insights)** provides extensible application performance management (APM) and monitoring. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance and direct the data to Azure Monitor.
+**[Application Insights](/azure/well-architected/service-guides/application-insights)** is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance and direct the data to Azure Monitor for detailed service-level observability.
 
-**[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** configure and deploy the applications. In this architecture, Bicep templates provide infrastructure as code deployment for the Container Apps infrastructure and the drone delivery workload.
+**[Bicep templates](/azure/azure-resource-manager/bicep/overview)** are infrastructure-as-code templates for deploying Azure resources. In this architecture, Bicep templates provide declarative deployment for both the Container Apps infrastructure and the drone delivery workload.
 
 ### Alternatives
 
