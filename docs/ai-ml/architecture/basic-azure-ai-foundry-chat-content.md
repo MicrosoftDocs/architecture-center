@@ -109,7 +109,7 @@ This architecture also doesn't restrict egress traffic. For example, an agent ca
 
 For more information about network security as an extra perimeter in your architecture, see [Networking](baseline-azure-ai-foundry-chat.yml#networking).
 
-#### Defender
+#### Microsoft Defender for Cloud
 
 For this basic architecture, you don't need to enable Microsoft Defender cloud workload protection plans for any services. When you move to production, follow the [security guidance in the baseline architecture](baseline-azure-ai-foundry-chat.yml#security) for Microsoft Defender, which uses multiple plans to cover your workload.
 
