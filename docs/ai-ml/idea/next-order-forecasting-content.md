@@ -61,7 +61,7 @@ This article describes how merchandise distributors can use AI and machine learn
       - In this use case, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#use-more-than-one-model). The first option is to deploy each model on its own managed endpoint, as shown in the diagram. The second option is to bundle multiple models into a single model and deploy it on a single managed endpoint. The latter approach is more efficient, providing an easier way to deploy and manage multiple models simultaneously.
 
    - Microsoft Fabric lets you serve real-time predictions from ML models with secure, scalable, and easy-to-use online endpoints. These endpoints are available as built-in properties of most Fabric models—and they require no setup to kick off fully managed real-time deployments.
-      - You can activate, configure, and query model endpoints with a [public-facing REST API](/fabric/model-endpoint-api). You can also get started directly from the Fabric interface, using a low-code experience to activate model endpoints and preview predictions instantly.
+      - You can activate, configure, and query model endpoints with a [public-facing REST API](https://learn.microsoft.com/en-us/rest/api/fabric/mlmodel/endpoint). You can also get started directly from the Fabric interface, using a low-code experience to activate model endpoints and preview predictions instantly.
 
 1. Analytical workload 
 
