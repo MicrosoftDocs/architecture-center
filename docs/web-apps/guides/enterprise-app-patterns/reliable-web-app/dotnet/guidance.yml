@@ -11,6 +11,9 @@ metadata:
   ms.custom:
     - arb-web
     - devx-track-dotnet
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
   - web

@@ -39,9 +39,9 @@ The following diagram shows the patient record creation request flow:
    - OpenFrame provides middleware integration. For instance, this functionality works with web services and [message queues (MQs)][Message queues].
 
 1. The TmaxSoft solution uses two VMs. Each one runs an application server, and an Azure Load Balancer manages approaching traffic. OpenFrame supports both [active-active][Active-active definition] and [active-passive][Active-passive definition] configurations.
-1. [OpenFrame language compilers][Tmax OpenFrame documentation] migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
-1. [OpenFrame Online][Tmax OpenFrame documentation] provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
-1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). OpenFrame Batch minimizes code updates by supporting native Job Control Language (JCL) syntax and batch utilities.
+1. OpenFrame language compilers migrate [COBOL](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_cobol_4.html), [Assembler](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_asm_4.html), [PL/I](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_pli_3.html), Easytrieve, and other mainframe applications to Azure by recompiling the source.
+1. OpenFrame Online provides tools and commands that replace [CICS](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_osc_7.1.html), [IMS-DC](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_osi_7.2.html), Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
+1. [OpenFrame Batch](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_batch_mvs_7.1.html) provides tools for managing batch programs that replace the job entry subsystem (JES). OpenFrame Batch minimizes code updates by supporting native Job Control Language (JCL) syntax and batch utilities.
 1. Tmax Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. [UnixODBC (Open Database Connectivity)][UnixODBC] connection drivers communicate with relational database management systems (RDBMSs). Examples include Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
@@ -73,6 +73,7 @@ The following diagram shows the patient record creation request flow:
 - Read how to [install TmaxSoft OpenFrame on Azure][Install TmaxSoft OpenFrame on Azure article].
 
 ## Related resources
+
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - [Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting][Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]
 - [Lift, shift, and modernize: proven mainframe modernization strategies that enable digital transformation][Lift and shift]
@@ -99,7 +100,6 @@ The following diagram shows the patient record creation request flow:
 [RDP]: /troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
 [SSH]: https://www.ssh.com/ssh
 [SMB protocol]: /openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
-[Tmax OpenFrame documentation]: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE36tt6
 [UnixODBC]: https://en.wikipedia.org/wiki/UnixODBC
 [What is Azure]: /azure/
 [What is Azure Bastion]: /azure/bastion/bastion-overview

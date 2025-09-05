@@ -55,7 +55,7 @@ The IT administrator role shouldn't have access to the firewall resources. Acces
 
 ### Resource group recommendations
 
-Azure resources such as VMs, virtual networks, and load balancers can be easily managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
+Azure resources such as VMs, virtual networks, and load balancers can be managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
 
 We recommend creating the following resource groups:
 
@@ -128,7 +128,7 @@ Here are cost considerations for the services used in this architecture.
 
 #### Azure Firewall
 
-In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the resources in the spoke virtual networks. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the resources in the spoke virtual networks. Using Azure Firewall as a shared solution across multiple workloads can help reduce duplicate infrastructure. Here are the Azure Firewall pricing models:
 
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling.

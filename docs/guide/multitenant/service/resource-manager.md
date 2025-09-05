@@ -35,7 +35,7 @@ In some solutions, you might write custom code to dynamically provision or confi
 
 ### Tags
 
-Use [tags](/azure/azure-resource-manager/management/tag-resources) to add custom metadata to your Azure resources, resource groups, and subscriptions. Consider tagging your tenant-specific resources with the tenant's identifier so that you can simplify resource management and [track and allocate Azure costs](../approaches/cost-management-allocation.yml).
+Use [tags](/azure/azure-resource-manager/management/tag-resources) to add custom metadata to your Azure resources, resource groups, and subscriptions. Consider tagging your tenant-specific resources with the tenant's identifier so that you can simplify resource management and [track and allocate Azure costs](../approaches/cost-management-allocation.md).
 
 ### Azure resource quotas
 
@@ -75,4 +75,4 @@ Other contributor:
 
 ## Related resource
 
-- [Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml)
+- [Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md)

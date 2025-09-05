@@ -70,7 +70,7 @@ Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encr
 
 ### Monitoring
 
-In a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md). Define the specific metrics to track, such as the storage capacity that each tenant uses or the number of operations performed for each tenant's data. You can also use [cost allocation](../approaches/cost-management-allocation.yml) to track the cost of each tenant's usage and enable chargeback across multiple subscriptions.
+In a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md). Define the specific metrics to track, such as the storage capacity that each tenant uses or the number of operations performed for each tenant's data. You can also use [cost allocation](../approaches/cost-management-allocation.md) to track the cost of each tenant's usage and enable chargeback across multiple subscriptions.
 
 Azure Storage provides [built-in monitoring capabilities](/azure/storage/blobs/monitor-blob-storage). Consider the services that you plan to use within the Storage account. For example, when you use [blobs](/azure/storage/blobs/monitor-blob-storage-reference), you can view the total capacity of a storage account but not a single container. When you use file shares, you can view the capacity for each share but not each folder.
 
@@ -232,4 +232,4 @@ Other contributors:
 
 ## Related resource
 
-- [Storage and data approaches for multitenancy](../approaches/storage-data.yml)
+- [Storage and data approaches for multitenancy](../approaches/storage-data.md)

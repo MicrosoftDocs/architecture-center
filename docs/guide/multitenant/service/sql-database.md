@@ -81,5 +81,5 @@ Other contributors:
 
 ## Related resources
 
-- [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.yml).
+- [Architectural approaches for storage and data in multitenant solutions](../approaches/storage-data.md).
 - [Data partitioning strategies for SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)

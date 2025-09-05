@@ -11,6 +11,9 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Migrate an Oracle database to OD@A Exadata Database Service
 azureCategories:
   - databases

@@ -189,7 +189,7 @@ You can configure security options for your Azure connection in different ways, 
 
 ExpressRoute operates in layer 3. You can provide protection from threats in the application layer by using a network security appliance that restricts traffic to legitimate resources.
 
-To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
+To improve security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
 
 ![Diagram that shows adding security devices to the on-premises network.](../_images/guidance-hybrid-network-expressroute/figure3.png)
 
@@ -197,7 +197,7 @@ For auditing or compliance, you might need to block direct internet access for c
 
 ![Diagram that shows using forced tunneling to audit internet-bound traffic.](../_images/guidance-hybrid-network-expressroute/figure4.png)
 
-To maximize security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
+To improve security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
 
 If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
 
@@ -242,7 +242,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Configure [Connection Monitor](/azure/expressroute/how-to-configure-connection-monitor) to detect network issues by identifying where along the network path the problem is and help you resolve configuration or hardware failures.
 - Consider configuring [Dynamic Routing](/azure/expressroute/expressroute-routing#dynamic-route-exchange) over the eBGP protocol to allow for more efficient and flexible routing, ensuring optimal path selection and automatic updates to route tables in response to network changes.
-- Configure [Traffic Collector for ExpressRoute](/azure/expressroute/how-to-configure-traffic-collector) and [ExpressRoute Insights with Network Insights](/azure/expressroute/expressroute-network-insights) for near-real time performance and network health metrics.
+- Configure [Traffic Collector for ExpressRoute](/azure/expressroute/how-to-configure-traffic-collector) and [ExpressRoute Insights with Network Insights](/azure/expressroute/expressroute-network-insights) for near real time performance and network health metrics.
 
 For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 

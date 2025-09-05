@@ -105,11 +105,11 @@ Use SQL machine learning when you need built-in AI and predictive analytics on r
 
 ## Azure AI Foundry
 
-Azure AI Foundry is a unified platform that you can use to develop and deploy generative AI applications and Azure AI APIs responsibly. It provides a comprehensive set of AI capabilities, a simplified user interface, and code-first experiences. These features make it a comprehensive platform for building, testing, deploying, and managing intelligent solutions. 
+Azure AI Foundry is a unified platform that you can use to develop and deploy generative AI applications and Azure AI APIs responsibly. It provides a comprehensive set of AI capabilities, a simplified user interface, and code-first experiences. These features make it a comprehensive platform for building, testing, deploying, and managing intelligent solutions.
 
 Azure AI Foundry helps developers and data scientists efficiently create and deploy generative AI applications by using Azure AI offerings. It emphasizes responsible AI development and embeds principles of fairness, transparency, and accountability. The platform includes tools for bias detection, interpretability, and privacy-preserving machine learning. These tools help ensure that AI models are powerful, trustworthy, and compliant with regulatory requirements.
 
-As part of the Microsoft Azure ecosystem, Azure AI Foundry provides robust tools and services that cater to various AI and machine learning needs, including natural language processing and computer vision. Its integration with other Azure services helps ensure seamless scalability and performance, which makes it an ideal option for enterprises. 
+As part of the Microsoft Azure ecosystem, Azure AI Foundry provides robust tools and services that cater to various AI and machine learning needs, including natural language processing and computer vision. Its integration with other Azure services helps ensure scalability and performance, which makes it an ideal option for enterprises.
 
 The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collaboration and innovation by providing features like shared workspaces, version control, and integrated development environments. By integrating popular open-source frameworks and tools, Azure AI Foundry accelerates the development process so that organizations can drive innovation and stay ahead in the competitive AI landscape.
 
@@ -147,7 +147,7 @@ For a comprehensive comparison of Machine Learning studio and the [Azure AI Foun
 
 ## Microsoft Fabric
 
-[Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need. It integrates various services and tools to provide a seamless experience for data professionals, including data engineers, data scientists, and business analysts. Fabric provides capabilities for data integration, data engineering, data warehousing, data science, real-time analytics, and business intelligence.
+[Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need. It integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts. Fabric provides capabilities for data integration, data engineering, data warehousing, data science, real-time analytics, and business intelligence.
 
 Use Fabric when you need a comprehensive platform to manage your entire data lifecycle from ingestion to insights.
 
@@ -156,7 +156,7 @@ Use Fabric when you need a comprehensive platform to manage your entire data lif
 |**Type**                   |Unified analytics platform|
 |**Supported languages**    |- Python<br>- R<br>- SQL<br>- Scala|
 |**Machine learning phases**|- Data preparation<br>- Model training<br>- Deployment<br>- Real-time analytics|
-|**Key benefits**           |- Unified platform for all data and analytics needs<br>- Seamless integration with other Microsoft services<br>- Scalable and flexible<br>- Supports a wide range of data and analytics tools<br>- Facilitates collaboration across different roles in an organization<br>- End-to-end data lifecycle management from ingestion to insights<br>- Real-time analytics and business intelligence capabilities<br>- Machine learning model training and deployment support<br>- Integration with popular machine learning frameworks and tools<br>- Tools for data preparation and feature engineering<br>- Real-time machine learning inference and analytics|
+|**Key benefits**           |- Unified platform for all data and analytics needs<br>- Integration with other Microsoft services<br>- Scalable and flexible<br>- Supports a wide range of data and analytics tools<br>- Facilitates collaboration across different roles in an organization<br>- End-to-end data lifecycle management from ingestion to insights<br>- Real-time analytics and business intelligence capabilities<br>- Machine learning model training and deployment support<br>- Integration with popular machine learning frameworks and tools<br>- Tools for data preparation and feature engineering<br>- Real-time machine learning inference and analytics|
 
 ## Azure Data Science Virtual Machine
 
@@ -181,7 +181,7 @@ Use Azure Databricks when you want to collaborate on building machine learning s
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |- Python<br>- R<br>- Scala<br>- SQL|
 |**Machine learning phases**|- Data preparation<br>- Data preprocessing<br>- Model training<br>- Model tuning<br>- Model inference<br>- Management<br>- Deployment|
-|**Key benefits**| - One-click setup and streamlined workflows for easy use<br>- Interactive workspace for collaboration<br>- Seamless integration with Azure<br>- Scalability to handle large datasets and intensive computations<br>- Support for various languages and integration with popular tools|
+|**Key benefits**| - One-click setup and streamlined workflows for easy use<br>- Interactive workspace for collaboration<br>- Scalability to handle large datasets and intensive computations<br>- Support for various languages and integration with popular tools|
 
 ## ML.NET
 
@@ -213,9 +213,9 @@ Use AI for Windows apps when you want to use trained machine learning models wit
 
 ## SynapseML
 
-[SynapseML](https://aka.ms/spark/), formerly known as MMLSpark, is an open-source library that simplifies the creation of massively scalable machine learning pipelines. SynapseML provides APIs for various machine learning tasks, such as text analytics, vision, and anomaly detection. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML and MLlib libraries, so you can seamlessly embed SynapseML models into existing Apache Spark workflows.
+[SynapseML](https://aka.ms/spark/), formerly known as MMLSpark, is an open-source library that simplifies the creation of massively scalable machine learning pipelines. SynapseML provides APIs for various machine learning tasks, such as text analytics, vision, and anomaly detection. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML and MLlib libraries, so you can embed SynapseML models into existing Apache Spark workflows.
 
-SynapseML adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [Local Interpretable Model-Agnostic Explanations](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Azure Cosmos DB](/azure/cosmos-db/spark-connector).
+SynapseML adds many deep learning and data science tools to the Spark ecosystem, including integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [Local Interpretable Model-Agnostic Explanations](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Azure Cosmos DB](/azure/cosmos-db/spark-connector).
 
 SynapseML also provides networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [AI services](https://azure.microsoft.com/products/ai-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput and submillisecond latency web services that are backed by your Spark cluster.
 
