@@ -81,7 +81,7 @@ The following key technologies implement this workload. For each component in th
 
 - [Data Activator](/fabric/data-activator/data-activator-introduction) is a no-code automation tool that responds to data patterns and conditions. In this architecture, it monitors telemetry data and triggers actions such as alerts or Power Automate flows when data meets predefined conditions.
 
-- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that supports MQTT and other protocols. In this architecture, it distributes telemetry and file upload events from vehicles to downstream services like Azure Functions and the lakehouse. Vehicles can use Event Grid to publish and subscribe to topics, for example they can publish telemetry and subscribe to command and control messages.  
+- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that supports MQTT and other protocols. In this architecture, it distributes telemetry and file upload events from vehicles to downstream services like Azure Functions and the lakehouse. Vehicles can use Event Grid to publish and subscribe to topics. For example, they can publish telemetry and subscribe to command and control messages. 
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs/reliability) is a real-time data streaming platform designed for high-throughput scenarios. In this architecture, it ingests millions of vehicle telemetry events per second with low latency for real-time processing.
 
