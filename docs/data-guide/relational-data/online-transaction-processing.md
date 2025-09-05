@@ -40,8 +40,6 @@ Transactional data tends to have the following traits:
 | Workload | Heavy writes, moderate reads |
 | Indexing | Primary and secondary indexes |
 | Datum size | Small to medium sized |
-| Model | Relational |
-| Data shape | Tabular |
 | Query flexibility | Highly flexible |
 | Scale | Small (MBs) to Large (a few TBs) |
 
@@ -55,9 +53,9 @@ OLTP systems are designed to efficiently process and store transactions, and que
 
 Implementing and using an OLTP system can create a few challenges:
 
-- OLTP systems aren't always good for handling aggregates over large amounts of data, although there are exceptions, such as a well-planned SQL Server-based solution. Analytics against the data that rely on aggregate calculations over millions of individual transactions, are very resource intensive for an OLTP system. They can be slow to execute and can cause a slow-down by blocking other transactions in the database.
+- OLTP systems aren't always good for handling aggregates over large amounts of distributed data, although there are exceptions, such as a well-planned schema. Analytics against the data, that rely on aggregate calculations over millions of individual transactions, are very resource intensive for an OLTP system. They can be slow to execute and can cause a slow-down by blocking other transactions in the database.
 
-- When conducting analytics and reporting on data that is highly normalized, the queries tend to be complex, because most queries need to denormalize the data by using joins. Also, naming conventions for database objects in OLTP systems tend to be terse and succinct. The increased normalization coupled with terse naming conventions makes OLTP systems difficult for business users to query, without the help of a DBA or data developer.
+- When conducting analytics and reporting on data that is highly normalized, the queries tend to be complex, because most queries need to denormalize the data by using joins, making it difficult for business users to query, without the help of a DBA or data developer.
 
 - Storing the history of transactions indefinitely and storing too much data in any one table can lead to slow query performance, depending on the number of transactions stored. The common solution is to maintain a relevant window of time (such as the current fiscal year) in the OLTP system and offload historical data to other systems, such as a data mart or [data warehouse](./data-warehousing.yml).
 
@@ -65,7 +63,7 @@ Implementing and using an OLTP system can create a few challenges:
 
 Applications such as websites hosted in [App Service Web Apps](/azure/app-service/app-service-web-overview), REST APIs running in App Service, mobile or desktop applications typically communicate with the OLTP system via a REST API intermediary.
 
-In practice, most workloads aren't purely OLTP. There tends to be an analytical component as well. In addition, there's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as hybrid transactional/analytical processing (HTAP) (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
+In practice, most workloads aren't purely OLTP. There tends to be an analytical component as well. In addition, workloads often need real-time reporting, such as running reports against the operational system. This is also referred to as hybrid transactional/analytical processing (HTAP) (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
 
 In Azure, all of the following data stores meet the core requirements for OLTP and the management of transaction data:
 
@@ -95,6 +93,8 @@ To narrow the choices, start by answering these questions:
 - Does your workload require guaranteed ACID transactions? If working with non-relational data, consider Azure Cosmos DB, which provides ACID guarantees through transactional batch operations within a logical partition.
 
 - Does your database have specific security needs? If yes, examine the options that provide capabilities like row level security, data masking, and transparent data encryption.
+
+- Does your solution require distributed transactions? If yes, consider elastic transactions within Azure SQL Database and SQL Managed Instance. SQL Managed Instance also supports traditional calls through the Microsoft Distributed Transaction Coordinator (MSDTC)
 
 ## Next steps
 
