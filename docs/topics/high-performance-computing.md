@@ -334,13 +334,6 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
-## Customer stories
-
-There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
-
-- [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
-- [Microsoft Research](https://www.microsoft.com/research/video/fast-lmm-and-windows-azure-put-genetics-research-on-faster-track/)
-
 ## Other important information
 
 - Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
