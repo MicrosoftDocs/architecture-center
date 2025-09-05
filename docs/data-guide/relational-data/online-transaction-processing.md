@@ -19,7 +19,7 @@ Transactional data is information that tracks the interactions related to an org
 
 Transactions typically need to be *atomic* and *consistent*. Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state. If a transaction can't be completed, the database system must roll back any steps that were already done as part of that transaction. In a traditional relational database management system (RDBMS), this rollback happens automatically if a transaction can't be completed. Consistency means that transactions always leave the data in a valid state. (These transactions are informal descriptions of atomicity and consistency. There are more formal definitions of these properties, such as [ACID](https://en.wikipedia.org/wiki/ACID).)
 
-Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is consistent within the context of the enterprise, for all users and processes.
+Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is consistent within the context of the workload, for all users and processes.
 
 The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.yml) architecture, which can have multiple middle-tiers handling business logic.
 
