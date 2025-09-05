@@ -14,11 +14,11 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 1. Firewall
    - The firewall can be any layer 3 or layer 7 firewall. 
      - Azure Firewall and some third-party firewalls, also known as Network Virtual Appliances (NVAs), are layer 3 firewalls. 
-     - Azure Application Gateway with Web Application Firewall (WAF) and Azure Front Door with WAF are layer 7 firewalls. 
-     - This article provides deployment solutions for Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF deployments.
+     - Azure Application Gateway with Web Application Firewall and Azure Front Door with Web Application Firewall are layer 7 firewalls. 
+     - This article provides deployment solutions for Azure Firewall, Application Gateway with Web Application Firewall, and Azure Front Door with Web Application Firewall deployments.
    - The firewall enforces policies, collects metrics, and logs connection transactions between web services and the users and services that access the web services.
 1. Firewall logs
-   - Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF send logs to the Log Analytics workspace.
+   - Azure Firewall, Application Gateway with Web Application Firewall, and Azure Front Door with Web Application Firewall send logs to the Log Analytics workspace.
    - Third-party firewalls send logs in Syslog format to the Log Analytics workspace via a Syslog forwarder virtual machine.
 1. Log Analytics workspace
    - The Log Analytics workspace is a repository for logs.
@@ -33,9 +33,9 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
   - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a network firewall security service that provides enhanced threat protection for cloud workloads that run on Azure. It's a stateful, managed firewall that has built-in high availability and unrestricted cloud scalability. It includes Standard and Premium performance tiers. Azure Firewall Premium includes the functionality of Azure Firewall Standard and provides extra features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS). In this architecture, Azure Firewall can serve as a layer-3 firewall that enforces policies, inspects traffic, and logs transactions to support TIC 3.0 compliance.
 
-  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that includes a web application firewall. WAF provides enhanced centralized protection of web applications. In this architecture, Application Gateway can manage and secure inbound web traffic, which protects applications from common exploits and logs traffic for compliance.
+  - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) with [Web Application Firewall](/azure/web-application-firewall/overview) is a regional web traffic load balancer that includes a web application firewall. Web Application Firewall provides enhanced centralized protection of web applications. In this architecture, Application Gateway can manage and secure inbound web traffic, which protects applications from common exploits and logs traffic for compliance.
 
-  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that includes content delivery network capabilities and integrated WAF. In this architecture, Azure Front Door can accelerate and secure global application access while logging traffic for centralized analysis and compliance. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities.
+  - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) with [Web Application Firewall](/azure/web-application-firewall/overview) is a global web traffic load balancer that includes content delivery network capabilities and integrated Web Application Firewall. In this architecture, Azure Front Door can accelerate and secure global application access while logging traffic for centralized analysis and compliance. Web Application Firewall provides enhanced centralized protection of your web applications from common exploits and vulnerabilities.
 
   - A non-Microsoft firewall is an NVA that runs on an Azure virtual machine and uses firewall services from partner vendors. Microsoft supports a large ecosystem of partner vendors that provide firewall services. In this architecture, a non-Microsoft firewall can provide customizable firewall services and export logs via Syslog to a forwarder virtual machine for ingestion into the Log Analytics workspace.
 
@@ -58,14 +58,14 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 There are a few alternatives that you can use in these solutions:
 
 - You can separate log collection into areas of responsibility. For example, you can send Microsoft Entra logs to a Log Analytics workspace that's managed by the identity team, and send network logs to a different Log Analytics workspace that's managed by the network team.
-- The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with WAF. Logs for each firewall must be collected and made available for CISA TALON to collect.
+- The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with Web Application Firewall. Logs for each firewall must be collected and made available for CISA TALON to collect.
 - If your environment requires internet egress from Azure-based virtual machines, you can use a layer 3 solution like Azure Firewall or a third-party firewall to monitor and log the outbound traffic.
 
 ## Scenario details
 
 TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2.x, you need to access Azure applications via a TIC 2.x Managed Trusted Internet Protocol Service (MTIPS) device, which slows down the response.
 
-Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with WAF, Application Gateway with WAF, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
+Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with Web Application Firewall, Application Gateway with Web Application Firewall, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
 CLAW is a CISA managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that are managed by government agencies to pull agency firewall and  Microsoft Entra logs into CISA CLAW.
 
@@ -103,7 +103,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - When you register an enterprise application, a service principal is created. Use a naming scheme for service principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
-- Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
+- Azure Firewall has standard policies. web application firewalls (WAFs) associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
 - Event Hubs access is authorized via Microsoft Entra managed identities and a certificate that's provided by CISA.
 
 ### Cost Optimization
