@@ -278,7 +278,7 @@ Chat architectures contain stateful components, so DR planning is essential. The
 
 For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
-The following recommendations address DR for each service:
+The following recommendations help address DR concerns:
 
 - **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat threads. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
@@ -291,6 +291,10 @@ The following recommendations address DR for each service:
 - **Transactional consistency:** If the state store in your workload references Azure AI agent identifiers, such as thread IDs or agent IDs, coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the AI Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
+
+- **AI Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project if it's been accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host.
+
+As an added preventative measure for the Azure AI Foundry agent service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against the AI Search, Cosmos DB, and Storage resources from being accidentally deleted.
 
 Before you move to production, build a recovery runbook that addresses failures in both application-owned state and agent-owned state.
 
