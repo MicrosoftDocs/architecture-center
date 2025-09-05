@@ -64,12 +64,6 @@ This scenario uses the following components:
 - [Power BI Premium](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow.
 
-### Simplified architecture
-
-:::image type="complex" source="./media/enterprise-bi-small-architecture.png" border="false" lightbox="./media/enterprise-bi-small-architecture.png" alt-text="Diagram that shows the enterprise BI simplified architecture.":::
-The diagram shows a dataflow where Azure Synapse Analytics pipelines ingest relational databases. Azure Synapse Analytics dedicated SQL pools store the data. Power BI Premium serves the data. The data outputs to business users and analytics.
-:::image-end:::
-
 ## Scenario details
 
 In this scenario, an organization has an SQL database that contains a large on-premises data warehouse. The organization wants to use Microsoft Fabric to perform ingestion, analysis, and deliver these analytic insights via Power BI to end users.
