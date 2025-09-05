@@ -6,7 +6,7 @@ This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics
 
 - Microsoft Fabric Mirroring/COPY Job for SQL Server to ingest data in a low-code GUI based process for full and incremental loads. This service is a cost effective managed process for continuous ingestion of data into OneLake via Mirroring or highly scalable ingestion through COPY JOB.
 
-- Microsoft Fabric Real Time Intelligence Eventstreams for event driven real time ingestion framework for SQL Server CDC source processes.
+- Microsoft Fabric Real Time Intelligence Eventstreams for event driven real time ingestion framework for SQL Server CDC(Change Data Capture) source processes.
 
 ## When to use this architecture
 
