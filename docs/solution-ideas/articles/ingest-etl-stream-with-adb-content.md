@@ -66,7 +66,7 @@ This solution is inspired by the system that Providence Health Care built for re
 
 ## Next steps
 
-- [Spanish Point Technologies](https://customers.microsoft.com/story/861222-spanish-point-technologies-professional-services-azure) builds its Matching Engine using Azure Databricks and Azure Data Factory to ingest data at scale to help musicians get paid fairly.
+- [Build an ETL pipeline with Lakeflow Declarative Pipelines](/azure/databricks/getting-started/data-pipeline-get-started)
 
 ## Related resources
 
