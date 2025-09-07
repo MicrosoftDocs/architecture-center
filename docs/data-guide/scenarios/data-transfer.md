@@ -67,7 +67,9 @@ Consider the following options if you're only transferring a few files or data o
 
 - [Azure Data Factory](/azure/data-factory) is a managed service best suited for regularly transferring files between many Azure services, on-premises systems, or a combination of the two. By using Data Factory, you can create and schedule data-driven workflows called pipelines that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. You can create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
 
-- [Pipelines and activities](/azure/data-factory/concepts-pipelines-activities) in Data Factory and Azure Synapse Analytics can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, the [Azure Data Factory integration runtime](/azure/data-factory/concepts-integration-runtime) is used to provide data integration capabilities across different network environments.
+- [Data Factory in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-factory/) is a modern, unified data integration platform that enables you to orchestrate and automate data movement and transformation across cloud and hybrid environments. It allows you to build and schedule data-driven workflows (pipelines) that ingest data from a wide range of sources—including cloud storage, databases, and on-premises systems. These pipelines support diverse activities such as data movement, transformation, and control flow, and can leverage compute engines like Spark and SQL within Fabric workloads. With native integration into OneLake, Fabric ensures unified data access, governance, and collaboration across the entire data estate. 
+
+- [Pipelines and activities](/azure/data-factory/concepts-pipelines-activities) in Azure Data Factory and Data factory in Microsoft Fabric can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, Azure Data Factory’s [integration runtime](https://learn.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime) and Microsoft Fabric’s [on-premises data gateway](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem) and [virtual network (VNet) data gateway](https://learn.microsoft.com/en-us/data-integration/vnet/overview) provide secure data integration capabilities across diverse network environments, including cloud, on-premises, and virtual networks.
 
 - [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) transfers data to and from Azure, but it's a virtual appliance, not a hard drive. Virtual machines residing in your on-premises network write data to Data Box Gateway by using the Network File System (NFS) and SMB protocols. The device then transfers your data to Azure.
 
@@ -166,6 +168,7 @@ Principal author:
 - [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 - [Get started with Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [What is Data Factory in Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview)
 - [What is Azure Data Box Gateway?](/azure/databox-gateway/data-box-gateway-overview)
 
 ## Related resources
