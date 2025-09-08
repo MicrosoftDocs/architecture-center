@@ -1,8 +1,8 @@
-The cache-aside pattern enables loading data on demand into a cache from a data store. This pattern can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+Load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
 ## Context and problem
 
-Applications use a cache to improve repeated access to information held in a data store. However, it is unrealistic to expect cached data to always be consistent with the data store. Applications should implement a strategy that helps ensure that the data in the cache is as up-to-date as possible. The strategy should also be able to detect when cached data becomes stale and handle it appropriately.
+Applications use a cache to improve repeated access to information held in a data store. However, it's unrealistic to expect cached data to always be consistent with the data store. Applications should implement a strategy that helps ensure that the data in the cache is as up-to-date as possible. The strategy should also be able to detect when cached data becomes stale and handle it appropriately.
 
 ## Solution
 
@@ -14,7 +14,7 @@ An application can emulate the functionality of read-through caching by implemen
 
 ![Using the Cache-Aside pattern to read and store data in the cache](./_images/cache-aside-diagram.svg)
 
-1. The application determines whether the item is currently held in the cache.
+1. The application determines whether the item is currently held in the cache by attempting to read from the cache.
 2. If the item isn't current in the cache (a cache miss), the application retrieves the item from the data store.
 3. The application adds the item to the cache, and then returns it to the caller.
 
