@@ -13,43 +13,43 @@ ms.custom: arb-devops
 
 [Azure Sandbox](/azure/architecture/guide/azure-sandbox/azure-sandbox) is a Terraform-based project designed to simplify the deployment of sandbox environments in Azure. It provides a modular and reusable framework for implementing foundational infrastructure, which can accelerate the development of innovative new solutions in Azure.
 
-The Azure Sandbox is composed of modular components that can be deployed individually or together, depending on your needs. Because a fully provisioned environment might be costly (the costs vary depending on your Azure subscription type and region), you can manage expenses by stopping or deallocating virtual machines (VMs) when not in use or by deploying only the following modules that are essential for your scenario.
+The Azure Sandbox is composed of modular components that you can deploy individually or together, depending on your needs. Because a fully provisioned environment might be costly, you can manage expenses by stopping or deallocating virtual machines (VMs) when not in use or by deploying only the following modules that are essential for your scenario. Costs vary depending on your Azure subscription type and region.
   
 ## Architecture
 
 :::image type="complex" border="false" source="images/create-azure-sandbox.svg" alt-text="Diagram that shows the Azure Sandbox environment." lightbox="images/create-azure-sandbox.svg":::
-   The diagram contains multiple sections arranged vertically. The top section shows an Azure subscription boundary. Below that are two rectangles side by side within the subscription and three smaller rectangles near the bottom. The left rectangle labeled vnet-shared-01 (10.1.0.0/16) contains Azure Bastion host, Azure Firewall, adds1, and vault icons. The right rectangle is labeled vnet-app-01 (10.2.0.0/16) and contains jumpwin1, jumplinux1, mssqlwin1, and Azure Storage account icons. A bidirectional arrow labeled Peering connects the two rectangles. Below these are database service icons: sqlServer and mysqlServer. At the center is a Virtual WAN icon with vwan-xx and vhub-xx labels. At the bottom is a point-to-site VPN element. Dashed arrows connect the Virtual WAN to both virtual network rectangles. Extra arrows connect the database icons to the right rectangle.
+   The diagram contains multiple sections arranged vertically. The top section shows an Azure subscription boundary. Inside that is a rectangle that encloses most of the image elements that reads rg-sandbox-01. Automation account and Log Analytics workspace are included in this section. There are two rectangles within the subscription and three smaller rectangles near the bottom. The left rectangle labeled vnet-shared-01 (10.1.0.0/16) contains Azure Bastion host, Azure Firewall, adds1, and vault icons. The right rectangle is labeled vnet-app-01 (10.2.0.0/16) and contains jumpwin1, jumplinux1, mssqlwin1, and Azure Storage account icons. A bidirectional arrow labeled Peering connects the left and right rectangles. A line labeled Public IP address connects Bastion host to the cloud icon. A line labeled Public IP address connects Firewall to the cloud icon. A line labeled Point-to-site VPN connects vwan-xx (10.3.0./16) to the cloud icon. A bidirectional arrow connects Key vault and the vault icon. A bidirectional arrow connects adds1 and vwan-xx (10.3.0./16). At the bottom are three rectangles that contain icons labeled vhub-xx (10.4.0.0/16), testdb (SQL), and testdb (My). Peering arrows connect these boxes to the vnet-app-01 (10.2.0.0/16) section. A bidirectional arrow connects the snet-privatelink-01 (10.2.2.0/24) section to Storage account.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
 
 ### Components
 
-You can deploy each of the following sandbox configurations or only the ones that you need:
+You can deploy each of the following sandbox configurations or only the configurations that you need:
 
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is a Windows Server VM that runs Active Directory Domain Services (AD DS). In this architecture, it provides centralized authentication, domain joining for VMs, and policy management across the sandbox environment.
 
 - [Application virtual network](/azure/virtual-network/virtual-networks-overview) is a separate virtual network that hosts application workloads and databases. In this architecture, it provides network isolation for test applications while enabling secure communication with shared services through virtual network peering.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides secure RDP and SSH access to VMs without public IP addresses. In this architecture, it enables secure remote access to sandbox VMs directly through the Azure portal while minimizing the attack surface.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without public IP addresses. In this architecture, it enables secure remote access to sandbox VMs directly through the Azure portal while minimizing the attack surface.
 
 - [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) is a managed MySQL database service with private networking support. In this architecture, it provides a database platform for testing open-source applications while demonstrating private endpoint connectivity patterns.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service accessible via SMB protocol. In this architecture, it provides shared storage for both Windows and Linux VMs; hosting scripts and configuration files.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service accessible via Server Message Block (SMB) protocol. In this architecture, it provides shared storage for both Windows and Linux VMs while hosting scripts and configuration files.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native firewall service with threat intelligence. In this architecture, it controls traffic between virtual networks and the internet, enforcing network segmentation and security policies across the sandbox environment.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native firewall service that provides threat intelligence. In this architecture, it controls traffic between virtual networks and the internet, which enforces network segmentation and security policies across the sandbox environment.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database service. In this architecture, it demonstrates modern cloud-native database patterns and is accessed via private endpoints to simulate secure enterprise architectures.
 
-- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides secure remote connectivity. In this architecture, it offers point-to-site VPN access for developers and administrators who need full network connectivity to sandbox resources from remote locations.
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides secure remote connectivity. In this architecture, it provides point-to-site VPN access for developers and administrators who need full network connectivity to sandbox resources from remote locations.
 
 - [Linux jump box](/azure/virtual-machines/linux/overview) is a domain-joined Linux VM preloaded with DevOps tools including Azure CLI, PowerShell, and Terraform. In this architecture, it serves as a DevOps automation platform and demonstrates cross-platform domain integration scenarios.
 
-- [Shared services virtual network](/azure/virtual-network/virtual-networks-overview) is a dedicated virtual network that hosts centralized infrastructure services. In this architecture, it provides the network foundation for domain controllers, DNS services, and shared security services that support the entire sandbox environment.
+- [Shared services virtual network](/azure/virtual-network/virtual-networks-overview) is a dedicated virtual network that hosts centralized infrastructure services. In this architecture, it provides the network foundation for domain controllers, Domain Name System (DNS) services, and shared security services that support the entire sandbox environment.
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
-- [Windows Server jump box](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox/) is a domain-joined Windows VM with administrative tools including RSAT, Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
+- [Windows Server jump box](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM with administrative tools that include Remote Server Administration Tools (RSAT), Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 
 ## Deploy the sandbox
 
@@ -59,7 +59,7 @@ The Azure Sandbox environment requires the following prerequisites:
 
 - An [Azure subscription](https://azure.microsoft.com/support/legal/offer-details)
 
-- The appropriate [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) role assignments
+- The appropriate [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) role assignments
 
 - A [service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -69,7 +69,7 @@ For more information about how to prepare for a sandbox deployment, see [Prerequ
 
 To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone), consider the following strategies:
 
-- Place the sandbox subscription in the *Sandboxes* management group.
+- Place the sandbox subscription in the **Sandboxes** management group.
 - Keep the sandbox isolated from your private network.
 - Audit sandbox subscription activity.
 - Limit sandbox access, and remove access when it's no longer required.
@@ -82,7 +82,7 @@ To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Sampl
 
 ## Use cases
 
-A sandbox is ideal for accelerating Azure projects. After you deploy your sandbox environment, you can add services and capabilities. You can use the sandbox for activities like:
+A sandbox is ideal for accelerating Azure projects. After you deploy your sandbox environment, you can add services and capabilities. You can use the sandbox for various activities:
 
 - Self-learning
 - Hackathons
@@ -97,7 +97,7 @@ A sandbox is ideal for accelerating Azure projects. After you deploy your sandbo
 
 ## Capabilities
 
-Foundational prerequisites can block experimentation with specific Azure services or capabilities. A sandbox environment can accelerate your project by provisioning many of the mundane core infrastructure components. You can focus on the services or capabilities that you need to work with.
+Foundational prerequisites can block experimentation with specific Azure services or capabilities. A sandbox environment can accelerate your project by provisioning many of the mundane core infrastructure components. You can focus on the services or capabilities relevant to your scenario.
 
 For example, you can use the following capabilities and configurations that the Azure Sandbox environment provides.
 
@@ -109,7 +109,7 @@ For example, you can use the following capabilities and configurations that the 
   
 - Use a preconfigured Active Directory Domain Services local domain as a domain administrator.
 
-  - Preconfigured integrated Domain Name System (DNS) server
+  - Preconfigured integrated DNS server
 
   - Preconfigured integration with Azure private DNS zones
 
@@ -121,11 +121,11 @@ For example, you can use the following capabilities and configurations that the 
 
   - Domain joined to local domain
 
-  - Administer Active Directory and DNS with preinstalled Windows Server Remote Server Administration Tools (RSAT)
+  - Administer Active Directory and DNS with preinstalled Windows Server RSAT
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
-  - Azure Storage Explorer, AzCopy, and Azure Data Studio preinstalled
+  - Storage Explorer, AzCopy, and Azure Data Studio preinstalled
 
   - SQL Server Management Studio preinstalled
 
