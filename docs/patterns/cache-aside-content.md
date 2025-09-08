@@ -6,7 +6,7 @@ Applications use a cache to improve repeated access to information held in a dat
 
 ## Solution
 
-Many commercial caching systems provide read-through and write-through/write-behind operations. In these systems, an application retrieves data by referencing the cache. If the data is not in the cache, the application retrieves it from the data store and adds it to the cache. Any modifications to data held in the cache are automatically written back to the data store as well.
+Many commercial caching systems provide read-through and write-through/write-behind operations. In these systems, an application retrieves data by referencing the cache. If the data isn't in the cache, the application retrieves it from the data store and adds it to the cache. Any modifications to data held in the cache are automatically written back to the data store as well.
 
 For caches that don't provide this functionality, it's the responsibility of the applications that use the cache to maintain the data.
 
@@ -15,7 +15,7 @@ An application can emulate the functionality of read-through caching by implemen
 ![Using the Cache-Aside pattern to read and store data in the cache](./_images/cache-aside-diagram.svg)
 
 1. The application determines whether the item is currently held in the cache.
-2. If the item is not current in the cache (a cache miss), the application retrieves the item from the data store.
+2. If the item isn't current in the cache (a cache miss), the application retrieves the item from the data store.
 3. The application adds the item to the cache, and then returns it to the caller.
 
 If an application updates information, it can follow the write-through strategy by making the modification to the data store, and by invalidating the corresponding item in the cache.
@@ -26,15 +26,15 @@ When the item is needed again, the cache-aside strategy retrieves the updated da
 
 Consider the following points when deciding how to implement this pattern:
 
-**Lifetime of cached data**. Many caches implement an expiration policy that invalidates data and removes it from the cache if it's not accessed for a specified period. For cache-aside to be effective, ensure that the expiration policy matches the pattern of access for applications that use the data. Don't make the expiration period too short because premature expiration can cause applications to continually retrieve data from the data store and add it to the cache. Similarly, don't make the expiration period so long that the cached data is likely to become stale. Remember that caching is most effective for relatively static data, or data that is read frequently.
+**Lifetime of cached data**. Many caches use an expiration policy to invalidate data and remove it from the cache if it isn't accessed for a set period. For cache-aside to be effective, ensure that the expiration policy matches the pattern of access for applications that use the data. Don't make the expiration period too short because premature expiration can cause applications to continually retrieve data from the data store and add it to the cache. Similarly, don't make the expiration period so long that the cached data is likely to become stale. Remember that caching is most effective for relatively static data, or data that is read frequently.
 
 **Evicting data**. Most caches have a limited size compared to the data store where the data originates. If the cache exceeds its size limit, it evicts data. Most caches adopt a least-recently-used policy for selecting items to evict, but it might be customizable.
 
-**Configuration**. Cache configuration can be set both globally and per cached item. for example, a single global eviction policy might not suit all items. This might be the case if an item is expensive to retrieve. In this situation it might be worth keeping in the cache even if it’s accessed less often than cheaper items.
+**Configuration**. Cache configuration can be set both globally and per cached item. A single global eviction policy might not suit all items. A configuration on a cache item might be appropriate if an item is expensive to retrieve. In this situation, it makes sense to keep the item in the cache, even if it's accessed less often than cheaper items.
 
 **Priming the cache**. Many solutions prepopulate the cache with the data that an application is likely to need as part of the startup processing. The Cache-Aside pattern can still be useful if some of this data expires or is evicted.
 
-**Consistency**. Implementing the Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. An item in the data store can be changed at any time by an external process. This change won't appear in the cache until the item is loaded again. In a system that replicates data across data stores, this can be problematic if synchronization occurs frequently.
+**Consistency**. Implementing the Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. For example, an external process can change an item in the data store at any time. This change won't appear in the cache until the item is loaded again. In a system that replicates data across data stores, consistency can be challenging if synchronization occurs frequently.
 
 **Local (in-memory) caching**. A cache could be local to an application instance and stored in-memory. Cache-aside can be useful in this environment if an application repeatedly accesses the same data. However, a local cache is private and so different application instances could each have a copy of the same cached data. This data could quickly become inconsistent between caches, so it might be necessary to expire data held in a private cache and refresh it more frequently. In these scenarios, consider investigating the use of a shared or a distributed caching mechanism.
 
@@ -63,7 +63,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Consider using Azure Redis to create a distributed cache that can be shared by multiple by multiple instances of an application.
+Consider using Azure Redis to create a distributed cache that multiple application instances can share.
 
 This following code example uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Cache for Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
@@ -82,7 +82,7 @@ public static ConnectionMultiplexer Connection => lazyConnection.Value;
 
 The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern. This method retrieves an object from the cache using the read-through approach.
 
-An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method tries to retrieve an item with this key from the cache. If a matching item is found, the cache returns it. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that reads the data from the data store is not shown here, because it depends on the data store. The cached item is configured to expire to prevent it from becoming stale if another service or process updates it.
+An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method tries to retrieve an item with this key from the cache. If a matching item is found, the cache returns it. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that reads the data from the data store isn't shown here, because it depends on the data store. The cached item is configured to expire to prevent it from becoming stale if another service or process updates it.
 
 ```csharp
 // Set five minute expiration as a default
@@ -122,7 +122,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 
 > The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis/dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis/web-app-cache-howto).
 
-The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
+The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the application changes the value. The code updates the original data store and then removes the cached item from the cache.
 
 ```csharp
 public async Task UpdateEntityAsync(MyEntity entity)
@@ -139,7 +139,7 @@ public async Task UpdateEntityAsync(MyEntity entity)
 ```
 
 > [!NOTE]
-> The order of the steps is important. Update the data store *before* removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. In this situation, the fetch will result in a cache miss (because the item was removed from the cache). The cache miss will cause the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
+> The order of the steps is important. Update the data store *before* removing the item from the cache. If you remove the cached item first, there's a small window of time when a client might fetch the item before the data store is updated. In this situation, the fetch results in a cache miss (because the item was removed from the cache). The cache miss causes the earlier version of the item to be fetched from the data store and added back into the cache. The result is stale cache data.
 
 ## Related resources
 
@@ -149,4 +149,4 @@ The following information might be relevant when implementing this pattern:
 
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
-- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Cloud applications typically store data across multiple data stores and locations. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Cloud applications typically store data across multiple data stores and locations. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency, and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
