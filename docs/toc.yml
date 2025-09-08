@@ -769,7 +769,7 @@ items:
     - name: Guides
       items:
       - name: Azure Sandbox
-        href: guide/azure-sandbox/azure-sandbox.yml
+        href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties
