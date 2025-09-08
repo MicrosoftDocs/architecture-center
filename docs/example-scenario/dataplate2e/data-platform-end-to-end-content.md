@@ -15,7 +15,7 @@ Fabric offers data stores built on top of OneLake
 
 #### Lakehouse
 
-Use [Lakehouse]((/fabric/data-engineering/lakehouse-overview)) in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
+Use [Lakehouse](/fabric/data-engineering/lakehouse-overview)) in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
 
 #### Warehouse
 
