@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
+ai-usage: ai-assisted
 ---
 
 # Machine learning operations
@@ -246,21 +247,21 @@ The Machine Learning natural language processing architecture is based on the cl
 
 ### Components
 
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud service that you can use to train, score, deploy, and manage machine learning models at scale.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service that you can use to train, score, deploy, and manage machine learning models at scale. In this architecture, it's the primary platform for model development, deployment, monitoring, and management throughout the MLOps life cycle.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a build-and-test system that's based on Azure DevOps and is used for build and release pipelines. Azure Pipelines splits these pipelines into logical steps called *tasks*.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a build-and-test system that's based on Azure DevOps and is used for build and release pipelines. Azure Pipelines splits these pipelines into logical steps called *tasks*. In this architecture, it automates and manages CI/CD workflows to help ensure consistent deployment and testing of machine learning solutions.
 
-- [GitHub](https://github.com) is a code-hosting platform for version control, collaboration, and CI/CD workflows.
+- [GitHub](https://github.com) is a code-hosting platform. In this architecture, GitHub is the central repository for source code, version control, and collaboration. It integrates with CI/CD pipelines for automation.
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) is a platform that uses Azure Resource Manager to manage Azure resources and on-premises resources. The resources can include virtual machines, Kubernetes clusters, and databases.
+- [Azure Arc](/azure/azure-arc/overview) is a platform that uses Azure Resource Manager to manage Azure resources and on-premises resources. The resources can include virtual machines, Kubernetes clusters, and databases. In this architecture, Azure Arc provides unified management and governance for hybrid and multicloud machine learning environments.
 
-- [Kubernetes](https://kubernetes.io) is an open-source system that you can use to automate the deployment, scaling, and management of containerized applications.
+- [Kubernetes](https://kubernetes.io) is an open-source system that you can use to automate the deployment, scaling, and management of containerized applications. In this architecture, Kubernetes orchestrates containerized machine learning workloads to enable scalable, efficient, and resilient deployments.
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage. In this architecture, it stores and manages large volumes of structured and unstructured data for machine learning workflows.
 
-- [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs.
+- [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs. In this architecture, Fabric facilitates end-to-end data integration, preparation, and analytics to support the data estate component of MLOps.
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a service that ingests data streams that client applications generate. It then ingests and stores streaming data, which preserves the sequence of events received. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
 ## Other considerations
 
