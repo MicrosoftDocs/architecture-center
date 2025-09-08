@@ -1,6 +1,6 @@
 <!-- cSpell:ignore fabraga -->
 
-The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
+The solution described in this article combines the components of Microsoft Fabric that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming). 
 
 ## Architecture
 
@@ -8,232 +8,250 @@ The solution described in this article combines a range of Azure services that w
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-with-azuresynapse-updated.vsdx) of this architecture*.
 
-> [!NOTE]
->
-> - The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
-> - Specific business requirements for your analytics use case could require the use of different services or features that are not considered in this design.
-
 ### Dataflow
+
+In the following sections, OneLake is used as the home for data throughout the various stages of the data lifecycle. OneLake is the unified, enterprise-grade data lake built into Fabric that serves as a centralized storage Layer for all data workloads including Data Engineering, Data Factory, Data Science, Data Warehouse, Real-Time Intelligence, Industry solutions, Databases, and Power BI. 
+Fabric offers data stores built on top of OneLake
+
+#### [Lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview) 
+Use Lakehouse in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
+
+
+#### [Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing) 
+Use Warehouse in Microsoft Fabric when you need a high-performance, fully managed, SQL-based analytics solution to manage structured and semi-structured data by organizing data into databases, schemas, and tables. It has full T-SQL support including creation of stored procedures, views, and joins. 
+
+#### [Eventhouse](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse) 
+Use Eventhouse in Microsoft fabric for managing and analyzing real-time, high-volume event manage structured, semi-structured and unstructured data such as logs, telemetry etc. by organizing data into Databases, schemas, and tables. 
+
+#### [Fabric SQL Database](https://learn.microsoft.com/en-us/fabric/database/sql/overview) 
+Use SQL Database in Microsoft fabric when you need to unify transactional and analytical workload. Built on the same engine as Azure SQL Database, it offers full T-SQL support and is optimized for seamless integration with the broader Fabric ecosystem.  
 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
-> [!NOTE]
-> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle. Azure Data Lake is organized by different layers and containers as follows:
->
-> - The Raw layer is the landing area for data coming in from source systems. As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
-> - In the next stage of the lifecycle, data moves to the Enriched layer where data is cleaned, filtered, and possibly transformed.
-> - Data then moves to the Curated layer, which is where consumer-ready data is maintained.
->
-> Please refer to the [Data lake zones and containers](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/best-practices/data-lake-zones) documentation for a full review of Azure Data Lake layers and containers and their uses.
 
-#### Azure data services, cloud native HTAP with Azure Cosmos DB and Dataverse
+#### Azure Databases, External Data sources (Azure Databricks, Snowflake) and Relational Databases 
 
-##### Process
+##### Ingest
+1. [Mirroring](https://learn.microsoft.com/en-us/fabric/mirroring/overview) enables you to have your existing data estate replicated into OneLake near real-time requiring no complex ETL (Extract Transform Load) processes. See the list of [supported Mirroring Data Sources](https://learn.microsoft.com/en-us/fabric/mirroring/overview#types-of-mirroring). 
 
-1. [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) and [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) enable you to run near real-time analytics over operational and business application data, by using the analytics engines that are available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+2. Use options with [Data Factory pipelines](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview) with [Copy Activity](https://learn.microsoft.com/en-us/fabric/data-factory/copy-data-activity), [Copy Job](https://learn.microsoft.com/en-us/fabric/data-factory/what-is-copy-job), [Dataflows Gen2]https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview) that offers powerful data ingestion features to pull data from a wide variety of databases, both on-premises and in the cloud to include orchestration, transformation, and scheduling capabilities. Check out list of [supported connectors](https://learn.microsoft.com/en-us/fabric/data-factory/connector-overview#supported-connectors-in-fabric) in Fabric. 
 
-1. When using Azure Synapse Link for Azure Cosmos DB, use either a [SQL Serverless query](/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark). You can access the [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
-
-1. When using Azure Synapse Link for Dataverse, use either a [SQL Serverless query](/powerapps/maker/data-platform/azure-synapse-link-serverless) or a [Spark Pool notebook](/powerapps/maker/data-platform/azure-synapse-link-spark). You can access the selected Dataverse tables and then combine datasets from your near real-time business applications data with data from your data lake or from your data warehouse.
+3. [T-SQL](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-tsql) provides powerful options for loading data at scale from your existing Lakehouses and warehouses that can be used for creating new table versions with aggregated data, subset of data filtered or results of complex queries. 
 
 ##### Store
 
-1. The resulting datasets from your [SQL Serverless queries](/azure/synapse-analytics/sql/create-external-table-as-select) can be persisted in your data lake. If you are using [Spark notebooks](/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), the resulting datasets can be persisted either in your data lake or data warehouse (SQL pool).
+1. Mirroring creates a read-only replica of your source database which is continuously synchronized with the source system using near real-time replication. The data is stored in Delta Lake format within OneLake. 
 
-##### Serve
-
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization and exploration. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
-
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
-
-1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms, and web pages.
-
-#### Relational databases
-
-##### Ingest
-
-1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of databases, both on-premises and in the cloud. Pipelines can be triggered based on a pre-defined schedule, in response to an event, or can be explicitly called via REST APIs.
-
-##### Store
-
-1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
-
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
+2. From the Data Factory pipeline, use a Copy data activity or a Copy Job to stage the data copied from the relational databases into the Lakehouse or the Warehouse. The Onelake architecture with the unification on Delta Lake format offers the flexibility to implement lakehouses using either a medallion framework or a warehouse that is aligned with your organizational needs. 
 
 ##### Process
 
-1. Use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/training/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake), or [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move the datasets from the Raw layer, through the Enriched layer and into your Curated layer in your data lake.
+1. Each mirrored database includes an auto-generated SQL Endpoint, you can use T-SQL to run complex aggregations or use Spark Notebooks for data exploration. 
 
-   1. As part of your data transformations, you can invoke machine-training models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure AI services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+2. Read-only SQL analytics endpoint can also be accessed through [SQL Server Management Studio(SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms), via ODBC, any query tool using the TDS endpoint and the [mssql extension with Visual Studio Code](https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/mssql-extensions?view=fabric&preserve-view=true.) 
+
+3. Create Cross-database queries to access the data from your mirrored databases and combine the mirrored data with other Fabric data sources (e.g., Lakehouses, Warehouses). 
+
+4. Use Stored procedures to automate SQL logic for data transformations, aggregations in a Warehouse for reusability, and centralizing logic for repetitive tasks. 
+
+5. Use T-SQL to write cross-database queries to warehouses and mirrored databases within the same Fabric Workspace. 
+
+6. When Mirroring is first enabled it creates a full snapshot for the selected tables from source database. After the initial load, Fabric uses the source database’s Change Data Capture (CDC) to track inserts, updates and deletes. These changes are continuously replicated into OneLake with low latency and near real-time synchronization. You can also create shortcuts to mirrored tables in a Lakehouse and query them via Spark notebooks. 
+
+7. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls, or outliers. Once profiled and transformed, save processed data into Warehouse tables. 
+
+8. For enriching data, use [Spark Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook?toc=%2Ffabric%2Fdata-science%2Ftoc.json&bc=%2Ffabric%2Fdata-science%2Fbreadcrumb%2Ftoc.json) to load the data from Lakehouses or Warehouses. [Train or load ML Models](https://learn.microsoft.com/en-us/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](https://learn.microsoft.com/en-us/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](https://learn.microsoft.com/en-us/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
 
 ##### Serve
 
-1. You can serve your final dataset directly from the data lake Curated layer or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
+1. Creating a mirroring Database creates a mirrored SQL Database item and a [SQL Analytics Endpoint](https://learn.microsoft.com/en-us/fabric/database/mirrored-database/explore#use-the-sql-analytics-endpoint). Use the SQL analytics endpoint to run read-only queries. You can use [Data Preview](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-preview) to view data within the SQL Analytical Endpoint, or [explore directly in OneLake](https://learn.microsoft.com/en-us/fabric/database/mirrored-database/explore-data-directly), or [SQL Query editor](https://learn.microsoft.com/en-us/fabric/mirroring/explore#use-sql-queries-to-analyze-data) to create T-SQL queries against data in the Mirrored database item data, or access mirrored data with a Lakehouse shortcut and use [notebooks](https://learn.microsoft.com/en-us/fabric/mirroring/explore-onelake-shortcut) to write Spark queries to process data. 
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+2. Data can be served directly to Power BI. You can create [Semantic models](https://learn.microsoft.com/en-us/training/modules/design-model-power-bi) to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights leveraging [Direct Lake](https://learn.microsoft.com/en-us/fabric/data-warehouse/semantic-models#direct-lake-mode) Capability. 
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+   2.Additionally, you can use a [Fabric Activator](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
-1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms, and web pages.
+3. Data can also be securely shared with other business units or external trusted partners using [Fabric external data sharing](https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview) with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
-#### Semi-structured data sources
+4. Use the [Fabric API for GraphQL](https://learn.microsoft.com/en-us/fabric/data-engineering/api-graphql-overview), which allows you to expose data from [supported Fabric data sources](https://learn.microsoft.com/en-us/fabric/data-engineering/api-graphql-overview#supported-data-sources) through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
+
+5. Serve real-time predictions from any registered ML model using secure, scalable [ML online endpoints](https://learn.microsoft.com/en-us/fabric/data-science/model-endpoints) that are automatically configured. If you are looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption.  
+
+6. Deliver data to users using a conversational interface with [Fabric Data Agent(preview)](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) via natural language queries. 
+
+7. [Copilot in Fabric](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-integration?toc=%2Ffabric%2Ffundamentals%2Ftoc.json&bc=%2Ffabric%2Ffundamentals%2Fbreadcrumb%2Ftoc.json) acts as a generative AI assistive technology to deliver data to users and applications. 
+
+#### Cloud Based Data Platform-Dataverse
 
 ##### Ingest
 
-1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
+1. [Link to Microsoft Fabric for Dataverse](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) enables you to have Dynamics and Dataverse data available near-real time in Microsoft Fabric immediately with no ETL or no data copy requirement. When using Link to Microsoft Fabric for Dataverse, Data engineers can use SQL, apply AI, combine data, reshape and build summaries. 
+
+##### Store
+
+1.  When using Link to Microsoft Fabric for Dataverse, Dataverse creates a Lakehouse in OneLake that contains shortcuts to Dataverse tables with no physical data movement.  
+
+
+##### Process
+
+1. [View](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-the-dataverse-generated-azure-synapse-analytics-lakehouse) the Dataverse generated Lakehouse to explore the tables that are linked from your Dataverse environment. 
+
+2. You can query the Dataverse generated Lakehouse with [SQL endpoint](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-data-with-sql-endpoint), explore data using [Spark Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-notebook-load-data), and access data using [SQL Server Management Studio(SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) in addition to the SQL Editor 
+
+3. Reference Dataverse data across other Lakehouses using [shortcuts](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts) to reuse the same data without copying or duplicating it.  
+
+4. For enriching data, use the [Data Wrangler](https://learn.microsoft.com/en-us/fabric/data-science/data-wrangler) a low-code/no-code tool within Spark notebooks to explore and prepare the data for exploratory data analysis. The operations generate code in either pandas or PySpark, which can be saved back into the notebook as a reusable function
+
+##### Serve
+
+1. Data can be served directly to Power BI. The shortcuts to Dataverse tables created in OneLake supports Delta Lake Format and connecting data using high performant [Direct Lake](https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview) mode. You can create Semantic models to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights. 
+
+   1. Additionally, you can use a [Fabric Activator](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
+
+#### Semi-structured data sources and Non-structured data sources 
+
+##### Ingest
+
+1. Use [Data Factory pipelines](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview) with [Copy Activity](https://learn.microsoft.com/en-us/fabric/data-factory/copy-data-activity), [Copy Job](https://learn.microsoft.com/en-us/fabric/data-factory/what-is-copy-job), [Dataflows Gen2](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview), [Spark Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-notebook-load-data) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example: 
 
     - Ingest data from file-based sources containing CSV or JSON files.
-    - Connect to No-SQL databases such as Azure Cosmos DB or MongoDB.
-    - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
+    - XML files from legacy systems 
+    - Parquet files from Storage accounts. 
+    - Ingest PDF, MP3, images, logs, documents, and other binary files. that contain the source files.
+    - Call [Fabric REST APIs](https://learn.microsoft.com/en-us/fabric/data-factory/pipeline-rest-api-capabilities) as your data source for the pipeline.
+
+2. Use [COPY INTO](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-copy) statement to work with data from external storage account for high-throughput data ingestion for SQL workloads. Supports PARQUET and CSV File Formats. 
+
+3. Create [shortcuts](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts) in OneLake to external sources like Azure Data Lake Storage (Gen2), Amazon S3 Storage accounts, Google Cloud Storage account and [other external supported storages](https://learn.microsoft.com/en-us/fabric/onelake/create-onelake-shortcut) to enable zero-copy access and to avoid duplication. 
+
+4. [Manually](https://learn.microsoft.com/en-us/fabric/data-engineering/load-data-lakehouse#local-file-upload) or programmatically upload files to the Lakehouse folder. 
+
+5. [Trigger pipelines](https://learn.microsoft.com/en-us/fabric/data-factory/pipeline-storage-event-triggers#how-to-set-storage-event-triggers-on-a-pipeline)when new files arrive using Fabric's event-based Orchestration. 
 
 ##### Store
 
-1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
+1. Within Fabric's OneLake unified data lake, [organize your data](https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture) by following the best practices about which layers to create, what folder structures to use in each layer, and what files format to use for each analytics scenario. Land the unstructured data in the Bronze/Raw Zone to store unprocessed data in original format. 
 
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data to preserve the original format, as acquired from the data sources.
-
-##### Process
-
-1. For batch/micro-batch pipelines, use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/training/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake) or [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move your datasets into your Curated layer in your data lake. SQL Serverless queries expose underlying [CSV](/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](/azure/synapse-analytics/sql/query-parquet-files), or [JSON](/azure/synapse-analytics/sql/query-json-files) files as external tables, so that they can be queried using T-SQL.
-
-   1. As part of your data transformations, you can invoke machine-learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure AI services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
-
-1. For near real-time telemetry and time-series analytics scenarios, use [Data Explorer pools](/azure/synapse-analytics/data-explorer/data-explorer-overview) to easily [ingest](/azure/synapse-analytics/data-explorer/ingest-data/data-explorer-ingest-data-overview), consolidate, and correlate logs and IoT events data across multiple data sources. With Data Explorer pools, you can use [Kusto queries (KQL)](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer) to perform [time-series analysis](/azure/data-explorer/kusto/query/machine-learning-and-tsa), [geospatial clustering](/azure/data-explorer/kusto/query/geospatial-grid-systems), and machine learning enrichment.
-
-##### Serve
-
-1. You can serve your final dataset directly from the data lake Curated layer or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
-
-1. Load relevant data from the Azure Synapse [SQL pools](/azure/synapse-analytics/get-started-visualize-power-bi), [Data Explorer pools](/azure/data-explorer/visualize-power-bi), or a [data lake](/power-query/connectors/datalakestorage) into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
-
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
-
-1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms, and web pages.
-
-#### Non-structured data sources
-
-##### Ingest
-
-1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured  data sources, both on-premises and in the cloud. For example:
-
-   - Ingest video, image, audio, or free text from file-based sources that contain the source files.
-   - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
-
-##### Store
-
-1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) by following the best practices about which layers to create, what folder structures to use in each layer, and what files format to use for each analytics scenario.
-
-1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data by preserving the original format, as acquired from the data sources.
+2. Use [Eventhouse](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse) for storing Telemetry, logs or time-series data. 
 
 ##### Process
 
-1. Use [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, enrich, and move your datasets from the Raw layer, through the Enriched layer and  into your Curated layer in your data lake.
+1. Use [Spark notebooks](https://learn.microsoft.com/en-us/training/modules/work-delta-lake-tables-fabric/) to parse and transform semi-structured data, for example Flatten nested JSON structures, convert XML to tabular format, extract key fields from log files. 
 
-   1. As part of your data transformations, you can invoke machine-learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure AI services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+1. Use [Spark notebooks](https://learn.microsoft.com/en-us/training/modules/work-delta-lake-tables-fabric/) to extract content and transform unstructured data using Dataframes. 
+
+2. Use T-SQL Ingestion to load the data from existing tables in Lakehouse's or warehouses. 
+
+3. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls or outliers. Once profiled and transformed, save processed data into Lakeshouse tables. 
+
+4. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
+
+5. For enriching data, use [Spark Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook?toc=%2Ffabric%2Fdata-science%2Ftoc.json&bc=%2Ffabric%2Fdata-science%2Fbreadcrumb%2Ftoc.json) to load the data from Lakehouses or Warehouses. [Train or load ML Models](https://learn.microsoft.com/en-us/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](https://learn.microsoft.com/en-us/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](https://learn.microsoft.com/en-us/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
 
 ##### Serve
 
-1. You can serve your final dataset directly from the data lake Curated layer or you can use Copy Data activity to ingest the final dataset into your data warehouse tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
+1. Fabric provides a [SQL Analytics endpoint](https://learn.microsoft.com/en-us/fabric/database/mirrored-database/explore#use-the-sql-analytics-endpoint) for querying Lakehouse tables using T-SQL.  
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships.
+2. Data can be served directly to Power BI. You can create Semantic models to simplify the analysis of business data and relationships. Use DirectLake mode for high-performance analytics. Additionally, you can use a Fabric Activator to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
-1. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+3. Data can also be securely shared with other business units or external trusted partners using Fabric external data sharing with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+4. Use the Fabric API for GraphQL, which allows you to expose data from supported Fabric data sources through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
 
-1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms, and web pages.
+5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you are looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. 
+
+6. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
+
+7. Copilot in Fabric acts as a generative AI assistive technology to deliver data to users and applications. 
+
 
 #### Streaming
 
 ##### Ingest
 
-1. Use [Azure Event Hubs or Azure IoT Hubs](/azure/iot-hub/iot-hub-compare-event-hubs) to ingest data streams generated by client applications or IoT devices. Event Hubs or IoT Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hubs or IoT Hub endpoints and retrieve messages for processing.
+1. Real-Time Intelligence in Microsoft Fabric enables users to collect data for real-time data ingestion using [Eventstream](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/overview?tabs=enhancedcapabilities) from a wide range of sources such as IoT devices, applications external event hubs, and Fabric events such as Fabric [Workspace Item events](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-source-fabric-workspace), [Fabric OneLake events](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-source-fabric-onelake), [Fabric Job events](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-source-fabric-job). Eventstream in Microsoft Fabric enables you to fetch event data by connecting to various [data sources](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-manage-eventstream-sources?pivots=enhanced-capabilities). 
+
+2. Ingest data using [Copy Assistant](https://blog.fabric.microsoft.com/en-us/blog/using-data-pipelines-for-copying-data-to-from-kql-databases-and-crafting-workflows-with-the-lookup-activity/) or [Data Factory Pipelines](https://blog.fabric.microsoft.com/en-us/blog/using-data-pipelines-for-copying-data-to-from-kql-databases-and-crafting-workflows-with-the-lookup-activity/)  
+
+3. If you need to reference a source KQL Database such as an existing Azure Data explorer (ADX) in Real-Time Intelligence, you can create a [database shortcut](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/database-shortcut?tabs=workspace) to access this data without duplicating or re-ingesting data.  
 
 ##### Store
 
-1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which layers to create, what folder structures to use in each layer and what files format to use for each analytics scenario.
+1. Eventstream supports routing data to different destinations listed [here](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-manage-eventstream-destinations?pivots=enhanced-capabilities). 
 
-1. Configure [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw layer](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical) following the pattern for semi-structured data sources described above.
+2. Store large volumes of data in an [EventHouse](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse) that is a high performant, optimized and scalable storage solution. You can create a [KQL Database](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/create-database) within an Eventhouse that is a specialized database designed for event-driven data analysis using the Kusto Query language. 
 
 ##### Process
 
-1. For real-time insights, use a [Stream Analytics job](/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your [Event Hubs](/azure/event-hubs/process-data-azure-stream-analytics) or [IoT Hub](/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi), one query to process the input data stream and one Power BI output to where the query results will be sent to.
+1. Use [KQL Queryset](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/create-query-set) to run write, run, and manage Kusto Query Language (KQL) queries across various real-time data sources. It’s a central tool in the Real-Time Intelligence (RTI) experience, enabling users to explore, analyze, and visualize streaming or time-series data. 
 
-   1. As part of your data processing with Stream Analytics, you can invoke machine-learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine-learning models can be consumed from Azure AI services or from [custom ML models in Azure Machine learning](/azure/stream-analytics/machine-learning-udf).
+2. You can use T-SQL in Microsoft Fabric’s Real-Time Intelligence (RTI) experience to query streaming data stored in KQL databases. While KQL is the primary language for real-time analytics, Fabric also supports T-SQL for users familiar with SQL-based analytics. 
 
-1. Use other Stream Analytics job outputs to send processed events to Azure Synapse [SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics) or [Data Explorer pools](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/adx-is-now-supported-as-output-for-azure-stream-analytics-job/ba-p/2923654) for further analytics use cases.
-
-1. For near real-time telemetry and time-series analytics scenarios, use [Data Explorer pools](/azure/synapse-analytics/data-explorer/data-explorer-overview) to easily ingest IoT events directly from [Event Hubs](/azure/data-explorer/ingest-data-event-hub) or [IoT Hubs](/azure/data-explorer/ingest-data-iot-hub). With Data Explorer pools, you can use [Kusto queries (KQL)](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer) to perform [time-series analysis](/azure/data-explorer/kusto/query/machine-learning-and-tsa), [geospatial clustering](/azure/data-explorer/kusto/query/geospatial-grid-systems), and machine learning enrichment.
+3. For cross-engine processing, turn on [OneLake Availability](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-house-onelake-availability) to create a logical copy of KQL database data. You can query the data in your KQL database in Delta Lake format via other Fabric engines such as Direct Lake mode in Power BI, Warehouse, Lakehouse, Notebooks, and more.  
 
 ##### Serve
 
-1. Business analysts then use [Power BI real-time datasets and dashboard](/power-bi/connect-data/service-real-time-streaming) capabilities to visualize the fast changing insights generated by your Stream Analytics query.
+1. Business analysts can create a [Real-time dashboard](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/dashboard-real-time-create), a collection of tiles, each powered by a Kusto Query Language (KQL) query. These tiles can be organized into pages and are connected to [data sources](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/dashboard-real-time-create?tabs=create-manual%2Ckql-database#add-data-source). The dashboard updates automatically, providing near-instant visibility into data as it flows through the system. Additionally, you can add a [Fabric Activator](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/data-activator/activator-introduction) to a Real-Time Dashboard tile to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification. 
 
-1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
+2. Create a Power BI report to generate reports from Semantic Models built from the KQL database as a source. 
 
-1. Structured and unstructured data stored in your Synapse workspace can also be used to build [knowledge mining solutions](https://azure.microsoft.com/solutions/knowledge-mining) and use AI to uncover valuable business insights across different document types and formats including from Office documents, PDFs, images, audio, forms and web pages.
+3. Data can also be securely shared with other business units or external trusted partners using Fabric external data sharing with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
+
+4. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
 
 ### Components
 
 The following Azure services have been used in the architecture:
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
-- [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
-- [Azure AI services](/azure/ai-services/what-are-ai-services)
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs)
-- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub/reliability)
-- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-- [Microsoft Purview](/purview/purview)
-- [Azure Data Share](/azure/data-share/overview)
+- [Copilot in Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview)
+- [Fabric Data Agent(preview)](/https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent)
+- [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview)
+- [Fabric External data sharing](https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview)
+- [Microsoft Fabric API for GraphQL](https://learn.microsoft.com/en-us/fabric/data-engineering/api-graphql-overview)
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview)
 - [Microsoft Entra ID](/entra/fundamentals/whatis)
 - [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management)
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 - [Azure Policy](/azure/governance/policy/overview)
 - [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
 
 ### Alternatives
 
-- In the architecture above, Azure Synapse pipelines are responsible for data pipeline orchestration. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) pipelines also provide the same capabilities as described in this article.
+- Microsoft Fabric offers a robust suite of tools designed to efficiently manage data and analytics workloads. With a wide range of options available, choosing the right tool for your specific needs can be complex. The decision guides below serve as a roadmap to help you navigate those choices and identify the most suitable strategy. 
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks) can also be used as the compute engine used to process structured and unstructured data directly on the data lake.
+- For comparisons of other alternatives, see: 
 
-- In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Synapse Spark pools and Azure Databricks can also be used to perform the same role through the execution of notebooks.
 
-- [Azure HDInsight Kafka](https://azure.microsoft.com/services/hdinsight) clusters can also be used to ingest streaming data and provide the right level of performance and scalability required by large streaming workloads.
-
-- You also can make use of [Azure Functions](https://azure.microsoft.com/services/functions) to invoke Azure AI services or Azure Machine Learning custom ML models from an Azure Synapse pipeline.
-
-- The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
-
-- Specific business requirements for your analytics use cases may also ask for the use of different services or features not considered in this design.
-
-- For comparisons of other alternatives, see:
-
-  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
-  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-  - [Choosing a stream processing technology in Azure](../../data-guide/technology-choices/stream-processing.md)
+  - [Choosing type of ingestion in Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
+  - [Choose a data integration strategy in Fabric ](https://learn.microsoft.com/en-us/fabric/data-factory/decision-guide-data-integration?toc=%2Ffabric%2Ffundamentals%2Ftoc.json&bc=%2Ffabric%2Ffundamentals%2Fbreadcrumb%2Ftoc.json)
+  - [Choosing a data movement strategy in Fabric ](https://learn.microsoft.com/en-us/fabric/data-factory/decision-guide-data-movement?toc=%2Ffabric%2Ffundamentals%2Ftoc.json&bc=%2Ffabric%2Ffundamentals%2Fbreadcrumb%2Ftoc.json)
+  - [Choosing a data store in Fabric ](https://learn.microsoft.com/en-us/fabric/fundamentals/decision-guide-data-store)
+  - [Choosing between Warehouse and Lakehouse in Fabric ](https://learn.microsoft.com/en-us/fabric/fundamentals/decision-guide-lakehouse-warehouse)
 
 ## Scenario details
 
-This example scenario demonstrates how to use Azure Synapse Analytics with the extensive family of Azure Data Services to build a modern data platform that's capable of handling the most common data challenges in an organization.
+This example scenario demonstrates how to use Fabric to build a modern data platform that's capable of handling the most common data challenges in an organization. 
 
 ### Potential use cases
 
 This approach can also be used to:
 
-- Establish a [data product](/azure/cloud-adoption-framework/scenarios/data-management/architectures/data-landing-zone-data-products) architecture, which consists of a data warehouse for structured data and a data lake for semi-structured and unstructured data. You can choose to deploy a single data product for centralized environments or multiple data products for distributed environments such as Data Mesh. See more information about [Data Management and Data Landing Zones](/azure/cloud-adoption-framework/scenarios/data-management/enterprise-scale-landing-zone).
-- Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
-- Use semantic modeling and powerful visualization tools for simpler data analysis.
-- Share datasets within the organization or with trusted external partners.
-- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, and so on.
+- Enterprise Data Platform Modernization to replace fragmented data tools with a unified platform. 
+
+- Establish a [medallion lake architecture](https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture), using Fabric’s Lakehouse and/or Warehouse organized with bronze layer for raw data ingestion from data sources, silver Layer for cleansed and transformed data and gold layer for business ready data for analytics and AI.  
+
+- Integrate relational data sources with other unstructured datasets, with set of [Fabric compute engines](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview#fabric-compute-engines). 
+
+- Real-Time Operational Analytics to monitor and act on real-time data using Real Time Intelligence. 
+
+- AI powered customer Insights for data enrichment and deriving business insights. 
+
+- Enterprise Reporting and Self-service BI use semantic modeling and powerful visualization tools for data analysis. 
+
+- Cross-Tenant Data Sharing using OneLake shortcuts with [External data share](https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview). 
+
+- Integrate Microsoft Fabric Data Agents with [Azure AI Foundry](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry) or [Copilot Studio](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) for building intelligent, conversational and context-aware AI solutions for business users and applications. 
 
 ## Recommendations
 
@@ -245,29 +263,38 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 1. Use [Microsoft Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
 
-1. Microsoft Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
+2. Microsoft Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
 
-1. You can [register all your data sources](/azure/purview/manage-data-sources) and organize them into [Collections](/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
+3. You can [register all your data sources](/azure/purview/manage-data-sources) and organize them into [Collections](/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
 
-1. Setup [regular scans](/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Microsoft Purview can also automatically add [data lineage](/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
+4. Setup [regular scans](/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Microsoft Purview can also automatically add [data lineage](/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
 
-1. [Data classification](/azure/purview/apply-classifications) and [data sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
+5. [Data classification](/azure/purview/apply-classifications) and [data sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
 
-1. Data governance professionals can use the reports and [insights](/azure/purview/concept-insights) generated by Microsoft Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
+6. Data governance professionals can use the reports and [insights](/azure/purview/concept-insights) generated by Microsoft Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
+
+7. A built-in [Purview Hub](https://learn.microsoft.com/en-us/fabric/governance/use-microsoft-purview-hub?tabs=overview) within Fabric provides insights into data inventory, sensitivity labels, and endorsements, acting as a gateway to broader Purview capabilities. 
+
+8. Fabric artifacts are automatically added to the Purview Data Map, enabling cross-platform data discovery and governance without manual setup. 
 
 ### Platform services
 
-In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+To improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+
+Microsoft Fabric supports several [deployment patterns](https://learn.microsoft.com/en-us/azure/architecture/analytics/architecture/fabric-deployment-patterns) to help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are built around four levels of deployment: Tenant, Capacity, Workspace and item. Each pattern offers different trade-offs in terms of scalability, isolation, cost and operational complexity. 
 
 Following these recommendations, the services below should be considered as part of the design:
 
 1. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
-1. [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
-1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
-1. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): strengthen and monitor the security posture of your Azure workloads.
-1. [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
-1. [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
+2. [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
+
+3. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric(Preview)](https://learn.microsoft.com/en-us/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
+
+4. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
+
+6. [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your Fabric workload development and deployment pipelines for semaless version control, collaboration, and lifecycle management. 
+
+7. [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
 ## Considerations
 
@@ -277,31 +304,30 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. The ideal individual pricing tier and the total overall cost of each service included in the architecture is dependent on the amount of data to be processed and stored and the acceptable performance level expected. Use the guide below to learn more about how each service is priced:
+Use the [Microsoft Fabric - Pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/?msockid=154b803cd3036d3935a59673d2546c5d) to estimate costs. The ideal individual pricing tier and the total overall cost of each service included in the architecture is dependent on the amount of data to be processed and stored and the acceptable performance level expected. Use the guide below to learn more about top cost optimization strategies for Microsoft Fabric: 
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
+- Fabric Capacity is a shared pool of capacity that powers all capabilities on Microsoft Fabric from Data engineering, Data warehousing and Data modelling to business intelligence and AI experiences. Microsoft prices CU by the hour with Pay-as-you-go or Reservation. PAYGO offers flexibility to pay only for the hours the Fabric capacity is used (consider pausing capacities when not in use to control costs) without the need for a monthly/yearly commitment. [Reservations](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity) offer predictable billing and up to 40 % savings for stable workloads. 
 
-- [Azure Data Lake Gen 2](https://azure.microsoft.com/pricing/details/storage/data-lake) is charged based on the amount of data stored and based on the number of transactions to read and write data.
+- [OneLake Storage](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/?msockid=154b803cd3036d3935a59673d2546c5d) Storage offers a single copy of data across all the Analytical engines without the need for moving of duplication of data. 
 
-- [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs) and [Azure IoT Hubs](https://azure.microsoft.com/pricing/details/iot-hub) are charged based on the amount of compute resources required to process your message streams.
+- Use the [Fabric Capacity Estimator(preview)](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator) tool to estimate your capacity needs. This tool helps you determine the appropriate SKU and storage requirements based on your workload characteristics. 
 
-- [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning) charges come from the amount of compute resources used to train and deploy your machine-learning models.
+- Use the [Fabric Capacity Metrics App](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app) to monitor usage and consumption by different Fabric Items to understand capacity utilization. 
 
-- [AI services](https://azure.microsoft.com/pricing/details/cognitive-services) is charged based on the number of call you make to the service APIs.
+- Use Azure Cost Management to monitor usage and set budget alerts. [Understand your Azure bill for a Fabric Capacity](https://learn.microsoft.com/en-us/fabric/enterprise/azure-billing). 
 
-- [Microsoft Purview](https://azure.microsoft.com/pricing/details/azure-purview) is priced based on the number of data assets in the catalog and the amount of compute power required to scan them.
+- Use the [Microsoft Fabric Capacity troubleshooting guides](https://learn.microsoft.com/en-us/fabric/enterprise/capacity-planning-troubleshoot-consumption) to monitor and optimize the capacity usage proactively.  
 
-- [Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) is charged based on the amount of compute power required to process your stream queries.
+- The [Microsoft Fabric Chargeback App(preview)](https://learn.microsoft.com/en-us/fabric/enterprise/chargeback-app) is a solution designed to help organizations track, analyze and allocate the capacity usage costs across different business units, users and workloads using Microsoft Fabric. It supports chargeback and showback models enabling transparent and fair cost distribution based on actual consumption. 
 
-- [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
+- [Microsoft Purview](https://azure.microsoft.com/pricing/details/azure-purview) is priced based on the number of data assets in the catalog and the amount of compute power required to scan them. 
 
-- [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db) is priced based on the amount of storage and compute resources required by your databases.
+- Fabric offers a rich set of features depending on the SKU and capacity type. User capabilities in the workspaces are determined by the [license](https://learn.microsoft.com/en-us/fabric/enterprise/licenses#capacity) assigned to the workspace.
 
-Similar architecture can also be implemented for pre-production environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment.
+Similar architecture can also be implemented for pre-production environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment. 
 
-## Deploy this scenario
+See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com/?product=administration%2Cgovernanceandsecurity).
 
-This article has a companion repository available in GitHub that shows how you automate the deployment of the services covered in this architecture. Follow the [Azure analytics end-to-end with Azure Synapse deployment guide](https://github.com/Azure/azure-synapse-analytics-end2end) to deploy this architecture to your subscription. That deployment guide has detailed instructions and multiple deployment options.
 
 ## Contributors
 
@@ -309,15 +335,8 @@ This article has a companion repository available in GitHub that shows how you a
 
 Principal author:
 
-- [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Principal MTC Technical Architect
+- [Lavanya Sreedhar](https://www.linkedin.com/in/lavanya-sreedhar-17b89015) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
-
-- Review the guidelines defined in the [Azure data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management) for scalable analytics environment in Azure.
-
-- Explore the [Data Engineer Learning Paths at Microsoft learn](/training/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
-
-- Review the documentation and deploy the reference architecture using the [deployment guidance available on GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
 
