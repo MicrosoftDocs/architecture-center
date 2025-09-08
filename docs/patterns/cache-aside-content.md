@@ -2,7 +2,7 @@ The cache-aside pattern enables loading data on demand into a cache from a data 
 
 ## Context and problem
 
-Applications use a cache to improve repeated access to information held in a data store. However, expecting cached data to always be consistent with the data store is impractical. Applications should implement a strategy that helps to ensure that the data in the cache is as up-to-date as possible. They should also be able to detect when cached data becomes stale and handle it appropriately.
+Applications use a cache to improve repeated access to information held in a data store. However, it is unrealistic to expect cached data to always be consistent with the data store. Applications should implement a strategy that helps ensure that the data in the cache is as up-to-date as possible. The strategy should also be able to detect when cached data becomes stale and handle it appropriately.
 
 ## Solution
 
