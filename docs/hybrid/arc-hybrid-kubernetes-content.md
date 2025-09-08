@@ -24,7 +24,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Azure Arc](/azure/azure-arc/overview) is a service that extends the Azure platform to enable building applications and services that can run across datacenters, at the edge, and in multicloud environments. In this architecture, Azure Arc serves as the foundational platform that enables centralized management and governance of Kubernetes clusters regardless of where they are hosted. It provides a unified control plane for hybrid and multicloud scenarios.
+- [Azure Arc](/azure/azure-arc/overview) is a service that extends the Azure platform to enable building applications and services that can run across datacenters, at the edge, and in multicloud environments. In this architecture, Azure Arc serves as the foundational platform that enables centralized management and governance of Kubernetes clusters regardless of where they're hosted. It provides a unified control plane for hybrid and multicloud scenarios.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed service for deploying and scaling Kubernetes clusters in Azure. In this architecture, AKS provides fully managed Kubernetes clusters within Azure. The clusters can be managed alongside on-premises and other cloud clusters through the same Azure Arc control plane, which reduces operational complexity.
 
