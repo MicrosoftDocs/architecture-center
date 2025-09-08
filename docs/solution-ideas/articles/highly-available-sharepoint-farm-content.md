@@ -30,14 +30,14 @@ This solution address the capability to deliver highly available intranet capabi
 
 ### Components
 
-* [Azure resource group](/azure/azure-resource-manager/management/overview#resource-groups): Container that holds related resources for an Azure solution
-* [Virtual Network](/azure/well-architected/service-guides/virtual-network): Provision private networks, optionally connect to on-premises datacenters
-* [Storage accounts](/azure/storage/common/storage-introduction): Durable, highly available, and massively scalable cloud storage
-* [Microsoft Entra ID](/entra/fundamentals/whatis): Synchronize on-premises directories and enable single sign-on
-* SharePoint Server: Microsoft's collaboration server product
-* Host enterprise [SQL Server](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) apps in the cloud
-* [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer): Deliver high availability and network performance to your applications
-* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): Dedicated private network fiber connections to Azure
+* An [Azure resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a logical container that holds related Azure resources for a solution. In this architecture, the resource group organizes and manages all components required for the SharePoint deployment, including networking, storage, and compute resources.
+* [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a foundational networking service that enables secure communication between Azure resources and on-premises environments. In this architecture, the virtual network hosts the VMs and load balancers, and enforces traffic control through network security groups.
+* [Azure Storage accounts](/azure/storage/common/storage-introduction) provide durable, highly available, and scalable cloud storage for various data types. In this architecture, Storage accounts host the virtual hard disks (VHDs) used by the VMs that run SharePoint and SQL Server.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that enables secure access to Azure resources. In this architecture, it synchronizes identities from on-premises directories and supports single sign-on for users that access SharePoint.
+* Microsoft SharePoint Server is an enterprise collaboration platform for content management and intranet solutions. In this architecture, SharePoint Server is deployed across multiple Azure VMs to form a highly available SharePoint farm.
+* [SQL Server](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a relational database management system that stores and manages structured data. In this architecture, SQL Server is installed on Azure VMs in a Windows failover cluster to support high availability for SharePoint databases.
+* [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service that distributes network traffic across multiple resources. In this architecture, an external load balancer directs incoming HTTPS traffic to the SharePoint servers to ensure availability and performance.
+* [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a dedicated private connection service that extends on-premises networks into Azure over a private fiber link. In this architecture, ExpressRoute provides secure and reliable management access to the resource group and enables connectivity for on-premises users that access SharePoint sites.
 
 ## Next steps
 

@@ -107,25 +107,23 @@ This section describes the components and services that appear in the diagram. M
 
 ### Components
 
-The example architecture in this article uses the following Azure components:
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service. In this architecture, Microsoft Entra ID manages user identities and access to external resources, such as Microsoft 365 and the Azure portal, and internal resources, such as apps on your corporate intranet network.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service  that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and isolation for workloads.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a low-latency layer-4 load-balancing service (inbound and outbound) for UDP and TCP traffic. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across resources in the virtual network. Load Balancer is a zone-redundant service that can handle millions of requests per second.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance, low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring that your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that require direct control over the operating system and security configurations.
 
-- [Virtual machines](/azure/well-architected/service-guides/virtual-machines) are one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS runs containerized applications and provides built-in features for security, governance, and continuous integration/continuous delivery (CI/CD).
 
-- [Azure Kubernetes service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that delivers remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users and includes built-in features like RDP Shortpath and reverse connect.
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
+- [The Web Apps feature of App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and private endpoints. You can develop in your chosen language. Applications run and scale in both Windows and Linux-based environments.
 
-- [App Service Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
-
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
 
 
 ## Contributors

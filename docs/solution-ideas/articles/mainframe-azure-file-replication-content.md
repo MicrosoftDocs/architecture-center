@@ -58,43 +58,43 @@ This architecture uses the following components.
 
 #### Networking
 
-This architecture uses an [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) as bridge software to connect on-premises mainframe data to cloud services. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
+An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data sources to cloud services. In this architecture, it enables communication between mainframe systems and Azure services for file transfer and integration. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
 
 #### Data integration and transformation
 
-This architecture outlines various Azure-native migration tools that organizations can use based on the mainframe source data and target database.
+This architecture outlines various Azure-native migration tools that you can use based on your mainframe source data and target database.
 
-- [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The provider can read and write records offline in a local binary file. Or it can use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Logic Apps](/azure/logic-apps/logic-apps-overview).
+- [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The provider can read and write records offline in a local binary file. Or it can use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Logic Apps](/azure/logic-apps/logic-apps-overview). In this architecture, Data Provider for Host Files enables file-level access and transformation of IBM z/OS and i5/OS datasets for migration to Azure.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory is used to send mainframe files to Blob Storage via FTP.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via FTP and manages transformation pipelines.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Azure Databricks to correlate incoming data, and enrich it with other data stored in Azure Databricks.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a fast and flexible cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. It can be used for mainframe data transformation before you load it into an Azure database.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. In this architecture, Azure Synpase Analytics transforms mainframe data before loading it into Azure databases for analysis and reporting.
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. It provides a native IBM Host File connector that interacts with mainframe systems to read, parse, and generate host file content.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. In this architecture, it uses the IBM Host File connector to interact with mainframe systems and automate file parsing and transformation.
 
 #### Databases
 
 This architecture outlines the process of migrating mainframe file data to cloud storage and managed databases in Azure. It includes converting mainframe file metadata to match the target schema in Azure.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a scalable relational cloud database service. SQL Database is evergreen and always up-to-date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. With [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing), you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a scalable relational cloud database service. SQL Database is evergreen and always up-to-date, with AI-powered and automated features that optimize performance and durability. Serverless compute and hyperscale storage options automatically scale resources on demand. In this architecture, SQL Database stores transformed mainframe data and supports high availability. It also supports cost efficiency through [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) because you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize your existing apps at scale with familiar tools, skills, and resources.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a platform as a service (PaaS) offering that provides full SQL Server compatibility with managed infrastructure. In this architecture, it modernizes legacy applications by hosting migrated mainframe data with minimal code changes.
 
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with total code compatibility.
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) is an infrastructure as a service (IaaS) solution that lifts and shifts SQL Server workloads to Azure, which combines the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. In this architecture, it provides full control over SQL Server configurations for hosting mainframe-derived data.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed open-source relational database service. In this architecture, it serves as a target for migrated mainframe data that requires PostgreSQL compatibility.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the community edition of the open-source MySQL database engine.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service. In this architecture, it supports workloads that require MySQL-based storage for transformed mainframe data.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, multi-model NoSQL database service for building and modernizing scalable, high-performance applications. Azure Cosmos DB scales throughput and storage elastically and independently across geographic regions and guarantees single-digit millisecond response times and 99th percentile availability anywhere in the world.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service that includes multi-model support. In this architecture, it stores high-performance, scalable applications built on transformed mainframe data.
 
 #### Other data stores
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based object storage solution that stores large amounts of unstructured data, such as text or binary data. You can access this data from anywhere via HTTP or HTTPS. You can use Blob Storage to expose data publicly or to store application data privately.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based object storage solution that stores large amounts of unstructured data, such as text or binary data. You can access this data from anywhere via HTTP or HTTPS. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, it stores binary and text files transferred from mainframe systems and serves as a staging area for transformation.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured. In this architecture, it stores raw and transformed mainframe data in native format for processing by analytics services.
 
 ## Scenario details
 
