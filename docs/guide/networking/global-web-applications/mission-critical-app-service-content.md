@@ -27,7 +27,7 @@ These individual scale units don't have any dependencies on one another and only
 
 In this scenario, we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. When you take this approach, you should store data only in the database because the database is replicated to the secondary region. If you need to store data in the scale unit, consider using Azure Cache for Redis for storage in the scale unit. If a scale unit must be abandoned, repopulating the cache might increase latency, but it doesn't cause outages.  
 
-Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own lifecycle.
+Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own life cycle.
 
 When you replace a scale unit or deploy a new one, keep historical data and use one instance for each region.
 
@@ -37,11 +37,15 @@ For more information, see [Application design of mission-critical workloads on A
 
 This architecture uses the following components.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is the application-hosting platform.
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) caches requests.
-- [App Configuration](/azure/azure-app-configuration/overview) stores configuration settings.
-- [Azure SQL](/azure/azure-sql/) is the back-end database.
-- [Application Insights](/azure/well-architected/service-guides/application-insights) gets telemetry from the application.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. In this architecture, App Service serves as the application-hosting platform within each scale unit. It provides the compute infrastructure for mission-critical web applications that have high availability and scalability requirements.
+
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is an in-memory data structure store used as a database, cache, and message broker. In this architecture, Azure Cache for Redis caches requests within each scale unit to improve application performance. It can also serve as temporary storage for scale unit data that needs to be quickly repopulated if a scale unit is replaced.
+
+- [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the scale units. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
+
+- [Azure SQL](/azure/azure-sql/) is a collection of managed SQL database services built on the SQL Server database engine. In this architecture, Azure SQL serves as the back-end database that stores persistent data and is replicated to secondary regions.
+
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides monitoring and analytics capabilities. In this architecture, Application Insights collects telemetry from the application. It's excluded from the scale units to maintain its own life cycle for historical data retention and cross-region monitoring.
 
 ## Alternatives
 
@@ -108,7 +112,7 @@ Downtime that's caused by erroneous releases or human error can be a problem for
 
 - Zero-downtime deployments
 - Ephemeral blue-green deployments
-- Lifecycle analysis of individual and grouped components
+- Life cycle analysis of individual and grouped components
 - Continuous validation
 
 [Zero-downtime deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment) are key for mission-critical workloads. A workload that needs to always be up and running can't have a maintenance window to roll out newer versions. To work around this limitation, the Azure mission-critical architecture follows the zero-downtime deployments pattern. Changes are rolled out as new scale units or stamps that are tested end to end before traffic is incrementally routed to them. After all traffic is routed to the new stamp, the old stamps are disabled and removed.

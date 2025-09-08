@@ -66,24 +66,24 @@ The system also contains the following components:
 
 ### Components
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends an on-premises network into Microsoft cloud services over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends an on-premises network into Microsoft cloud services over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
 
 - [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a domain name system (DNS)-based traffic load balancer that distributes traffic across Azure regions. In this architecture, Traffic Manager distributes public-facing application traffic across Azure regions with high availability and quick responsiveness.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) supports high availability by distributing incoming network traffic among back-end VMs according to configured load-balancing rules and health probes. Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. In this architecture, Load Balancer works with Azure Web Application Firewall to provide the network management layer that replaces the legacy network appliances.
 
-- [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native web application firewall service that protects web apps against malicious attacks and common web vulnerabilities. In this architecture, it provides endpoint security and protection and replaces the multiple firewalls that segment network traffic in the legacy AIX system.
+- [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that protects web applications from malicious attacks and vulnerabilities. In this architecture, it provides endpoint security and protection and replaces the multiple firewalls that segment network traffic in the legacy AIX system.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed web hosting service for deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure. In this architecture, App Service acts as the presentation tier. It replaces the Java web front-end machines and provides PAAS capabilities for .NET or Java applications.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. Use Virtual Machines to get the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the application tier servers in availability sets with shared Storage.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, the service hosts the application tier servers in availability sets that have shared storage.
 
-  - [Azure SSD managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
+  - [Azure solid-state drive (SSD) managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
   - [Azure virtual network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with the internet, Azure, and on-premises resources. You can add several virtual NICs to an Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. In this architecture, Virtual Network enables Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides Azure infrastructure benefits like scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the foundation for Azure private networks. Virtual Network provides Azure infrastructure benefits like scalability, availability, and isolation. In this architecture, Virtual Network enables Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) storage provides fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently. In this architecture, Azure Files provides shared file storage capabilities as part of the overall storage strategy for the migrated application.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that can be accessed via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently. In this architecture, Azure Files provides shared file storage capabilities as part of the overall storage strategy for the migrated application.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed database PaaS that always runs on the latest OS and most stable SQL Server database engine version to provide the highest availability. In this architecture, SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
 
@@ -172,7 +172,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - The potential bottlenecks in this architecture are the storage and compute subsystems. Make sure to choose your storage and VM SKUs accordingly.
 
-- The available VM disk types are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). For this solution, it's best to use either premium SSDs or ultra disks.
+- The available VM disk types are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). For this solution, it's best to use either premium SSDs or ultra disks.
 
 - To estimate sizing for VMs coming from an AIX system, keep in mind that the AIX CPUs are about 1.4 times faster than most x86 vCPUs. This guideline can vary by workload.
 

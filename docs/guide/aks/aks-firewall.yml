@@ -10,6 +10,7 @@ metadata:
   ms.custom:
     - arb-containers
     - devx-track-terraform
+  ai-usage: ai-assisted
 name: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
