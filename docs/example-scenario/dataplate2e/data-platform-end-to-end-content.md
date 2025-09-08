@@ -1,6 +1,6 @@
 <!-- cSpell:ignore fabraga -->
 
-The solution described in this article combines the components of Microsoft Fabric that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming). 
+The solution described in this article combines the components of Microsoft Fabric that ingests, stores, processes, enriches, and serves data and insights from different sources (structured, semi-structured, unstructured, and streaming). 
 
 ## Architecture
 
@@ -15,7 +15,7 @@ Fabric offers data stores built on top of OneLake
 
 #### Lakehouse
 
-Use [Lakehouse](/fabric/data-engineering/lakehouse-overview)) in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
+Use [Lakehouse](/fabric/data-engineering/lakehouse-overview)) in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured, and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
 
 #### Warehouse
 
@@ -23,7 +23,7 @@ Use [Warehouse](/fabric/data-warehouse/data-warehousing) in Microsoft Fabric whe
 
 #### Eventhouse
 
-Use [Eventhouse](/fabric/real-time-intelligence/eventhouse) in Microsoft fabric for managing and analyzing real-time, high-volume event manage structured, semi-structured and unstructured data such as logs, telemetry etc. by organizing data into Databases, schemas, and tables. 
+Use [Eventhouse](/fabric/real-time-intelligence/eventhouse) in Microsoft fabric for managing and analyzing real-time, high-volume event manage structured, semi-structured, and unstructured data such as logs, telemetry etc. by organizing data into Databases, schemas, and tables. 
 
 #### Fabric SQL Database
 
@@ -44,33 +44,33 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Store
 
-1. Mirroring creates a read-only replica of your source database which is continuously synchronized with the source system using near real-time replication. The data is stored in Delta Lake format within OneLake. 
+1. Mirroring creates a read-only replica of your source database that is continuously synchronized with the source system using near real-time replication. The data is stored in Delta Lake format within OneLake. 
 
 2. From the Data Factory pipeline, use a Copy data activity or a Copy Job to stage the data copied from the relational databases into the Lakehouse or the Warehouse. The Onelake architecture with the unification on Delta Lake format offers the flexibility to implement lakehouses using either a medallion framework or a warehouse that is aligned with your organizational needs. 
 
 ##### Process
 
-1. Each mirrored database includes an auto-generated SQL Endpoint, you can use T-SQL to run complex aggregations or use Spark Notebooks for data exploration. 
+1. Each mirrored database includes an auto-generated SQL Endpoint. You can use T-SQL to run complex aggregations or use Spark Notebooks for data exploration. 
 
 2. Read-only SQL analytics endpoint can also be accessed through [SQL Server Management Studio(SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), via [ODBC](/fabric/data-warehouse/how-to-connect#connect-using-odbc), any query tool using the [SQL connection string](/fabric/data-warehouse/how-to-connect#find-the-warehouse-connection-string) within Microsoft Fabric settings and the [mssql extension with Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions?view=fabric&preserve-view=true).
 
-3. Create Cross-database queries to access the data from your mirrored databases and combine the mirrored data with other Fabric data sources (e.g., Lakehouses, Warehouses). 
+3. Create Cross-database queries to access the data from your mirrored databases and combine the mirrored data with other Fabric data sources (for example, Lakehouses, Warehouses). 
 
 4. Use Stored procedures to automate SQL logic for data transformations, aggregations in a Warehouse for reusability, and centralizing logic for repetitive tasks. 
 
 5. Use T-SQL to write cross-database queries to warehouses and mirrored databases within the same Fabric Workspace. 
 
-6. When Mirroring is first enabled it creates a full snapshot for the selected tables from source database. After the initial load, Fabric uses the source database’s Change Data Capture (CDC) to track inserts, updates and deletes. These changes are continuously replicated into OneLake with low latency and near real-time synchronization. You can also create shortcuts to mirrored tables in a Lakehouse and query them via Spark notebooks. 
+6. When Mirroring is first enabled, it creates a full snapshot for the selected tables from source database. After the initial load, Fabric uses the source database’s Change Data Capture (CDC) to track inserts, updates and deletes. These changes are continuously replicated into OneLake with low latency and near real-time synchronization. You can also create shortcuts to mirrored tables in a Lakehouse and query them via Spark notebooks. 
 
 7. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls, or outliers. Once profiled and transformed, save processed data into Warehouse tables. 
 
-8. For enriching data, use [Spark Notebooks](/fabric/data-engineering/author-execute-notebook) to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
+8. For enriching data, use [Spark Notebooks](/fabric/data-engineering/author-execute-notebook) to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
 
 ##### Serve
 
 1. Creating a mirroring Database creates a mirrored SQL Database item and a [SQL Analytics Endpoint](/fabric/database/mirrored-database/explore#use-the-sql-analytics-endpoint). Use the SQL analytics endpoint to run read-only queries. You can use [Data Preview](/fabric/data-warehouse/data-preview) to view data within the SQL Analytical Endpoint, or [explore directly in OneLake](/fabric/database/mirrored-database/explore-data-directly), or [SQL Query editor](/fabric/mirroring/explore#use-sql-queries-to-analyze-data) to create T-SQL queries against data in the Mirrored database item data, or access mirrored data with a Lakehouse shortcut and use [notebooks](/fabric/mirroring/explore-onelake-shortcut) to write Spark queries to process data. 
 
-2. Data can be served directly to Power BI. You can create [Semantic models](/training/modules/design-model-power-bi) to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights leveraging [Direct Lake](/fabric/data-warehouse/semantic-models#direct-lake-mode) Capability. 
+2. Data can be served directly to Power BI. You can create [Semantic models](/training/modules/design-model-power-bi) to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights using [Direct Lake](/fabric/data-warehouse/semantic-models#direct-lake-mode) Capability. 
 
    2. Additionally, you can use a [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
@@ -88,7 +88,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Ingest
 
-1. [Link to Microsoft Fabric for Dataverse](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) enables you to have Dynamics and Dataverse data available near-real time in Microsoft Fabric immediately with no ETL or no data copy requirement. When using Link to Microsoft Fabric for Dataverse, Data engineers can use SQL, apply AI, combine data, reshape and build summaries. 
+1. [Link to Microsoft Fabric for Dataverse](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) enables you to have Dynamics and Dataverse data available near-real time in Microsoft Fabric immediately with no ETL or no data copy requirement. When using Link to Microsoft Fabric for Dataverse, Data engineers can use SQL, apply AI, combine data, reshape, and build summaries. 
 
 ##### Store
 
@@ -124,7 +124,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Use [COPY INTO](/fabric/data-warehouse/ingest-data-copy) statement to work with data from external storage account for high-throughput data ingestion for SQL workloads. Supports PARQUET and CSV File Formats. 
 
-3. Create [shortcuts](/fabric/onelake/onelake-shortcuts) in OneLake to external sources like Azure Data Lake Storage (Gen2), Amazon S3 Storage accounts, Google Cloud Storage account and [other external supported storages](/fabric/onelake/create-onelake-shortcut) to enable zero-copy access and to avoid duplication. 
+3. Create [shortcuts](/fabric/onelake/onelake-shortcuts) in OneLake to external sources like Azure Data Lake Storage (Gen2), Amazon S3 Storage accounts, Google Cloud Storage account, and [other external supported storages](/fabric/onelake/create-onelake-shortcut) to enable zero-copy access and to avoid duplication. 
 
 4. [Manually](/fabric/data-engineering/load-data-lakehouse#local-file-upload) or programmatically upload files to the Lakehouse folder. 
 
@@ -138,7 +138,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Process
 
-1. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to parse and transform semi-structured data, for example Flatten nested JSON structures, convert XML to tabular format, extract key fields from log files. 
+1. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to parse and transform semi-structured data, for example Flatten nested JSON structures, convert XML to tabular format, or extract key fields from log files. 
 
 2. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to extract content and transform unstructured data using Dataframes. 
 
@@ -148,7 +148,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
 
-6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
+6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
 
 ##### Serve
 
@@ -174,7 +174,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Ingest data using [Copy Assistant](https://blog.fabric.microsoft.com/en-us/blog/using-data-pipelines-for-copying-data-to-from-kql-databases-and-crafting-workflows-with-the-lookup-activity/) or [Data Factory Pipelines](https://blog.fabric.microsoft.com/en-us/blog/using-data-pipelines-for-copying-data-to-from-kql-databases-and-crafting-workflows-with-the-lookup-activity/)  
 
-3. If you need to reference a source KQL Database such as an existing Azure Data explorer (ADX) in Real-Time Intelligence, you can create a [database shortcut](/fabric/real-time-intelligence/database-shortcut?tabs=workspace) to access this data without duplicating or re-ingesting data.  
+3. If you need to reference a source KQL Database such as an existing Azure Data explorer (ADX) in Real-Time Intelligence, you can create a [database shortcut](/fabric/real-time-intelligence/database-shortcut?tabs=workspace) to access this data without duplicating or reingesting data.  
 
 ##### Store
 
@@ -218,7 +218,7 @@ The following Azure services have been used in the architecture:
 
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Fabric OneLake to create dashboards and reports.
 
-- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice show multiple meters related to your Fabric capacity resource in the n Microsoft Cost Management.
+- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice show multiple meters related to your Fabric capacity resource in the n Microsoft Cost Management.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-based service for securely storing and managing sensitive information like secrets, keys, and certificates. In this architecture, it manages credentials used in Fabric connections and Gateways.
 
@@ -262,7 +262,7 @@ This approach can also be used to:
 
 - Cross-Tenant Data Sharing using OneLake shortcuts with [External data share](/fabric/governance/external-data-sharing-overview). 
 
-- Integrate Microsoft Fabric Data Agents with [Azure AI Foundry](/fabric/data-science/data-agent-foundry) or [Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) for building intelligent, conversational and context-aware AI solutions for business users and applications. 
+- Integrate Microsoft Fabric Data Agents with [Azure AI Foundry](/fabric/data-science/data-agent-foundry) or [Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) for building intelligent, conversational, and context-aware AI solutions for business users and applications. 
 
 ## Recommendations
 
@@ -280,7 +280,7 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 4. Setup [regular scans](/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Microsoft Purview can also automatically add [data lineage](/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
 
-5. [Data classification](/azure/purview/apply-classifications) and [data sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on pre-configured or customs rules applied during the regular scans.
+5. [Data classification](/azure/purview/apply-classifications) and [data sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on preconfigured or customs rules applied during the regular scans.
 
 6. Data governance professionals can use the reports and [insights](/azure/purview/concept-insights) generated by Microsoft Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
 
@@ -292,7 +292,7 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 To improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-Microsoft Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) to help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are built around four levels of deployment: Tenant, Capacity, Workspace and item. Each pattern offers different trade-offs in terms of scalability, isolation, cost and operational complexity. 
+Microsoft Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) to help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are built around four levels of deployment: Tenant, Capacity, Workspace, and item. Each pattern offers different trade-offs in terms of scalability, isolation, cost and operational complexity. 
 
 Following these recommendations, the services below should be considered as part of the design:
 
@@ -325,13 +325,13 @@ Use the [Microsoft Fabric - Pricing](https://azure.microsoft.com/pricing/detai
 
 - Use the [Microsoft Fabric Capacity troubleshooting guides](/fabric/enterprise/capacity-planning-troubleshoot-consumption) to monitor and optimize the capacity usage proactively.  
 
-- The [Microsoft Fabric Chargeback App(preview)](/fabric/enterprise/chargeback-app) is a solution designed to help organizations track, analyze and allocate the capacity usage costs across different business units, users and workloads using Microsoft Fabric. It supports chargeback and showback models enabling transparent and fair cost distribution based on actual consumption. 
+- The [Microsoft Fabric Chargeback App(preview)](/fabric/enterprise/chargeback-app) is a solution designed to help organizations track, analyze and allocate the capacity usage costs across different business units, users, and workloads using Microsoft Fabric. It supports chargeback and showback models enabling transparent and fair cost distribution based on actual consumption. 
 
 - [Microsoft Purview](https://azure.microsoft.com/pricing/details/azure-purview) is priced based on the number of data assets in the catalog and the amount of compute power required to scan them. 
 
 - Fabric offers a rich set of features depending on the SKU and capacity type. User capabilities in the workspaces are determined by the [license](/fabric/enterprise/licenses#capacity) assigned to the workspace.
 
-Similar architecture can also be implemented for pre-production environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment. 
+Similar architecture can also be implemented for preproduction environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment. 
 
 See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com/?product=administration%2Cgovernanceandsecurity).
 
