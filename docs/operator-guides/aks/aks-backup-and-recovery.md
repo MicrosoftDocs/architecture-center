@@ -76,7 +76,7 @@ Following are some examples of backup and recovery solutions that you can use wi
 
 ### AKS Backup
 
-[AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's a simple, Azure-native process, which lets you back up and restore the containerized applications and data running in your AKS clusters.
+[AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's an Azure-native process that lets you back up and restore the containerized applications and data running in your AKS clusters.
 
 AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. It integrates with the [Azure Backup Center](/azure/backup/backup-center-overview) to provide a single area in the Azure portal that can help you govern, monitor, operate, and analyze backups at scale.
 
@@ -84,7 +84,7 @@ See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service
 
 ### Kasten
 
-[Kasten](https://www.kasten.io/) is a commercial product, which provides operations teams with an easy-to-use and secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
+[Kasten](https://www.kasten.io/) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
 
 When Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
 
@@ -135,7 +135,7 @@ To ensure that your backup and recovery solution meets your organization's requi
 - **Persistent volumes (PVs)**: Verify if you're using persistent volumes and ensure that the AKS Backup solution supports your PV types. Refer to the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility details.
 - **Backup scope**: Define what needs to be backed up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups).
 - **Backup frequency and retention**: Determine the frequency at which you need to perform backups and the duration for which you need to retain them. This setting can be configured using backup policies. For more information, see [Defining a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy).
-- **Cluster selection**: Decide if you need to backup all clusters or only specific production clusters based on your requirements.
+- **Cluster selection**: Decide if you need to back up all clusters or only specific production clusters based on your requirements.
 - **Test restore procedure**: Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the backup and recovery solution. For more information, see [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore).
 - **Supported scenarios**: Verify that the AKS Backup solution supports your specific scenario. Refer to the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
 - **Budget allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](/azure/backup/azure-kubernetes-service-backup-overview#understand-pricing) information provided by the AKS Backup solution to align with your budgetary requirements.

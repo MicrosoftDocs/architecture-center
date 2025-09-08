@@ -17,11 +17,11 @@ This article includes recommendations for networking, security, identity, manage
 
 - The following components are installed on the edge or on-premises:
 
-  - [Azure Local][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Linux and Windows workloads and their storage in a hybrid on-premises environment. An Azure Local instance consists of a cluster that can range from 1 to 16 nodes.
+  - [Azure Local][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Linux and Windows workloads and their storage in a hybrid on-premises environment. An Azure Local instance consists of a cluster that can range from 1 to 16 nodes. In this architecture, Azure Local provides the physical infrastructure to run AKS clusters, which enables local compute and storage with Azure integration.
 
-  - [Azure Arc resource bridge][] is a highly available virtual machine (VM) that runs on Azure Local. The resource bridge is responsible for deploying and managing multiple AKS clusters.
+  - [Azure Arc resource bridge][] is a highly available virtual machine (VM) that runs on Azure Local. In this architecture, it deploys and manages multiple AKS clusters on Azure Local. It serves as the control plane for hybrid Kubernetes operations.
 
-  - [AKS on Azure Local][] is an on-premises implementation of AKS that automates running containerized applications at scale. An AKS on Azure Local cluster includes highly available control plane nodes and worker nodes. Containerized applications run on the worker nodes in the AKS cluster. To achieve application isolation, you can deploy up to 32 AKS clusters. The AKS cluster consists of the following components:
+  - [AKS on Azure Local][] is an on-premises implementation of AKS that automates running containerized applications at scale. In this architecture, each AKS on Azure Local cluster includes highly available control plane nodes and worker nodes. Containerized applications run on the worker nodes in the AKS cluster. To achieve application isolation, you can deploy up to 32 AKS clusters. The AKS cluster consists of the following components:
 
     - **The control plane** runs on Azure Linux and includes API server components that interact with the Kubernetes API. It also uses etcd, which is a distributed key-value store, to store all the cluster's configuration and data.
 
@@ -29,15 +29,15 @@ This article includes recommendations for networking, security, identity, manage
 
 - The following components are installed on Azure:
 
-  - [Azure Arc][] is a cloud-based service that extends the Azure Resource Manager-based management model to non-Azure resources, including non-Azure VMs, Kubernetes clusters, and containerized databases.
+  - [Azure Arc][] is a cloud-based service that extends the Azure Resource Manager-based management model to non-Azure resources, including non-Azure VMs, Kubernetes clusters, and containerized databases. In this architecture, it enables centralized governance, monitoring, and policy enforcement for AKS clusters that run on Azure Local.
 
-  - [Azure Automation][] delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
+  - [Azure Automation][] is a cloud-based automation and configuration service. In this architecture, it supports consistent management of AKS clusters and workloads across hybrid environments through automated workflows.
 
-  - [Azure Monitor][] is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+  - [Azure Monitor][] is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. In this architecture, it monitors the health and performance of AKS clusters and container workloads that run on Azure Local.
 
-  - [Azure Policy][] is a cloud-based service that helps enforce organizational standards and assess compliance at scale by evaluating Azure, including resources enabled by Azure Arc, to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads that run inside the cluster.
+  - [Azure Policy][] is a cloud-based service that helps enforce organizational standards and assess compliance at scale by evaluating Azure, including resources enabled by Azure Arc, to the properties of those resources to business rules. In this architecture, [Azure Policy for Kubernetes][] applies policies to AKS clusters and Kubernetes workloads to ensure consistent configuration and security practices.
 
-  - [Microsoft Defender for Cloud][] is a unified infrastructure security management system that strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
+  - [Defender for Cloud][] is a unified infrastructure security management system that strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads in the cloud and on-premises. In this architecture, Defender for Cloud protects AKS clusters and workloads on Azure Local by monitoring for threats and enforcing security best practices.
 
 ## Scenario details
 
@@ -234,7 +234,7 @@ Other contributor:
   [hybrid container service module]: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/hybrid-container-service/provisioned-cluster-instance
   [IP address planning]: /azure/aks/aksarc/aks-hci-ip-address-planning
   [logical networks]: /azure/azure-local/manage/create-logical-networks
-  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+  [Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [MetalLB extension]: /azure/aks/aksarc/load-balancer-overview
   [network requirements]: /azure/aks/aksarc/aks-hci-network-system-requirements
   [Calico]: /azure/aks/aksarc/concepts-security

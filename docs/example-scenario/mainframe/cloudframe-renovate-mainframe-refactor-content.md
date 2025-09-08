@@ -40,7 +40,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 2. In Azure, Azure load balancers manage access to the application compute clusters to provide high availability. This approach enables scale-out of compute resources to process the input work. Layer 7 (application layer) and Layer 4 (transport layer) load balancers are available. The type used depends on the application architecture and API payloads at the entry point of the compute cluster.
 
-3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.yml).
+3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.md).
 
 4. Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
 

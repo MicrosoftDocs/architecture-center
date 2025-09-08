@@ -13,25 +13,28 @@ The solution described in this article combines the components of Microsoft Fabr
 In the following sections, OneLake is used as the home for data throughout the various stages of the data lifecycle. OneLake is the unified, enterprise-grade data lake built into Fabric that serves as a centralized storage Layer for all data workloads including Data Engineering, Data Factory, Data Science, Data Warehouse, Real-Time Intelligence, Industry solutions, Databases, and Power BI. 
 Fabric offers data stores built on top of OneLake
 
-#### [Lakehouse](/fabric/data-engineering/lakehouse-overview) 
+#### [Lakehouse](/fabric/data-engineering/lakehouse-overview)
+
 Use Lakehouse in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
 
+#### [Warehouse](/fabric/data-warehouse/data-warehousing)
 
-#### [Warehouse](/fabric/data-warehouse/data-warehousing) 
 Use Warehouse in Microsoft Fabric when you need a high-performance, fully managed, SQL-based analytics solution to manage structured and semi-structured data by organizing data into databases, schemas, and tables. It has full T-SQL support including creation of stored procedures, views, and joins. 
 
-#### [Eventhouse](/fabric/real-time-intelligence/eventhouse) 
+#### [Eventhouse](/fabric/real-time-intelligence/eventhouse)
+
 Use Eventhouse in Microsoft fabric for managing and analyzing real-time, high-volume event manage structured, semi-structured and unstructured data such as logs, telemetry etc. by organizing data into Databases, schemas, and tables. 
 
-#### [Fabric SQL Database](/fabric/database/sql/overview) 
+#### [Fabric SQL Database](/fabric/database/sql/overview)
+
 Use SQL Database in Microsoft fabric when you need to unify transactional and analytical workload. Built on the same engine as Azure SQL Database, it offers full T-SQL support and is optimized for seamless integration with the broader Fabric ecosystem.  
 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
-
-#### Azure Databases, External Data sources (Azure Databricks, Snowflake) and Relational Databases 
+#### Azure Databases, external data sources (Azure Databricks, Snowflake) and relational databases
 
 ##### Ingest
+
 1. [Mirroring](/fabric/mirroring/overview) enables you to have your existing data estate replicated into OneLake near real-time requiring no complex ETL (Extract Transform Load) processes. See the list of [supported Mirroring Data Sources](/fabric/mirroring/overview#types-of-mirroring). 
 
 2. Use options with [Data Factory pipelines](/fabric/data-factory/data-factory-overview) with [Copy Activity](/fabric/data-factory/copy-data-activity), [Copy Job]/(/fabric/data-factory/what-is-copy-job), [Dataflows Gen2](/fabric/data-factory/dataflows-gen2-overview) that offers powerful data ingestion features to pull data from a wide variety of databases, both on-premises and in the cloud to include orchestration, transformation, and scheduling capabilities. Check out list of [supported connectors](/fabric/data-factory/connector-overview#supported-connectors-in-fabric) in Fabric. 
@@ -80,7 +83,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 7. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. 
 
-#### Cloud Based Data Platform-Dataverse
+#### Cloud based data platform for Dataverse
 
 ##### Ingest
 
@@ -89,7 +92,6 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 ##### Store
 
 1.  When using Link to Microsoft Fabric for Dataverse, Dataverse creates a Lakehouse in OneLake that contains shortcuts to Dataverse tables with no physical data movement.  
-
 
 ##### Process
 
@@ -107,7 +109,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
    1. Additionally, you can use a [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
-#### Semi-structured data sources and Non-structured data sources 
+#### Semi-structured data sources and non-structured data sources
 
 ##### Ingest
 
@@ -137,15 +139,15 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to parse and transform semi-structured data, for example Flatten nested JSON structures, convert XML to tabular format, extract key fields from log files. 
 
-1. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to extract content and transform unstructured data using Dataframes. 
+2. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to extract content and transform unstructured data using Dataframes. 
 
-2. Use T-SQL Ingestion to load the data from existing tables in Lakehouse's or warehouses. 
+3. Use T-SQL Ingestion to load the data from existing tables in Lakehouse's or warehouses. 
 
-3. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls or outliers. Once profiled and transformed, save processed data into Lakeshouse tables. 
+4. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls or outliers. Once profiled and transformed, save processed data into Lakeshouse tables. 
 
-4. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
+5. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
 
-5. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
+6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
 
 ##### Serve
 
@@ -161,8 +163,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 6. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
 
-7. Copilot in Fabric acts as a generative AI assistive technology to deliver data to users and applications. 
-
+7. Copilot in Fabric acts as a generative AI assistive technology to deliver data to users and applications.
 
 #### Streaming
 
@@ -203,25 +204,34 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 The following Azure services have been used in the architecture:
 
 - [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview)
-- [Fabric Data Agent(preview)](//fabric/data-science/how-to-create-data-agent)
-- [Microsoft Purview](/purview/purview)
+
+- [Fabric Data Agent (preview)](/fabric/data-science/how-to-create-data-agent)
+
+- [Microsoft Purview](/azure/purview/overview) is a unified platform for data governance, security, and compliance. In this architecture, it catalogs data assets, tracks lineage from Synapse pipelines.
+
 - [Fabric External data sharing](/fabric/governance/external-data-sharing-overview)
+
 - [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview)
-- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
+
+- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Synapse SQL pools, Data Explorer pools, and the data lake to create dashboards and reports.
+
 - [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management)
-- [Azure Key Vault](/azure/key-vault/general/overview)
-- [Azure Monitor](/azure/azure-monitor/overview)
+
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-based service for securely storing and managing sensitive information like secrets, keys, and certificates. In this architecture, it manages credentials used in Synapse pipelines and in Azure Machine Learning.
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a cloud-native monitoring system built into Azure that collects and analyzes telemetry data from your applications, infrastructure, and services. In this architecture, it monitors performance, reliability, and usage across all data platform components.
+
+- [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the data platform.
+
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-- [Azure Policy](/azure/governance/policy/overview)
+
 - [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git)
 
 ### Alternatives
 
 - Microsoft Fabric offers a robust suite of tools designed to efficiently manage data and analytics workloads. With a wide range of options available, choosing the right tool for your specific needs can be complex. The decision guides below serve as a roadmap to help you navigate those choices and identify the most suitable strategy. 
 
-- For comparisons of other alternatives, see: 
-
+- For comparisons of other alternatives, see:
 
   - [Choosing type of ingestion in Fabric](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)
   - [Choose a data integration strategy in Fabric ](/fabric/data-factory/decision-guide-data-integration)
@@ -285,16 +295,12 @@ Microsoft Fabric supports several [deployment patterns](/azure/architecture/anal
 
 Following these recommendations, the services below should be considered as part of the design:
 
-1. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
-2. [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
-
-3. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric(Preview)](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
-
-4. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-
-6. [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your Fabric workload development and deployment pipelines for semaless version control, collaboration, and lifecycle management. 
-
-7. [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric(Preview)](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
+- [Azure DevOps](https://azure.microsoft.com/solutions/devops) and [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your Fabric workload development and deployment pipelines for semaless version control, collaboration, and lifecycle management.
+- [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
 ## Considerations
 
@@ -328,7 +334,6 @@ Similar architecture can also be implemented for pre-production environments whe
 
 See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com/?product=administration%2Cgovernanceandsecurity).
 
-
 ## Contributors
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
@@ -339,4 +344,6 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
+## Next step
 
+- Review the guidelines defined in the [Azure data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management) for scalable analytics environment in Azure.

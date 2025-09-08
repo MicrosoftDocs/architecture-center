@@ -25,7 +25,7 @@ Many components and Azure services are used in this multi-region AKS architectur
 
 ## Alternatives
 
-This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleets enable a range of capabilities for managing multiple clusters, with a focus on streamlining day-2 operations by providing a control plane that can orchestrate activities across multiple clusters. The benefits of Fleet Manager increase as the number of clusters in your fleet grows.
+This solution uses [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/). Fleets enable a range of capabilities for managing multiple clusters, with a focus on reducing day-2 operational overhead by providing a control plane that can orchestrate activities across multiple clusters. The benefits of Fleet Manager increase as the number of clusters in your fleet grows.
 
 In this solution, the fleet orchestrates Kubernetes version updates across multiple clusters, as well as node image version updates. These capabilities don't require a hub cluster to be deployed. You could choose to have each cluster perform Kubernetes version and node image updates independently, which doesn't require a fleet. However, if you do so, clusters are likely to get version updates at different times, and it can become difficult to validate your workload and configuration with multiple versions in your production environment simultaneously.
 
@@ -84,7 +84,7 @@ After the cluster stamp is defined, you have many options for deploying individu
 - Deployment history and logging
 - Access control and auditing capabilities, to control who can make changes and under what conditions
 
-As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to stay consistent. One approach is to deploy each region's resources as an individual step within a GitHub Actions workflow. This configuration is simple because each cluster instance is clearly defined within the deployment pipeline. This configuration does include some administrative overhead in adding and removing clusters from the deployment.
+As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to stay consistent. One approach is to deploy each region's resources as an individual step within a GitHub Actions workflow. This configuration is straightforward because each cluster instance is clearly defined within the deployment pipeline. This configuration does include some administrative overhead in adding and removing clusters from the deployment.
 
 Another option would be to create business logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
@@ -139,7 +139,7 @@ There are several deployment approaches you can consider, including:
 
    A single pipeline typically deploys a workload to one or more clusters. This approach minimizes operational overhead and remains manageable in low-scale environments. When moving from a single-cluster to few-cluster model, you can evolve the deployment pipelines you already have in place.
 
-- **Azure Kubernetes Fleet Manager workload propagation:** Fleet workload propagation simplifies the task of orchestrating workload definitions across multiple member clusters from a centralized control plane. Fleets support a reliable and scalable approach to workload deployments, allowing for a large number of workloads and member clusters.
+- **Azure Kubernetes Fleet Manager workload propagation:** Fleet workload propagation helps orchestrate workload definitions across multiple member clusters from a centralized control plane. Fleets support a reliable and scalable approach to workload deployments, allowing for a large number of workloads and member clusters.
 
    Workload propagation requires the use of a hub cluster, which is a Microsoft-managed AKS cluster that helps to track the expected state of your member clusters. This hub cluster is a regional resource. If a regional outage affects the hub cluster, workload propagation might experience temporary disruption.
 
@@ -234,7 +234,7 @@ This configuration is defined in the cluster stamp Bicep file, so that each time
 
 #### Azure Monitor
 
-When you're designing a monitoring solution for a multi-region architecture, it's important to consider the coupling between each stamp. You might deploy a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single globally shared Log Analytics workspace, and connect each regional cluster to that one shared workspace. When each regional cluster emits diagnostic logs to that single Log Analytics workspace, you can use the data, along with resource metrics, to more easily build reports and dashboards that help you understand how your whole multi-region solution is running.
+When you're designing a monitoring solution for a multi-region architecture, it's important to consider the coupling between each stamp. You might deploy a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single globally shared Log Analytics workspace, and connect each regional cluster to that one shared workspace. When each regional cluster emits diagnostic logs to that single Log Analytics workspace, you can use the data, along with resource metrics, to build reports and dashboards that help you understand how your whole multi-region solution is running.
 
 #### Azure Front Door
 

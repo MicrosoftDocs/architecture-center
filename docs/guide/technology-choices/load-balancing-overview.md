@@ -6,6 +6,7 @@ ms.author: pnp
 ms.date: 07/10/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
+ms.custom: copilot-scenario-highlight
 ---
 
 # Load balancing options
@@ -82,7 +83,7 @@ Consider the following factors when you select a load balancing solution:
 The following flow chart helps you choose a load balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
 
 > [!TIP]
-> You can use Microsoft Copilot in the Azure portal to help guide you through this decision similar to the flow chart. In Copilot, enter **Help me choose a load balancer.** By answering the questions from Copilot, you can narrow down your load balancing options.
+> You can use Microsoft Copilot in Azure to help guide you through this decision, similar to the flow chart described here. For more information, see [Work with Azure Load Balancer using Microsoft Copilot in Azure](/azure/copilot/work-load-balancer).
 
 Every application has unique requirements not captured in simple decision trees. Treat this flow chart or Copilot recommendation as a starting point. Then perform a more detailed evaluation.
 
@@ -110,7 +111,7 @@ When your workload includes several services that require load balancing, assess
   >
   > Using a regional resource as a router for globally distributed back ends introduces a regional single point of failure. It also incurs extra latency because traffic is forced through one region before going to another and then back again.
 
-- **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.yml#scalability).
+- **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.md#scalability).
 
 - **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
 

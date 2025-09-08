@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json",
     "default": true,
     "MD013": false,
     "MD025": {

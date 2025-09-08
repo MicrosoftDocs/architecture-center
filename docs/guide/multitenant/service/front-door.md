@@ -6,7 +6,9 @@ ms.author: ranema
 ms.date: 05/15/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom: arb-saas
+ms.custom:
+  - arb-saas
+  - sfi-image-nochange
 ---
 
 # Use Azure Front Door in a multitenant solution

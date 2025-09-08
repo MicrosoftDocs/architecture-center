@@ -42,7 +42,15 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 - Prefer simple sentences over those with dependent clauses.
 - Be descriptive, not emotional.
 - Avoid the passive voice. Use "you" as the subject where necessary.
-- Avoid generalizations or marketing terms such as "best solution" or "easy to use" or "fast to implement." You don't know the constraints of the reader or their situation, so you can't make general statements like these.
+- Avoid generalizations, marketing terms, or weasel words. Words you should generally avoid: seamless, seamlessly, fast, quick, quickly, easy, effortless, effortlessly, simple, simply, world-class, cutting-edge, cheap. You don't know the constraints of the reader or their situation, so you shouldn't make general statements like these. Instead present the facts/metrics/limits in a way that will help an architect make an informed decision.
+
+## Folder and file structure
+
+- The root folder for the data used in articles is [docs/](docs/).
+- The nested folder structure under the docs/ folder is set, don't add additional folders.
+- Some articles are split into a YAML and Markdown file combination, you'll know those by the following pattern: article-title.yml + article-title-content.md. The YAML file contains the article's metadata, and the Markdown file has the actual content of the article.
+- Other articles are just Markdown, such as article-title.md, and do not have a companion YAML file. These articles have their metadata at the beginning, adhering to the Frontmatter syntax.
+- Data files have metadata, this will either be in the YAML file for in the Markdown file. You won't update metadata unless requested.
 
 ## Content types
 
@@ -63,19 +71,21 @@ These content types do not directly map to the file system. Their destinations a
 - Invoke the GitHub Copilot for Azure `#azure_query_learn` agent tool to query existing Microsoft Learn documentation as needed.
 - Invoke the Web Search for Copilot `#websearch` agent tool to query general knowledge from the Internet as needed.
 
-## Folder and file structure
+## Sourcing policy
 
-- The root folder for the data used in articles is [docs/](docs/).
-- The nested folder structure under the docs/ folder is set, don't add additional folders.
-- Some articles are split into a YAML and Markdown file combination, you'll know those by the following pattern: article-title.yml + article-title-content.md. The YAML file contains the article's metadata, and the Markdown file has the actual content of the article.
-- Other articles are just Markdown, such as article-title.md, and do not have a companion YAML file. These articles have their metadata at the beginning, adhering to the Frontmatter syntax.
-- Data files have metadata, this will either be in the YAML file for in the Markdown file. You won't update metadata unless requested.
+- Prioritize Microsoft Learn as the primary source of truth.
+- Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
+
+## Proactive edits (scope)
+
+- Allowed without asking: copyedits that do not change meaning (grammar, spelling, concision), removal of weasel words, and minor structure cleanups (headings, lists) that preserve meaning.
+- Not allowed without request: content rewrites and adding/removing sections
 
 ## Freshness updates
 
-Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. We don't ever update `ms.date` unless a full freshness pass is complete on the data.
+Data in this repository must be periodically updated to reflect modern approaches and modern technology, usually once a year. Data that receives a full freshness pass gets its `ms.date` metadata updated to reflect this. Do not proactively perform a full freshness pass; instead, when you detect content that appears outdated or divergent, leave files unchanged and output a message to the human-in-the-loop indicating that a freshness pass is recommended and why.
 
-The following items must be addressed during a freshness update, no exceptions, and the person doing the update will need to self-attest to addressing these items:
+The following items must be addressed during a freshness update (when explicitly requested), no exceptions, and the person doing the update will need to self-attest to addressing these items:
 
 - Links are not broken, they lead to the article they are supposed to lead to without redirection.
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.

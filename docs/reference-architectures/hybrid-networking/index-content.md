@@ -13,7 +13,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Benefits
 
-- Simple to configure.
+- Relatively straightforward configuration compared to dedicated connectivity options.
 - High aggregate bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
 
 ### Challenges

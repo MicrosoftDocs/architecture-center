@@ -36,7 +36,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - A VM is deployed in the same virtual network that hosts the AKS cluster. When you deploy AKS as a private cluster, system administrators can use this VM to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools/). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
-- An Azure Bastion host provides secure and seamless Secure Shell (SSH) connectivity to the jumpbox VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
+- An Azure Bastion host provides secure Secure Shell (SSH) connectivity to the jump box VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
 
 - The architecture includes an application gateway that the ingress controller uses. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that all tenant workloads share. A WAF policy helps protect tenant workloads from malicious attacks.
 
@@ -78,7 +78,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [WAF](/azure/application-gateway/waf-overview) is a service that helps provide centralized protection of web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP CRS](https://owasp.org/www-project-modsecurity-core-rule-set). You can use WAF to create custom rules that are evaluated for each request that passes through a policy. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If the request meets these conditions, WAF allows or blocks the request based on the rule.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion helps provide secure and seamless Remote Desktop Protocol (RDP) and SSH connectivity to the VMs in your virtual network, directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) and SSH connectivity to the VMs in your virtual network, directly from the Azure portal over TLS.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization without having to buy and maintain the physical hardware.
 
