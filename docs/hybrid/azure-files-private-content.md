@@ -44,7 +44,7 @@ The solution shown in this architecture correctly configures on-premises DNS set
 
 ### Components
 
-The solution in the architecture diagram uses the following components:
+The solution uses the following components:
 
 - A **client** (component **1** or **2**) is typically a Windows, Linux, or macOS desktop that accesses file shares by using the SMB protocol. In this architecture, clients connect to Azure Files either directly over a private network or through a local file server that has Azure File Sync and cloud tiering enabled.
 
