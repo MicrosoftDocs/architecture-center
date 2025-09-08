@@ -47,7 +47,7 @@ The following new and updated articles have recently been published in the Azure
 - [DataOps for the modern data warehouse](./databases/architecture/dataops-mdw.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [Migrate IBM z/OS OLTP Workloads to Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [Replicate Mainframe and Midrange Data to Azure by Using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
-- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.md)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
