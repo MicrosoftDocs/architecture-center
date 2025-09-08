@@ -57,6 +57,7 @@ Relational database management systems organize data into normalized tables with
 - **[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)** is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
 - **[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)** is a managed PostgreSQL service supporting open-source extensions and flexible deployment options.
 - **[Azure Database for MySQL](/azure/mysql/flexible-server/overview)** is a fully managed MySQL database for web apps and open-source workloads.
+- **[SQL Database in Microsoft Fabric](/fabric/database/sql/overview)** is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. 
 
 Use this table to help determine which Azure service meets your use case requirements.
 
@@ -66,7 +67,8 @@ Use this table to help determine which Azure service meets your use case require
 |**[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)**|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, VNet, advanced auditing|Migrating an on-prem SQL Server app with minimal code changes|
 |**[Azure SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)**|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput|
 |**[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)**|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app using PostgreSQL and PostGIS|
-|**[Azure Database for MySQL](/azure/mysql/flexible-server/overview)**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site
+|**[Azure Database for MySQL](/azure/mysql/flexible-server/overview)**|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site|
+|**[SQL Database in Microsoft Fabric](/fabric/database/sql/overview)**|OLTP workloads in the Fabric ecosystem|Built on the Azure SQL database engine, scalable and integrated into Fabric|Building AI apps on an operational, relational data model with native vector search capabilities|
 
 ## Non-relational data stores
 
