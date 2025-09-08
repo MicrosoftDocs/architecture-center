@@ -23,16 +23,21 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 ### Components
 
-- The [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution for hosting WordPress on App Service. Besides App Service, the solution also uses the other Azure services that are described in this section.
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps.
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
-- [Azure Content Delivery Network](/azure/cdn/cdn-overview) efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, you can use Content Delivery Network as an alternative to Azure Front Door.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDoS Protection on perimeter virtual networks.
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario's subnets, network security group rules restrict traffic flow between the application components.
-- [Azure Key Vault](/azure/key-vault/general/overview) stores and controls access to passwords, certificates, and keys.
-- [Azure Database for MySQL - flexible server](/azure/mysql/flexible-server/overview) is a relational database service that's based on the open-source MySQL database engine. The flexible server deployment option is a fully managed service that provides granular control and flexibility over database management functions and configuration settings. In this scenario, Azure Database for MySQL stores WordPress data.
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable, optimized object storage. Blob Storage is a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) offering that provides a framework for building, deploying, and scaling web apps. In this architecture, App Service hosts the WordPress application.
+
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, the database option stores WordPress data.
+
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks against the public IP address.
+
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the application entry point for web users.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. In this solution, Azure App Service and backend components are only reachable through private connections in the virtual network.
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable, optimized object storage service. In this architecture, Blob Storage hosts all static content for the WordPress application.
+
+- [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
+
+- [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution template for hosting WordPress on App Service. In this architecture, the template provides a preconfigured WordPress deployment that includes App Service and the other Azure services described in this section.
 
 ### Alternatives
 

@@ -24,7 +24,7 @@ items:
     - name: Overview
       href: guide/architecture-styles/index.md
     - name: Big compute
-      href: guide/architecture-styles/big-compute.yml
+      href: guide/architecture-styles/big-compute.md
     - name: Big data
       href: guide/architecture-styles/big-data.md
     - name: Event-driven architecture

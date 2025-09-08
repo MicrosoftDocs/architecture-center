@@ -63,8 +63,8 @@ Both platforms provide different types of disks to meet particular performance n
 | AWS EBS volume type | Azure Managed disk | Use | Can this managed disk be used as an OS Disk |
 | ----------- | ------------- | ----------- | ----------- |
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments | Yes |
-| gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads | Yes |
-| io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency | No |
+| gp2 |  Premium SSD | Production and performance-sensitive workloads | Yes |
+| gp3 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency | No |
 | io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS | No |
 | st1/sc1 |  Standard HDD | Infrequently accessed workloads | Yes |
 

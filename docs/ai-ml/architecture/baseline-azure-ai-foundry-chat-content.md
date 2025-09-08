@@ -278,7 +278,7 @@ Chat architectures contain stateful components, so DR planning is essential. The
 
 For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
-The following recommendations address DR for each service:
+The following recommendations help address DR concerns:
 
 - **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat threads. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
@@ -291,6 +291,10 @@ The following recommendations address DR for each service:
 - **Transactional consistency:** If the state store in your workload references Azure AI agent identifiers, such as thread IDs or agent IDs, coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the AI Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
+
+- **AI Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host, minimizing change coordination with all project dependencies.
+
+As an added preventative measure for the Azure AI Foundry agent service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against catastrophic loss of state in AI Search, Cosmos DB, and Storage.
 
 Before you move to production, build a recovery runbook that addresses failures in both application-owned state and agent-owned state.
 
@@ -516,6 +520,19 @@ To control consumption model costs in this architecture, use a combination of th
 This architecture requires Azure Firewall as an egress control point. To optimize costs, use the Basic tier of Azure Firewall unless the rest of your workload components require advanced features. Higher tiers add cost, so only use them if you need their capabilities.
 
 If your organization uses Azure landing zones, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
+
+#### Microsoft Defender for Cloud
+
+This architecture should have the following Cloud Workload Protection plans enabled, and covering the related resources of the workload.
+
+| Plan | Benefit |
+| :--- | :------ |
+| Defender for Servers | Capabilities such as vulnerability assessments and file integrity monitoring helps prevent your highly privileged jump boxes and build agents role from becoming a threat vector. |
+| Defender for App Service | Provides security monitoring of logs, host machines, and management interfaces for your chat interface components. |
+| Defender for Azure Cosmos DB | Provides database interaction monitoring for the database containing the chat threads, looking for signs of potential abuse or irregular access of your users' chat data and agent definitions. |
+| Defender for AI services | Provides alerts based on your workload's requests and responses to your agents; alerting on attempts at jailbreaking or data leakage. If your organization uses Microsoft Purview, this plan also enables the licensed integration with [Microsoft Purview DSPM for AI](/azure/defender-for-cloud/ai-onboarding#enable-data-security-for-azure-ai-with-microsoft-purview). |
+
+If your organization hosts a security information and event management (SIEM) solution or uses Microsoft Purview, ensure that any customer data, such as prompts and responses, that's replicated into their data stores resides in a region that doesn't violate any data sovereignty restrictions your workload requires.
 
 ### Operational Excellence
 

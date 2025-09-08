@@ -39,7 +39,7 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.yml)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
 - [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist
@@ -334,22 +334,6 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
-## Customer stories
-
-There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
-
-- [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
-- [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
-- [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
-- [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
-- [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
-- [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
-- [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
-- [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-- [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
-- [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
-- [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
-
 ## Other important information
 
 - Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
@@ -372,4 +356,4 @@ These tutorials will provide you with details on running applications on Microso
 
 ## Related resources
 
-- [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
+- [Big compute architecture style](../guide/architecture-styles/big-compute.md)
