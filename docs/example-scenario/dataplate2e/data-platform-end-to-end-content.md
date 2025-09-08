@@ -10,12 +10,13 @@ This solution integrates various components of Microsoft Fabric to ingest, store
 
 ### Dataflow
 
-In the following sections, OneLake is used as the home for data throughout the various stages of the data lifecycle. OneLake is the unified, enterprise-grade data lake built into Fabric that serves as a centralized storage Layer for all data workloads including Data Engineering, Data Factory, Data Science, Data Warehouse, Real-Time Intelligence, Industry solutions, Databases, and Power BI. 
+In the following sections, OneLake is used as the home for data throughout the various stages of the data lifecycle. OneLake is the unified, enterprise-grade data lake built into Fabric that serves as a centralized storage Layer for all data workloads including Data Engineering, Data Factory, Data Science, Data Warehouse, Real-Time Intelligence, Databases, and Power BI. 
 Fabric offers data stores built on top of OneLake
 
 #### Lakehouse
 
-Use [Lakehouse](/fabric/data-engineering/lakehouse-overview)) in Microsoft Fabric when you need a unified, scalable, and flexible platform to manage structured, semi-structured, and unstructured data for analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
+Use [Lakehouse](/fabric/data-engineering/lakehouse-overview)  in Microsoft Fabric when you need a unified, scalable, and flexible platform.
+It is ideal for managing structured, semi-structured, and unstructured data to support analytics, machine learning, and reporting. Follow the [medallion architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) with Bronze(raw), Silver(validated), Gold(business-ready) for organizing data using folders and files, databases, and tables.  
 
 #### Warehouse
 
@@ -23,7 +24,8 @@ Use [Warehouse](/fabric/data-warehouse/data-warehousing) in Microsoft Fabric whe
 
 #### Eventhouse
 
-Use [Eventhouse](/fabric/real-time-intelligence/eventhouse) in Microsoft fabric for managing and analyzing real-time, high-volume event manage structured, semi-structured, and unstructured data such as logs, telemetry etc. by organizing data into Databases, schemas, and tables. 
+Use [Eventhouse](/fabric/real-time-intelligence/eventhouse) in Microsoft Fabric to manage and analyze real-time, high-volume event data.
+It supports structured, semi-structured, and unstructured data—such as logs, telemetry, and more—by organizing it into databases, schemas, and tables.
 
 #### Fabric SQL Database
 
@@ -52,7 +54,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Each mirrored database includes an auto-generated SQL Endpoint. You can use T-SQL to run complex aggregations or use Spark Notebooks for data exploration. 
 
-2. Read-only SQL analytics endpoint can also be accessed through [SQL Server Management Studio(SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), via [ODBC](/fabric/data-warehouse/how-to-connect#connect-using-odbc), any query tool using the [SQL connection string](/fabric/data-warehouse/how-to-connect#find-the-warehouse-connection-string) within Microsoft Fabric settings and the [mssql extension with Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions?view=fabric&preserve-view=true).
+2. Read-only SQL analytics endpoint can also be accessed using [SQL Server Management Studio(SSMS)](/sql/ssms/download-sql-server-management-studio-ssms),[ODBC](/fabric/data-warehouse/how-to-connect#connect-using-odbc), any query tool with the [SQL connection string](/fabric/data-warehouse/how-to-connect#find-the-warehouse-connection-string), or the [mssql extension with Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions?view=fabric&preserve-view=true).
 
 3. Create Cross-database queries to access the data from your mirrored databases and combine the mirrored data with other Fabric data sources (for example, Lakehouses, Warehouses). 
 
@@ -68,7 +70,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Serve
 
-1. Creating a mirroring Database creates a mirrored SQL Database item and a [SQL Analytics Endpoint](/fabric/database/mirrored-database/explore#use-the-sql-analytics-endpoint). Use the SQL analytics endpoint to run read-only queries. You can use [Data Preview](/fabric/data-warehouse/data-preview) to view data within the SQL Analytical Endpoint, or [explore directly in OneLake](/fabric/database/mirrored-database/explore-data-directly), or [SQL Query editor](/fabric/mirroring/explore#use-sql-queries-to-analyze-data) to create T-SQL queries against data in the Mirrored database item data, or access mirrored data with a Lakehouse shortcut and use [notebooks](/fabric/mirroring/explore-onelake-shortcut) to write Spark queries to process data. 
+1. Creating a mirroring Database creates a mirrored SQL Database item and a [SQL Analytics Endpoint](/fabric/database/mirrored-database/explore#use-the-sql-analytics-endpoint). Use the SQL analytics endpoint to run read-only queries. You can use [Data Preview](/fabric/data-warehouse/data-preview) to view data within the SQL Analytical Endpoint, or [explore directly in OneLake](/fabric/database/mirrored-database/explore-data-directly). Alternatively you can explore data directly in OneLake or use the [SQL Query editor](/fabric/mirroring/explore#use-sql-queries-to-analyze-data) to create T-SQL queries against data in the Mirrored database item data. You can also access mirrored data with a Lakehouse shortcut and use Spark queries to process data. 
 
 2. Data can be served directly to Power BI. You can create [Semantic models](/training/modules/design-model-power-bi) to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights using [Direct Lake](/fabric/data-warehouse/semantic-models#direct-lake-mode) Capability. 
 
@@ -140,7 +142,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to parse and transform semi-structured data, for example Flatten nested JSON structures, convert XML to tabular format, or extract key fields from log files. 
 
-2. Use [Spark notebooks](/training/modules/work-delta-lake-tables-fabric/) to extract content and transform unstructured data using Dataframes. 
+2. Use Spark notebooks to extract content and transform unstructured data using Dataframes. 
 
 3. Use T-SQL Ingestion to load the data from existing tables in Lakehouse's or warehouses. 
 
@@ -204,7 +206,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ### Components
 
-The following Azure services have been used in the architecture:
+The following Fabric and Azure services are used in the architecture:
 
 - [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) is a generative AI assistant embedded across the Microsoft Fabric Platform. In this architecture it can be used to build scalable data pipelines, create Spark code for Data transformations, generate optimized SQL for Data Warehouse, create the KQL queries for Real-Time Intelligence, and build Semantic Models and DAX measures for Reporting.
 
@@ -250,7 +252,7 @@ This approach can also be used to:
 
 - Enterprise Data Platform Modernization to replace fragmented data tools with a unified platform. 
 
-- Establish a [medallion lake architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture), using Fabric’s Lakehouse and/or Warehouse organized with bronze layer for raw data ingestion from data sources, silver Layer for cleansed and transformed data and gold layer for business ready data for analytics and AI.  
+- Establish a [medallion lake architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture), using Fabric’s Lakehouse organized with bronze layer for raw data ingestion from data sources, silver Layer for cleansed and transformed data and gold layer for business ready data for analytics and AI. Warehouses can also be added as subject-area or domain-specific solutions tailored to particular topics that may require customized analytics.
 
 - Integrate relational data sources with other unstructured datasets, with set of [Fabric compute engines](/fabric/fundamentals/microsoft-fabric-overview#fabric-compute-engines). 
 
