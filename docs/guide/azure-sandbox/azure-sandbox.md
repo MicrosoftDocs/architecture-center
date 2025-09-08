@@ -25,21 +25,6 @@ The Azure Sandbox is composed of modular components that can be deployed individ
 
 ### Components
 
-<<<<<<< HEAD:docs/guide/azure-sandbox/azure-sandbox.md
-- Shared services virtual network, [Azure Bastion](/azure/bastion/bastion-overview), [Azure Firewall](/azure/well-architected/service-guides/azure-firewall), and Active Directory domain controller
-
-- Application virtual network, Windows Server jump box, Linux jump box, and [Azure Files](/azure/well-architected/service-guides/azure-files) share
-
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
-
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
-
-- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
-
-- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) and point-to-site VPN
-
-For more information on the use of modules in infrastructure as code (IaC) projects, see [Recommendations for using IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design#use-the-right-balance-when-encapsulating-functionality) in the Azure Well-Architected Framework.
-=======
 You can deploy each of the following sandbox configurations or only the ones that you need:
 
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is a Windows Server VM that runs Active Directory Domain Services (AD DS). In this architecture, it provides centralized authentication, domain joining for VMs, and policy management across the sandbox environment.
@@ -65,7 +50,6 @@ You can deploy each of the following sandbox configurations or only the ones tha
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
 - [Windows Server jump box](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox/) is a domain-joined Windows VM with administrative tools including RSAT, Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
->>>>>>> ac7c743522a6adf5c7e22638e9b89ec77cf70624:docs/guide/azure-sandbox/azure-sandbox-content.md
 
 ## Deploy the sandbox
 
