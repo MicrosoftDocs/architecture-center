@@ -33,7 +33,7 @@ The [Azure Import/Export service](/azure/import-export/storage-import-export-ser
 
 ### Azure Data Box
 
-[Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Import/Export service. With Data Box, Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer files to each one. Data Box is supported by many industry-leading Azure partners to make it easier to seamlessly use offline transport to the cloud from their products.
+[Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Import/Export service. With Data Box, Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer files to each one. Data Box is supported by many industry-leading Azure partners to make it easier to use offline transport to the cloud from their products.
 
 ## Command-line tools and APIs
 

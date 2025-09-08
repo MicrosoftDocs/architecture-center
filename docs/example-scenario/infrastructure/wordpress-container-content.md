@@ -22,16 +22,25 @@ This article describes a container solution for hosting a large, storage-intensi
 
 ### Components
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDoS Protection on perimeter virtual networks.
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario's subnets, network security group rules restrict traffic flow between the application components.
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes inbound traffic based on rules and health probe results. A load balancer provides low latency and high throughput. By spreading traffic across multiple servers, a load balancer adds scalability to Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) applications. In this scenario, a load balancer distributes traffic from the content delivery network to the front-end web servers.
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service that you can use to deploy, manage, and scale containerized applications.
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides a fully managed performance-intensive and latency-sensitive storage solution. In this solution, Azure NetApp Files hosts all the WordPress content so that all the pods have access to the data.
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an in-memory data store. You can use Azure Cache for Redis to host a key-value cache in this solution. That cache is shared among all pods and is used for WordPress performance optimization plug-ins.
-- [Key Vault](/azure/key-vault/general/overview) stores and controls access to passwords, certificates, and keys.
-- [Azure Database for MySQL - flexible server](/azure/mysql/flexible-server/overview) is a relational database service that's based on the open-source MySQL database engine. The flexible server deployment option is a fully managed service that provides granular control and flexibility over database management functions and configuration settings. In this scenario, Azure Database for MySQL stores WordPress data.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying, managing, and scaling containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform for running the containerized WordPress application with high availability and scalability.
+
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this solution, Azure Cache for Redis hosts a key-value cache that is shared among all pods and used for WordPress performance optimization plug-ins to improve response times.
+
+- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
+
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and is enabled on the perimeter network.
+
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
+
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a fully managed, performance-intensive and latency-sensitive storage solution. In this solution, Azure NetApp Files hosts all the WordPress content so that all the pods have access to the shared data through high-performance file storage.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. In this architecture, virtual networks provide isolation and segmentation.
+
+- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and controlling access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
+
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer 4 load balancer that distributes inbound traffic based on rules and health probe results with low latency and high throughput. In this architecture, the load balancer distributes traffic from Azure Front Door to the ingress controller pods.
+
+- [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
 ### Alternatives
 

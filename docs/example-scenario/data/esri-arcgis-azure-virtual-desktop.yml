@@ -8,6 +8,7 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: fcp 
+  ai-usage: ai-assisted
 azureCategories:
   - analytics
   - azure-virtual-desktop

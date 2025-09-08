@@ -1614,6 +1614,10 @@
       "redirect_url": "/azure/cloud-adoption-framework/migrate/migration-considerations/assess/estimate"
     },
     {
+      "source_path": "docs/web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment"
+    },
+    {
       "source_path": "docs/cloud-adoption/migrate/migration-considerations/assess/evaluate.md",
       "redirect_url": "/azure/cloud-adoption-framework/migrate/migration-considerations/assess/evaluate"
     },
@@ -1856,6 +1860,10 @@
     {
       "source_path": "docs/cloud-adoption/organization/organization-structures.md",
       "redirect_url": "/azure/cloud-adoption-framework/organize/organization-structures"
+    },
+    {
+      "source_path": "docs/checklist/resiliency-per-service.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance"
     },
     {
       "source_path": "docs/cloud-adoption/organization/raci-alignment.md",
@@ -3876,6 +3884,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/multitenant/approaches/ai-ml.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/approaches/ai-machine-learning",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
       "redirect_url": "/azure/event-grid/overview",
       "redirect_document_id": false
@@ -5522,6 +5535,11 @@
     {
       "source_path": "docs/solution-ideas/articles/connected-factory-hierarchy-service.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/app-service-environment/architectures/ase-standard-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/app-service-environment-standard-deployment",
       "redirect_document_id": false
     },
     {
