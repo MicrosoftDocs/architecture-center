@@ -94,11 +94,10 @@ To narrow the choices, start by answering these questions:
 
 - Does your database have specific security needs? If yes, examine the options that provide capabilities like row level security, data masking, and transparent data encryption.
 
-- Does your solution require distributed transactions? If yes, consider elastic transactions within Azure SQL Database and SQL Managed Instance. SQL Managed Instance also supports traditional calls through the Microsoft Distributed Transaction Coordinator (MSDTC)
+- Does your solution require distributed transactions? If yes, consider elastic transactions within Azure SQL Database and SQL Managed Instance. SQL Managed Instance also supports traditional calls through the Microsoft Distributed Transaction Coordinator (MSDTC).
 
 ## Next steps
 
-- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-outbox-cosmos.yml)
 - [Azure Cosmos DB transactional batch operations](/azure/cosmos-db/transactional-batch)
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
 - [Multitenancy and Azure Cosmos DB](../../guide/multitenant/service/cosmos-db.md)
@@ -109,4 +108,5 @@ To narrow the choices, start by answering these questions:
 
 ## Related resources
 
+- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-outbox-cosmos.yml)
 - [Azure Data Architecture Guide](../index.md)
