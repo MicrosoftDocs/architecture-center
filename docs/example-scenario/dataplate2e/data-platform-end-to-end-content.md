@@ -78,7 +78,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 4. Use the [Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), which allows you to expose data from [supported Fabric data sources](/fabric/data-engineering/api-graphql-overview#supported-data-sources) through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
 
-5. Serve real-time predictions from any registered ML model using secure, scalable [ML online endpoints](/fabric/data-science/model-endpoints) that are automatically configured. If you are looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption.  
+5. Serve real-time predictions from any registered ML model using secure, scalable [ML online endpoints](/fabric/data-science/model-endpoints) that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption.  
 
 6. Deliver data to users using a conversational interface with [Fabric Data Agent(preview)](/fabric/data-science/concept-data-agent) via natural language queries. 
 
@@ -144,7 +144,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 3. Use T-SQL Ingestion to load the data from existing tables in Lakehouse's or warehouses. 
 
-4. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls or outliers. Once profiled and transformed, save processed data into Lakeshouse tables. 
+4. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls or outliers. Once profiled and transformed, save processed data into Lakehouse tables. 
 
 5. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
 
@@ -160,7 +160,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 4. Use the Fabric API for GraphQL, which allows you to expose data from supported Fabric data sources through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
 
-5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you are looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. 
+5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. 
 
 6. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
 
@@ -206,7 +206,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 The following Azure services have been used in the architecture:
 
-- [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) is a generative AI assistant embedded across the Microsoft Fabric Platform. In this architecture it can be used to build scalable data pipelines, create Spark code for Data transformations, generate optimized SQL for Data Wareshouse, create the KQL queries for Real-Time Intelligence, and build Semantic Models and DAX measures for Reporting.
+- [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) is a generative AI assistant embedded across the Microsoft Fabric Platform. In this architecture it can be used to build scalable data pipelines, create Spark code for Data transformations, generate optimized SQL for Data Warehouse, create the KQL queries for Real-Time Intelligence, and build Semantic Models and DAX measures for Reporting.
 
 - [Fabric Data Agent (preview)](/fabric/data-science/how-to-create-data-agent) is a powerful, AI-driven feature that helps users to interact with their orgnanizational data using natural language. In this architecture, Data Agents act as a conversational interface to translate natural language questions into structured queries (SQL,DAX,or KQL)
 
@@ -274,7 +274,7 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 1. Use [Microsoft Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
 
-2. Microsoft Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they are meant to be used across the organization.
+2. Microsoft Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they're meant to be used across the organization.
 
 3. You can [register all your data sources](/azure/purview/manage-data-sources) and organize them into [Collections](/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
 
@@ -300,7 +300,7 @@ Following these recommendations, the services below should be considered as part
 - [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric(Preview)](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops) and [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your Fabric workload development and deployment pipelines for semaless version control, collaboration, and lifecycle management.
+- [Azure DevOps](https://azure.microsoft.com/solutions/devops) and [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance with your Fabric workload development and deployment pipelines for seamless version control, collaboration, and lifecycle management.
 - [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
 ## Considerations
