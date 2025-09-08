@@ -75,21 +75,33 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ### Components
 
-- [OneLake](/fabric/onelake/onelake-overview) is a single, unified, logical data lake for the whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage.
-
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases.
-- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. It's a flexible and scalable solution that allows organizations to handle large volumes of data using various tools and frameworks to process and analyze that data. It integrates with other data management and analytics tools to provide a comprehensive solution for data engineering and analytics. A lakehouse combines the scalability of a data lake with the performance and structure of a data warehouse, providing a unified platform for data storage, management, and analytics.
-- [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is a next-generation data warehousing solution within Microsoft Fabric.The lake-centric warehouse is built on an enterprise grade distributed processing engine that enables industry leading performance at scale while minimizing the need for configuration and management.
-- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that automates data movement and transformation.
+
+  - [OneLake](/fabric/onelake/onelake-overview) is a single, unified, logical data lake for the whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage.
+
+  - [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. It's a flexible and scalable solution that allows organizations to handle large volumes of data using various tools and frameworks to process and analyze that data. It integrates with other data management and analytics tools to provide a comprehensive solution for data engineering and analytics. A lakehouse combines the scalability of a data lake with the performance and structure of a data warehouse, providing a unified platform for data storage, management, and analytics.
+
+  - [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is a next-generation data warehousing solution within Microsoft Fabric.The lake-centric warehouse is built on an enterprise grade distributed processing engine that enables industry leading performance at scale while minimizing the need for configuration and management.
+
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that automates data movement and transformation. In this architecture, Azure Data Factory is responsible for ingesting data from diverse sources and moving it through the pipeline for processing and analysis.
+
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. This solution uses a local data store for machine learning data and a premium data cache for training the machine learning model.
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that provides easier model development and deployment to a wide range of machine learning compute targets. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter Notebook environment that supports various integrated development environments.
-  - [Azure Machine Learning compute clusters](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python) are managed compute structures that you can use to easily create single-node or multi-node compute resources.
-  - [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI that's authenticated via key-and-token authentication.
-  - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines) are independently executable workflows of complete machine learning tasks. Pipelines can help you standardize the best practices of producing a machine learning model and improve model building efficiency.
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an always-up-to-date, fully managed relational database service that's built for the cloud.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) provides business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization.
-- [Power Apps](/power-apps/powerapps-overview) is a suite of apps, services, and connectors, together with a data platform, that provides a rapid development environment for building custom apps. You can use Power Apps to quickly build business apps that connect to your data. Data can be stored in the underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) or in various online and on-premises data sources, like SharePoint, Microsoft 365, Dynamics 365, and SQL Server.
-- [Web applications](/dotnet/architecture/modern-web-apps-azure) built with ASP.NET Core, hosted in Azure, offer competitive advantages over traditional alternatives. ASP.NET Core is optimized for modern web application development practices and cloud hosting scenarios.
+
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that provides easier model development and deployment to a wide range of machine learning compute targets. In this architecture, it provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter Notebook environment that supports various integrated development environments.
+
+   - [Azure Machine Learning compute clusters](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python) are managed compute structures that you can use to easily create single-node or multi-node compute resources.
+
+   - [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI that's authenticated via key-and-token authentication.
+
+   - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines) are independently executable workflows of complete machine learning tasks. Pipelines can help you standardize the best practices of producing a machine learning model and improve model building efficiency.
+
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this architecture, it stores structured data, such as order history and model outputs, to support analytical workloads and reporting.
+
+- [Power BI](/power-bi/fundamentals/power-bi-overview) provides business analytics and visually immersive and interactive insights. In this architecture, Power BI provides dashboards and reports that present insights and recommendations that the machine learning models generate.
+
+- [Power Apps](/power-apps/powerapps-overview) is a platform for building custom business applications quickly. In this architecture, use Power Apps to create user-facing applications that display personalized order recommendations. Data can be stored in the underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) or in various online and on-premises data sources, like SharePoint, Microsoft 365, Dynamics 365, and SQL Server.
+
+- [Web applications](/dotnet/architecture/modern-web-apps-azure) that are built with ASP.NET Core and hosted in Azure provide competitive advantages over traditional alternatives. ASP.NET Core is optimized for modern web application development practices and cloud hosting scenarios. In this architecture, web apps can serve as portals for users to access forecasted recommendations and interact with the ordering system.
 
 ### Alternatives
 
