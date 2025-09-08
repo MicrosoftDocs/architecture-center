@@ -1,6 +1,6 @@
 <!-- cSpell:ignore fabraga -->
 
-The solution described in this article combines the components of Microsoft Fabric that ingests, stores, processes, enriches, and serves data and insights from different sources (structured, semi-structured, unstructured, and streaming). 
+This solution integrates various components of Microsoft Fabric to ingest, store, process, enrich, and deliver data and insights from diverse sources—including structured, semi-structured, unstructured, and streaming data.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Use options with [Data Factory pipelines](/fabric/data-factory/data-factory-overview) with [Copy Activity](/fabric/data-factory/copy-data-activity), [Copy Job](/fabric/data-factory/what-is-copy-job), [Dataflows Gen2](/fabric/data-factory/dataflows-gen2-overview) that offers powerful data ingestion features to pull data from a wide variety of databases, both on-premises and in the cloud to include orchestration, transformation, and scheduling capabilities. Check out list of [supported connectors](/fabric/data-factory/connector-overview#supported-connectors-in-fabric) in Fabric. 
 
-3. [T-SQL](/fabric/data-warehouse/ingest-data-tsql) provides powerful options for loading data at scale from your existing Lakehouses and warehouses that can be used for creating new table versions with aggregated data, subset of data filtered or results of complex queries. 
+3. [T-SQL](/fabric/data-warehouse/ingest-data-tsql) offers powerful capabilities for loading data at scale from your existing Lakehouses and warehouses, enabling you to create new table versions with aggregated data, filtered subsets, or results from complex queries.
 
 ##### Store
 
@@ -72,7 +72,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Data can be served directly to Power BI. You can create [Semantic models](/training/modules/design-model-power-bi) to simplify the analysis of business data and relationships. Business analysts use Power BI reports and dashboards to analyze data and derive business insights using [Direct Lake](/fabric/data-warehouse/semantic-models#direct-lake-mode) Capability. 
 
-   2. Additionally, you can use a [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
+   1. Additionally, you can use a [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
 3. Data can also be securely shared with other business units or external trusted partners using [Fabric external data sharing](/fabric/governance/external-data-sharing-overview) with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
@@ -218,11 +218,11 @@ The following Azure services have been used in the architecture:
 
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Fabric OneLake to create dashboards and reports.
 
-- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice show multiple meters related to your Fabric capacity resource in the n Microsoft Cost Management.
+- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice in Microsoft Cost Management display multiple meters associated with your Fabric capacity resource.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-based service for securely storing and managing sensitive information like secrets, keys, and certificates. In this architecture, it manages credentials used in Fabric connections and Gateways.
 
-- [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the data platform.
+- [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the Fabric data platform.
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a comprehensive suite of development tools and services offered by Microsoft to support the entire software development lifecycle. In this architecture, Azure DevOps integrated with Fabric workspaces for Lifecycle Management and source control.
 
