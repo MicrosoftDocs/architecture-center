@@ -75,17 +75,19 @@ The following tables summarize the key differences in capabilities.
 | Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  | 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Is a managed service? | Yes | Yes |Yes | Yes | Yes | Yes | Yes | 
-| Primary database model | Unified data lake, relational, user managed delta lake format using apache parquet | Unified data lake, relational, system managed delta lake format using apache parquet | Kusto Engine with KQL Database | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
-| SQL language support | Yes<sup>1</sup> | Yes | Yes | Yes | Yes | Yes | No |
-| Optimized for speed serving layer | Yes  | Yes  | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes<sup>4</sup> | Yes | No | 
+| Primary database model | Unified data lake, relational, user managed delta lake format using apache parquet | Unified data lake, relational, system managed delta lake format using apache parquet | Time series append oriented data store, graph, vector | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
+| SQL language support | Yes<sup>1</sup> | Yes | Yes<sup>2</sup> | Yes | Yes | Yes | No |
+| Optimized for speed serving layer | Yes  | Yes  | Yes<sup>3</sup> | Yes<sup>4</sup> | Yes<sup>5</sup> | Yes | No | 
 
-[1] T-SQL via SQL Analytics Endpoint
+[1] T-SQL via SQL Analytics Endpoint.
 
-[2] Supports queued ingestion and streaming ingestion.
+[2] KQL has partial [T-SQL](/azure/data-explorer/t-sql) language support.
 
-[3] Supports transactional precision with low-latency access and real-time updates.
+[3] Supports queued ingestion and streaming ingestion.
 
-[4] Using memory-optimized tables and hash or nonclustered indexes.
+[4] Supports transactional precision with low-latency access and real-time updates.
+
+[5] Using memory-optimized tables and hash or nonclustered indexes.
 
 
 ### Scalability capabilities
