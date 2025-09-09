@@ -24,13 +24,13 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps feature provide a framework for building, deploying, and scaling web apps.
-- [Functions](https://azure.microsoft.com/products/functions) is an event-driven serverless compute platform.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
-- [Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
-- [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains. Azure DNS uses Azure infrastructure to provide name resolution. The private Azure DNS service manages and resolves domain names in a virtual network and in connected virtual networks. When you use this service, you don't need to configure a custom DNS solution.
-- An [Azure DNS private zone](https://azure.microsoft.com/products/dns) contains records that you can't resolve from the internet. DNS resolution only works from virtual networks that are linked to the private zone.
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) offers many sizes and types of on-demand, scalable computing resources.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps feature provide a managed platform for building, deploying, and scaling web applications. In this architecture, Web Apps hosts the application in the provider tenant and is secured via private endpoints to restrict public access.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven serverless compute service. In this architecture, Functions can serve as an alternative to Web Apps. Functions is also secured via private endpoints to ensure that cross-tenant access remains private.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the foundational networking layer in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, virtual networks host the private endpoints and DNS zones, which facilitates secure connectivity between provider and consumer tenants.
+- [Private Link](/azure/private-link/private-link-overview) enables secure, private connectivity between Azure services and virtual networks by mapping service endpoints to private IP addresses within a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services. In this architecture, Private Link exposes the web app or function app securely to another tenant without traversing the public internet.
+- [Azure DNS](/azure/dns/dns-overview) is a scalable DNS hosting service that uses Azure infrastructure to provide name resolution. The private Azure DNS service manages and resolves domain names in a virtual network and in connected virtual networks. This service doesn't require configuration of a custom DNS solution. In this architecture, Azure DNS handles public DNS queries and integrates with private DNS zones to resolve private endpoint addresses.
+- [Azure DNS private zones](/azure/dns/private-dns-overview) allow DNS resolution within virtual networks without exposing records to the public internet. In this architecture, private DNS zones manage internal name resolution for private endpoints, which ensures secure and accurate routing within and across tenants.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides scalable compute resources to run applications and services. In this architecture, a VM in the consumer tenant initiates DNS and HTTPS requests to the provider's web app via the private endpoint.
 
 ## Provider setup
 
