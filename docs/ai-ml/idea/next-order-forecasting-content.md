@@ -48,7 +48,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
       - After the data is prepared, Azure Machine Learning can start the parallel model training process by using ParallelRunStep with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
 
-   - Apache Spark - a part of Microsoft Fabric - enables machine learning with big data. With Apache Spark, you can build valuable insights into large masses of structured, unstructured, and fast-moving data. You have several available open-source library options when you [train machine learning models with Apache Spark in Microsoft Fabric](/fabric/data-science/model-training-overview): Apache Spark MLlib, SynapseML, and others
+   - Apache Spark, a part of Microsoft Fabric, enables machine learning with big data. With Apache Spark, you build valuable insights into large masses of structured, unstructured, and fast-moving data. You have several available open-source library options when you [train machine learning models with Apache Spark in Microsoft Fabric](/fabric/data-science/model-training-overview): Apache Spark MLlib, [SynapseML](/fabric/data-science/synapseml-first-model), and others.
 
 1. Machine learning model Inferencing
 
