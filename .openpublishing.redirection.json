@@ -5538,6 +5538,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/web-apps/app-service-environment/architectures/ase-standard-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/app-service-environment-standard-deployment",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/idea/machine-learning-model-deployment-aks.yml",
       "redirect_url": "/azure/machine-learning/how-to-deploy-kubernetes-extension",
       "redirect_document_id": false

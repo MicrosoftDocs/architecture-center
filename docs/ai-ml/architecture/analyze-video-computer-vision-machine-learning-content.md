@@ -20,14 +20,19 @@ This article describes an architecture that you can use to replace the manual an
 
 ### Components
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
-- [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides object storage for cloud-native workloads and machine learning data stores. In this architecture, it stores the uploaded raw video footage that serves as the input for the automated video analysis pipeline.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade service that supports the end-to-end machine learning life cycle. In this architecture, it manages the inference cluster and orchestrates the process of breaking down videos into frames for further analysis.
+
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, secure, and cost-effective cloud storage solution for analytics workloads. In this architecture, it stores the extracted video frames for downstream image analysis and processing.
+
+- [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
+
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, triggers analysis workflows, processes results, and coordinates the movement and transformation of data.
+
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
 ### Alternatives
 

@@ -181,5 +181,5 @@ Other contributors:
 ## Related resources
 
 - [Architectural approaches for the deployment and configuration of multitenant solutions](../approaches/deployment-configuration.md)
-- [Architectural approaches for cost management and allocation in a multitenant solution](../../multitenant/approaches/cost-management-allocation.yml)
+- [Architectural approaches for cost management and allocation in a multitenant solution](../../multitenant/approaches/cost-management-allocation.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../../multitenant/checklist.md)

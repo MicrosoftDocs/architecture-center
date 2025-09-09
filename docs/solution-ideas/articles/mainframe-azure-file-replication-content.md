@@ -70,7 +70,7 @@ This architecture outlines various Azure-native migration tools that you can use
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. In this architecture, Azure Synpase Analytics transforms mainframe data before loading it into Azure databases for analysis and reporting.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an intelligent data platform with a suite of cloud services and tools for every data life cycle stage, including ingestion, preparation, storage, analysis, and visualization.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. In this architecture, it uses the IBM Host File connector to interact with mainframe systems and automate file parsing and transformation.
 
@@ -82,11 +82,11 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a platform as a service (PaaS) offering that provides full SQL Server compatibility with managed infrastructure. In this architecture, it modernizes legacy applications by hosting migrated mainframe data with minimal code changes.
 
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) is an infrastructure as a service (IaaS) solution that lifts and shifts SQL Server workloads to Azure, which combines the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. In this architecture, it provides full control over SQL Server configurations for hosting mainframe-derived data.
+- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) is an infrastructure as a service (IaaS) solution that lifts and shifts SQL Server workloads to Azure, which combines the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. In this architecture, it provides control over SQL Server configurations for hosting mainframe-derived data.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed open-source relational database service. In this architecture, it serves as a target for migrated mainframe data that requires PostgreSQL compatibility.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service. In this architecture, it supports workloads that require MySQL-based storage for transformed mainframe data.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed MySQL database service. In this architecture, it supports workloads that require MySQL-based storage for transformed mainframe data.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service that includes multi-model support. In this architecture, it stores high-performance, scalable applications built on transformed mainframe data.
 

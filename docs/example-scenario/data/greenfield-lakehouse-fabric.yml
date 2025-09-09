@@ -9,6 +9,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - arb-data
+  ai-usage: ai-assisted
 azureCategories:
   - analytics
   - databases
