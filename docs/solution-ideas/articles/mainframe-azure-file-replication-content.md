@@ -70,7 +70,7 @@ This architecture outlines various Azure-native migration tools that you can use
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
-- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an intelligent data platform with a suite of cloud services and tools for every data life cycle stage, including ingestion, preparation, storage, analysis, and visualization.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an intelligent data platform with a suite of cloud services and tools for every data life cycle stage, including ingestion, preparation, storage, analysis, and visualization. In this architecture, Fabric enables organizations to study data movement, experiment with data science, and perform real-time analytics and business intelligence on transformed mainframe data.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. In this architecture, it uses the IBM Host File connector to interact with mainframe systems and automate file parsing and transformation.
 
