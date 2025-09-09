@@ -11,7 +11,7 @@ This guide describes how to create a private AKS cluster in a hub-and-spoke netw
 Terraform modules are used to deploy a new virtual network that has four subnets that host:
 
 - The AKS cluster (AksSubnet).
-- A jumpbox virtual machine (VM) and private endpoints (VmSubnet).
+- A jump box virtual machine (VM) and private endpoints (VmSubnet).
 - Application Gateway WAF2 (AppGatewaySubnet).
 - Azure Bastion (AzureBastionSubnet).
 
@@ -33,7 +33,7 @@ The AKS cluster is composed of the following pools:
 
 A VM is deployed in the virtual network that's hosting the AKS cluster. When you deploy AKS as a private cluster, system administrators can use this VM to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
-An Azure Bastion host provides improved-security SSH connectivity to the jumpbox VM over Secure Sockets Layer (SSL). Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
+An Azure Bastion host provides improved-security SSH connectivity to the jump box VM over Secure Sockets Layer (SSL). Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
 
 AKS does not provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
@@ -62,23 +62,23 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private Docker registry service that's based on the open-source Docker Registry 2.0. In this architecture, Container Registry is used to build, store, and manage container images and artifacts like Helm charts that are deployed to the AKS cluster, with support for geo-replication for disaster recovery scenarios.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS hosts the private cluster with system and user node pools in a spoke virtual network.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies Kubernetes cluster deployment and management. In this architecture, AKS hosts the private cluster with system and user node pools in a spoke virtual network.
 
-- [Key Vault](/azure/key-vault/general/overview) stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys with improved security. In this architecture, Key Vault serves as a secret store for workloads running on AKS.
+- [Key Vault](/azure/key-vault/general/overview) is a cloud-based service that stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys with improved security. In this architecture, Key Vault serves as a secret store for workloads that run on AKS.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the virtual machines (VMs) in your virtual network, directly from the Azure portal over TLS. In this architecture, Azure Bastion provides more secure access to the jumpbox VM over SSL from the Azure portal, which eliminates the need to expose VMs directly to the public internet.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the virtual machines (VMs) in your virtual network, directly from the Azure portal over TLS. In this architecture, Azure Bastion provides more secure access to the jump box VM over SSL from the Azure portal, which eliminates the need to expose VMs directly to the public internet.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization. In this architecture, Virtual Machines serves as jumpbox host deployed in the virtual network that hosts the AKS cluster. It allows system administrators to manage the private cluster via kubectl when direct access to the API server is restricted.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources that give you the flexibility of virtualization. In this architecture, Virtual Machines serves as jump box host deployed in the virtual network that hosts the AKS cluster. It allows system administrators to manage the private cluster via kubectl when direct access to the API server is restricted.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. Virtual Network enables Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks with improved security. In this architecture, Virtual Network provides network isolation and connectivity with the spoke network that hosts the AKS cluster and subnets for different components. It's peered to the hub network that contains Azure Firewall and Azure Bastion.
 
-- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) enable Azure VMs to communicate with the internet, Azure, and on-premises resources. In this architecture, network interfaces provide connectivity for the jumpbox VM and AKS nodes. You can add several network interface cards to one Azure VM, so that child VMs can have their own dedicated network interface devices and IP addresses.
+- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) are networking components that enable Azure VMs to communicate with the internet, Azure, and on-premises resources. In this architecture, network interfaces provide connectivity for the jump box VM and AKS nodes. You can add several network interface cards to one Azure VM, so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) provide block-level storage volumes that Azure manages on Azure VMs. Ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs) are available. In this architecture, managed disks provide persistent storage for the jumpbox VM and AKS cluster nodes.
+- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs) are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jumpbox VM and can serve as storage for container images and other artifacts.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jump box VM and can serve as storage for container images and other artifacts.
 
-- [Private Link](/azure/private-link/private-link-overview) enables you to access Azure PaaS services over a private endpoint in your virtual network. In this architecture, Private Link provides secure connectivity to services like Blob Storage, Container Registry, and Key Vault. It ensures that traffic remains on the Azure backbone without exposure to the public internet. You can also use it to access Azure-hosted services that you own or that a Microsoft partner provides.
+- [Private Link](/azure/private-link/private-link-overview) is a networking service that enables you to access Azure PaaS services over a private endpoint in your virtual network. In this architecture, Private Link provides secure connectivity to services like Blob Storage, Container Registry, and Key Vault. It ensures that traffic remains on the Azure backbone without exposure to the public internet. You can also use it to access Azure-hosted services that you own or that a Microsoft partner provides.
 
 ### Alternatives
 

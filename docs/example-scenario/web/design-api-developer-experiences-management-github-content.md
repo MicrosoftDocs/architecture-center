@@ -52,9 +52,9 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a software development platform that provides version control and collaboration features. In this architecture, GitHub hosts the enhanced developer portal. It provides the following features:
 
-  - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories).
+  - [GitHub Pages](https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages) is a static site hosting service that enables your enterprise to host a rich [HTML-based website](https://pages.github.com) directly from within a [GitHub repository](https://docs.github.com/repositories). In this architecture, it provides API documentation and interactive experiences for API consumers.
 
-  - [GitHub Discussions](https://docs.github.com/discussions) and [GitHub Issues](https://docs.github.com/issues) enable community collaboration.
+  - [GitHub Discussions](https://docs.github.com/discussions) is a forum-style space within a repository that enables open-ended conversations and community engagement. [GitHub Issues](https://docs.github.com/issues) is a task-tracking system used to report bugs, suggest features, and manage development work collaboratively. In this architecture, both features enable API consumers and developers to exchange ideas, report problems, and contribute to the API ecosystem.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications. In this architecture, App Service hosts the consumer portal and account portal components that provide the marketplace experience, user registration, and account management features for API consumers.
 

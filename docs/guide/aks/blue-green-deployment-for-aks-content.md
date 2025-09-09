@@ -218,7 +218,7 @@ Here's the situation after the blue cluster is destroyed:
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a service that helps manage and protect secrets, keys, and certificates. In this architecture, Key Vault stores and manages the secrets and certificates required at platform and application levels for the blue-green deployment solution.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and application endpoint management system. In this architecture, it acts as the public endpoint for HTTP applications that are hosted on AKS and manages the traffic switch between the blue and green application gateways.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and application endpoint management system. In this architecture, it serves as the public endpoint for HTTP applications that are hosted on AKS and manages the traffic switch between the blue and green application gateways.
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. In this architecture, it manages the host names that are used in the solution for the blue and green clusters. It also plays an important role in the traffic switches, particularly for private endpoints.
 

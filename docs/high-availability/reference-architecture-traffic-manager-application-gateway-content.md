@@ -70,11 +70,11 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution by using Microsoft Azure infrastructure. In this architecture, Azure DNS manages DNS records and works with Traffic Manager to provide global DNS-based load balancing and failover capabilities.
 
-- [Azure DNS private zones](/azure/dns/private-dns-overview) are a feature of Azure DNS. Azure DNS private zones provide name resolution within a virtual network and between virtual networks. n this architecture, Azure DNS private zones enable internal name resolution for resources within the virtual network infrastructure.
+- [Azure DNS private zones](/azure/dns/private-dns-overview) are a feature of Azure DNS. Azure DNS private zones provide name resolution within a virtual network and between virtual networks. In this architecture, Azure DNS private zones enable internal name resolution for resources within the virtual network infrastructure.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Virtual Machines host the application tiers and distributes them across availability zones in multiple regions for high availability.
 
-   You can replace pecific components, like the database and the front-end tier, of the applications with platform as a service (PaaS) Azure resources. However, the architecture won't change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) to bring those PaaS services into the virtual network.
+   You can replace specific components, like the database and the front-end tier, of the applications with platform as a service (PaaS) Azure resources. However, the architecture won't change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) to bring those PaaS services into the virtual network.
 
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) is a service that provides automated and load-balanced virtual machine scaling to simplify application management and increase availability. In this architecture, Virtual Machine Scale Sets enables automatic scaling of application tiers based on demand while maintaining high availability across availability zones.
 

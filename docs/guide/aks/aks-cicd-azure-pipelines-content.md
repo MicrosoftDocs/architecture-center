@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Microservices with Azure Kubernetes Service (AKS) and Azure DevOps is a variant of [Design a continuous integration/continuous deployment (CI/CD) pipeline using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
+> Microservices with Azure Kubernetes Service (AKS) and Azure DevOps is a variant of [Design a continuous integration/continuous deployment (CI/CD) pipeline by using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
 
 ## Potential use cases
 
@@ -29,7 +29,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 - [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of Azure Monitor that collects performance metrics, logs, and health data from Kubernetes clusters. In this architecture, Container Insights collects logs and metrics from the AKS environments and forwards them to Azure Monitor. This data provides observability into container performance and health across the CI/CD pipeline deployments.
 
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service for storing and managing container images. In this architecture, Container Registry serves as both non-production and production image repositories that store the container images that the CI pipeline builds and provides secure access for deployments to staging and production AKS environments.
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service for storing and managing container images. In this architecture, Container Registry serves as both non-production and production image repositories that store the container images that the CI pipeline builds and provides secure access for deployments to staging and production AKS environments.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, AKS provides the staging and production environments where the containerized applications are deployed via the CD pipeline.
 
