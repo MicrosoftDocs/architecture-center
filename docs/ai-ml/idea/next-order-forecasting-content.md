@@ -54,7 +54,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
    Model inferencing is a process that uses a trained machine learning model to generate predictions for previously unseen data points. In this solution, it forecasts the quantity of the merchandise SKU that a customer is likely to purchase.
 
-   - Azure Machine Learning provides model registries for storing and   versioning trained models. Model registries can help you organize and track trained models, ensuring that they're readily available for deployment.
+   - Azure Machine Learning provides model registries for storing and versioning trained models. Model registries can help you organize and track trained models, ensuring that they're readily available for deployment.
 
       - Deploying a trained machine learning model enables the model to process new data for inferencing. We recommend that you use [Azure managed endpoints](/azure/machine-learning/concept-endpoints) for the deployment target. Endpoints enable easy scalability, performance tuning, and high availability.
 
