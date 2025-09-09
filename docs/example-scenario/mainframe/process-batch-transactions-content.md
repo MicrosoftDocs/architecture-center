@@ -25,30 +25,47 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 ### Components
 
-The architecture uses these components:
+- [Azure Bastion](/azure/bastion/bastion-overview) is a platform as a service (PaaS) that provides private and fully managed Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to virtual machines (VMs). In this architecture, Azure Bastion enables secure administrative access to the VMs without exposing them to the public internet.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides private connections between Azure datacenters and on-premises infrastructure.
-- [Azure Bastion](/azure/bastion/bastion-overview) provides private and fully managed RDP and SSH access to VMs.
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.
-- A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
-- An Azure network interface connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications.
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service (MaaS) and simple hybrid integration.
-- [Azure load balancing services](/azure/architecture/guide/technology-choices/load-balancing-overview) provides scaling for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/). It provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multi-tiered hybrid apps.
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a lightning-fast and fully managed in-memory caching service for sharing  data and state among compute resources.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fast NoSQL database with open APIs for any scale.
-- [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) provides real-time analytics on fast-moving streams of data from applications and devices.
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a fast, easy, and collaborative big data analytics service based on Apache Spark<sup>TM</sup>.
-- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability), part of the Azure SQL service portfolio, is a  managed, secure, and always up-to-date SQL instance in the cloud.
-- [Data Factory](/azure/data-factory/introduction) is a fully managed and serverless data integration solution for preparing, and transforming all your data at scale.
-- Data Factory supports the Parquet file data format. For more information, see [Parquet format in Azure Data Factory](/azure/data-factory/format-parquet).
-- Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics).
-- The geo-redundant storage (GRS) option of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
+
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multi-model NoSQL database with open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
+
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that provides a fast, easy, and collaborative big data analytics service. In this architecture, Azure Databricks can be used for advanced analytics and machine learning on batch processing results.
+
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that provides private connections between Azure datacenters and on-premises infrastructure. In this architecture, ExpressRoute enables high-bandwidth, low-latency connectivity for batch processing applications that need to access on-premises data sources.
+
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a cloud file storage service that provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares. In this architecture, Azure Files provides shared file storage for batch processing applications that require file-based data access.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS provides the container orchestration platform for running batch processing applications at scale.
+
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) is a load balancing service that provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multi-tiered hybrid apps. In this architecture, Load Balancer distributes incoming traffic among healthy batch processing instances to optimize performance.
+
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. In this architecture, Azure Managed Disks provide persistent storage for batch processing applications and temporary data.
+
+- [Azure network interface](/azure/networking/fundamentals/networking-overview) is a component that connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. In this architecture, network interfaces enable connectivity between batch processing VMs and the Service Bus messaging system. For more information about network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
+
+- [Azure SQL](/azure/azure-sql/) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud. In this architecture, Azure SQL provides relational database services for batch processing applications.
+
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage service that provides multiple storage solutions including blob, file, queue, and table storage. The geo-redundant storage (GRS) option of Azure Storage copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy). In this architecture, Azure Storage with GRS provides highly durable storage for batch processing data and protects against catastrophic failures.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a cloud computing service that provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux. In this architecture, Virtual Machines provide the compute infrastructure for batch processing applications and supporting services.
+
+  A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking by using Azure PowerShell](/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-). In this architecture, accelerated networking enhances the network performance of VMs that handle high-volume batch transactions.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a cloud networking service that provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks. In this architecture, Virtual Network provides secure network isolation for the batch processing infrastructure and enables communication between AKS clusters and other Azure services.
+
+- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that is fully managed and serverless for preparing and transforming all your data at scale. Data Factory supports the [Parquet format in Data Factory](/azure/data-factory/format-parquet). Data Factory's Parquet support enables efficient columnar data processing for batch operations. In this architecture, Data Factory orchestrates data integration workflows for batch processing input and output.
+
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](/azure/azure-monitor/overview) logs. In this architecture, Log Analytics provides centralized logging and monitoring capabilities for batch processing operations.
+
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides reliable cloud messaging as a service (MaaS) and simple hybrid integration. In this architecture, Service Bus delivers transaction messages to AKS clusters and ensures reliable message processing for batch workloads.
+
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed database service that provides a secure, and always up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides high-availability database services with business critical performance tier for permanent data storage.
+
+- [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics service that provides real-time analytics on fast-moving streams of data from applications and devices. In this architecture, Stream Analytics processes streaming data from batch operations for real-time monitoring and analytics.
 
 ## Scenario details
 
