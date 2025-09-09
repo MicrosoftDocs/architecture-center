@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use AI to forecast customer orders 
-  description: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU. 
+  title: Use AI to forecast customer orders
+  description: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.
   author: manasatramalinga
   ms.author: manasatr
   ms.date: 06/07/2024
@@ -13,12 +13,12 @@ azureCategories:
   - analytics
 products:
   - azure-machine-learning
-  - azure-synapse-analytics
+  - fabric
   - azure-data-lake
   - azure-sql-database
   - power-apps
-name: Use AI to forecast customer orders 
+name: Use AI to forecast customer orders
 summary: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.
 thumbnailUrl: /azure/architecture/browse/thumbs/order-forecasting.png
 content: |
-  [!include[](next-order-forecasting-content.md)]
+  [!INCLUDE[](next-order-forecasting-content.md)]
