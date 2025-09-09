@@ -105,7 +105,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ### Alternatives
 
-- Azure Machine Learning provides data modeling and deployment in this solution. Alternatively, you can use [Microsoft Fabric Data Science](/fabric/data-science/data-science-overview) experiences that empower users to build end-to-end data science workflows. You can complete a wide range of activities across the entire data science process. Choosing between AML and Fabric depends on factors such as the scale of your data science operations, the complexity of your machine learning tasks, and the integration with other tools and services you already use. Both platforms offer excellent coverage across a range of requirements and features, making them suitable for a wide range of scenarios.
+- Azure Machine Learning provides data modeling and deployment in this solution. Alternatively, you can use [Microsoft Fabric Data Science](/fabric/data-science/data-science-overview) experiences that empower users to build end-to-end data science workflows. You can complete a wide range of activities across the entire data science process. Choosing between Azure Machine Learning and Fabric depends on factors such as the scale of your data science operations, the complexity of your machine learning tasks, and the integration with other tools and services you already use. Both platforms offer excellent coverage across a range of requirements and features, making them suitable for a wide range of scenarios.
 
    You can also use Azure Databricks to explore and manipulate data in this solution. Azure Databricks uses a notebook-based interface that supports the use of Python, R, Scala, and SQL. Azure Databricks mainly provides data processing and analysis. 
    
