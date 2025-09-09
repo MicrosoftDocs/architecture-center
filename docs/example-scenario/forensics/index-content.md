@@ -45,19 +45,19 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 ### Components
 
-- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks. It's used to automate the process of capturing and transferring VM disk snapshots to help ensure evidence integrity.
+- [Azure Automation](/azure/automation/overview) is a cloud-based service that automates operational tasks by using runbooks and scripts. In this architecture, it orchestrates the evidence capture process by running the `Copy-VmDigitalEvidence` runbook to snapshot and transfer VM disks securely. This process helps ensure evidence integrity.
 
-- [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage. It hosts disk snapshots in immutable blob storage to preserve evidence in a nonerasable and noneditable state.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable cloud storage solution for various data types, including object, file, disk, queue, and table storage. In this architecture, it stores VM disk snapshots in immutable blob containers to preserve digital evidence in a tamper-proof format.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data. It provides optimized cloud object storage for storing disk snapshots as immutable blobs.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. Azure Files is used as a temporary repository to calculate the hash values of disk snapshots.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file storage service that provides shared file systems that can be accessed via the industry-standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol, and the Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
 
-- [Key Vault](/azure/key-vault/general/overview) helps you safeguard cryptographic keys and other secrets that cloud apps and services use. You can use Key Vault to store the BEKs and hash values of disk snapshots to help ensure secure access and data integrity.
+- [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores BEKs and hash values of disk snapshots to protect access and verify the integrity of digital evidence.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. It's used to control access to Azure resources, which helps ensure secure identity management.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
 
-- [Azure Monitor](/azure/azure-monitor/overview) supports your operations at scale by helping you to maximize the performance and availability of your resources, while proactively identifying potential problems. It archives activity logs to audit all relevant events for compliance and monitoring purposes.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
 
 #### Automation
 

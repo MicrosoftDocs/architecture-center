@@ -16,7 +16,7 @@ The following are some example use cases in which you could use this architectur
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end-user S a a S application." source="./media/saas-starter-web-app-architecture.svg" lightbox="./media/saas-starter-web-app-architecture.svg" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end-user SaaS application." source="./media/saas-starter-web-app-architecture.svg" lightbox="./media/saas-starter-web-app-architecture.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/saas-starter-web-app-architecture.pptx) of this architecture.*
 
@@ -155,11 +155,11 @@ This architecture uses the following Azure services:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
-- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) easily enables identity and access management for end user applications.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) enables identity and access management for end user applications.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) lets you build integrations by using a graphical user interface (GUI) tool.
 
 ### Alternatives
 
@@ -197,7 +197,7 @@ The components in this solution have some cost associated with their operation, 
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses the Azure platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
+This architecture should be able to scale to meet most medium to medium-large workloads. Since the architecture mostly uses the Azure platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 ## Deploy this scenario
 

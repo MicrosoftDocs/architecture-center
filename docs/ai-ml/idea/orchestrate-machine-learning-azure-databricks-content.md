@@ -18,7 +18,7 @@ The following workflow corresponds to the preceding diagram. Use source control 
 
 **Source control:** This project's code repository organizes the notebooks, modules, and pipelines. You can create development branches to test updates and new models. Develop code in Git-supported notebooks or integrated development environments (IDEs) that integrate with [Git folders](/azure/databricks/repos) so that you can sync with your Azure Databricks workspaces. Source control promotes machine learning pipelines from the development environment, to testing in the staging environment, and to deployment in the production environment.
 
-**Lakehouse production data:** As a data scientist, you have read-only access to production data in the development environment. The development environment can have mirrored data and redacted confidential data. You also have read and write access in a dev storage environment for development and experimentation. We recommend that you use a [lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture for data in which you store [Delta Lake](/azure/databricks/delta)-format data in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). A lakehouse provides a robust, scalable, and flexible solution for data management. To define access controls, use [Microsoft Entra ID credential passthrough](/azure/databricks/security/credential-passthrough/adls-passthrough) or [table access controls](/azure/databricks/administration-guide/access-control/table-acl).
+**Lakehouse production data:** As a data scientist, you have read-only access to production data in the development environment. The development environment can have mirrored data and redacted confidential data. You also have read and write access in a dev storage environment for development and experimentation. We recommend that you use a [lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture for data in which you store [Delta Lake](/azure/databricks/delta)-format data in [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). A lakehouse provides a robust, scalable, and flexible solution for data management. To define access controls, use [Microsoft Entra ID credential passthrough](/azure/databricks/security/credential-passthrough/adls-passthrough) or [table access controls](/azure/databricks/administration-guide/access-control/table-acl).
 
 The following environments comprise the main workflow.
 
@@ -65,23 +65,32 @@ Machine learning engineers manage the production environment, where machine lear
 
 ### Components
 
-- A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
+- A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. This architecture uses a lakehouse to get data management and performance capabilities that you typically find in data warehouses but with the low-cost, flexible object stores that data lakes provide.
 
-  - [**Delta Lake**](/azure/databricks/delta/) is the recommended open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
+  - [**Delta Lake**](/azure/databricks/delta/) is the recommended open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
 
-- [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning lifecycle. MLflow has the following components:
+- [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning life cycle. In this architecture, MLflow tracks experiments, manages model versions, and facilitates model deployment to various inference platforms. MLflow has the following components:
+
   - The [**tracking feature**](/azure/databricks/applications/mlflow/tracking) tracks experiments, so you can record and compare parameters, metrics, and model artifacts.
+
     - [**Databricks autologging**](/azure/databricks/applications/mlflow/databricks-autologging) extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments and automatically logs model parameters, metrics, files, and lineage information.
 
   - [**MLflow Model**](/azure/databricks/applications/mlflow/models) is a format that you can use to store and deploy models from any machine learning library to various model-serving and inference platforms.
+
   - [**Unity Catalog**](/azure/databricks/data-governance/unity-catalog/) provides centralized access control, auditing, lineage, and data-discovery capabilities across Azure Databricks workspaces.
+
   - [**Mosaic AI Model Serving**](/azure/databricks/machine-learning/model-serving/) hosts MLflow models as REST endpoints.
-- [**Azure Databricks**](/azure/well-architected/service-guides/azure-databricks-security) provides a managed MLflow service that has enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
+
+- [**Azure Databricks**](/azure/well-architected/service-guides/azure-databricks-security) is a managed platform for analytics and machine learning. In this architecture, Azure Databricks integrates with enterprise security, provides high availability, and connects MLflow and other machine learning components for end-to-end MLOps.
+
   - [**Databricks Runtime for Machine Learning**](/azure/databricks/runtime/mlruntime#mlruntime) automates the creation of a cluster that's optimized for machine learning and preinstalls popular machine learning libraries like TensorFlow, PyTorch, and XGBoost. It also preinstalls Azure Databricks for Machine Learning tools, like AutoML and feature store clients.
 
   - A [**feature store**](/azure/databricks/applications/machine-learning/feature-store) is a centralized repository of features. Use the feature store to discover and share features and help prevent data skew between model training and inference.
+
   - [**Databricks SQL**](/azure/databricks/sql) integrates with a variety of tools so that you can author queries and dashboards in your favorite environments without adjusting to a new platform.
+
   - [**Git folders**](/azure/databricks/repos) provides integration with your Git provider in the Azure Databricks workspace, which improves notebook or code collaboration and IDE integration.
+
   - [**Workflows**](/azure/databricks/data-engineering) and [**jobs**](/azure/databricks/jobs) provide a way to run non-interactive code in an Azure Databricks cluster. For machine learning, jobs provide automation for data preparation, featurization, training, inference, and monitoring.
 
 ### Alternatives

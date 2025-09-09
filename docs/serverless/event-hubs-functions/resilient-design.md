@@ -28,7 +28,7 @@ Understanding the benefits and drawbacks of streams helps you appreciate how a s
 
 - **Every reader must read all data:** Since server-side filtering is unavailable, a consumer sequentially reads all the data in a partition. This includes data that may not be relevant or could even be malformed. Several options and strategies can be used to compensate for these challenges, which are covered later in this section.
 
-These significant design decisions allow Event Hubs to do what it does best: support a significant influx of events and provide a robust and resilient service for consumers to read from. Each consumer application is tasked with the responsibility of maintaining their own, client-side offsets or cursor to those events. The low overhead makes Event Hubs an affordable and powerful option for event streaming.
+These design decisions allow Event Hubs to support a significant influx of events and provide a resilient service for consumers to read from. Each consumer application is tasked with the responsibility of maintaining their own, client-side offsets or cursor to those events. The low overhead makes Event Hubs a cost-effective option for event streaming.
 
 ## Idempotency
 

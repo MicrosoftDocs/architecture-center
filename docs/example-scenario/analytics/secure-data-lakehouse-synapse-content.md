@@ -34,8 +34,8 @@ The dataflow for the solution is shown in the following diagram:
 
 The following are the key components in this data lakehouse solution:
 
-- [Azure Synapse](/azure/synapse-analytics/overview-what-is) - Azure Synapse is an analytics service that unifies big data and data warehousing to deliver powerful insights across various data sources. In this architecture, Azure Synapse is used to transform the data and load into the medallion architecture. Synapse serverless pools are then used to query the data.
-- [Azure Files](/azure/well-architected/service-guides/azure-files) - Azure Files offers fully managed cloud file shares accessible via SMB, NFS, and REST protocols, making it easy to share files across applications. In this architecture, Azure Files is used as one of the data sources for raw data in the landing zone.
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is) - Azure Synapse is an analytics service that unifies big data and data warehousing to deliver insights across various data sources. In this architecture, Azure Synapse is used to transform the data and load into the medallion architecture. Synapse serverless pools are then used to query the data.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) - Azure Files offers fully managed cloud file shares accessible via SMB, NFS, and REST protocols, enabling file sharing across applications. In this architecture, Azure Files is used as one of the data sources for raw data in the landing zone.
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) - Event Hubs is a scalable event processing service designed to ingest and process large volumes of events and data with minimal latency. In this architecture, Event Hubs is used for capturing streaming data from data sources and store in the Blob storage.
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) - Blob Storage is Microsoft's object storage solution optimized for storing vast amounts of unstructured data like text or binary data. In this architecture, Blob Storage is used as a data store in the landing zone.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)  - Azure Data Lake Storage is a cloud-based data lake solution built on Azure Blob Storage, tailored for big data analytics. In this architecture, Azure Data Lake Storage is used to store data in the medallion architecture protected by the firewall rules and blocked off from public internet.
@@ -44,7 +44,7 @@ The following are the key components in this data lakehouse solution:
 - [Data Factory](/azure/data-factory/introduction) - Data Factory is a cloud-based ETL and data integration service that orchestrates data movement and transformation through data-driven workflows. In this architecture, Azure Data Factory is used to process the data from the landing zone to the core data zone for network isolation from public internet.
 - [Azure Bastion](/azure/bastion/bastion-overview) - Azure Bastion offers secure RDP/SSH connectivity to virtual machines without exposing them to the public internet. In this architecture, Azure Bastion is used to access the core data zone as its blocked off from public internet.
 - [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor is a comprehensive monitoring solution that collects, analyzes, and responds to data from cloud and on-premises environments. In this architecture, Azure Monitor is used to monitor different Synapse components.
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Microsoft Defender for Cloud provides robust threat protection and security management across Azure, hybrid, and on-premises environments. In this architecture, Defender for cloud is used for storage accounts to detect harmful attempts to access data and get an overall security score.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Microsoft Defender for Cloud provides threat protection and security management across Azure, hybrid, and on-premises environments. In this architecture, Defender for cloud is used for storage accounts to detect harmful attempts to access data and get an overall security score.
 - [Azure Key Vault](/azure/key-vault/general/overview) - Azure Key Vault securely stores and manages sensitive information like keys, secrets, and certificates. In this architecture, Azure Key Vault is used to securely store the credentials for Azure Data Lake linked service and Azure DevOps self-hosted agent.
 
 ### Alternatives
@@ -78,7 +78,7 @@ This article describes the design process, principles, and technology choices fo
 - [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps](https://azure.microsoft.com/services/devops).
 
-The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together seamlessly and securely.
+The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together reliably and securely.
 
 ### Potential use cases
 

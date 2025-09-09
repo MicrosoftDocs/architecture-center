@@ -42,7 +42,7 @@ Mainframe and midrange systems update on-premises application databases at regul
    - Azure Database for PostgreSQL
    - Azure Cosmos DB
    - Azure Data Lake Storage
-   - Azure Database for MySQL 
+   - Azure Database for MySQL
 
 1. SQL Server Integration Services (SSIS) extracts, transforms, and loads data.
 1. The on-premises data gateway is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and Azure services.
@@ -59,15 +59,15 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics combines the best of the following technologies and services:
 
-   - SQL technologies for enterprise data warehousing
+  - SQL technologies for enterprise data warehousing
 
-   - Spark technologies for big data
+  - Spark technologies for big data
 
-   - Azure Data Explorer for log and time series analytics
+  - Azure Data Explorer for log and time series analytics
 
-   - Azure Pipelines for data integration and ETL and ELT workflows
+  - Azure Pipelines for data integration and ETL and ELT workflows
 
-   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
+  - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -81,7 +81,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql) provides a way to lift and shift SQL Server workloads to the cloud with complete code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines provides the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. Use SQL Server on Azure Virtual Machines to migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine. Use this service to focus on application innovation instead of database management. You can also scale your workload quickly and easily.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine. Use this service to focus on application innovation instead of database management. You can also scale your workload as needed.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multiple-model](/azure/cosmos-db/nosql/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed NoSQL database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
