@@ -32,37 +32,37 @@ The following dataflow corresponds to the previous diagram:
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests.  In this architecture, it manages organizational identity and access across tenants, which enables secure migration and resource isolation.
 
-- An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption.
+- An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption. In this architecture, subscriptions are used to organize and isolate resources, and are moved between tenants during migration.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications. In this architecture, it supports infrastructure as code (IaC) and automates resource deployment in the target tenant.
 
-- [Azure Backup](/azure/backup/backup-overview) provides cost-effective solutions for backing up your data and recovering it from Azure.
+- [Azure Backup](/azure/backup/backup-overview) is a service for backing up and restoring data in Azure. In this architecture, it ensures data protection and enables recovery during the migration process.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
+- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities. In this architecture, it supports platform as a service (PaaS) compute workloads that are recreated in the target tenant by using DevOps processes.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed and intelligent relational database service. You can use SQL Database to create a high-performance data storage layer for modern cloud applications. In this architecture, it serves as a data service that's backed up and restored during tenant migration because of limitations in direct movement.
 
-- The [Azure Storage](/azure/storage/common/storage-introduction) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, and durable storage for various data objects in the cloud.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and durable cloud storage solution for various data objects in the cloud. In this architecture, it stores configuration artifacts and data backups used during migration.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service for big data and data warehousing. In this architecture, it supports enterprise-scale data analysis across migrated workloads.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service for accelerating and managing the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that are recreated in the target tenant.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) provides a unified set of tools that you can use to build, deploy, share, and maintain enterprise-grade data solutions at scale.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform for building, deploying, sharing, and maintaining data solutions. In this architecture, it supports scalable data engineering and is recreated in the target tenant.
 
-- [Azure AI services](/azure/ai-services/what-are-ai-services) is a set of cloud-based AI services that can help developers build cognitive intelligence into applications, even if they don't have AI or data science skills or knowledge.
+- [Azure AI services](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, AI services enhance migrated applications with cognitive intelligence.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL and relational database service. In this architecture, it's a data service that's backed up and restored during migration.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that you can use to provide access to secrets and store them with enhanced security.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for securely storing and accessing secrets. In this architecture, it's a PaaS compute resource that's recreated in the target tenant to maintain secure access.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. You typically use a VM when you need more control over the computing environment than other choices provide.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
 
-- [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. This architecture uses resource groups to organize all resources.
+- [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. In this architecture, they organize resources before and after migration to maintain structure and manageability.
 
 ## Scenario details
 

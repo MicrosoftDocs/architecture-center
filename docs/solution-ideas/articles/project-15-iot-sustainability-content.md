@@ -47,43 +47,41 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 ### Components
 
-- [IoT Hub][IoT Hub] connects devices to Azure cloud resources. By using this managed service, you can use queries to filter data that you send to the cloud.
+- [IoT Hub][IoT Hub] is a managed service for secure and scalable device-to-cloud communication. In this architecture, it connects devices to Azure cloud resources and enables zero-touch provisioning through its [device provisioning service][device provisioning service of IoT Hub]. You can use IoT Hub queries to filter data that you send to the cloud.
 
-- The [device provisioning service of IoT Hub][device provisioning service of IoT Hub] makes zero-touch, just-in-time provisioning possible. Use this IoT Hub service to provision devices in a secure and scalable manner.
+- [Event Hubs][Event Hubs] is a managed big data streaming platform. In this architecture, Event Hubs ingests telemetry and event data from IoT devices to support real-time analytics and processing.
 
-- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform.
+- [Event Grid][Event Grid] is a service that enables event-based architectures. In this architecture, it routes events from sources to destinations and decouples event publishers from event subscribers.
 
-- [Event Grid][Event Grid] simplifies event-based apps. This service routes events from sources to destinations and decouples event publishers from event subscribers.
+- [Azure Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
 
-- [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
+- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. In this architecture, Functions processes incoming data and integrates services by using triggers and bindings.
 
-- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. By using Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
+- [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time. In this architecture, SignalR enables live data visualization in the presentation layer.
 
-- [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time.
+- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are managed platforms for building, deploying, and scaling web apps. In this architecture, they support the deployment and scaling of web interfaces for interacting with IoT data.
 
-- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are fully managed platforms for building, deploying, and scaling web apps.
+- [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data. In this architecture, Power BI visualizes telemetry and event data from IoT devices in dashboards and reports.
 
-- [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data.
+- [Blob Storage][Blob Storage] is a service that provides optimized cloud object storage for unstructured data. In this architecture, Blob Storage stores telemetry and file data collected from field devices.
 
-- [Blob Storage][Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
+- The [API Apps][API Apps] feature of App Service enables you to use to build and consume APIs in the cloud by using the language of your choice. In this architecture, API Apps exposes device management events and data to external systems.
 
-- [API Apps][API Apps] is a feature of App Service that you can use to build and consume APIs in the cloud while you use the language of your choice.
+- [Microsoft Entra ID][Microsoft Entra ID] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps. In this architecture, Microsoft Entra ID manages user authentication and access control across the platform.
 
-- [Microsoft Entra ID][Microsoft Entra ID] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps.
+- [Azure Digital Twins][Azure Digital Twins] is a modeling service for digital representations of physical environments. In this architecture, Azure Digital Twins models IoT devices and ecosystems to optimize operations, minimize costs, and improve insights.
 
-- [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
+- [Defender for Cloud][Defender for Cloud] is a security management service for hybrid cloud environments. In this architecture, it enforces security policies and protects workloads from threats.
 
-- [Defender for Cloud][Defender for Cloud] provides extended detection and response (XDR) capabilities that protect hybrid cloud workloads from threats.
+- [Notification Hubs][Notification Hubs] is a push notification service that provides a push engine that you can use to send notifications to any platform from any back end. In this architecture, it sends alerts and updates to users across platforms.
 
-- [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
+- [Logic Apps][Logic Apps] is a service that automates workflows and integrates systems, services, and data across organizations by using a visual designer and prebuilt connectors. In this architecture, it orchestrates data flows and integrates services without requiring custom code.
 
-- [Logic Apps][Logic Apps] automates workflows. By using this service, you can connect apps and data across clouds without writing code.
+- [Machine Learning][Machine Learning] is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use these models to forecast future behavior, outcomes, and trends. In this architecture, Machine Learning predicts device behavior and trends to support proactive decision-making.
 
-- [Machine Learning][Machine Learning] is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use these models to forecast future behavior, outcomes, and trends.
+- [Azure Maps][Azure Maps] is a service that provides geospatial capabilities, including mapping, routing, traffic, and location data, to power applications with real-time geographic context. In this architecture, Azure Maps tracks geofencing data and supports location-based insights.
 
-- [Azure Maps][Azure Maps] provides geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
-
-- [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
+- [Microsoft Power Platform][Microsoft Power Platform] is a low-code development suite for analyzing data, automating processes, and building apps, websites, and virtual agents. In this architecture, it enables rapid development of custom apps and workflows for interacting with IoT data.
 
 ## Scenario details
 
