@@ -22,10 +22,11 @@ Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/mic
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
-- [Fabric Warehouse](/fabric/data-warehouse/data-warehousing)
-- [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
-- [Fabric SQL Databases](/fabric/database/sql/overview)
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview), specifically:
+  - [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+  - [Fabric Warehouse](/fabric/data-warehouse/data-warehousing)
+  - [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
+  - [Fabric SQL Databases](/fabric/database/sql/overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Azure SQL Database](/azure/sql-database/)
 - [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
@@ -52,7 +53,7 @@ The following database models are optimized for different types of tasks:
 
 - Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in various column stores and in-memory structures. This capability makes them the optimal choice for storing and analyzing vast quantities of telemetry and time-series data.
 
-- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks.To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/fundamentals/decision-guide-data-store).
+[Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks. To choose the right Fabric datastore for your analytical workloads, see [Fabric decision guide: choose a datastore](/fabric/fundamentals/decision-guide-data-store).
 
 ## Key selection criteria
 
@@ -62,19 +63,18 @@ To refine the selection process, consider the following criteria:
 
 - Do you need massively parallel processing support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale-out.
 
-- Do you prefer to use a relational data store? If you do, narrow your options to those that have a relational database model. However, some nonrelational stores support SQL syntax for querying, and tools such as SQL Endpoint can be used to query files stored in the OneLake
+- Do you prefer to use a relational data store? If you do, narrow your options to those that have a relational database model. However, some nonrelational stores support SQL syntax for querying, and tools such as SQL Endpoint can be used to query nonrelational data stores such as OneLake.
 
 - Do you collect time-series data? Do you use append-only data? Fabric OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark. Fabric Eventhouse makes it suitable for various data processing and querying needs of time-series data.
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities.
+The following tables summarize the key differences in capabilities in these managed services.
 
 ### General capabilities
 
 | Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  | 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Is a managed service? | Yes | Yes |Yes | Yes | Yes | Yes | Yes | 
 | Primary database model | Unified data lake, relational, user managed delta lake format using apache parquet | Unified data lake, relational, system managed delta lake format using apache parquet | Time series append oriented data store, graph, vector | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
 | SQL language support | Yes<sup>1</sup> | Yes | Yes<sup>2</sup> | Yes | Yes | Yes | No |
 | Optimized for speed serving layer | Yes  | Yes  | Yes<sup>3</sup> | Yes<sup>4</sup> | Yes<sup>5</sup> | Yes | No | 
@@ -101,17 +101,17 @@ The following tables summarize the key differences in capabilities.
 
 [1] SQL Endpoints are routed via global traffic managers, but data is always processed in the assigned Fabric capacity region.
 
-[2] Lakehouse and Warehouse store data in OneLake using Delta Parquet format, which supports instant querying and replication across engines.
+[2] Lakehouse and Warehouse store data in OneLake using Delta Parquet format, which supports querying and replication across engines.
 
 [3] Lakehouse supports Spark-based scale-out for unstructured and structured data.
 
-[4] Warehouse uses T-SQL and supports multi-table transactions, autonomous workload management, and distributed query processing (DQP).DQP acts like a cluster manager, dynamically allocating compute resources based on query complexity.
+[4] Warehouse uses T-SQL and supports multi-table transactions, autonomous workload management, and distributed query processing (DQP). DQP acts like a cluster manager, dynamically allocating compute resources based on query complexity.
 
-[5] Eventhouse supports KQL and SQL federation, enabling real-time analytics across multiple sources as well as scale up compute resources if hot cache usage exceeds ~95% 
+[5] Eventhouse supports KQL and SQL federation, enabling real-time analytics across multiple sources as well as scale up compute resources if hot cache usage exceeds ~95%.
 
-[6] Intelligent cache for Spark jobs,[ In-Memory caching](/fabric/data-warehouse/caching), [Result Set caching](/fabric/data-warehouse/result-set-caching) for SQL analytics endpoints.
+[6] Intelligent cache for Spark jobs, [in-memory caching](/fabric/data-warehouse/caching), [result set caching](/fabric/data-warehouse/result-set-caching) for SQL analytics endpoints.
 
-[7] Frequently accessed data is stored in a hot cache which includes in-memory and SSD storage
+[7] Frequently accessed data is stored in a hot cache which includes in-memory and SSD storage.
 
 ### Security capabilities
 
