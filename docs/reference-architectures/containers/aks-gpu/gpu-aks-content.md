@@ -68,8 +68,6 @@ Many Microsoft customers take advantage of GPU workloads to innovate for their c
 
 - [An AI company called Mr. Turing uses AI and AKS to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
 - [OriGen accelerates energy reservoir simulations by 1,000 times by using Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure).
-- [Sensyne Health aids the National Health Service in the COVID-19 struggle by using Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc).
-- [Constellation Clearsight augments electrical infrastructure inspection by using automated machine learning for images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
 
 ## GPU workload deployment best practices
 

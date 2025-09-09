@@ -28,13 +28,13 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service that creates consistent, API gateways for back-end services. In this architecture, it routes API calls, verifies credentials, enforces usage quotas, and logs metadata. It serves as the central platform for managing and publishing APIs.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a suite of development tools and services that manages the development life cycle. In this architecture, it supports planning, code management, and automated deployment of APIs, which enables teams to collaborate and streamline API delivery.
 
-- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) enables continuous integration and continuous delivery (CI/CD) to test and build your code and ship it to any target.
+  - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a cloud-based service that enables continuous integration and continuous delivery (CI/CD). In this architecture, it automates testing, building, and deploying API changes to the API Management instance.
 
-- [Azure Repos](/azure/devops/repos/get-started) is a set of version control tools, including standard Git, that you can use to manage your code.
+  - [Azure Repos](/azure/devops/repos/get-started) is a set of version control tools, including standard Git, that you can use to manage your code. In this architecture, it stores API definitions, policies, and configurations. It serves as the single source of truth for all changes and enables auditability and collaboration through pull requests.
 
 ### Alternatives
 

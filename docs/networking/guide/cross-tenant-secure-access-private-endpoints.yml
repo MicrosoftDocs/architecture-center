@@ -7,6 +7,7 @@ metadata:
   ms.date: 11/09/2024
   ms.topic: conceptual
   ms.subservice: architecture-guide
+  ai-usage: ai-assisted
 name: Cross-tenant secure access to Azure web apps and function apps with private endpoints
 azureCategories:
   - networking
