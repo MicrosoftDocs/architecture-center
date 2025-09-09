@@ -34,15 +34,15 @@ The following dataflow corresponds to the architecture diagram:
 
    - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
 
-   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and Onelake store.
+   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and OneLake store.
 
-   - For big data integrations, Azure Databricks as well as Microsoft Fabric can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
+   - For big data integrations, Azure Databricks, as well as Microsoft Fabric, can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
 
 1. Store data:
 
    You can store transferred data in one of several available persistent Azure storage modes, depending on your requirements.
 
-   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage and Microsoft Fabric OneLake.
+   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage, and Microsoft Fabric OneLake.
 
    - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options) that address different needs:
 
@@ -50,7 +50,7 @@ The following dataflow corresponds to the architecture diagram:
 
      - Nonrelational databases include Azure Cosmos DB, which is a fast, multi-model, globally distributed NoSQL database.
 
-   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, real-time analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration, all in one place.
+   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that covers everything from data movement to data science, real-time analytics, and business intelligence. It offers a suite of services, including data lake, data engineering, and data integration, all in one place.
 
 ### Components
 
@@ -70,7 +70,7 @@ This architecture outlines various Azure-native migration tools that organizatio
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Azure Databricks to correlate incoming data, and enrich it with other data stored in Azure Databricks.
 
-- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end intelligent data platform with a suite of cloud services and tools for every data lifecycle stage—ingestion, preparation, storage, analysis, and visualization. 
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end intelligent data platform with a suite of cloud services and tools for every data lifecycle stage: ingestion, preparation, storage, analysis, and visualization.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. It provides a native IBM Host File connector that interacts with mainframe systems to read, parse, and generate host file content.
 
@@ -96,7 +96,7 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured.
 
-- [OneLake](/fabric/onelake/onelake-overview) OneLake in Microsoft Fabric is a single, unified, logical data lake for your whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage and is designed to be the single place for all your analytics data. 
+- [OneLake](/fabric/onelake/onelake-overview) OneLake in Microsoft Fabric is a single, unified, logical data lake for your whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage and is designed to be the single place for all your analytics data.
 
 ## Scenario details
 
