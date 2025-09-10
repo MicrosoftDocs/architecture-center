@@ -58,7 +58,7 @@ Business-critical applications need to keep running even during disruptive event
 
 Keep in mind that not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. [Azure Functions geo-disaster recovery](/azure/azure-functions/functions-geo-disaster-recovery) describes various strategies that you can implement, depending on how your functions are triggered (HTTP versus pub/sub).
 
-Fabric makes commercially reasonable efforts to support zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to set up or configure. [Reliability in Microsoft Fabric](/azure/reliability/reliability-fabric?toc=%2Ffabric%2Fsecurity%2Ftoc.json&bc=%2Ffabric%2Fbreadcrumb%2Ftoc.json) Fabric offers cross-region replication for data stored in OneLake. You can opt in or out of this feature based on your requirements.
+Fabric makes efforts to support zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to configure it. [Reliability in Microsoft Fabric](/azure/reliability/reliability-fabric) offers cross-region replication for data stored in OneLake. You can opt in or out of this feature based on your requirements.
 
 ### Cost Optimization
 
