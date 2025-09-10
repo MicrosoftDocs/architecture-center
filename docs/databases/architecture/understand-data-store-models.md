@@ -30,7 +30,7 @@ Two comparative tables summarize non-relational model traits so you avoid duplic
 | Category | Primary purpose | Typical Azure services (examples) |
 |----------|-----------------|------------------------------------|
 | Relational (OLTP) | Strongly consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL |
-| Non-relational (document / key/value / column-family / graph) | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Cache for Redis, Managed Cassandra, HBase |
+| Non-relational (document / key/value / column-family / graph) | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, HBase |
 | Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
 | Object & file | Large binary or semi-structured file storage | Blob Storage, Data Lake Storage Gen2 |
 | Search & indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
@@ -134,14 +134,14 @@ A key/value store associates each data value with a unique key. Most key/value s
 
 #### Selecting an Azure service for key/value data stores
 
-- **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** is a fast, in-memory data store for caching, session state, and real-time analytics.
+- **[Azure Managed Redis](/azure/redis/overview)** is a fully managed in-memory data store based on the latest Redis Enterprise version, offering low latency and high throughput.
 - **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** is a key-value store optimized for fast access to structured NoSQL data.
 - **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a document data store, optimized for fast access to structured NoSQL data and provides horizontal scalability.
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
-| **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** | High-speed caching, session state, pub/sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
+| **[Azure Managed Redis](/azure/redis/overview)** | High-speed caching, session state, pub/sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
 | **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Migrating existing Azure Table Storage workloads | Azure Table Storage API compatibility | Storing user preferences and settings in a mobile app |
 | **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | High speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
