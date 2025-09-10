@@ -8,7 +8,7 @@ This architecture describes a solution that provides near real time monitoring a
 
 ### Dataflow
 
-In the observable system architecture shown in the diagram, raw telemetry is streamed to Microsoft Fabric via HTTP and connectors, and ingested using Eventstream. Fabric’s Real-Time Intelligence capabilities enable transformation, normalization, and persistence of telemetry data into Eventhouse, a scalable time-series database. Insights are delivered through Real-Time Dashboards, and Activator, which can trigger automated actions based on detected patterns.
+In the observable system architecture shown in the diagram, raw telemetry is streamed via HTTP and connectors and is eventually routed to Microsoft Fabric and ingested using Eventstream. Fabric’s Real-Time Intelligence capabilities enable transformation, normalization, and persistence of telemetry data into Eventhouse, a time-series database. Insights are delivered through dashboards, and Activator, which can trigger automated actions based on detected patterns.
 
 More specifically, these are the elements of the system in the diagram:
 
