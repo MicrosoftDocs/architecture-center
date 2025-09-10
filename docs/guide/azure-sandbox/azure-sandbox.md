@@ -1,6 +1,6 @@
 ---
 title: Azure Sandbox
-description: Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
+description: Accelerate your Azure project by using a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
 author: doherty100
 ms.author: rdoherty
 ms.date: 08/24/2025
@@ -11,9 +11,9 @@ ms.custom: arb-devops
 
 # Azure Sandbox
 
-[Azure Sandbox](/azure/architecture/guide/azure-sandbox/azure-sandbox) is a Terraform-based project designed to simplify the deployment of sandbox environments in Azure. It provides a modular and reusable framework for implementing foundational infrastructure, which can accelerate the development of innovative new solutions in Azure.
+Azure Sandbox is a Terraform-based project designed to simplify the deployment of sandbox environments in Azure. It provides a modular and reusable framework for implementing foundational infrastructure, which can accelerate the development of innovative new solutions in Azure.
 
-The Azure Sandbox is composed of modular components that you can deploy individually or together, depending on your needs. Because a fully provisioned environment might be costly, you can manage expenses by stopping or deallocating virtual machines (VMs) when not in use or by deploying only the following modules that are essential for your scenario. Costs vary depending on your Azure subscription type and region.
+The Azure Sandbox is composed of modular components that you can deploy individually or together, depending on your needs. Because a fully provisioned environment might be costly, you can manage expenses by stopping or deallocating virtual machines (VMs) when they're not in use or by deploying only the following modules that are essential for your scenario. Costs vary depending on your Azure subscription type and region.
   
 ## Architecture
 
@@ -33,9 +33,9 @@ You can deploy each of the following sandbox configurations or only the configur
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without public IP addresses. In this architecture, it enables secure remote access to sandbox VMs directly through the Azure portal while minimizing the attack surface.
 
-- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) is a managed MySQL database service with private networking support. In this architecture, it provides a database platform for testing open-source applications while demonstrating private endpoint connectivity patterns.
+- [Azure Database for MySQL flexible server](/azure/mysql/flexible-server/overview) is a managed MySQL database service that supports private networking. In this architecture, it provides a database platform for testing open-source applications while demonstrating private endpoint connectivity patterns.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service accessible via Server Message Block (SMB) protocol. In this architecture, it provides shared storage for both Windows and Linux VMs while hosting scripts and configuration files.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that you can access via Server Message Block (SMB) protocol. In this architecture, it provides shared storage for both Windows and Linux VMs while hosting scripts and configuration files.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native firewall service that provides threat intelligence. In this architecture, it controls traffic between virtual networks and the internet, which enforces network segmentation and security policies across the sandbox environment.
 
@@ -43,13 +43,13 @@ You can deploy each of the following sandbox configurations or only the configur
 
 - [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) is a networking service that provides secure remote connectivity. In this architecture, it provides point-to-site VPN access for developers and administrators who need full network connectivity to sandbox resources from remote locations.
 
-- [Linux jump box](/azure/virtual-machines/linux/overview) is a domain-joined Linux VM preloaded with DevOps tools including Azure CLI, PowerShell, and Terraform. In this architecture, it serves as a DevOps automation platform and demonstrates cross-platform domain integration scenarios.
+- [Linux jump box](/azure/virtual-machines/linux/overview) is a domain-joined Linux VM that's preloaded with DevOps tools, including Azure CLI, PowerShell, and Terraform. In this architecture, it serves as a DevOps automation platform and demonstrates cross-platform domain integration scenarios.
 
 - [Shared services virtual network](/azure/virtual-network/virtual-networks-overview) is a dedicated virtual network that hosts centralized infrastructure services. In this architecture, it provides the network foundation for domain controllers, Domain Name System (DNS) services, and shared security services that support the entire sandbox environment.
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
-- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM with administrative tools that include Remote Server Administration Tools (RSAT), Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
+- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM that provides administrative tools, including Remote Server Administration Tools (RSAT), Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 
 ## Deploy the sandbox
 
@@ -78,7 +78,7 @@ To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with 
 
 For more information, see [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments).
 
-To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Get started - Interactive execution)](https://github.com/Azure-Samples/azuresandbox?tab=readme-ov-file#getting-started-interactive-execution).
+To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Get started - Interactive execution](https://github.com/Azure-Samples/azuresandbox?tab=readme-ov-file#getting-started-interactive-execution).
 
 ## Use cases
 
@@ -107,7 +107,7 @@ For example, you can use the following capabilities and configurations that the 
 
   - **Option 2:** Point-to-site VPN connectivity through Virtual WAN
   
-- Use a preconfigured Active Directory Domain Services local domain as a domain administrator.
+- Use a preconfigured AD DS local domain as a domain administrator.
 
   - Preconfigured integrated DNS server
 
@@ -143,7 +143,7 @@ For example, you can use the following capabilities and configurations that the 
 
   - Domain joined to local domain
 
-- Use a preconfigured SQL database or Azure Database for MySQL Flexible Server through private endpoints.
+- Use a preconfigured SQL database or Azure Database for MySQL flexible server through private endpoints.
 
 ## Security
 
@@ -152,11 +152,11 @@ Security provides assurances against deliberate attacks and the misuse of your v
 > [!IMPORTANT]
 > Sandbox environments represent an attack surface that can be exploited. To reduce risk, consider the following security best practices.
 
-- Implement strong authentication in the Microsoft Entra ID tenant associated with Azure subscriptions used to provision sandbox environments. Follow the recommendations in [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
+- Implement strong authentication in the Microsoft Entra ID tenant associated with the Azure subscriptions that you use to provision sandbox environments. Follow the recommendations in [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
   - Use multifactor authentication (MFA) for all users.
 
-  - Use Conditional Access (CA) policies to restrict access to sandbox environments.
+  - Use conditional access (CA) policies to restrict access to sandbox environments.
 
   - Use integrated Microsoft Entra authentication to authorize access to Azure platform as a service (PaaS) services like SQL Database and Azure Storage.
 
@@ -166,13 +166,13 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
   - Use Microsoft Entra Privileged Identity Management (PIM) to manage privileged Azure RBAC role assignments scoped to sandbox subscriptions, such as `Owner`, `Contributor`, and `User Access Administrator`.
 
-- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or de-identified data.
+- Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personal data or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or de-identified data.
 
 Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when you design and implement sandbox environments. The [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation on GitHub showcases many of these principles.
 
 ### Secure by design
 
-- Limit the use of [shared secrets](/azure/well-architected/security/application-secrets#preshared-keys) and use Azure Key Vault to secure them when required. When you have to use shared secrets, use managed identities at run time to retrieve from Key Vault. If secrets must be persisted, ensure that they're encrypted and not stored in plain text. Never echo secrets to the console or to log files, and never check secrets into source control.
+- Limit the use of [shared secrets](/azure/well-architected/security/application-secrets#preshared-keys) and use Azure Key Vault to secure them. When you have to use shared secrets, use managed identities at run time to retrieve them from Key Vault. If secrets must be persisted, ensure that they're encrypted and not stored in plain text. Never echo secrets to the console or to log files, and never check secrets into source control.
 
 - Set an expiration date for Key Vault secrets.
 
@@ -200,7 +200,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
 - Enable [Azure Update Manager](/azure/update-manager/overview) on all VMs that are used in sandbox environments. Set a regular patching schedule.
 
-  - For SQL Server VMs, [enable first-party updates](/azure/update-manager/configure-wu-agent#enable-updates-for-other-microsoft-products) in Windows Update to ensure that SQL Server is patched.
+  - For SQL Server VMs, [enable updates for other Microsoft products](/azure/update-manager/configure-wu-agent#enable-updates-for-other-microsoft-products) in Windows Update to ensure that SQL Server is patched.
   
 - Monitor activity and diagnostic logs by using [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/azure/sentinel/overview).
 
@@ -218,13 +218,13 @@ Principal author:
 
 ## Next steps
 
-- [Cloud Adoption Framework Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
+- [Set up identity in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/identity)
 - [Develop and test on Azure](https://azure.microsoft.com/solutions/dev-test/#overview)
 - [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/)
-- [Well-Architected Framework](/azure/well-architected/)
+- [Azure Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 
 - [Best practices for cloud applications](../../best-practices/index-best-practices.md)
-- [Build applications on the Microsoft Cloud](../microsoft-cloud/overview.md)
+- [Build applications on the Microsoft Cloud](/microsoft-cloud/dev/overview/introduction)
 - [Technology choices for Azure solutions](../technology-choices/technology-choices-overview.md)
