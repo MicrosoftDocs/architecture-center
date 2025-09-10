@@ -27,7 +27,7 @@ Consider the nature of your data and how it will be used:
 - **Data format**: Structured (tables), semi-structured (JSON, XML, key-value), or unstructured (images, documents).
 - **Purpose**: OLTP (Online transactional processing) for transactional data, or OLAP (Online analytical processing) for complex, ad-hoc data analysis.
 - **Search needs**: Indexing capability, full-text search capability.
-- **Specialized**: Vector stores for highly dimensional data, graph databases for highly interconnected data
+- **Specialized**: Vector stores for highly dimensional data, graph databases for highly interconnected data.
 - **Data relationships**: Need for joins, graph traversal, or hierarchical structures.
 - **Consistency model**: Strong, eventual, or configurable consistency.
 - **Schema flexibility**: Schema-on-write (rigid) vs. schema-on-read (flexible).
