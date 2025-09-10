@@ -29,8 +29,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 - [HIS](/host-integration-server/what-is-his) is a Microsoft integration platform that can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. In this architecture, HIS runs on a VM and exchanges messages between IBM MQ and BizTalk Server. It serves as an MQ listener that polls the MQ server for messages at specified intervals in the IaaS approach.
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud service that provides tools for data orchestration, data integration, and data transformation with hundreds of
-[connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. In this architecture, Logic Apps uses the MQ connector to exchange messages with IBM MQ in a cloud-native PaaS approach. The scheduler feature orchestrates workflows at recurring intervals.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud service that provides tools for data orchestration, data integration, and data transformation with hundreds of [connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. In this architecture, Logic Apps uses the MQ connector to exchange messages with IBM MQ in a cloud-native PaaS approach. The scheduler feature orchestrates workflows at recurring intervals.
 
 - [Logic Apps MQ connector](/azure/connectors/connectors-create-api-mq) is a connector that connects your Logic Apps workflows to an IBM MQ server on-premises or on Azure. In this architecture, the MQ connector enables workflows to receive and send messages stored in your MQ server, including support for IBM WebSphere MQ versions 7.5, 8.0, and 9.0-9.2.
 

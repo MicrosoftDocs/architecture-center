@@ -22,22 +22,23 @@ The numbers in the diagram correspond to the following data flow.
 
 ### Components
 
+- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it by using the NFS and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure. In this architecture, Azure Data Box Gateway facilitates the migration of AIX backup files from on-premises systems to Blob Storage and enables data restoration to LPARs in Skytap on Azure.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service that provides on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Virtual Machines host the modern web application that provides a user interface for accessing AIX resources that run in Skytap on Azure.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. As a software defined network, a virtual network provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides secure network isolation and connectivity between the web application, Skytap on Azure environment, and on-premises systems.
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data. In this architecture, Blob Storage serves as the destination for AIX backup files transferred from Data Box Gateway during the migration process.
+
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
+
+  For more information about how ExpressRoute works with Skytap, see [Skytap Get started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
+
+- [Private Link](/azure/private-link/private-link-overview) is a networking service that creates your own private link service in your virtual network so the web client can consume resources from Skytap on Azure. In this architecture, Private Link enables the web application to securely access resources that run in the Skytap on Azure environment over a private connection.
+
 - [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations that run applications on IBM Power–based AIX or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated AIX LPARs without requiring application refactoring.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instances provide on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Azure Virtual Machines host the modern web application that provides a user interface for accessing AIX resources running in Skytap on Azure.
-
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure.
-As a software defined network, a virtual network (VNet) provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. 
-Learn more information on how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/). In this architecture, Azure Virtual Network provides secure network isolation and connectivity between the web application, Skytap on Azure environment, and on-premises systems.
-
-- [Azure Private Link](/azure/private-link/private-link-overview) creates your own private link service in your virtual network so the web client can consume resources from Skytap on Azure. In this architecture, Azure Private Link enables the web application to securely access resources running in the Skytap on Azure environment over a private connection.
-
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data. In this architecture, Azure Blob Storage serves as the destination for AIX backup files transferred from Data Box Gateway during the migration process.
-
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
-Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/). In this architecture, Azure ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
-
-- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it using the NFS and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure. In this architecture, Azure Data Box Gateway facilitates the migration of AIX backup files from on-premises systems to Azure Blob Storage and enables data restoration to LPARs in Skytap on Azure.
+  For more information about how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works, see [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 ### Alternatives
 

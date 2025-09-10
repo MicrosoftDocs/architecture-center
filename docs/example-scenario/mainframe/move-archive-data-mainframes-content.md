@@ -41,13 +41,13 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Components
 
-- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. In this architecture, Azure storage serves as the primary destination for archived mainframe data, providing cost-effective long-term storage with lifecycle management capabilities.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based hybrid data integration service that you can use to create, schedule, and orchestrate your extract, transform, load (ETL) and extract, load, transfer (ELT) workflows. In this architecture, Azure Data Factory orchestrates the movement of data from mainframe systems to Azure storage by using FTP connectors and copy activities.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention. In this architecture, Azure Files enables file-based data archiving and provides NFS/SMB access for mainframe systems to store and retrieve archived data.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a cloud storage service that provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention. In this architecture, Azure Files enables file-based data archiving and provides NFS/SMB access for mainframe systems to store and retrieve archived data.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows. In this architecture, Azure Data Factory orchestrates the movement of data from mainframe systems to Azure storage using FTP connectors and copy activities.
+- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud platform that provides massively scalable, highly secure cloud storage for your data, apps, and workloads. In this architecture, Azure storage serves as the primary destination for archived mainframe data, providing cost-effective long-term storage with lifecycle management capabilities.
 
-- [Azure Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure. In this architecture, Azure Data Box provides an option for physically transferring large volumes of mainframe data to Azure when online methods would take too long.
+- [Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure. In this architecture, Data Box provides an option for physically transferring large volumes of mainframe data to Azure when online methods would take too long.
 
 ### Alternatives
 
