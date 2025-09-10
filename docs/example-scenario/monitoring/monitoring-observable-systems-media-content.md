@@ -66,7 +66,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The cost of this architecture depends on the number of ingress telemetry events, the storage of raw telemetry in Blob Storage and Fabric Eventhouse, and a dedicated or pay-as-you-go cost for Fabric capacity.
 
-You can use the [Azure pricing calculator](https://azure.com/e/ed90eb013b60448684b3ef40d123ff13) to estimate your total costs.
+You can use the [Azure pricing calculator](https://azure.com/e/94d9c24ced87412e88a5aa69bbdb0b6a) to estimate your total costs.
 
 ### Performance Efficiency
 
@@ -74,6 +74,8 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 Depending on the scale and frequency of incoming telemetry, the streaming in Microsoft Fabric may encounter performance constraints, primarily due to two factors:
 
+- **Cold start.** Cold start is a consequence of serverless executions. It refers to the scheduling and setup time that's required to spin up an environment before the function first starts running. At most, the required time is a few seconds.
+- **Frequency of requests.** Say you have 1,000 HTTP requests but only a single-threaded server to handle them. You won't be able to service all 1,000 HTTP requests concurrently. To serve these requests in a timely manner, you need to deploy more servers. That is, you need to scale horizontally.
 - **Eventstream initialization delay.** Similar to cold starts in serverless environments, initializing Fabric Eventstream pipelines can introduce latency when new data sources are activated. This setup time is typically brief but should be considered in latency-sensitive scenarios.
 - **High-Frequency Data Bursts.** If thousands of telemetry events arrive simultaneously, a single Eventstream configuration may not process them concurrently. To maintain real-time responsiveness, it's essential to scale out Eventstream pipelines and optimize routing rules across multiple destinations.
 
@@ -83,6 +85,24 @@ To mitigate these issues, we recommend using dedicated capacity workspaces on Fa
 - Support horizontal scaling of Eventstream pipelines to handle concurrent ingestion and transformation workloads.
 
 For more information, see [Microsoft Fabric Real-Time Intelligence documentation](/fabric/real-time-intelligence/overview).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [John Hauppa](https://www.linkedin.com/in/johnhauppa) | Senior Technical Program Manager
+- [Uffaz Nathaniel](https://www.linkedin.com/in/uffaz-nathaniel-85588935) | Principal Software Engineer
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Dilmurod Makhamadaliev](https://www.linkedin.com/in/dilmurod-makhamadaliev) | Software Engineer
+- [Omeed Musavi](https://www.linkedin.com/in/omusavi) | Principal Software Engineer Lead
+- [Ayo Mustapha](https://www.linkedin.com/in/ayo-mustapha) | Principal Technical Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
