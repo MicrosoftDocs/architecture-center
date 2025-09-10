@@ -66,7 +66,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The cost of this architecture depends on the number of ingress telemetry events, the storage of raw telemetry in Blob Storage and Fabric Eventhouse, and a dedicated or pay-as-you-go cost for Fabric capacity.
 
-You can use the [Azure pricing calculator](https://azure.com/e/94d9c24ced87412e88a5aa69bbdb0b6a) to estimate your total costs.
+You can use the [Azure pricing calculator](https://azure.com/e/e9fb45165e1c4ef0b46d880d818355cb) to estimate your total costs.
 
 ### Performance Efficiency
 
