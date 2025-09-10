@@ -33,34 +33,34 @@ This architecture consists of several Azure services for both workload resources
 
 #### Workload resources
 
-- **Azure Virtual Machines** serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs is used.
+- **Azure Virtual Machines** is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs provide scalable and distributed processing across availability zones for both Windows and Linux workloads.
 
-    **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manage the VMs.
+    **Azure Virtual Machine Scale Sets** is a service that enables automatic deployment, scaling, and management of a group of identical VMs. In this architecture, it provisions and maintains the front-end and back-end compute resources by using Flexible orchestration mode.
 
-    The sample application can be represented in two tiers, each requiring its own compute.
+    The sample application uses two tiers, and each tier requires its own compute.
 
     - The front end runs the web server and receives user requests.
-    - The back end runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
+    - The back end runs another web server that functions as a web API that exposes a single endpoint where the business logic runs.
 
-    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
+    The front-end VMs have data disks (Premium_LRS) attached, which can be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. You can extend this layout to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
 
-- **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
+- **Azure Virtual Network** is a networking service that enables secure communication between Azure resources and on-premises environments. In this architecture, it isolates resources into subnets for security and traffic control.
 
-- **Azure Application Gateway** is the single point of ingress that routes requests to the front-end servers. The selected SKU includes integrated Azure Web Application Firewall (WAF) for added security.
+- **Azure Application Gateway** is a web traffic layer-7 load balancer that enables you to manage traffic to your web applications. It's the single point of ingress that routes requests to the front-end servers. In this architecture, it balances traffic to front-end VMs and includes a web application firewall (WAF) for protection.
 
-- **Internal Azure Load Balancer** routes traffic from the front-end tier to the back-end servers.
+- **Azure Load Balancer** is a layer-4 load balancing service for User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic. In this architecture, the public load balancer distributes outbound traffic and supports source network address translation (SNAT). The internal load balancer routes traffic from the front-end tier to the back-end servers to ensure high availability and scalability within the virtual network.
 
-- **Azure Load Balancer** Standard SKU provides outbound internet access to the VMs using three public IP addresses.
+The Standard SKU provides outbound internet access to the VMs by using three public IP addresses.
 
-- **Azure Key Vault** stores the certificates used for end-to-end transport layer security (TLS) communication. It could also be used for application secrets.
+- **Azure Key Vault** is a service for managing secrets, keys, and certificates. In this architecture, it stores Transport Layer Security (TLS) certificates that Application Gateway uses and secures sensitive configuration data for workload components. It can also be used for application secrets.
 
 #### Workload supporting resources
 
-- **Azure Bastion** provides operational access to the VMs over secure protocols.
+- **Azure Bastion** is a managed service that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without exposing public IP addresses. In this architecture, it enables just-in-time operational access to VMs through a dedicated subnet.
 
-- **Application Insights** collects logs and metrics from the application. Because the application isn't the focus of this architecture, log collection isn't demonstrated in the implementation.
+- **Application Insights** is an application performance monitoring (APM) service that collects telemetry for availability, performance, and usage analysis. In this architecture it's deployed as a ready endpoint for future application telemetry, but the reference implementation doesn't emit or collect custom application logs because the application layer isn't in scope.
 
-- **Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace.
+- **Log Analytics** is a centralized telemetry store for metrics and logs queried with Kusto Query Language. In this architecture, it serves as the monitoring data sink that aggregates platform logs, VM insights data, and Application Insights telemetry for analysis, alerting, and dashboards. A storage account is provisioned as part of the workspace.
 
 #### User flows
 
@@ -219,7 +219,7 @@ This architecture uses standard SKU Load Balancer with outbound rules defined fr
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-egress.vsdx) of this architecture.*
 
-This configuration lets you use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define source network address translation (SNAT) ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating the SNAT port based on the back-end pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
+This configuration lets you use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define SNAT ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating the SNAT port based on the back-end pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
 
 We recommend that you allocate ports based on the maximum number of back-end instances. If more instances are added than remaining SNAT ports allow, Virtual Machine Scale Sets scaling operations might be blocked, or the new VMs don't receive sufficient SNAT ports.
 
@@ -294,7 +294,7 @@ Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring
 
 ### Application-level monitoring
 
-Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Management (APM) for extensibility purposes. Application Insights  collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
+Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an APM for extensibility purposes. Application Insights  collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
 
 The [application health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set automatic instance repair. It tests for the same file as the Application Gateway and the internal Azure load balancer health probe to check if the application is responsive.
 
