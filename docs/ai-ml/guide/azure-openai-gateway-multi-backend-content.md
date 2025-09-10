@@ -377,6 +377,5 @@ Having a gateway implementation for your workload provides benefits beyond the t
 
 ## Related resources
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai)
 - [Design a well-architected AI workload](/azure/well-architected/ai/get-started)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
