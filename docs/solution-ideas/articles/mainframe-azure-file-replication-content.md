@@ -7,14 +7,14 @@ This article describes several ways to transfer files to Azure, convert and tran
 ## Architecture
 
 :::image type="complex" border="false" source="../media/mainframe-azure-file-replication-updated.svg" alt-text="Diagram that shows the three steps of migrating on-premises files to Azure: data transfer, conversion and transformation, and storing in persistent storage." lightbox="../media/mainframe-azure-file-replication-updated.svg":::
-   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents FTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory FTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Azure Synapse Analytics paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
+   The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents FTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory FTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage and Fabric Data Factory points to OneLake. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
 :::image-end:::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
 
 ### Dataflow
 
-The following dataflow corresponds to the previous diagram:
+The following dataflow corresponds to the architecture diagram:
 
 1. Transfer files to Azure:
 
@@ -34,15 +34,15 @@ The following dataflow corresponds to the previous diagram:
 
    - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
 
-   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage.
+   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and OneLake store.
 
-   - For big data integrations, Azure Databricks and Azure Synapse Analytics can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
+   - For big data integrations, Azure Databricks, as well as Microsoft Fabric, can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
 
 1. Store data:
 
    You can store transferred data in one of several available persistent Azure storage modes, depending on your requirements.
 
-   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage and Blob Storage.
+   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage, and Microsoft Fabric OneLake.
 
    - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options) that address different needs:
 
@@ -50,7 +50,7 @@ The following dataflow corresponds to the previous diagram:
 
      - Nonrelational databases include Azure Cosmos DB, which is a fast, multi-model, globally distributed NoSQL database.
 
-   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that your organization can use to study data movement, experiment with data sciences, and review real-time analytics and business intelligence. It provides a comprehensive suite of features, including a data lake, data engineering, and data integration.
+   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that covers everything from data movement to data science, real-time analytics, and business intelligence. It offers a suite of services, including data lake, data engineering, and data integration, all in one place.
 
 ### Components
 
@@ -69,8 +69,8 @@ This architecture outlines various Azure-native migration tools that organizatio
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory is used to send mainframe files to Blob Storage via FTP.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. You can use Azure Databricks to correlate incoming data, and enrich it with other data stored in Azure Databricks.
-  
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a fast and flexible cloud data warehouse with a massively parallel processing architecture that you can use to scale, compute, and store data elastically and independently. It can be used for mainframe data transformation before you load it into an Azure database.
+
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end intelligent data platform with a suite of cloud services and tools for every data lifecycle stage: ingestion, preparation, storage, analysis, and visualization.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that you can use to automate workflows and integrate applications, data, and services across different environments. It provides a native IBM Host File connector that interacts with mainframe systems to read, parse, and generate host file content.
 
@@ -96,6 +96,8 @@ This architecture outlines the process of migrating mainframe file data to cloud
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured.
 
+- [OneLake](/fabric/onelake/onelake-overview) OneLake in Microsoft Fabric is a single, unified, logical data lake for your whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage and is designed to be the single place for all your analytics data.
+
 ## Scenario details
 
 Converting mainframe files from EBCDIC-encoded format to ASCII format is necessary for migrating data from mainframe systems to Azure cloud storage and databases. Mainframe applications generate and handle large amounts of data daily. This data must be accurately converted for use in other platforms.
@@ -120,6 +122,10 @@ Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
+Other contributors:
+
+- [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
