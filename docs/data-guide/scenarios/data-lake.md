@@ -65,7 +65,7 @@ The following table compares data lakes and data warehouses.
 | **Data transformation stage**         | Transformation happens at query time, impacting overall processing time               | Transformation happens during the ETL or ELT process              |
 | **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
 | **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
-| **Use case fit**            | Best for big data, machine learning, and exploratory analytics. In the so called medallion architecture, the Gold layer can also be leveraged for reporting purposes               | Ideal for business intelligence, reporting, and structured data analysis       |
+| **Use case fit**            | Best for big data, machine learning, and exploratory analytics. In medallion architectures, the Gold layer is leveraged for reporting purposes               | Ideal for business intelligence, reporting, and structured data analysis       |
 
 ## Challenges of data lakes
 
@@ -86,7 +86,7 @@ When you build a comprehensive data lake solution on Azure, consider the followi
 
 - [Azure Databricks](/azure/databricks/introduction/) is a cloud-based data analytics and machine learning platform that combines the best of Apache Spark with deep integration into the Microsoft Azure ecosystem. It provides a collaborative environment where data engineers, data scientists, and analysts can work together to ingest, process, analyze, and model large volumes of data.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is an Microsoft Azure's cloud-based data integration and ETL (Extract, Transform, Load) service. It’s designed to let you move, transform, and orchestrate data workflows across different sources, whether in the cloud or on-premises.
+- [Azure Data Factory](/azure/data-factory/introduction) is an Microsoft Azure's cloud-based data integration and ETL (Extract, Transform, Load) service. You use it to move, transform, and orchestrate data workflows across different sources, whether in the cloud or on-premises.
 
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is Microsoft's end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and business intelligence into a single software-as-a-service (SaaS) experience.
 
