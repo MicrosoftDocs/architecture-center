@@ -384,11 +384,10 @@ For infrastructure security, data is encrypted in transit and at rest. For infor
 
 To [encrypt Linux VM disks](/azure/virtual-machines/disk-encryption-overview), you have several options. For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA-native encryption technology. For support of Azure disk encryption on specific Linux distributions, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
-To enhance the security of data in Azure Files, you can enable [Encryption in Transit (EiT) for Azure Files NFS](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide).
-
 > [!NOTE]
 > Don't use HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over [Azure disk storage server-side encryption](/azure/virtual-machines/disk-encryption). Using customer-managed keys might affect I/O throughput.
 
+To enhance the security of data in Azure Files, you can enable [Encryption in Transit (EiT) for Azure Files NFS](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide).
 ## Communities
 
 Communities can answer questions and help you set up a successful deployment. Consider the following resources:
