@@ -51,7 +51,7 @@ When you use the storage switchless design, it's crucial to remember that four n
 Network design refers to the overall arrangement of physical and logical components within the network. In a three-node storage switchless configuration for Azure Local, three physical nodes are directly connected without using an external switch for storage traffic. These direct interlinked ethernet connections simplify network design by reducing complexity because there's no requirement to define or apply storage quality of service and prioritization configurations on the switches. The technologies that underpin lossless RDMA communication, such as explicit congestion notification (ECN), priority flow control (PFC), or quality of service (QoS) that are required for RoCE v2 and iWARP, aren't needed. However, this configuration supports a maximum of four machines, which means you can't scale the instance by adding more nodes after deployment, for an existing four node storage switchless instance.
 
 > [!NOTE]
-> This three-node storage switchless architecture requires **six network adapter ports** to provide redundant links for all network intents. Take this into consideration if you plan to use a _small form-factor hardware_ SKU, or if there is limited physical space in the server chassis for extra network cards. Consult your preferred hardware manufacturer partner for more information.
+> This three-node storage switchless architecture requires **six network adapter ports** to provide redundant links for all network intents. Take this into consideration if you plan to use a _small form-factor hardware_ SKU, or if there's limited physical space in the server chassis for extra network cards. Consult your preferred hardware manufacturer partner for more information.
 >
 > A [four-node storage switchless](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) Azure Local instance with dual links would require **eight network adapter ports** per node; six ports for the storage intent, and two ports for the management and compute intent.
 
@@ -164,11 +164,11 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 Performance efficiency considerations include:
 
-- Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (add-node) of an existing Azure Local instance. The capacity planning aspect of your design phase is critically important when using the storage switchless architecture, if you are unable to add additional nodes post-cluster deployment.
+- Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (add-node) of an existing Azure Local instance. The capacity planning aspect of your design phase is critically important when using the storage switchless architecture, if you're unable to add additional nodes post-cluster deployment.
 
 - You can't increase the scale (or perform an add-node operation) of an existing four-node storage switchless Azure Local instance without redeploying the instance and adding extra networking capabilities such as network switches, ports, and cables for storage traffic, and the other required machines. Four nodes is the maximum supported instance size for the storage switchless network design. Factor this limitation into the instance design phase to ensure that the hardware can support future workload capacity growth.
 
-- Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (adding nodes) of an existing Azure Local instance. The capacity planning aspect of your design phase is critically important when using the storage switchless architecture, if you are unable to add additional nodes post-cluster deployment.
+- Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (adding nodes) of an existing Azure Local instance. The capacity planning aspect of your design phase is critically important when using the storage switchless architecture, if you're unable to add additional nodes post-cluster deployment.
 
 ## Deploy this scenario
 
@@ -177,7 +177,7 @@ For more information about how to design, procure, and deploy an Azure Local sol
 Use the following deployment automation template as an example of how to deploy Azure Local using the three-node storage switchless architecture.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) **Deployment automation**: This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** using an ARM template and parameter file.
 
 ## Related resources
 
