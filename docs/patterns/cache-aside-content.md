@@ -69,7 +69,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 Consider using [Azure Managed Redis](/azure/redis/overview) to create a distributed cache that multiple application instances can share.
 
-This following code example uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Cache for Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
+This following code example uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Managed Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
@@ -124,7 +124,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 }
 ```
 
-> The examples use Azure Cache for Redis to access the store and retrieve information from the cache. For more information, see [Using Azure Cache for Redis](/azure/redis/dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Azure Cache for Redis](/azure/redis/web-app-cache-howto).
+> The examples use Azure Managed Redis to access the store and retrieve information from the cache. For more information, see [Create an Azure Managed Redis](/azure/redis/quickstart-create-managed-redis) and [Use Azure Redis in .NET Core](/azure/redis/dotnet-core-quickstart).
 
 The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the application changes the value. The code updates the original data store and then removes the cached item from the cache.
 
