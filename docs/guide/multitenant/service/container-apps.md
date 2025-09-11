@@ -107,7 +107,7 @@ You can also integrate Container Apps with Microsoft Entra External ID for user 
 For more information, see the following resources:
 
 - [Container Apps authorization](/azure/container-apps/authentication)
-- [Enable authentication and authorization in Container Apps with Microsoft Entra ID](/azure/container-apps/authentication-azure-active-directory)
+- [Enable authentication and authorization in Container Apps with Microsoft Entra ID](/azure/container-apps/authentication-entra)
 
 > [!NOTE]
 > The authentication and authorization features in Container Apps are similar to the features in Azure App Service. However, there are some differences. For more information, see [Considerations for using built-in authentication](/azure/container-apps/authentication#considerations-for-using-built-in-authentication).
