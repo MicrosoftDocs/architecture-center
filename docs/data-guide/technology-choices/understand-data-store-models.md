@@ -1,5 +1,5 @@
 ---
-title: Understanding data models
+title: Understand data models
 description: Learn the major Azure data store models, how they differ, and how to choose and combine them using comparative characteristics of relational and non-relational options.
 author: claytonsiemens77
 ms.author: csiemens
@@ -8,7 +8,7 @@ ms.subservice: architecture-guide
 ms.date: 08/21/2025
 ---
 
-# Understanding data models
+# Understand data models
 
 Modern solutions handle diverse data (transactions, events, documents, telemetry, binary assets, analytical facts). A single data store rarely satisfies all access patterns efficiently. Most production systems adopt *polyglot persistence*: selecting multiple storage models intentionally. This article centralizes the canonical definitions of the primary data store models available on Azure and provides comparative tables to speed model selection before you pick specific services.
 
