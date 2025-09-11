@@ -24,6 +24,7 @@ As a workload owner, you can offload the management of shared resources to centr
 ## Architecture
 
 :::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A diagram that shows the VM baseline architecture in an application landing zone." lightbox="./media/baseline-landing-zone.svg" border="false":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone.vsdx) of this architecture.*
 
 ### Components
