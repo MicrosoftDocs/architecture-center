@@ -3,7 +3,7 @@ title: SAP S/4HANA in Linux on Azure
 description: Learn more about proven practices for running SAP S/4HANA effectively in a Linux environment on Azure with high availability.
 author: bqtrinh
 ms.author: bentrin
-ms.date: 03/17/2025
+ms.date: 09/11/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
