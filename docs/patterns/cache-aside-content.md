@@ -38,6 +38,8 @@ Consider the following points when deciding how to implement this pattern:
 
 **Local (in-memory) caching**. A cache could be local to an application instance and stored in-memory. Cache-aside can be useful in this environment if an application repeatedly accesses the same data. However, a local cache is private and so different application instances could each have a copy of the same cached data. This data could quickly become inconsistent between caches, so it might be necessary to expire data held in a private cache and refresh it more frequently. In these scenarios, consider investigating the use of a shared or a distributed caching mechanism.
 
+**Semantic caching**. Semantic caching can be useful for caching the results of queries against a data store. However, two queries that are semantically equivalent might not return the same results. For example, "What is my yearly take home salary?" is semantically similar to "What is my yearly take home pay?" but if asked by two different users, you would never want to return the same answer. To ensure correctness, the cache must include metadata that captures not both the query and the context in which it was made.
+
 ## When to use this pattern
 
 Use this pattern when:
@@ -47,7 +49,9 @@ Use this pattern when:
 
 This pattern might not be suitable:
 
+- If the data is sensitive or security related. It might be inappropriate to store it in a cache, particularly if the cache is shared between multiple applications or users. Always go to the primary source of the data.
 - When the cached data set is static. If the data fits into the available cache space, prime the cache with the data on startup and apply a policy that prevents the data from expiring.
+- When most requests wouldn't experience a cache hit. In this situation, the overhead of checking the cache and loading data into it might outweigh the benefits of caching.
 - When caching session state information in a web application hosted in a web farm. In this environment, you should avoid introducing dependencies based on client-server affinity.
 
 ## Workload design
@@ -63,7 +67,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Consider using Azure Redis to create a distributed cache that multiple application instances can share.
+Consider using [Azure Managed Redis](/azure/redis/overview) to create a distributed cache that multiple application instances can share.
 
 This following code example uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Cache for Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
@@ -150,3 +154,5 @@ The following information might be relevant when implementing this pattern:
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Cloud applications typically store data across multiple data stores and locations. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency, and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
+
+- [Use Azure Managed Redis as a semantic cache](/azure/redis/tutorial-semantic-cache). This tutorial shows you how to implement semantic caching using Azure Managed Redis.
