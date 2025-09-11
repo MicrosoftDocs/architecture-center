@@ -38,7 +38,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [GitHub Actions](https://github.com/features/actions) is a continuous integration and continuous deployment (CI/CD) automation tool that enables workflows to build, test, and deploy code directly from GitHub repositories. In this architecture, GitHub Actions automates unit testing, security scanning, and infrastructure provisioning for IaC pipelines.
 
-- [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and alerting to misconfigurations or risks.
+- [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and raising alerts about misconfigurations or risks.
 
 - [CodeQL](https://codeql.github.com) is a semantic code analysis engine that enables custom queries to detect vulnerabilities and misconfigurations in code. In this architecture, CodeQL scans IaC templates to identify potential security problems before deployment.
 

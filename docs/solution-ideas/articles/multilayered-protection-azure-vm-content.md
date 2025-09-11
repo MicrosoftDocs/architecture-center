@@ -62,11 +62,11 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 This solution uses the following components:
 
-- [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, Azure VMs host production workloads while minimizing exposure to threats through layered security controls.
+- [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, Azure VMs host production workloads while minimizing exposure to threats through layered security controls.
 
 - [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that manages access to Azure and other cloud applications. In this architecture, it authenticates users and enforces access policies to ensure secure entry into Azure resources.
 
-- [Microsoft Entra PIM][Privileged Identity Management (PIM)] is a service that controls and monitors privileged access to resources. In this architecture, PIM limits permanent admin access to standard and custom privileged roles and enables just-in-time identity-based access to custom roles.
+- [Microsoft Entra PIM][Privileged Identity Management (PIM)] is a service that controls and monitors privileged access to resources. In this architecture, PIM limits permanent admin access to standard and custom privileged roles and enables just-in-time (JIT) identity-based access to custom roles.
 
 - [JIT VM access][Just-in-time (JIT) VM access] is a Defender for Cloud feature that restricts network access to VMs. In this architecture, JIT minimizes the attack surface by applying deny rules and only allowing temporary access when requested. When a user requests access to the VM, the service adds a temporary allow rule to the network security group. Because the allow rule has higher priority than the deny rule, the user can connect to the VM. Azure Bastion works best for connecting to the VM. But the user can also use a direct RDP or SSH session.
 

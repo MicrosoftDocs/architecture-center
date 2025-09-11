@@ -60,7 +60,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a service for securely storing and accessing secrets. In this architecture, it's a PaaS compute resource that's recreated in the target tenant to maintain secure access.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
 
 - [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. In this architecture, they organize resources before and after migration to maintain structure and manageability.
 

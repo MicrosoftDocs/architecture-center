@@ -53,7 +53,7 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 - [Event Grid][Event Grid] is a service that enables event-based architectures. In this architecture, it routes events from sources to destinations and decouples event publishers from event subscribers.
 
-- [Azure Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
+- [Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
 
 - [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. In this architecture, Functions processes incoming data and integrates services by using triggers and bindings.
 

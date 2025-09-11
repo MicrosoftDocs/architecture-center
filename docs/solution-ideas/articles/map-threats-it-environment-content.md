@@ -58,7 +58,7 @@ The architecture diagram includes the following layers:
 
 1. **On-premises**
 
-    The diagram includes some essential services such as servers (VMs), network appliances, and DNS. It includes common applications that are found in most IT environments and run on virtual machines (VMs) or physical servers. It also includes various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user credentials. The diagram includes all these components in the on-premises environment.
+    The diagram includes some essential services such as servers (VMs), network appliances, and Domain Name System (DNS). It includes common applications that are found in most IT environments and run on virtual machines (VMs) or physical servers. It also includes various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user credentials. The diagram includes all these components in the on-premises environment.
 
 2. **Office 365 environment**
 
@@ -93,17 +93,17 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across VMs and services.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service offering that provides flexible, on-demand compute resources. In this architecture, VMs host applications and services that are part of the organization's IT environment and are subject to threat mapping.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides flexible, on-demand compute resources. In this architecture, VMs host applications and services that are part of the organization's IT environment and are subject to threat mapping.
 
 - [Azure Kubernetes service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, it runs containerized applications and supports enterprise-grade security and governance as part of the threat surface.
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users. In this architecture, it provides secure access for remote users and is included in the threat map as a potential attack vector.
+- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users. In this architecture, it provides secure access for remote users and is included in the threat map as a potential attack vector.
 
 - The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your chosen language. Applications run and scale with ease on both Windows and Linux-based environments. In this architecture, Web Apps hosts HTTP-based applications that are protected via integrated security features such as Transport Layer Security (TLS) and private endpoints.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage service for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. Azure Storage encrypts all data written to a Storage account. It provides fine-grained control over access to your data. In this architecture, it stores application and system data and is included in the threat map because of its role in data protection and access control.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database engine that automates patching, backups, and monitoring. In this architecture, it stores structured data and supports built-in security and compliance features to mitigate threats.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database engine that automates patching, backups, and monitoring. In this architecture, it stores structured data and supports built-in security and compliance features to mitigate threats.
 
 ## Contributors
 

@@ -113,17 +113,17 @@ This section describes the components and services that appear in the diagram. M
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a low-latency layer-4 load balancing service for UDP and TCP traffic. Load Balancer is a zone-redundant service that can handle millions of requests per second. In this architecture, it ensures high availability and scalability by distributing inbound and outbound traffic across resources in the virtual network.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that require direct control over the operating system and security configurations.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that require direct control over the operating system and security configurations.
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that simplifies deploying and managing Kubernetes clusters. In this architecture, AKS runs containerized applications and provides built-in features for security, governance, and continuous integration/continuous delivery (CI/CD).
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that delivers remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users and includes built-in features like RDP Shortpath and reverse connect.
+- [Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that delivers remote desktops from the cloud. In this architecture, it provides secure access to corporate desktops for remote users and includes built-in features like RDP Shortpath and reverse connect.
 
 - [The Web Apps feature of App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. In this architecture, Web Apps hosts HTTP-based applications and provides security features like TLS and private endpoints. You can develop in your chosen language. Applications run and scale in both Windows and Linux-based environments.
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage solution for various data types, including blobs, files, queues, and tables. In this architecture, it stores application and system data with encryption at rest and supports secure access via SAS tokens and private endpoints.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
 
 
 ## Contributors

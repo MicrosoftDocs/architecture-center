@@ -97,15 +97,15 @@ The following list provides information about how to access each of the services
 
 The example architecture in this article uses the following Azure components:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that helps users access external and internal resources. In this architecture, it authenticates users that access Microsoft 365, Azure, and SaaS applications, and supports identity-based threat detection and response.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that helps users access external and internal resources. In this architecture, it authenticates users that access Microsoft 365, Azure, and software as a service (SaaS) applications, and supports identity-based threat detection and response.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure for hosting workloads and collecting network-level telemetry.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it distributes traffic across VMs and services to ensure high availability and resilience.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs run workloads and applications that require full control over the operating system and environment.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs run workloads and applications that require full control over the operating system and environment.
 
-- [Azure Kubernetes service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS orchestrates container deployment and scaling, which supports microservices and continuouso integration and continuous delivery (CI/CD) pipelines.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS orchestrates container deployment and scaling, which supports microservices and continuous integration and continuous delivery (CI/CD) pipelines.
 
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service. In this architecture, it provides secure remote access to desktops and applications for distributed users.
 
