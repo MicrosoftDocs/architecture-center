@@ -30,11 +30,11 @@ Consider the following points when deciding how to implement this pattern:
 
 **Evicting data**. Most caches have a limited size compared to the data store where the data originates. If the cache exceeds its size limit, it evicts data. Most caches adopt a least-recently-used policy for selecting items to evict, but it might be customizable.
 
-**Configuration**. Cache configuration can be set both globally and per cached item. A single global eviction policy might not suit all items. A configuration on a cache item might be appropriate if an item is expensive to retrieve. In this situation, it makes sense to keep the item in the cache, even if it's accessed less often than cheaper items.
+**Configuration**. Cache configuration can be set both globally and per cached item. A single global eviction policy might not suit all items. A configuration on a cache item might be appropriate if an item is expensive to retrieve. In this situation, it makes sense to keep the item in the cache, even if it gets accessed less frequently than cheaper items.
 
 **Priming the cache**. Many solutions prepopulate the cache with the data that an application is likely to need as part of the startup processing. The Cache-Aside pattern can still be useful if some of this data expires or is evicted.
 
-**Consistency**. Implementing the Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. For example, an external process can change an item in the data store at any time. This change won't appear in the cache until the item is loaded again. In a system that replicates data across data stores, consistency can be challenging if synchronization occurs frequently.
+**Consistency**. Implementing the Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. For example, an external process can change an item in the data store at any time. This change doesn’t appear in the cache until the item loads again. In a system that replicates data across data stores, consistency can be challenging if synchronization occurs frequently.
 
 **Local (in-memory) caching**. A cache could be local to an application instance and stored in-memory. Cache-aside can be useful in this environment if an application repeatedly accesses the same data. However, a local cache is private and so different application instances could each have a copy of the same cached data. This data could quickly become inconsistent between caches, so it might be necessary to expire data held in a private cache and refresh it more frequently. In these scenarios, consider investigating the use of a shared or a distributed caching mechanism.
 
