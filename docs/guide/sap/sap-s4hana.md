@@ -238,7 +238,7 @@ You can achieve HA by using redundant Web Dispatcher instances. For more informa
 
 For HA of Central Services on Azure Linux VMs, use the appropriate HA extension for the selected Linux distribution. It's customary to place the shared file systems on highly available NFS storage by using the SUSE Distributed Replicated Block Device or Red Hat GlusterFS. To provide a highly available NFS and eliminate the need for an NFS cluster, you can use other cost-effective or robust solutions like [NFS over Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) or [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files). Azure NetApp Files shares can host the SAP HANA data and log files. This setup enables the [HANA scale-out](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) deployment model with standby nodes, while NFS over Azure Files is good for highly available non-database file sharing.
 
-NFS over Azure Files now supports the highly available file shares for both [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files). This solution works well for highly available file shares like `/sapmnt` and `/saptrans` in SAP installations. To enhance the security of data in Azure Files, you can enable [Encryption in Transit (EiT) for Azure Files NFS](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide).
+NFS over Azure Files now supports the highly available file shares for both [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files). This solution works well for highly available file shares like `/sapmnt` and `/saptrans` in SAP installations.
 
 Azure NetApp Files supports HA of [ASCS on SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files). For more information about ASCS on RHEL HA, see [SIOS Protection Suite for Linux](https://us.sios.com/blog/how-to-install-a-sios-protection-suite-for-linux-license-key/).
 
@@ -383,6 +383,8 @@ To improve network security, consider using a [perimeter network](../../referenc
 For infrastructure security, data is encrypted in transit and at rest. For information about network security that applies to S/4HANA, see [Security for your SAP landscape](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape).
 
 To [encrypt Linux VM disks](/azure/virtual-machines/disk-encryption-overview), you have several options. For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA-native encryption technology. For support of Azure disk encryption on specific Linux distributions, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
+
+To enhance the security of data in Azure Files, you can enable [Encryption in Transit (EiT) for Azure Files NFS](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide).
 
 > [!NOTE]
 > Don't use HANA data-at-rest encryption and Azure Disk Encryption on the same storage volume. For HANA, use HANA data encryption over [Azure disk storage server-side encryption](/azure/virtual-machines/disk-encryption). Using customer-managed keys might affect I/O throughput.
