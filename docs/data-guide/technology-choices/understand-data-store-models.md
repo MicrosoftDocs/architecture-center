@@ -135,14 +135,14 @@ A key/value store associates each data value with a unique key. Most key/value s
 #### Selecting an Azure service for key/value data stores
 
 - **[Azure Managed Redis](/azure/redis/overview)** is a fully managed in-memory data store based on the latest Redis Enterprise version, offering low latency and high throughput.
-- **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** is a key-value store optimized for fast access to structured NoSQL data.
+- **[Azure Cosmos DB for Table](/azure/cosmos-db/table/overview)** is a key-value store optimized for fast access to structured NoSQL data.
 - **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** is a document data store, optimized for fast access to structured NoSQL data and provides horizontal scalability.
 Use this table to help determine which Azure service meets your use case requirements.
 
 | Service | Best For | Key Features | Example Use Case |
 |--------|----------|--------------|------------------|
 | **[Azure Managed Redis](/azure/redis/overview)** | High-speed caching, session state, pub/sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
-| **[Azure Cosmos DB for Table](azure/cosmos-db/table/overview)** | Migrating existing Azure Table Storage workloads | Azure Table Storage API compatibility | Storing user preferences and settings in a mobile app |
+| **[Azure Cosmos DB for Table](/azure/cosmos-db/table/overview)** | Migrating existing Azure Table Storage workloads | Azure Table Storage API compatibility | Storing user preferences and settings in a mobile app |
 | **[Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)** | High speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
 ### Graph data stores <a id="graph-data-stores"></a>
@@ -186,14 +186,14 @@ Persist large binary or semi-structured objects with metadata (immutable or infr
 #### Selecting an Azure service for object data stores
 
 - **[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)** is a big data-optimized object store that combines hierarchical namespace and HDFS compatibility for advanced analytics and large-scale data processing.
-- **[Azure Blob Storage](azure/storage/blobs/storage-blobs-introduction)** is a scalable, general-purpose object store for unstructured data like images, documents, and backups, with tiered access for cost optimization
+- **[Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)** is a scalable, general-purpose object store for unstructured data like images, documents, and backups, with tiered access for cost optimization
 
 Use this table to help determine which Azure service meets your use case requirements.
 
 |Service|Best for|Key features|Example use case|
 :-----:|:-----:|:-----:|:-----:
 |**[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)**|Big data analytics and hierarchical data|Hadoop-compatible file system (HDFS), hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data using Azure Synapse or Databricks|
-|**[Azure Blob Storage](azure/storage/blobs/storage-blobs-introduction)**|General-purpose object storage|Flat namespace, tiered storage (hot, cool, archive), simple REST API|Hosting images, documents, backups, and static website content|
+|**[Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)**|General-purpose object storage|Flat namespace, tiered storage (hot, cool, archive), simple REST API|Hosting images, documents, backups, and static website content|
 
 ### Search and indexing data stores <a id="search-engine-databases"></a>
 
@@ -325,7 +325,7 @@ Learn about reference architectures using the Azure services discussed in this a
 
 - The [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) architecture uses Azure SQL Database as its relational data store.
 - The [Deploy microservices with Azure Container Apps and Dapr](/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr) architecture uses Azure Database, Cosmos DB, and Azure Cache for Redis as data stores.
-- The [Automate document classification in Azure](azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions) architecture uses Cosmos DB as its data store.
+- The [Automate document classification in Azure](/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions) architecture uses Cosmos DB as its data store.
 
 ## Related resources
 
