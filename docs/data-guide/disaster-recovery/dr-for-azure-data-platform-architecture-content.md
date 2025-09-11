@@ -32,13 +32,14 @@ Within this foundational structure, Contoso has implemented the following elemen
 The workflow is read left to right, following the flow of data:
 
 - **Data sources**
-  - The sources or types of data that the data platform can consume from. 
+  - The sources or types of data that the data platform can consume from.
+    
 - **Ingest**
     - Ingest structured, semi-structured, and unstructured data into OneLake using Data Factory, Event Streams, Notebooks, Shortcuts, or Mirroring.
     - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via Real-Time Hub.
     - Mirror supported databases for near real-time replication or use Shortcuts to access external data without copying.
-
-- - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+    - - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+        
 - **Store**
     - All ingested data is stored in OneLake, Microsoft Fabric’s unified data lake.
     - OneLake supports open formats like Delta, Parquet, and CSV with built-in geo-redundancy and BCDR options.
@@ -49,15 +50,14 @@ The workflow is read left to right, following the flow of data:
     - Serve curated data via Lakehouse, Warehouse, or mirrored database endpoints using SQL Analytics Endpoints.
     - Create a semantic model in Direct Lake storage mode, and share with business users.
     - Build real-time dashboards in Real-Time Intelligence (RTI) hub in Microsoft Fabric for discovering instant insights from streaming data.
+    - Expose data through Microsoft Fabric API for GraphQL and query multiple data sources quickly and efficiently.
 - **Enrich**
     - Use Data Science experiences for ML modeling, AutoML, and Azure ML integration to enrich datasets.
-    - Intreact with Data agent in Microsoft Fabric to uncover actionable insights through chat, and access to high-quality enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.  
-- **Data consumers**
-    - Manage data discovery, lineage, and access control using OneLake Catalog and Microsoft Purview integration.
+    - Intreact with Data agent in Microsoft Fabric to uncover actionable insights through chat, and access to high-quality enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.
 - **Discover and govern**
     - Use Purview integration, OneLake catalog, and Microsoft Fabric governance tools for lineage, metadata, and access control.
 - **Platform**
-    - Fabric provides a unified SaaS experience with integrated compute, storage, and governance.
+    - Fabric provides an end-to-end, unified SaaS analytics platform unified SaaS experience with centralized data storage with OneLake and embedded AI capabilities.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
