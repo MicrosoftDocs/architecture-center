@@ -3,7 +3,7 @@ This architecture shows a microservices application deployed to Azure Kubernetes
 ## Architecture
 
 :::image type="complex" border="false" source="./images/microservices-architecture.svg" alt-text="Diagram that shows the microservices on AKS reference architecture." lightbox="./images/microservices-architecture.svg":::
-   The diagram shows the microservices on the AKS reference architecture. It depicts an application composed of multiple microservices deployed to AKS. The request flow uses the publisher-subscriber, competing consumers, and gateway routing cloud design patterns. The flow starts with the client application sending a JSON payload over HTTPS to the load balancer's public fully qualified domain name to schedule a drone pickup. The load balancer routes the request to the ingestion microservice, which processes and queues delivery requests in an Azure Service Bus queue. The workflow microservice then consumes messages from the Service Bus queue and sends HTTPS requests to multiple microservices. These services include the drone scheduler, delivery, and package microservices. The delivery microservice stores data in Azure Cache for Redis, and the package microservice stores data in MongoDB. An HTTPS GET request returns the delivery status. It passes through the load balancer to the delivery microservice, which reads data from Azure Cache for Redis.
+   The diagram shows the microservices on the AKS reference architecture. It depicts an application composed of multiple microservices deployed to AKS. The request flow uses the publisher-subscriber, competing consumers, and gateway routing cloud design patterns. The flow starts with the client application sending a JSON payload over HTTPS to the load balancer's public fully qualified domain name to schedule a drone pickup. The load balancer routes the request to the ingestion microservice, which processes and queues delivery requests in an Azure Service Bus queue. The workflow microservice then consumes messages from the Service Bus queue and sends HTTPS requests to multiple microservices. These services include the drone scheduler, delivery, and package microservices. The delivery microservice stores data in Azure Managed Redis, and the package microservice stores data in MongoDB. An HTTPS GET request returns the delivery status. It passes through the load balancer to the delivery microservice, which reads data from Azure Managed Redis.
 :::image-end:::
 
 *Helm is a trademark of the Cloud Native Computing Foundation (CNCF). No endorsement is implied by the use of this mark.*
@@ -28,13 +28,13 @@ The following dataflow corresponds to the previous diagram:
 
     - Consumes message information from the Service Bus message queue.
 
-    - Sends an HTTPS request to the delivery microservice, which passes data to external data storage in Azure Cache for Redis.
+    - Sends an HTTPS request to the delivery microservice, which passes data to external data storage in Azure Managed Redis.
 
     - Sends an HTTPS request to the drone scheduler microservice.
 
     - Sends an HTTPS request to the package microservice, which passes data to external data storage in MongoDB.
 
-1. An HTTPS GET request returns the delivery status. This request passes through the managed ingress controller into the delivery microservice. Then the delivery microservice reads data from Azure Cache for Redis.
+1. An HTTPS GET request returns the delivery status. This request passes through the managed ingress controller into the delivery microservice. Then the delivery microservice reads data from Azure Managed Redis.
 
 ### Components
 
@@ -42,7 +42,7 @@ The following dataflow corresponds to the previous diagram:
 
 - **An ingress server** exposes HTTP(S) routes to services inside the cluster. This architecture uses a [managed NGINX-based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
 
-- **External data stores**, such as [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. This architecture uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure Cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores or places to store state.
+- **External data stores**, such as [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. This architecture uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure Managed Redis](/azure/redis/overview/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores or places to store state.
 
 - **[Microsoft Entra ID](/entra/fundamentals/whatis)** is required for the AKS cluster. It provides a [managed identity](/azure/aks/use-managed-identity) that's used to access Azure Container Registry and to access and provision Azure resources like load balancers and managed disks. Workloads deployed on an AKS cluster also each require an identity in Microsoft Entra to access Microsoft Entra-protected resources, such as Azure Key Vault and Microsoft Graph. In this reference architecture, [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) integrates with Kubernetes and provides workloads with identities. You can also use managed identities or application credentials for each workload.
 

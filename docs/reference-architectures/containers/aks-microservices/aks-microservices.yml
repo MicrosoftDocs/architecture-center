@@ -23,6 +23,7 @@ products:
   - azure-load-balancer
   - azure-pipelines
   - azure-monitor
+  - azure-managed-redis
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-architecture.png
 content: |
    [!INCLUDE[](aks-microservices-content.md)]
