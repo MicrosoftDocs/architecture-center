@@ -51,7 +51,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. It allows data transfer between an HDInsight cluster and relational databases such as SQL, Oracle, MySQL, and so on. Sqoop is a collection of related tools, including import and export tools. Sqoop works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 
-- [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside a database through the T-SQL language. In SQL Server 2016, it allows you to run queries on external data in Hadoop or to import or export data from Blob Storage. In Azure Synapse Analytics, you can import or export data from Blob Storage and Data Lake Storage. Currently, PolyBase is the fastest method of importing data into Azure Synapse Analytics.
+- [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside a database through the T-SQL language. In SQL Server 2016, it allows you to run queries on external data in Hadoop or to import or export data from Blob Storage.
 
 - Use the [Hadoop command line](/azure/hdinsight/hdinsight-upload-data#hadoop-command-line) when you have data that resides on an HDInsight cluster head node. You can use the `hadoop -copyFromLocal` command to copy that data to your cluster's attached storage, such as Blob Storage or Data Lake Storage. In order to use the Hadoop command, you must first connect to the head node. Once connected, you can upload a file to storage.
 
@@ -120,7 +120,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
-| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
+| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
 | Copy to relational database | No | No | No | No | Yes |
 | Copy from relational database | No | No | No | No | Yes |
