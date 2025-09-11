@@ -1,7 +1,7 @@
 ## Use case definition
 To support this worked example, the fictitious firm "Contoso" will be used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
-Business Continuity and Disaster Recovery (BCDR) across Microsoft Azure services operates under a shared responsibility model. Microsoft is responsible for ensuring the availability, resilience, and security of the underlying infrastructure and platform services. However, customers are accountable for implementing disaster recovery strategies tailored to their specific workloads. This includes configuring cross-regional failover, backup and restore mechanisms, and application-level recovery processes. Microsoft provides tools, guidance, and best practices to help customers design and validate BCDR plans that meet their recovery time objectives (RTO) and recovery point objectives (RPO). For more details, refer to the [Shared responsibility in the cloud](/azure-docs/security/fundamentals/shared-responsibility/#shared-responsbility-in-the-cloud).
+Business Continuity and Disaster Recovery (BCDR) across Microsoft Azure services operates under a shared responsibility model. Microsoft is responsible for ensuring the availability, resilience, and security of the underlying infrastructure and platform services. However, customers are accountable for implementing disaster recovery strategies tailored to their specific workloads. This includes configuring cross-regional failover, backup and restore mechanisms, and application-level recovery processes. Microsoft provides tools, guidance, and best practices to help customers design and validate BCDR plans that meet their recovery time objectives (RTO) and recovery point objectives (RPO). For more details, refer to the [Shared responsibility in the cloud](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/security/fundamentals/shared-responsibility.md).
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
@@ -282,9 +282,9 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Enable BCDR for capacity.
+        - Enable BCDR for Fabric capacity.
     - Notes
-        - OneLake supports geo-redundant storage.
+        - For further details regarding disaster recovery for OneLake, refer to [Disaster recovery and data protection for OneLake](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/onelake/onelake-disaster-recovery.md).
 
 - **Microsoft Fabric: SQL database in Fabric**
     - Component recovery responsibility: Microsoft
@@ -294,16 +294,18 @@ The following tables present a breakdown of each Azure service and component use
         - Manual geo-backup or geo-replication for active/active setups across regions.
     - Notes
         - Geo-redundancy must be manually configured.
+        - For further details regarding disaster recovery for SQL Databse in Fabric, refer to [Disaster recovery and data protection for OneLake](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/onelake/onelake-disaster-recovery.md).
 
 - **Microsoft Fabric: Data Engineering**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity (Memory Optimized SKU)
     - DR uplift options:
-        - Backup notebooks and Lakehouse data in another region.
+        - Backup notebooks, Spark Job Definitions and Lakehouse data in a workspace in another region. 
     - Notes
-        - Notebooks can be redeployed via CI/CD.
-
+        - Notebooks can be redployed via CI/CD.
+        - Follow step-by-step guides for [Experience-specific disaster recovery guidance](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/experience-specific-guidance.md).
+        
 - **Microsoft Fabric: Data Warehouse**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
@@ -311,7 +313,8 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Manual geo-backup or geo-replication for active/active setups across regions.
     - Notes
-        - No built-in geo-replication.
+        - Follow step-by-step guides for [Experience-specific disaster recovery guidance](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/experience-specific-guidance.md).
+        - For customers who need cross-regional disaster recovery and fully automated business continuity, we recommend keeping two Fabric Warehouse setups in two different regions and maintaining code and data parity by doing regular deployments and data ingestion to both sites.
 
 - **Microsoft Fabric: Mirrored Database**
     - Component recovery responsibility: Microsoft
@@ -319,9 +322,9 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
         - Manual geo-backup or geo-replication for active/active setups across regions.
-    - Notes
-        - Mirrored databases replicate external data into OneLake using CDC.
-
+    - Note:
+        - Recreate mirrored database in another workspace from a different region.
+      
 ### Stateless data platform-specific services
 
 - **Azure Synapse: Pipelines**
@@ -382,9 +385,9 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Use Eventhouse with GRS to ensure stream data is durable across paired regions. 
+        - Configure two or more KQL databases in different regions, and keep data and policies in sync between the databases. 
     - Notes
-        - GRS provides stream redundancy across paired regions. 
+        - Refer to recovery procedures for [Experience-specific disaster recovery guidance](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/experience-specific-guidance.md).   
 
 - **Microsoft Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
@@ -393,8 +396,9 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Cross-region pipeline deployment.
     - Notes
-        - Pipelines can be redeployed via CI/CD in a secondary region.
-        - When On-Prem or vNet Data Gateway are used in data pipelines, responsibility for disaster recovery remains with the customer.
+        - Pipelines can be redeployed via CI/CD.
+        - When On-Prem or vNet Data Gateway are used in data pipelines, the gateways need to be reconfigured in another workspace from a different region.
+        - Follow step-by-step guides for [Experience-specific disaster recovery guidance](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/experience-specific-guidance.md).
 
 - **Microsoft Fabric: Data Science**
     - Component recovery responsibility: Microsoft
@@ -404,7 +408,7 @@ The following tables present a breakdown of each Azure service and component use
         - Create workspaces in two different regions, then copy your data and import notebooks, machine learning experiments and models into the secondary workspace.
     - Notes
         - Disaster recovery for Data Science in Microsoft Fabric involves manual copying and recreation of resources in a secondary region, with no built-in cross region replication.
-        - For further details regarding disaster recovery for Fabric Data Science, refer to Disaster recovery guidance for Fabric Data Science - Microsoft Fabric | Microsoft Learn
+        - For further details regarding disaster recovery for Fabric Data Science, refer to [Disaster recovery guidance for Fabric Data Science](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/data-science/data-science-disaster-recovery.md).
 
 ## Stateful vs stateless components
 The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
