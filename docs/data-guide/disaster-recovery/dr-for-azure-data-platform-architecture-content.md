@@ -294,7 +294,7 @@ The following tables present a breakdown of each Azure service and component use
         - Manual geo-backup or geo-replication for active/active setups across regions.
     - Notes
         - Geo-redundancy must be manually configured.
-        - For further details regarding disaster recovery for SQL Databse in Fabric, refer to [Disaster recovery and data protection for OneLake](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/onelake/onelake-disaster-recovery.md).
+        - For further details regarding disaster recovery for SQL Databse in Fabric, refer to [Experience-specific disaster recovery guidance](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/security/experience-specific-guidance.md).
 
 - **Microsoft Fabric: Data Engineering**
     - Component recovery responsibility: Microsoft
