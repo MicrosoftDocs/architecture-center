@@ -329,6 +329,8 @@ If Entra ID isn't supported for a connection, you must supply a secret (for exam
 
 Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
 
+In this architecture, there are two API key based connections: Application Insights for AI Foundry telemetry and Grounding with Bing Search.
+
 If you use customer-managed keys (CMK) for encryption, you can host both the CMK keys and the connection secrets in the same dedicated vault, subject to your security governance policies concerning this.
 
 ##### Azure AI Foundry portal employee access
