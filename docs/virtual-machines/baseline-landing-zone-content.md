@@ -24,7 +24,6 @@ As a workload owner, you can offload the management of shared resources to centr
 ## Architecture
 
 :::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A diagram that shows the VM baseline architecture in an application landing zone." lightbox="./media/baseline-landing-zone.svg" border="false":::
-
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone.vsdx) of this architecture.*
 
 ### Components
@@ -35,7 +34,7 @@ All Azure landing zone architectures have a separation of ownership between the 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline.yml#workload-resources).
 
-- **Azure Virtual Machines** is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host the front-end and back-end tiers and are distributed across availability zones for resilience.
+- **Azure Virtual Machines** is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host the front-end and back-end tiers and are distributed across availability zones for resilience.
 
 - **Azure Load Balancer** is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it privately load balances traffic from front-end to back-end VMs across zones.
 - **Azure Application Gateway** is a layer-7 reverse proxy and web traffic load balancer. In this architecture, it terminates Transport Layer Security (TLS), inspects requests, and serves as the reverse proxy to route user traffic to front-end VMs. The selected SKU also hosts Azure Web Application Firewall to protect the front-end VMs from potentially malicious traffic.

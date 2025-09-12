@@ -33,7 +33,7 @@ This architecture consists of several Azure services for both workload resources
 
 #### Workload resources
 
-- **Azure Virtual Machines** is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs provide scalable and distributed processing across availability zones for both Windows and Linux workloads.
+- **Azure Virtual Machines** is an IaaS offering that provides scalable compute resources. In this architecture, VMs provide scalable and distributed processing across availability zones for both Windows and Linux workloads.
 
     **Azure Virtual Machine Scale Sets** is a service that enables automatic deployment, scaling, and management of a group of identical VMs. In this architecture, it provisions and maintains the front-end and back-end compute resources by using Flexible orchestration mode.
 
