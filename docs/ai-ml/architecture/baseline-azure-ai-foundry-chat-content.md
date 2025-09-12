@@ -306,8 +306,6 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 This architecture extends the security foundation established in the [basic Azure AI Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
 
-This section describes networking and security considerations for key rotation and Azure OpenAI model fine-tuning.
-
 #### Identity and access management
 
 This architecture primarily uses system-assigned managed identities for service-to-service authentication. You might also use user-assigned managed identities. In either case, apply the following principles:
@@ -322,6 +320,18 @@ This architecture primarily uses system-assigned managed identities for service-
 - Assign an identity to an Azure resource only if that resource must authenticate as a client to another Azure service.
 
 - Use fit-for-purpose identity types. Where possible, use [workload identities](/entra/workload-id/workload-identities-overview) for applications and automation, and use [agent identities](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/announcing-microsoft-entra-agent-id-secure-and-manage-your-ai-agents/3827392) for AI agents.
+
+##### Connections
+
+Connections define how an Azure AI Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
+
+If Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
+
+Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
+
+In this architecture, there are two API key based connections: Application Insights for AI Foundry telemetry and Grounding with Bing Search.
+
+If you use customer-managed keys (CMK) for encryption, you can host both the CMK keys and the connection secrets in the same dedicated vault, subject to your security governance policies concerning this.
 
 ##### Azure AI Foundry portal employee access
 
