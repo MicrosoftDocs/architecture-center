@@ -82,7 +82,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Serve real-time predictions from any registered ML model using secure, scalable [ML online endpoints](/fabric/data-science/model-endpoints) that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption.  
 
-6. Deliver data to users using a conversational interface with [Fabric Data Agent(preview)](/fabric/data-science/concept-data-agent) via natural language queries. 
+6. Deliver data to users using a conversational interface with [Fabric Data Agent](/fabric/data-science/concept-data-agent) via natural language queries. 
 
 7. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. 
 
@@ -210,7 +210,7 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) is a generative AI assistant embedded across the Microsoft Fabric Platform. In this architecture it can be used to build scalable data pipelines, create Spark code for Data transformations, generate optimized SQL for Data Warehouse, create the KQL queries for Real-Time Intelligence, and build Semantic Models and DAX measures for Reporting.
 
-- [Fabric Data Agent (preview)](/fabric/data-science/how-to-create-data-agent) is a powerful, AI-driven feature that helps users to interact with their orgnanizational data using natural language. In this architecture, Data Agents act as a conversational interface to translate natural language questions into structured queries (SQL,DAX,or KQL)
+- [Fabric Data Agent](/fabric/data-science/how-to-create-data-agent) is a powerful, AI-driven feature that helps users to interact with their orgnanizational data using natural language. In this architecture, Data Agents act as a conversational interface to translate natural language questions into structured queries (SQL,DAX,or KQL)
 
 - [Microsoft Purview](/azure/purview/overview) is a unified platform for data governance, security, and compliance. In this architecture, Purview governs your entire estate and lineage of data from data source down to the Power BI report.
 
@@ -229,6 +229,8 @@ The following Fabric and Azure services are used in the architecture:
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a comprehensive suite of development tools and services offered by Microsoft to support the entire software development lifecycle. In this architecture, Azure DevOps integrated with Fabric workspaces for Lifecycle Management and source control.
 
 - [GitHub](https://docs.github.com/get-started/start-your-journey/about-github-and-git) is a cloud-based platform for version control and collaboration that allows developers to store, manage, and track changes to their code. In this architecture, GitHub is integrated with Fabric workspaces for Lifecycle Management and source control.
+
+- [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) is a feature that allows you to collect, analyze, visualize logs and metrics from Fabric items within a workspace. In this architecture, it helps with query diagnosis within your Fabric Environment, identify and resolve issues, build customized monitoring dashboards, and set alerts. 
 
 ### Alternatives
 
@@ -300,7 +302,7 @@ Following these recommendations, the services below should be considered as part
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
 - [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric(Preview)](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops) and [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance with your Fabric workload development and deployment pipelines for seamless version control, collaboration, and lifecycle management.
 - [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
@@ -317,9 +319,9 @@ Use the [Microsoft Fabric - Pricing](https://azure.microsoft.com/pricing/detai
 
 - Fabric Capacity is a shared pool of capacity that powers all capabilities on Microsoft Fabric from Data engineering, Data warehousing and Data modelling to business intelligence and AI experiences. Microsoft prices CU by the hour with Pay-as-you-go or Reservation. PAYGO offers flexibility to pay only for the hours the Fabric capacity is used (consider pausing capacities when not in use to control costs) without the need for a monthly/yearly commitment. [Reservations](/azure/cost-management-billing/reservations/fabric-capacity) offer predictable billing and up to 40 % savings for stable workloads. 
 
-- [OneLake Storage](https://azure.microsoft.com/pricing/details/microsoft-fabric/?msockid=154b803cd3036d3935a59673d2546c5d) Storage offers a single copy of data across all the Analytical engines without the need for moving of duplication of data. 
+- [OneLake Storage](https://azure.microsoft.com/pricing/details/microsoft-fabric/?msockid=154b803cd3036d3935a59673d2546c5d) offers a single copy of data across all the Analytical engines without the need for moving of duplication of data. 
 
-- Use the [Fabric Capacity Estimator(preview)](https://www.microsoft.com/microsoft-fabric/capacity-estimator) tool to estimate your capacity needs. This tool helps you determine the appropriate SKU and storage requirements based on your workload characteristics. 
+- Use the [Fabric Capacity Estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator) tool to estimate your capacity needs. This tool helps you determine the appropriate SKU and storage requirements based on your workload characteristics. 
 
 - Use the [Fabric Capacity Metrics App](/fabric/enterprise/metrics-app) to monitor usage and consumption by different Fabric Items to understand capacity utilization. 
 
@@ -327,11 +329,10 @@ Use the [Microsoft Fabric - Pricing](https://azure.microsoft.com/pricing/detai
 
 - Use the [Microsoft Fabric Capacity troubleshooting guides](/fabric/enterprise/capacity-planning-troubleshoot-consumption) to monitor and optimize the capacity usage proactively.  
 
-- The [Microsoft Fabric Chargeback App(preview)](/fabric/enterprise/chargeback-app) is a solution designed to help organizations track, analyze and allocate the capacity usage costs across different business units, users, and workloads using Microsoft Fabric. It supports chargeback and showback models enabling transparent and fair cost distribution based on actual consumption. 
+- The [Microsoft Fabric Chargeback App](/fabric/enterprise/chargeback-app) is a solution designed to help organizations track, analyze and allocate the capacity usage costs across different business units, users, and workloads using Microsoft Fabric. It supports chargeback and showback models enabling transparent and fair cost distribution based on actual consumption. 
 
 - [Microsoft Purview](https://azure.microsoft.com/pricing/details/azure-purview) is priced based on the number of data assets in the catalog and the amount of compute power required to scan them. 
 
-- Fabric offers a rich set of features depending on the SKU and capacity type. User capabilities in the workspaces are determined by the [license](/fabric/enterprise/licenses#capacity) assigned to the workspace.
 
 Similar architecture can also be implemented for preproduction environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment. 
 
@@ -341,9 +342,10 @@ See what new features are coming in Fabric and when to expect them: [Microsoft F
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Lavanya Sreedhar](https://www.linkedin.com/in/lavanya-sreedhar-17b89015) | Senior Cloud Solution Architect
+- [Kevin Lee](https://www.linkedin.com/in/kyungchul-kevin-lee-628607bb) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
