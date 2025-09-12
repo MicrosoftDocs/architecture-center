@@ -22,15 +22,14 @@ Modern analytical solutions, such as [Microsoft Fabric](/fabric/fundamentals/mic
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [Fabric](/fabric/fundamentals/microsoft-fabric-overview)
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
-- [Azure Synapse Analytics Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview), specifically:
+  - [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+  - [Fabric Warehouse](/fabric/data-warehouse/data-warehousing)
+  - [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse)
+  - [Fabric SQL Databases](/fabric/database/sql/overview)
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-- [Azure Data Explorer](/azure/data-explorer/)
 - [Azure SQL Database](/azure/sql-database/)
 - [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
-- [Apache HBase and Apache Phoenix on Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
-- [Apache Hive Low Latency Analytical Processing (LLAP) on Azure HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 - [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
 
@@ -54,7 +53,7 @@ The following database models are optimized for different types of tasks:
 
 - Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in various column stores and in-memory structures. This capability makes them the optimal choice for storing and analyzing vast quantities of telemetry and time-series data.
 
-[Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks.
+[Fabric](/fabric/fundamentals/microsoft-fabric-overview) supports various database models, including key-value, document, column store, graph, and telemetry databases. This flexibility ensures scalability for a wide range of analytical tasks. To choose the right Fabric datastore for your analytical workloads, see [Fabric decision guide: choose a datastore](/fabric/fundamentals/decision-guide-data-store).
 
 ## Key selection criteria
 
@@ -64,71 +63,99 @@ To refine the selection process, consider the following criteria:
 
 - Do you need massively parallel processing support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale-out.
 
-- Do you prefer to use a relational data store? If you do, narrow your options to those that have a relational database model. However, some nonrelational stores support SQL syntax for querying, and tools such as PolyBase can be used to query nonrelational data stores.
+- Do you prefer to use a relational data store? If you do, narrow your options to those that have a relational database model. However, some nonrelational stores support SQL syntax for querying, and tools such as SQL Endpoint can be used to query nonrelational data stores such as OneLake.
 
-- Do you collect time-series data? Do you use append-only data?
-
-Fabric OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark. This support makes it suitable for various data processing and querying needs.
+- Do you collect time-series data? Do you use append-only data? Fabric OneLake supports multiple analytical engines, including Analysis Services, T-SQL, and Apache Spark. Fabric Eventhouse makes it suitable for various data processing and querying needs of time-series data.
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities.
+The following tables summarize the key differences in capabilities in these managed services.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Is a managed service? | Yes | Yes |Yes | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
-| Primary database model | Relational (column store format when you use columnstore indexes) | Relational tables with column storage | Wide column store | Relational (column store), telemetry, and time-series store | Wide column store | Hive or in-memory | Tabular semantic models | Document store, graph, key-value store, wide column store | Unified data lake, relational, telemetry, time series, document store, graph, key-value store |
-| SQL language support | Yes | Yes | Yes | Yes | Yes (using [Apache Phoenix](https://phoenix.apache.org/) Java Database Connectivity driver) | Yes | No | Yes | Yes |
-| Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> | Yes | Yes | Yes | Yes | No | Yes | Yes |
+| Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  | 
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Primary database model | Unified data lake, relational, user managed delta lake format using apache parquet | Unified data lake, relational, system managed delta lake format using apache parquet | Time series append oriented data store, graph, vector | Relational (column store format when you use columnstore indexes) | Relational (column store format when you use columnstore indexes) | Document store, graph, key-value store, wide column store | Tabular semantic models |  
+| SQL language support | Yes<sup>1</sup> | Yes | Yes<sup>2</sup> | Yes | Yes | Yes | No |
+| Optimized for speed serving layer | Yes  | Yes  | Yes<sup>3</sup> | Yes<sup>4</sup> | Yes<sup>5</sup> | Yes | No | 
 
-[1] With manual configuration and scaling.
+[1] T-SQL via SQL Analytics Endpoint.
 
-[2] Using memory-optimized tables and hash or nonclustered indexes.
+[2] KQL has partial T-SQL language support.
 
-[3] Supported as an Azure Stream Analytics output.
+[3] Supports queued ingestion and streaming ingestion.
+
+[4] Supports transactional precision with low-latency access and real-time updates.
+
+[5] Using memory-optimized tables and hash or nonclustered indexes.
+
 
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics SQL pool | Azure Synapse Analytics Spark pool | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
-| :------| :--------| :---------| :--------| :-------| :--------| :--------| :-----| :----|
-| Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes        |    Yes    |    Yes      |
-|             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |    Yes      |
-|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |     Yes      |
-|        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |    Yes      |
+| Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  | 
+| :------| :--------| :---------| :--------| :-------| :--------| :--------| :-----|
+| Redundant regional servers for high availability |     Yes<sup>1,2</sup>      |        Yes<sup>1,2</sup>         |        Yes         |       Yes   |            Yes             |           Yes           |           Yes        |
+|             Supports query scale-out             |      Yes<sup>3</sup>      |        Yes<sup>4</sup>         |        Yes<sup>5</sup>         |         Yes         |         No             |          Yes           |           Yes           |
+|          Dynamic scalability (scale up)          |     Yes<sup>3</sup>      |        Yes<sup>4</sup>       |        Yes<sup>5</sup>         |        Yes           |             Yes            |           Yes           |           Yes           |
+|        Supports in-memory caching of data        |     Yes<sup>6</sup>      |        Yes<sup>6</sup>         |        Yes<sup>7</sup>         |            Yes         |        Yes             |          Yes           |           No          |
+
+[1] SQL Endpoints are routed via global traffic managers, but data is always processed in the assigned Fabric capacity region.
+
+[2] Lakehouse and Warehouse store data in OneLake using Delta Parquet format, which supports querying and replication across engines.
+
+[3] Lakehouse supports Spark-based scale-out for unstructured and structured data.
+
+[4] Warehouse uses T-SQL and supports multi-table transactions, autonomous workload management, and distributed query processing (DQP). DQP acts like a cluster manager, dynamically allocating compute resources based on query complexity.
+
+[5] Eventhouse supports KQL and SQL federation, enabling real-time analytics across multiple sources as well as scale up compute resources if hot cache usage exceeds ~95%.
+
+[6] Intelligent cache for Spark jobs, [in-memory caching](/fabric/data-warehouse/caching), [result set caching](/fabric/data-warehouse/result-set-caching) for SQL analytics endpoints.
+
+[7] Frequently accessed data is stored in a hot cache which includes in-memory and SSD storage.
 
 ### Security capabilities
 
-| Capability | SQL Database | Azure Synapse Analytics | Azure Data Explorer | Apache HBase or Apache Phoenix on HDInsight | Hive LLAP on HDInsight | Analysis Services | Azure Cosmos DB | Fabric |
+| Capability | Fabric Lakehouse | Fabric Warehouse | Fabric Eventhouse | Fabric SQL Database| Azure SQL Database | Azure Cosmos DB | Analysis Services  |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Authentication  | SQL or Microsoft Entra ID | SQL or Microsoft Entra ID | Microsoft Entra ID | Local or Microsoft Entra ID <sup>1</sup> | Local or Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | Database users or Microsoft Entra ID via access control (identity and access management) | Microsoft Entra ID |
-| Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes | Yes |
-| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No | Yes |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes | Yes |
-| Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No | Yes |
+| Authentication  |Microsoft Entra ID |Microsoft Entra ID | Microsoft Entra ID | Microsoft Entra ID | SQL or Microsoft Entra ID | Database users or Microsoft Entra ID via access control (identity and access management) |Microsoft Entra ID   |
+| Data encryption at rest | Yes | Yes | Yes | Yes | Yes<sup>1</sup> | Yes | Yes |
+| Row-level security | Yes | Yes | Yes | Yes  | Yes | No | Yes |
+| Supports firewalls | Yes<sup>2</sup> | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes | Yes | Yes |
+| Dynamic data masking | Yes<sup>4</sup> | Yes<sup>4</sup> | No | Yes | Yes | No | No |
 
-[1] Requires you to use a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
+[1] Requires you to use transparent data encryption to encrypt and decrypt your data at rest.
 
-[2] Requires you to use transparent data encryption to encrypt and decrypt your data at rest.
+[2] Private Links and Entra Conditional Access can be used to restrict access to Fabric resources.
 
-[3] Filter predicates only. For more information, see [Row-level security](/sql/relational-databases/security/row-level-security).
+[3] Fabric Eventhouse and Real-Time Intelligence workloads can ingest data from secure sources like Kafka, Azure Event Hubs, and AMQP, with routing through secure endpoints.
 
-[4] When used within an Azure virtual network. For more information, see [Extend HDInsight by using an Azure virtual network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[4] It can be applied at the Fabric SQL Endpoint Level
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
+
+- [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 
 ## Next steps
 
+- [Bring your Data to OneLake with Lakehouse](/fabric/onelake/create-lakehouse-onelake)
+- [Create a Fabric Warehouse](/fabric/data-warehouse/create-warehouse)
+- [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse)
 - [Analyze data in a relational data warehouse](/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads)
 - [Create a single database in SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 - [Create an Azure Databricks workspace](/azure/databricks/getting-started)
-- [Create an Apache Spark cluster in HDInsight by using the Azure portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
-- [Create an Azure Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace)
-- [Explore Azure data services for modern analytics](/training/modules/explore-azure-data-services-for-modern-analytics)
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
 - [Query Azure Cosmos DB by using the API for NoSQL](/azure/cosmos-db/nosql/tutorial-query)
 
 ## Related resources
 
+- [Fabric decision guide: choose a datastore](/fabric/fundamentals/decision-guide-data-store)
+- [Query the SQL analytics endpoint or Warehouse in Microsoft Fabric](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint)
 - [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
-- [Analyze operational data on MongoDB Atlas by using Azure Synapse Analytics](../../databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml)
 - [Nonrelational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
