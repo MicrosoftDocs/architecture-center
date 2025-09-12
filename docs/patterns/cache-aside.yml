@@ -4,7 +4,7 @@ metadata:
   description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
   ms.author: pnp
   author: claytonsiemens77
-  ms.date: 07/28/2022
+  ms.date: 09/11/2025
   ms.topic: design-pattern
   ms.subservice: design-pattern
   ms.custom: arb-web

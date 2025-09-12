@@ -1,8 +1,8 @@
 ---
 title: Compare Storage Services on Azure and AWS
 description: Review storage technology differences between Azure and AWS. Compare Azure Storage with S3, EBS, EFS, and Glacier.
-author: splitfinity-zz-zz
-ms.author: adamcerini
+author: splitfinity81
+ms.author: yubaijna
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: cloud-fundamentals
