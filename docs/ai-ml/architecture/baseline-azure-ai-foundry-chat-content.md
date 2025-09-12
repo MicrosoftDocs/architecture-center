@@ -323,15 +323,13 @@ This architecture primarily uses system-assigned managed identities for service-
 
 ##### Connections
 
-AI Foundry uses the concept of connections to define relationships between the account or an individual project and an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types).
+Connections define how an Azure AI Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
 
-Establish those connections at the project level where possible, and only maintain connections that are actively being used by your workload. Where possible, establish those connections using Entra ID-based authentication.
+If Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
 
-When a connection can't use Entra ID, you'll need to provide a preshared secret, such as an API key, as part of the connection's definition. Following the same design decisions for self-hosting the Azure AI Foundry Agent Service dependencies, we recommend that you also use a self-hosted Azure Key Vault as the state store for these connection credentials. Azure AI Foundry needs to have a [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for this capability.
+Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
 
-This Key Vault instance should be dedicated for exclusive used by Azure AI Foundry; not shared with other workload resources. All non-Entra ID connections within Azure AI Foundry will use this single instance to store all connection secrets. Azure AI Foundry account's managed identity has both read and write permissions over all secrets in this vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault.
-
-If your AI Foundry account is configured with Customer-managed keys (CMK) encryption, you can consider combining both use cases in a single vault.
+If you use customer-managed keys (CMK) for encryption, you can host both the CMK keys and the connection secrets in the same dedicated vault, subject to your security governance policies concerning this.
 
 ##### Azure AI Foundry portal employee access
 
