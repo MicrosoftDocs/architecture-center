@@ -97,6 +97,8 @@ This architecture includes multiple components that you can substitute with othe
 
 Consider this alternative if your workload requires the following capabilities:
 
+- The use of a model other than those [models supported by the Foundry Agent Service](/azure/ai-foundry/agents/concepts/model-region-support)
+
 - Fine-grained, deterministic control over the orchestration sequence, tool invocation, or prompt engineering
 
 - Integration with custom business logic or external systems that Foundry Agent Service doesn't natively support
