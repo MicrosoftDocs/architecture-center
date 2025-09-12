@@ -81,7 +81,7 @@ The following tables summarize the key differences in capabilities in these mana
 
 [1] T-SQL via SQL Analytics Endpoint.
 
-[2] KQL has partial [T-SQL](/azure/data-explorer/t-sql) language support.
+[2] KQL has partial T-SQL language support.
 
 [3] Supports queued ingestion and streaming ingestion.
 
