@@ -47,7 +47,7 @@ The disadvantage to this isolation model is that as the number of tenants grows 
 
 ### Separate topics and queues in a shared namespace
 
-You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have a dedicated messaging entity or more queues that it listens to. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Microsoft Entra identity.
+You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have one or more dedicated queues that it interacts with. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Microsoft Entra identity.
 
 As the number of tenants grows within your system, the number of queues, topics, or subscriptions also increases to accommodate each tenant. This growth might result in higher operational costs and lower organizational agility.
 
