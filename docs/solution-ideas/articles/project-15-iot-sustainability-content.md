@@ -67,8 +67,6 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 - The [API Apps][API Apps] feature of App Service enables you to use to build and consume APIs in the cloud by using the language of your choice. In this architecture, API Apps exposes device management events and data to external systems.
 
-- [Microsoft Entra ID][Microsoft Entra ID] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps. In this architecture, Microsoft Entra ID manages user authentication and access control across the platform.
-
 - [Azure Digital Twins][Azure Digital Twins] is a modeling service for digital representations of physical environments. In this architecture, Azure Digital Twins models IoT devices and ecosystems to optimize operations, minimize costs, and improve insights.
 
 - [Defender for Cloud][Defender for Cloud] is a security management service for hybrid cloud environments. In this architecture, it enforces security policies and protects workloads from threats.

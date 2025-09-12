@@ -50,7 +50,7 @@ The following diagram shows the patient record creation request flow:
 
 ### Components
 
-- [ExpressRoute][Azure ExpressRoute] is a service that creates private connections between on-premises infrastructure and Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365]. In this architecture, ExpressRoute ensures secure and reliable connectivity between legacy systems and Azure-hosted OpenFrame applications.
+- [ExpressRoute][Azure ExpressRoute] is a service that creates private connections between on-premises infrastructure and Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365]. In this architecture, ExpressRoute ensures secure and reliable connectivity between existing systems and Azure-hosted OpenFrame applications.
 
 - [Azure Bastion][What is Azure Bastion] is a managed platform that provides secure [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] access to VMs without exposing them to the public internet. In this architecture, Azure Bastion enhances security by allowing administrators to manage VMs directly from the Azure portal instead of using public IP addresses.
 
@@ -64,7 +64,7 @@ The following diagram shows the patient record creation request flow:
 
 - [Azure SQL Database][Azure SQL Database] is a managed relational database engine that automates upgrading, patching, backups, and monitoring. In this architecture, it serves as the modernized data layer for OpenFrame applications, which supports transactional and analytical workloads.
 
-- [Azure Site Recovery][Azure Site Recovery] is a disaster recovery service that replicates and recovers workloads during outages. In this architecture, it protects the VM components to ensure business continuity.
+- [Azure Site Recovery][Azure Site Recovery] is a disaster recovery service that replicates and recovers workloads during outages. In this architecture, it provides recovery capabilities for the VM components to help maintain business continuity.
 
 ## Next steps
 

@@ -58,7 +58,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a service for securely storing and accessing secrets. In this architecture, it's a PaaS compute resource that's recreated in the target tenant to maintain secure access.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service for securely storing and accessing secrets. In this architecture, it's a resource that's recreated in the target tenant to maintain secure access.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
 
