@@ -1,8 +1,8 @@
 ---
 title: Data and AI
 description: Compare Azure data and AI services with those of AWS. Explore the differences between services and tools.
-author: rhack
-ms.author: rhackenberg
+author: johnkoukgit
+ms.author: johnkoukaras
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
