@@ -38,19 +38,19 @@ The following dataflow corresponds to the previous diagram:
 
 - [GitHub Actions](https://github.com/features/actions) is a continuous integration and continuous deployment (CI/CD) automation tool that enables workflows to build, test, and deploy code directly from GitHub repositories. In this architecture, GitHub Actions automates unit testing, security scanning, and infrastructure provisioning for IaC pipelines.
 
-- [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and alerting to misconfigurations or risks.
+- [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and raising alerts about misconfigurations or risks.
 
-- [CodeQL](https://codeql.github.com) is a semantic code analysis engine that enables custom queries to detect vulnerabilities and misconfigurations in code. In this architecture, CodeQL scans IaC templates to identify potential security problems before deployment.
+- [CodeQL](https://codeql.github.com) is a semantic code analysis engine that enables custom queries to detect vulnerabilities and misconfigurations in code. In this architecture, CodeQL scans repository artifacts to identify potential security problems before deployment.
 
 - [Terraform](https://www.terraform.io) is an open-source infrastructure automation tool developed by HashiCorp that enables declarative provisioning across cloud environments. In this architecture, Terraform provisions and modifies Azure resources based on IaC definitions and supports test-driven development workflows.
 
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a security management platform that provides threat protection across hybrid cloud workloads. In this architecture, it continuously monitors deployed infrastructure for vulnerabilities and integrates with GitHub to trigger reconciliation workflows.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a security management platform that provides threat protection across hybrid cloud workloads. In this architecture, it continuously monitors deployed infrastructure for vulnerabilities.
 
 - [Microsoft Sentinel](/azure/sentinel/overview) is a cloud-native security information and event management (SIEM) and security orchestration automated response (SOAR) solution that uses AI and analytics to detect and respond to threats. In this architecture, Microsoft Sentinel monitors infrastructure activity and raises alerts or GitHub Issues when anomalies are detected.
 
-- [Azure Policy](/azure/governance/policy/overview) is a governance service that enforces rules and compliance across Azure resources. In this architecture, Azure Policy validates IaC deployments against organizational standards and blocks noncompliant configurations. For example, if your project is about to deploy a virtual machine that has an unrecognized SKU, Azure Policy alerts you and stops the deployment.
+- [Azure Policy](/azure/governance/policy/overview) is a governance service that enforces rules and compliance across Azure resources. In this architecture, Azure Policy validates IaC deployments against organizational and workload standards and blocks noncompliant configurations. For example, if your project is about to deploy a virtual machine that has an unrecognized SKU, Azure Policy alerts you and stops the deployment.
 
-- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a telemetry and observability platform that collects performance metrics and activity logs from Azure resources. In this architecture, Azure Monitor detects irregular conditions in infrastructure and triggers GitHub Issues for reconciliation and remediation.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a telemetry and observability platform that collects performance metrics and activity logs from Azure resources. In this architecture, Azure Monitor detects irregular conditions in infrastructure and triggers alerts so triage and remediation can start.
 
 ## Scenario details
 

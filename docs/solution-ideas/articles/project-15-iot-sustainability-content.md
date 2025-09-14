@@ -53,7 +53,7 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 - [Event Grid][Event Grid] is a service that enables event-based architectures. In this architecture, it routes events from sources to destinations and decouples event publishers from event subscribers.
 
-- [Azure Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
+- [Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
 
 - [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. In this architecture, Functions processes incoming data and integrates services by using triggers and bindings.
 
@@ -66,8 +66,6 @@ The following Azure services and configurations make up Project 15 Open Platform
 - [Blob Storage][Blob Storage] is a service that provides optimized cloud object storage for unstructured data. In this architecture, Blob Storage stores telemetry and file data collected from field devices.
 
 - The [API Apps][API Apps] feature of App Service enables you to use to build and consume APIs in the cloud by using the language of your choice. In this architecture, API Apps exposes device management events and data to external systems.
-
-- [Microsoft Entra ID][Microsoft Entra ID] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps. In this architecture, Microsoft Entra ID manages user authentication and access control across the platform.
 
 - [Azure Digital Twins][Azure Digital Twins] is a modeling service for digital representations of physical environments. In this architecture, Azure Digital Twins models IoT devices and ecosystems to optimize operations, minimize costs, and improve insights.
 

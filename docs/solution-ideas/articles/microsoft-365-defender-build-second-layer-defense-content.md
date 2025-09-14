@@ -110,7 +110,7 @@ Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Co
 
 The example architecture in this article uses the following Azure components:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Microsoft Entra ID helps users access external and internal resources. In this architecture, Microsoft Entra ID authenticates users that access Microsoft 365, Azure, and SaaS applications. It serves as the identity foundation for threat detection and response.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Microsoft Entra ID helps users access external and internal resources. In this architecture, Microsoft Entra ID authenticates users that access Microsoft 365, Azure, and software as a service (SaaS) applications. It serves as the identity foundation for threat detection and response.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and segmentation of workloads that Microsoft Defender XDR protects.
 
@@ -118,7 +118,7 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that Microsoft Defender for Endpoint monitors and protects as part of the Microsoft Defender XDR solution.
 
-- [Azure Kubernetes service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS runs containerized workloads that integrate into the Microsoft Defender XDR threat detection and response framework.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS runs containerized workloads that integrate into the Microsoft Defender XDR threat detection and response framework.
 
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that provides secure remote access to cloud-hosted desktops. In this architecture, it supports remote users. Defender for Endpoint monitors Virtual Desktop to detect and respond to endpoint threats.
 

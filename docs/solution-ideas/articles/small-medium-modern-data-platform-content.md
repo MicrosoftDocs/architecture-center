@@ -72,21 +72,21 @@ Tools that are used for governance, collaboration, security, performance, and co
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service designed for structured and unstructured data. In this architecture, Data Lake Storage serves as the underlying infrastructure for the Delta Lake. It's the primary storage layer for raw and processed data, which enables efficient data ingestion, storage, and retrieval for analytics and machine learning workloads.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates data movement and transformation. Iin this architecture, Azure Data Factory creates, schedules, and orchestrates data pipelines that move and transform data across various data stores and services.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates data movement and transformation. In this architecture, Azure Data Factory creates, schedules, and orchestrates data pipelines that move and transform data across various data stores and services.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second from any source. In this architecture, Event Hubs captures and streams large volumes of data from various sources to enable real-time analytics and event-driven processing.
 
 - [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that improves security and reliable communication between Internet of Things (IoT) devices and the cloud. In this architecture, IoT Hub facilitates the ingestion, processing, and analysis of telemetry data from IoT devices to provide real-time insights and enable remote monitoring.
 
 - [Dataverse](/power-apps/maker/data-platform/data-platform-intro) is a scalable data platform that organizations can use to help securely store and manage data that business applications use. In this architecture, it serves as a data source that feeds into the analytics pipeline via Azure Synapse Link or Microsoft Fabric Link.
 
-  - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake) connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage. In this architecture, it copies data in near real time from Dataverse to Data Lake Storage.
+  - [Azure Synapse Link](/power-apps/maker/data-platform/export-to-data-lake) is a data integration feature that connects Dynamics applications with either Azure Synapse Analytics or Data Lake Storage. In this architecture, it copies data in near real time from Dataverse to Data Lake Storage.
 
-  - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) connects Dynamics applications to Fabric. In this architecture, it replicates data from Dataverse to Fabric in near real time.
+  - [Microsoft Fabric Link](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric) is a data integration feature that connects Dynamics applications to Fabric. In this architecture, it replicates data from Dataverse to Fabric in near real time.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform for big data processing, machine learning, and data engineering. In this architecture, it performs data cleansing, transformation, and analysis by using medallion architecture layers.
 
-  - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
+  - [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that brings atomicity, consistency, isolation, and durability (ACID) transactions to Apache Spark and big data workloads. In this architecture, Delta Lake enhances data reliability and performance within the data lake.
 
   - [Azure Databricks SQL](/azure/databricks/sql) is a SQL-based analytics service that enables users to run SQL queries on data stored in Azure Databricks. In this architecture, Azure Databricks SQL provides a powerful SQL interface to query and analyze data, which enables interactive analytics.
 
@@ -96,7 +96,7 @@ Tools that are used for governance, collaboration, security, performance, and co
 
 - [Medallion lakehouse architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture) is a data architecture pattern that organizes data into bronze, silver, and gold layers for efficient data processing and analytics. In this architecture, it structures data processing workflows by using Data Lake Storage, Delta Lake, and Azure Databricks to support scalable analytics.
 
-- [Fabric](/fabric/) is a comprehensive data platform that integrates various data services and tools to provide a seamless data management and analytics experience. In this architecture, Fabric connects and integrates data from multiple sources, which enables comprehensive data analysis and insights across the organization.
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a comprehensive data platform that integrates various data services and tools to provide a seamless data management and analytics experience. In this architecture, Fabric connects and integrates data from multiple sources, which enables comprehensive data analysis and insights across the organization.
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a data processing capability that enables organizations to ingest, process, and analyze data in real time. Real-Time Intelligence processes streaming data from various sources. In this architecture, it provides real-time insights and enables automated actions based on data patterns.
 
