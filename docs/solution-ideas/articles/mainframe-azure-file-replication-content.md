@@ -34,15 +34,15 @@ The following dataflow corresponds to the architecture diagram:
 
    - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
 
-   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and Onelake store.
+   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and OneLake store.
 
-   - For big data integrations, Azure Databricks as well as Microsoft Fabric can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
+   - For big data integrations, Azure Databricks, as well as Microsoft Fabric, can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
 
 1. Store data:
 
    You can store transferred data in one of several available persistent Azure storage modes, depending on your requirements.
 
-   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage and Microsoft Fabric OneLake.
+   - If analytics aren't required, Azure Data Factory can store data directly in a wide range of storage options, such as Data Lake Storage, Blob Storage, and Microsoft Fabric OneLake.
 
    - [Azure hosts various databases](/azure/architecture/guide/technology-choices/data-options) that address different needs:
 
@@ -50,7 +50,7 @@ The following dataflow corresponds to the architecture diagram:
 
      - Nonrelational databases include Azure Cosmos DB, which is a fast, multi-model, globally distributed NoSQL database.
 
-   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, real-time analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration, all in one place.
+   Review analytics and business intelligence. [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that covers everything from data movement to data science, real-time analytics, and business intelligence. It offers a suite of services, including data lake, data engineering, and data integration, all in one place.
 
 ### Components
 
