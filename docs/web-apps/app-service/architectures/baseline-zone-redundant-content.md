@@ -72,7 +72,7 @@ This architecture uses [virtual network integration](/azure/app-service/overview
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
-In this architecture, Azure SQL Database, Azure Storage, and Key Vault all have public endpoints disabled. Azure service firewalls are used only to allow traffic from other authorized Azure services. You should configure other Azure services with private endpoints, such as Azure Cosmos DB and Azure Redis Cache. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
+In this architecture, Azure SQL Database, Azure Storage, and Key Vault all have public endpoints disabled. Azure service firewalls are used only to allow traffic from other authorized Azure services. You should configure other Azure services with private endpoints, such as Azure Cosmos DB and Azure Managed Redis. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
 
 The baseline architecture implements a private DNS zone for each service. The private DNS zone contains an A record that maps between the service's fully qualified domain name and the private endpoint private IP address. The zones are linked to the virtual network. Private DNS zone groups ensure that private link DNS records are automatically created and updated.
 
