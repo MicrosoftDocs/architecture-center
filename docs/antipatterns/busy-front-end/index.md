@@ -62,7 +62,7 @@ The primary concern is the resource requirements of the `Post` method. Although 
 
 ## How to fix the problem
 
-Move processes that consume significant resources to a separate back end.
+Use [queue-based load leveling](/azure/architecture/patterns/queue-based-load-leveling) to buffer requests and process them at an appropriate pace on a separate back end. This situation shouldn't be addressed with additional scaling of the front end.
 
 With this approach, the front end puts resource-intensive tasks onto a message queue. The back end picks up the tasks for asynchronous processing. The queue also acts as a load leveler, buffering requests for the back end. If the queue length becomes too long, you can configure autoscaling to scale out the back end.
 
@@ -122,10 +122,18 @@ public async Task RunAsync(CancellationToken cancellationToken)
 - The application takes a dependency on an additional service for the message queue.
 - The processing environment must be sufficiently scalable to handle the expected workload and meet the required throughput targets.
 - While this approach should improve overall responsiveness, the tasks that are moved to the back end may take longer to complete.
+- Consider combining this with the [Throttling pattern](/azure/architecture/patterns/throttling) to avoid overwhelming backend systems. Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern](/azure/architecture/patterns/priority-queue).
 
 ## How to detect the problem
 
-Symptoms of a busy front end include high latency when resource-intensive tasks are being performed. End users are likely to report extended response times or failures caused by services timing out. These failures could also return HTTP 500 (Internal Server) errors or HTTP 503 (Service Unavailable) errors. Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
+Symptoms of a busy front end include high latency when resource-intensive tasks are being performed. Detection mechanisms could be any of the following:
+
+- End users are likely to report extended response times or failures caused by services timing out.
+- These failures could also return HTTP 500 (Internal Server) errors or HTTP 503 (Service Unavailable) errors.
+- Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
+- HTTP queue length metric grows
+
+Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
 
 You can perform the following steps to help identify this problem:
 
