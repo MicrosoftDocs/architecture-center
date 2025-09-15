@@ -94,7 +94,7 @@ In a streaming architecture, data is ingested from event sources into a message 
 This approach is ideal for scenarios where low latency and continuous updates are critical, such as:
 
 - Monitoring manufacturing equipment for anomalies
-- Detecting fraud in financial transactions  
+- Detecting fraud in financial transactions
 - Powering real-time dashboards for logistics or operations
 - Triggering alerts based on sensor thresholds
 
