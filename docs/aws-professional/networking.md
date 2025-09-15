@@ -1,8 +1,8 @@
 ---
 title: Compare AWS and Azure Networking Options
 description: Compare the networking options of Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
-author: scaryghosts
-ms.author: adamcerini
+author: splitfinity81
+ms.author: yubaijna
 ms.date: 01/02/2025
 ms.topic: conceptual
 ms.collection: 
