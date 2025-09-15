@@ -67,9 +67,9 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Review the [Well-Architected Framework Cost Optimization checklist](/azure/architecture/framework/cost/design-checklist), which is applicable to all workloads.  
 
-- Ensure that you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.yml).  
+- Ensure that you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.md).  
 
-- Avoid [antipatterns](./approaches/cost-management-allocation.yml#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, using real-time measurement, and using monitoring tools for billing.  
+- Avoid [antipatterns](./approaches/cost-management-allocation.md#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, using real-time measurement, and using monitoring tools for billing.  
 
 ## Operational Excellence considerations  
 

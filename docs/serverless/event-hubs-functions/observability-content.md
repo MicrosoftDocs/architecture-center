@@ -14,7 +14,7 @@ After sending the expected load to your system, you can go to Application Insigh
 
 ## End-to-end transaction details
 
-End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in processing. You can also drill into the telemetry of each component from this view, which makes it easier to troubleshoot across components within the same request when an issue occurred.
+End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in processing. You can also drill into the telemetry of each component from this view, which helps you troubleshoot across components within the same request when an issue occurred.
 
 ![End-to-End Transaction](images/observability-end-to-end-transaction.png)
 

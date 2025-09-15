@@ -20,17 +20,21 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite and is used to retrieve information about each image.
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images.
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure Functions.
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite. In this architecture, it retrieves information about each image. It analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
+
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless solution that you can use to build robust apps with less code and less infrastructure. In this architecture, Azure Functions provides the back-end API for the web application. This platform also provides event processing for uploaded images. Azure Functions orchestrates workflow steps, including calling the AI Vision API, processing analysis results, and persisting metadata in the database.
+
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event-routing service that enables uniform event consumption by using a publish-subscribe model. In this architecture, Azure Event Grid triggers an event when a new image is uploaded to blob storage and initiates automated processing workflows by alerting Azure Functions of new uploads.
+
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing unstructured data in the cloud. In this architecture, it stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes. Blob Storage is the primary repository for incoming image data, serving as both the source for processing and a reference for image access.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database. In this architecture, Azure Cosmos DB stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ### Alternatives
 
 - [Azure OpenAI GPT-4o and GPT-4o-mini](/azure/ai-services/openai/concepts/gpt-with-vision). GPT-4o and GPT-4o-mini are multimodal chat models from OpenAI that can answer general questions about what's present in the images you provide.
 - [Custom Vision Service](/azure/ai-services/custom-vision-service/overview). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers. To learn about this service, follow the quick start [Build an image classification model with the Custom Vision](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier).
-- [Azure AI Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure AI Search. [Azure AI search](/azure/search/search-what-is-azure-search) seamlessly integrates this workflow.
+- [Azure AI Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure AI Search.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 - If you have images embedded in documents, use [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/concept-layout#figures) to locate those images. With that information, you can extract and perform further computer vision tasks on the embedded images. Use Document Intelligence to gather data about those embedded images, such page number or caption text which can be stored along with the images' other metadata received through the Computer Vision API. If your images are mainly photos or scans of documents, use the [Document Intelligence custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier?view=doc-intel-4.0.0) to perform classification of an input file one page at a time to identify the documents within. This approach can also identify multiple documents or multiple instances of a single document within an input file.
 

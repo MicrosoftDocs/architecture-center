@@ -16,7 +16,7 @@ To allow centralized identity management and avoid having to manage multiple ide
 
 Microsoft Entra ID provides centralized identity management with strong SSO authentication. Almost any app or platform that follows common web authentication standards, including AWS, can use Microsoft Entra ID for identity and access management.
 
-Many organizations already use Microsoft Entra ID to assign and protect Microsoft 365 or hybrid cloud identities. Employees use their Microsoft Entra identities to access email, files, instant messaging, cloud applications, and on-premises resources. You can quickly and easily integrate Microsoft Entra ID with your AWS accounts to let administrators and developers sign in to your AWS environments with their existing identities.
+Many organizations already use Microsoft Entra ID to assign and protect Microsoft 365 or hybrid cloud identities. Employees use their Microsoft Entra identities to access email, files, instant messaging, cloud applications, and on-premises resources. You can integrate Microsoft Entra ID with your AWS accounts to let administrators and developers sign in to your AWS environments with their existing identities.
 
 The following diagram shows how Microsoft Entra ID can integrate with multiple AWS accounts to provide centralized identity and access management:
 
@@ -26,7 +26,7 @@ Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
 - SSO across legacy, traditional, and modern authentication solutions.
 - MFA, including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
-- Powerful *Conditional Access* features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources.
+- *Conditional Access* features for strong authentication and governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources.
 - Large-scale threat detection and automated response. Microsoft Entra ID processes over 30 billion authentication requests per day, along with trillions of signals about threats worldwide.
 - *Privileged Access Management (PAM)* to enable *Just-In-Time (JIT) provisioning* to specific resources.
 
@@ -52,9 +52,9 @@ Other advanced Microsoft Entra features can provide extra layers of control for 
 
 Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when combined with Microsoft Entra ID. Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra ID provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication (MFA)* and *Conditional Access* policies. Microsoft Entra ID supports AWS identity management, role-based identities, and access control.
 
-Many organizations that use AWS already rely on Microsoft Entra ID for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can quickly and easily use Microsoft Entra ID with their AWS accounts, often without extra cost. Other, [advanced Microsoft Entra features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
+Many organizations that use AWS already rely on Microsoft Entra ID for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can use Microsoft Entra ID with their AWS accounts, often without extra cost. Other, [advanced Microsoft Entra features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
 
-Microsoft Entra ID easily integrates with other Microsoft security solutions, like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](../../guide/aws/aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
+Microsoft Entra ID integrates with other Microsoft security solutions, like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](../../guide/aws/aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
 ## Considerations
 
@@ -187,7 +187,7 @@ The following diagram shows an example of the configuration steps and final poli
 
 ### Single sign-on integration
 
-Microsoft Entra ID supports single sign-on integration with AWS SSO. You can connect Microsoft Entra ID to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This capability enables seamless Microsoft Entra sign-in experience for users to use the AWS CLI.
+Microsoft Entra ID supports single sign-on integration with AWS SSO. You can connect Microsoft Entra ID to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This capability enables Microsoft Entra sign-in for users who use the AWS CLI.
 
 The following Microsoft security solution procedure implements SSO for the example roles **AWS Administrators** and **AWS Developers**. Repeat this process for any other roles you need.
 
@@ -207,7 +207,7 @@ The following links provide full detailed implementation steps and troubleshooti
 
 ### Add an AWS app to your Microsoft Entra enterprise applications
 
-AWS administrators and developers use an enterprise application to sign in to Microsoft Entra ID for authentication, then redirect to AWS for authorization and access to AWS resources. The simplest method to see the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides easy access.
+AWS administrators and developers use an enterprise application to sign in to Microsoft Entra ID for authentication, then redirect to AWS for authorization and access to AWS resources. One way to access the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides direct access.
 
 Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application. These instructions will let you know what AWS app to add to your Microsoft Entra enterprise applications.
 
@@ -225,7 +225,7 @@ Follow the steps below to configure Microsoft Entra SSO for AWS:
 
 1. On **AWS Console**, follow the steps on [Configure AWS SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you'll create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
-- Make it easy to identify the components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
+- Make it clear which components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
 - Be sure to document all new items.
 - Make sure any new credentials include complex passwords that you store centrally for secure lifecycle management.
 

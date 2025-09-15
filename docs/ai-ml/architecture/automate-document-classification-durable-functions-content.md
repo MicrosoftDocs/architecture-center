@@ -42,7 +42,7 @@ This article describes an architecture that you can use to process various docum
 
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in AI Search.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
+- [Azure OpenAI Service](/azure/ai-foundry/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
 
 ### Alternatives
 

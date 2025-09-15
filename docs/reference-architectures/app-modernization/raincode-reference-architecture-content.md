@@ -1,4 +1,4 @@
-This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications by seamlessly migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. With Raincode's compiler technology, you can keep current optimized mainframe applications and deploy them on the cloud, allowing you to preserve decades of development while greatly enhancing performance and flexibility. Raincode's solution is aimed at transforming the mainframe to an Azure-native architecture by preserving the business logic while transforming the entire architecture. Raincode supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
+This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications by migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. With Raincode's compiler technology, you can keep current optimized mainframe applications and deploy them on the cloud, allowing you to preserve decades of development while improving performance and flexibility. Raincode's solution is aimed at transforming the mainframe to an Azure-native architecture by preserving the business logic while transforming the entire architecture. Raincode supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
 
 ## Architecture
 
@@ -18,13 +18,13 @@ A. IBM 3270 terminal emulation for demand and online users is replaced by a web 
 
 B. COBOL and other legacy application code is converted to C\#/.NET. Raincode generates 100-percent thread-safe and managed code for .NET and .NET Core.
 
-C. Raincode COBOL compiler modernizes mainframe legacy applications by seamlessly migrating and integrating them with a modern, cloud-based technology stack without changing a single line of code.
+C. Raincode COBOL compiler modernizes mainframe legacy applications by migrating and integrating them with a modern, cloud-based technology stack without changing a single line of code.
 
 D. Workload automation, scheduling, reporting, and system monitoring functions can retain current platforms, as they are Azure capable today.
 
 E. Legacy database structures like Db2 and IDMS can be migrated to Azure SQL Database with all the DR/HA capabilities that Azure provides. Raincode also supports static or dynamic SQL queries through SQL Server or on Azure SQL DB.
 
-F. File structures (VSAM, flat files, virtual tape, and the like) map easily to Azure data constructs within structured files and/or blob storage. Features like redundant geographic replication and Azure Auto Failover Group Replication are available to provide data protection.
+F. File structures (VSAM, flat files, virtual tape, and the like) map to Azure data constructs within structured files and/or blob storage. Features like redundant geographic replication and Azure Auto Failover Group Replication are available to provide data protection.
 
 G. An optional printer subsystem manages on-premises printers.
 
@@ -36,7 +36,6 @@ I. LPARs represent a subset of a computer's hardware resources. Each LPAR can ho
 
 This diagram shows how the legacy architecture can be migrated to Azure, taking advantage of the Raincode compiler and many other modern Azure services.
 
-
 :::image type="content" source="media/raincode-reference-architecture-02.svg" alt-text="Legacy architecture migration to Azure workflow." lightbox="media/raincode-reference-architecture-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/raincode-reference-architecture.vsdx) of this architecture.*
@@ -47,7 +46,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 2. In Azure, access to the application compute clusters is through Azure Load Balancer, allowing for scale-out compute resources to process the input work.
 
-3. Raincode system emulation software can also support deployment in containers. With Raincode's cutting-edge compiler technology, you can keep current optimized mainframe applications and deploy them on .NET Core.
+3. Raincode system emulation software can also support deployment in containers. With Raincode's compiler technology, you can keep current optimized mainframe applications and deploy them on .NET Core.
 
 4. Cloud-native applications are a collection of independent and autonomous services packaged as lightweight containers.
 
@@ -63,44 +62,44 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 ### Components
 
--   [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
--   [Azure Virtual Network (VNet)](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
+- [Azure Virtual Network (VNet)](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
--   [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
--   [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
--   [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
--   [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
     99.99-percent availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
--   [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure PaaS service for NoSQL databases.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure PaaS service for NoSQL databases.
 
--   [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
 ## Scenario details
 
 This architecture illustrates how the Raincode solution runs on Azure. Raincode on Azure supports the following features:
 
--   100-percent thread-safe and managed code for .NET and .NET Core.
+- 100-percent thread-safe and managed code for .NET and .NET Core.
 
--   A solution primarily aimed at transforming mainframes to a cloud-native architecture.
+- A solution primarily aimed at transforming mainframes to a cloud-native architecture.
 
--   Native support for static or dynamic SQL queries through SQL Server either on-premises or on Azure SQL DB.
+- Native support for static or dynamic SQL queries through SQL Server either on-premises or on Azure SQL DB.
 
--   Support for Db2 (through Microsoft's HIS) and SQL Server.
+- Support for Db2 (through Microsoft's HIS) and SQL Server.
 
--   Visual Studio integration, featuring a debugger, compiler, configurations,# IntelliSense, code colorizer, and project management.
+- Visual Studio integration, featuring a debugger, compiler, configurations, IntelliSense, code colorizer, and project management.
 
--   Support for all COBOL data types, with mainframe memory representation.
+- Support for all COBOL data types, with mainframe memory representation.
 
--   Seamless integration with PL/I and ASM370 compilers.
+- Integration with PL/I and ASM370 compilers.
 
--   A repository with call graphs, statistics, and other compile-time information.
+- A repository with call graphs, statistics, and other compile-time information.
 
--   Native EBCDIC support at compile time and runtime.
+- Native EBCDIC support at compile time and runtime.
 
 Migrating to a modern, distributed cloud infrastructure using Raincode allows you to:
 
