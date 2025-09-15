@@ -361,6 +361,14 @@ The following tables present a breakdown of each Azure service and component use
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours.
         - If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
 
+  - **Azure AI Foundry**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Microsoft
+    - Contoso SKU selection: Pay As You Go
+    - DR uplift options: Applications utilizing Azure OpenAI resources that require strong resiliency and business continuity may need to take extra measures to reinforce their model infrastructure [Business Continuity and Disaster Recovery (BCDR) considerations with Azure OpenAI in Azure AI Foundry Models](https://github.com/MicrosoftDocs/azure-ai-docs/blob/main/articles/ai-foundry/openai/how-to/business-continuity-disaster-recovery.md)
+    - Notes
+        - Refer to [Customer-enabled disaster recovery](https://github.com/MicrosoftDocs/azure-ai-docs/blob/main/articles/ai-foundry/how-to/disaster-recovery.md) for guidance on business continuity and disaster recovery with Azure AI Foundry.
+
 - **Azure AI services**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
