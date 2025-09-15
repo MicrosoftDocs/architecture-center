@@ -35,14 +35,14 @@ This architecture consists of several Azure services for both workload resources
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an IaaS offering that provides scalable compute resources. In this architecture, VMs provide scalable and distributed processing across availability zones for both Windows and Linux workloads.
 
-    [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a service that enables automatic deployment, scaling, and management of a group of identical VMs. In this architecture, it provisions and maintains the front-end and back-end compute resources by using Flexible orchestration mode.
+  [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a service that enables automatic deployment, scaling, and management of a group of identical VMs. In this architecture, it provisions and maintains the front-end and back-end compute resources by using Flexible orchestration mode.
 
-    The sample application uses two tiers, and each tier requires its own compute.
+  The sample application uses two tiers, and each tier requires its own compute.
 
-    - The front end runs the web server and receives user requests.
-    - The back end runs another web server that functions as a web API that exposes a single endpoint where the business logic runs.
+  - The front end runs the web server and receives user requests.
+  - The back end runs another web server that functions as a web API that exposes a single endpoint where the business logic runs.
 
-    The front-end VMs have data disks (Premium_LRS) attached, which can be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. You can extend this layout to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
+  The front-end VMs have data disks (Premium_LRS) attached, which can be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. You can extend this layout to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that enables secure communication between Azure resources and on-premises environments. In this architecture, it isolates resources into subnets for security and traffic control.
 
@@ -50,15 +50,15 @@ This architecture consists of several Azure services for both workload resources
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic. In this architecture, the public load balancer distributes outbound traffic and supports source network address translation (SNAT). The internal load balancer routes traffic from the front-end tier to the back-end servers to ensure high availability and scalability within the virtual network.
 
-The Standard SKU provides outbound internet access to the VMs by using three public IP addresses.
+  The Standard SKU provides outbound internet access to the VMs by using three public IP addresses.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a service for managing secrets, keys, and certificates. In this architecture, it stores Transport Layer Security (TLS) certificates that Application Gateway uses and secures sensitive configuration data for workload components. It can also be used for application secrets.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for managing secrets, keys, and certificates. In this architecture, it stores Transport Layer Security (TLS) certificates that Application Gateway uses. It can also be used for installing certificates in the VMs or for getting application secrets by code deployed on the VMs.
 
 #### Workload supporting resources
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without exposing public IP addresses. In this architecture, it enables just-in-time operational access to VMs through a dedicated subnet.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without exposing public IP addresses. In this architecture, it enables just-in-time operational access to VMs through a dedicated subnet.
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance monitoring (APM) service that collects telemetry for availability, performance, and usage analysis. In this architecture it's deployed as a ready endpoint for future application telemetry, but the reference implementation doesn't emit or collect custom application logs because the application layer isn't in scope.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management (APM) service that collects telemetry for availability, performance, and usage analysis. In this architecture it's deployed as a ready endpoint for future application telemetry, but the reference implementation doesn't emit or collect custom application logs because the application layer isn't in scope.
 
 - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a centralized telemetry store for metrics and logs queried with Kusto Query Language. In this architecture, it serves as the monitoring data sink that aggregates platform logs, VM insights data, and Application Insights telemetry for analysis, alerting, and dashboards. A storage account is provisioned as part of the workspace.
 
