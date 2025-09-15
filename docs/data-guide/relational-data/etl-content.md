@@ -1,13 +1,13 @@
 <!-- cSpell:ignore Oozie HDFS deduplicating -->
 Organizations commonly need to gather data from multiple sources in various formats and move it to one or more data stores. The destination might not be the same type of data store as the source, and the data often needs to be shaped, cleaned, or transformed before loading.
 
-Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformation within the data pipeline. The following sections highlight the common methods and practices for these tasks.
+Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformations within the data pipeline. The following sections highlight the common methods and practices for these tasks.
 
 <a name='extract-transform-and-load-etl-process'></a>
 
 ## Extract, transform, load (ETL) process
 
-Extract, transform, load (ETL) is a data pipeline used to collect data from various sources. It transforms the data according to business rules and loads the data into a destination data store. The transformation work in ETL takes place in a specialized engine, and it often involves using staging tables to temporarily hold data as it is being transformed and ultimately loaded to its destination.
+Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store. During the transformation phase, data is modified according to business rules using a specialized engine. This often involves staging tables that temporarily hold data as it is processed and ultimately loaded into its destination.
 
 ![Diagram of the extract, transform, load (ETL) process.](../images/etl.png)
 
@@ -31,7 +31,7 @@ Extract, load, transform (ELT) differs from ETL solely in where the transformati
 
 ![Diagram of the extract, load, transform (ELT) process.](../images/elt.png)
 
-Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage, such as a Hadoop Distributed File System, Azure blob storage, or Azure Data Lake Storage Gen2. Technologies, such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own separate storage. This approach skips data copy steps present in ETL, which often can be time consuming for large data sets. Some workloads still materialize transformed tables or views to improve query performance or enforce governance rules; ELT doesn't always imply purely virtualized transformations.
+Typical use cases for ELT fall within the big data realm. For example, you might start by extracting source data to flat files in scalable storage, such as a Hadoop Distributed File System (HDFS), Azure blob storage, or Azure Data Lake Storage Gen2. Technologies such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own separate storage. This approach skips data copy steps present in ETL, which often can be time consuming for large data sets. Some workloads materialize transformed tables or views to improve query performance or enforce governance rules; ELT doesn't always imply purely virtualized transformations.
 
 The final phase of the ELT pipeline typically transforms the source data into a format that's more efficient for the types of queries that need to be supported. For example, the data may be partitioned by commonly filtered keys. ELT might also use optimized storage formats like Parquet, which is a columnar storage format that organizes data by column to enable compression, [predicate pushdown](/sql/relational-databases/indexes/columnstore-indexes-query-performance), and efficient analytic scans.
 
