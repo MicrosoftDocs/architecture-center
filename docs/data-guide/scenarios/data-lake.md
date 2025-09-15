@@ -20,14 +20,14 @@ Common data lake use cases include:
 
 - **Data ingestion and movement**: Collect and consolidate data from cloud services, IoT devices, on-premises systems, and streaming sources into a single repository.
 - **Big data processing**: Handle high-volume, high-velocity data at scale using distributed processing frameworks.
-- **Analytics and machine learning**: Support exploratory analysis, advanced analytics, and AI model training and fine-tuning on large, diverse datasets.
-- **Business intelligence (BI) and reporting**: Enable dashboards and reports by integrating curated subsets of lake data into warehouses or BI tools.
-- **Data archiving and compliance**: Store historical or raw datasets for long-term retention, auditability, and regulatory needs.
+- **Analytics & machine learning**: Support exploratory analysis, advanced analytics, and AI model training and fine-tuning on large, diverse datasets.
+- **Business intelligence & reporting**: Enable dashboards and reports by integrating curated subsets of lake data into warehouses or BI tools.
+- **Data archiving & compliance**: Store historical or raw datasets for long-term retention, auditability, and regulatory needs.
 
 
 ## Advantages of a data lake
 
-- **Retains raw data for future use**: By storing data in its original format, a data lake preserves information that may later prove valuable for unanticipated insights.
+- **Retains raw data for future use**: A data lake is designed to retain data in its raw format, ensuring long-term availability for future use. This capability is particularly valuable in a big data environment, where the potential insights from the data may not be known in advance. Data can also be archived as needed without losing its raw state.
 - **Self-service exploration**: Analysts and data scientists can query data directly, encouraging experimentation and discovery.
 - **Flexible data support**: Unlike warehouses that require structured formats, lakes can natively handle structured, semi-structured, and unstructured data.
 - **Scalable and performant**: In distributed architectures, data lakes enable parallel ingestion and distributed execution at scale, frequently outperforming traditional ETL pipelines in high-volume workloads. The performance benefits stem from:
@@ -48,7 +48,7 @@ We recommend using a data lake for exploratory analytics, advanced data science,
 
 ### Data lake as a source for data warehouses
 
-A data lake can serve as the upstream source for a data warehouse. In this pattern, raw data is first ingested into the lake and then transformed into a structured, queryable format through an [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline. By contrast, certain relational sources may load directly into the warehouse via ETL, bypassing the lake when speed or simplicity is preferred. Choosing between the two approaches depends on factors like data complexity, governance needs, and downstream analytics requirements.
+A data lake can act as the upstream source for a data warehouse, where raw data is ingested from source systems into the lake (Extract and Load), and modern warehouses like the Fabric Warehouse use built-in Massively Parallel Processing (MPP) SQL engines to handle transformations, converting the raw data into a structured format [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt). This differs from traditional ETL pipelines, where data is both extracted and transformed within the ETL engine before being loaded into the warehouse. Both approaches provide flexibility depending on the use case, balancing factors such as data quality, performance, and resource utilization while ensuring the warehouse is optimized for analytics.
 
 
 ### Event streaming and IoT scenarios
