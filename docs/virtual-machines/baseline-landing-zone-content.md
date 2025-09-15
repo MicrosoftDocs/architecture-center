@@ -34,20 +34,20 @@ All Azure landing zone architectures have a separation of ownership between the 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline.yml#workload-resources).
 
-- **Azure Virtual Machines** is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host the front-end and back-end tiers and are distributed across availability zones for resilience.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host the front-end and back-end tiers and are distributed across availability zones for resilience.
 
-- **Azure Load Balancer** is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it privately load balances traffic from front-end to back-end VMs across zones.
-- **Azure Application Gateway** is a layer-7 reverse proxy and web traffic load balancer. In this architecture, it terminates Transport Layer Security (TLS), inspects requests, and serves as the reverse proxy to route user traffic to front-end VMs. The selected SKU also hosts Azure Web Application Firewall to protect the front-end VMs from potentially malicious traffic.
-- **Azure Key Vault** securely stores and controls access to secrets, keys, and certificates. In this architecture, it holds application secrets and TLS certificates that Application Gateway and VMs consume.
-- **Azure Monitor, Log Analytics, and Application Insights** are tools that collect, store, and visualize observability data. In this architecture they collect guest and platform metrics and logs, ingest and correlate them in a dedicated workspace, and enable application-level telemetry and visualization for troubleshooting, performance tuning, and governance.
-- **Azure Policy** is a service that enforces organizational standards and assesses compliance at scale. In this architecture, it applies workload-specific governance controls separate from platform-wide policies.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it privately load balances traffic from front-end to back-end VMs across zones.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 reverse proxy and web traffic load balancer. In this architecture, it terminates Transport Layer Security (TLS), inspects requests, and serves as the reverse proxy to route user traffic to front-end VMs. The selected SKU also hosts Azure Web Application Firewall to protect the front-end VMs from potentially malicious traffic.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for managing secrets, keys, and certificates. In this architecture, it holds application secrets and TLS certificates that Application Gateway and VMs consume.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview), [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics), and [Application Insights](/azure/well-architected/service-guides/application-insights) are tools that collect, store, and visualize observability data. In this architecture they collect guest and platform metrics and logs, ingest and correlate them in a dedicated workspace, and enable application-level telemetry and visualization for troubleshooting, performance tuning, and governance.
+- [Azure Policy](/azure/governance/policy/overview) is a service that enforces organizational standards and assesses compliance at scale. In this architecture, it applies workload-specific governance controls separate from platform-wide policies.
 
 The workload team maintains and fulfills the following resources and responsibilities.
 
 - **Spoke virtual network subnets and the network security groups (NSGs)** provide segmented IP address space and traffic filtering boundaries. In this architecture, they implement tier-based isolation and control east‑west and ingress and egress flows for workload components.
 
 - **Private endpoints** provide private IP-based access to platform services over the Azure backbone. In this architecture, they secure connectivity to platform as a service (PaaS) solutions and the **private DNS zones** required for those endpoints.
-- **Azure Managed Disks** provide durable, managed block storage for VMs. In this architecture, they store log files on the back-end servers, and the data is retained even when VMs reboot. The front-end servers have disks attached that you can use to deploy your stateless application.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide durable, high-performance storage for VMs. In this architecture, they store log files on the back-end servers, and the data is retained even when VMs reboot. The front-end servers have disks attached that you can use to deploy your stateless application.
 
 #### Platform team-owned resources
 
@@ -55,10 +55,10 @@ The platform team owns and maintains these centralized resources. This architect
 
 - **Azure Firewall in the hub network** is a stateful network security service for filtering and logging traffic. In this architecture, it centrally inspects and restricts egress from the spoke via forced tunneling. This component replaces the standard load balancer in the baseline architecture, which doesn't provide restrictions on outbound traffic to the internet.
 
-- **Azure Bastion in the hub network** provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS without exposing public IPs. In this architecture, it supplies shared, audited operational access to workload VMs. In the baseline architecture, the workload team owns this component.
+- **Azure Bastion in the hub network** is an architectural approach that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS without exposing public IP addresses. In this architecture, it supplies shared, audited operational access to workload VMs. In the baseline architecture, the workload team owns this component.
 - The **spoke virtual network** is an isolated address space peered to a hub for shared services. In this architecture, it hosts the workload's compute, ingress, and related resources under workload team ownership.
-- **User-defined routes (UDRs)** let you customize routing tables to direct traffic through specific next hops. In this architecture, they force all internet-bound traffic from the spoke through the hub's firewall.
-- **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies automatically deploy or configure required resources for compliance. In this architecture, they ensure mandated platform-aligned configurations, such as private DNS or diagnostics, exist in the workload subscription.
+- **User-defined routes (UDRs)** are custom routing rules that let you customize routing tables to direct traffic through specific next hops. In this architecture, they force all internet-bound traffic from the spoke through the hub's firewall.
+- **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies automatically deploy or configure required resources for compliance. In this architecture, they ensure that mandated platform-aligned configurations, such as private DNS or diagnostics, exist in the workload subscription.
 
 > [!IMPORTANT]
 > Azure landing zones provide some of the preceding resources as part of the platform landing zone subscriptions, and your workload subscription provides other resources. Many of the resources are part of the connectivity subscription, which has additional resources, such as Azure ExpressRoute, Azure VPN Gateway, and Azure DNS. These additional resources provide cross-premises access and name resolution. The management of these resources is outside the scope of this article.
