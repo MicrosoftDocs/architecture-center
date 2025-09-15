@@ -7504,9 +7504,14 @@
     },
     {
       "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
-      "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/example-scenario/apps/saas-starter-web-app.yml",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
+      "redirect_document_id": false
+    },  
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-data.yml",
       "redirect_url": "/azure/aks/pci-data",
