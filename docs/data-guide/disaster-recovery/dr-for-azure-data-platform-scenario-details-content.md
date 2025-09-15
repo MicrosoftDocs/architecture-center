@@ -242,7 +242,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Spark Pools and pipelines into the secondary region.
     - Notes
-        - If an [external Hive metastore](/azure/synapse-analytics/spark/apache-spark-external-metastore) is used, this will also need a recovery strategy in place.
+        - If an [external Hive metastore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) is used, this will also need a recovery strategy in place.
             - [Azure Site Recovery](/azure/site-recovery/site-recovery-sql) can be used for a SQL Server metastore.
             - A [MySQL](/azure/mysql/concepts-business-continuity#recover-from-an-azure-regional-data-center-outage) metastore would use the geo-restore feature or cross-regional read replicas.
 
@@ -288,7 +288,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Data Share isn't currently supported by [Availability Zones](/azure/reliability/availability-zones-overview).
         - Uplifting Data Share to a [HA deployment](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share) will address each of these outage risks.
 
-- **Purview**
+- **Microsoft Purview**
     - Contoso SKU selection: N/A
     - DR impact
         - Azure datacenter failure: N/A
@@ -297,7 +297,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - This activity would be mitigated by implementing the "Warm Spare" strategy, having a second instance of Azure Microsoft Purview available in the secondary region
         - A "Warm Spare" approach has the following [key callouts](/azure/purview/disaster-recovery#achieve-business-continuity-for-microsoft-purview):
-            - The primary and secondary Azure Microsoft Purview accounts can't be configured to the same Azure data factory, Azure Data Share and Azure Synapse Analytics accounts, if applicable. As a result, the lineage from Azure Data Factory and Azure Data Share can't be seen in the secondary Azure Microsoft Purview accounts.
+            - The primary and secondary Azure Microsoft Purview accounts can't be configured to the same Azure data factory, Azure Data Share and Microsoft Fabric accounts, if applicable. As a result, the lineage from Azure Data Factory and Azure Data Share can't be seen in the secondary Azure Microsoft Purview accounts.
             - The integration runtimes are specific to an Azure Microsoft Purview account. Hence, if scans must run in primary and secondary Azure Microsoft Purview accounts in parallel, multiple self-hosted integration runtimes must be maintained.
 
 > [!NOTE]
