@@ -13,10 +13,10 @@ Microsoft 365 and Office 365 are cloud-based services designed to address your o
 
 Depending on the license that you acquire for Microsoft 365, you can also get the security services for Microsoft 365. These security services are called Microsoft Defender XDR, which provides multiple services:
 
--   Microsoft Defender for Endpoint (MDE)
--   Microsoft Defender for Identity (MDI)
--   Microsoft Defender for Office (MDO)
--   Microsoft Defender for Cloud Apps (MDA)
+-   Microsoft Defender for Endpoint
+-   Microsoft Defender for Identity
+-   Microsoft Defender for Office
+-   Microsoft Defender for Cloud Apps
 
 * "Microsoft Defender for Cloud Apps" accessed through "security.microsoft.com" is different from "Microsoft Defender for Cloud" that is another security solution accessed through "portal.azure.com".
 
@@ -110,23 +110,23 @@ Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Co
 
 The example architecture in this article uses the following Azure components:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Microsoft Entra ID helps users access external and internal resources. In this architecture, Microsoft Entra ID authenticates users that access Microsoft 365, Azure, and software as a service (SaaS) applications. It serves as the identity foundation for threat detection and response.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure that supports secure connectivity and segmentation of workloads that Microsoft Defender XDR protects.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance, low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring that your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance, layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it ensures high availability and scalability for services that run in Azure by distributing traffic across VMs and containers.
 
-- [Virtual machines](/azure/well-architected/service-guides/virtual-machines) are one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure-as-a-service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host workloads that Microsoft Defender for Endpoint monitors and protects as part of the Microsoft Defender XDR solution.
 
-- [Azure Kubernetes service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS runs containerized workloads that integrate into the Microsoft Defender XDR threat detection and response framework.
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that provides secure remote access to cloud-hosted desktops. In this architecture, it supports remote users. Defender for Endpoint monitors Virtual Desktop to detect and respond to endpoint threats.
 
-- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your chosen language. Applications run and scale with ease on both Windows and Linux-based environments. In this architecture, Web Apps hosts HTTP-based applications that are protected through integrated security features and monitored for threats.
 
-- [Azure Storage](/azure/storage/common/storage-introduction) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and secure storage service for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. Azure Storage encrypts all data written to an Azure storage account. It provides fine-grained control over access to your data. In this architecture, it stores application and system data and is protected by Defender for Cloud to ensure data integrity and access control.
 
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database engine that automates patching, backups, and monitoring. In this architecture, it stores structured data and benefits from built-in security features that align with Microsoft for Defender XDR threat protection capabilities.
 
 ## Contributors
 
