@@ -46,7 +46,7 @@ This architecture consists of several Azure services for both workload resources
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that enables secure communication between Azure resources and on-premises environments. In this architecture, it isolates resources into subnets for security and traffic control.
 
-- **Azure Application Gateway** is a web traffic layer-7 load balancer that enables you to manage traffic to your web applications. It's the single point of ingress that routes requests to the front-end servers. In this architecture, it balances traffic to front-end VMs and includes a web application firewall (WAF) for protection.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic layer-7 load balancer that enables you to manage traffic to your web applications. It's the single point of ingress that routes requests to the front-end servers. In this architecture, it balances traffic to front-end VMs and includes a web application firewall (WAF) for protection.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic. In this architecture, the public load balancer distributes outbound traffic and supports source network address translation (SNAT). The internal load balancer routes traffic from the front-end tier to the back-end servers to ensure high availability and scalability within the virtual network.
 
