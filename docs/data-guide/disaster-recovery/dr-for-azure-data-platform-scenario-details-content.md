@@ -165,7 +165,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region may result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
 
-- **Azure Synapse - Pipelines**
+- **Microsoft Fabric – Pipelines**
     - Contoso SKU selection: Computed Optimized Gen2
     - DR impact
         - Azure datacenter failure: N/A
@@ -174,7 +174,14 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - Automatic restore points are [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention).
         - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention).
-        - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a "live" DB copy at specific intervals.
+        - Microsoft Fabric can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a "live" DB copy at specific intervals.
+        - Built-in geo-redundancy and automatic failover in paired regions.
+        - No manual BCDR setup required.
+        - Scalable compute across multiple workspaces without disrupting active workloads.
+        - Intelligent workload isolation and automated classification.
+        - Cross-Region Restore:
+            - Fabric supports restoring a Warehouse in a secondary region using replicated OneLake data.
+            - After restore, the Warehouse can be paused, incurring storage costs only—offering a cost-effective way to maintain a “live” snapshot.
 
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
@@ -221,44 +228,35 @@ The following sections present a breakdown of Contoso activity necessary across 
         - While the Machine Learning infrastructure is managed by Microsoft; the [associated resources are managed by the customer](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
-- **Azure Synapse – Data Explorer Pools**
+- **Microsoft Fabric – Data Explorer Pools**
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy Azure Synapse – Data Explorer Pools and pipelines into the secondary region.
+        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Data Explorer Pools and pipelines into the secondary region.
 
-- **Azure Synapse – Spark Pools**
+- **Microsoft Fabric – Spark Pools**
     - Contoso SKU selection: Compute Optimized Gen2
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy Azure Synapse – Spark Pools and pipelines into the secondary region.
+        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Spark Pools and pipelines into the secondary region.
     - Notes
         - If an [external Hive metastore](/azure/synapse-analytics/spark/apache-spark-external-metastore) is used, this will also need a recovery strategy in place.
             - [Azure Site Recovery](/azure/site-recovery/site-recovery-sql) can be used for a SQL Server metastore.
             - A [MySQL](/azure/mysql/concepts-business-continuity#recover-from-an-azure-regional-data-center-outage) metastore would use the geo-restore feature or cross-regional read replicas.
-
-- **Azure Synapse – Serverless and Dedicated SQL Pools**
-    - Contoso SKU selection: Compute Optimized Gen2
-    - DR impact
-        - Azure datacenter failure: N/A
-        - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to deploy and [restore](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup) the data platform Azure Synapse Analytics into the secondary region.
-    - Notes
-        - Automatic restore points are [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention).
-        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention).
-        - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This will only incur storage costs – and have zero compute costs. This solution offers a way to keep a "live" DB copy at specific intervals.
 
 - **Power BI**
     - Contoso SKU selection: Power BI Pro
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: N/A
+        - Azure regional failure: Wait for Microsoft signal before publishing or editing.
     - Notes
         - The customer will [not need to do anything](/power-bi/admin/service-admin-failover#how-does-microsoft-decide-to-fail-over-) if the outage is decided/declared by Power BI team.
             - A failed-over Power BI service instance [only supports read operations](/power-bi/admin/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live connect [won't work during a failover](/power-bi/enterprise/service-admin-failover#do-gateways-function-in-failover-mode-).
+            - Publishing Restrictions: Contoso should not publish or modify reports until Microsoft confirms the failover instance is writable or the primary region is restored.
+            - Gateway Limitations: On-premises data refreshes via Power BI gateways will be paused during failover.
 
 - **Azure Cosmos DB**
     - Contoso SKU selection: Single Region Write with Periodic backup
