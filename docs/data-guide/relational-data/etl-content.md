@@ -1,7 +1,7 @@
 <!-- cSpell:ignore Oozie HDFS deduplicating -->
 Organizations commonly need to gather data from multiple sources in various formats and move it to one or more data stores. The destination might not be the same type of data store as the source, and the data often needs to be shaped, cleaned, or transformed before loading.
 
-Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformation within the a data pipeline. The following sections highlight the common methods and practices for these tasks.
+Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformation within the data pipeline. The following sections highlight the common methods and practices for these tasks.
 
 <a name='extract-transform-and-load-etl-process'></a>
 
@@ -13,7 +13,7 @@ Extract, transform, load (ETL) is a data pipeline used to collect data from vari
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
-Often, the three ETL phases run in parallel to save time. For example, while data is being extracted, a transformation process can work on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete. You typical design parallelization around data partition boundaries (date, tenant, shard key) to avoid write contention and enable idempotent retries.
+Often, the three ETL phases run in parallel to save time. For example, while data is being extracted, a transformation process can work on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete. You typically design parallelization around data partition boundaries (date, tenant, shard key) to avoid write contention and enable idempotent retries.
 
 Relevant service:
 
@@ -59,13 +59,13 @@ Choose ELT when:
 
 ## Data flow and control flow
 
-In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task does not initiate processing until its predecessor has completed with one of these outcomes.
+In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task doesn't initiate processing until its predecessor has completed with one of these outcomes.
 
-Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you cannot add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
+Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you can't add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
 
 ![Diagram of a data flow being executed as a task within a control flow.](../images/control-flow-data-flow.png)
 
-In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
+In the diagram, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
 Relevant service:
 
