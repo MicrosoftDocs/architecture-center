@@ -71,6 +71,19 @@ Relevant service:
 
 - [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
+## Reverse ETL
+
+Reverse ETL is the process of moving transformed, modeled data from analytical systems into operational tools and applications. Unlike traditional ETL, which flows data from operational systems to analytics, reverse ETL activates insights by pushing curated data back to where business users can act on it. In a reverse ETL pipeline, data flows from data warehouses, lakehouses, or other analytical stores to operational systems such as:
+
+- Customer relationship management (CRM) platforms
+- Marketing automation tools
+- Customer support systems
+- Operational workload databases
+
+The approach still follows an extraction, transformation, and load process. The transformation step is where you convert from the specific format used by your data warehouse or other analytics system to align to your target system's.
+
+See [Reverse extract, transform, & load (ETL) with Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/reverse-extract-transform-load) for an example.
+
 ## Streaming data and hot path architectures
 
 When you need [Lambda hot path or Kappa architectures](/azure/architecture/databases/guide/big-data-architectures), you can subscribe to data sources as data is generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
