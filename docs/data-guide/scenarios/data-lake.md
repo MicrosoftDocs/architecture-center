@@ -20,9 +20,9 @@ Common data lake use cases include:
 
 - **Data ingestion and movement**: Collect and consolidate data from cloud services, IoT devices, on-premises systems, and streaming sources into a single repository.
 - **Big data processing**: Handle high-volume, high-velocity data at scale using distributed processing frameworks.
-- **Analytics & machine learning**: Support exploratory analysis, advanced analytics, and AI model training and fine-tuning on large, diverse datasets.
-- **Business intelligence & reporting**: Enable dashboards and reports by integrating curated subsets of lake data into warehouses or BI tools.
-- **Data archiving & compliance**: Store historical or raw datasets for long-term retention, auditability, and regulatory needs.
+- **Analytics and machine learning**: Support exploratory analysis, advanced analytics, and AI model training and fine-tuning on large, diverse datasets.
+- **Business intelligence and reporting**: Enable dashboards and reports by integrating curated subsets of lake data into warehouses or BI tools.
+- **Data archiving and compliance**: Store historical or raw datasets for long-term retention, auditability, and regulatory needs.
 
 
 ## Advantages of a data lake
