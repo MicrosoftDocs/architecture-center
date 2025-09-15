@@ -1,4 +1,3 @@
-<!-- cSpell:ignore Oozie HDFS deduplicating -->
 Organizations commonly need to gather data from multiple sources in various formats and move it to one or more data stores. The destination might not be the same type of data store as the source, and the data often needs to be shaped, cleaned, or transformed before loading.
 
 Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformations within the data pipeline. The following sections highlight the common methods and practices for these tasks.
@@ -78,7 +77,7 @@ Reverse ETL is the process of moving transformed, modeled data from analytical s
 - Customer relationship management (CRM) platforms
 - Marketing automation tools
 - Customer support systems
-- Operational workload databases
+- Workload databases
 
 The approach still follows an extraction, transformation, and load process. The transformation step is where you convert from the specific format used by your data warehouse or other analytics system to align to your target system's.
 
@@ -103,7 +102,7 @@ This approach is ideal for scenarios where low latency and continuous updates ar
 
 - Use checkpointing to guarantee at-least-once processing and recover from failures
 - Design transformations to be idempotent to handle potential duplicate processing
-- Implement watermarking for late-arriving events and out-of-order processing
+- Implement [watermarking](/azure/databricks/structured-streaming/watermarks) for late-arriving events and out-of-order processing
 - Use dead letter queues for messages that can't be processed
 
 ## Technology choices
