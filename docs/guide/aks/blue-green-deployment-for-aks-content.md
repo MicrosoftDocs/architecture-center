@@ -216,7 +216,7 @@ Here's the situation after the blue cluster is destroyed:
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, it provides the core monitoring features required to run the blue-green deployment. Azure Monitor integrates with AKS and provides logging, monitoring, and alerting capabilities that you can use to manage the stage transitions.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a service that helps manage and protect secrets, keys, and certificates. In this architecture, Key Vault stores and manages the secrets and certificates required at platform and application levels for the blue-green deployment solution.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service that helps manage and protect secrets, keys, and certificates. In this architecture, Key Vault stores and manages the secrets and certificates required at platform and application levels.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and application endpoint management system. In this architecture, it serves as the public endpoint for HTTP applications that are hosted on AKS and manages the traffic switch between the blue and green application gateways.
 

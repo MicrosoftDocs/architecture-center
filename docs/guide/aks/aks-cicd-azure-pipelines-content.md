@@ -31,7 +31,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service for storing and managing container images. In this architecture, Container Registry serves as both non-production and production image repositories that store the container images that the CI pipeline builds and provides secure access for deployments to staging and production AKS environments.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, AKS provides the staging and production environments where the containerized applications are deployed via the CD pipeline.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, AKS is the compute platform where the containerized applications are deployed via the CD pipeline.
 
 - [Microsoft Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) is a security service that performs static analysis and provides security posture visibility across development pipelines. In this architecture, Defender for DevOps helps secure the CI/CD pipeline by analyzing code and configurations for security vulnerabilities during the build and deployment processes to AKS environments.
 

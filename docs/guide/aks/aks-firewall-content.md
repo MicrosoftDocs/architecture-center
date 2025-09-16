@@ -76,7 +76,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 - [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs) are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jump box VM and can serve as storage for container images and other artifacts.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jump box VM.
 
 - [Private Link](/azure/private-link/private-link-overview) is a networking service that enables you to access Azure PaaS services over a private endpoint in your virtual network. In this architecture, Private Link provides secure connectivity to services like Blob Storage, Container Registry, and Key Vault. It ensures that traffic remains on the Azure backbone without exposure to the public internet. You can also use it to access Azure-hosted services that you own or that a Microsoft partner provides.
 

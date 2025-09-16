@@ -41,11 +41,11 @@ This architecture uses the following components.
 
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is an in-memory data structure store used as a database, cache, and message broker. In this architecture, Azure Cache for Redis caches requests within each scale unit to improve application performance. It can also serve as temporary storage for scale unit data that needs to be quickly repopulated if a scale unit is replaced.
 
-- [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the scale units. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
+- [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the application within the scale unit. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
 
 - [Azure SQL](/azure/azure-sql/) is a collection of managed SQL database services built on the SQL Server database engine. In this architecture, Azure SQL serves as the back-end database that stores persistent data and is replicated to secondary regions.
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides monitoring and analytics capabilities. In this architecture, Application Insights collects telemetry from the application. It's excluded from the scale units to maintain its own life cycle for historical data retention and cross-region monitoring.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides monitoring and analytics capabilities. In this architecture, Application Insights collects telemetry from the application. It's excluded from the scale units to maintain its own life cycle for historical data retention and cross-stamp monitoring.
 
 ## Alternatives
 

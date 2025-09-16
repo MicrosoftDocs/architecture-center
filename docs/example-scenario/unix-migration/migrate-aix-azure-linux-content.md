@@ -91,7 +91,7 @@ The system also contains the following components:
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is an Azure-native DR service. In this architecture, Site Recovery deploys replication, failover, and recovery processes to help keep applications running during planned and unplanned outages.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service with simple hybrid integration. In this architecture, Service Bus implements the MQ Series infrastructure and provides message queue services for the applications.
+- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a reliable cloud messaging service with simple hybrid integration. In this architecture, Service Bus provides message queue services for the applications.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service from Microsoft. In this architecture, Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while providing protection from cybersecurity attacks.
 
