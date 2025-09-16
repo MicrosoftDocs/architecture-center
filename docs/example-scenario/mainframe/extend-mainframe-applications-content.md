@@ -1,4 +1,4 @@
-This architecture shows how legacy mainframe and midrange terminal-based applications (such as TN-3270) and data can be extended to Azure without any changes to the existing mainframe and midrange application landscape. There are multiple ways in which this scenario can be achieved. The solution discussed in this article uses Azure services like Kubernetes service (AKS), platforms like Power Platform, and Micro Focus Verastream Host Integrator (VHI).
+This architecture shows how legacy mainframe and midrange terminal-based applications (such as TN-3270) and data can be extended to Azure without any changes to the existing mainframe and midrange application landscape. There are multiple ways in which this scenario can be achieved. The solution discussed in this article uses Azure services like Kubernetes service (AKS), platforms like Microsoft Power Platform, and Micro Focus Verastream Host Integrator (VHI).
 
 ## Legacy IBM z/OS architecture
 
@@ -38,7 +38,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. Data is typically input from users, either from the internet or an intranet.
 
-1. User access to the application is now enabled via a web-based presentation layer with the help of an application created with Power Apps, and validation is integrated with Microsoft Entra ID for a seamless sign-on experience. If validated, the user can access a specific Power Apps when they sign in to the Power Platform. User access is enabled using the Mainframe ID and password, which is validated against the mainframe with Verastream. (The 2b and 3b flow is an [alternative](#alternatives) workflow addressed later in this article.)
+1. User access to the application is now enabled via a web-based presentation layer with the help of an application created with Power Apps, and validation is integrated with Microsoft Entra ID for a seamless sign-on experience. If validated, the user can access a specific Power Apps when they sign in to the Microsoft Power Platform. User access is enabled using the Mainframe ID and password, which is validated against the mainframe with Verastream. (The 2b and 3b flow is an [alternative](#alternatives) workflow addressed later in this article.)
 
 1. Application functionality is enabled by defining custom connectors. The custom connector definitions contain the corresponding Verastream APIs configured in Verastream Host Integrator software.
 
@@ -56,7 +56,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. Verastream services that run on the Azure Virtual Machines or Linux Docker containers (to be managed later by AKS) will then connect to the on-premises Mainframe Transaction Processing Application over TN3270 protocol with SSL/TLS. RACF, Top Secret, and ACF2-based protocols will continue to be used for host access, which is facilitated by Azure ExpressRoute.
 
-1. Azure Application Monitor and Application Insights can be used to monitor Power Platform, the application APIs, Verastream services, session pools, and security. Verastream comes with a fully configurable ability to view and report all pertinent information to third-party SNMP or JMX management tools, which can be used by Azure Monitor and Azure Application Insights.
+1. Azure Application Monitor and Application Insights can be used to monitor Microsoft Power Platform, the application APIs, Verastream services, session pools, and security. Verastream comes with a fully configurable ability to view and report all pertinent information to third-party SNMP or JMX management tools, which can be used by Azure Monitor and Azure Application Insights.
 
 1. Azure Site Recovery is used for disaster recovery of the VMs.
 
@@ -66,13 +66,13 @@ The following workflow corresponds to the preceding diagram:
 
 - [API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid, multicloud management platform for APIs across all environments. It enables digital experiences, simplifies application integration, underpins new digital products, and makes data and services reusable and universally accessible. In this architecture, API Management optionally publishes the Verastream services as APIs and manages them by using policies to control incoming calls, direct traffic, and set usage quotas.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring and observability service that helps maximize the availability and performance of your applications and services. It provides a solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. In this architecture, Azure Monitor and Application Insights monitor Power Platform, application APIs, Verastream services, session pools, and security.
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring and observability service that helps maximize the availability and performance of your applications and services. It provides a solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. In this architecture, Azure Monitor and Application Insights monitor Microsoft Power Platform, application APIs, Verastream services, session pools, and security.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you can operate in your own datacenter but provides Azure infrastructure benefits like scalability, availability, and isolation. In this architecture, Virtual Network provides the networking foundation for all Azure resources and enables secure communication between components.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends an on-premises network into Microsoft cloud services over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute facilitates the connection between Verastream services and the on-premises mainframe over TN3270 protocol with SSL/TLS.
 
-- [Power Platform](/power-platform) is a low-code development platform that increases agility across your organization by helping you build apps that modernize processes and solve problems. In this architecture, Power Platform provides the web-based presentation layer through Power Apps. This approach enables users to access mainframe functionality with a modern interface and sign-on experience through Microsoft Entra ID integration.
+- [Microsoft Power Platform](/power-platform) is a low-code development platform that increases agility across your organization by helping you build apps that modernize processes and solve problems. In this architecture, Microsoft Power Platform provides the web-based presentation layer through Power Apps. This approach enables users to access mainframe functionality with a modern interface and sign-on experience through Microsoft Entra ID integration.
 
 - [Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an Azure service that provides on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization without needing to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the VHI Server software and Verastream services that connect to the on-premises mainframe applications.
 
@@ -86,7 +86,7 @@ The following workflow corresponds to the preceding diagram:
 
 ## Scenario details
 
-As part of Power Platform, Power Apps is an intuitive, collaborative, and extensible platform of low-code tools that makes it easy to create efficient and flexible solutions. With Power Apps, production-ready apps with less code can be created with custom connectors or out-of-the-box connectors.
+As part of Microsoft Power Platform, Power Apps is an intuitive, collaborative, and extensible platform of low-code tools that makes it easy to create efficient and flexible solutions. With Power Apps, production-ready apps with less code can be created with custom connectors or out-of-the-box connectors.
 
 Micro Focus' VHI is a powerful integration platform that simplifies mainframe and host-based application functionality into a component form, web-service, such as RESTful and SOAP-based web services. It then deploys them natively on an Azure VM (Windows or Linux), or via a Linux Docker container runtime environment (Verastream Host Integrator).
 
@@ -102,7 +102,7 @@ This integration doesn't require any changes in the mainframe or midrange platfo
 
 End users can now access the same business functionality that was originally available using mainframe and midrange terminals from outside the mainframe and midrange environment, such as from a mobile or desktop screen using web browsers.
 
-Power Platform Power Apps offers a low-code or no-code option to create a web-based UI that will in turn connect to the above developed services.
+Microsoft Power Platform Power Apps offers a low-code or no-code option to create a web-based UI that will in turn connect to the above developed services.
 
 This solution is essentially a no-changes-needed approach with respect to the application on mainframe and midrange environments because Verastream services integrate to the existing mainframe and midrange-based application over TN3270 protocols, similar to how a business user would.
 
@@ -123,7 +123,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use single sign-on to access the Power Platform by using Microsoft Entra ID and authentication via LDAP, which is supported by VHI. Any host-based security implementations (such as RACF, TopSecret, or ACF-2) remain fully active.
+- Use single sign-on to access the Microsoft Power Platform by using Microsoft Entra ID and authentication via LDAP, which is supported by VHI. Any host-based security implementations (such as RACF, TopSecret, or ACF-2) remain fully active.
 - VHI accommodates end-to-end security using TLS and SSH. Host-to-server and server-to-client communications can be secured. Public key cryptography helps protect all data passed between client web applications and the Verastream runtime server. FIPS-validated crypto libraries enhance compliance with data-protection guidelines defined by the U.S. National Institute of Standards and Technology. While a requirement for many government IT systems, these security standards benefit private-sector organizations as well.
 - This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
@@ -171,7 +171,7 @@ Other contributor:
 
 - [Verastream Host Integrator | Micro Focus](https://www.microfocus.com/en-us/products/verastream-host-integrator/overview)
 - [VHI data sheet](https://www.microfocus.com/pnx/media/data-sheet/verastream_host_integrator_data_sheet.pdf)
-- [Power Platform](https://powerplatform.microsoft.com)
+- [Microsoft Power Platform](https://powerplatform.microsoft.com)
 - [Azure Kubernetes Service documentation](/azure/aks)
 - [Virtual machines in Azure](/azure/virtual-machines/overview)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
