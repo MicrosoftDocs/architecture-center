@@ -1,16 +1,16 @@
 --- 
-title: Choose an Azure data service
+title: Getting started with choosing a data store
 description: Use this guide to decide which data service best suits your application.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 03/28/2023
+ms.date: 09/02/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure
 ---
 
-# Review your data options
+# Getting started with choosing a data store
 
 When you prepare your landing zone environment for your cloud adoption, you need to determine the data requirements for hosting your workloads. Azure database products and services support various data storage scenarios and capabilities. How you configure your landing zone environment to support your data requirements depends on your workload governance, technical, and business requirements.
 
@@ -20,7 +20,57 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each application or service you deploy to your landing zone environment, use the following information as a starting point to help you determine the appropriate data store services to use.
 
-### Key questions
+### ✅ Functional requirements
+
+Consider the nature of your data and how it will be used:
+
+- **Data format**: Structured (tables), semi-structured (JSON, XML, key-value), or unstructured (images, documents).
+- **Purpose**: OLTP (Online transactional processing) for transactional data, or OLAP (Online analytical processing) for complex, ad-hoc data analysis.
+- **Search needs**: Indexing capability, full-text search capability.
+- **Specialized**: Vector stores for highly dimensional data, graph databases for highly interconnected data.
+- **Data relationships**: Need for joins, graph traversal, or hierarchical structures.
+- **Consistency model**: Strong, eventual, or configurable consistency.
+- **Schema flexibility**: Schema-on-write (rigid) vs. schema-on-read (flexible).
+- **Concurrency needs**: Optimistic vs. pessimistic locking; high-write scenarios.
+- **Data lifecycle**: Short-lived vs. long-term archival; hot vs. cold data.
+- **Data movement**: ETL/ELT requirements, integration with pipelines.
+
+### ⚙️ Nonfunctional Requirements
+
+Evaluate performance and scalability expectations:
+
+- **Latency & throughput**: Real-time vs. batch processing.
+- **Scalability**: Vertical vs. horizontal scaling; global distribution.
+- **Reliability & availability**: SLA requirements, failover strategies.
+- **Limits**: Storage size, throughput caps, partitioning constraints.
+
+### 💰 Cost & Management Considerations
+
+Factor in operational overhead and budget:
+
+- **Managed vs. Self-Hosted**: PaaS vs. IaaS trade-offs.
+- **Region Availability**: Data residency and compliance needs.
+- **Cost Optimization**: Use of tiered storage, partitioning, and caching.
+- **Licensing & Portability**: Vendor lock-in, open-source compatibility.
+
+### 🔐 Security & Governance
+
+Ensure alignment with organizational policies:
+
+- **Encryption**: At rest and in transit.
+- **Authentication & Authorization**: Role-based access, identity integration.
+- **Auditing & Monitoring**: Activity logs, alerts, and diagnostics.
+- **Networking**: Private endpoints, firewall rules, VNet integration.
+
+### 👩‍💻 DevOps & Team Readiness
+
+Assess your team's ability to support and evolve the solution:
+
+- **Skill Sets**: Familiarity with query languages, SDKs, and tooling.
+- **Client Support**: Language bindings, driver availability.
+- **Tooling Integration**: CI/CD pipelines, observability tools.
+
+## Key questions
 
 Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
 
@@ -28,14 +78,14 @@ Answer the following questions about your workloads to help you make decisions b
 - **Will your workloads use a relational database technology?** If so, what technology do you plan to use? Azure provides managed PaaS database capabilities for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), and [PostgreSQL](/azure/postgresql/overview).
     - Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and [PostgreSQL](/azure/cosmos-db/postgresql/introduction) APIs to take advantage of the many benefits that Azure Cosmos DB offers, including automatic high availability and instantaneous scalability.
 - **Will your workloads use SQL Server?** In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
-- **Will your workloads use key/value database storage?** [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) offers a high-performance cached key/value data storage solution that can power fast, scalable applications. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides general-purpose key/value storage capabilities.
+- **Will your workloads use key/value database storage?** [Azure Managed Redis](/azure/redis/overview)** is a fully managed in-memory data store based on the latest Redis Enterprise version, offering low latency and high throughput.. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides general-purpose key/value storage capabilities.
 - **Will your workloads use document or graph data?** [Azure Cosmos DB](/azure/cosmos-db/introduction) is a multimodel database service that supports various data types and APIs. Azure Cosmos DB also provides document and graph database capabilities.
     - [MongoDB](/azure/cosmos-db/mongodb/introduction) and [Apache Gremlin](/azure/cosmos-db/gremlin/introduction) are document and graph APIs that are supported by Azure Cosmos DB.
 - **Will your workloads use column-family data?** [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) offers a fully managed Apache Cassandra cluster that can extend your existing datacenters into Azure or act as a cloud-only cluster and datacenter.
     - [Apache Cassandra](/azure/cosmos-db/cassandra/introduction) API is also supported by Azure Cosmos DB. See the [product comparison](/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance?source=recommendations) documentation to help guide your decision on the best fit for your workload.
-- **Will your workloads require high-capacity data analytics capabilities?** You can use [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) to effectively store and query structured petabyte-scale data. For unstructured big data workloads, you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) to store and analyze petabyte-size files and trillions of objects.
+- **Will your workloads require high-capacity data analytics capabilities?** [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building.
 - **Will your workloads require search engine capabilities?** You can use [Azure AI Search](/azure/search/search-what-is-azure-search) to build AI-enhanced cloud-based search indexes that you can integrate into your applications.
-- **Will your workloads use time series data?** [Azure Time Series Insights](/azure/time-series-insights/time-series-insights-overview) is built to store, visualize, and query large amounts of time series data, such as data generated by IoT devices.
+- **Will your workloads use time series data?** [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
 
 > [!NOTE]
 > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
@@ -102,5 +152,12 @@ Policies can be scoped to resources, resource groups, subscriptions, and managem
 
 ## Next steps
 
-- Review [database security best practices](/azure/azure-sql/database/security-best-practice).
-- Review a comparison of [Azure SQL deployment options](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+- Review the [Understanding data models](/azure/databases/architecture/understand-data-store-models) guide for a thorough overview of data models and available Azure services.
+
+**Choosing a specialized data store guidance**
+
+Use the following articles to help you choose a specialized data store.
+
+- [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+- [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
+- [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
