@@ -17,17 +17,17 @@ This article provides a basic architecture intended for learning about running w
 
 ### Workflow
 
-1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
+1. A user issues an HTTPS request to the App Service's default domain on `azurewebsites.net`. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
 1. Easy Auth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
 1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance, using a connection string configured in the App Service configured as an app setting.
 1. The information about original request to App Service and the call to Azure SQL Database are logged in Application Insights.
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications.
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service for relational data.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that provides authentication and authorization capabilities. In this architecture, it integrates with App Service through Easy Auth to ensure authentication for users that access the web application. It simplifies the authentication process without requiring significant code changes.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web applications. In this architecture, it hosts the web application code, handles HTTPS requests on the default `azurewebsites.net` domain, and connects to Azure SQL Database via configured connection strings.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data from cloud and on-premises environments. In this architecture, it captures and stores information about requests to App Service and calls to SQL Database through Application Insights integration.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service that provides SQL Server capabilities in the cloud. In this architecture, it serves as the data storage layer that the App Service application connects to via connection strings configured as app settings.
 
 ## Considerations
 
