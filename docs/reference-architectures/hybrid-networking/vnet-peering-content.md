@@ -60,7 +60,7 @@ For more information, see the following articles:
 
 Principal author:
 
- - Jay Li | Senior Product Manager
+ - [Jay Li](https://www.linkedin.com/in/jie-jay-li/) | Senior Product Manager
 
 ## Next steps
 
