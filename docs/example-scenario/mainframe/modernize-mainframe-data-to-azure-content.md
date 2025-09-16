@@ -122,7 +122,7 @@ This architecture describes how to migrate data to scalable, more secure cloud s
 
 #### Compute
 
-- [Azure Data Factory](/product-style-guide-msft-internal/a_z_names_terms/a/azure-data-factory) is Microsoft's cloud-based data integration service that integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Azure Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime). In this architecture, Azure Data Factory orchestrates the entire data migration process from mainframe sources to Azure targets.
+- [Azure Data Factory](/azure/data-factory/introduction) is Microsoft's cloud-based data integration service that integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Azure Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime). In this architecture, Azure Data Factory orchestrates the entire data migration process from mainframe sources to Azure targets.
 
 - The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that serves as a bridge between your local on-premises data sources and services in the Microsoft Cloud. In this architecture, the on-premises data gateway establishes secure connectivity between mainframe systems and Azure services.
 
