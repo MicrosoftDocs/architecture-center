@@ -132,7 +132,7 @@ This architecture describes how to migrate data to scalable, more secure cloud s
 
 This architecture outlines various Azure-native migration tools that you use depending on the mainframe source data and the target database.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, Azure Data Factory migrates data from Db2 sources to Azure database targets by using native connectors. In this architecture, Azure Data Factory serves as the primary data integration service for orchestrating mainframe data migration workflows.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. Azure Data Factory migrates data from Db2 sources to Azure database targets by using native connectors. In this architecture, Azure Data Factory serves as the primary data integration service for orchestrating mainframe data migration workflows.
 
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts. In this architecture, AzCopy transfers large volumes of mainframe file system data to Azure Storage during the migration process.
 
