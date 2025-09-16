@@ -112,7 +112,7 @@ This architecture describes how to migrate data to scalable, more secure cloud s
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand. In this architecture, SQL Database serves as a target database for migrated relational data from mainframe Db2 systems.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance serves as a target for mainframe data requiring SQL Server compatibility and enterprise features.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance serves as a target for mainframe data that requires SQL Server compatibility and enterprise features.
 
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured. In this architecture, Data Lake Storage provides scalable storage for converted mainframe file system data and serves as a staging area for data transformation.
 
@@ -143,9 +143,9 @@ This architecture outlines various Azure-native migration tools that you use dep
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
 
-In this architecture, SQL Server Integration Services handles complex data transformation tasks during mainframe data migration.
+   In this architecture, SQL Server Integration Services handles complex data transformation tasks during mainframe data migration.
 
-- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that was converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that was converted. In this architecture, Host Integration Server converts EBCDIC-encoded mainframe data to ASCII format for Azure consumption.
+- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that's converted. In this architecture, Host Integration Server converts EBCDIC-encoded mainframe data to ASCII format for Azure consumption.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) combines data integration, enterprise data warehousing, and big data analytics. This architecture uses the Azure Synapse Analytics conversion solution. It's based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort. In this architecture, Azure Synapse Analytics provides enterprise data warehousing and big data analytics capabilities for modernized mainframe data.
 
@@ -158,7 +158,7 @@ In this architecture, SQL Server Integration Services handles complex data trans
    - Fabric Data Warehouse
    - Fabric Databases
 
-In this architecture, Microsoft Fabric provides a comprehensive analytics platform for end-to-end mainframe data modernization and business intelligence.
+In this architecture, Fabric provides a comprehensive analytics platform for end-to-end mainframe data modernization and business intelligence.
 
 #### Other tools
 
@@ -169,7 +169,7 @@ In this architecture, Microsoft Fabric provides a comprehensive analytics platfo
    - With offline connections, Data Provider reads and writes records in a local binary file.
    - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM Z series mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
 
-In this architecture, Data Provider for Host Files enables connectivity and data access between mainframe file systems and Azure applications.
+   In this architecture, Data Provider for Host Files enables connectivity and data access between mainframe file systems and Azure applications.
 
 - [Azure services](https://azurecharts.com/overview) provide environments, tools, and processes for developing and scaling new applications in the public cloud. In this architecture, Azure services provide the target cloud platform for modernized mainframe applications and data analytics workloads.
 

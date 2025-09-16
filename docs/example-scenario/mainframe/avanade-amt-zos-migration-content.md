@@ -38,11 +38,11 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 ### Components
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS. In this architecture, Azure Bastion eliminates the need for public IP addresses on VMs and provides maximum security for administrators when they access Azure VMs.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS. In this architecture, Azure Bastion eliminates the need for public IP addresses on VMs and provides secure access to Azure VMs for administrators.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides file shares in an Azure Storage account accessible from the cloud or on-premises. In this architecture, Azure Files provides shared storage capabilities for the migrated mainframe applications and supports the file handling requirements after conversion from VSAM files.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides file shares in an Azure Storage account that can be accessed from the cloud or on-premises. In this architecture, Azure Files provides shared storage capabilities for the migrated mainframe applications and supports the file handling requirements after the conversion from VSAM files.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages for Azure VMs, including Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. In this architecture, Azure managed disks provide high-performance storage for the VMs that run the converted mainframe applications, with Premium SSD or Ultra Disk options for optimal performance.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages for Azure VMs, including Ultra Disk Storage, Premium SSD, Azure Standard SSD, and Azure Standard HDD. In this architecture, Azure managed disks provide high-performance storage for the VMs that run the converted mainframe applications, with Premium SSD or Ultra Disk Storage options for optimal performance.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most database management functions like upgrading, patching, backups, and monitoring. In this architecture, SQL Database serves as the modern database platform for migrated mainframe data. It replaces IBM Db2, IMS, Adabas, and other legacy database systems.
 
@@ -54,9 +54,9 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer 4 load balancing service that distributes inbound traffic based on rules and health probe results. In this architecture, Load Balancer fronts the VM server farms in an active-active arrangement to distribute query traffic and transaction loads across multiple servers for high availability and scalability.
 
-- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that uses replication, failover, and recovery processes to help keep applications running during outages. In this architecture, Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and disaster recovery if there's an Azure datacenter failure.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that uses replication, failover, and recovery processes to help keep applications running during outages. In this architecture, Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter failure occurs.
 
-- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) are networking components that provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. In this architecture, virtual network interfaces enable connectivity for the VMs that host the converted mainframe applications and allow multiple network interface cards per VM for dedicated network access.
+- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) are networking components that provide communication between Azure VMs and the internet, Azure resources, and on-premises resources. In this architecture, virtual network interfaces enable connectivity for the VMs that host the converted mainframe applications and allow multiple network interface cards for each VM for dedicated network access.
 
 ## Scenario details
 

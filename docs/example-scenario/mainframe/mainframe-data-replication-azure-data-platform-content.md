@@ -31,7 +31,7 @@ This solution uses the following components.
 
 #### Networking and identity
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, Azure VPN Gateway provides an alternative to ExpressRoute for secure connectivity between the mainframe environment and Azure.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative to ExpressRoute for secure connectivity between the mainframe environment and Azure.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider. In this architecture, ExpressRoute provides a secure, private connection for transferring data definition files and extraction scripts between the mainframe and Azure.
 
@@ -43,11 +43,11 @@ This solution uses the following components.
 
 #### Storage
 
-- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, they provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
+- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, they provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides low latency and elastic scalability. In this architecture, it's used to migrate nonrelational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and Adaptable Database System (ADABAS).
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service that offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. In this architecture, Blob Storage enables direct binary SFTP traffic from the mainframe and can mount containers on Linux virtual machines by using NFS 3.0 for storing sequential files and load scripts.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service that provides a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. In this architecture, Blob Storage enables direct binary SFTP traffic from the mainframe and can mount containers on Linux virtual machines by using NFS 3.0 for storing sequential files and load scripts.
 
 #### Monitoring
 
@@ -57,7 +57,7 @@ This solution uses the following components.
 
 - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor Logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications.
 
-- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor that enables log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics helps analyze mLogica load script execution logs stored in Blob Storage, using a powerful query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor that enables log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics helps analyze mLogica load script execution logs stored in Blob Storage. It uses a powerful query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
 
 ### Potential use cases
 

@@ -45,9 +45,9 @@ To decide which method to use for moving data between the mainframe system and A
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a cloud storage service that provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention. In this architecture, Azure Files enables file-based data archiving and provides NFS/SMB access for mainframe systems to store and retrieve archived data.
 
-- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud platform that provides massively scalable, highly secure cloud storage for your data, apps, and workloads. In this architecture, Azure storage serves as the primary destination for archived mainframe data, providing cost-effective long-term storage with lifecycle management capabilities.
+- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud platform that provides scalable, secure cloud storage for your data, apps, and workloads. In this architecture, Azure storage serves as the primary destination for archived mainframe data and provides cost-effective, long-term storage and lifecycle management capabilities.
 
-- [Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure. In this architecture, Data Box provides an option for physically transferring large volumes of mainframe data to Azure when online methods would take too long.
+- [Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure. In this architecture, Data Box provides an option for physically transferring large volumes of mainframe data to Azure when online methods take too long.
 
 ### Alternatives
 

@@ -40,7 +40,7 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a service that's part of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability). Azure Files provides fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Luminex MDI and MVT transfer mainframe files to Azure Files for cloud-based file storage and access.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this architecture, Blob Storage provides a way to archive hot and cold mainframe data transferred from the mainframe systems.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for unstructured data. In this architecture, Blob Storage provides a way to archive hot and cold mainframe data transferred from the mainframe systems.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends on-premises networks to the Microsoft cloud by using a connectivity provider to establish private connections between on-premises data and Microsoft cloud services. In this architecture, ExpressRoute provides a private, secure connection to transfer mainframe data to Azure.
 

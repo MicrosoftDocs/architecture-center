@@ -36,13 +36,13 @@ This workflow corresponds to the preceding architecture.
 
 ### Components
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer and application delivery controller that is a fully managed and scalable service that provides web application firewall and reverse proxy functionality. In this architecture, Application Gateway provides secure external access to the replatformed applications with built-in web application firewall protection and Secure Sockets Layer (SSL) termination.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer and application delivery controller. It's a fully managed and scalable service that provides WAF and reverse proxy functionality. In this architecture, Application Gateway provides secure external access to the replatformed applications with built-in WAF protection and Secure Sockets Layer (SSL) termination.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications. It eliminates the need to administer an operating system and server, which increases operational efficiency and business agility. In this architecture, App Service hosts the replatformed Java applications by using Red Hat JBoss EAP, which replaces the original WebSphere middleware from the AIX environment.
 
 - [Azure Communication Services](/azure/communication-services/overview) is a cloud-based communication platform that sends emails via a command-line interface (CLI) utility. This service replaces the `mailx` command on AIX. In this architecture, Azure Communication Services provides email notification capabilities for the replatformed applications. It replaces the traditional AIX mailx functionality with a modern cloud-based communication solution.
 
-- [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) is an image management service that builds and stores images for the Oracle database and Statistical Analysis System (SAS) analysis nodes. There is one gallery in the primary region and one gallery in the disaster recovery region. In this architecture, Azure Compute Gallery provides centralized image management for the Oracle database and SAS analysis VMs. This management ensures consistent deployments across primary and disaster recovery regions.
+- [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) is an image management service that builds and stores images for the Oracle database and Statistical Analysis System (SAS) analysis nodes. There is one gallery in the primary region and one gallery in the disaster recovery region. In this architecture, Compute Gallery provides centralized image management for the Oracle database and SAS analysis VMs. This management ensures consistent deployments across primary and disaster recovery regions.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service in the cloud that provides data reports that are published via a managed service. In this architecture, Azure Files provides shared storage for analysis job results and data reports. These results and reports are accessible via secure SMBv3 protocol by using system-assigned managed identities.
 
@@ -50,7 +50,7 @@ This workflow corresponds to the preceding architecture.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service that eliminates network-based trust and provides system-assigned managed identities. In this architecture, Microsoft Entra ID provides secure authentication and authorization for all Azure services and enables the use of managed identities to eliminate the need for stored credentials.
 
-- [Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a cloud computing service that provides on-demand, scalable virtual machines. In this architecture, Virtual Machines hosts the Oracle database and SAS analysis workloads on RHEL operating systems. It also provides the compute infrastructure for data processing and analysis tasks.
+- [Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a cloud computing service that provides on-demand, scalable VMs. In this architecture, Virtual Machines hosts the Oracle database and SAS analysis workloads on RHEL operating systems. It also provides the compute infrastructure for data processing and analysis tasks.
 
 ### Alternatives
 
