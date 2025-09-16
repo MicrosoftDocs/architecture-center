@@ -96,4 +96,4 @@ Principal author:
 ## Related resources
 
 - [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
-- [Medallion Architecture in Fabric Real-Time Intelligence](https://blog.fabric.microsoft.com/en-us/blog/21597/)
+- [Medallion Architecture in Fabric Real-Time Intelligence](https://blog.fabric.microsoft.com/blog/21597)
