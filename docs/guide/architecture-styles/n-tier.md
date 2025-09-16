@@ -1,6 +1,6 @@
 ---
 title: N-tier Architecture Style
-description: Know the benefits, challenges, and best practices for N-tier architectures on Azure. An N-tier architecture splits an app into logical layers and physical tiers.
+description: Learn about the benefits, challenges, and best practices for N-tier architectures on Azure, which separates an app into logical layers and physical tiers.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/15/2025
@@ -9,10 +9,12 @@ ms.subservice: architecture-guide
 ms.custom: arb-web
 ---
 
+# N-tier architecture style
+
 An N-tier architecture divides an application into **logical layers** and **physical tiers**.
 
 :::image type="complex" source="./images/n-tier-logical.svg" border="false" lightbox="./images/n-tier-logical.svg" alt-text="Logical diagram that shows an N-tier architecture style.":::
-
+The diagram starts with a client, then goes to a web application firewall (WAF), and then to the web tier. From the web tier, one flow goes to middle tier 1 and another flow goes to messaging and then middle tier 2. From middle tier 1, one flow goes to remote service and another flow goes to the data tier. From middle tier 2, the flow goes to the data tier. From the data tier, both flows reverse through cache, then back to middle tier 1 and 2 resepectively.
 :::image-end:::
 
 Layers separate responsibilities and manage dependencies. Each layer has a specific responsibility. A higher layer can use services in a lower layer, but not the other way around.
@@ -74,11 +76,11 @@ This section describes an N-tier architecture that runs on VMs.
 > [!NOTE]
 > Use VMs to host an N-teir architecture if you plan to migrate an existing application to Azure with minimal refactoring. Otherwise, consider using [managed services to implement the architecture](/azure/app-service/tutorial-secure-ntier-app), such as Azure App Service or Azure Container Apps.
 
-:::image type="complex" source="./images/n-tier-physical-bastion.png" border="false" lightbox="./images/n-tier-physical-bastion.png" alt-text="Physical diagram of an N-tier architecture.":::
-
+:::image type="complex" source="./images/n-tier-physical-bastion.png" border="false" lightbox="./images/n-tier-physical-bastion.png" alt-text="Diagram that shows an N-tier architecture.":::
+The flow begins with the internet, which connects to a load balancer that routes incoming traffic to two network virtual appliances (NVAs) located in the perimeter network. Traffic then passes through another load balancer to reach multiple VMs in the web tier. A third load balancer forwards traffic from the web tier to the business tier, which includes multiple VMs. The business tier connects through a fourth load balancer to the data tier, which includes a primary and secondary SQL Server. For secure administrative access, DevOps personnel use the Azure portal to connect to an Azure Bastion host located in the AzureBastionSubnet. The perimeter network, all tiers, and the AzureBastionSubnet reside in a virtual network.
 :::image-end:::
 
-Each tier consists of a Virtual Machine Scale Set with two or more VMs. Multiple VMs provide resiliency if one VM fails. Load balancers distribute requests across the VMs in a tier. You can scale a tier horizontally by adding more VMs to the pool.
+Each tier consists of a virtual machine scale set with two or more VMs. Multiple VMs provide resiliency if one VM fails. Load balancers distribute requests across the VMs in a tier. You can scale a tier horizontally by adding more VMs to the pool.
 
 Each tier is also placed inside its own subnet, which means that their internal IP addresses fall within the same address range. This approach makes it easy to apply network security group rules and route tables to individual tiers.
 
@@ -87,7 +89,7 @@ The web and business tiers are stateless. Any VM can handle any request for that
 Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
 > [!NOTE]
-> The layer labeled **Business Tier** in the reference diagram refers to the business logic tier. The presentation tier is labeled **Web Tier**. The example shows a web application, but you can also use multi-tier architectures for other topologies, like desktop apps. Use clear, descriptive names for each tier that your team understands. You can also use these names in your Azure resources, for example, `vmss-appname-business-tier`.
+> The layer labeled **Business tier** in the reference diagram refers to the business logic tier. The presentation tier is labeled **Web tier**. The example shows a web application, but you can also use multi-tier architectures for other topologies, like desktop apps. Use clear, descriptive names for each tier that your team understands. You can also use these names in your Azure resources, for example, `vmss-appname-business-tier`.
 
 ### Other considerations
 
