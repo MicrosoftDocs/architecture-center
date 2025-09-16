@@ -7398,6 +7398,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-guide/technology-choices/data-store-overview.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/data-store-classification.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
