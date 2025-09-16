@@ -74,9 +74,9 @@ This solution uses the following components.
 
 #### Network and identity
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises mainframe environments and Azure services.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Microsoft 365. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises mainframe environments and Azure services.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that's used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative connectivity option for accessing Azure resources when ExpressRoute is not available.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that's used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative connectivity option for accessing Azure resources when ExpressRoute isn't available.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can sync with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and authorization services for users and applications that access the reengineered batch system.
 
@@ -90,15 +90,15 @@ This solution uses the following components.
 
 - [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a fully managed service for deploying, managing, and running Spring microservices on Azure. It supports both Java and .NET Core. In this architecture, Azure Spring Apps provides a platform for running reengineered mainframe applications written in Java Spring Boot as microservices.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. In this architecture, AKS provides container orchestration capabilities for running reengineered batch applications in a scalable, microservices-based architecture.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. In this architecture, AKS provides container orchestration capabilities for running reengineered batch applications in a scalable, microservices-based architecture.
 
-- [Batch](/azure/batch/batch-technical-overview) is a cloud service designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It supports ETL or AI use cases where multiple tasks are implemented in parallel, independent from each other. In this architecture, Batch provides scalable compute infrastructure for running reengineered mainframe batch jobs across multiple VMs.
+- [Azure Batch](/azure/batch/batch-technical-overview) is a cloud service designed to run general-purpose batch computing in the cloud across many VMs that can scale based on the workload. It supports ETL or AI use cases where multiple tasks are implemented in parallel, independent from each other. In this architecture, Batch provides scalable compute infrastructure for running reengineered mainframe batch jobs across multiple VMs.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service that allows you to run small pieces of code. With Functions, the cloud infrastructure provides all the up-to-date servers that you need to keep your application running at scale. In this architecture, Functions provides serverless compute for short-running batch programs that were originally written in COBOL or PL/1.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service that you can use to run small pieces of code. By using Functions, the cloud infrastructure provides all the up-to-date servers that you need to keep your application running at scale. In this architecture, Functions provides serverless compute for short-running batch programs that are originally written in COBOL or PL/1.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps and APIs. With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs. In this architecture, App Service with WebJobs provides a platform for running background batch processing tasks.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps and APIs. By using [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs. In this architecture, App Service with WebJobs provides a platform for running background batch processing tasks.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve performance of re-engineered batch applications.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and Redis Enterprise, a commercial product from Redis Labs, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve the performance of reengineered batch applications.
 
 #### Storage
 
@@ -110,15 +110,15 @@ Azure storage provides multiple tiers of hot, cool, and archive data. Effective 
 
 - [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability) is a cost-effective, durable message queueing service for large workloads. In this architecture, Queue Storage provides reliable message queuing for coordinating batch job execution and workflow management.
 
-- [Azure SQL](/azure/azure-sql/) is Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. In this architecture, Azure SQL provides managed relational database services for migrated mainframe databases like Db2 and Informix.
+- [Azure SQL](/azure/azure-sql/) is a fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. In this architecture, Azure SQL provides managed relational database services for migrated mainframe databases like Db2 and Informix.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable and secure object storage service for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable object storage for batch input files, output data, and intermediate processing results.
 
-- [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development using large semi-structured datasets. In this architecture, Table Storage provides fast NoSQL storage for batch processing metadata and lookup data.
+- [Azure Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development by using large semi-structured datasets. In this architecture, Table Storage provides fast NoSQL storage for batch processing metadata and lookup data.
 
 #### Monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains Application Insights, Azure Monitor Logs, and Azure Log Analytics features. In this architecture, Azure Monitor provides end-to-end monitoring and observability for the reengineered batch applications, including performance metrics, logs, and alerts.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains Application Insights, Azure Monitor Logs, and Log Analytics features. In this architecture, Azure Monitor provides end-to-end monitoring and observability for the reengineered batch applications, including performance metrics, logs, and alerts.
 
 #### Management
 
