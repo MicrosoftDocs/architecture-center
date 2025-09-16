@@ -1,9 +1,9 @@
 ---
 title: Generative AI Operations for Organizations with MLOps Investments
 description: Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.
-author: claytonsiemens77
-ms.author: pnp
-ms.date: 04/09/2025
+author: supreetkaur16
+ms.author: supreetkaur
+ms.date: 09/16/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -26,19 +26,20 @@ Generative AI workloads differ from traditional machine learning workloads in se
 
 Some generative AI solutions use traditional machine learning practices like model training and fine-tuning. However, these solutions introduce new patterns that you should standardize. There are three broad categories of technical patterns for generative AI solutions:
 
-- Pretraining and fine-tuning
-- Prompt engineering
+- Fine-tuning
+- Prompting
 - Retrieval-augmented generation (RAG)
 
-### Training and fine-tuning language models
+### Fine-tuning language models
 
-Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model or training a new generative AI model, like a small language model (SLM).
+Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model which could be a small or large language model (SLM or LLM).
 
-Training a new SLM and fine-tuning a generative foundation model follow the same logical processes as training traditional machine learning models. These processes should use your existing MLOps investments.
+Fine-tuning a foundation model follow the similar logical processes as training traditional machine learning models such as data preperation, model training, evaluation and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducability and governance. 
 
-### Prompt engineering
+### Prompting
 
-Prompt engineering includes all the processes included in designing an effective prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into multiple data stores directly or indirectly through agents to gather information, including grounding data. It then applies the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that the client code accesses in an intelligent application.
+Prompting is the art and science of crafting effective inputs for language models. These inputs typically fall into two categories: system prompts, which define the model’s persona, tone, or behavior; and user prompts, which represent the end user's interaction with the language model.
+An orchestrator typically manages the workflow that generates these prompts. It can retrieve grounding data from various sources—directly or via agents and apply logic to construct the most effective prompt. This orchestrator is often deployed as an API endpoint, enabling client applications to access it as part of an intelligent system.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -55,7 +56,7 @@ This category of technical patterns can address many use cases:
 
 ### RAG
 
-RAG is an architectural pattern that uses prompt engineering to incorporate domain-specific data as the grounding data for a language model. The language model is trained against a specific set of data. Your workload might require reasoning over data that's specific to your company, customers, or domain. In RAG solutions, your data is queried, and the most relevant results are provided to the language model as part of the prompt, usually through an orchestration layer.
+RAG (Retrieval-Augmented Generation) is an architectural pattern that enhances language models by incorporating domain-specific data into the prompt. This grounding data enables the model to reason over information specific to your company, customers, or domain. In a RAG solution, an orchestration layer queries your data sources and injects the most relevant results into the prompt. The orchestrator then sends this enriched prompt to the language model, typically exposed via an API endpoint for use in intelligent applications.
 
 A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to perform both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
@@ -111,7 +112,7 @@ When you fine-tune an existing language model or train an SLM, you can take adva
 
 Experimentation with prompt engineering and RAG workloads requires you to extend your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores or agents for required information like grounding data, generate prompts, and call language models. The data stores and indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
-You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can also experiment with other areas:
+You can experiment on multiple dimensions for different prompts, including different system instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](rag/rag-solution-design-and-evaluation-guide.md), you can also experiment with other areas:
 
 - Chunking strategies
 - Methods for enriching chunks
@@ -127,41 +128,41 @@ Just like in your existing MLOps environment, you can take advantage of framewor
 
 Evaluation is key in the iterative experimentation process of building, evaluating, and refining your solution. The evaluation of your changes provides the feedback that you need to make your refinements or validate that the current iteration meets your requirements. The following sections describe evaluation in the experimentation phase for the typical generative AI technical patterns.
 
-#### Training and fine-tuning
+#### Fine-tuning
 
 For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new SLMs. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
 
-#### RAG and prompt engineering
+#### RAG and prompting
 
-You need to extend your existing MLOps investments to evaluate generative AI solutions. You can use tools like prompt flow, which provides a framework for evaluation. Prompt flow enables teams to define custom evaluation logic by specifying criteria and metrics to assess the performance of various [prompt variants](/azure/machine-learning/prompt-flow/concept-variants) and large language models (LLMs). This structured approach allows you to compare different configurations side by side, like hyperparameter or architectural variations, to identify the optimal setup for specific tasks.
-
-Jobs in prompt flow automatically capture both input and output data throughout the experimentation process to create a comprehensive trial record. You can gain insights and identify promising configurations that can inform future iterations by analyzing this data. You can accelerate the development of your generative AI solutions by using prompt flows to conduct efficient and systematic experimentation.
+You need to extend your existing MLOps investments to evaluate generative AI solutions. You can leverage the Evaluations within AI Foundry or our Evaluation SDK. 
 
 The experimentation process remains consistent, regardless of the use case for your generative AI solution. These use cases include classification, summarization, translation, and RAG. The important difference is the metrics that you use to evaluate the different use cases. Consider the following metrics based on use case:
 
 - Translation: BLEU
 - Summarization: ROUGE, BLEU, BERTScore, METEOR
 - Classification: Precision, Recall, Accuracy, Cross-entropy
-- RAG: Groundedness, Relevancy
+- RAG: Groundedness, Relevancy, Coherence, Fluency
 
 > [!NOTE]
 > For more information about how to evaluate language models and RAG solutions, see [LLM end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
 
-Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompt engineering and managing grounding data. Because prompt engineering and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompt engineering and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
+Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompting and managing grounding data. Because prompting and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompting and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
 
-Investing in generative AI solutions helps alleviate some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
+Investing in generative AI solutions helps alleviate some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments. 
+
+It is also a good idea to involve the subject matter experts for their feedback when performing evaluations during the initial phase of the project. 
 
 ### Deployment
 
 Some generative AI solutions include deploying custom-trained models or fine-tuning existing models. For generative AI solutions, you need to include the extra tasks of deploying the orchestrators and any data stores. The following sections describe deployment for typical generative AI technical patterns.
 
-#### Training and fine-tuning
+#### Fine-tuning
 
 You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune an LLM in Azure OpenAI Service, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained SLM, you can take advantage of your existing MLOps investments.
 
-#### RAG and prompt engineering
+#### RAG and prompting
 
-For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like Semantic Kernel. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompting, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like Semantic Kernel. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
@@ -187,13 +188,15 @@ Operational monitoring is the process of observing the ongoing operations of the
 
 For model training and fine-tuning, you generally observe the DataOps for processing feature data, model training, and fine-tuning. The monitoring of these inner-loop processes should take advantage of your existing MLOps and DataOps investments.
 
-For prompt engineering in generative AI solutions, you have extra monitoring concerns. You must monitor the data pipelines that process the grounding data or other data that's used to generate prompts. This processing might include data store operations like building or rebuilding indexes.
+For prompting in generative AI solutions, you have extra monitoring concerns. You must monitor the data pipelines that process the grounding data or other data that's used to generate prompts. This processing might include data store operations like building or rebuilding indexes.
 
 In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality and consistency of the agents that your orchestrator interfaces with.
 
+As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that end users are not encountering significant issues.
+
 #### Learn from production
 
-A crucial aspect of monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models for predictions, such as a GPT model for classification, should take advantage of existing MLOps monitoring investments.
+A crucial aspect of monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models, such as a GPT model for classification, can take advantage of existing MLOps monitoring investments.
 
 Solutions that use generative models to reason over grounding data use [metrics](rag/rag-llm-evaluation-phase.md#language-model-evaluation-metrics) like groundedness, completeness, usage, and relevancy. The goal is to ensure that the model fully answers the query and bases the response on its context. In this solution, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
