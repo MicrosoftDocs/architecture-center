@@ -2,9 +2,9 @@
 metadata:
   title: Virtual network peering and VPN gateways
   description: Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.
-  author: anavinahar
-  ms.author: anavin
-  ms.date: 6/10/2024
+  author: lijay
+  ms.author: jl-ms
+  ms.date: 09/16/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
@@ -22,4 +22,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
-   [!include[](vnet-peering-content.md)]
+   [!INCLUDE[](vnet-peering-content.md)]
