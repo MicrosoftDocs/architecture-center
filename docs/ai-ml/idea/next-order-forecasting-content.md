@@ -1,10 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using Next Order Forecasting (NOF), distributors can provide customers with product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml). 
+This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific stock-keeping unit (SKU). Distributors use next-order forecasting (NOF) to provide product recommendations and suggest optimal order quantities to customers. This article builds on the concepts described in the [many-models machine learning architecture](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml). 
 
 ## Architecture
 
-:::image type="content" source="./_images/order-forecasting.png" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="./_images/order-forecasting.png" border="false":::
+:::image type="complex" border="false" source="./_images/next-order-forecasting.svg" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="./_images/next-order-forecasting.svg":::
+   <Long description that ends with a period.>
+:::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-order-forecasting.pptx) of this architecture.*
 
@@ -123,7 +125,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
 The merchandise distribution industry has historically struggled to gain insights into customer behavior and purchasing patterns, which makes it difficult to provide personalized product recommendations, improve customer satisfaction, and drive sales. By using AI and machine learning, merchandise distributors are transforming the industry.
 
-They're adopting Next Order Forecasting (NOF), a methodology that they use to recommend products and quantities based on customer purchasing patterns. This methodology benefits customers by consolidating orders and reducing transportation and logistics costs. It also allows distributors to establish smart contracts with regular customers. These contracts enable distributors to proactively recommend products and quantities at a regular cadence, manage inventory, influence manufacturing efficiencies, save money, and promote sustainability. For example, by implementing accurate forecasting, distributors of perishable items can manage optimum levels of inventory and therefore avoid dumping excess stock into landfills.
+They're adopting NOF, a methodology that they use to recommend products and quantities based on customer purchasing patterns. This methodology benefits customers by consolidating orders and reducing transportation and logistics costs. It also allows distributors to establish smart contracts with regular customers. These contracts enable distributors to proactively recommend products and quantities at a regular cadence, manage inventory, influence manufacturing efficiencies, save money, and promote sustainability. For example, by implementing accurate forecasting, distributors of perishable items can manage optimum levels of inventory and therefore avoid dumping excess stock into landfills.
 
 NOF uses AI and machine learning algorithms to analyze customer orders and make recommendations for future orders. The architecture described in this article takes NOF to another level by enabling forecasting at the individual SKU and store level by using parallel processing. This combination enables businesses to forecast demand for specific products at specific stores. By using this methodology, you can provide your customers with personalized recommendations that meet their needs and exceed their expectations.
 
