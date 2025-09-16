@@ -115,7 +115,7 @@ The following new and updated articles have recently been published in the Azure
 - [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml)  ([#a892eca707](https://github.com/MicrosoftDocs/architecture-center/commit/a892eca707))
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#a04fb8377e](https://github.com/MicrosoftDocs/architecture-center/commit/a04fb8377e))
 - [Compare AWS and Azure database technology](./aws-professional/databases.md)  ([#1777f1607c](https://github.com/MicrosoftDocs/architecture-center/commit/1777f1607c))
-- [N-tier architecture style](./guide/architecture-styles/n-tier.yml)  ([#92580c07d7](https://github.com/MicrosoftDocs/architecture-center/commit/92580c07d7))
+- [N-tier architecture style](./guide/architecture-styles/n-tier.md)  ([#92580c07d7](https://github.com/MicrosoftDocs/architecture-center/commit/92580c07d7))
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md)  ([#f11cac6fb0](https://github.com/MicrosoftDocs/architecture-center/commit/f11cac6fb0))
 - [Design for Self-Healing](./guide/design-principles/self-healing.md)  ([#823d678ff1](https://github.com/MicrosoftDocs/architecture-center/commit/823d678ff1))
 - [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)  ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
