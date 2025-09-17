@@ -15,6 +15,7 @@ products:
   - ai-services
   - azure-cosmos-db
   - semantic-kernel
+  - azure-ai-foundry
 name: Build a multiple-agent workflow automation solution with Semantic Kernel
 summary: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Semantic Kernel and Azure Container Apps for enterprise-grade tasks.
 thumbnailUrl: /azure/architecture/browse/thumbs/multiple-agent-workflow-automation.png
