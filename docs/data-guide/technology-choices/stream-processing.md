@@ -153,7 +153,7 @@ Consider the following factors:
 
 - A [Fabric eventhouse](/fabric/real-time-intelligence/eventhouse) is a KQL database for real-time analytics and exploration on vent-based data, such as telemetry and log data, time-series data, and IoT data. It supports ingestion of millions of events per second with low latency. This feature enables near-instant access to streaming data. An eventhouse deeply integrates with the Fabric ecosystem. It enables users to query and analyze streaming data immediately by using tools like Power BI.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It's compatible with multiple APIs, such as SQL, MongoDB, Cassandra, Table, and Gremlin, which provides flexibility for diverse applications. Azure Cosmos DB delivers high throughput and can handle large volumes of streaming data with consistent performance.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It delivers high throughput and can handle large volumes of streaming data with consistent performance.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead. 
 
