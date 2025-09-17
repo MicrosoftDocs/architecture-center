@@ -3,7 +3,7 @@ title: Guidance for using Azure Key Vault in a multitenant solution
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
 ms.author: pnp
-ms.date: 09/17/2024
+ms.date: 09/10/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -38,8 +38,8 @@ You might consider deploying a vault for each of your tenants within your (the s
 
 There's no limit to the number of vaults you can deploy into an Azure subscription. However, you should consider the following limits:
 
-- [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests you can make within a time period. These limits apply regardless of the number of vaults in the subscription. So, it's important to follow our [throttling guidance](/azure/key-vault/general/overview-throttling), even when you have tenant-specific vaults.
-- There's a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
+- [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-key-vault-limits) on the number of requests you can make within a time period. These limits apply regardless of the number of vaults in the subscription. So, it's important to follow our [throttling guidance](/azure/key-vault/general/overview-throttling), even when you have tenant-specific vaults.
+- There's a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshoot-limits). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
 
 ### Vault per tenant, in the tenant's subscription
 
@@ -72,6 +72,7 @@ If you need to store tenant-specific secrets, keys, or certificates, consider us
 Key Vault supports tagging secrets, certificates, and keys with custom metadata, so you can use a tag to track the tenant ID for each tenant-specific secret. However, Key Vault doesn't support querying by tags, so this feature is best suited for management purposes, rather than for use within your application logic.
 
 More information:
+
 - [Secret tags](/azure/key-vault/secrets/about-secrets#secret-tags)
 - [Certificate tags](/azure/key-vault/certificates/about-certificates#certificate-attributes-and-tags)
 - [Key tags](/azure/key-vault/keys/about-keys-details#key-tags)
@@ -81,6 +82,7 @@ More information:
 If you decide to deploy a large number of vaults, it's important to ensure that they follow a consistent standard for network access configuration, logging, and access control. Consider using Azure Policy to verify the vaults have been configured according to your requirements.
 
 More information:
+
 - [Integrate Azure Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
 - [Azure Policy built-in definitions for Key Vault](/azure/key-vault/policy-reference)
 
@@ -89,6 +91,7 @@ More information:
 If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide you with a reserved amount of capacity, but they're usually more costly than Key Vault. Additionally, be aware of the limits on the number of instances of these services that you can deploy into each region.
 
 More information:
+
 - [How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
 - [Is Azure Dedicated HSM right for you?](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
 
