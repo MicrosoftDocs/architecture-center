@@ -38,7 +38,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 ### Components
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS. In this architecture, Azure Bastion eliminates the need for public IP addresses on VMs and provides secure access to Azure VMs for administrators.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS. In this architecture, Azure Bastion eliminates the need for public IP addresses on VMs and provides access to Azure VMs for administrators.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides file shares in an Azure Storage account that can be accessed from the cloud or on-premises. In this architecture, Azure Files provides shared storage capabilities for the migrated mainframe applications and supports the file handling requirements after the conversion from VSAM files.
 

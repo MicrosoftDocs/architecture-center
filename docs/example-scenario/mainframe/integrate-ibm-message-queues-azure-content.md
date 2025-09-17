@@ -27,7 +27,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 - [.NET](/dotnet/core/introduction) is a free, open-source development platform used for creating applications across different platforms and devices. In this architecture, .NET is used to create an application that pulls data through HIS to the data storage layer and can also access IBM WebSphere MQ servers directly through the Microsoft Client for MQ.
 
-- [HIS](/host-integration-server/what-is-his) is a Microsoft integration platform that can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. In this architecture, HIS runs on a VM and exchanges messages between IBM MQ and BizTalk Server. It serves as an MQ listener that polls the MQ server for messages at specified intervals in the IaaS approach.
+- [Host Integration Server (HIS)](/host-integration-server/what-is-his) is a Microsoft integration platform that can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. In this architecture, HIS runs on a VM and exchanges messages between IBM MQ and BizTalk Server. It serves as an MQ listener that polls the MQ server for messages at specified intervals in the IaaS approach.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud service that provides tools for data orchestration, data integration, and data transformation with hundreds of [connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. In this architecture, Logic Apps uses the MQ connector to exchange messages with IBM MQ in a cloud-native PaaS approach. The scheduler feature orchestrates workflows at recurring intervals.
 

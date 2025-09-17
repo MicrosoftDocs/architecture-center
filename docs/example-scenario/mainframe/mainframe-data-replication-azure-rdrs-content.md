@@ -103,7 +103,7 @@ This architecture refers to the following networking services that you can use i
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that you can synchronize with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for RDRS and Azure resources, including ODBC Driver authentication for Azure SQL.
 
-#### Application components
+#### Compute components
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a cloud service that you can use to run small pieces of code, known as functions, without the need to manage or configure the underlying application infrastructure. You can use Azure Functions to automate tasks, process data, integrate systems, and build scalable applications. The cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale. In this architecture, Azure Functions can consume messages from Event Hubs to perform custom processing of change data.
 
@@ -115,7 +115,7 @@ This architecture refers to the following networking services that you can use i
 
 This architecture discusses the data migration to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides global distribution and elastic scalability. In this architecture, Azure Cosmos DB serves as a target platform for nonrelational mainframe data sources like IMS, IDMS, and ADABAS.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides global distribution and elastic scalability. In this architecture, Azure Cosmos DB serves as a target platform for nonrelational mainframe data sources.
 
 - [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) is a family of fully managed services based on SQL Server technology. You can migrate relational data and use it efficiently with other Azure components, including Azure SQL Managed Instance, SQL Database, and SQL Server on Azure VMs, along with integration options like Azure Database for PostgreSQL and Azure Database for MySQL. In this architecture, Azure SQL serves as one of the target platforms for mainframe data replication and supports both real-time CDC and bulk-load operations.
 
@@ -125,13 +125,13 @@ This architecture discusses the data migration to scalable, more secure cloud st
 
 #### Monitoring components
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights provides monitoring and diagnostics for the RDRS components and data replication processes.
-
 - [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor provides monitoring capabilities for the RDRS replication processes and Azure resources.
 
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language that can quickly analyze millions of records. In this architecture, Azure Monitor Logs consolidates monitoring data from RDRS components and Azure services for centralized analysis.
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights provides monitoring and diagnostics for the RDRS components and data replication processes.
 
-- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that enables you to use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so that you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code. In this architecture, Log Analytics provides query capabilities for analyzing RDRS operation logs and performance data.
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language that can query across millions of records. In this architecture, Azure Monitor Logs consolidates monitoring data from RDRS components and Azure services for analysis.
+
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool in the Azure portal that enables you to use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so that you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code. In this architecture, Log Analytics provides query capabilities for analyzing RDRS operation logs and performance data.
 
 ## Scenario details
 
