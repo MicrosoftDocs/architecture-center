@@ -5,7 +5,7 @@ This article describes how merchandise distributors can use AI and machine learn
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/next-order-forecasting.svg" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="./_images/next-order-forecasting.svg":::
-   <Long description that ends with a period.>
+   The diagram shows an NOF workflow that has seven stages connected by arrows. Stage 1, the data sources, shows the orders database, customers database, merchandise database, and partner data sources feeding into stage 2, ingestion, which includes Azure Data Factory. Stage 3, the staging area, includes Azure Data Lake Storage, Azure SQL Database, and OneLake for data preparation. Stage 4, model training, features an Azure Machine Learning compute cluster and a model instance for parallel processing. Stage 4 also shows Microsoft Fabric with Spark compute to train machine learning models. Stage 5, model inferencing, deploys the trained machine learning model to online managed endpoints and real-time model endpoints to process data. Stage 6, analytical workload, shows Data Lake Storage, SQL Database, and OneLake for storing the prediction results. Stage 7, customer model consumption, shows Power BI dashboards, Power Apps, and the Web Apps feature of Azure App Service for delivering forecasting insights to customers.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-order-forecasting.pptx) of this architecture.*
@@ -14,9 +14,9 @@ This article describes how merchandise distributors can use AI and machine learn
 
 1. Data sources
 
-   To forecast future orders, you need comprehensive data about your customers' buying history for various SKUs at specific stores, including information about preferences and purchasing behavior. This kind of information is typically obtained from orders, merchandise, and customer databases. You also need to consider external factors like weather, holidays, and events. This data is usually obtained from third-party sources.
+   To forecast future orders, you need comprehensive data about your customers' buying history for various SKUs at specific stores, including information about preferences and purchasing behavior. This kind of information is typically obtained from orders, merchandise, and customer databases. You also need to consider external factors like weather, holidays, and events. This data is usually obtained from partner sources.
 
-   To create order forecasting models, you use data in a schema that includes several key variables: 
+   To create order forecasting models, you use data in a schema that includes several key variables:
 
    - Date and time 
    - Customer store location
@@ -29,73 +29,75 @@ This article describes how merchandise distributors can use AI and machine learn
 
 1. Ingestion
 
-   Data ingestion is the process of transferring data from various sources to a designated destination. This process involves using specific connectors for each data source and target destination.
+   Data ingestion is the process of transferring data from various sources to a designated destination. This process uses specific connectors for each data source and target destination.
    
-   Azure Data Factory provides connectors that you can use to extract data from various sources, including databases, file systems, and cloud services. These connectors are created by Microsoft or third-party vendors and are designed to function effectively with multiple data sources. For example, you can use [SAP connectors](/azure/data-factory/industry-sap-connectors) for various SAP data ingestion scenarios. You can use the [Snowflake connector](/azure/data-factory/connector-snowflake?tabs=data-factory) to copy data from Snowflake.
+   Azure Data Factory provides connectors that you can use to extract data from various sources, including databases, file systems, and cloud services. These connectors are created by Microsoft or by partner vendors and are designed to function effectively with multiple data sources. For example, you can use [SAP connectors](/azure/data-factory/industry-sap-connectors) for various SAP data ingestion scenarios. You can use the [Snowflake connector](/azure/data-factory/connector-snowflake?tabs=data-factory) to copy data from Snowflake.
 
 1. Staging area 
 
-   The staging area serves as a temporary storage location between the source and the destination. The main purpose of this staging area is to maintain data in a uniform and structured format while it undergoes transformations or quality checks, before it's loaded into its destination.
+   The staging area serves as a temporary storage location between the source and the destination. The main purpose of this staging area is to maintain data in a uniform and structured format while it undergoes transformations or quality checks before it's loaded into its destination.
 
    A consistent data format is critical for accurate analysis and modeling. If you consolidate and prepare the data in a staging area, Azure Machine Learning can process it more efficiently.
 
 1. Machine learning model training
 
-   Model training is a machine learning process that involves using an algorithm to learn patterns from data and, in this case, selecting a model that can accurately predict a customer's next order.
+   Model training is a machine learning process that uses an algorithm to learn patterns from data and, in this solution, select a model that can accurately predict a customer's next order.
 
-   In this solution, you can use Azure Machine Learning or Microsoft Fabric Data Science experience to train models. 
-   - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to manage the entire machine learning project lifecycle, including training models, deploying models, and managing Machine Learning Operations (MLOps).
+   In this solution, you can use Machine Learning or Fabric Data Science to train models.
 
-      - [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller parts and processing them simultaneously on multiple virtual machines. You can use Azure Machine Learning compute clusters to accomplish this distribution of workloads across multiple nodes.
+   - [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to manage the entire machine learning project life cycle, including training models, deploying models, and managing machine learning operations.
 
-      - After the data is prepared, Azure Machine Learning can start the parallel model training process by using ParallelRunStep with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
+      - [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller parts and processing them simultaneously on multiple virtual machines. You can use Machine Learning compute clusters to distribute workloads across multiple nodes.
 
-   - Apache Spark, a part of Microsoft Fabric, enables machine learning with big data. With Apache Spark, you build valuable insights into large masses of structured, unstructured, and fast-moving data. You have several available open-source library options when you [train machine learning models with Apache Spark in Microsoft Fabric](/fabric/data-science/model-training-overview): Apache Spark MLlib, [SynapseML](/fabric/data-science/synapseml-first-model), and others.
+      - After the data is prepared, Machine Learning can start the parallel model training process by using ParallelRunStep with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
 
-1. Machine learning model Inferencing
+   - Apache Spark, a part of Microsoft Fabric, enables machine learning with big data. By using Apache Spark, you can build valuable insights into large masses of structured, unstructured, and fast-moving data. You have several available open-source library options when you [train machine learning models with Apache Spark in Fabric](/fabric/data-science/model-training-overview), including Apache Spark MLlib and [SynapseML](/fabric/data-science/synapseml-first-model).
+
+1. Machine learning model inferencing
 
    Model inferencing is a process that uses a trained machine learning model to generate predictions for previously unseen data points. In this solution, it forecasts the quantity of the merchandise SKU that a customer is likely to purchase.
 
-   - Azure Machine Learning provides model registries for storing and versioning trained models. Model registries can help you organize and track trained models, ensuring that they're readily available for deployment.
+   - Machine Learning provides model registries for storing and versioning trained models. Model registries can help you organize and track trained models and ensure that they're readily available for deployment.
 
       - Deploying a trained machine learning model enables the model to process new data for inferencing. We recommend that you use [Azure managed endpoints](/azure/machine-learning/concept-endpoints) for the deployment target. Endpoints enable easy scalability, performance tuning, and high availability.
 
-        In this use case, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#use-more-than-one-model). The first option is to deploy each model on its own managed endpoint, as shown in the diagram. The second option is to bundle multiple models into a single model and deploy it on a single managed endpoint. The latter approach is more efficient, providing an easier way to deploy and manage multiple models simultaneously.
+        In this use case, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints). The first option is to deploy each model on its own managed endpoint, as shown in the diagram. The second option is to bundle multiple models into a single model and deploy it on a single managed endpoint. The latter approach is more efficient and provides an easier way to deploy and manage multiple models simultaneously.
 
-   - Microsoft Fabric serves real-time predictions from ML models with secure, scalable, and easy-to-use online endpoints. These endpoints are available as built-in properties of most Fabric models.
-      - You can activate, configure, and query model endpoints with a [public-facing REST API](/rest/api/fabric/mlmodel/endpoint). You can get started from the Fabric interface, using a low-code experience to activate model endpoints and preview predictions.
+   - Fabric provides real-time predictions from machine learning models by using secure, scalable, and easy-to-use online endpoints. These endpoints are available as built-in properties of most Fabric models.
 
-1. Analytical workload 
+      - You can activate, configure, and query model endpoints by using a [public-facing REST API](/rest/api/fabric/mlmodel/endpoint). You can get started from the Fabric interface by using a low-code experience to activate model endpoints and preview predictions.
 
-   The output of the model is stored in analytics systems like OneLake, Azure Data Lake, or Azure SQL Database, where the input data is also collected and stored. This stage facilitates the availability of the prediction results for customer consumption, model monitoring, and retraining of models with new data to improve their accuracy.
+1. Analytical workload
 
-1. End-user consumption
+   The output of the model is stored in analytics systems like OneLake, Azure Data Lake Storage, or Azure SQL Database, where the input data is also collected and stored. This stage facilitates the availability of the prediction results for customer consumption, model monitoring, and new data for retraining models to improve their accuracy.
+
+1. Customer consumption
 
    To present the scored model visually to customers, you can use the Web Apps feature of Azure App Service, a Power BI dashboard, or Power Apps. These tools can present the recommendations for the SKU and predicted quantities graphically in an intuitive and engaging way.
 
-   Customers are alerted to recommended SKUs and predicted quantities, so they can place orders proactively. The recommendations can help streamline the ordering process, reduce the likelihood of stockouts, and enhance customer satisfaction. If you use a Power BI dashboard or Power Apps, you can provide your customers with a informative ordering experience.
+   Customers are notified of recommended SKUs and predicted quantities, so they can place orders proactively. The recommendations can help streamline the ordering process, reduce the likelihood of stockouts, and enhance customer satisfaction. If you use a Power BI dashboard or Power Apps, you can provide an informative ordering experience to your customers.
 
 ### Components
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. In this architecture, Microsoft Fabric workloads are utilized to process and transform data, creating end-to-end data science workflows.
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Azure Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. In this architecture, Fabric workloads are utilized to process and transform data, creating end-to-end data science workflows.
 
-  - [OneLake](/fabric/onelake/onelake-overview) is a single, unified, logical data lake for the whole organization. OneLake comes automatically with every Microsoft Fabric tenant with no infrastructure to manage. In this architecture, OneLake is utilized to store data ingested from a variety of sources. Additionally, it serves as a repository for data used in training machine learning models. This centralized storage system ensures efficient data management and seamless access for analytical processes.
+  - [OneLake](/fabric/onelake/onelake-overview) is a single, unified, logical data lake for the whole organization. OneLake comes automatically with every Fabric tenant with no infrastructure to manage. In this architecture, OneLake is utilized to store data ingested from a variety of sources. Additionally, it serves as a repository for data used in training machine learning models. This centralized storage system ensures efficient data management and seamless access for analytical processes.
 
-  - [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. It's a flexible and scalable solution that allows organizations to handle large volumes of data using various tools and frameworks to process and analyze that data. It integrates with other data management and analytics tools to provide a solution for data engineering and analytics. A lakehouse combines the scalability of a data lake with the performance and structure of a data warehouse, providing a unified platform for data storage, management, and analytics. In this architecture, the Fabric Lakehouse is as a central hub for both structured and unstructured data from diverse sources, ensuring a thorough dataset. It also stores model outputs, making prediction results readily accessible for consuming applications.
+  - [Fabric lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. It's a flexible and scalable solution that allows organizations to handle large volumes of data using various tools and frameworks to process and analyze that data. It integrates with other data management and analytics tools to provide a solution for data engineering and analytics. A lakehouse combines the scalability of a data lake with the performance and structure of a data warehouse, providing a unified platform for data storage, management, and analytics. In this architecture, the Fabric Lakehouse is as a central hub for both structured and unstructured data from diverse sources, ensuring a thorough dataset. It also stores model outputs, making prediction results readily accessible for consuming applications.
 
-  - [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is the data warehousing solution within Microsoft Fabric. The lake-centric warehouse is built on a distributed processing engine that enables industry leading performance at scale while minimizing the need for configuration and management. In this architecture, you use the Fabric Warehouse for storing transformed and unified data during the analytical workload phase, rather than relying on LakeHouse. Use this [reference guide](/fabric/fundamentals/decision-guide-data-store) to help you choose a data store for your Microsoft Fabric workloads.
+  - [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is the data warehousing solution within Fabric. The lake-centric warehouse is built on a distributed processing engine that enables industry leading performance at scale while minimizing the need for configuration and management. In this architecture, you use the Fabric Warehouse for storing transformed and unified data during the analytical workload phase, rather than relying on LakeHouse. Use this [reference guide](/fabric/fundamentals/decision-guide-data-store) to help you choose a data store for your Fabric workloads.
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that automates data movement and transformation. In this architecture, Azure Data Factory is responsible for ingesting data from diverse sources and moving it through the pipeline for processing and analysis.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. This solution uses a local data store for machine learning data and a premium data cache for training the machine learning model.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that provides easier model development and deployment to a wide range of machine learning compute targets. In this architecture, it provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter Notebook environment that supports various integrated development environments.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service that provides easier model development and deployment to a wide range of machine learning compute targets. In this architecture, it provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter Notebook environment that supports various integrated development environments.
 
-   - [Azure Machine Learning compute clusters](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python) are managed compute structures that you can use to easily create single-node or multi-node compute resources.
+   - [Machine Learning compute clusters](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python) are managed compute structures that you can use to easily create single-node or multi-node compute resources.
 
-   - [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI that's authenticated via key-and-token authentication.
+   - [Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI that's authenticated via key-and-token authentication.
 
-   - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines) are independently executable workflows of complete machine learning tasks. Pipelines can help you standardize the best practices of producing a machine learning model and improve model building efficiency.
+   - [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines) are independently executable workflows of complete machine learning tasks. Pipelines can help you standardize the best practices of producing a machine learning model and improve model building efficiency.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this architecture, it stores structured data, such as order history and model outputs, to support analytical workloads and reporting.
 
@@ -107,15 +109,15 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ### Alternatives
 
-- Azure Machine Learning provides data modeling and deployment in this solution. Alternatively, you can use [Microsoft Fabric Data Science](/fabric/data-science/data-science-overview) experiences that empower users to build end-to-end data science workflows. You can complete a wide range of activities across the entire data science process. Choosing between Azure Machine Learning and Fabric depends on factors such as the scale of your data science operations, the complexity of your machine learning tasks, and the integration with other tools and services you already use. Both platforms offer excellent coverage across a range of requirements and features, making them suitable for a wide range of scenarios.
+- Machine Learning provides data modeling and deployment in this solution. Alternatively, you can use [Data Science](/fabric/data-science/data-science-overview) experiences that empower users to build end-to-end data science workflows. You can complete a wide range of activities across the entire data science process. Choosing between Machine Learning and Fabric depends on factors such as the scale of your data science operations, the complexity of your machine learning tasks, and the integration with other tools and services you already use. Both platforms offer excellent coverage across a range of requirements and features, making them suitable for a wide range of scenarios.
 
    You can also use Azure Databricks to explore and manipulate data in this solution. Azure Databricks uses a notebook-based interface that supports the use of Python, R, Scala, and SQL. Azure Databricks mainly provides data processing and analysis. 
 
-   [OneLake](/fabric/onelake/onelake-overview) - OneLake lets you mount your existing PaaS storage accounts using the [Shortcut](/fabric/onelake/onelake-shortcuts) feature. You don't migrate or copy your existing data. Shortcuts provide direct access to data in Azure Data Lake Storage. They also enable easy data sharing between users and applications without duplicating files. Additionally, you can create shortcuts to other storage systems, allowing you to analyze cross-cloud data with intelligent caching that reduces egress costs and brings data closer to compute.
+   [OneLake](/fabric/onelake/onelake-overview) - OneLake lets you mount your existing PaaS storage accounts using the [Shortcut](/fabric/onelake/onelake-shortcuts) feature. You don't migrate or copy your existing data. Shortcuts provide direct access to data in Data Lake Storage. They also enable easy data sharing between users and applications without duplicating files. Additionally, you can create shortcuts to other storage systems, allowing you to analyze cross-cloud data with intelligent caching that reduces egress costs and brings data closer to compute.
 
    [Fabric Data Factory](/fabric/data-factory/data-factory-overview) - Data Factory provides a modern data integration experience to ingest, prepare, and transform data from a rich set of data sources. It incorporates the simplicity of Power Query, and you can use more than 200 native connectors to connect to data sources on-premises and in the cloud. You can use Fabric data pipelines instead of Azure Data Factory pipelines for data integration. Your decision will depend on several factors. For more information, see Getting from [Azure Data Factory to Data Factory in Fabric](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory).
 
-   Databases - Databases in Microsoft Fabric are a developer-friendly transactional database such as Azure SQL Database, which allows you to easily create your operational database in Fabric. Using the mirroring capability, you can bring data from various systems together into OneLake. You can continuously replicate your existing data estate directly into Fabric's OneLake, including data from Azure SQL Database, Azure Cosmos DB, Azure Databricks, Snowflake, and Fabric SQL database. For more information, see [SQL database in Microsoft Fabric](/fabric/database/sql/overview) and [What is Mirroring in Fabric](/fabric/database/mirrored-database/overview)?
+   Databases - Databases in Fabric are a developer-friendly transactional database such as SQL Database, which allows you to easily create your operational database in Fabric. Using the mirroring capability, you can bring data from various systems together into OneLake. You can continuously replicate your existing data estate directly into Fabric's OneLake, including data from SQL Database, Azure Cosmos DB, Azure Databricks, Snowflake, and Fabric SQL database. For more information, see [SQL database in Fabric](/fabric/database/sql/overview) and [What is Mirroring in Fabric](/fabric/database/mirrored-database/overview)?
 
 - Power BI is a popular tool for visualization. Grafana is another viable option. The main difference is that Grafana is open source, whereas Power BI is a SaaS product offered by Microsoft. If you prioritize customization and the use of open-source tools, Grafana is a better choice. If you prioritize a more seamless integration with other Microsoft products, and product support, Power BI is a better choice.
 
@@ -149,16 +151,16 @@ The technologies in this solution were chosen for scalability, availability, and
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Improved security is built in to the components of this scenario. You can use Microsoft Entra authentication or role-based access control to manage permissions. Consider implementing [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish appropriate security levels.
+Improved security is built in to the components of this scenario. You can use Microsoft Entra authentication or role-based access control to manage permissions. Consider implementing [Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish appropriate security levels.
 
-Microsoft Fabric offers a complete [security](/fabric/security/security-fundamentals) package for the entire platform. Fabric minimizes the cost and responsibility of maintaining your security solution and transfers it to the cloud. With Fabric, you use the expertise and resources of Microsoft to keep your data secure, patch vulnerabilities, monitor threats, and comply with regulations. Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands.
+Fabric offers a complete [security](/fabric/security/security-fundamentals) package for the entire platform. Fabric minimizes the cost and responsibility of maintaining your security solution and transfers it to the cloud. With Fabric, you use the expertise and resources of Microsoft to keep your data secure, patch vulnerabilities, monitor threats, and comply with regulations. Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands.
 
 Data Lake provides improved data protection, data masking, and improved threat protection. For more information, see [Data Lake security](/azure/data-lake-store/data-lake-store-security-overview).
 
 For more information about security for this architecture, see these resources:
 
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
-- [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
+- [Enterprise security and governance for Machine Learning](/azure/machine-learning/concept-enterprise-security)
  
 ### Operational excellence
 
@@ -168,20 +170,20 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). 
 
-Follow [MLOps guidelines](/azure/machine-learning/concept-model-management-and-deployment) to manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before you deploy your solution to production, make sure that it supports ongoing inference with retraining cycles and automated redeployment of models. 
+Follow [machine learning operations guidelines](/azure/machine-learning/concept-model-management-and-deployment) to manage an end-to-end machine learning life cycle that's scalable across multiple workspaces. Before you deploy your solution to production, make sure that it supports ongoing inference with retraining cycles and automated redeployment of models. 
 
 Here are some resources to consider:
 
-- [MLOps v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
-- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
+- [Machine learning operations v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
+- [Azure machine learning operations v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Most components in this architecture can be scaled up and down based on the analysis activity levels. The [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources. For example, the app can help identify when to scale up your capacity or when to turn on autoscale.
+Most components in this architecture can be scaled up and down based on the analysis activity levels. The [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) is designed to provide monitoring capabilities for Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources. For example, the app can help identify when to scale up your capacity or when to turn on autoscale.
 
-You can scale [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) based on the amount of data and the compute resources needed for model training. You can scale the deployment and compute resources based on the expected load and scoring service. 
+You can scale [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) based on the amount of data and the compute resources needed for model training. You can scale the deployment and compute resources based on the expected load and scoring service. 
 
 Load testing is an important step for ensuring the performance efficiency of the machine learning model. This testing involves the simulation of a high volume of requests to the model to measure metrics like throughput, response time, and resource utilization. Load testing can help you identify bottlenecks and problems that can affect the model's performance in a production environment.
 
@@ -206,15 +208,15 @@ Other contributors:
 ## Next steps
 
 - [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
-- [Track machine learning models with MLflow and Azure Machine Learning](/azure/machine-learning/how-to-use-mlflow)
+- [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
+- [Track machine learning models with MLflow and Machine Learning](/azure/machine-learning/how-to-use-mlflow)
 - [Azure Data Factory documentation](/azure/data-factory/introduction)
-- [What is Microsoft Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
-- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
+- [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
 
 ## Related resources
 
-- [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning at scale with Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
