@@ -1,6 +1,4 @@
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service.
-
-This article describes how SQL Server can be migrated to Azure Virtual Machines while maintaining the enterprise performance required for online transaction processing (OLTP) applications. Rather than using Azure disk for the database locations, this article explains how the solution can be deployed more cost-effectively while maintaining the performance you're used to from your on-premises deployments.
+This article provides guidance for migrating SQL Server workloads to Azure Virtual Machines (VMs) using Azure NetApp Files (ANF), a first-party, enterprise-class file storage service. Azure NetApp Files supports high-performance, low-latency, and scalable storage via Server Message Block (SMB) protocol, making it suitable for online transaction processing (OLTP) applications. This migration strategy enables cost-effective deployment while maintaining enterprise-grade performance and availability.
 
 ## Architecture
 
