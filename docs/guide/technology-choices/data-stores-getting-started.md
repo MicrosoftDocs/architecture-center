@@ -1,6 +1,6 @@
 --- 
-title: Getting started with choosing a data store
-description: Use this guide to decide which data service best suits your application.
+title: Getting Started with Choosing a Data Store
+description: Learn how to choose the right Azure data store for your workloads by evaluating functional, performance, cost, and security requirements.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 09/02/2025
@@ -16,127 +16,132 @@ When you prepare your landing zone environment for your cloud adoption, you need
 
 ## Identify data services requirements
 
-As part of your landing zone evaluation and preparation, you need to identify the data stores that your landing zone needs to support. The process involves assessing each of the applications and services that make up your workloads to determine their data storage and access requirements. After you identify and document these requirements, you can create policies for your landing zone to control allowed resource types based on your workload needs.
+As part of your landing zone evaluation and preparation, you need to identify the data stores that your landing zone needs to support. This process involves assessing each of the applications and services that make up your workloads to determine their data storage and access requirements. After you identify and document these requirements, you can create policies for your landing zone to control allowed resource types based on your workload needs.
 
-For each application or service you deploy to your landing zone environment, use the following information as a starting point to help you determine the appropriate data store services to use.
+For each application or service that you deploy to your landing zone environment, use the following information as a starting point to help you determine the appropriate data store services to use.
 
 ### ✅ Functional requirements
 
-Consider the nature of your data and how it will be used:
+Consider the nature of your data and how you plan to use it:
 
-- **Data format**: Structured (tables), semi-structured (JSON, XML, key-value), or unstructured (images, documents).
-- **Purpose**: OLTP (Online transactional processing) for transactional data, or OLAP (Online analytical processing) for complex, ad-hoc data analysis.
-- **Search needs**: Indexing capability, full-text search capability.
-- **Specialized**: Vector stores for highly dimensional data, graph databases for highly interconnected data.
-- **Data relationships**: Need for joins, graph traversal, or hierarchical structures.
-- **Consistency model**: Strong, eventual, or configurable consistency.
-- **Schema flexibility**: Schema-on-write (rigid) vs. schema-on-read (flexible).
-- **Concurrency needs**: Optimistic vs. pessimistic locking; high-write scenarios.
-- **Data lifecycle**: Short-lived vs. long-term archival; hot vs. cold data.
-- **Data movement**: ETL/ELT requirements, integration with pipelines.
+- **Data format:** Structured (tables), semi-structured (JSON, XML, and key-value), or unstructured (images and documents)
 
-### ⚙️ Nonfunctional Requirements
+- **Purpose:** Online transactional processing (OLTP) for transactional data, online analytical processing (OLAP) for complex, ad-hoc data analysis
+- **Search needs:** Indexing capability, full-text search capability
+- **Specialized:** Vector stores for highly dimensional data, graph databases for highly interconnected data
+- **Data relationships:** Need for joins, graph traversal, or hierarchical structures
+- **Consistency model:** Strong, eventual, or configurable consistency
+- **Schema flexibility:** Schema-on-write (rigid) versus schema-on-read (flexible)
+- **Concurrency needs:** Optimistic versus pessimistic locking, high-write scenarios
+- **Data life cycle:** Short-lived versus long-term archival, hot versus cold data
+- **Data movement:** Extract, tranform, and load (ETL) or extract, load, and tranform (ELT) requirements, integration with pipelines
+
+### ⚙️ Nonfunctional requirements
 
 Evaluate performance and scalability expectations:
 
-- **Latency & throughput**: Real-time vs. batch processing.
-- **Scalability**: Vertical vs. horizontal scaling; global distribution.
-- **Reliability & availability**: SLA requirements, failover strategies.
-- **Limits**: Storage size, throughput caps, partitioning constraints.
+- **Latency and throughput:** Real-time versus batch processing
+- **Scalability:** Vertical versus horizontal scaling, global distribution
+- **Reliability and availability:** Service-level agreemnt (SLA) requirements, failover strategies
+- **Limits:** Storage size, throughput caps, partitioning constraints
 
-### 💰 Cost & Management Considerations
+### 💰 Cost and management considerations
 
 Factor in operational overhead and budget:
 
-- **Managed vs. Self-Hosted**: PaaS vs. IaaS trade-offs.
-- **Region Availability**: Data residency and compliance needs.
-- **Cost Optimization**: Use of tiered storage, partitioning, and caching.
-- **Licensing & Portability**: Vendor lock-in, open-source compatibility.
+- **Managed versus self-hosted:** Platform as a service (PaaS) versus infrastructure as a service (IaaS) trade-offs
+- **Region availability:** Data residency and compliance needs
+- **Cost optimization:** Use of tiered storage, partitioning, and caching
+- **Licensing and portability:** Vendor lock-in, open-source compatibility
 
-### 🔐 Security & Governance
+### 🔐 Security and governance
 
 Ensure alignment with organizational policies:
 
-- **Encryption**: At rest and in transit.
-- **Authentication & Authorization**: Role-based access, identity integration.
-- **Auditing & Monitoring**: Activity logs, alerts, and diagnostics.
-- **Networking**: Private endpoints, firewall rules, VNet integration.
+- **Encryption:** At rest and in transit
+- **Authentication and authorization:** Role-based access, identity integration
+- **Auditing and monitoring:** Activity logs, alerts, and diagnostics
+- **Networking:** Private endpoints, firewall rules, virtual network integration
 
-### 👩‍💻 DevOps & Team Readiness
+### 👩‍💻 DevOps and team readiness
 
 Assess your team's ability to support and evolve the solution:
 
-- **Skill Sets**: Familiarity with query languages, SDKs, and tooling.
-- **Client Support**: Language bindings, driver availability.
-- **Tooling Integration**: CI/CD pipelines, observability tools.
+- **Skill sets:** Familiarity with query languages, SDKs, and tooling
+- **Client support:** Language bindings, driver availability
+- **Tooling integration:** Continuous integration and continuous delivery (CI/CD) pipelines, observability tools
 
 ## Key questions
 
-Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
+Answer the following questions about your workloads to make decisions based on the Azure database services decision tree:
 
-- **What is the level of control of the OS and database engine required?** Some scenarios require you to have a high degree of control or ownership of the software configuration and host servers for your database workloads. In these scenarios, you can deploy custom infrastructure as a service (IaaS) virtual machines to fully control the deployment and configuration of data services. You might not require this level of control, but maybe you're not ready to move to a full platform as a service (PaaS) solution. In that case, a managed instance can provide higher compatibility with your on-premises database engine while offering the benefits of a fully managed platform.
+- **What is the level of control of the OS and database engine required?** Some scenarios require you to have a high degree of control or ownership of the software configuration and host servers for your database workloads. In these scenarios, you can deploy custom IaaS virtual machines (VMs) to fully control the deployment and configuration of data services. You might not need this level of control, but maybe you're not ready to move to a full PaaS solution. In that case, a managed instance can provide higher compatibility with your on-premises database engine while providing the benefits of a managed platform.
+
 - **Will your workloads use a relational database technology?** If so, what technology do you plan to use? Azure provides managed PaaS database capabilities for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), and [PostgreSQL](/azure/postgresql/overview).
-    - Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and [PostgreSQL](/azure/cosmos-db/postgresql/introduction) APIs to take advantage of the many benefits that Azure Cosmos DB offers, including automatic high availability and instantaneous scalability.
-- **Will your workloads use SQL Server?** In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
-- **Will your workloads use key/value database storage?** [Azure Managed Redis](/azure/redis/overview)** is a fully managed in-memory data store based on the latest Redis Enterprise version, offering low latency and high throughput.. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides general-purpose key/value storage capabilities.
+    
+    Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and [PostgreSQL](/azure/cosmos-db/postgresql/introduction) APIs, which provides benefits such as automatic high availability and instantaneous scalability.
+- **Will your workloads use SQL Server?** In Azure, your workloads can run on IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Your choice depends on whether you want to manage your database, apply patches, and take backups, or delegate these operations to Azure. Some scenarios require IaaS-hosted SQL Server because of capatability requirements. For more information, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+- **Will your workloads use key-value database storage?** [Azure Managed Redis](/azure/redis/overview)** is a managed in-memory data store based on the latest Redis Enterprise version. It provides low latency and high throughput. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides key-value storage capabilities.
 - **Will your workloads use document or graph data?** [Azure Cosmos DB](/azure/cosmos-db/introduction) is a multimodel database service that supports various data types and APIs. Azure Cosmos DB also provides document and graph database capabilities.
-    - [MongoDB](/azure/cosmos-db/mongodb/introduction) and [Apache Gremlin](/azure/cosmos-db/gremlin/introduction) are document and graph APIs that are supported by Azure Cosmos DB.
-- **Will your workloads use column-family data?** [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) offers a fully managed Apache Cassandra cluster that can extend your existing datacenters into Azure or act as a cloud-only cluster and datacenter.
-    - [Apache Cassandra](/azure/cosmos-db/cassandra/introduction) API is also supported by Azure Cosmos DB. See the [product comparison](/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance?source=recommendations) documentation to help guide your decision on the best fit for your workload.
+    
+    [MongoDB](/azure/cosmos-db/mongodb/introduction) and [Apache Gremlin](/azure/cosmos-db/gremlin/introduction) are document and graph APIs that Azure Cosmos DB supports.
+- **Will your workloads use column-family data?** [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) provides a managed Apache Cassandra cluster that can extend your existing datacenters into Azure or serve as a cloud-only cluster and datacenter.
+    
+    Azure Cosmos DB also supports the [Apache Cassandra](/azure/cosmos-db/cassandra/introduction) API. To help determine the best fit for your workload, see the [product comparison](/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance?source=recommendations).
 - **Will your workloads require high-capacity data analytics capabilities?** [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building.
-- **Will your workloads require search engine capabilities?** You can use [Azure AI Search](/azure/search/search-what-is-azure-search) to build AI-enhanced cloud-based search indexes that you can integrate into your applications.
-- **Will your workloads use time series data?** [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
+- **Will your workloads require search engine capabilities?** You can use [Azure AI Search](/azure/search/search-what-is-azure-search) to build AI-enhanced cloud-based search indexes that can integrate into your applications.
+- **Will your workloads use time series data?** [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed, high-performance, big data analytics platform that analyzes high volumes of data in near real time.
 
 > [!NOTE]
-> Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
+> For more information about how to assess database options for each of your applications or services, see [Azure application architecture guide](./data-store-overview.md).
 
 ## Common database scenarios
 
-The following table lists common use-scenario requirements and the recommended database services for handling them.
+The following table lists common use-scenario requirements and the recommended database services to handle them.
 
-| If you want to | Use this database service|
+| Your goal | Recommended database service |
 |---|---|
-| Build apps that scale with a managed and intelligent SQL database in the cloud. | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
-| Modernize SQL Server applications with a managed, always-up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql&preserve-view=true) |
-| Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql&preserve-view=true) |
-| Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
+| Build apps that scale with a managed and intelligent SQL database in the cloud. | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
+| Modernize SQL Server applications with a managed, up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresqlandpreserve-view=true) |
+| Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresqlandpreserve-view=true) |
+| Build scalable, managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
 | Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
 | Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
-| Modernize existing Cassandra data clusters and apps, and enjoy flexibility and freedom with managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
-| Build a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
-| Power fast, scalable applications with an open-source-compatible in-memory data store. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| Modernize existing Cassandra data clusters and apps, and gain flexibility with a managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
+| Build a managed elastic data warehouse that has security at every level of scale at no extra cost. | [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
+| Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 
 ## Database feature comparison
 
 The following table lists features available in Azure database services.
 
-|  Feature         |Azure SQL Database |Azure SQL Managed Instance |Azure Database for PostgreSQL |Azure Database for MySQL |Azure Managed Instance for Apache Cassandra |Azure Cosmos DB |Azure Cache for Redis |Azure Cosmos DB for MongoDB |Azure Cosmos DB for Gremlin
+|  Feature         | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Cache for Redis | Azure Cosmos DB for MongoDB | Azure Cosmos DB for Gremlin |
 |------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|
 |Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL |Graph
-|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, Wide-column, Key-value, Graph |Wide-column |Key-value |Document |Graph
-|Distributed multimaster writes|No |No |No |No |Yes |Yes |Yes (Enterprise and Flash tiers only) |Yes |Yes
+|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, wide-column, key-value, graph |Wide-column |Key-value |Document |Graph |
+|Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes (Enterprise and Flash tiers only) |Yes |Yes |
 |Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (flexible server only) |Virtual network injection (flexible server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network injection (Premium, Enterprise, and Flash tiers only) |Virtual network service endpoint |Virtual network service endpoint |
 
 > [!NOTE]
-> [Private link service](/azure/private-link/private-link-service-overview) simplifies networking design to allow Azure services to communicate over private networking. It's supported for all Azure database services. In the case of Managed Instance database services, these instances are deployed in virtual networks, which negates the need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip) for them.
+> [Azure Private Link service](/azure/private-link/private-link-service-overview) simplifies networking design by enabling Azure services to communicate over private networking. All Azure database services support Azure Private Link service. For managed instance database services, these instances are deployed in virtual networks, so you don't need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal) for them.
 
 ## Regional availability
 
 Azure lets you deliver services at the scale you need to reach your customers and partners *wherever they are*. A key factor in planning your cloud deployment is to determine what Azure region will host your workload resources.
 
-Most database services are generally available in most Azure regions. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions you'll deploy your database resources to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=data-factory,sql-server-stretch-database,redis-cache,database-migration,sql-data-warehouse,postgresql,mariadb,cosmos-db,mysql,sql-database) to check the latest status of regional availability.
+Most database services are generally available in most Azure regions. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions you'll deploy your database resources to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=allandproducts=data-factory,sql-server-stretch-database,redis-cache,database-migration,sql-data-warehouse,postgresql,mariadb,cosmos-db,mysql,sql-database) to check the latest status of regional availability.
 
-To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). For specific details about the overall services that are available in each Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=all).
+To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). For specific details about the overall services that are available in each Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=allandproducts=all).
 
 ## Data residency and compliance requirements
 
 Legal and contractual requirements that are related to data storage often apply to your workloads. These requirements might vary based on the location of your organization, the jurisdiction of the physical assets that host your data stores, and your applicable business sector. Components of data obligations to consider include:
 
-- Data classification.
-- Data location.
-- Responsibilities for data protection under the shared responsibility model.
+- Data classification
+- Data location
+- Responsibilities for data protection under the shared responsibility model
 
-For help with understanding these requirements, see [Achieving compliant data residency and security with Azure](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/).
+For help with understanding these requirements, see [Achieve compliant data residency and security with Azure](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/).
 
 Part of your compliance efforts might include controlling where your database resources are physically located. Azure regions are organized into groups called geographies. An [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical and political boundaries. If your workloads are subject to data sovereignty or other compliance requirements, you must deploy your storage resources to regions in a compliant Azure geography.
 
@@ -144,19 +149,17 @@ Part of your compliance efforts might include controlling where your database re
 
 When you prepare your landing zone environment, you can establish controls that limit what data stores that users can deploy. Controls can help you manage costs and limit security risks. Developers and IT teams will still be able to deploy and configure resources that are needed to support your workloads.
 
-After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the database resources that you allow users to create. Controls can take the form of allowing or denying the creation of [database resource types](/azure/azure-sql/database/policy-reference?view=azuresql&preserve-view=true).
+After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the database resources that you allow users to create. Controls can take the form of allowing or denying the creation of [database resource types](/azure/azure-sql/database/policy-reference?view=azuresqlandpreserve-view=true).
 
-For example, you might restrict users to creating only Azure SQL Database resources. You can also use policies to control the allowable options when a resource is created. For example, you can restrict what SQL Database SKUs can be provisioned by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
+For example, you might restrict users to creating only SQL Database resources. You can also use policies to control the allowable options when a resource is created. For example, you can restrict what SQL Database SKUs can be provisioned by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
 
 Policies can be scoped to resources, resource groups, subscriptions, and management groups. You can include your policies in [Azure Blueprints](/azure/governance/blueprints/overview) definitions and apply them repeatedly throughout your cloud estate.
 
 ## Next steps
 
-- Review the [Understanding data models](/azure/databases/architecture/understand-data-store-models) guide for a thorough overview of data models and available Azure services.
+- [Understand data models](/azure/databases/architecture/understand-data-store-models)
 
-**Choosing a specialized data store guidance**
-
-Use the following articles to help you choose a specialized data store.
+Use the following articles to choose a specialized data store:
 
 - [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
 - [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
