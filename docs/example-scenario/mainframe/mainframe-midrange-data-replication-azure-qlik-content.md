@@ -74,7 +74,7 @@ Azure provides managed services that support more secure, scalable, and efficien
 
 This architecture addresses scalable and more secure cloud storage as well as managed databases for flexible and intelligent data management.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service that supports open-source APIs for MongoDB and Cassandra. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed MySQL database service designed for scalability and high availability. In this architecture, it supports open-source relational workloads.
 

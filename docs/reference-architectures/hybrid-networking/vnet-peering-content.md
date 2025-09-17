@@ -8,7 +8,9 @@ A virtual network is a virtual, isolated portion of the Azure public network. By
 
 **Virtual network peering**. Virtual network peering connects two Azure virtual networks. Once peered, the virtual networks appear as one for connectivity purposes. Traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, through private IP addresses only. No public internet is involved. You can also peer virtual networks across Azure regions (global peering).
 
-**VPN gateways**. A VPN gateway is a specific type of virtual network gateway that is used to send traffic between an Azure virtual network and an on-premises location over the public internet. You can also use a VPN gateway to send traffic between Azure virtual networks. Each virtual network can have at most one VPN gateway. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+**Subnet peering**. Subnet peering enables users to connect specific subnets between virtual networks instead of peering entire virtual networks. Subnet peering gives users fine-grained control over which subnets to link. Users can use it for scenarios like overlapping virtual network ranges, IPv6-only connections, and selective gateway exposure.
+
+**VPN gateways**. A VPN gateway is a specific type of virtual network gateway that is used to send traffic between an Azure virtual network and a cross-premises location over the public internet. You can also use a VPN gateway to send traffic between Azure virtual networks. Each virtual network can have at most one VPN gateway. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 Virtual network peering provides a low-latency, high-bandwidth connection. There is no gateway in the path, so there are no extra hops, ensuring low latency connections. It's useful in scenarios such as cross-region data replication and database failover. Because traffic is private and remains on the Microsoft backbone, also consider virtual network peering if you have strict data policies and want to avoid sending any traffic over the internet.
 
@@ -16,7 +18,7 @@ VPN gateways provide a limited bandwidth connection and are useful in scenarios 
 
 ## Gateway transit
 
-Virtual network peering and VPN Gateways can also coexist via gateway transit
+Virtual network peering and VPN gateways can also coexist via gateway transit
 
 Gateway transit enables you to use a peered virtual network's gateway for connecting to on-premises, instead of creating a new gateway for connectivity. As you increase your workloads in Azure, you need to scale your networks across regions and virtual networks to keep up with the growth. Gateway transit allows you to share an ExpressRoute or VPN gateway with all peered virtual networks and lets you manage the connectivity in one place. Sharing enables cost-savings and reduction in management overhead.
 
@@ -39,11 +41,11 @@ For more information, see the following articles:
 - [Connect virtual networks from different deployment models using the portal](/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)
 - [VPN Gateway FAQ](/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-## Comparison of virtual network peering and VPN Gateway
+## Comparison of virtual network peering and VPN gateway
 
-| Item | Virtual network peering | VPN Gateway |
+| Item | Virtual network peering | VPN gateway |
 |------|--------------|--------------|
-| Limits | Up to 500 virtual network peerings per virtual network (see [Networking limits](/azure/azure-subscription-service-limits#networking-limits)). | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
+| Limits |  Up to 500 virtual network peerings per virtual network (see [Networking limits](/azure/azure-subscription-service-limits#networking-limits)). To increase further, Azure Virtual Network Manager's connectivity configuration feature allows users to create up to 1,000 virtual networks peerings per virtual network. | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
 | Pricing model | [Ingress/Egress](https://azure.microsoft.com/pricing/details/virtual-network/) | [Hourly + Egress](https://azure.microsoft.com/pricing/details/vpn-gateway/) |
 | Encryption | [Azure Virtual Network Encryption](/azure/virtual-network/virtual-network-encryption-overview) can be leveraged. | Custom IPsec/IKE policy can be applied to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
 | Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
@@ -58,7 +60,7 @@ For more information, see the following articles:
 
 Principal author:
 
- - Anavi Nahar | Principal PDM Manager
+ - [Jay Li](https://www.linkedin.com/in/jie-jay-li/) | Senior Product Manager
 
 ## Next steps
 
