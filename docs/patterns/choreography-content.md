@@ -91,17 +91,15 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 This example shows the choreography pattern by creating an event driven, cloud native workload running functions along with microservices. When a client requests a package to be shipped, the workload assigns a drone. Once the package is ready to pick up by the scheduled drone, the delivery process gets started. While in-transit the workload handles the delivery until it gains the shipped status.
 
-This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation) that replaces the Orchestrator pattern with the Choreography pattern.
-
 ![Diagram of an event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
 
 The Ingestion service handles client requests and converts them into messages including the delivery details. Business transactions are initiated after consuming those new messages.
 
-A single client business transaction requires three distinct business operations: 
+A single client business transaction requires three distinct business operations:
 
 1. Create or update a package
 2. Assign a drone to deliver the package
-3. Handle the delivery that consists of checking and eventually raising awareness when shipped. 
+3. Handle the delivery that consists of checking and eventually raising awareness when shipped.
 
 Three microservices perform the business processing: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to communicate among themselves. Each service would be responsible to implement a protocol in advance that coordinates in a decentralized way the business workflow.
 

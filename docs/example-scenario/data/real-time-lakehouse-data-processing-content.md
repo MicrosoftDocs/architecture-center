@@ -59,7 +59,7 @@ This solution uses the following Azure components:
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) provides a visual interface to create and access reports and dashboards. Power BI Desktop can connect to various data sources, combine the sources into a data model, and build reports or dashboards. With Power BI, you can transform data based on business requirements, and share visuals and reports with others through the Power BI service.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a managed, multi-modal NoSQL database that supports open APIs such as MongoDB and Cassandra. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions. 
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions.
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search) is a powerful alternative when Cosmos DB’s indexing model is too rigid for advanced search scenarios. It enables flexible querying with features like typo tolerance, autocomplete, semantic ranking, and synonym matching. You can query indexed data using a REST API or the .NET SDK. If you need to retrieve data from multiple indexes, you can either consolidate them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types) to model nested structures.
 

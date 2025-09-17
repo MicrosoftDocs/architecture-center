@@ -30,35 +30,19 @@ The following dataflow corresponds to the preceding diagram. The dataflow descri
 
 ### Components
 
-This solution uses the following Azure components.
+- [AI Search](/azure/search/search-what-is-azure-search) is a search service that enables indexing, querying, and enrichment of content by using built-in and custom AI skills. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. In this architecture, it indexes the content and powers the search user experience. This architecture also uses the service's extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
 
-#### AI Search
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-[AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) indexes the content and powers the user experience in this solution. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. And you can use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
+- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
 
-#### Azure AI Vision
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a REST-based object storage solution optimized for large volumes of unstructured data. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, Blob Storage stores the original JFK Files dataset, including scanned documents and images, which are ingested into the AI enrichment pipeline.
 
-[Vision](https://azure.microsoft.com/products/ai-services/ai-vision) uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses the latest OCR recognition models and is optimized for large, text-heavy documents and noisy images.
+- [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL storage service for structured and semi-structured data. In this architecture, Table Storage supports the knowledge store, which enables downstream applications to access enriched and indexed data.
 
-The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) isn't optimized for large documents but supports more languages. The accuracy of OCR results can vary based on the quality of the scan and the image. This solution uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that runs small pieces of event-triggered code without having to explicitly provision or manage infrastructure. In this architecture, a Functions method applies the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
 
-#### Language
-
-[Language](https://azure.microsoft.com/products/ai-services/ai-language/) uses [text analytics](/azure/ai-services/language-service/overview#available-features) capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) to extract text information from unstructured documents.
-
-#### Azure Storage
-
-[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is REST-based object storage for data that you can access from anywhere in the world through HTTPS. You can use Blob Storage to expose data publicly to the world or to store application data privately. Blob Storage is ideal for large amounts of unstructured data like text or graphics.
-
-[Table Storage](https://azure.microsoft.com/products/storage/tables/) stores highly available, scalable, structured, and semi-structured NoSQL data in the cloud.
-
-#### Azure Functions
-
-[Functions](https://azure.microsoft.com/products/functions/) is a serverless compute service that you can use to run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses a Functions method to apply the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
-
-#### Azure App Service
-
-This solution builds a standalone web app in [Azure App Service](https://azure.microsoft.com/products/app-service/) to test, demonstrate, and search the index and to explore connections in the enriched and indexed documents.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building and hosting web applications. In this architecture, it hosts a standalone web app that demonstrates the enriched search experience and allows users to explore connections within the indexed JFK documents.
 
 ## Scenario details
 
@@ -121,7 +105,3 @@ Read product documentation:
 Try the learning path:
 
 - [Implement knowledge mining with AI Search](/training/paths/implement-knowledge-mining-azure-cognitive-search)
-
-## Related resources
-
-- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

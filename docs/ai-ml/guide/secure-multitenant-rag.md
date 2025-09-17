@@ -180,8 +180,8 @@ When you design a multitenant RAG inferencing solution, you must consider how to
 
 Principal authors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

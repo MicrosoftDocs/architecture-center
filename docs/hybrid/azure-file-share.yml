@@ -11,6 +11,7 @@ metadata:
     - hybrid
     - storage
   ms.custom: e2e-hybrid
+  ai-usage: ai-assisted
 name: Use Azure file shares in a hybrid environment
 azureCategories:
   - hybrid

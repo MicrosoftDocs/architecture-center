@@ -15,12 +15,6 @@ items:
     href: landing-zones/bicep/landing-zone-bicep.md
   - name: Subscription vending implementation
     href: landing-zones/subscription-vending.yml
-  - name: Application landing zone design guides
-    items:
-    - name: Use the Azure Governance Visualizer
-      href: landing-zones/azure-governance-visualizer-accelerator.yml
-    - name: Azure Virtual Desktop
-      href: landing-zones/azure-virtual-desktop/design-guide.md
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -30,17 +24,15 @@ items:
     - name: Overview
       href: guide/architecture-styles/index.md
     - name: Big compute
-      href: guide/architecture-styles/big-compute.yml
+      href: guide/architecture-styles/big-compute.md
     - name: Big data
-      href: guide/architecture-styles/big-data.yml
+      href: guide/architecture-styles/big-data.md
     - name: Event-driven architecture
-      href: guide/architecture-styles/event-driven.yml
+      href: guide/architecture-styles/event-driven.md
     - name: Microservices
       items:
       - name: Get started
-        href: microservices/index.yml
-      - name: Microservice architecture style
-        href: guide/architecture-styles/microservices.yml
+        href: guide/architecture-styles/microservices.md
       - name: Guides
         items:
           - name: Microservices assessment and readiness
@@ -101,8 +93,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Resiliency checklist for services
-      href: checklist/resiliency-per-service.md
     - name: Failure mode analysis for services
       href: resiliency/failure-mode-analysis.md
   - name: Technology choices
@@ -112,7 +102,7 @@ items:
     - name: Choose a compute service
       items:
       - name: Azure compute services
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
     - name: Choose a container option
@@ -145,34 +135,18 @@ items:
             href: guide/technology-choices/data-store-considerations.md
       - name: Selecting a data store model
         items:
-          - name: Big data storage
-            href: data-guide/technology-choices/data-storage.md
-          - name: Compare NoSQL and relational
-            href: /azure/cosmos-db/relational-nosql
-          - name: Choose an API in Cosmos DB
-            href: /azure/cosmos-db/choose-api
-          - name: PostgreSQL options
-            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
-          - name: Search data store
-            href: data-guide/technology-choices/search-options.md
           - name: Select a data store
             href: guide/technology-choices/data-store-decision-tree.md
-      - name: Database scenarios
-        items:
-        - name: OLAP solutions
-          href: data-guide/relational-data/online-analytical-processing.md
-        - name: OLTP solutions
-          href: data-guide/relational-data/online-transaction-processing.md
-        - name: Data lakes
-          href: data-guide/scenarios/data-lake.md
-        - name: Vector search
-          href: guide/technology-choices/vector-search.md
+          - name: Big data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Search data store
+            href: data-guide/technology-choices/search-options.md
+          - name: Vector search
+            href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: ETL guide
-          href: data-guide/relational-data/etl.yml
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
@@ -198,7 +172,7 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
-        href: guide/technology-choices/load-balancing-overview.yml
+        href: guide/technology-choices/load-balancing-overview.md
       - name: VNet peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.yml
     - name: Choose a messaging service
@@ -503,24 +477,10 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
         - name: Recommendations
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-      - name: Monitor Azure Databricks jobs
-        items:
-        - name: Overview
-          href: databricks-monitoring/index.md
-        - name: Send Databricks application logs
-          href: databricks-monitoring/application-logs.md
-        - name: Use dashboards to visualize Databricks
-          href: databricks-monitoring/dashboards.md
-        - name: Troubleshoot performance bottlenecks
-          href: databricks-monitoring/performance-troubleshooting.md
-        - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-      - name: Azure Synapse for landing zones
-        href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Use Azure Synapse Analytics to design an enterprise BI solution
@@ -556,7 +516,7 @@ items:
     - name: Guides
       items:
       - name: Choose a compute service
-        href: guide/technology-choices/compute-decision-tree.yml
+        href: guide/technology-choices/compute-decision-tree.md
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
       - name: Build workloads with Azure Spot Virtual Machines
@@ -715,26 +675,6 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
-          - name: AKS cluster for a PCI-DSS workload
-            items:
-            - name: Introduction
-              href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
-            - name: Architecture
-              href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml
-            - name: Network segmentation
-              href: reference-architectures/containers/aks-pci/aks-pci-network.yml
-            - name: Data protection
-              href: reference-architectures/containers/aks-pci/aks-pci-data.yml
-            - name: Vulnerability management
-              href: reference-architectures/containers/aks-pci/aks-pci-malware.yml
-            - name: Access controls
-              href: reference-architectures/containers/aks-pci/aks-pci-identity.yml
-            - name: Monitoring operations
-              href: reference-architectures/containers/aks-pci/aks-pci-monitor.yml
-            - name: Policy management
-              href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
-            - name: Summary
-              href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
@@ -817,7 +757,7 @@ items:
     - name: Guides
       items:
       - name: Azure Sandbox
-        href: guide/azure-sandbox/azure-sandbox.yml
+        href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties
@@ -860,13 +800,11 @@ items:
             href: hybrid/azure-local-switchless.yml
         - name: Azure Local workloads
           items:
-          - name: AKS on Azure Local (AKS hybrid)
+          - name: AKS on Azure Local (AKS enabled by Azure Arc)
             items:
             - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: AKS on Azure Local network architecture
-              href: example-scenario/hybrid/aks-network.yml
-            - name: Deploy apps with AKS on Azure Local
+            - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-virtual-desktop.yml
@@ -908,8 +846,6 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Cross-tenant communication
-        href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Cross-tenant secure access to apps
         href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
     - name: Architectures
@@ -992,10 +928,10 @@ items:
       items:
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
+      - name: Use the Azure Governance Visualizer
+        href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Architectures
       items:
-      - name: Azure Automation State Configuration
-        href: example-scenario/state-configuration/state-configuration.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
@@ -1065,8 +1001,8 @@ items:
       items:
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.yml
-      - name: Zero-trust network for web applications
-        href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
+      - name: Zero Trust network for web applications
+        href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
       items:
       - name: Secure research for regulated data
@@ -1129,8 +1065,10 @@ items:
       href: guide/virtual-desktop/start-here.md
     - name: Guides
       items:
+      - name: Azure Virtual Desktop design guide
+        href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
+        href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
@@ -1139,8 +1077,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
-      - name: Multiple Active Directory forests
-        href: example-scenario/azure-virtual-desktop/multi-forest.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Microsoft Azure Well-Architected Framework

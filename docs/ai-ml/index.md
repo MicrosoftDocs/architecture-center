@@ -101,6 +101,10 @@ For more information, see the following resources:
 
 For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) and [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
+## Agent-based architecture
+
+For guidance about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
+
 ## Azure AI services
 
 With [Azure AI services](https://azure.microsoft.com/products/ai-services), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
@@ -430,7 +434,7 @@ If the data follows a pattern, you can use structured text to train a model. You
 
 #### Custom translator
 
-[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems integrate into existing applications, workflows, and websites.
 
 You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list of languages, see [Translator language support](/azure/ai-services/translator/language-support).
 
@@ -527,7 +531,6 @@ For general information about custom AI on Azure, see the following resources:
 
 Many industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Volkswagen: Machine translation speaks Volkswagen in 60 languages](https://www.microsoft.com/customers/story/1542868888535759612-volkswagen-group-automotive-azure)
 - [Healthcare for all with Kry using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
 - [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)

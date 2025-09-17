@@ -105,7 +105,7 @@ Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-clu
 
 To narrow the choices, start by answering these questions:
 
-- Do you need a unified data lake with multicloud support, robust governance, and seamless integration with analytical tools? If yes, then choose OneLake in Fabric for simplified data management and enhanced collaboration.
+- Do you need a unified data lake with multicloud support, robust governance, and integration with analytical tools? If yes, then choose OneLake in Fabric for simplified data management and enhanced collaboration.
 
 - Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then choose one of the file storage or analytics options.
 
@@ -193,5 +193,5 @@ Principal author:
 ## Related resources
 
 - [Big data architectures](../big-data/index.yml)
-- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.md)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)

@@ -3,7 +3,8 @@ title: Azure Kubernetes Service (AKS) - planning
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 07/30/2024
+ms.date: 06/26/2025
+ms.update-cycle: 730-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-containers
@@ -48,10 +49,10 @@ When running microservices in the baseline cluster, you'll need to configure net
 
 ### High security compliance
 
-If you need a regulated environment, make the baseline implementation highly secure and restrict interactions to and from of the cluster. This use case is demonstrated in a cluster that's designed to run a PCI-DSS 3.2.1 workload.
+If you need a regulated environment, make the baseline implementation highly secure and restrict interactions to and from of the cluster. This use case is demonstrated in a cluster that's designed to run a financially regulated workload.
 
 > [!div class="nextstepaction"]
-> [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
+> [Baseline cluster for a regulated use case](/azure/aks/pci-intro)
 
 ### Business continuity and disaster recovery
 
@@ -70,8 +71,6 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 As part of ongoing operations, you might want to spot check your cluster against current recommended best practices. Start by aligning your cluster with Microsoft's [AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
-
-> You might also consider evaluating a community-driven utility like [The AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
 
 ## Operations guide
 
@@ -97,15 +96,15 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 
 If you're seeking additional references that use AKS as their foundation, here are two to consider.
 
-* [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [Blue-green deployment of AKS clusters](../../guide/aks/blue-green-deployment-for-aks.yml)
+- [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Blue-green deployment of AKS clusters](../../guide/aks/blue-green-deployment-for-aks.yml)
 
 ### Azure Arc-enabled Kubernetes
 
 Azure Kubernetes Service (AKS) offers you a managed Kubernetes experience on Azure, however there are workloads or situations that might be best suited for placing your own Kubernetes clusters under [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) management. This includes your clusters such as RedHat OpenShift, RedHat RKE, and Canonical Charmed Kubernetes. Azure Arc management can also be used with [Kubernetes Cluster API Provider Azure](https://capz.sigs.k8s.io/) clusters to benefit from the Azure Resource Manager representation of the cluster and availability of cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes can also be used with [AKS on Azure local instances](/azure/aks/hybrid/connect-to-arc) and with Kubernetes clusters running on other cloud providers.
 
 > [!div class="nextstepaction"]
-> [Azure Arc-enabled Kubernetes](/Azure/azure-arc/kubernetes/overview)
+> [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
 
 ### Managed service provider
 
@@ -118,6 +117,9 @@ If you're a managed service provider, you already use Azure Lighthouse to manage
 
 These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
 
-* [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
-* [AKS for Amazon EKS professionals](../../aws-professional/eks-to-aks/index.md)
-* [Containers and container orchestrators for Google Cloud Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
+- [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
+- [AKS for Amazon Elastic Kubernetes Service (EKS) professionals](../../aws-professional/eks-to-aks/index.md)
+- [Migrate a web app from Amazon EKS to AKS](/azure/aks/eks-web-overview)
+- [Migrate an event-driven workload from Amazon EKS to AKS](/azure/aks/eks-edw-overview)
+- [Containers and container orchestrators for Google Cloud Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
+

@@ -1,23 +1,22 @@
-<!-- cSpell:ignore Oozie HDFS deduplicating -->
-A common problem that organizations face is how to gather data from multiple sources, in multiple formats. Then you'd need to move it to one or more data stores. The destination might not be the same type of data store as the source. Often the format is different, or the data needs to be shaped or cleaned before loading it into its final destination.
+Organizations commonly need to gather data from multiple sources in various formats and move it to one or more data stores. The destination might not be the same type of data store as the source, and the data often needs to be shaped, cleaned, or transformed before loading.
 
-Various tools, services, and processes have been developed over the years to help address these challenges. No matter the process used, there's a common need to coordinate the work and apply some level of data transformation within the data pipeline. The following sections highlight the common methods used to perform these tasks.
+Various tools, services, and processes help address these challenges. Regardless of the approach, you need to coordinate the work and apply data transformations within the data pipeline. The following sections highlight the common methods and practices for these tasks.
 
 <a name='extract-transform-and-load-etl-process'></a>
 
 ## Extract, transform, load (ETL) process
 
-extract, transform, load (ETL) is a data pipeline used to collect data from various sources. It then transforms the data according to business rules, and it loads the data into a destination data store. The transformation work in ETL takes place in a specialized engine, and it often involves using staging tables to temporarily hold data as it is being transformed and ultimately loaded to its destination.
+Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store. During the transformation phase, data is modified according to business rules using a specialized engine. This often involves staging tables that temporarily hold data as it is processed and ultimately loaded into its destination.
 
 ![Diagram of the extract, transform, load (ETL) process.](../images/etl.png)
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
-Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
+Often, the three ETL phases run in parallel to save time. For example, while data is being extracted, a transformation process can work on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete. You typically design parallelization around data partition boundaries (date, tenant, shard key) to avoid write contention and enable idempotent retries.
 
-Relevant Azure service:
+Relevant service:
 
-- [Azure Data Factory & Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
 Other tools:
 
@@ -31,60 +30,101 @@ Extract, load, transform (ELT) differs from ETL solely in where the transformati
 
 ![Diagram of the extract, load, transform (ELT) process.](../images/elt.png)
 
-Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage, such as a Hadoop Distributed File System, an Azure blob store, or Azure Data Lake gen 2 (or a combination). Technologies, such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which often can be a time consuming operation for large data sets.
+Typical use cases for ELT fall within the big data realm. For example, you might start by extracting source data to flat files in scalable storage, such as a Hadoop Distributed File System (HDFS), Azure blob storage, or Azure Data Lake Storage Gen2. Technologies such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own separate storage. This approach skips data copy steps present in ETL, which often can be time consuming for large data sets. Some workloads materialize transformed tables or views to improve query performance or enforce governance rules; ELT doesn't always imply purely virtualized transformations.
 
-In practice, the target data store is a [data warehouse](./data-warehousing.yml) using either a Hadoop cluster (using Hive or Spark) or a SQL dedicated pool on Azure Synapse Analytics. In general, a schema is overlaid on the flat file data at query time and stored as a table, enabling the data to be queried like any other table in the data store. These are referred to as external tables because the data does not reside in storage managed by the data store itself, but on some external scalable storage such as Azure Data Lake store or Azure blob storage.
+The final phase of the ELT pipeline typically transforms the source data into a format that's more efficient for the types of queries that need to be supported. For example, the data may be partitioned by commonly filtered keys. ELT might also use optimized storage formats like Parquet, which is a columnar storage format that organizes data by column to enable compression, [predicate pushdown](/sql/relational-databases/indexes/columnstore-indexes-query-performance), and efficient analytic scans.
 
-The data store only manages the schema of the data and applies the schema on read. For example, a Hadoop cluster using Hive would describe a Hive table where the data source is effectively a path to a set of files in HDFS. In Azure Synapse, PolyBase can achieve the same result &mdash; creating a table against data stored externally to the database itself. Once the source data is loaded, the data present in the external tables can be processed using the capabilities of the data store. In big data scenarios, this means the data store must be capable of massively parallel processing (MPP), which breaks the data into smaller chunks and distributes processing of the chunks across multiple nodes in parallel.
+Relevant Microsoft service:
 
-The final phase of the ELT pipeline is typically to transform the source data into a final format that is more efficient for the types of queries that need to be supported. For example, the data may be partitioned. Also, ELT might use optimized storage formats like Parquet, which stores row-oriented data in a columnar fashion and provides optimized indexing.
+- [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing)
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+- [Microsoft Fabric Data Pipelines](/fabric/data-factory)
 
-Relevant Azure service:
+## Choosing ETL or ELT
 
-- [SQL dedicated pools on Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [SQL Serverless pools on Azure Synapse Analytics](/azure/synapse-analytics/get-started-analyze-sql-on-demand)
-- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Datamarts in Power BI](/power-bi/transform-model/datamarts/datamarts-overview)
+The choice between these approaches depends on your requirements.
 
-Other tools:
+Choose ETL when:
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- You need to offload heavy transformations away from a constrained target system
+- Complex business rules require specialized transformation engines
+- Regulatory or compliance requirements mandate curated staging audits before loading
+
+Choose ELT when:
+
+- Your target system is a modern data warehouse or lakehouse with elastic compute scaling
+- You need to preserve raw data for exploratory analysis or future schema evolution
+- Transformation logic benefits from the target system's native capabilities
 
 ## Data flow and control flow
 
-In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task does not initiate processing until its predecessor has completed with one of these outcomes.
+In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task doesn't initiate processing until its predecessor has completed with one of these outcomes.
 
-Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you cannot add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
+Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you can't add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
 
 ![Diagram of a data flow being executed as a task within a control flow.](../images/control-flow-data-flow.png)
 
-In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
+In the diagram, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
-Relevant Azure service:
+Relevant service:
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Data factory in Microsoft Fabric](/fabric/data-factory/activity-overview)
 
-Other tools:
+## Reverse ETL
 
-- [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+Reverse ETL is the process of moving transformed, modeled data from analytical systems into operational tools and applications. Unlike traditional ETL, which flows data from operational systems to analytics, reverse ETL activates insights by pushing curated data back to where business users can act on it. In a reverse ETL pipeline, data flows from data warehouses, lakehouses, or other analytical stores to operational systems such as:
+
+- Customer relationship management (CRM) platforms
+- Marketing automation tools
+- Customer support systems
+- Workload databases
+
+The approach still follows an extraction, transformation, and load process. The transformation step is where you convert from the specific format used by your data warehouse or other analytics system to align to your target system's.
+
+See [Reverse extract, transform, & load (ETL) with Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/reverse-extract-transform-load) for an example.
+
+## Streaming data and hot path architectures
+
+When you need [Lambda hot path or Kappa architectures](/azure/architecture/databases/guide/big-data-architectures), you can subscribe to data sources as data is generated. Unlike ETL or ELT, which operate on datasets in scheduled batches, real-time streaming processes data as it arrives, enabling immediate insights and actions.
+
+![Diagram of the push, transform, and load process.](../images/push-transform-load.png)
+
+In a streaming architecture, data is ingested from event sources into a message broker or event hub (such as Azure Event Hubs or Kafka), then processed by a stream processor (such as Fabric Real-Time Intelligence, Azure Stream Analytics, or Apache Flink). The processor applies transformations such as filtering, aggregating, enriching, or joining with reference data—all in motion—before routing results to downstream systems like dashboards, alerts, or databases.
+
+This approach is ideal for scenarios where low latency and continuous updates are critical, such as:
+
+- Monitoring manufacturing equipment for anomalies
+- Detecting fraud in financial transactions
+- Powering real-time dashboards for logistics or operations
+- Triggering alerts based on sensor thresholds
+
+### Reliability considerations for streaming
+
+- Use checkpointing to guarantee at-least-once processing and recover from failures
+- Design transformations to be idempotent to handle potential duplicate processing
+- Implement [watermarking](/azure/databricks/structured-streaming/watermarks) for late-arriving events and out-of-order processing
+- Use dead letter queues for messages that can't be processed
 
 ## Technology choices
+
+Data stores:
 
 - [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.md#oltp-in-azure)
 - [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.md#olap-in-azure)
 - [Data warehouses](./data-warehousing.yml)
+
+Pipeline and orchestration:
+
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
+- [Microsoft Fabric Data Factory](/fabric/data-factory/) (modern orchestration)
+- [Azure Data Factory](/azure/data-factory/) (hybrid and non-Fabric scenarios)
+
+Lakehouse and modern analytics:
+
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+- [Microsoft Fabric Data Warehouse](/fabric/data-warehouse/)
 
 ## Next steps
 
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
-- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
-
-## Related resources
-
-The following reference architectures show end-to-end ELT pipelines on Azure:
-
-- [Use Azure Synapse Analytics to design an enterprise BI solution](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
-- [Databases architecture design](../../databases/index.yml)
+> [!div class="nextstepaction"]
+> [Fabric decision guide for data transformation](/fabric/fundamentals/decision-guide-pipeline-dataflow-spark)

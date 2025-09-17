@@ -12,7 +12,7 @@ To determine when to use GPUs for AKS workloads, you must understand GPU optimiz
 
 You can use GPUs to accelerate data preprocessing, feature engineering, and model training in data science workflows. To efficiently use GPUs, frameworks like [RAPIDS](https://rapids.ai/) and [Dask GPU](https://docs.dask.org/en/stable/gpu.html) extend popular data-processing libraries, such as pandas and scikit-learn.
 
-Open-source software (OSS)-accelerated SQL query engines and columnar databases like [BlazingSQL](https://github.com/BlazingDB/blazingsql) and [HeavyDB](https://github.com/heavyai/heavydb) use GPUs to rapidly perform queries and analytics on large datasets.
+Open-source software (OSS)-accelerated SQL query engines and columnar databases like [HeavyDB](https://www.heavy.ai/) use GPUs to rapidly perform queries and analytics on large datasets.
 
 #### Machine learning and deep learning
 
@@ -68,8 +68,6 @@ Many Microsoft customers take advantage of GPU workloads to innovate for their c
 
 - [An AI company called Mr. Turing uses AI and AKS to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
 - [OriGen accelerates energy reservoir simulations by 1,000 times by using Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure).
-- [Sensyne Health aids the National Health Service in the COVID-19 struggle by using Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc).
-- [Constellation Clearsight augments electrical infrastructure inspection by using automated machine learning for images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
 
 ## GPU workload deployment best practices
 
@@ -124,7 +122,7 @@ To improve machine learning operations, KAITO provides the following capabilitie
 
 - **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
 - **Automatic GPU node provisioning**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
-- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models. For open-source models with MIT or Apache2 licenses that the KAITO repository doesn't support, you can [submit a request](https://github.com/Azure/kaito/blob/main/docs/How-to-add-new-models.md) for new model onboarding.
+- **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models.
 
 For more information about KAITO, see the following resources:
 

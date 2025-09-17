@@ -247,7 +247,7 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - The aggregate types enable you to associate many related values with the same key. A Redis key identifies a list, set, or hash rather than the data items that it contains. These types are all available with Azure Cache for Redis and are described by the [Data types] page on the Redis website. For example, in part of an e-commerce system that tracks the orders that are placed by customers, the details of each customer can be stored in a Redis hash that is keyed by using the customer ID. Each hash can hold a collection of order IDs for the customer. A separate Redis set can hold the orders, again structured as hashes, and keyed by using the order ID. Figure 8 shows this structure. Note that Redis does not implement any form of referential integrity, so it is the developer's responsibility to maintain the relationships between customers and orders.
 
-![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersAndOrders.png)
+![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/redis-customers-and-orders.png)
 
 *Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
 

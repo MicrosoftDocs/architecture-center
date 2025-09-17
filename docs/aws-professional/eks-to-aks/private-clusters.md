@@ -112,7 +112,7 @@ Use the Azure CLI to run the [az aks command invoke](/cli/azure/aks/command#az-a
 
 In the Azure portal, you can use the `Run command` feature to run commands on your private cluster. This feature employs the `command invoke` functionality to run commands on your cluster. The pod that the `Run command` feature creates provides `kubectl` and `helm` tools to manage your cluster. The `Run command` also provides a Bash environment within the pod that includes tools like `jq`, `xargs`, `grep`, and `awk`.
 
-You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jump box management VM. Azure Bastion is a fully managed platform as a service (PaaS) that you can use to connect to a VM via your browser and the Azure portal. Azure Bastion provides highly secure and seamless Remote Desktop Protocol (RDP) or SSH VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
+You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jump box management VM. Azure Bastion is a fully managed platform as a service (PaaS) that you can use to connect to a VM via your browser and the Azure portal. Azure Bastion provides Remote Desktop Protocol (RDP) or SSH VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
 
 ### API Server VNet Integration
 
@@ -168,7 +168,7 @@ Other contributors:
 ## Next steps
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
-- [Create a private AKS cluster by using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
+- [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
 - [Create a public or private AKS cluster by using Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
 - [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)

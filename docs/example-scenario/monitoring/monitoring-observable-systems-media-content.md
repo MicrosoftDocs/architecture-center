@@ -1,10 +1,10 @@
-This architecture describes a solution that provides real-time monitoring and observability of systems and end-user device telemetry data. It focuses on a use case for the media industry.
+This architecture describes a solution that provides near real time monitoring and observability of systems and end-user device telemetry data. It focuses on a use case for the media industry.
 
 *[Grafana](https://grafana.com) is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
-:::image type="content" source="media/monitor-media.png" alt-text="Diagram that shows an architecture that provides real-time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.png" border="false":::
+:::image type="content" source="media/monitor-media.png" alt-text="Diagram that shows an architecture that provides near real time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring.vsdx) of this architecture.*
 
@@ -15,20 +15,26 @@ In the observable system shown in the diagram, raw telemetry is streamed to Azur
 More specifically, these are the elements of the system in the diagram:
 
 1. **Instrumentation.** Instrumentation occurs via probes or agents that are installed in systems to monitor data. These agents come in various forms. For example, in a video-on-demand streaming platform, a company might use open-standards [dash.js](https://github.com/Dash-Industry-Forum/dash.js) to collect Quality of Experience metrics from customers.
-2. **Ingestion.** This raw telemetry can come directly from end clients via HTTP calls. Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blog Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
+2. **Ingestion.** This raw telemetry can come directly from end clients via HTTP calls. Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blob Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
 3. **Transformation and persistence.** You might need a transformation system to normalize your data. An Azure Functions app transforms the data as needed and then writes it to Data Explorer. Data Explorer is ideal for big data analytics because it's designed for high performance and throughput on large data sets.
 4. **Monitoring.** Azure Managed Grafana supports integration with Data Explorer. You can use the drag-and-drop features of Grafana to quickly build dashboards and charts. Grafana is a good fit for media monitoring because it provides sub-minute refreshing of dashboard tiles and can also be used for alerting.
 5. **Anomaly detection.** The Grafana dashboard provides support for manual monitoring in the NOC. However, with a large data set and a user base spread across geographies and using various devices, manual identification of issues via charts and alert rules that have hard-coded thresholds becomes inefficient. You can use AI to address this problem. Services like Metrics Advisor use machine learning algorithms to automatically understand and detect anomalies based on time-series data. In addition, the Kusto data platform has built-in anomaly detection functions that account for seasonality and baseline trends in the data.
 
 ### Components
 
-- [Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed data analytics service for real-time analysis of large volumes of data. Data Explorer is a great tool for handling large datasets that require high speed and throughput of data retrieval. This architecture uses Data Explorer to store and query datasets for analysis.
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is used to hold raw telemetry. This telemetry can come from your applications and services or from third-party vendors. The data can be treated as transient if you don't need to perform more analysis later. The data from Blob Storage is ingested into Data Explorer clusters.
-- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is an event delivery system. It's used to listen to events that are published by Blob Storage. Azure Storage events allow applications to react to events like the creation and deletion of blobs. An Azure function subscribes to events that are published by Event Grid.
-- [Azure Event Hubs](/azure/well-architected/service-guides/azure-databricks-security) is a real-time data ingestion service that you can use to ingest millions of events per second from any source. Event hubs represent the front door, often called an event *ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that's used to parse and transform data ingested via HTTP and blob endpoints and write to the Data Explorer cluster.
-- [Azure Managed Grafana](/azure/managed-grafana/overview) connects easily to Data Explorer. In this architecture, it generates charts and dashboards that visualize telemetry data. Azure Managed Grafana provides deep integration with Microsoft Entra ID so that you can implement role-based access to dashboards and views.
-- [Metrics Advisor](/azure/ai-services/metrics-advisor/overview) is a part of Azure AI services. It uses AI to perform data monitoring and anomaly detection in time-series data. Metrics Advisor automates the process of applying models to data and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it even if you have no knowledge of machine learning.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed data analytics service for near real-time analysis of large volumes of data. Azure Data Explorer is a tool for handling large datasets that require high speed and throughput of data retrieval. In this architecture, Azure Data Explorer is used to store and query datasets for analysis.
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured data. This telemetry can come from your applications and services or from non-Microsoft vendors. In this architecture, Blob Storage is the initial landing zone for raw telemetry data from applications, services, or partner vendors. You can treat this data as transient if you don't need to perform more analysis later. The data from Blob Storage is ingested into Azure Data Explorer clusters.
+
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is an event delivery system that routes events from publishers to subscribers. In this architecture, Event Grid listens to events that Blob Storage publishes. Azure Storage events allow applications to react to events such as the creation and deletion of blobs. An Azure function subscribes to events that Event Grid publishes.
+
+- [Azure Event Hubs](/azure/well-architected/service-guides/azure-databricks-security) is a streaming data ingestion service that can ingest millions of events per second from any source. In this architecture, it serves as the front door, or *event ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
+
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that's used to parse and transform data. In this architecture, Azure Functions processes raw telemetry ingested via HTTP and blob endpoints and writes it to the Azure Data Explorer cluster for analysis.
+
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a managed service that provides Grafana dashboards and visualization capabilities. In this architecture, it connects to Azure Data Explorer to generate charts and dashboards that visualize telemetry data. Azure Managed Grafana provides deep integration with Microsoft Entra ID so that you can implement role-based access to dashboards and views.
+
+- [Metrics Advisor](/azure/ai-services/metrics-advisor/overview) is a part of Azure AI services. It uses AI to perform data monitoring and anomaly detection in time-series data. In this architecture, Metrics Advisor automates the process of applying models to data. It also provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it even if you have no knowledge of machine learning.
 
 ### Alternatives
 

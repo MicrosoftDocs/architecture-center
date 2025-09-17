@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus Considerations for Multitenancy
-description: This article describes the features of Azure Service Bus that are useful in multitenant systems. It provides links to guidance for how to use Service Bus in a multitenant solution.
+description: Explore Azure Service Bus isolation models, authentication, and features for multitenant architectures. Learn best practices for tenant data separation.
 author: PlagueHO
 ms.author: dascottr
 ms.date: 05/02/2025
@@ -15,16 +15,16 @@ Azure Service Bus provides highly reliable and asynchronous cloud messaging betw
 
 ## Isolation models
 
-When working with a multitenant system that uses Service Bus, you need to make a decision about the level of isolation that you want to adopt. Service Bus supports several isolation models.
+When you work with a multitenant system that uses Service Bus, you need to make a decision about the level of isolation that you want to adopt. Service Bus supports several isolation models.
 
 The following table summarizes the differences between the main tenancy models for Service Bus.
 
 | Consideration | Namespace for each tenant | Shared namespace or separate topics or queues for each tenant | Shared namespace, topics, or queues between tenants |
 | :--- | :--- | :--- | :--- |
-| Data isolation | High | Medium  | None |
+| Data isolation | High | Medium | None |
 | Performance isolation | Highest. Manage performance needs based on each tenant's requirements. | Medium. Potentially subject to noisy neighbor problems. | Low. Potentially subject to noisy neighbor problems. |
 | Deployment complexity | Medium. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the subscription level. | Medium. Message entities must be deployed separately for each tenant. Be aware of [Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the namespace level. | Low |
-| Operational complexity | High. Manage namespaces separately for each tenant. | Medium. Granular management of message entities might be required depending on tenant.  | Low |
+| Operational complexity | High. Manage namespaces separately for each tenant. | Medium. Granular management of message entities might be required depending on tenant. | Low |
 | Example scenario | Individual application instances for each tenant | Dedicated queues for each tenant | Large multitenant solution with a shared application tier and one or more shared queues and topics |
 
 ### Dedicated namespace for each tenant
@@ -41,25 +41,25 @@ You can also fine-tune messaging capabilities for each tenant based on their nee
 
 - Use [tenant-specific encryption keys](#customer-managed-keys).
 
-- Configure [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) or [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) to replicate the metadata and data of the namespace to another region.
+- Configure [geo-replication](/azure/service-bus-messaging/service-bus-geo-replication) or [geo‑disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) to replicate the metadata and data of the namespace to another region.
 
 The disadvantage to this isolation model is that as the number of tenants grows within your system over time, the operational complexity of managing your namespaces also increases. If you reach the maximum number of namespaces for each Azure subscription, you could deploy namespaces across different subscriptions. For more information, see [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp). This approach also increases resource costs because you pay for each namespace that you provision.
 
 ### Separate topics and queues in a shared namespace
 
-You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have a dedicated one or more queues that it listens to. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Microsoft Entra identity.
+You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have one or more dedicated queues that it interacts with. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Microsoft Entra identity.
 
 As the number of tenants grows within your system, the number of queues, topics, or subscriptions also increases to accommodate each tenant. This growth might result in higher operational costs and lower organizational agility.
 
 Because the namespace is shared across all tenants, [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) are more likely with this approach. For example, it's possible that a single tenant's messaging entities could consume a disproportionate amount of the namespace resources and affect all the other tenants. Service Bus namespaces have limits around the MU capacity and the number of concurrent connections to a namespace. Consider whether a single tenant might consume more than their fair share of these resources.
 
-There are also [limits](/azure/service-bus-messaging/service-bus-quotas) on the number of topics and queues you can provision within a single namespace. However, these limits are higher than the limit of namespaces in a subscription.
+There are also [limits](/azure/service-bus-messaging/service-bus-quotas) on the number of topics and queues that you can provision within a single namespace. However, these limits are higher than the limit of namespaces in a subscription.
 
 ### Shared topics or queues
 
 Use the same namespace and messaging entities for all your tenants to decrease your operational complexity and to lower your resource costs. It can also unlock advanced messaging and [filtering](#topic-filters-and-actions) scenarios.
 
-However, having a single namespace that all your tenants share can also result in the [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, you can pass the tenant context within the message payload or in a user-defined property. This approach enables you to correctly handle messages that are intended for different tenants. Service Bus provides topic filters and actions, which can be used to define which message a specific subscriber should receive. When you use a shared topic or queue, there's no data isolation between tenants, so you need to implement your data isolation requirements within your application logic.
+However, having a single namespace that all your tenants share can also result in the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, you can pass the tenant context within the message payload or in a user-defined property. This approach enables you to correctly handle messages that are intended for different tenants. Service Bus provides topic filters and actions, which can be used to define which message a specific subscriber should receive. When you use a shared topic or queue, there's no data isolation between tenants, so you need to implement your data isolation requirements within your application logic.
 
 > [!NOTE]
 > [Sessions](/azure/service-bus-messaging/message-sessions) are a useful feature to support message ordering requirements. However, they aren't typically used to isolate data between tenants, unless you also have requirements for message ordering within a tenant. For most multitenant solutions, consider using one of the other isolation models described in this article.
@@ -97,7 +97,7 @@ For more information, see [Topic filters and actions](/azure/service-bus-messagi
 
 ### Suspend and reactivate messaging entities
 
-You can temporarily suspend message entities. Suspension puts the messaging entity into a disabled state, and all messages are maintained in storage. The ability to deactivate messaging entities is useful when handling your [tenant life cycle](../considerations/tenant-lifecycle.md). For example, if a tenant unsubscribes from your product, you could disable the queues that are specific to that specific tenant.
+You can temporarily suspend message entities. Suspension puts the messaging entity into a disabled state, and all messages are maintained in storage. The ability to deactivate messaging entities is useful when handling your [tenant life cycle](../considerations/tenant-life-cycle.md). For example, if a tenant unsubscribes from your product, you could disable the queues that are specific to that specific tenant.
 
 For more information, see [Suspend and reactivate messaging entities (disable)](/azure/service-bus-messaging/entity-suspend).
 
@@ -111,7 +111,7 @@ Partitioning is available when you deploy namespaces with specific SKUs. For mor
 
 ### Automatic update of MUs
 
-Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enable this feature to allow the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) without requiring manual intervention.
+Service Bus premium namespaces can automatically adjust the number of MUs assigned to a namespace. Enable this feature to allow the namespace to elastically scale based on load. Elastic scaling can be useful in shared namespace multitenant designs to reduce the risk of [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) without requiring manual intervention.
 
 For more information, see [Automatically update MUs of a Service Bus namespace](/azure/service-bus-messaging/automate-update-messaging-units).
 
@@ -121,18 +121,18 @@ For more information, see [Automatically update MUs of a Service Bus namespace](
 
 Principal author:
 
-- [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://www.linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
-- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Related resource
 
 - [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md)

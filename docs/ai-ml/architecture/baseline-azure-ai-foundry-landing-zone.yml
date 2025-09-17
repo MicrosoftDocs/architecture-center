@@ -1,14 +1,15 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure OpenAI chat baseline architecture in an Azure landing zone
-  description: Learn how to build on the Azure OpenAI chat baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
+  title: Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone
+  description: Learn about deploying the baseline Azure AI Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 11/22/2024
+  ms.date: 06/22/2025
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: reference-architecture
   ms.custom: arb-aiml
+  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
   - web
@@ -16,12 +17,13 @@ azureCategories:
   - security
 products:
   - azure-openai
-  - azure-machine-learning
+  - ai-services
   - azure-app-service
   - azure-key-vault
   - azure-monitor
-name: Azure OpenAI chat baseline architecture in an Azure landing zone
-summary: Learn how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
-thumbnailUrl: ../../browse/thumbs/azure-openai-baseline-landing-zone.png
+  - azure-ai-foundry
+name: Baseline Azure AI Foundry chat reference architecture in an Azure landing zone
+summary: Learn about deploying the baseline Azure AI Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.
+thumbnailUrl: ../../browse/thumbs/baseline-azure-ai-foundry-landing-zone.png
 content: |
    [!INCLUDE[](baseline-azure-ai-foundry-landing-zone-content.md)]

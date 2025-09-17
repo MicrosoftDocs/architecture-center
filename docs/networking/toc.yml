@@ -8,11 +8,9 @@ items:
         items: 
         - name: Hub-spoke network topology in Azure
           href: architecture/hub-spoke.yml
-        - name: Hub-spoke topology with VWAN
-          href: architecture/hub-spoke-vwan-architecture.yml
-        - name: Update route tables with Route Server
-          href: architecture/manage-routing-azure-route-server.yml
-        - name: Massive-scale VWAN architecture design
+        - name: Hub-spoke topology with Virtual WAN
+          href: architecture/hub-spoke-virtual-wan-architecture.yml
+        - name: Massive-scale Virtual WAN architecture design
           href: architecture/massive-scale-azure-architecture.yml      
         - name: Virtual WAN optimized for requirements
           href: architecture/performance-security-optimized-vwan.yml
@@ -27,7 +25,7 @@ items:
       - name: Network topology
         items:
         - name: Spoke-to-spoke networking
-          href: guide/spoke-to-spoke-networking.yml
+          href: guide/spoke-to-spoke-networking.md
       - name: Network security
         items:
         - name: Use a split-brain DNS configuration to host a web app
@@ -35,7 +33,7 @@ items:
       - name: Private link
         items:
         - name: Private Link in hub-and-spoke network
-          href: guide/private-link-hub-spoke-network.yml
+          href: guide/private-link-hub-spoke-network.md
         - name: Guide to Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview

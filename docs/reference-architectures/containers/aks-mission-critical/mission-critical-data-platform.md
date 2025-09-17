@@ -36,7 +36,7 @@ In this architecture, there are two data stores:
 
   The only stateful service in the regional stamp is the message broker, which stores requests for a short period. The broker serves the need for buffering and reliable messaging. The processed requests are persisted in the global database.
 
-> For other data considerations, see [Misson-critical guidance in Well-architected Framework: Data platform considerations](/azure/architecture/framework/mission-critical/mission-critical-data-platform).
+> For other data considerations, see [Mission-critical guidance in Well-architected Framework: Data platform considerations](/azure/architecture/framework/mission-critical/mission-critical-data-platform).
 
 ## Database
 

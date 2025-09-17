@@ -134,7 +134,7 @@ After 15 seconds, one or both jobs still will not be completed. As the leases ex
 
 ![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages:
 
-- **Go** implementation is available on [GitHub](https://github.com/mspnp/go-batcher).
+- **Go** implementation is available on [GitHub](https://github.com/Azure-Samples/go-batcher).
 - **Java** implementation is available on [GitHub](https://github.com/Azure-Samples/java-rate-limiting-pattern-sample).
 
 ## Related resources

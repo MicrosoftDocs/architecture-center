@@ -2,11 +2,12 @@
 metadata:
   title: Multi-tier web application built for HA/DR
   description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.
-  author: sujayt
-  ms.author: sutalasi
+  author: shubhamsangal-msft
+  ms.author: shsangal
   ms.date: 07/09/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
   ms.category:
     - web
     - featured

@@ -19,7 +19,7 @@ A *store* refers to a single instance of the Azure App Configuration service.
 
 In a multitenant solution, it's common to have two types of settings:
 
-- **Shared settings** are those that apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.yml#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings could get out of sync.
+- **Shared settings** are those that apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.md#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings could get out of sync.
 
 - **Tenant-specific settings**, such as each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem that's reported by a specific tenant and you need to collect diagnostic logs from that one tenant. You can choose whether to combine the tenant-specific settings for multiple tenants into a single store, or to deploy a store for each tenant. This decision should be based on your requirements. If your solution uses a single shared application tier for multiple tenants, there's likely to be minimal benefit to using tenant-specific stores. But if you deploy tenant-specific application instances, you might choose to mirror the same approach by deploying tenant-specific configuration stores.
 
@@ -89,15 +89,15 @@ If you load each tenant's configuration settings separately, your application ne
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
+Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md).

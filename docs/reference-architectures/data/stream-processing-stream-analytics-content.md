@@ -1,7 +1,5 @@
 This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
-
 ## Architecture
 
 :::image type="content" source="./images/stream-processing-asa/stream-processing-stream-analytics.svg" alt-text="Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics." lightbox="./images/stream-processing-asa/stream-processing-stream-analytics.svg":::
@@ -86,7 +84,7 @@ using (var client = pool.GetObject())
 
 ### Stream processing
 
-The stream processing job is defined using a SQL query with several distinct steps. The first two steps simply select records from the two input streams.
+The stream processing job is defined using a SQL query with several distinct steps. The first two steps select records from the two input streams.
 
 ```sql
 WITH
@@ -208,7 +206,7 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
-- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline.
 
 For more information, see the operational excellence pillar in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
@@ -230,7 +228,7 @@ Windowing functions and temporal joins require additional SU. When possible, use
 
 If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
 
-- Steps 1 and 2 are simple `SELECT` statements that select records within a single partition.
+- Steps 1 and 2 are `SELECT` statements that select records within a single partition.
 - Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
 - Step 4 aggregates across all of the partitions. This step cannot be parallelized.
 
@@ -244,19 +242,13 @@ Throughput capacity for Azure Cosmos DB is measured in [Request Units (RUs)](/az
 
 In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 
-## Deploy this scenario
-
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
-
 ## Related resources
 
 - [Stream processing with Azure Databricks](stream-processing-databricks.yml)
 
 <!-- links -->
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: /azure/well-architected/operational-excellence/principles
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
-[github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[databricks-monitoring]: ../../databricks-monitoring/index.md

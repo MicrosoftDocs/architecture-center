@@ -9,25 +9,22 @@ In this set of articles, we explore how to build a microservices architecture on
 - [Data considerations](./data-considerations.yml)
 - [Design patterns](./patterns.yml)
 
-
 ## Prerequisites
 
 Before reading these articles, you might start with the following:
 
-- [Introduction to microservices architectures](../index.yml). Understand the benefits and challenges of microservices, and when to use this style of architecture.
+- [Introduction to microservices architectures](../../guide/architecture-styles/microservices.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
 - [Using domain analysis to model microservices](../model/domain-analysis.md). Learn a domain-driven approach to modeling microservices.
 
-## Reference implementation
+## Example architecture
 
-To illustrate best practices for a microservices architecture, we created a reference implementation that we call the Drone Delivery application. This implementation runs on Kubernetes using Azure Kubernetes Service (AKS). You can find the reference implementation on [GitHub][drone-ri].
-
-![Diagram showing the architecture of the Drone Delivery application.](../images/drone-delivery-impl.png)
+![Diagram showing the architecture of a drone delivery workload.](../images/drone-delivery-impl.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/design-microservice-drone-delivery-imp.vsdx) of this architecture.*
 
 ## Scenario
 
-Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA. 
+Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.
 
 This solution is ideal for the aerospace and aircraft industries.
 
@@ -36,11 +33,7 @@ This scenario involves a fairly complicated domain. Some of the business concern
 > [!NOTE]
 > For help in choosing between a microservices architecture and other architectural styles, see the [Azure Application Architecture Guide](../../guide/index.md).
 
-Our reference implementation uses Kubernetes with [Azure Kubernetes Service (AKS)](/azure/aks/). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator.
-
-<!-- links -->
-
-[drone-ri]: https://github.com/mspnp/microservices-reference-implementation/tree/v0.1.0-orig
+This architecture uses Kubernetes with [Azure Kubernetes Service (AKS)](/azure/aks/). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator.
 
 ## Next steps
 

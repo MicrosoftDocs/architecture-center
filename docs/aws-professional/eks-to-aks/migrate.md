@@ -144,7 +144,7 @@ Principal authors:
 
 Other contributors:
 
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technical Specialist
 

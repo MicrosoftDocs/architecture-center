@@ -41,11 +41,10 @@ The data flows through the scenario as follows:
 
 ## Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
-- [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from sourandce datastores and the masked data that will be loaded into destination data stores.
-- [Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
-- [Self Hosted Integration Runtime](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
-- Optional: [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It provides a code-free UI for intuitive authoring and unified monitoring and management.  In this architecture, Azure Data Factory orchestrates the entire data masking workflow, including extracting data from SAP HANA, initiating masking jobs, monitoring operations, and loading masked data into Azure Synapse Analytics.
+- [Azure Storage](/azure/storage/common/storage-introduction) provides scalable cloud storage for structured and unstructured data. In this architecture, it stores both the raw source data and the masked output data. It serves as the intermediary storage layer between extraction and loading.
+- [Self-Hosted Integration Runtime](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) is a component that enables secure data movement between on-premises and cloud environments. In this architecture, it facilitates data extraction from SAP HANA by using the required ODBC driver.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private, isolated network environment in Azure. In this architecture, it enables secure communication between services that aren't part of the Synapse workspace. It helps manage access, security, and routing between resources.
 
 ## Potential use cases
 

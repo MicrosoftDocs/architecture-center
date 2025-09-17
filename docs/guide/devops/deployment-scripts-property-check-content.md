@@ -69,7 +69,7 @@ param parAzResourcePropertyToCheck string = 'routingState'
 @description('The value of the property of the resource that you wish to check.')
 param parAzResourceDesiredState string = 'Provisioned'
 
-@description('How long in seconds the deployment script should wait between check/polling requestes to check the property, and its state, if not in its desired state. Defaults to `30`')
+@description('How long in seconds the deployment script should wait between check/polling requests to check the property, and its state, if not in its desired state. Defaults to `30`')
 param parWaitInSecondsBetweenIterations int = 30
 
 module modVWANHub 'modules/vwanHub.bicep' = {
@@ -224,6 +224,6 @@ Other contributor:
 
 ## Related resources
 
-- [Hub-spoke network topology with Azure Virtual WAN](../../networking/architecture/hub-spoke-vwan-architecture.yml)
-- [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](../../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
+- [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.md)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

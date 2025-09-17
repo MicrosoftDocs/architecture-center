@@ -1,8 +1,8 @@
 ---
 title: DevOps architecture design
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
-author: brandonmartinez
-ms.author: brmar
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
@@ -95,7 +95,7 @@ The following articles are about best practices that are specific to DevOps and 
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
-- [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
+- [Reliability guides by service](/azure/reliability/overview-reliability-guidance)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)
 - [Monitoring best practices for reliability in Azure applications](/azure/architecture/framework/resiliency/monitor-best-practices)
 - [Overview of the Azure Security Benchmark (v1)](/security/benchmark/azure/overview-v1)

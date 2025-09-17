@@ -30,7 +30,7 @@ There is no single approach that's correct in all cases, but here are some gener
 
 - Consider whether your services are coherent and loosely coupled. If two services are continually exchanging information with each other, resulting in chatty APIs, you may need to redraw your service boundaries, by merging two services or refactoring their functionality.
 
-- Use an [event driven architecture style](../../guide/architecture-styles/event-driven.yml). In this architecture style, a service publishes an event when there are changes to its public models or entities. Interested services can subscribe to these events. For example, another service could use the events to construct a materialized view of the data that is more suitable for querying.
+- Use an [event driven architecture style](../../guide/architecture-styles/event-driven.md). In this architecture style, a service publishes an event when there are changes to its public models or entities. Interested services can subscribe to these events. For example, another service could use the events to construct a materialized view of the data that is more suitable for querying.
 
 - A service that owns events should publish a schema that can be used to automate serializing and deserializing the events, to avoid tight coupling between publishers and subscribers. Consider JSON schema or a framework like [Microsoft Bond](https://github.com/Microsoft/bond), Protobuf, or Avro.
 
@@ -38,7 +38,7 @@ There is no single approach that's correct in all cases, but here are some gener
 
 ## Example: Choosing data stores for the Drone Delivery application
 
-The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./index.yml). This example is ideal for the aircraft and aerospace industries.
+The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding architecture in [Design a microservices architecture](./index.yml).
 
 To recap, this application defines several microservices for scheduling deliveries by drone. When a user schedules a new delivery, the client request includes information about the delivery, such as pickup and dropoff locations, and about the package, such as size and weight. This information defines a unit of work.
 
@@ -82,4 +82,4 @@ Learn about design patterns that can help mitigate some common challenges in a m
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.yml)
 - [Design APIs for microservices](api-design.yml)
-- [Microservices architecture design](../../microservices/index.yml)
+- [Microservices architecture design](../../guide/architecture-styles/microservices.md)

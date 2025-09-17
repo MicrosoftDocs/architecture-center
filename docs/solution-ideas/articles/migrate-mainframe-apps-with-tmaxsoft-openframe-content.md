@@ -39,9 +39,9 @@ The following diagram shows the patient record creation request flow:
    - OpenFrame provides middleware integration. For instance, this functionality works with web services and [message queues (MQs)][Message queues].
 
 1. The TmaxSoft solution uses two VMs. Each one runs an application server, and an Azure Load Balancer manages approaching traffic. OpenFrame supports both [active-active][Active-active definition] and [active-passive][Active-passive definition] configurations.
-1. [OpenFrame language compilers][Tmax OpenFrame documentation] migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
-1. [OpenFrame Online][Tmax OpenFrame documentation] provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
-1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). OpenFrame Batch minimizes code updates by supporting native Job Control Language (JCL) syntax and batch utilities.
+1. OpenFrame language compilers migrate [COBOL](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_cobol_4.html), [Assembler](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_asm_4.html), [PL/I](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/compilers/index_of_pli_3.html), Easytrieve, and other mainframe applications to Azure by recompiling the source.
+1. OpenFrame Online provides tools and commands that replace [CICS](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_osc_7.1.html), [IMS-DC](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_osi_7.2.html), Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
+1. [OpenFrame Batch](https://docs.tmaxsoft.com/en/tmaxsoft_docs/main/openframe/mvs_components/index_of_batch_mvs_7.1.html) provides tools for managing batch programs that replace the job entry subsystem (JES). OpenFrame Batch minimizes code updates by supporting native Job Control Language (JCL) syntax and batch utilities.
 1. Tmax Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. [UnixODBC (Open Database Connectivity)][UnixODBC] connection drivers communicate with relational database management systems (RDBMSs). Examples include Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
@@ -50,21 +50,21 @@ The following diagram shows the patient record creation request flow:
 
 ### Components
 
-- [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud by using a connectivity provider. ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
+- [ExpressRoute][Azure ExpressRoute] is a service that creates private connections between on-premises infrastructure and Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365]. In this architecture, ExpressRoute ensures secure and reliable connectivity between existing systems and Azure-hosted OpenFrame applications.
 
-- [Azure Bastion][What is Azure Bastion] provides secure and seamless [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.
+- [Azure Bastion][What is Azure Bastion] is a managed platform that provides secure [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] access to VMs without exposing them to the public internet. In this architecture, Azure Bastion enhances security by allowing administrators to manage VMs directly from the Azure portal instead of using public IP addresses.
 
-- [Azure Load Balancer][Azure Load Balancer] operates at layer four of the [Open Systems Interconnection (OSI)][OSI model] model. As the single point of contact for clients, Load Balancer distributes inbound traffic to back-end pool instances. It directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set.
+- [Load Balancer][Azure Load Balancer] is a load balancing service that distributes incoming traffic across multiple back-end resources. It operates at layer 4 of the [Open Systems Interconnection (OSI)][OSI model] model. Load Balancer directs traffic according to configured load balancing rules and health probes. In this architecture, it ensures high availability and scalability by routing traffic between the two active-active Linux VMs that run OpenFrame.
 
-- [Azure VMs][Azure Virtual Machines] are one of several types of on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs host the TmaxSoft OpenFrame software, which provides the runtime environment for migrated mainframe applications.
 
-- [Azure Virtual Networks][Azure Virtual Networks] are the fundamental building blocks for private networks in Azure. These networks provide a way for many types of Azure resources, such as Azure VMs, to securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a data center. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure Virtual Network][Azure Virtual Networks] is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it connects all components, including VMs, databases, and file shares, while maintaining isolation and scalability.
 
-- [Azure Files Storage Accounts and Azure File Shares][Azure Files] are fully managed file shares in the cloud. Azure file shares are accessible via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
+- [Azure Files storage accounts and Azure file shares][Azure Files] are managed file shares in the cloud. Azure file shares can be accessed via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares. In this architecture, Azure Files stores COBOL program files, load modules, and logs, which enables file access from the Linux VMs.
 
-- [Azure SQL Database][Azure SQL Database] is an intelligent, scalable relational database service built for the cloud. With AI-powered, automated features, Azure SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
+- [Azure SQL Database][Azure SQL Database] is a managed relational database engine that automates upgrading, patching, backups, and monitoring. In this architecture, it serves as the modernized data layer for OpenFrame applications, which supports transactional and analytical workloads.
 
-- [Azure Site Recovery][Azure Site Recovery] provides replication, failover, and recovery processes to help keep applications running during outages.
+- [Azure Site Recovery][Azure Site Recovery] is a disaster recovery service that replicates and recovers workloads during outages. In this architecture, it provides recovery capabilities for the VM components to help maintain business continuity.
 
 ## Next steps
 
@@ -73,19 +73,20 @@ The following diagram shows the patient record creation request flow:
 - Read how to [install TmaxSoft OpenFrame on Azure][Install TmaxSoft OpenFrame on Azure article].
 
 ## Related resources
+
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - [Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting][Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]
 - [Lift, shift, and modernize: proven mainframe modernization strategies that enable digital transformation][Lift and shift]
 
 [Active-active definition]: https://www.webopedia.com/TERM/A/active_active.html
 [Active-passive definition]: https://www.jscape.com/blog/active-active-vs-active-passive-high-availability-cluster
-[Azure ExpressRoute]: /azure/expressroute/expressroute-introduction
-[Azure Load Balancer]: /azure/load-balancer/load-balancer-overview
-[Azure Files]: /azure/storage/files/storage-files-introduction
-[Azure Site Recovery]: https://azure.microsoft.com/services/site-recovery
-[Azure SQL Database]: https://azure.microsoft.com/services/sql-database
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
-[Azure Virtual Networks]: /azure/virtual-network/virtual-networks-overview
+[Azure ExpressRoute]: /azure/well-architected/service-guides/azure-expressroute
+[Azure Load Balancer]: /azure/well-architected/service-guides/azure-load-balancer
+[Azure Files]: /azure/well-architected/service-guides/azure-files
+[Azure Site Recovery]: /azure/site-recovery/site-recovery-overview
+[Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Networks]: /azure/well-architected/service-guides/virtual-network
 [CICS]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zmidtrmg/zmiddle_13.htm
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
 [IMS-DC]: https://www.sawaal.com/mainframe-interview-questions/what-is-ims-db-dc_9366
@@ -99,8 +100,7 @@ The following diagram shows the patient record creation request flow:
 [RDP]: /troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
 [SSH]: https://www.ssh.com/ssh
 [SMB protocol]: /openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
-[Tmax OpenFrame documentation]: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE36tt6
 [UnixODBC]: https://en.wikipedia.org/wiki/UnixODBC
-[What is Azure]: https://azure.microsoft.com/overview/what-is-azure
+[What is Azure]: /azure/
 [What is Azure Bastion]: /azure/bastion/bastion-overview
-[What is Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365?rtc=1
+[What is Microsoft 365]: /microsoft-365/
