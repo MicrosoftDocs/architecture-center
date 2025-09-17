@@ -10,6 +10,7 @@ metadata:
   ms.category:
     - web
   ms.custom: arb-web
+  ai-usage: ai-assisted
 name: Basic web application
 azureCategories:
   - web

@@ -12,6 +12,7 @@ metadata:
   ms.collection:
     - migration
     - onprem-to-azure
+  ai-usage: ai-assisted
 azureCategories:
   - migration
   - networking

@@ -24,7 +24,7 @@ The following dataflow corresponds to the previous diagram:
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
-   - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio.
+   - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio. 
 
    - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
@@ -38,7 +38,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning). You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API.
+   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models]([/azure/ai-services/openai/how-to/fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning-deploy?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&tabs=portal).You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API. You can also deploy finetuned foundation models from mutiple providers like Meta, llama etc as [Serverless API](/azure/ai-foundry/how-to/fine-tune-serverless?tabs=chat-completion&pivots=foundry-portal) or using [Managed Compute](/azure/ai-foundry/how-to/fine-tune-managed-compute). 
 
 ### Components
 
@@ -58,7 +58,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. It provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features) and language understanding capabilities. Use it to classify documents, recognize named entities, and complete other NLP tasks.
 
-- [Language Studio](/azure/ai-services/language-service/overview) is a web-based UI for building, training, and managing language models. In this architecture, it supports tagging, training, and deploying custom language models for tasks like classification and entity extraction within the document processing pipeline.
+- [Language Studio](/azure/ai-services/language-service/overview) is a web-based UI for building, training, managing and deploying language models. In this architecture, it supports tagging, training, and deploying custom language models for tasks like classification and entity extraction within the document processing pipeline. [Autolabelling](/azure/ai-services/language-service/custom-text-classification/how-to/use-autolabeling) is supported for custom text classification and can be used to automiatically label your documents into different classes or categories. The studio also provides option to view the [model performance](/azure/ai-services/language-service/custom-text-classification/how-to/view-model-evaluation?tabs=language-studio%2Coverview%2CLanguage-studio) including F1 score, precision, recall etc. 
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it labels data, trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
 
@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI is used for advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI models or other foundation models from multiple providers is used for advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
 
 ### Alternatives
 
@@ -78,7 +78,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. There are two unique ways through Azure [AI Foundry Portal](/azure/ai-foundry/openai/how-to/fine-tuning?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&tabs=azure-openai&pivots=programming-language-studio) : [Azure OpenAI centric view](https://ai.azure.com/resource/overview) which supports finetuning of Azure OpenAI models and [Hub/Project View](https://ai.azure.com/?cid=learnDocs) which supports finetuning from multiple providers including Azure OpenAI, Meta etc.  Azure AI Foundry also offers two modalities for deployment : [Serverless Compute and Managed Compute] (/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). There are [certain models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) which support deployments through serverless API. You can also explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario. 
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -203,7 +203,8 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Principal author:
 
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Senior Customer Engineer
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Engineer
+- Dixit Arora | Senior Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

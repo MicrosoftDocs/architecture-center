@@ -50,21 +50,21 @@ The following diagram shows the patient record creation request flow:
 
 ### Components
 
-- [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud by using a connectivity provider. ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
+- [ExpressRoute][Azure ExpressRoute] is a service that creates private connections between on-premises infrastructure and Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365]. In this architecture, ExpressRoute ensures secure and reliable connectivity between existing systems and Azure-hosted OpenFrame applications.
 
-- [Azure Bastion][What is Azure Bastion] provides secure and seamless [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.
+- [Azure Bastion][What is Azure Bastion] is a managed platform that provides secure [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] access to VMs without exposing them to the public internet. In this architecture, Azure Bastion enhances security by allowing administrators to manage VMs directly from the Azure portal instead of using public IP addresses.
 
-- [Azure Load Balancer][Azure Load Balancer] operates at layer four of the [Open Systems Interconnection (OSI)][OSI model] model. As the single point of contact for clients, Load Balancer distributes inbound traffic to back-end pool instances. It directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set.
+- [Load Balancer][Azure Load Balancer] is a load balancing service that distributes incoming traffic across multiple back-end resources. It operates at layer 4 of the [Open Systems Interconnection (OSI)][OSI model] model. Load Balancer directs traffic according to configured load balancing rules and health probes. In this architecture, it ensures high availability and scalability by routing traffic between the two active-active Linux VMs that run OpenFrame.
 
-- [Azure VMs][Azure Virtual Machines] are one of several types of on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides full control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs host the TmaxSoft OpenFrame software, which provides the runtime environment for migrated mainframe applications.
 
-- [Azure virtual networks][Azure Virtual Networks] are the fundamental building blocks for private networks in Azure. These networks provide a way for many types of Azure resources, such as Azure VMs, to securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a data center. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure Virtual Network][Azure Virtual Networks] is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it connects all components, including VMs, databases, and file shares, while maintaining isolation and scalability.
 
-- [Azure Files storage accounts and Azure file shares][Azure Files] are fully managed file shares in the cloud. Azure file shares are accessible via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
+- [Azure Files storage accounts and Azure file shares][Azure Files] are managed file shares in the cloud. Azure file shares can be accessed via the industry standard [Server Message Block (SMB)][SMB protocol] protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares. In this architecture, Azure Files stores COBOL program files, load modules, and logs, which enables file access from the Linux VMs.
 
-- [Azure SQL Database][Azure SQL Database] is an intelligent, scalable relational database service built for the cloud. With AI-powered, automated features, Azure SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
+- [Azure SQL Database][Azure SQL Database] is a managed relational database engine that automates upgrading, patching, backups, and monitoring. In this architecture, it serves as the modernized data layer for OpenFrame applications, which supports transactional and analytical workloads.
 
-- [Azure Site Recovery][Azure Site Recovery] provides replication, failover, and recovery processes to help keep applications running during outages.
+- [Azure Site Recovery][Azure Site Recovery] is a disaster recovery service that replicates and recovers workloads during outages. In this architecture, it provides recovery capabilities for the VM components to help maintain business continuity.
 
 ## Next steps
 
