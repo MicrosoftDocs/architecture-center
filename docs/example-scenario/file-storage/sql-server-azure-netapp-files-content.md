@@ -76,31 +76,26 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-* **High availability**
+**High availability**Azure NetApp Files provides an SLA of 99.99% and is designed to handle hardware failures effectively. The 99.99% SLA can be improved for the highest levels of availability by using cross-zone replication in combination with [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-ver16).
 
-	Azure NetApp Files provides an SLA of 99.99% and is designed to handle hardware failures effectively. The 99.99% SLA can be improved for the highest levels of availability by using cross-zone replication in combination with [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-ver16).
-
-### Security 
+### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-* **Role-based access, encryption at-rest and in-flight**
-	You can rely on [secure data plane concepts](/azure/azure-netapp-files/data-plane-security) with configurable role-based permissions at the share and file level. Data is encrypted in transit and at rest.
+**Role-based access, encryption at-rest and in-flight:** You can rely on [secure data plane concepts](/azure/azure-netapp-files/data-plane-security) with configurable role-based permissions at the share and file level. Data is encrypted in transit and at rest.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-* **Smaller VM size**
+**Smaller VM size:** Network-attached storage, limited by network bandwidth rather than disk I/O, can perform better than disk I/O. This is due to the ingrained constraint of cloud resources and the fact that VM SKUs generally have higher network limits than disk limits. This solution supports smaller VM sizes with better performance. Smaller VMs are less costly and carry lower SQL Service license costs, while network attached storage doesn't have an I/O cost factor.
 
-	Network-attached storage, limited by network bandwidth rather than disk I/O, can perform better than disk I/O. This is due to the ingrained constraint of cloud resources and the fact that VM SKUs generally have higher network limits than disk limits. This solution supports smaller VM sizes with better performance. Smaller VMs are less costly and carry lower SQL Service license costs, while network attached storage doesn't have an I/O cost factor. 
- 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-* **Scalability** 
-	Azure NetApp Files volumes can be expanded or contracted without interruption to the database. The flexibility supports both growth and cost reduction, without having to shut down and restart the database.
+**Scalability:** Azure NetApp Files volumes can be expanded or contracted without interruption to the database. The flexibility supports both growth and cost reduction, without having to shut down and restart the database.
+
 
 ## Deploy this scenario
 
