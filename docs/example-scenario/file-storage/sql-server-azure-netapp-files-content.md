@@ -30,7 +30,7 @@ High availability and disaster recovery for SQL Server can be achieved on Azure 
 
 ### Alternatives
 
-Other Azure solutions exist for providing storage for SQL Server on Azure VMs. When you evaluate alternatives, consider the benefits of space-efficient snapshots for primary data protection. These snapshots can be backed up to an Azure storage account by using [SnapCenter](https://www.netapp.com/cyber-resilience/data-protection/snapcenter/), which is included at no extra cost when used with Azure NetApp Files. This approach completes a comprehensive data protection and availability strategy.
+Other Azure solutions exist for providing storage for SQL Server on Azure VMs. When you evaluate alternatives, consider the benefits of space-efficient snapshots for primary data protection. These snapshots can be backed up to an Azure storage account by using [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html), which is included at no extra cost when used with Azure NetApp Files. This approach completes a comprehensive data protection and availability strategy.
 
 ## Scenario details
 
