@@ -181,8 +181,7 @@ Principal author:
 ## Next steps
 
 - For more information, please contact legacy2azure@microsoft.com.
-- [Advanced's Automated COBOL Refactoring solution](https://modernsystems.oneadvanced.com/services/cobol)
-- [Case study: Modernizing to the Cloud While Racing the Clock](https://modernsystems.oneadvanced.com/case-studies/uk-government-agency/?utm_medium=CampaignPage&utm_source=Website&utm_campaign=UKGOVCaseStudy).
+- [Automated COBOL Refactoring Factsheet (PDF)](https://uat.modernsystems.oneadvanced.com/globalassets/modern-systems-assets/resources/application-modernization-collateral/mdsy-factsheets/automated-application-refactoring-factsheet.pdf)
 
 ## Related resources
 

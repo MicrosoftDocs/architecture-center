@@ -181,10 +181,6 @@ Other contributor:
 - [United States Air Force (case study)](https://www.astadia.com/case-studies/united-states-air-force)
 - [Jefferson County (case study)](https://www.astadia.com/case-studies/jefferson-county)
 
-#### Other
-
-- [Automated Data Migration](https://modernsystems.oneadvanced.com/services/automated-data-migration)
-
 ## Related sources
 
 - [High-volume batch transaction processing](process-batch-transactions.yml)
