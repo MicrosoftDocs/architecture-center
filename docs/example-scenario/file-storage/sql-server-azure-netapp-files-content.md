@@ -26,13 +26,11 @@ High availability and disaster recovery for SQL Server can be achieved on Azure 
 
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is a high performance, Azure-native storage system that's used in this context for storing database and log files.
 
-- [SnapCenter](https://docs.netapp.com/en-us/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html) is a scalable platform that provides application-consistent data protection for both applications and databases.
-
-TEST: [SnapCenter](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-snapcenter-architecture.html).
+- [SnapCenter](https://docs.netapp.com/us-en/snapcenter/get-started/concept_snapcenter_overview.html) is a scalable platform that provides application-consistent data protection for both applications and databases.
 
 ### Alternatives
 
-Other Azure solutions exist for providing storage for SQL Server on Azure VMs. When you evaluate alternatives, consider the benefits of space-efficient snapshots for primary data protection. These snapshots can be backed up to an Azure storage account by using [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-scsql/reference_back_up_sql_server_database_or_instance_or_availability_group.html), which is included at no extra cost when used with Azure NetApp Files. This approach completes a comprehensive data protection and availability strategy.
+Other Azure solutions exist for providing storage for SQL Server on Azure VMs. When you evaluate alternatives, consider the benefits of space-efficient snapshots for primary data protection. These snapshots can be backed up to an Azure storage account by using [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), which is included at no extra cost when used with Azure NetApp Files. This approach completes a comprehensive data protection and availability strategy.
 
 ## Scenario details
 
