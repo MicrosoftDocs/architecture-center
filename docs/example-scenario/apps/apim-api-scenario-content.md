@@ -116,9 +116,8 @@ Learn modules:
 - [Deploy a website to Azure with Azure App Service](/training/paths/deploy-a-website-with-azure-app-service/)
 - [Protect your APIs on Azure API Management](/training/modules/protect-apis-on-api-management/)
 
-## Related resources
+## Related resource
 
-- [Architect scalable e-commerce web apps](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
 
 <!-- links -->

@@ -21,11 +21,11 @@ The data flows through the scenario as follows:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It includes Azure Data Factory pipelines to provide data integration.
-- [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastores and the masked data that will be loaded into destination data stores.
-- Optional: [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
-- Other Components: Based on the datastores used as source and destination, other components may need to be added. These datastores can vary depending on your requirements.
+- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It provides a code-free UI for intuitive authoring and unified monitoring and management. In this architecture, Azure Data Factory orchestrates the entire data masking workflow, including extracting data, initiating masking jobs, monitoring operations, and loading masked data into destination stores.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this architecture, Azure Synapse Analytics can serve as the destination for masked data and includes Azure Data Factory pipelines for data integration.
+- [Azure Storage](/azure/storage/common/storage-introduction) provides scalable cloud storage for structured and unstructured data. In this architecture, it stores both the raw source data and the masked output data. Azure Storage serves as the intermediary storage layer for data that loads into destination data stores.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private, isolated network environment in Azure. In this architecture, Virtual Network provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- Other components might include various source and destination datastores depending on the specific use case. These componants integrate into the architecture based on the data sources that you use, such as SAP, Salesforce, or Oracle EBS.
 
 ### Alternatives
 
@@ -101,7 +101,7 @@ Any Azure data factory or Azure Synapse Analytics connector can be used to facil
 
 ### Example architecture
 
-The following example was provided by an anonymous customer. It is intended only as a sample for how one might architect an environment for this masking use case.
+The following example was provided by an anonymous customer. It's intended only as a sample for how one might architect an environment for this masking use case.
 
 :::image type="content" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
 
@@ -148,14 +148,14 @@ For optimal performance for datasets larger than 1 TB in size, [Delphix Hypersca
 1. [Deploy the Delphix CC Engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/)
 1. In Data Factory, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) Data Factory templates. These templates work for both Azure Synapse Analytics and Azure Data Factory pipelines.
 1. In the Copy Data components, configure the desired source and target datastores. In the Web Activity components, input the Delphix application IP address / host name and the credentials to authenticate with Delphix CC APIs.
-1. Run the Delphix CC Profiling Data Factory template for initial setup, and anytime you would like to reidentify sensitive data (ex: if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that may contain sensitive data.
-1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
-1. Review and modify results from the [Inventory screen](https://maskingdocs.delphix.com/Connecting_Data/Managing_Inventories/#the-inventory-screen) as desired. Once you're satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+1. Run the Delphix CC Profiling Data Factory template for initial setup, and anytime you would like to re-identify sensitive data (ex: if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that may contain sensitive data.
+1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
+1. Review and modify results from the [Inventory screen](https://masking.delphix.com/docs/latest/managing-inventories) as desired. Once you're satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
 1. Back in the Data Factory UI, open the Delphix CC Masking Data Factory template. Provide the Masking Job ID from the above step, then run the template.
 1. At the end of this step, you'll have masked data in the target datastore of your choice.
 
 > [!NOTE]
-> You will need the Delphix application IP address and host name with credentials to authenticate to the Delphix APIs.
+> You'll need the Delphix application IP address and host name with credentials to authenticate to the Delphix APIs.
 
 ## Contributors
 

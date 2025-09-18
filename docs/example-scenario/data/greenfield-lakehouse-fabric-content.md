@@ -42,11 +42,11 @@ There are two approaches to data preparation and transformation. If you prefer a
 
 Every workspace in Fabric comes with a Spark [starter pool](/fabric/data-engineering/configure-starter-pools), which is used for default Spark jobs. With starter pools, you can expect rapid Apache Spark session initialization, typically within 5 to 10 seconds, without any manual setup. You also get the flexibility to customize Apache Spark pools according to your data engineering requirements. You can size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, you can use [environments](/fabric/data-engineering/create-and-use-environment). In an environment, you can configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
 
-[Dataflows](/fabric/data-factory/create-first-dataflow-gen2) allow you to extract data from various sources, transform it by using a wide range of operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides an easy, reusable way to perform extract, transform, load (ETL) tasks by using visual cues in Power Query Online. The dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a Data Pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
+[Dataflows](/fabric/data-factory/create-first-dataflow-gen2) allow you to extract data from various sources, transform it by using a wide range of operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides a reusable way to perform extract, transform, load (ETL) tasks by using visual cues in Power Query Online. The dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a Data Pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
 
 #### Hot path: Real-time analytics
 
-Real-time data processing is vital for businesses that want to stay agile, make informed decisions quickly, and take advantage of immediate insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric features that are bundled together and accessible via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview). Real-Time hub provides a single place for streaming data-in-motion across your organization.
+Real-time data processing helps businesses make timely decisions and act on recent insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric features that are bundled together and accessible via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview). Real-Time hub provides a single place for streaming data-in-motion across your organization.
 
 Real-Time Intelligence in Fabric enables analysis and data visualization for event-driven scenarios, streaming data, and data logs. It connects time-based data from various sources by using a catalog of no-code connectors and provides an end-to-end solution for data ingestion, transformation, storage, analytics, visualization, tracking, AI, and real-time actions. Although the service name uses the phrase "Real-Time," your data doesn't need to stream at high rates and volumes. Real-Time Intelligence provides event-driven, rather than schedule-driven, solutions.
 
@@ -68,7 +68,7 @@ A reflex is a Fabric item that allows you to react to the occurrence of a data c
 
 An eventhouse is a collection of one or more Kusto Query Language (KQL) databases. KQL databases are engineered for time-based, streaming events of structured, semi-structured, and unstructured data. Data is automatically indexed and partitioned based on ingestion time, which provides fast and complex analytic querying capabilities, even as the data streams in. Data stored in eventhouses can be made available in OneLake for use by other Fabric processes. You can query this data by using various code, low-code, or no-code options in Fabric, including native [KQL](/fabric/real-time-intelligence/kusto-query-set?tabs=kql-database) and T-SQL in the KQL queryset.
 
-[Real-Time Dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) are designed to provide immediate insights from data streaming into your eventhouses. You can add various types of visuals to a dashboard, such as charts and graphs, and customize them to fit your needs. Real-Time Dashboards serve the specific purpose of quickly identifying trends and anomalies in high-velocity data that arrives in an eventhouse. They're different from Power BI dashboards, which are suitable for enterprise BI reporting workloads.
+[Real-Time Dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) are designed to provide immediate insights from data streaming into your eventhouses. You can add various types of visuals to a dashboard, such as charts and graphs, and customize them to fit your needs. Real-Time Dashboards are intended to help identify trends and anomalies in high-velocity data that arrives in an eventhouse. They're different from Power BI dashboards, which are suitable for enterprise BI reporting workloads.
 
 ##### Data serving
 
@@ -86,7 +86,7 @@ Notebooks are a popular way to interact with lakehouse data. Fabric provides a w
 
 ###### Power BI
 
-Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to make it easier to create Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This mode allows you to get in-memory performance on your reports without moving your data out of the lakehouse.
+Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to simplify creating Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This mode allows you to get in-memory performance on your reports without moving your data out of the lakehouse.
 
 ###### Custom APIs
 
@@ -98,27 +98,27 @@ Power Automate is a low-code application platform that you can use to automate r
 
 ### Components
 
-The following components are used in this solution.
+This solution uses the following components:
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview): An end-to-end cloud-based data analytics platform that's designed for enterprises. It provides a unified environment for various data tasks, like data ingestion, transformation, analysis, and visualization.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables integration across all data tasks.
 
-  - [OneLake](/fabric/onelake/onelake-overview): The central hub for all your data in Fabric. It's designed as an open data lake, which means that it can store data in its native format, regardless of structure.
+  - [OneLake](/fabric/onelake/onelake-overview) is the central data hub in Fabric, designed as an open data lake. It stores structured and unstructured data in its native format and serves as the unified storage layer for all components in the lakehouse architecture.
 
-  - [Data Factory](/fabric/data-factory/data-factory-overview): A cloud-based ETL and orchestration service for automated data movement and transformation. It allows you to automate data movement and transformation at scale across various data sources.
+  - [Azure Data Factory](/fabric/data-factory/data-factory-overview) is a cloud-based ETL and orchestration service. In this architecture, it automates data movement and transformation across diverse sources, which supports both scheduled and event-driven ingestion.
 
-  - [Data engineering](/fabric/data-engineering/data-engineering-overview): Tools that enable the collection, storage, processing, and analysis of large volumes of data.
+  - [Data engineering](/fabric/data-engineering/data-engineering-overview) is a workload in Microsoft Fabric that provides tools to collect, store, process, and analyze large datasets. It powers the transformation and preparation of data within the lakehouse by using Spark notebooks and pipelines.
+  
+  - [Data Science](/fabric/data-science/data-science-overview) is a workload in Fabric that provides tools to build machine learning models and generate insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
 
-  - [Data Science](/fabric/data-science/data-science-overview): Tools that enable you to complete end-to-end data science workflows for data enrichment and to gain business insights.
+  - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
-  - [Real-Time Intelligence](/fabric/real-time-intelligence/overview): A service that provides stream ingestion and processing capabilities. It allows you to gain insights from constantly flowing data to enable quicker decision-making that's based on real-time trends and anomalies.
+  - [Copilot](/fabric/get-started/copilot-fabric-overview) is a natural language interface that generates insights and visualizations. In this architecture, it helps users interact with data in Fabric and Power BI.
 
-  - [Copilot](/fabric/get-started/copilot-fabric-overview): A tool that you can use to analyze data, generate insights, and create visualizations and reports in Fabric and Power BI by using natural language.
-
-- [Power BI](/power-bi/fundamentals/power-bi-overview): A business intelligence tool for creating interactive dashboards and reports for visualizing data and gaining insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence tool for creating dashboards and reports. In this architecture, it visualizes lakehouse data by using semantic models and Direct Lake mode for fast, in-memory performance.
 
 ### Alternatives
 
-Fabric offers a robust set of tools, but, depending on your specific needs, you might benefit from enhanced functionality provided by alternative services in the Azure ecosystem.
+Fabric offers a comprehensive set of tools, but, depending on your specific needs, you might benefit from functionality provided by alternative services in the Azure ecosystem.
 
 - [Azure Databricks](/azure/databricks/introduction/) can replace or complement the native Fabric data engineering capabilities. Azure Databricks offers an alternative for large-scale data processing by providing a cloud-based Apache Spark environment. Azure Databricks also provides common governance across your entire data estate and capabilities to enable key use cases like data science, data engineering, machine learning, AI, and SQL-based analytics.
 
@@ -159,7 +159,7 @@ You can use Fabric to manage, control, and audit your security settings accordin
 
 - Role-based access control (RBAC). Implement workspace-based access control to manage who can access and interact with specific datasets.
 
-- Network security. Use the Fabric inbound and outbound network security controls when you connect to data or services within or outside your network. Key features include [conditional access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
+- Network security. Use the Fabric inbound and outbound network security controls when you connect to data or services within or outside your network. Key features include [Conditional Access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
 
 - Audit logs. Use the detailed audit logs provided by Fabric to track user activities and ensure accountability across the platform.
 
@@ -171,9 +171,9 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Fabric offers [capacity reservations](/azure/cost-management-billing/reservations/fabric-capacity) for a given number of capacity units (CUs). Capacity reservations can help you save costs when you commit to a reservation for your Fabric capacity usage for one year.
 
-To maximise the utilization of your Fabric capacity, consider the following recommendations:
+To maximize the utilization of your Fabric capacity, consider the following recommendations:
 
-- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size that you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimate of CU usage for production. Fabric provides seamless scaling. You can start with a conservative capacity size and scale up if you need more capacity.
+- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size that you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimate of CU usage for production. Fabric supports scaling. You can start with a conservative capacity size and scale up if you need more capacity.
 - Monitor usage patterns. Regularly track and analyze your usage to identify peak and off-peak hours. Doing so can help you understand when your resources are most utilized so that you can schedule non-critical tasks during off-peak times to avoid spikes in CU usage.
 - Optimize queries and workloads. Ensure that your queries and workloads are optimized to reduce unnecessary compute usage. Optimize DAX queries, Python code, and other operations.
 - Use bursting and smoothing. Use the bursting and smoothing features of Fabric to handle CPU-intensive activities without requiring a higher SKU. Doing so can help you manage costs while still maintaining performance. For more information, see [Evaluate and optimize your Fabric capacity](/fabric/enterprise/optimize-capacity).

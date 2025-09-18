@@ -18,10 +18,10 @@ The solution described in this article can help you create a sustainability mode
 
 - The **Carbon optimization** blade in the Azure portal provides carbon emission measurements of Azure workloads at resource-group level.
 - The Cloud for Sustainability API provides the underlying data for carbon optimization. You can use it to retrieve information on your subscription's emissions.
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance management (APM). It can help you gain powerful insights into how people use your app. You can use this knowledge to make data-driven decisions about improving your application's efficiency.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance management (APM). It helps you understand how people use your app so you can make data-driven decisions about improving your application's efficiency.
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores the emission information from Azure carbon optimization, from custom calculations, or from other proxies for emissions.
 - [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) is a centralized repository that ingests and stores large volumes of data in its original form. The data can then be processed and used as a basis for various analytics needs.
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) enables you to create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly create a workflow that integrates and manages your proxy sources, data storage, and efficiency calculation systems.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) enables you to create and run automated workflows with minimal code. By using the visual designer and selecting from prebuilt operations, you can create a workflow that integrates and manages your proxy sources, data storage, and efficiency calculation systems.
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) enables you to run small units of code. It automatically scales resources based on demand, and you pay only for the actual execution time. You can use it to make sustainability calculations and store them in Blob Storage or a data lake.
 - [Azure Automation](/azure/automation/overview) provides process automation via runbooks. You can use the runbooks to implement complex logic, by using PowerShell code, that can influence your application to improve efficiency. This service can also add business value by reducing errors and operational costs.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) allows you to turn your data into analytics and reports that provide real-time insights.
@@ -29,8 +29,9 @@ The solution described in this article can help you create a sustainability mode
 ### Alternatives
 
 The Azure services described in this article can be replaced with similar services. To increase density and utilization of existing resources, perform the calculations with the minimum impact to your infrastructure by using Azure services or tools that are already deployed in your environment:
+
 - You can substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/) services.
-- You can substitute Application Insights with any other application performance management (APM) tool, like Elasticsearch application performance management (APM) or OpenAPM.
+- You can substitute Application Insights with another application performance management (APM) tool, like Elasticsearch application performance management (APM) or OpenAPM.
 - Data in the form of tables or unstructured data can be retained in any system of records, like [MySQL](https://azure.microsoft.com/products/mysql/) or [Azure Cosmos DB](/azure/cosmos-db/) and [MongoDB](/azure/cosmos-db/mongodb/).
 - If you have a running [Azure Functions](/azure/azure-functions/functions-overview) or Logic Apps space, you can run the calculation on a regular basis from your existing deployments.
 - If the application resources are distributed across multiple resource groups, you can use tags to correlate cost data and calculate the amount of carbon emitted by the application.
@@ -123,7 +124,8 @@ You can display your data and calculations in various ways, including customized
 After you know your sustainability score, you might wonder how you can improve it.
 
 If you can score your application's carbon impact by using proxies, the next step is to focus on defining actions that can be triggered by unfavorable conditions in the score. Some examples of these conditions are:
-- Energy production and demand is at an all-time high and is therefore expensive to produce.
+
+- Energy production and demand are at an all-time high and is therefore expensive to produce.
 - Electricity isn't available. This condition could be caused by a natural disaster or geopolitical conflict.
 - Sudden unavailability of edge infrastructure caused by resource over-consumption or supply chain issues.
 
@@ -199,7 +201,7 @@ Other contributor:
 
 ## Next steps
 
-This article is aligned with the principles and methodology of the [Green Software Foundation](https://greensoftware.foundation/). The next step in creating a greener application is to embed the [Carbon Aware SDK](https://github.com/Green-Software-Foundation/carbon-aware-sdk) into your application so that triggers can be automated in real time when specific carbon conditions are met.
+This article is aligned with the principles and methodology of the [Green Software Foundation](https://greensoftware.foundation/). The next step in creating a greener application is to embed the [Carbon Aware SDK](https://carbon-aware-sdk.greensoftware.foundation/) into your application so that triggers can be automated in real time when specific carbon conditions are met.
 
 For recommendations to optimize Azure workloads, see [Sustainability cloud workload guidance](/azure/architecture/framework/sustainability).
 

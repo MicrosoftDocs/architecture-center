@@ -4,7 +4,7 @@ This architecture isn't focused on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and it can vary between different application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
-Kubernetes is a powerful ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster should be designed and operated. Running an AKS cluster involves a mix of closed-source components from a variety of vendors, including Microsoft; and open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you're acknowledging that your workload needs its capabilities, and that the workload team is prepared to invest on an ongoing basis.
+Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster should be designed and operated. Running an AKS cluster involves a mix of closed-source components from a variety of vendors, including Microsoft; and open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you're acknowledging that your workload needs its capabilities, and that the workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline). Use it as an alternative starting point and configure the reference architecture based on your needs.
 
@@ -126,7 +126,7 @@ AKS maintains two node pools, which are separate groups of nodes. The system nod
 
 Create Private Link connections for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services by way of a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups.
 
-For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
 ## Plan the IP addresses
 
@@ -291,11 +291,11 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 [!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
 
-AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and offer high performance. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
 In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
 
-In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
+In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
 
 For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
@@ -508,7 +508,7 @@ In the HPA resource, we recommend setting the minimum and maximum replica count.
 
 There might be a race condition where the HPA checks before a scaling operation finishes. The outcome might be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
-If your workload is event-driven, a popular open-source option is [Kubernetes event-driven autoscaling (KEDA)](https://github.com/kedacore/keda). Consider KEDA if an event source, such as message queue, drives your workload, rather than your workload being CPU-bound or memory-bound. KEDA supports many event sources or scalers. Use the list of event sources that KEDA can scale at [KEDA scalers](https://keda.sh/#scalers). The list includes the [Azure Monitor scaler](https://keda.sh/docs/latest/scalers/azure-monitor/), which is a convenient way to scale KEDA workloads based on Azure Monitor metrics.
+If your workload is event-driven, a popular open-source option is [Kubernetes event-driven autoscaling (KEDA)](https://keda.sh/). Consider KEDA if an event source, such as message queue, drives your workload, rather than your workload being CPU-bound or memory-bound. KEDA supports many event sources or scalers. Use the list of event sources that KEDA can scale at [KEDA scalers](https://keda.sh/#scalers). The list includes the [Azure Monitor scaler](https://keda.sh/docs/latest/scalers/azure-monitor/), which is a convenient way to scale KEDA workloads based on Azure Monitor metrics.
 
 ### Cluster autoscaler
 
@@ -575,7 +575,7 @@ When you enable availability zones, it isn't enough coverage in the unlikely eve
 
 - Provide the location where the redundant service has its secondary instance if an Azure resource supports geo-redundancy. For example, by enabling geo-replication for Container Registry, it automatically replicates images to the selected Azure regions. It also provides continued access to images even if the primary region experiences an outage.
 
-- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you need to distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.yml).
+- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you need to distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
 
 > [!NOTE]
 > The [AKS baseline for multiregion clusters reference architecture](../aks-multi-region/aks-multi-cluster.yml) extends the architecture in this article to include multiple regions in an active/active and highly available configuration.
@@ -668,7 +668,7 @@ Basic, cluster-level networking metrics are available through native [platform a
 
 The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-container-networking-services-overview) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
@@ -757,7 +757,7 @@ For cluster and workload operations (DevOps) considerations, see the [Operationa
 
 After you do provisioning, you have a working cluster, but you might still have some required steps before you can deploy workloads. The process of preparing your cluster is called bootstrapping. Bootstrapping can consist of deploying prerequisite images onto cluster nodes, creating namespaces, and doing other tasks that fulfill the requirements of your organization's use case.
 
-To decrease the gap between a provisioned cluster and a properly configured one, cluster operators should think about what their unique bootstrapping process looks like. They need to prepare the relevant assets in advance. For example, if having Kured running on each node before deploying application workloads is important, the cluster operator should verify that a Container Registry instance that contains the target Kured image, already exists *before* they provision the cluster.
+To decrease the gap between a provisioned cluster and a properly configured one, cluster operators should think about what their unique bootstrapping process looks like. They need to prepare the relevant assets in advance. For example, if you decide to use a service mesh like [Linkerd or Consul Connect](/azure/aks/servicemesh-about#next-steps), you typically need to deploy the mesh before application workloads can be scheduled. Before the cluster operator provisions the cluster, they should first validate that the service mesh's images are available within a previously created container registry. This validation helps prevent deployment delays or failures.
 
 You can configure the bootstrapping process by using one of the following methods:
 
@@ -906,7 +906,6 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 - [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
-- [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml)
 
 ## Related resources
 

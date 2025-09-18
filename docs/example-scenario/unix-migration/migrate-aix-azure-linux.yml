@@ -8,9 +8,11 @@ metadata:
   ms.date: 07/09/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - linux-related-content
+  ms.custom: linux-related-content
+  ms.collection:
+    - migration
+    - onprem-to-azure
+  ai-usage: ai-assisted
 azureCategories:
   - migration
   - networking

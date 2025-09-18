@@ -1,6 +1,4 @@
-This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of how to manage microservices on AKS. For more information about how to design microservices, see [Microservices architecture design](../../../microservices/index.yml).
-
-![GitHub logo.](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][reference-implementation].
+This architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of how to manage microservices on AKS. For more information about how to design microservices, see [Microservices architecture design](../../../guide/architecture-styles/microservices.md).
 
 ## Architecture
 
@@ -12,7 +10,7 @@ This reference architecture shows a microservices application deployed to Azure 
 
 *Download a [Visio file](https://arch-center.azureedge.net/microservices-architecture.vsdx) of this architecture.*
 
-If you want to see an example of a more advanced microservice that's built on the [AKS baseline architecture](https://github.com/mspnp/aks-secure-baseline), see the [advanced AKS microservices architecture](./aks-microservices-advanced.yml).
+If you want to see an example of a more advanced microservice that's built on the [AKS baseline architecture](https://github.com/mspnp/aks-baseline), see the [advanced AKS microservices architecture](./aks-microservices-advanced.yml).
 
 ### Workflow
 
@@ -37,20 +35,18 @@ The following dataflow corresponds to the previous diagram:
     - Sends an HTTPS request to the package microservice, which passes data to external data storage in MongoDB.
 
 1. An HTTPS GET request returns the delivery status. This request passes through the managed ingress controller into the delivery microservice. Then the delivery microservice reads data from Azure Cache for Redis.
-  
-For more information about the sample microservices application, see [Microservices reference implementation sample](https://github.com/mspnp/microservices-reference-implementation).
 
 ### Components
 
 - **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure.
 
-- **An ingress server** exposes HTTP(S) routes to services inside the cluster. The reference implementation uses a [managed NGINX-based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
+- **An ingress server** exposes HTTP(S) routes to services inside the cluster. This architecture uses a [managed NGINX-based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
 
-- **External data stores**, such as [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. The reference implementation uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure Cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores or places to store state.
+- **External data stores**, such as [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. This architecture uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure Cache for Redis](/azure/azure-cache-for-redis/), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores or places to store state.
 
 - **[Microsoft Entra ID](/entra/fundamentals/whatis)** is required for the AKS cluster. It provides a [managed identity](/azure/aks/use-managed-identity) that's used to access Azure Container Registry and to access and provision Azure resources like load balancers and managed disks. Workloads deployed on an AKS cluster also each require an identity in Microsoft Entra to access Microsoft Entra-protected resources, such as Azure Key Vault and Microsoft Graph. In this reference architecture, [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) integrates with Kubernetes and provides workloads with identities. You can also use managed identities or application credentials for each workload.
 
-- **Container Registry** can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. In the reference implementation, microservice container images are built and pushed to Container Registry.  
+- **Container Registry** can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. Microservice container images are built and pushed to Container Registry.  
 
 - **Azure Pipelines** is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure Pipelines.
 
@@ -76,9 +72,7 @@ Microservice observability can be achieved with alternative tools like [Kiali](h
 
 ## Scenario details
 
-The example [microservice reference implementation](https://github.com/mspnp/microservices-reference-implementation) implements the architectural components and practices described in this article. In this example, a fictitious company called Fabrikam, Inc., manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. When the delivery is in progress, the customer can track the drone's location with a continuously updated estimated delivery time.
-
-The scenario aims to demonstrate the microservices architecture and deployment best practices in AKS.
+A fictitious company called Fabrikam, Inc., manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. When the delivery is in progress, the customer can track the drone's location with a continuously updated estimated delivery time.
 
 ### Potential use cases
 
@@ -183,9 +177,9 @@ Consider the following points when you design probes for microservices.
 
 - A liveness probe only helps if restarting the pod is likely to restore it to a healthy state. You can use a liveness probe to mitigate memory leaks or unexpected deadlocks, but there's no reason to restart a pod that's going to immediately fail again.
 
-- Sometimes readiness probes are used to check dependent services. For example, if a pod has a dependency on a database, the probe might check the database connection. However, this approach can create unexpected problems. An external service might be temporarily unavailable. This unavailability causes the readiness probe to fail for all the pods in your service, which results in their removal from load balancing. This removal creates cascading failures upstream. 
+- Sometimes readiness probes are used to check dependent services. For example, if a pod has a dependency on a database, the probe might check the database connection. However, this approach can create unexpected problems. An external service might be temporarily unavailable. This unavailability causes the readiness probe to fail for all the pods in your service, which results in their removal from load balancing. This removal creates cascading failures upstream.
 
-   A better approach is to implement retry handling within your service so that your service can recover correctly from transient failures. As an alternative, retry handling, error tolerance, and circuit breakers can be implemented by the [Istio service mesh](/azure/aks/istio-about) to create resilient architecture that can handle microservice failures.
+  A better approach is to implement retry handling within your service so that your service can recover correctly from transient failures. As an alternative, retry handling, error tolerance, and circuit breakers can be implemented by the [Istio service mesh](/azure/aks/istio-about) to create resilient architecture that can handle microservice failures.
 
 #### Resource constraints
 
@@ -211,7 +205,7 @@ When multiple teams develop and deploy microservices at the same time, AKS RBAC 
 
 #### Authentication and authorization
 
-Microservices can require the consuming services or users to authenticate and authorize access to the microservice by using certificates, credentials, and RBAC mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). Service meshes such as [Istio](/azure/aks/istio-about) also provide authorization and authentication mechanisms for microservices, which include OAuth token validation and token-based routing. The reference implementation doesn't cover microservice authentication and authorization scenarios.  
+Microservices can require the consuming services or users to authenticate and authorize access to the microservice by using certificates, credentials, and RBAC mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). Service meshes such as [Istio](/azure/aks/istio-about) also provide authorization and authentication mechanisms for microservices, which include OAuth token validation and token-based routing.
 
 #### Secrets management and application credentials
 
@@ -229,14 +223,14 @@ Even when you use managed identities, you might still need to store some credent
 
 Using a solution like Key Vault provides several advantages, including:
 
-- Centralized control of secrets.
-- Helping to ensure that all secrets are encrypted at rest.
-- Centralized key management.
-- Access control of secrets.
-- Key lifecycle management.
-- Auditing.
+- Centralized control of secrets
+- Helping to ensure that all secrets are encrypted at rest
+- Centralized key management
+- Access control of secrets
+- Key lifecycle management
+- Auditing
 
-The reference implementation stores Azure Cosmos DB connection strings and other secrets in Key Vault. The reference implementation uses a managed identity for microservices to authenticate to Key Vault and access secrets.  
+This architecture uses a managed identity for microservices to authenticate to Key Vault and access secrets.
 
 #### Container and orchestrator security
 
@@ -276,7 +270,7 @@ For more information about specific recommendations and best practices, see [Bui
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the **Cost** section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 Consider the following points for some of the services used in this architecture.
 
@@ -292,11 +286,11 @@ Consider the following points for some of the services used in this architecture
 
 - Review the [cost optimization best practices for AKS](/azure/aks/best-practices-cost).
 
-- To estimate the cost of the required resources, use the [AKS calculator][aks-calculator].
+- To estimate the cost of the required resources, use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
 #### Azure Load Balancer
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing][az-lb-pricing].
+You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
 
 #### Azure Pipelines
 
@@ -304,7 +298,7 @@ This reference architecture only uses Azure Pipelines. Azure provides the pipeli
 
 #### Azure Monitor
 
-For Azure Monitor Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing][az-monitor-pricing].
+For Azure Monitor Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
 
 ### Operational Excellence
 
@@ -313,10 +307,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 This reference architecture includes [Bicep files](/azure/azure-resource-manager/bicep/overview) for provisioning cloud resources and their dependencies. You can use [Azure Pipelines](/azure/devops/user-guide/services) to deploy these Bicep files and quickly set up different environments, such as replicating production scenarios. This approach helps you save costs by provisioning load testing environments only when needed.
 
 Consider following the workload isolation criteria to structure your Bicep file. A workload is typically defined as an arbitrary unit of functionality. For example, you can have a separate Bicep file for the cluster and then another file for the dependent services. You can use Azure DevOps to perform CI/CD with workload isolation because each workload is associated and managed by its own team.
-
-## Deploy this scenario
-
-To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][reference-implementation-deploy]. For more information, see [AKS microservices reference implementation](https://github.com/mspnp/microservices-reference-implementation).
 
 ## Contributors
 
@@ -348,11 +338,3 @@ Other contributors:
 - To work through a more advanced microservices example, see [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
 - [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
-
-[reference-implementation]: https://github.com/mspnp/microservices-reference-implementation
-[reference-implementation-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/main/deployment.md
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[aks-calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[az-lb-pricing]: https://azure.microsoft.com/pricing/details/load-balancer
-[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

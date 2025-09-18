@@ -30,7 +30,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
 
 - **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
@@ -46,7 +46,7 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Azure Virtual Network**: With [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network), Azure resources such as VMs can communicate privately with each other and with the internet. By connecting Azure Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an Azure Virtual Desktop instance to an on-premises network by using a virtual private network (VPN), or you can use [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) to extend the on-premises network into Azure over a private connection.
 
-- **Microsoft Entra ID**: Azure Virtual Desktop uses [Microsoft Entra ID](/entra/fundamentals/whatis) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](/windows/security/application-security/application-control/app-control-for-business/design/use-appcontrol-with-intelligent-security-graph), and it helps maintain app compatibility in domain-joined VMs.
+- **Microsoft Entra ID**: Azure Virtual Desktop uses [Microsoft Entra ID](/entra/fundamentals/whatis) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as Conditional Access, multifactor authentication, and [Intelligent Security Graph](/windows/security/application-security/application-control/app-control-for-business/design/use-appcontrol-with-intelligent-security-graph), and it helps maintain app compatibility in domain-joined VMs.
 
 - **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) service or use [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
     - When using an AD DS domain, the domain must be in sync with Microsoft Entra ID to associate users between the two services. You can use [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to associate AD DS with Microsoft Entra ID.
@@ -228,13 +228,9 @@ Principal author:
 
 ## Next steps
 
-- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
+- [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/app-attach-partner-solutions) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 11 Enterprise VDI (virtual desktop infrastructure) environment.
 - For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
 - [What is Microsoft Entra Connect?](/entra/identity/hybrid/connect/whatis-azure-ad-connect)
 - Learn more about the [Azure Virtual Desktop Well-Architected Framework](/azure/well-architected/azure-virtual-desktop/overview)
-
-## Related resources
-
-- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).

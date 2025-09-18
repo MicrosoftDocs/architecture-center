@@ -60,7 +60,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Wildcard subscribers.** Consider allowing subscribers to subscribe to multiple topics via wildcards.
 
-- **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](http://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
+- **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
 
 - **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent to help eliminate any dependency on the order of message handling.
 
@@ -134,6 +134,6 @@ The following patterns might be relevant when implementing this pattern:
 
 ## Related resources
 
-- The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
+- The [Event-driven architecture style](../guide/architecture-styles/event-driven.md) is an architecture style that uses pub/sub messaging.
 - [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
 - [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml)

@@ -138,7 +138,7 @@ It's possible to have a need to deploy AKS clusters as part of the baseline conf
   - [Prisma Cloud Defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud).
 - Open-source tools such as:
   - [KEDA](https://keda.sh).
-  - [ExternalDNS](https://github.com/kubernetes-sigs/external-dns).
+  - [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/latest/).
   - [Cert-manager](https://cert-manager.io/docs).
 
 You can enable Flux as an extension that's applied when you create an AKS cluster. Flux can then bootstrap the baseline configuration to the cluster. The [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) suggests using GitOps for bootstrapping. If you use the Flux extension, you can bootstrap clusters very soon after you deploy.

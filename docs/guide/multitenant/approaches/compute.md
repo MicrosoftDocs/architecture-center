@@ -13,7 +13,7 @@ ms.custom: arb-saas
 
 Most cloud-based solutions are composed of compute resources. These resources can include web and application tiers, batch processors, scheduled jobs, or specialized resources like GPUs and high-performance compute. Multitenant solutions often benefit from shared compute resources because a higher density of tenants for each infrastructure lowers operational costs and simplifies management. You should consider the isolation requirements and the implications of shared infrastructure.
 
-This article provides guidance about crucial considerations and requirements for solution architects to consider when they plan a multitenant compute tier. This guidance includes common patterns for applying multitenancy to compute services, and antipatterns to avoid.
+This article provides guidance about crucial considerations and requirements for solution architects to consider when they plan a multitenant compute tier. This guidance includes common patterns for applying multitenancy to compute services and antipatterns to avoid.
 
 ## Key considerations and requirements
 
@@ -25,7 +25,7 @@ Systems must perform adequately as demand changes. As the number of tenants and 
 
 If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared among multiple tenants, scaling those resources allows all tenants to benefit from the increased capacity. However, all tenants suffer when the scale is insufficient to handle their overall load. For more information, see [Noisy Neighbor antipattern](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
-When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/well-architected/performance-efficiency/scale-partition). In a multitenant solution that has a growing number of tenants, scaling horizontally typically provides greater flexibility and a higher overall scale ceiling.
+When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/well-architected/performance-efficiency/scale-partition). In a multitenant solution that has a growing number of tenants, scaling horizontally often provides greater flexibility and a higher overall scale ceiling.
 
 Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
@@ -74,7 +74,7 @@ Azure compute services provide various capabilities that scale workloads. [Many 
 
 ### Deployment Stamps pattern
 
-For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.yml#deployment-stamps-pattern).
+For more information about how you can use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) to support a multitenant solution, see [Architectural approaches for a multitenant solution](overview.md#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
@@ -114,19 +114,21 @@ When you use App Service and Azure Functions, you can deploy distinct applicatio
 
 You can use Container Apps to deploy multiple applications to a shared environment and then use Dapr and other tools to configure each application separately.
 
-AKS, and Kubernetes more broadly, provides various options for multitenancy:
+AKS, and Kubernetes more broadly, provide various options for multitenancy:
 
-- Tenant-specific namespaces that can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools.
+- Tenant-specific namespaces that can provide logical isolation of tenant-specific resources, which are deployed to shared clusters and node pools
 
-- Tenant-specific nodes or node pools on a shared cluster.
+- Tenant-specific nodes or node pools on a shared cluster
 
-- Tenant-specific pods that might use the same node pool.
+- Tenant-specific pods that might use the same node pool
 
 You can also use AKS to apply pod-level governance to mitigate the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). For more information, see [Best practices for application developers to manage resources in AKS](/azure/aks/developer-best-practices-resource-management).
 
 It's also important to be aware of shared components in a Kubernetes cluster, and how multitenancy might affect these components. For example, the Kubernetes API server is a shared service that's used throughout the entire cluster. Even if you provide tenant-specific node pools to isolate the tenants' application workloads, the API server might experience contention from a large number of requests across the tenants.
 
 ## Antipatterns to avoid
+
+Avoid the following antipatterns.
 
 ### Noisy Neighbor antipattern
 
@@ -140,17 +142,17 @@ Compute tiers can be subject to cross-tenant data leakage if they aren't properl
 
 To avoid the [Busy Front End antipattern](../../../antipatterns/busy-front-end/index.md), make sure that your front-end tier doesn't do most of the work that other components or tiers of your architecture can handle. This antipattern is especially important when you create shared front ends for a multitenant solution because a busy front end degrades the experience for all tenants.
 
-Instead, consider using asynchronous processing by using queues or other messaging services. This approach also enables you to apply *quality of service* controls for different tenants based on their requirements. For example, all tenants might share a common front-end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
+Instead, consider using asynchronous processing by using queues or other messaging services. This approach also enables you to apply *quality of service (QOS)* controls for different tenants based on their requirements. For example, all tenants might share a common front-end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
 
 ### Inelastic or insufficient scaling
 
-Multitenant solutions are often subject to bursty scale patterns. Shared components are very susceptible to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
+Multitenant solutions are often subject to bursty scale patterns. Shared components are especially vulnerable to this problem because the scope for burst is higher, and the effect is greater when you have more tenants that have distinct usage patterns.
 
 Ensure that you take advantage of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/well-architected/performance-efficiency/scale-partition), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it operates under different levels of load. Ensure that you include the load volumes that are expected in production and your expected growth. You can use a fully managed service, such as [Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application operates under stress.
 
 ### No Caching antipattern
 
-The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when the performance of your solution suffers because the application tier repeatedly requests or recomputes information that could be reused across requests. If you have data that can be shared, either among tenants or among users within a single tenant, it's likely worth caching it to reduce the load on your back-end or database tier.
+The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when the performance of your solution suffers because the application tier repeatedly requests or recomputes information that can be reused across requests. If you have data that can be shared, either among tenants or among users within a single tenant, it's likely worth caching it to reduce the load on your back-end or database tier.
 
 ### Unnecessary statefulness
 
@@ -165,7 +167,7 @@ Consider the trade-offs for each piece of state that you maintain in your comput
 Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, FastTrack for Azure
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
@@ -173,10 +175,10 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
 Review service-specific guidance for your compute services:
 
-- [App Service and Azure Functions considerations for multitenancy](../service/app-service.yml)
+- [App Service and Azure Functions considerations for multitenancy](../service/app-service.md)
 - [Considerations for using Container Apps in a multitenant solution](../service/container-apps.md)
 - [AKS considerations for multitenancy](../service/aks.yml)

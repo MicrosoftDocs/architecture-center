@@ -1,9 +1,9 @@
 ---
 title: Azure App Configuration considerations for multitenancy
-description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+description: This article describes the features of Azure App Configuration that are useful when working with multitenant systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: pnp
-ms.date: 09/17/2024
+ms.date: 09/05/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -19,7 +19,7 @@ A *store* refers to a single instance of the Azure App Configuration service.
 
 In a multitenant solution, it's common to have two types of settings:
 
-- **Shared settings** are those that apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.yml#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings could get out of sync.
+- **Shared settings** are those that apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.md#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings could get out of sync.
 
 - **Tenant-specific settings**, such as each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem that's reported by a specific tenant and you need to collect diagnostic logs from that one tenant. You can choose whether to combine the tenant-specific settings for multiple tenants into a single store, or to deploy a store for each tenant. This decision should be based on your requirements. If your solution uses a single shared application tier for multiple tenants, there's likely to be minimal benefit to using tenant-specific stores. But if you deploy tenant-specific application instances, you might choose to mirror the same approach by deploying tenant-specific configuration stores.
 
@@ -42,13 +42,13 @@ If you need to store a large amount of data per tenant, or if you need to scale 
 
 If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. In particular, be mindful of the total storage limit for the service tier you use, and ensure that you won't exceed the maximum requests per hour.
 
-### Stores per tenant
+### Store per tenant
 
-You might instead choose to deploy an Azure App Configuration store for each tenant. The Azure App Configuration [standard tier](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There's also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
+You might instead choose to deploy an Azure App Configuration store for each tenant. The Azure App Configuration [Standard tier](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources.
 
 Consider tenant-specific stores if you have one of the following situations:
 
-- You need to use [customer-managed encryption keys](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separate for each tenant.
+- You need to use [customer-managed encryption keys (CMK)](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separate for each tenant.
 - Your tenants require their configuration data to be completely isolated from other tenants' data. Access permission for Azure App Configuration is controlled at the store level, so by deploying separate stores, you can configure separate access permissions.
 
 ## Features of Azure App Configuration that support multitenancy
@@ -89,15 +89,15 @@ If you load each tenant's configuration settings separately, your application ne
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
+Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md).

@@ -78,6 +78,8 @@
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
       "ms.service": "azure-architecture-center",
+      "ms.update-cycle": "365-days",
+      "manager": "lnyswonger",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "MSDN.azure-architecture-center",
@@ -115,7 +117,27 @@
       },
       "ms.update-cycle": {
         "guide/multitenant/considerations/*.md": "1095-days",
-        "guide/multitenant/considerations/*.yml": "1095-days"
+        "guide/multitenant/considerations/*.yml": "1095-days",
+        "ai-ml/**/*.md": "180-days",
+        "ai-ml/**/*.yml": "180-days",
+        "landing-zones/*.md": "730-days",
+        "landing-zones/*.yml": "730-days",
+        "guide/architecture-styles/**/*.md": "730-days",
+        "guide/architecture-styles/**/*.yml": "730-days",
+        "guide/design-principles/*.md": "730-days",
+        "guide/design-principles/*.yml": "730-days",
+        "microservices/design/*.md": "730-days",
+        "microservices/design/*.yml": "730-days",
+        "microservices/model/*.md": "730-days",
+        "microservices/model/*.yml": "730-days",
+        "best-practices/*.yml": "730-days",
+        "best-practices/*.md": "730-days",
+        "antipatterns/**/*.md": "1095-days",
+        "antipatterns/**/*.yml": "1095-days",
+        "guide/responsible-innovation/**/*.yml": "1095-days",
+        "guide/responsible-innovation/**/*.md": "1095-days",
+        "patterns/*.yml": "730-days",
+        "patterns/*.md": "730-days"
       }
     },
     "template": [

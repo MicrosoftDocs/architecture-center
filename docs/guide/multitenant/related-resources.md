@@ -21,7 +21,6 @@ The following articles provide examples of multitenant architectures on Azure.
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Multitenant software as a service (SaaS) on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Reference architecture for a multitenant SaaS scenario on Azure, which is deployed in multiple regions | Web |
 | [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service (AKS) cluster](../../example-scenario/aks-agic/aks-agic.yml) | Example for how to implement multitenancy with AKS and AGIC | Kubernetes |
 | [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
@@ -162,7 +161,7 @@ Use the following resources to help you build multitenant architectures on Azure
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure

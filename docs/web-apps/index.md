@@ -6,14 +6,13 @@ ms.author: pnp
 ms.date: 06/14/2023
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Web applications architecture design
 
-Today's web apps are expected to be available all day, every day from anywhere in the world, and usable from virtually any device or screen size. Web applications must be secure, flexible, and scalable to meet spikes in demand.
+Many web apps are expected to be available all day, every day from anywhere in the world, and usable from virtually any device or screen size. Web applications must be secure, flexible, and scalable to meet spikes in demand.
 
-This article provides an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
+This article provides an overview of Azure web app technologies, guidance, solution ideas, and reference architectures contained in the Azure Architecture Center.
 
 Azure provides a wide range of tools and capabilities for creating, hosting, and monitoring web apps. These are just some of the key web app services available in Azure:
 
@@ -21,19 +20,17 @@ Azure provides a wide range of tools and capabilities for creating, hosting, and
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) provides powerful protection for web apps.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides full observability into your applications, infrastructure, and network. Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides application performance management and monitoring for live web apps.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) enables you to easily add real-time web functionalities.
-- [Static Web Apps](https://azure.microsoft.com/services/app-service/static) provides streamlined full-stack development, from source code to global high availability.
 - [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) enables you to run containerized web apps on Windows and Linux.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) enables you to integrate with other web apps using loosely coupled event-driven patterns.
 
 ## Introduction to web apps on Azure
 
-If you're new to creating and hosting web apps on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive training for Microsoft products and more.
+If you're new to creating and hosting web apps on Azure, the best way to learn more is with [Microsoft Learn training](/training/). This free online platform provides interactive training for Microsoft products and more.
 
 These are a few good starting points to consider:
 
-- [Create Azure App Service web apps](/training/paths/create-azure-app-service-web-apps)
-- [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service)
-- [Azure Static Web Apps](/training/paths/azure-static-web-apps)
+- [Create Azure App Service web apps](/training/paths/create-azure-app-service-web-apps/)
+- [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service/)
 
 ## Path to production
 
@@ -43,8 +40,8 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 - [Baseline zone-redundant web application](app-service/architectures/baseline-zone-redundant.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
-- [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
-- [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [Enterprise deployment using App Service Environment](../web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
+- [High availability enterprise deployment using App Service Environment](../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 
 ## Best practices
 
@@ -52,19 +49,13 @@ For a good overview, see [Characteristics of modern web applications](/dotnet/ar
 
 For information specific to Azure App Service, see:
 
-- [Azure App Service and operational excellence](/azure/architecture/framework/services/compute/azure-app-service/operational-excellence)  
+- [Architecture best practices for Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
 - [App Service deployment best practices](/azure/app-service/deploy-best-practices)
-- [Security recommendations for App Service](/azure/app-service/security-recommendations)
 - [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline)
 
 ## Web app architectures
 
 The following sections, organized by category, provide links to sample web app architectures.
-
-### E-commerce
-
-- [Intelligent product search engine for e-commerce](../databases/architecture/ecommerce-search.yml)
-- [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 
 ### Modernization
 
@@ -93,7 +84,7 @@ The following sections, organized by category, provide links to sample web app a
 
 ## Stay current with web development
 
-Get the latest [updates on Azure web app products and features](https://azure.microsoft.com/updates/?category=web).
+Get the latest [updates on Azure web app products and features](https://azure.microsoft.com/updates/?filters=%5B%22API+Management%22%2C%22App+Configuration%22%2C%22App+Service%22%2C%22Azure+Communication+Services%22%2C%22Azure+Maps%22%2C%22Azure+SignalR+Service%22%2C%22Azure+Web+PubSub%22%2C%22Content+Delivery+Network%22%2C%22Notification+Hubs%22%2C%22Static+Web+Apps%22%2C%22Web+App+for+Containers%22%5D).
 
 ## Additional resources
 
@@ -103,7 +94,6 @@ Here are some additional implementations to consider:
 
 - [App Service networking features](/azure/app-service/networking-features)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
-- [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
 
 ### AWS or Google Cloud professionals
 

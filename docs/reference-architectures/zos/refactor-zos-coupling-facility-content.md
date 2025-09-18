@@ -61,7 +61,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity partner provides. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes inbound flows from the load balancer's front end to the back-end pool instances, according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
 
@@ -101,7 +101,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 ## Scenario details
 
-CFs are physical devices that connect multiple mainframe servers or CECs to shared memory so that systems can scale out to increase performance. Applications that are written in languages like COBOL and PL/I seamlessly use these tightly coupled scale-out features.
+CFs are physical devices that connect multiple mainframe servers or CECs to shared memory so that systems can scale out to increase performance. Applications that are written in languages like COBOL and PL/I use these tightly coupled scale-out features.
 
 IBM Db2 databases and CICS servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex enables a cluster of up to 32 systems to share workloads, which provides high performance, high availability, and DR. Mainframe CFs with Parallel Sysplex typically reside in the same datacenter, with close proximity between the CECs, but can also extend across datacenters.
 
@@ -131,9 +131,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - [Private Link for SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) minimizes open ports, which maximizes administrator access security. Azure Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) minimizes open ports, which maximizes administrator access security. Azure Bastion provides RDP and SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
--	Microsoft Entra is a unified security platform that seamlessly integrates with most Azure services.
+- Microsoft Entra ID is a unified security platform that integrates with most Azure services.
 
 ### Cost Optimization
 

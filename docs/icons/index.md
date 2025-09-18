@@ -4,7 +4,7 @@ description: Download official Azure icons, Azure logo files, and Azure architec
 ms.author: pnp
 author: claytonsiemens77
 ms.reviewer: chkittel
-ms.date: 03/28/2025
+ms.date: 08/18/2025
 ms.subservice: architecture-guide
 ---
 
@@ -38,11 +38,11 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
+|August 2025|Added ten new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences.|
 |March 2025|Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons.|
 |November 2024|Added 10 new icons such as Azure AI Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
 |July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
 |February 2024|Over 40 new icons for various services and components such as AI (including Azure OpenAI), Azure Operator, Microsoft Entra ID, and Azure networking.|
-|August 2023|Added new Microsoft Entra ID icon. Reorganized folder structure of some icons.|
 
 ## Icon terms
 
@@ -53,7 +53,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V21.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V22.zip)
 
 ## Use in Microsoft Visio
 
@@ -61,7 +61,8 @@ The icons are not provided in Visio stencil format. The icons are provided as ge
 
 ## More icon sets from Microsoft
 
-- [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
+- [Microsoft Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Entra ID architecture icons](/entra/architecture/architecture-icons)
+- [Microsoft Fabric icons](/fabric/fundamentals/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)

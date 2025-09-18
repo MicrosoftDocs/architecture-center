@@ -7,8 +7,9 @@ metadata:
   ms.date: 02/26/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
   - databases

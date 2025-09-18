@@ -1,6 +1,6 @@
 This example scenario shows an example of an existing workload that was originally designed to run on Kubernetes can instead run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration. The example workload runs a containerized microservices application.
 
-The example takes the workload used in [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) and rehosts it in Azure Container Apps as its application platform.
+The example takes the workload used in [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) and rehosts it in Azure Container Apps as its application platform.
 
 > [!TIP]
 >
@@ -44,46 +44,46 @@ The drone delivery service uses a series of Azure services in concert with one a
 
 #### Azure Container Apps
 
-[Azure Container Apps](/azure/container-apps/overview) is the primary component.
+[Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that simplifies container orchestration and management. In this architecture, Container Apps serves as the primary hosting platform for all microservices.
 
-These features replace many of the complexities of the previous AKS architecture:
+The following features replace many of the complexities of the previous AKS architecture:
 
 - Built-in service discovery
 - Fully managed HTTP and HTTP/2 endpoints
 - Integrated load balancing
 - Logging and monitoring
-- Autoscaling based on HTTP traffic or events powered by KEDA (Kubernetes-based Event Driven Autoscaling)
+- Autoscaling based on HTTP traffic or events powered by Kubernetes-based Event Driven Autoscaling (KEDA)
 - Application upgrades and versioning
 
 #### External storage and other components
 
-**[Azure Key Vault](/azure/key-vault/general/overview)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
+- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service for securely storing and accessing secrets, such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets.
 
-**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images. You can also use other container registries like Docker Hub.
+- **[Azure Container Registry](/azure/container-registry/container-registry-intro)** is a managed registry service for storing and managing private container images. In this architecture, it's the source for all container images that are deployed to the Container Apps environment. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and Cassandra where the stateless microservices write their state and application data.
 
-**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+- **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow service.
 
-**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+- **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** is an in-memory caching service based on the Redis cache. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
+- **[Azure Monitor](/azure/azure-monitor)** is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You can use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
 
-**[Application Insights](/azure/well-architected/service-guides/application-insights)** provides extensible application performance management (APM) and monitoring for the services. Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
+- **[Application Insights](/azure/well-architected/service-guides/application-insights)** is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance and direct the data to Azure Monitor for detailed service-level observability.
 
-**[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
+- **[Bicep templates](/azure/azure-resource-manager/bicep/overview)** are infrastructure-as-code templates for deploying Azure resources. In this architecture, Bicep templates provide declarative deployment for both the Container Apps infrastructure and the drone delivery workload.
 
 ### Alternatives
 
-An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes, which is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
+An alternative scenario of this example that uses Kubernetes is described in [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
 
 ## Scenario details
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-Fabrikam, Inc. (a fictional company) implements a drone delivery application where users request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. 
+Fabrikam, Inc. (a fictional company) implements a drone delivery application where users request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time.
 
-The microservices application was deployed to an Azure Kubernetes Service (AKS) cluster. But, the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They eventually migrated the application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam was able to:
+The microservices application was deployed to an AKS cluster. However, the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They eventually migrated the application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam was able to take the following actions:
 
 - Migrate the application nearly as-is: Very minimal code changes were required when moving their application from AKS to Azure Container Apps.
 - Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
@@ -153,9 +153,6 @@ For more network topology options, see [Networking architecture in Azure Contain
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
-<!--
-- [Container Apps pricing]().  We can add the link when the document is published.
- -->
 - Azure Container Apps has consumption based pricing model.
 - Azure Container Apps supports scale to zero. When a container app is scaled to zero, there's no charge.
 - In this scenario, Azure Cosmos DB and Azure Cache for Redis are the main cost drivers.
@@ -197,13 +194,11 @@ Principal author:
 
 ## Next steps
 
-- [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
-- [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery GitHub repo](https://github.com/mspnp/aks-fabrikam-dronedelivery)
+- [Azure Container Apps Documentation](/azure/container-apps/)
 
 ## Related resources
 
-- [Build microservices on Azure](/azure/architecture/microservices)
-- [Design a microservices architecture](/azure/architecture/microservices/design)
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+- [Design a microservices architecture](/azure/architecture/microservices/design/)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
-- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced AKS microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)

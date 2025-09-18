@@ -19,7 +19,7 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service best suits your application.        |
+|[Choose an Azure compute service](compute-decision-tree.md)  | Decide which compute service best suits your application.        |
 |[Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)|     Learn about two compute options for microservices: service orchestrator and serverless architecture.    |
 |[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
 
@@ -61,7 +61,7 @@ The Azure Storage platform is the Microsoft cloud storage solution for modern da
 |Article |Summary  |
 |---------|---------|
 |[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Review the storage options for Azure workloads.     |
-|[Azure managed disk types](/azure/virtual-machines/disks-types?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, Standard SSDs, and Standard HDDs.      |
+|[Azure managed disk types](/azure/virtual-machines/disks-types?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, and Standard SSDs.      |
 |[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
 
 ## Choose a data store
@@ -110,7 +110,7 @@ These articles can help you explore the networking technologies that are availab
 
 |Article |Summary  |
 |---------|---------|
-|[Load balancing options](load-balancing-overview.yml)     |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
+|[Load balancing options](load-balancing-overview.md)    |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
 |[Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)     |   Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.      |
 
 ## Choose a messaging service

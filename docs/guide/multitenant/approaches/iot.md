@@ -55,7 +55,7 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 #### Data storage, query, usage, and retention
 
-IoT solutions tend to be data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
+IoT solutions tend to be data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ### Security
 
@@ -159,7 +159,7 @@ If you compare the *Simple SaaS* approach with the [*Single tenant automated*](#
 * In the *Single tenant automated* model, you deploy a distinct IoT Central instance for each tenant,
 * In the *Simple SaaS with aPaaS* model, you deploy a shared instance for multiple customers, and you create an IoT Central organization for each tenant.
 
-Because you share a multitenant data tier in this model, you need to implement row-level security in order to isolate the customer data. To learn more, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
+Because you share a multitenant data tier in this model, you need to implement row-level security in order to isolate the customer data. To learn more, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 **Benefits**:
 
@@ -179,7 +179,7 @@ Because you share a multitenant data tier in this model, you need to implement r
 |---|---|---|
 | Service provider's subscription | Horizontally partitioned | Deployment Stamp |
 
-A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.yml#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
+A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
 
 Within an IoT solution, there are many components that can be horizontally partitioned. The horizontally partitioned subsystems are typically arranged using a [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp) which integrates with the greater solution.
 
@@ -272,15 +272,15 @@ When you expand the scale of a solution to large deployments, there are specific
 
 Principal authors:
 
-* [Michael C. Bazarewsky](https://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
-* [David Crook](https://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
- 
+- [Michael C. Bazarewsky](https://www.linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+- [David Crook](https://www.linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
+
 Other contributors:
 
-* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 
-* Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
-* Learn about [hot, warm, and cold data paths with IoT on Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/hot-warm-and-cold-data-paths-with-iot-on-azure/ba-p/2336035).
+- Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
+- Learn about [hot, warm, and cold data paths with IoT on Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/hot-warm-and-cold-data-paths-with-iot-on-azure/ba-p/2336035).

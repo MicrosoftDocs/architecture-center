@@ -92,7 +92,7 @@ You can use AKS to create agent or worker nodes in one or more node pools. The n
 
 AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure VM types directly within AKS. Use [Azure reservations](https://azure.microsoft.com/reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) to get discounts on these resources.
 
-AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. The VM cost depends on the size, CPU type, number of vCPUs, memory, family, and storage type available. Storage types include high-performance Azure Standard SSD or Azure Standard HDD. For more information, see [VM series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan your node size according to application requirements, number of nodes, and cluster scalability needs.
+AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. The VM cost depends on the size, CPU type, number of vCPUs, memory, family, and storage type available. For more information, see [VM series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan your node size according to application requirements, number of nodes, and cluster scalability needs.
 
 For more information, see [Node pools](node-pools.md) and [Create and manage multiple node pools for a cluster in AKS](/azure/aks/use-multiple-node-pools).
 
@@ -118,9 +118,9 @@ Consider the following aspects of Azure VM pricing:
 
 - Different VM families are optimized for different types of workloads.
 
-- Managed disks that you use as OS drives are charged separately. You must add their cost to your estimates. The managed disk size depends on the class, such as Standard HDD, Standard SSD, Azure Premium SSD, or Azure Ultra Disk Storage. Input/output operations per second (IOPS) and throughput in MBps depend on the size and class. The VM price includes [ephemeral OS disks](node-pools.md#ephemeral-os-disks).
+- Managed disks that you use as OS drives are charged separately. You must add their cost to your estimates. The managed disk size depends on the class, Standard SSD, Azure Premium SSD, or Azure Ultra Disk Storage. Input/output operations per second (IOPS) and throughput in MBps depend on the size and class. The VM price includes [ephemeral OS disks](node-pools.md#ephemeral-os-disks).
 
-- Data disks, including those created by using persistent volume claims, are optional. Data disks are charged individually based on their class, such as Standard HDD, Standard SSD, Premium SSD, and Ultra Disk Storage. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MBps depend on the VM size and class.
+- Data disks, including those created by using persistent volume claims, are optional. Data disks are charged individually based on their class, such as Standard SSD, Premium SSD, and Ultra Disk Storage. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MBps depend on the VM size and class.
 
 - The longer that agent nodes are operational, the higher the total cluster cost. Development environments don't usually need to run continuously.
 
@@ -132,9 +132,9 @@ The Container Storage Interface (CSI) is a standard for exposing block and file 
 
 If you run workloads that use CSI persistent volumes on your AKS cluster, consider the associated cost of the storage that your applications provision and use. CSI storage drivers on AKS provide native support for the following storage options:
 
-- [Azure disk storage](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard HDDs or Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- [Azure disk storage](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure premium storage that's backed by Premium SSDs or Azure standard storage that's backed by Standard SSDs. Most production and development workloads use premium storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use standard storage that's backed by Standard HDDs or premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
+- [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
   - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or unmanaged disks
 
@@ -183,7 +183,7 @@ You can use the following options to scale an AKS cluster, which adds extra capa
 
 - The AKS [cluster autoscaler](/azure/aks/cluster-autoscaler#about-the-cluster-autoscaler) watches for pods that can't be scheduled on nodes because of resource constraints, and automatically increases the number of nodes.
 
-- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://github.com/virtual-kubelet/virtual-kubelet) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, which allows AKS to run with just enough capacity for an average workload. As the AKS cluster reaches its capacity limit, you can scale out more Container Instances pods without managing extra servers. You can combine this approach with the cluster autoscaler and manual scaling approaches.
+- AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://virtual-kubelet.io/) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, which allows AKS to run with just enough capacity for an average workload. As the AKS cluster reaches its capacity limit, you can scale out more Container Instances pods without managing extra servers. You can combine this approach with the cluster autoscaler and manual scaling approaches.
 
 If you use on-demand scaling or the cluster autoscaler, account for the added VMs. Container Instances charges are based on the following factors:
 

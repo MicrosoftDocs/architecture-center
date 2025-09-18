@@ -42,14 +42,8 @@ items:
         items:
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Relational
-        items:
-        - name: Intelligent search engine for e-commerce
-          href: architecture/ecommerce-search.yml
       - name: Data movement
         items:
-        - name: Automated enterprise BI
-          href: ../reference-architectures/data/enterprise-bi-adf.yml
         - name: Disaster recovery for data analytics pipelines
           href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
@@ -82,6 +76,14 @@ items:
             href: guide/transactional-outbox-cosmos.yml
           - name: Run Apache Cassandra
             href: guide/cassandra.md
+      - name: OLAP solutions
+        href: ../data-guide/relational-data/online-analytical-processing.md
+      - name: OLTP solutions
+        href: ../data-guide/relational-data/online-transaction-processing.md
+      - name: ETL guide
+        href: ../data-guide/relational-data/etl.yml
+      - name: Data lakes
+        href: ../data-guide/scenarios/data-lake.md
       - name: Big data
         items:
         - name: Big data architectures

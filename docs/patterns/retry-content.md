@@ -95,7 +95,7 @@ Refer to the [Implement a retry policy with .NET](/azure/storage/blobs/storage-r
 
 ## Next steps
 
-- Before writing custom retry logic, consider using a general framework such as [Polly](https://github.com/App-vNext/Polly) for .NET or [Resilience4j](https://github.com/resilience4j/resilience4j) for Java.
+- Before writing custom retry logic, consider using a general framework such as [Polly](https://www.pollydocs.org/) for .NET or [Resilience4j](https://resilience4j.readme.io/docs/getting-started) for Java.
 
 - When processing commands that change business data, be aware that retries can result in the action being performed twice, which could be problematic if that action is something like charging a customer's credit card. Using the Idempotence pattern described in [this blog post](https://particular.net/blog/what-does-idempotent-mean) can help deal with these situations.
 

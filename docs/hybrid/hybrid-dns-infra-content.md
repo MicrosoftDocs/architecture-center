@@ -42,7 +42,7 @@ The architecture consists of the following components:
 
 - [Virtual Network](/azure/well-architected/service-guides/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
-- [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
+- [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion is a fully managed service that provides more secure Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 
 - [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
 
@@ -162,12 +162,9 @@ Learn more about the component technologies:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
 
-## Related resources
+## Related resource
 
-Explore related architectures:
-
-- [Azure enterprise cloud file share](./azure-files-private.yml)
-- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
+[Azure enterprise cloud file share](./azure-files-private.yml)
 
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction

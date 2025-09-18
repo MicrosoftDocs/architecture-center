@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Microservices with AKS and Azure DevOps is a variant of [Design a CI/CD pipeline using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
+> Microservices with Azure Kubernetes Service (AKS) and Azure DevOps is a variant of [Design a continuous integration/continuous deployment (CI/CD) pipeline by using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
 
 ## Potential use cases
 
@@ -27,10 +27,13 @@ Use Azure Pipelines to deploy AKS applications.
 
 ### Components
 
-- [Container Insights](/azure/azure-monitor/containers/container-insights-overview) collects logs and metrics and logs and forwards them to Azure Monitor.
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images.
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
-- [Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
+- [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of Azure Monitor that collects performance metrics, logs, and health data from Kubernetes clusters. In this architecture, Container Insights collects logs and metrics from the AKS environments and forwards them to Azure Monitor. This data provides observability into container performance and health across the CI/CD pipeline deployments.
+
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service for storing and managing container images. In this architecture, Container Registry serves as both non-production and production image repositories that store the container images that the CI pipeline builds and provides secure access for deployments to staging and production AKS environments.
+
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, AKS is the compute platform where the containerized applications are deployed via the CD pipeline.
+
+- [Microsoft Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) is a security service that performs static analysis and provides security posture visibility across development pipelines. In this architecture, Defender for DevOps helps secure the CI/CD pipeline by analyzing code and configurations for security vulnerabilities during the build and deployment processes to AKS environments.
 
 ## Next steps
 

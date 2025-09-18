@@ -2,11 +2,11 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::image-end:::
+:::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::
+   This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
+:::image-end:::
 
-This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
-
-Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -24,7 +24,7 @@ The following dataflow corresponds to the previous diagram:
 
    - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio): If the document requires you to extract key-value pairs or create a custom table from an image or PDF, use Document Intelligence Studio to tag the data and train the custom model. If there's a requirement to identify the type of document, called *document classification*, before you invoke the correct extraction model, use Document Intelligent Studio to label the documents and build the models.
 
-   - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio.
+   - [Language Studio](https://aka.ms/languageStudio): For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or named entity recognition (NER) model in Language Studio. 
 
    - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
@@ -38,35 +38,35 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning). You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API.
+   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models]([/azure/ai-services/openai/how-to/fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning-deploy?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&tabs=portal).You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API. You can also deploy finetuned foundation models from mutiple providers like Meta, llama etc as [Serverless API](/azure/ai-foundry/how-to/fine-tune-serverless?tabs=chat-completion&pivots=foundry-portal) or using [Managed Compute](/azure/ai-foundry/how-to/fine-tune-managed-compute). 
 
 ### Components
 
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is part of [Azure Integration Services](/shows/azure-friday/an-overview-of-azure-integration-services). Azure Logic Apps creates automated workflows that integrate apps, data, services, and systems. You can use [managed connectors](/azure/connectors/managed) for services like Azure Storage and Microsoft 365 to trigger workflows when a file arrives in the storage account or an email is received.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is part of [Azure Integration Services](/shows/azure-friday/an-overview-of-azure-integration-services). Logic Apps creates automated workflows that integrate apps, data, services, and systems. In this architecture, Logic Apps orchestrates the ingestion of documents and data from various sources and triggers downstream processes for document processing. You can use [managed connectors](/azure/connectors/managed) for services like Azure Storage and Microsoft 365 to trigger workflows when a file arrives in the storage account or an email is received.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a managed cloud extract, transform, and load service for data integration and transformation. Azure Data Factory can add [transformation activities](/azure/data-factory/transform-data) to a pipeline that include invoking a REST endpoint or running a notebook on the ingested data.
+- [Azure Data Factory](/azure/data-factory/introduction) is a managed data integration service for orchestrating and automating data movement and transformation. In this architecture, Azure Data Factory adds [transformation activities](/azure/data-factory/transform-data) like invoking a REST endpoint or running a notebook on the ingested data to the pipeline.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that can host event-driven workloads that have short-lived processes.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that can host event-driven workloads that have short-lived processes. In this architecture, Functions enables workloads to process incoming documents and trigger model processing pipelines.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing unstructured data. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data. In this architecture, this account is the solution for raw files that use a hot tier.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities built on Blob Storage for big data analytics. Data Lake Storage maintains the cost effectiveness of Blob Storage and provides features like file-level security and file system semantics with a hierarchical namespace.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, cloud-based repository for storing and organizing large volumes of unstructured data. In this architecture, Data Lake Storage organizes and maintains large volumes of ingested data to support analytics, labeling, and machine learning workflows.
 
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). Document Intelligence has built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/ai-services/document-intelligence/train/custom-template) form model and a [custom neural](/azure/ai-services/document-intelligence/train/custom-neural) document model that you can use to train and deploy custom models.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). In this architecture, it provides built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/ai-services/document-intelligence/train/custom-template) form model and a [custom neural](/azure/ai-services/document-intelligence/train/custom-neural) document model that you can use to train and deploy custom models.
 
-- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore Document Intelligence features and models. It also enables you to build, tag, train, and deploy custom models.
+- [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore Document Intelligence features and models. You can use the interface to label data and build custom document processing models.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. The suite provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features).
+- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. It provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features) and language understanding capabilities. Use it to classify documents, recognize named entities, and complete other NLP tasks.
 
-- [Language Studio](/azure/ai-services/language-service/overview) provides a UI that you can use to explore and analyze Language features. It also provides options for building, tagging, training, and deploying custom models.
+- [Language Studio](/azure/ai-services/language-service/overview) is a web-based UI for building, training, managing and deploying language models. In this architecture, it supports tagging, training, and deploying custom language models for tasks like classification and entity extraction within the document processing pipeline. [Autolabelling](/azure/ai-services/language-service/custom-text-classification/how-to/use-autolabeling) is supported for custom text classification and can be used to automiatically label your documents into different classes or categories. The studio also provides option to view the [model performance](/azure/ai-services/language-service/custom-text-classification/how-to/view-model-evaluation?tabs=language-studio%2Coverview%2CLanguage-studio) including F1 score, precision, recall etc. 
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed machine learning platform for model development and deployment at scale. In this architecture, it labels data, trains custom models (including with open-source frameworks), and deploys the models for inference tasks.
 
-  - Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects).
+  - Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects). It supports model training workflows within this architecture.
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. [Specific models can be fine-tuned](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI models or other foundation models from multiple providers is used for advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
 
 ### Alternatives
 
@@ -78,7 +78,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). You can also use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+- You can use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications. There are two unique ways through Azure [AI Foundry Portal](/azure/ai-foundry/openai/how-to/fine-tuning?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&tabs=azure-openai&pivots=programming-language-studio) : [Azure OpenAI centric view](https://ai.azure.com/resource/overview) which supports finetuning of Azure OpenAI models and [Hub/Project View](https://ai.azure.com/?cid=learnDocs) which supports finetuning from multiple providers including Azure OpenAI, Meta etc.  Azure AI Foundry also offers two modalities for deployment : [Serverless Compute and Managed Compute] (/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). There are [certain models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) which support deployments through serverless API. You can also explore Azure OpenAI models and a collection of foundation models in the [model catalog](/azure/machine-learning/concept-model-catalog). Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario. 
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -92,7 +92,7 @@ Major challenges in model customization include:
 
 - Managing training infrastructure, such as compute and storage, and their integrations.
 
-- Deploying models securely at scale for seamless integration with consuming applications.
+- Deploying models at scale for applications to consume.
 
 ### Potential use cases
 
@@ -130,7 +130,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Resiliency
 
-- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
+- Address failure modes of individual services like Functions and Storage to help ensure resiliency of the compute services and data stores in this scenario. For more information, see [Reliability guides by service](/azure/reliability/overview-reliability-guidance).
 
 - [Back up and recover your Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/disaster-recovery).
 
@@ -203,7 +203,8 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Principal author:
 
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Senior Customer Engineer
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Engineer
+- Dixit Arora | Senior Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -219,4 +220,3 @@ Principal author:
 
 - [Extract text from objects by using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP by using deep learning](../../data-guide/technology-choices/natural-language-processing.md)
-- [Automate document processing by using Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-ai-document-intelligence.yml)

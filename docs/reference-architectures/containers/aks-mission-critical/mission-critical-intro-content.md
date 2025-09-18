@@ -64,15 +64,15 @@ The components of this architecture can be broadly categorized in this manner. F
 
 ### Global resources
 
-The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
+The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model.
 
 Here are the high-level considerations about the components. For detailed information about the decisions, see [**Global resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#global-resources).
 
 #### Global load balancer
 
-A global load balancer is critical for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
+A global load balancer is critical for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall.
 
-**Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependent on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component. 
+**Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependent on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component.
 
 Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. However, failure is not transparent to all clients since DNS propagation must occur.
 
@@ -113,19 +113,17 @@ Here are the high-level considerations about the components. For detailed inform
 
 This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. The SPA is hosted as a **static website in an Azure Storage Account**.
 
-Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to a global load balancer, and other factors.
-
 Static content is typically cached in a store close to the client, using a content delivery network (CDN), so that the data can be served quickly without communicating directly with backend servers. It's a cost-effective way to increase reliability and reduce network latency. In this architecture, the **built-in CDN capabilities of Azure Front Door** are used to cache static website content at the edge network.
 
 #### Compute cluster
 
-The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
+The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane.
 
-Azure offers other compute services, such as Azure Functions and Azure App Services. Those options offload additional management responsibilities to Azure at the cost of flexibility and density. 
+Azure offers other compute services, such as Azure Functions and Azure App Services. Those options offload additional management responsibilities to Azure at the cost of flexibility and density.
 
-> [!NOTE] 
->  Avoid storing state on the compute cluster, keeping in mind the ephemeral nature of the stamps. As much as possible, persist state in an external database to keep scaling and recovery operations lightweight. For example in AKS, pods change frequently. Attaching state to pods will add the burden of data consistency.
-
+> [!NOTE]
+> Avoid storing state on the compute cluster, keeping in mind the ephemeral nature of the stamps. As much as possible, persist state in an external database to keep scaling and recovery operations lightweight. For example in AKS, pods change frequently. Attaching state to pods will add the burden of data consistency.
+>
 > Refer to [Well-Architected mission-critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
 #### Regional message broker
@@ -160,7 +158,7 @@ Build and release pipelines for a mission-critical application must be fully aut
 
 Automated pipelines are required for building, testing, and deploying a mission workload in preproduction *and* production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
 
-Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities. 
+Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities.
 
 > Refer to [Well-Architected mission-critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
@@ -168,14 +166,14 @@ Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that 
 
 **Microsoft-hosted build agents** are used by this implementation to reduce complexity and management overhead. Self-hosted agents can be used for scenarios that require a hardened security posture.  
 
-> [!NOTE] 
->  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
+> [!NOTE]
+> The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
 
 ### Observability resources
 
 Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. This reference provides a baseline for achieving holistic observability of an application.
 
-#### Unified data sink 
+#### Unified data sink
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
@@ -186,7 +184,7 @@ Monitoring data for global resources and regional resources should be stored ind
 
 In this architecture, monitoring resources within a region must be independent from the stamp itself, because if you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps.
 
-Similarly, data from shared services such as, Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace. 
+Similarly, data from shared services such as Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace.
 
 #### Data archiving and analytics
 
@@ -221,7 +219,7 @@ The description of this flow is in the following sections.
 
 6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
 
-7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Azure Cosmos DB. The SDK determines the optimal order of available Azure Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
+7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including support to configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Azure Cosmos DB. The SDK determines the optimal order of available Azure Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
 
 8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Azure Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
 
@@ -250,7 +248,8 @@ We suggest you explore these design areas for recommendations and best practice 
 
 ## Related resources
 
-For product documentation on the Azure services used in this architecture, see these articles. 
+For product documentation on the Azure services used in this architecture, see these articles.
+
 - [Azure Front Door](/azure/frontdoor/)
 - [Azure Cosmos DB](/azure/cosmos-db/)
 - [Azure Container Registry](/azure/container-registry/)
@@ -262,7 +261,6 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure Blob Storage](/azure/storage/blobs/)
 
-
 ## Deploy this architecture
 
 Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. It contains a deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
@@ -272,7 +270,7 @@ Deploy the reference implementation to get a complete understanding of considere
 
 ## Next steps
 
-If you want to extend the baseline architecture with network controls on ingress and egress traffic, see this architecture. 
+If you want to extend the baseline architecture with network controls on ingress and egress traffic, see this architecture.
 
 > [!div class="nextstepaction"]
 > [Architecture: Mission-critical baseline with network controls](./mission-critical-network-architecture.yml)

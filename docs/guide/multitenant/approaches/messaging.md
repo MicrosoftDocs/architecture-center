@@ -13,7 +13,7 @@ ms.custom: arb-saas
 
 Asynchronous messaging and event-driven communication are critical assets when building a distributed application that's composed of several internal and external services. When you design a multitenant solution, it's crucial to conduct a preliminary analysis to define how to share or partition messages that pertain to different tenants.
 
-Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge your Azure costs back to your tenants easily.
+Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows you to charge your Azure costs back to your tenants easily.
 
 In this article, you can find a distinction between messages and events, and you'll find guidelines that solution architects can follow when deciding which approach to use for a messaging or eventing infrastructure in a multitenant solution.
 
@@ -28,7 +28,7 @@ All messaging systems have similar functionalities, transport protocols, and usa
 
 An event is a lightweight notification of a condition or a state change. Events can be discrete units or part of a series. Events are messages that don't generally convey a publisher's intent other than to inform. An event captures a fact and communicates it to other services or components. A consumer of the event can process the event as it pleases and doesn't fulfill any specific expectations the publisher holds. We can classify events into two main categories:
 
-- **Discrete events** hold information about specific actions that the publishing application has carried out. When using asynchronous event-driven communication, an application publishes a notification event when something happens within its domain. One or more consuming applications needs to be aware of this state change, like a price change in a product catalog application. Consumers subscribe to the events to receive them asynchronously. When a given event happens, the consuming applications might update their domain entities, which can cause more integration events to be published.
+- **Discrete events** hold information about specific actions that the publishing application has carried out. When using asynchronous event-driven communication, an application publishes a notification event when something happens within its domain. One or more consuming applications need to be aware of this state change, like a price change in a product catalog application. Consumers subscribe to the events to receive them asynchronously. When a given event happens, the consuming applications might update their domain entities, which can cause more integration events to be published.
 - **Series events** carry informational data points, such as temperature readings from devices for analysis or user actions in a click-analytics solution, as elements in an ongoing, continuous stream. An event stream is related to a specific context, like the temperature or humidity reported by a field device. All the events related to the same context have a strict temporal order that matters when processing these events with an event stream processing engine. Analyzing streams of events that carry data points requires accumulating these events in a buffer that spans a desired time window. Or it can be in a selected number of items and then processing these events, by using a near-real-time solution or machine-trained algorithm. The analysis of a series of events can yield signals, like the average of a value measured over a time window that crosses a threshold. Those signals can then be raised as discrete, actionable events.
 
 Discrete events report state changes and are actionable. The event payload has information about what happened, but, in general, it doesn't have the complete data that triggered the event. For example, an event notifies consumers that a reporting application created a new file in a storage account. The event payload might have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
@@ -60,7 +60,7 @@ Here is a list of some example multitenant scenarios for messages, data points, 
 
 ## Key considerations and requirements
 
-The [deployment and tenancy model](../considerations/tenancy-models.yml) that you choose for your solution has a deep impact on security, performance, data isolation, management, and the ability to cross-charge resource costs to tenants. This analysis includes the model that you select for your messaging and eventing infrastructure. In this section, we review some of the key decisions you must make when you plan for a messaging system in your multitenant solution. 
+The [deployment and tenancy model](../considerations/tenancy-models.md) that you choose for your solution has a deep impact on security, performance, data isolation, management, and the ability to cross-charge resource costs to tenants. This analysis includes the model that you select for your messaging and eventing infrastructure. In this section, we review some of the key decisions you must make when you plan for a messaging system in your multitenant solution. 
 
 ### Scale
 
@@ -103,7 +103,7 @@ When designing the messaging system for a multitenant solution, you should consi
 
 - **Multiple tenants can share the same messaging entities, such as queues, topics, and subscriptions, in the same messaging system**. For example, a multitenant application could receive messages that carry data for multiple tenants, from a single [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) queue. This solution can lead to performance and scalability issues. If some of the tenants generate a larger volume of orders than others, this could cause a backlog of messages. This problem, also known as the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), can degrade the service level agreement in terms of latency for some tenants. The problem is more evident if the consumer application reads and processes messages from the queue, one at a time, in a strict chronological order, and if the time necessary to process a message depends on the number of items in the payload. When sharing one or more queue resources across multiple tenants, the messaging infrastructure and processing systems should be able to accommodate the scale and throughput requirements-based expected traffic. This architectural approach is well-suited in those scenarios where a multitenant solution adopts a single pool of worker processes, in order to receive, process, and send messages for all the tenants.
 - **Multiple tenants share the same messaging system but use different topic or queue resources.** This approach provides better isolation and data protection at a higher cost, increased operational complexity, and lower agility because system administrators have to provision, monitor, and maintain a higher number of queue resources. This solution ensures a consistent and predictable experience for all tenants, in terms of performance and service-level agreements, as it prevents any tenant from creating a bottleneck that can impact the other tenants.
-- **A separate, dedicated messaging system is used for each tenant.** For example, a multitenant solution can use a distinct  [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) namespace for each tenant. This solution provides the maximum degree of isolation, at a higher complexity and operational cost. This approach guarantees consistent performance and allows for fine-tuning the messaging system, based on specific tenant needs. When a new tenant is onboarded, in addition to a fully dedicated messaging system, the provisioning application might also need to create a separate managed identity or a service principal with the proper RBAC permissions to access the newly created namespace. For example, when a Kubernetes cluster is shared by multiple instances of the same SaaS application, one for each tenant, and each running in a separate namespace, each application instance may use a different service principal or managed identity to access a dedicated messaging system. In this context, the messaging system could be a fully-managed PaaS service, such as an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) namespace, or a Kubernetes-hosted messaging system, such as [RabbitMQ](https://www.rabbitmq.com/). When deleting a tenant from the system, the application should remove the messaging system and any dedicated resource that was priorly created for the tenant. The main disadvantage of this approach is that it increases operational complexity and reduces agility, especially when the number of tenants grows over time.
+- **A separate, dedicated messaging system is used for each tenant.** For example, a multitenant solution can use a distinct  [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) namespace for each tenant. This solution provides the maximum degree of isolation, at a higher complexity and operational cost. This approach guarantees consistent performance and allows for fine-tuning the messaging system, based on specific tenant needs. When a new tenant is onboarded, in addition to a fully dedicated messaging system, the provisioning application might also need to create a separate managed identity or a service principal with the proper RBAC permissions to access the newly created namespace. For example, when a Kubernetes cluster is shared by multiple instances of the same SaaS application, one for each tenant, and each running in a separate namespace, each application instance may use a different service principal or managed identity to access a dedicated messaging system. In this context, the messaging system could be a fully managed PaaS service, such as an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) namespace, or a Kubernetes-hosted messaging system, such as [RabbitMQ](https://www.rabbitmq.com/). When deleting a tenant from the system, the application should remove the messaging system and any dedicated resource that was priorly created for the tenant. The main disadvantage of this approach is that it increases operational complexity and reduces agility, especially when the number of tenants grows over time.
 
 Review the following additional considerations and observations:
 
@@ -123,7 +123,7 @@ Likewise, an event-driven application can provide different levels of isolation:
 
 When designing a multitenant solution, it's essential to consider how the system will evolve in the medium to long term, in order to prevent its complexity from growing over time, until it is necessary to redesign part of or the entire solution. This redesign will help you cope with an increasing number of tenants. When designing a messaging system, you should consider the expected growth in message volumes and tenants, in the next few years, and then create a system that can scale out, in order to keep up with the predicted traffic and to reduce the complexity of operations, such as provisioning, monitoring, and maintenance.
 
-The solution should automatically create or delete the necessary messaging entities any time that a tenant application is provisioned or unprovisioned, without the need for manual operations.
+The solution should automatically create or delete the necessary messaging entities anytime that a tenant application is provisioned or unprovisioned, without the need for manual operations.
 
 A particular concern for multitenant data solutions is the level of customization that you support. Any customization should be automatically configured and applied by the application provisioning system (such as a DevOps system), which is based on a set of initial parameters, whenever a single-tenant or multitenant application is deployed.
 
@@ -149,7 +149,7 @@ Several [Cloud Design Patterns](/azure/architecture/patterns) from the Azure Arc
 
 ### Deployment Stamps pattern
 
-For more information about the Deployment Stamps pattern and multitenancy, see [the Deployment Stamps pattern section of Architectural approaches for multitenancy](overview.yml#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml).
+For more information about the Deployment Stamps pattern and multitenancy, see [the Deployment Stamps pattern section of Architectural approaches for multitenancy](overview.md#deployment-stamps-pattern). For more information about tenancy models, see [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md).
 
 ### Shared messaging system
 
@@ -210,13 +210,13 @@ The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collectio
 
 Principal author:
 
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- 
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+
 Other contributors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Clemens Vasters](https://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Clemens Vasters](https://www.linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

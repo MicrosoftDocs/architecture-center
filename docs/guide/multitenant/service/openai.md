@@ -54,7 +54,7 @@ Sharing an Azure OpenAI resource doesn't provide security segmentation for each 
 
 Sharing an instance of Azure OpenAI among multiple tenants can also lead to a [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem. It can cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge your customers for the consumption cost of a shared Azure OpenAI instance, implement the logic to keep track of the total number of tokens for each tenant in your application.
 
-You can also deploy multiple shared Azure OpenAI instances. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), deploy a shared Azure OpenAI instance in each stamp. If you deploy a solution in multiple regions, you should deploy Azure OpenAI in each region to:
+You can also deploy multiple shared Azure OpenAI instances. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern), deploy a shared Azure OpenAI instance in each stamp. If you deploy a solution in multiple regions, you should deploy Azure OpenAI in each region to:
 
 - Avoid cross-region traffic latency.
 - Support data residency requirements.
@@ -166,20 +166,20 @@ By carefully managing batch deployments, you can balance cost efficiency and res
 
 Principal author:
 
-- [Sofia Ferreira](https://linkedin.com/in/asofiamferreira) | Software Engineer, ISV & DN CoE
+- [Sofia Ferreira](https://www.linkedin.com/in/asofiamferreira) | Software Engineer, ISV & DN CoE
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce) | Customer Engineer, ISV & DN CoE
-- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, ISV & DN CoE
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, ISV & DN CoE
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
-- [Architectural approaches for the deployment and configuration of multitenant solutions](../approaches/deployment-configuration.yml)
-- [Architectural approaches for cost management and allocation in a multitenant solution](../../multitenant/approaches/cost-management-allocation.yml)
+- [Architectural approaches for the deployment and configuration of multitenant solutions](../approaches/deployment-configuration.md)
+- [Architectural approaches for cost management and allocation in a multitenant solution](../../multitenant/approaches/cost-management-allocation.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../../multitenant/checklist.md)

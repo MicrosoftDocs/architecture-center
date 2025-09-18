@@ -39,39 +39,41 @@ This architecture consists of several Azure services that scale resources accord
 
 Here are the core components that move and process research data.
 
-- [**Azure data science VMs**](/azure/machine-learning/data-science-virtual-machine/overview) are VMs that you configure with tools for data analytics and machine learning. Use the data science VM when you need specific packages or tools, such as MATLAB or SAS, that platform as a service (PaaS) environments can't support. For security and ease of use, choose Machine Learning and other PaaS options when they're supported.
+- [**Azure data science VMs**](/azure/machine-learning/data-science-virtual-machine/overview) are VMs that you configure with tools for data analytics and machine learning. In this architecture, they provide researchers with dedicated, secure compute resources for data preparation, analysis, and model training within the isolated environment. Use the data science VM when you need specific packages or tools, such as MATLAB or SAS, that platform as a service (PaaS) environments can't support. For security and ease of use, choose Machine Learning and other PaaS options when they're supported.
 
-- [**Machine Learning**](/azure/well-architected/service-guides/azure-machine-learning) is a service that you can use to train, deploy, automate, and manage machine learning models. You can also use it to manage the allocation and use of machine learning compute resources. Machine Learning is the tool of choice for Jupyter notebooks for development.
+- [**Machine Learning**](/azure/well-architected/service-guides/azure-machine-learning) is a service that you can use to train, deploy, automate, and manage machine learning models. In this architecture, it facilitates model development and orchestration while maintaining security controls over data access and compute resources. You can also use it to manage the allocation and use of machine learning compute resources. Machine Learning is the tool of choice for Jupyter notebooks for development.
 
-- **Machine Learning compute** is a cluster of nodes that you can use to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option. You can deploy Visual Studio Code (VS Code) as a streaming application from Virtual Desktop and connect it to the Machine Learning compute for an alternative development environment.
+- **Machine Learning compute** is a cluster of nodes that you can use to train and test machine learning and AI models. In this architecture, it provides automatically scalable, secure, and isolated compute resources for research. You can deploy Visual Studio Code (VS Code) as a streaming application from Virtual Desktop and connect it to the Machine Learning compute for an alternative development environment.
 
-- [**Azure Blob Storage**](/azure/well-architected/service-guides/azure-blob-storage) has two instances. The public instance temporarily stores the data that the data owners upload. The public instance also stores de-identified data after it models the data in a separate container. The second instance is private. It receives the training and test datasets from Machine Learning that the training scripts use. Storage is mounted as a virtual drive onto each node of a Machine Learning compute cluster.
+- [**Azure Blob Storage**](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing unstructured data in the cloud. In this architecture, it's the primary storage solution, and it has two instances. The public instance temporarily stores the data that the data owners upload. The public instance also stores de-identified data after it models the data in a separate container. The second instance is private. It receives the training and test datasets from Machine Learning that the training scripts use. Storage is mounted as a virtual drive onto each node of a Machine Learning compute cluster.
 
-- [**Data Factory**](/azure/data-factory/introduction) automatically moves data between storage accounts of differing security levels to help ensure separation of duties.
+- [**Data Factory**](/azure/data-factory/introduction) is a managed cloud service that orchestrates and operationalizes processes to move raw data between systems. In this architecture, it moves data between storage accounts of differing security levels, enforces separation of duties, and manages data flows throughout the secure environment.
 
-- [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Azure Synapse Analytics is also a preferred service to run Apache Spark workloads.
+- [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Azure Synapse Analytics is also a preferred service to run Apache Spark workloads. In this architecture, it enables advanced analytics and data integration for research datasets that can be accessed through secure, private endpoints.
 
-- [**Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is a service that you can use as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternatively, you can use [Azure Bastion](/azure/bastion/), but you should have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages, including:
+- [**Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud. In this architecture, it acts as a jump box that you can use to gain access to the resources in the secure environment. It enables researchers to connect to data science VMs by using streaming applications and a full desktop, as needed. 
 
-  - The ability to stream an app like VS Code to run notebooks on the machine learning compute resources.
-  - The ability to limit copy, paste, and screen captures.
-  - Support for Microsoft Entra authentication to data science VMs.
+   Alternatively, you can use [Azure Bastion](/azure/bastion/), but you should have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages, including:
 
-- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) provides automated low-code workflows to develop the *trigger* and *release* portions of the manual approval process.
+   - The ability to stream an app like VS Code to run notebooks on the machine learning compute resources.
+   - The ability to limit copy, paste, and screen captures.
+   - Support for Microsoft Entra authentication to data science VMs.
+
+- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) provides automated low-code workflows. In this architecture, it manages the *trigger* and *release* portions of the manual approval process.
 
 #### Posture management components
 
 These components continuously monitor the posture of the workload and its environment. Their purpose is to discover and mitigate risks as soon as they're discovered.
 
-- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that you can use to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. You can discover issues early, instead of when you perform audits or assessments. Use features to track progress such as the secure score and compliance score. These scores are important tools that help verify compliance.
+- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that you can use to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. In this architecture, it helps you discover problems early, instead of when you perform audits or assessments. Use features to track progress such as the secure score and compliance score. These scores are important tools that help verify compliance.
 
-- [**Microsoft Sentinel**](/azure/sentinel/overview) is a security information and event management solution and a security orchestration, automation, and response solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats. This capability provides valuable security insights to help ensure that traffic and any activities associated with the workspace meet your expectations.
+- [**Microsoft Sentinel**](/azure/sentinel/overview) is a security information and event management solution and a security orchestration, automation, and response solution. In this architecture, it centralizes logs, detects threats, and automates security responses for the research environment. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats. This capability provides valuable security insights to help ensure that traffic and any activities associated with the workspace meet your expectations.
 
-- [**Azure Monitor**](/azure/azure-monitor/overview) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Defender for Cloud, also push log data to Azure Monitor.
+- [**Azure Monitor**](/azure/azure-monitor/overview) provides observability across your entire environment. In this architecture, it collects and visualizes metrics, activity logs, and diagnostics to support operational monitoring and incident detection. Management tools, such as tools in Defender for Cloud, also push log data to Azure Monitor.
 
 #### Governance components
 
-- [**Azure Policy**](/azure/governance/policy/overview) helps you enforce organizational standards and assess compliance at scale.
+- [**Azure Policy**](/azure/governance/policy/overview) is a governance tool for enforcing organizational standards and assessing compliance at scale. In this architecture, it helps ensure that resources and workloads adhere to security and configuration policies.
 
 ### Alternatives
 

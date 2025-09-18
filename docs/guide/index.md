@@ -96,13 +96,13 @@ For more information about various design considerations, including API design, 
 
 Your application has specific business requirements, goals, and measurements of success. You should decompose those functional and nonfunctional requirements into discrete activities that work together to achieve a solution that meets your and your customers' expectations. These activities typically follow patterns that the software industry has established. Software design patterns are named and repeatable approaches that you can apply to processing or data storage. These patterns are proven to solve specific problems with known tradeoffs.
 
-Azure's [catalog of cloud design patterns](../patterns/index.md) addresses specific challenges in distributed systems.
+The [catalog of cloud design patterns](../patterns/index.md) in Azure addresses specific challenges in distributed systems. For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). It includes specialized coordination approaches that complement traditional design patterns by addressing the unique challenges of orchestrating intelligent, autonomous components.
 
 ## Make informed technology choices
 
 After you determine the type of architecture that you want to build and the design patterns that you expect to use, you can choose the main technology components for the architecture. The following technology choices are essential:
 
-- *Compute* refers to the hosting model for the computing resources, or application platform, that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.yml). See specialized guidance, like [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml), for specific application platforms.
+- *Compute* refers to the hosting model for the computing resources, or application platform, that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md). See specialized guidance, like [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml), for specific application platforms.
 
 - *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Data store classification](../data-guide/technology-choices/data-store-classification.md) and [Review your storage options](./technology-choices/storage-options.md).
 

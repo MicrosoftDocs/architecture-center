@@ -7,8 +7,9 @@ metadata:
   ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - hybrid
   - migration
