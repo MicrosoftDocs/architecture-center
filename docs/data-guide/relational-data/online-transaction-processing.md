@@ -21,7 +21,7 @@ Transactions typically need to be *atomic* and *consistent*. Atomicity means tha
 
 Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is consistent within the context of the workload, for all users and processes.
 
-The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.yml) architecture, which can have multiple middle-tiers handling business logic.
+The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.md) architecture, which can have multiple middle-tiers handling business logic.
 
 ## Typical traits of transactional data
 
