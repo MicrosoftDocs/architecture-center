@@ -1,14 +1,17 @@
-Data-driven enterprises need to keep their back end and analytics systems in near real-time sync with customer-facing applications. The impact of transactions, updates, and changes must reflect accurately through end-to-end processes, related applications, and online transaction processing (OLTP) systems. The tolerable latency for changes in OLTP applications to reflect in the downstream systems that use the data might be just a few minutes.
+Data-driven enterprises need to keep their back-end and analytics systems in near real-time sync with customer-facing applications. The impact of transactions, updates, and changes must reflect accurately through end-to-end processes, related applications, and online transaction processing (OLTP) systems. The tolerable latency for changes in OLTP applications to reflect in the downstream systems that use the data might be just a few minutes.
 
 This article describes an end-to-end solution for near real-time data processing to keep lakehouse data in sync. The solution uses Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage for data processing and analytics.
 
-Note: A similar architecture can also be implemented using Microsoft Fabric, which provides a unified SaaS platform for data ingestion, transformation, storage, and analytics. In this case, Microsoft Fabric would replace the Azure Synapse Analytics components of the architecture, offering integrated capabilities for real-time data processing and analysis.  See the [Microsoft Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview) for details.
+> [!NOTE]
+> You can implement a similar architecture by using Microsoft Fabric, which provides a unified software as a service (SaaS) platform for data ingestion, transformation, storage, and analytics. In this case, Fabric replaces the Azure Synapse Analytics components of the architecture and provides integrated capabilities for real-time data processing and analysis. For more information, see [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview).
 
 *Apache® and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-[![A diagram that shows the dataflow for the end-to-end data processing solution.](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg)](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg#lightbox)
+:::image type="complex" border="false" source="media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg" alt-text="A diagram that shows the dataflow for the end-to-end data processing solution." lightbox="media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg":::
+   The diagram shows streaming data sources like mobile apps and customer-facing applications flowing through OLTP databases to Debezium connectors that extract and send events. These connectors feed into Event Hubs. From Event Hubs, data flows in two directions: directly to Azure Synapse Analytics Spark pools for structured stream processing or to Data Lake Storage as a landing zone for raw data storage. Batch data sources like partner datasets and File Transfer Protocol (FTP) also connect to Azure Synapse Analytics pipelines via Data Lake Storage. Data Lake Storage passes the data to Azure Synapse Analytics pipelines for processing. From the validated data zone, processed data loads into Azure Synapse Analytics Spark pools to dedicated SQL pools, Azure Cosmos DB, or Azure AI Search. The dedicated SQL pools connect to Power BI to create dashboards and reports. Azure Cosmos DB and AI Search connect to APIs for downstream consumption. Validated data also flows from Data Lake Storage to Azure Machine Learning for model training and deployment or to Azure Synapse Analytics serverless SQL pools to be passed to customers for analysis.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-near-realtime-data-processing.vsdx) of this architecture.*
 
@@ -18,28 +21,28 @@ Note: A similar architecture can also be implemented using Microsoft Fabric, whi
 
 1. The connectors extract change data and send the captured events to Azure Event Hubs. Event Hubs can receive large amounts of data from multiple sources.
 
-1. Event Hubs directly streams the data to Azure Synapse Analytics Spark pools, or can send the data to an Azure Data Lake Storage landing zone in raw format.
+1. Event Hubs directly streams the data to Azure Synapse Analytics Spark pools or sends the data to a Data Lake Storage landing zone in raw format.
 
-1. Other batch data sources can use Azure Synapse pipelines to copy data to Data Lake Storage and make it available for processing. An end-to-end extract, transform, and load (ETL) workflow might need to chain different steps or add dependencies between steps. Azure Synapse pipelines can orchestrate workflow dependencies within the overall processing framework.
+1. Other batch data sources can use Azure Synapse Analytics pipelines to copy data to Data Lake Storage and make it available for processing. An end-to-end extract, transform, and load (ETL) workflow might need to chain different steps or add dependencies between steps. Azure Synapse Analytics pipelines can orchestrate workflow dependencies within the overall processing framework.
 
 1. Azure Synapse Spark pools use fully supported Apache Spark structured streaming APIs to process data in the Spark Streaming framework. The data processing step incorporates data quality checks and high-level business rule validations.
 
 1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing for existing data lakes.
 
-   Using indexes for query acceleration augments Delta with further performance enhancements. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
+   Using indexes for query acceleration improves Delta Lake performance. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
 
-1. Data from the Data Lake Storage validated zone, transformed and enriched with more rules into its final processed state, loads to a dedicated SQL pool for running large scale analytical queries.
+1. Data from the Data Lake Storage validated zone, transformed and enriched with more rules into its final processed state, loads to a dedicated SQL pool for running large-scale analytical queries.
 
-1. Power BI uses the data exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
+1. Power BI uses the data that's exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
-1. You can also use captured raw data in Data Lake Store and validated data in the Delta format for:
+1. You can also use captured raw data in Data Lake Store and the validated data in the Delta format for the following tasks:
 
-   - Further ad-hoc and exploratory analysis through Azure Synapse SQL serverless pools.
-   - Machine learning through Azure Machine Learning.
+   - Unplanned and exploratory analysis through Azure Synapse Analytics serverless SQL pools
+   - Machine learning model training and deployment through Azure Machine Learning
 
-1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This usage scenario is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
+1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This use case is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
 
-1. The Azure Cosmos DB partitioning strategy might not efficiently support all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure AI Search. Cosmos DB and AI Search can fulfill most scenarios that require low latency query responses. For example, if a retail application stores product catalog data in Cosmos DB, but needs full-text search capabilities with flexible indexing, AI Search can index the data and provide advanced search features like autocomplete, synonyms, and semantic ranking. This is particularly useful when Cosmos DB’s indexing limitations hinder complex search scenarios.
+1. The Azure Cosmos DB partitioning strategy might not efficiently support all query patterns. If that's the case, you can augment the solution by indexing the data that the APIs need to access with Azure AI Search. Azure Cosmos DB and AI Search can fulfill most scenarios that require low-latency query responses. For example, a retail application stores product catalog data in Azure Cosmos DB but needs full-text search capabilities and flexible indexing. AI Search can index the data and provide advanced search features like autocomplete, synonyms, and semantic ranking. These features are useful when Azure Cosmos DB indexing limitations hinder complex search scenarios.
 
 ### Components
 
@@ -61,7 +64,7 @@ This solution uses the following Azure components:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. This solution uses Azure Cosmos DB for applications that require single-digit millisecond response times and high availability. Azure Cosmos DB offers multi-region writes across all Azure regions.
 
-- [Azure AI Search](/azure/search/search-what-is-azure-search) is a powerful alternative when Cosmos DB’s indexing model is too rigid for advanced search scenarios. It enables flexible querying with features like typo tolerance, autocomplete, semantic ranking, and synonym matching. You can query indexed data using a REST API or the .NET SDK. If you need to retrieve data from multiple indexes, you can either consolidate them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types) to model nested structures.
+- [AI Search](/azure/search/search-what-is-azure-search) is a powerful alternative when Azure Cosmos DB indexing model is too rigid for advanced search scenarios. It enables flexible querying with features like typo tolerance, autocomplete, semantic ranking, and synonym matching. You can query indexed data using a REST API or the .NET SDK. If you need to retrieve data from multiple indexes, you can either consolidate them into a single index or use [complex data types](/azure/search/search-howto-complex-data-types) to model nested structures.
 
 ## Scenario details
 
