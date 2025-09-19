@@ -54,7 +54,7 @@ For more information, see [Deployment and testing for mission-critical workloads
 
 ## Deployment: Zero downtime updates
 
-The zero-downtime update strategy in the architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into an infrastructure stamp. The architecture utilizes a blue/green approach and allows for separate test and development environments.
+The zero-downtime update strategy in the architecture is central to the overall mission-critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into an infrastructure stamp. The architecture utilizes a blue/green approach and allows for separate test and development environments.
 
 There are two main components of the architecture:
 

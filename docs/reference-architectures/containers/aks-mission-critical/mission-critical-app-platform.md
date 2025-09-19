@@ -35,7 +35,7 @@ The resources in each layer have distinct characteristics. For more information,
 
 ## Global resources
 
-Certain resources should be shared by resources deployed in regions. Use these global resources to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data.
+Certain resources should be shared across all regions. Use these global resources to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data.
 
 |Characteristics|Layer Considerations|
 |---|---|

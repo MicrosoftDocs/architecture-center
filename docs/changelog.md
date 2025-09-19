@@ -204,7 +204,7 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md)  ([#53d19ea22c](https://github.com/MicrosoftDocs/architecture-center/commit/53d19ea22c))
 - [Noisy Neighbor Antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#ce68a59508](https://github.com/MicrosoftDocs/architecture-center/commit/ce68a59508))
 - [Azure for AWS Professionals](./aws-professional/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
-- [Mission-critical architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
 - [Web architecture design](./web-apps/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
 
 ## June 2025

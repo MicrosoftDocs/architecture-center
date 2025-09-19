@@ -95,7 +95,7 @@ Using private endpoints increases the security of mission-critical workloads. Ho
 
 The increased security must be weighed versus the increased reliability effort, cost, and complexity.
 
-Use self-hosted build agents for deployment stamp deployment. The management of these agents comes with a maintenance overhead.
+Use self-hosted build agents for deployment stamp provisioning. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" border="false" source="./images/network-diagram-ingress.png" alt-text="Diagram of network ingress for mission-critical workloads with private endpoints.":::
 

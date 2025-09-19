@@ -76,7 +76,7 @@ Consider using `ClusterIssuer` instead of `Issuer` to avoid having issuers for e
 
 All application runtime configuration is stored in Key Vault, including secrets and nonsensitive settings. You can use a configuration store, such as Azure App Configuration, to store the settings. However, having a single store reduces the number of potential points of failure for mission-critical applications. Use Key Vault for runtime configuration to simplify the overall implementation.
 
-Key vaults should be populated by the deployment pipeline.The required values are either sourced directly from Terraform, such as database connection strings, or passed through as Terraform variables from the deployment pipeline.
+Key vaults should be populated by the deployment pipeline. The required values are either sourced directly from Terraform, such as database connection strings, or passed through as Terraform variables from the deployment pipeline.
 
 Infrastructure and deployment configuration of individual environments, such as `e2e`, `int`, and `prod`, is stored in variable files that are part of the source code repository. This approach has two benefits:
 
@@ -177,13 +177,13 @@ For workloads that use Terraform, you need to put extra effort into protecting t
 
 Libraries, frameworks, and tools that the application uses are updated over time. It's important to complete these updates regularly because they often contain fixes for security problems that might give attackers unauthorized access into the system.
 
-Use GitHub's Dependabot for NuGet, Docker, npm, Terraform, and GitHub Actions dependency updates. Your `dependabot.yml` configuration file can be generated with scripting to match application's various parts. For example, each Terraform module might need needs a separate entry.
+Use GitHub's Dependabot for NuGet, Docker, npm, Terraform, and GitHub Actions dependency updates. Your `dependabot.yml` configuration file can be generated with scripting to match application's various parts. For example, each Terraform module might need a separate entry.
 
 - Updates are triggered monthly as a compromise between having the most up-to-date libraries and keeping the overhead maintainable. Additionally, key tools  like Terraform are monitored continuously, and important updates are executed manually.
 - Pull requests (PRs) target the `component-updates` branch instead of `main`.
 - Npm libraries are configured to only check dependencies that go to the compiled application instead of to supporting tools like `@vue-cli`.
 
-Dependabot creates a separate PR for each update, which can overwhelm the operations team. First you can collect a batch of updates in the `component-updates` branch, and then runs tests in the `e2e` environment. If those tests are successful, you can creates another PR that targets the `main` branch.
+Dependabot creates a separate PR for each update, which can overwhelm the operations team. First, you can collect a batch of updates in the `component-updates` branch, then run tests in the `e2e` environment. If those tests are successful, you can create another PR that targets the `main` branch.
 
 ## Defensive coding
 
