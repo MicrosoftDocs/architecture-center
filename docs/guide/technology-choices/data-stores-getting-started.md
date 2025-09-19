@@ -20,7 +20,7 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each application or service that you deploy to your landing zone environment, use the following information as a starting point to help you determine the appropriate data store services to use.
 
-### ✅ Functional requirements
+### Functional requirements
 
 Consider the nature of your data and how you plan to use it:
 
@@ -36,7 +36,7 @@ Consider the nature of your data and how you plan to use it:
 - **Data life cycle:** Short-lived versus long-term archival, and hot versus cold data
 - **Data movement:** Extract, transform, and load (ETL) requirements; extract, load, and transform (ELT) requirements; and integration with pipelines
 
-### ⚙️ Nonfunctional requirements
+### Nonfunctional requirements
 
 Evaluate performance and scalability expectations:
 
@@ -45,7 +45,7 @@ Evaluate performance and scalability expectations:
 - **Reliability and availability:** Service-level agreement (SLA) requirements and failover strategies
 - **Limits:** Storage size, throughput caps, and partitioning constraints
 
-### 💰 Cost and management considerations
+### Cost and management considerations
 
 Factor in operational overhead and budget:
 
@@ -54,7 +54,7 @@ Factor in operational overhead and budget:
 - **Cost optimization:** Tiered storage, partitioning, and caching
 - **Licensing and portability:** Vendor lock-in and open-source compatibility
 
-### 🔐 Security and governance
+### Security and governance
 
 Ensure alignment with organizational policies:
 
@@ -63,7 +63,7 @@ Ensure alignment with organizational policies:
 - **Auditing and monitoring:** Activity logs, alerts, and diagnostics
 - **Networking:** Private endpoints, firewall rules, and virtual network integration
 
-### 👩‍💻 DevOps and team readiness
+### DevOps and team readiness
 
 Assess your team's ability to support and evolve the solution:
 
@@ -157,10 +157,10 @@ You can apply policies to resources, resource groups, subscriptions, and managem
 
 ## Next steps
 
-- [Understand data models](understand-data-store-models.md)
+- [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md)
 
 Use the following articles to choose a specialized data store:
 
-- [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
-- [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
-- [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
+- [Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
+- [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
+- [Choose an Azure service for vector search](vector-search.md)
