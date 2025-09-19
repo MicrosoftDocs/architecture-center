@@ -125,4 +125,4 @@ Here are some of the types of challenges to consider when selecting an architect
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
 [microservices]: ./microservices.md
-[n-tier]: ./n-tier.yml
+[n-tier]: ./n-tier.md
