@@ -10,9 +10,9 @@ ms.date: 08/21/2025
 
 # Understand data models
 
-Modern solutions handle diverse data, such as transactions, events, documents, telemetry, binary assets, and analytical facts. A single data store rarely satisfies all access patterns efficiently. Most production systems adopt *polyglot persistence*, which means that you select multiple storage models intentionally. This article centralizes the canonical definitions of the primary data store models available on Azure and provides comparative tables to accelerate model selection before you choose specific services.
+Modern solutions handle diverse data, such as transactions, events, documents, telemetry, binary assets, and analytical facts. A single data store rarely satisfies all access patterns efficiently. Most production systems adopt *polyglot persistence*, which means that you select multiple storage models. This article centralizes the canonical definitions of the primary data store models available on Azure and provides comparative tables to accelerate model selection before you choose specific services.
 
-Use the following sequence to select your data models:
+Use the following steps to select your data models:
 
 1. Identify workload access patterns, such as point reads, aggregations, full‑text, similarity, time-window scans, and object delivery.
 
@@ -31,16 +31,16 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 
 | Category | Primary purpose | Typical Azure service examples |
 |----------|-----------------|------------------------------------|
-| Relational (OLTP) | Strongly consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL |
-| Nonrelational, such as document, key-value, column-family, and graph | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, HBase |
+| Relational (OLTP) | Consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, or Azure Database for MySQL |
+| Nonrelational, such as document, key-value, column-family, and graph | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, or HBase |
 | Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
-| Object and file | Large binary or semi-structured file storage | Blob Storage, Azure Data Lake Storage |
+| Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
-| Vector | Semantic or approximate nearest neighbor (ANN) similarity |  Azure AI Search, Azure Cosmos DB variants |
-| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation, business intelligence (BI) | Microsoft Fabric, Synapse, Azure Data Explorer, Azure Analysis Services, Azure Databricks |
+| Vector | Semantic or approximate nearest neighbor (ANN) similarity |  Azure AI Search or Azure Cosmos DB variants |
+| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Synapse Analytics, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
 
->[!NOTE]
-> A single service might provide multiple models, also known as *multi-model*. Choose the best-fit model instead of combining models in a way that complicates operations.
+> [!NOTE]
+> A single service might provide multiple models, also known as *multimodel*. Choose the best-fit model instead of combining models in a way that complicates operations.
 
 ## Relational data stores
 
@@ -60,18 +60,18 @@ Relational database management systems organize data into normalized tables by u
 - [SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale) is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.
 - [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview) is a managed PostgreSQL service that supports open-source extensions and flexible deployment options.
 - [Azure Database for MySQL](/azure/mysql/flexible-server/overview) is a managed MySQL database for web apps and open-source workloads.
-- [SQL Database in Fabric](/fabric/database/sql/overview) is a developer-friendly transactional database, based on SQL Database, that you can use to easily create your operational database in Fabric. 
+- [SQL Database in Fabric](/fabric/database/sql/overview) is a developer-friendly transactional database, based on SQL Database, that you can use to easily create an operational database in Fabric. 
 
 Use the following table to help determine which Azure service meets your use case requirements.
 
 |Service|Best for|Key features|Example use case|
 :-----:|:-----:|:-----:|:-----:|
-|[SQL Database](/azure/azure-sql/database/sql-database-paas-overview)|Cloud-native apps| Managed, elastic pools, Hyperscale, built-in high availability, advanced security|Building a modern software as a service (Saa) application with a scalable SQL back end|
-|[SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, virtual networks, advanced auditing|Migrating an on-premises SQL Server app with minimal code changes|
-|[SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app with high read throughput|
+|[SQL Database](/azure/azure-sql/database/sql-database-paas-overview)|Cloud-native apps| Managed, elastic pools, Hyperscale, built-in high availability, advanced security|Building a modern software as a service (SaaS) application by using a scalable SQL back end|
+|[SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)|Legacy enterprise apps|Full SQL Server compatibility, lift-and-shift support, virtual networks, advanced auditing|Migrating an on-premises SQL Server app by using minimal code changes|
+|[SQL Database (Hyperscale)](/azure/azure-sql/database/service-tier-hyperscale)|Global distribution|Multi-region read scalability, geo-replication, rapid autoscaling|Serving a globally distributed app that requires high read throughput|
 |[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview)|Open-source, analytics workloads|PostGIS, Hyperscale, Flexible Server, open-source extensions|Developing a geospatial analytics app by using PostgreSQL and PostGIS|
 |[Azure Database for MySQL](/azure/mysql/flexible-server/overview)|Lightweight web apps|Flexible Server, open-source compatibility, cost-effective|Hosting a WordPress-based e-commerce site|
-|[SQL Database in Fabric](/fabric/database/sql/overview)|Online transaction processing (OLTP) workloads in the Fabric ecosystem|Built on the SQL Database engine, scalable and integrated into Fabric|Building AI apps on an operational, relational data model with native vector search capabilities|
+|[SQL Database in Fabric](/fabric/database/sql/overview)|Online transaction processing (OLTP) workloads in the Fabric ecosystem|Built on the SQL Database engine, scalable, and integrated into Fabric|Building AI apps on an operational, relational data model that includes native vector search capabilities|
 
 ## Nonrelational data stores
 
@@ -79,7 +79,7 @@ Nonrelational databases, also called *NoSQL databases*, optimize for flexible sc
 
 ### Document data stores <a id="document-data-stores"></a>
 
-Store semi-structured documents, often in JSON format, where each document includes named fields and data. The data can be simple values or complex elements such as lists and child collections. Per-document schema flexibility enables gradual evolution.
+Use document data stores to store semi-structured documents, often in JSON format, where each document includes named fields and data. The data can be simple values or complex elements, such as lists and child collections. Per-document schema flexibility enables gradual evolution.
 
 **Strengths:** Natural application object mapping, denormalized aggregates, multi-field indexing
 
@@ -98,40 +98,40 @@ Use the following table to help determine which Azure service meets your use cas
 
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
-| [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | Custom JSON document models with SQL-like querying | Rich query language, multi-region writes, time to live (TTL), change feed | Building a multi-tenant SaaS platform with flexible schemas |
+| [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | Custom JSON document models that support SQL-like querying | Rich query language, multi-region writes, time to live (TTL), change feed | Building a multitenant SaaS platform that supports flexible schemas |
 | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) | Apps that use MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
-| [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) | Real-time analytics over NoSQL data | Automatic extract, transform, and load (ETL) to OneLake with Fabric integration | Transactional apps with real-time analytical dashboards |
+| [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) | Real-time analytics over NoSQL data | Automatic extract, transform, and load (ETL) to OneLake through Fabric integration | Transactional apps that include real-time analytical dashboards |
 
 ### Column-family data stores <a id="columnar-data-stores"></a>
 
-A column-family database, also known as a *wide-column database*, organizes sparse data into rows with dynamic columns grouped as column families for co-access. Column orientation improves scans over selected column sets.
+A column-family database, also known as a *wide-column database*, stores sparse data into rows and organizes dynamic columns into column families to support co-access. Column orientation improves scans over selected column sets.
 
 **Strengths:** High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families
 
 **Considerations:** Up-front row key and column family design, secondary index support varies, query flexibility lower than relational
 
-**Workloads:** IoT telemetry, time-series style tall data when you don't use a dedicated time-series database, personalization, analytics pre-aggregation
+**Workloads:** Internet of Things (IoT) telemetry, personalization, analytics preaggregation, time-series style tall data when you don't use a dedicated time-series database
 
 #### Select an Azure service for column-family data stores
 
 - [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra) is a managed service for open-source Apache Cassandra clusters.
 
-- [Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview) is a scalable NoSQL store for big data workloads built on Apache HBase and the Hadoop ecosystem.
-- [Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview) is an analytics engine for telemetry, logs, and time-series data that uses KQL.
+- [Apache HBase on Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-overview) is a scalable NoSQL store for big data workloads built on Apache HBase and the Hadoop ecosystem.
+- [Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview) is an analytics engine for telemetry, logs, and time-series data that uses Kusto Query Language (KQL).
 
 Use the following table to help determine which Azure service meets your use case requirements.
 
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
-| [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra) | New and migrated Cassandra workloads | Managed, native Apache Cassandra | Internet of Things (IoT) device telemetry ingestion with Cassandra compatibility |
-| [Azure HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview) | Hadoop ecosystem, batch analytics | Hadoop Distributed File System (HDFS) integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
+| [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra) | New and migrated Cassandra workloads | Managed, native Apache Cassandra | IoT device telemetry ingestion that supports Cassandra compatibility |
+| [Apache HBase on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview) | Hadoop ecosystem, batch analytics | Hadoop Distributed File System (HDFS) integration, large-scale batch processing | Batch processing of sensor data in a manufacturing plant |
 | [Azure Data Explorer (Kusto)](/azure/data-explorer/data-explorer-overview) | High-ingest telemetry, time-series analytics | KQL, fast ad-hoc queries, time-window functions | Real-time analytics for application logs and metrics |
 
 ### Key-value data stores <a id="key/value-data-stores"></a>
 
-A key-value store associates each data value with a unique key. Most key-value stores only support simple query, insert, and delete operations. To modify a value either partially or completely, an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.
+A key-value data store associates each data value with a unique key. Most key-value stores only support simple query, insert, and delete operations. To modify a value either partially or completely, an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.
 
-**Strengths:** Extreme simplicity, low latency, linear scalability
+**Strengths:** Simplicity, low latency, linear scalability
 
 **Considerations:** Limited query expressiveness, redesign needed for value-based lookups, large value overwrite cost
 
@@ -148,13 +148,13 @@ Use the following table to help determine which Azure service meets your use cas
 
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
-| [Azure Managed Redis](/azure/redis/overview) | High-speed caching, session state, pub-sub | In-memory store, sub-millisecond latency, Redis protocol | Caching product pages for an e-commerce site |
+| [Azure Managed Redis](/azure/redis/overview) | High-speed caching, session state, pub-sub | In-memory store, submillisecond latency, Redis protocol | Caching product pages for an e-commerce site |
 | [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview) | Migrating existing Azure Table Storage workloads | Table Storage API compatibility | Storing user preferences and settings in a mobile app |
 | [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | High-speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
 ### Graph data stores <a id="graph-data-stores"></a>
 
-A graph database stores information as nodes and edges. Edges define relationships, and both nodes and edges can have properties like table columns. You can analyze connections between entities, such as employees and departments.
+A graph database stores information as nodes and edges. Edges define relationships, and both nodes and edges can have properties similar to table columns. You can analyze connections between entities, such as employees and departments.
 
 **Strengths:** Relationship-first querying patterns, efficient variable-depth traversals
 
@@ -166,9 +166,9 @@ A graph database stores information as nodes and edges. Edges define relationshi
 
 Use [SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-overview) for storing graph data. The graph extension extends the capabilities of SQL Server, SQL Database, and SQL Managed Instance to enable modeling and querying complex relationships by using graph structures directly within a relational database.
 
-#### Time-series data stores <a id="time-series-data-stores"></a>
+### Time-series data stores <a id="time-series-data-stores"></a>
 
-Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggeregations and are optimized for ingesting and analyzing large volumes of data in near real time.
+Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations and are optimized for ingesting and analyzing large volumes of data in near real time.
 
 **Strengths:** Compression, windowed query performance, out-of-order ingestion handling  
 
@@ -176,13 +176,13 @@ Time-series data stores manage a set of values organized by time. They support f
 
 **Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data  
 
-### Select an Azure service for time-series data stores
+#### Select an Azure service for time-series data stores
 
 Use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) for storing time-series data. Azure Data Explorer is a managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
 
 ### Object data stores <a id="object-data-stores"></a>
 
-Store large binary or semi-structured objects with metadata that rarely changes or remains immutable.
+Store large binary or semi-structured objects and include metadata that rarely changes or remains immutable.
 
 **Strengths:** Virtually unlimited scale, tiered cost, durability, parallel read capability
 
@@ -194,7 +194,7 @@ Store large binary or semi-structured objects with metadata that rarely changes 
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a big data-optimized object store that combines hierarchical namespace and HDFS compatibility for advanced analytics and large-scale data processing.
 
-- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) is a scalable object store for unstructured data like images, documents, and backups that includes tiered access for cost optimization.
+- [Blob Storage](/azure/storage/blobs/storage-blobs-introduction) is a scalable object store for unstructured data like images, documents, and backups that includes tiered access for cost optimization.
 
 Use the following table to help determine which Azure service meets your use case requirements.
 
@@ -231,13 +231,13 @@ Vector search data stores store and retrieve high-dimensional vector representat
 
 For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search). 
 
-### Anaytics data stores <a id="data-analytics"></a>
+### Analytics data stores <a id="data-analytics"></a>
 
 Analytics data stores store big data and persist it throughout an analytics pipeline life cycle.
 
 **Strengths:** Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis
 
-**Considerations:** Cost and complexity of orchestration, query latency for ad hoc workloads, governance across multiple data domains
+**Considerations:** Cost and complexity of orchestration, query latency for ad-hoc workloads, governance across multiple data domains
 
 **Workloads:** Enterprise reporting, big data analytics, telemetry aggregation, operational dashboards, data science pipelines
 
@@ -295,9 +295,9 @@ For more information, see [Choose an analytical data store in Azure](/azure/arch
 
 Use more than one model when the following scenarios apply:
 
-- Access patterns diverge, such as point lookup versus wide analytical scan versus full-text relevance
-- Life cycle and retention differ, such as immutable raw versus curated structured
-- Latency versus throughput requirements conflict
+- Access patterns diverge, such as point lookup versus wide analytical scan versus full-text relevance.
+- Life cycle and retention differ, such as immutable raw versus curated structured.
+- Latency versus throughput requirements conflict.
 
 Avoid premature fragmentation:
 
@@ -306,9 +306,9 @@ Avoid premature fragmentation:
 
 Watch for the following common anti-patterns:
 
-- Multiple microservices share one database, which creates coupling
-- Teams add another model without operational maturity, such as monitoring or backups
-- A search index becomes the primary data store, which leads to misuse
+- Multiple microservices share one database, which creates coupling.
+- Teams add another model without operational maturity, such as monitoring or backups.
+- A search index becomes the primary data store, which leads to misuse.
 
 ## When to re-evaluate your model choice
 

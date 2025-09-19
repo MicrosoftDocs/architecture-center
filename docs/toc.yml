@@ -121,7 +121,7 @@ items:
         href: guide/technology-choices/storage-options.md
     - name: Choose a data store
       items:
-      - name: Getting started with data stores in Azure
+      - name: Prepare to choose a data store in Azure
         href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
         href: data-guide/technology-choices/understand-data-store-models.md
