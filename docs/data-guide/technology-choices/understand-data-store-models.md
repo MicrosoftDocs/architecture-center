@@ -1,6 +1,6 @@
 ---
 title: Understand Data Models
-description: Learn major Azure data store models, how they differ, and how to choose and combine them by using comparative characteristics of relational and nonrelational options.
+description: Learn how to evaluate Azure data store models based on workload patterns, scale, consistency, and governance to guide service selection.
 author: claytonsiemens77
 ms.author: csiemens
 ms.topic: conceptual
@@ -36,7 +36,7 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 | Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
 | Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
-| Vector | Semantic or approximate nearest neighbor (ANN) similarity |  Azure AI Search or Azure Cosmos DB variants |
+| Vector | Semantic or approximate nearest neighbor (ANN) similarity | Azure AI Search or Azure Cosmos DB variants |
 | Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Synapse Analytics, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
 
 > [!NOTE]
@@ -148,7 +148,7 @@ Use the following table to help determine which Azure service meets your use cas
 
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
-| [Azure Managed Redis](/azure/redis/overview) | High-speed caching, session state, pub-sub | In-memory store, submillisecond latency, Redis protocol | Caching product pages for an e-commerce site |
+| [Azure Managed Redis](/azure/redis/overview) | High-speed caching, session state, publish-subscribe | In-memory store, submillisecond latency, Redis protocol | Caching product pages for an e-commerce site |
 | [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview) | Migrating existing Azure Table Storage workloads | Table Storage API compatibility | Storing user preferences and settings in a mobile app |
 | [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | High-speed caching with massive scale and high availability | Schema-less, multi-region, autoscale | Caching, session state, serving layer |
 
@@ -199,7 +199,7 @@ Store large binary or semi-structured objects and include metadata that rarely c
 Use the following table to help determine which Azure service meets your use case requirements.
 
 |Service|Best for|Key features|Example use case|
-:-----:|:-----:|:-----:|:-----:
+|-----|-----|-----|-----|
 |[Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)|Big data analytics and hierarchical data|HDFS, hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data by using Azure Synapse Analytics or Azure Databricks|
 |[Blob Storage](/azure/storage/blobs/storage-blobs-introduction)|General-purpose object storage|Flat namespace, simple REST API, and tiered storage that includes hot, cool, and archive|Hosting images, documents, backups, and static website content|
 
@@ -304,7 +304,7 @@ Avoid premature fragmentation:
 - Use one service when it still meets performance, scale, and governance objectives.
 - Centralize shared classification logic, and avoid duplicate transformation pipelines across stores unless necessary.
 
-Watch for the following common anti-patterns:
+Watch for the following common antipatterns:
 
 - Multiple microservices share one database, which creates coupling.
 - Teams add another model without operational maturity, such as monitoring or backups.
@@ -316,7 +316,7 @@ Watch for the following common anti-patterns:
 |--------|-----------------|
 | Increasing ad-hoc joins on a document store | Introduce relational read model |
 | High CPU on search index because of analytical aggregations | Offload to analytics engine |
-| Large denormalized documents create partial update contention | Re-shape aggregates or split |
+| Large denormalized documents create partial update contention | Reshape aggregates or split |
 | Time-window queries slow on column-family store | Adopt purpose-built time-series database |
 | Point lookup latency rises with graph traversal depth | Add derived materialized views |
 
