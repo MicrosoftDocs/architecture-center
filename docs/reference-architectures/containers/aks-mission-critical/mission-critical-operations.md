@@ -158,4 +158,4 @@ Principal author:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Well-Architected Framework: Mission-critical workloads](azure/well-architected/mission-critical/mission-critical-overview)
+> [Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview)
