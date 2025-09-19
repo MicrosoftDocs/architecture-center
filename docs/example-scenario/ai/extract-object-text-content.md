@@ -22,6 +22,9 @@ This article presents a solution for extracting text from images so it can be in
 
 - [AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability. Use AI Builder to train models to recognize objects in images. AI Builder also offers prebuilt models for object detection.
 - [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) uses machine-learning models to extract and analyze form fields, text, and tables from your documents.
+
+  > [!NOTE]
+  > Before using Document Intelligence Studio, evaluate if your scenario works from within Azure AI Foundry. The capabilities found in the Document Intelligence Studio are being migrated to Azure AI Foundry. See, [Choose the correct studio experience](/azure/ai-services/document-intelligence/studio-overview#choose-the-correct-studio-experience).
 - [Power Automate](/power-automate/getting-started) is a part of Microsoft Power Platform no-code or low-code intuitive solutions. Power Automate is an online workflow service that automates actions across apps and services.
 - [Azure Functions](/azure/azure-functions/functions-overview) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
 - [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search) solution is a set of SharePoint in Microsoft 365 modern web parts. By using these tools, you can create highly flexible and personalized search-based experiences.
