@@ -20,17 +20,17 @@ This article presents a solution for extracting text from images so it can be in
 
 ### Components
 
-- [AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability. Use AI Builder to train models to recognize objects in images. AI Builder also offers prebuilt models for object detection.
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) uses machine-learning models to extract and analyze form fields, text, and tables from your documents.
-- [Power Automate](/power-automate/getting-started) is a part of Microsoft Power Platform no-code or low-code intuitive solutions. Power Automate is an online workflow service that automates actions across apps and services.
-- [Azure Functions](/azure/azure-functions/functions-overview) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
+- [AI Builder](https://learn.microsoft.com/en-us/ai-builder/overview) is a Microsoft Power Platform capability. Use AI Builder to train models to recognize objects in images. AI Builder also offers prebuilt models for object detection.
+- [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) uses machine-learning models to extract and analyze form fields, text, and tables from your documents.
+- [Power Automate](https://make.powerautomate.com/en-us/) is a part of Microsoft Power Platform no-code or low-code intuitive solutions. Power Automate is an online workflow service that automates actions across apps and services.
+- [Azure Functions](https://azure.microsoft.com/en-us/products/functions/?ef_id=_k_e06d3160fe1819417d3a59ad48465596_k_&OCID=AIDcmm5edswduu_SEM__k_e06d3160fe1819417d3a59ad48465596_k_&msclkid=e06d3160fe1819417d3a59ad48465596) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
 - [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search) solution is a set of SharePoint in Microsoft 365 modern web parts. By using these tools, you can create highly flexible and personalized search-based experiences.
 
 ### Alternatives
 
-- Azure AI services can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
+- [Azure AI Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
 - SharePoint can run OCR scans on documents and add content output to the index for retrieval. Use search techniques to target key information in documents.
-- If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps prevents you from hitting consumption limits in your tenant, and is cost-effective. For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
+- If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps helps avoid consumption limits primarily through its integration with a dedicated workflow engine and its ability to run under different pricing tiers, and is cost-effective. For more information, see [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption).
 
 ## Scenario details
 
@@ -49,11 +49,11 @@ Use cases include:
 
 Principal author:
 
-- [Steve Pucelik](https://www.linkedin.com/in/stevepucelik) | Sr. Specialist
+- [Steve Pucelik](https://www.linkedin.com/in/stevepucelik) | Sr. Product Manager
 
 ## Next steps
 
 - Understand the types of documents that would be well suited for this solution. Typical documents include schematic diagrams, manufacturing control processes, and diagrams that contain many shapes that need to be isolated. For more information, see [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model).
 - Become familiar with the capabilities that AI Builder offers. For more information, see [AI Builder in Power Automate overview](/ai-builder/use-in-flow-overview).
 - Define an information architecture that can receive and process your metadata. For more information, see [Azure AI Search skill set](../../solution-ideas/articles/ai-search-skillsets.yml).
-- For information on how the solution works and whether it's suitable for your use cases, see [Extract text from objects](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705).
+- For information on how the solution works and whether it's suitable for your use cases, see [Extract text from objects](https://community.powerplatform.com/blogs/post/?postid=7e80e9fc-2613-47b1-96f7-c4416624fc52).
