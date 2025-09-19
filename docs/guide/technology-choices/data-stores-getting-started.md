@@ -102,8 +102,8 @@ The following table lists common use-scenario requirements and the recommended d
 | Your goal | Recommended database service |
 |---|---|
 | Build apps that scale with a managed and intelligent SQL database in the cloud. | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
-| Modernize SQL Server applications with a managed, up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresqlandpreserve-view=true) |
-| Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresqlandpreserve-view=true) |
+| Modernize SQL Server applications with a managed, up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresqland&preserve-view=true) |
+| Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresqland&preserve-view=true) |
 | Build scalable, managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
 | Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
 | Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
@@ -127,37 +127,37 @@ The following table lists features available in Azure database services.
 
 ## Regional availability
 
-Azure lets you deliver services at the scale you need to reach your customers and partners *wherever they are*. A key factor in planning your cloud deployment is to determine what Azure region will host your workload resources.
+Azure helps you deliver services at the scale needed to reach customers and partners anywhere. When you plan your cloud deployment, determine the Azure region to host your workload resources.
 
-Most database services are generally available in most Azure regions. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions you'll deploy your database resources to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=allandproducts=data-factory,sql-server-stretch-database,redis-cache,database-migration,sql-data-warehouse,postgresql,mariadb,cosmos-db,mysql,sql-database) to check the latest status of regional availability.
+Most Azure regions support most database services. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions to deploy your database resources to, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to check the latest status of regional availability.
 
-To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). For specific details about the overall services that are available in each Azure region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=allandproducts=all).
+For more information about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Data residency and compliance requirements
 
-Legal and contractual requirements that are related to data storage often apply to your workloads. These requirements might vary based on the location of your organization, the jurisdiction of the physical assets that host your data stores, and your applicable business sector. Components of data obligations to consider include:
+Legal and contractual requirements related to data storage often apply to workloads. These requirements might vary based on the location of your organization, the jurisdiction of the physical assets that host your data stores, and your applicable business sector. Consider the following components of data obligations:
 
 - Data classification
 - Data location
 - Responsibilities for data protection under the shared responsibility model
 
-For help with understanding these requirements, see [Achieve compliant data residency and security with Azure](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/).
+For information about these requirements, see [Achieve compliant data residency and security with Azure](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/).
 
-Part of your compliance efforts might include controlling where your database resources are physically located. Azure regions are organized into groups called geographies. An [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical and political boundaries. If your workloads are subject to data sovereignty or other compliance requirements, you must deploy your storage resources to regions in a compliant Azure geography.
+Part of your compliance efforts might include controlling where your database resources are physically located. Azure regions are organized into groups called *geographies*. An [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) honors data residency, sovereignty, compliance, and resiliency requirements within geographical and political boundaries. If your workloads are subject to data sovereignty or other compliance requirements, you must deploy your storage resources to regions in a compliant Azure geography.
 
 ## Establish controls for database services
 
-When you prepare your landing zone environment, you can establish controls that limit what data stores that users can deploy. Controls can help you manage costs and limit security risks. Developers and IT teams will still be able to deploy and configure resources that are needed to support your workloads.
+When you prepare your landing zone environment, you can establish controls that limit the data stores that users can deploy. Controls can help you manage costs and limit security risks. Developers and IT teams can still deploy and configure resources that support your workloads.
 
-After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the database resources that you allow users to create. Controls can take the form of allowing or denying the creation of [database resource types](/azure/azure-sql/database/policy-reference?view=azuresqlandpreserve-view=true).
+After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the database resources that you allow users to create. Controls can allow or deny the creation of [database resource types](/azure/azure-sql/database/policy-reference?view=azuresqland&preserve-view=true).
 
-For example, you might restrict users to creating only SQL Database resources. You can also use policies to control the allowable options when a resource is created. For example, you can restrict what SQL Database SKUs can be provisioned by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
+For example, you might restrict users to creating only SQL Database resources. Use policies to control the options that users can select when they create resources. For example, you can restrict SQL Database SKUs that users can provision by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
 
-Policies can be scoped to resources, resource groups, subscriptions, and management groups. You can include your policies in [Azure Blueprints](/azure/governance/blueprints/overview) definitions and apply them repeatedly throughout your cloud estate.
+You can apply policies to resources, resource groups, subscriptions, and management groups. Include your policies in [Azure Blueprints](/azure/governance/blueprints/overview) definitions, and apply them repeatedly throughout your cloud estate.
 
 ## Next steps
 
-- [Understand data models](/azure/databases/architecture/understand-data-store-models)
+- [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md)
 
 Use the following articles to choose a specialized data store:
 
