@@ -1174,24 +1174,24 @@
 		</g>
 		<g id="shape434-286" v:mID="434" v:groupContext="shape" transform="translate(302.576,-315)">
 			<title>Sheet.434</title>
-			<desc>Landing</desc>
+			<desc>Landing zone</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="37.6875" cy="567" width="75.38" height="18"/>
 			<rect x="0" y="558" width="75.375" height="18" class="st34"/>
-			<text x="20.33" y="570" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Landing</text>		</g>
+			<text x="8.77" y="570" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Landing zone</text>		</g>
 		<g id="shape437-289" v:mID="437" v:groupContext="shape" transform="translate(483.544,-306.72)">
 			<title>Sheet.437</title>
-			<desc>Validated</desc>
+			<desc>Validated zone</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(37000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="37.6875" cy="558.72" width="75.38" height="34.56"/>
 			<rect x="0" y="541.44" width="75.375" height="34.56" class="st34"/>
-			<text x="17.07" y="561.72" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Validated</text>		</g>
+			<text x="5.52" y="561.72" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Validated zone</text>		</g>
 		<g id="shape438-292" v:mID="438" v:groupContext="shape" v:layerMember="0" transform="translate(524.25,-315)">
 			<title>Dynamic connector.438</title>
 			<v:userDefs>
@@ -1466,7 +1466,7 @@
 			<v:textRect cx="11.4057" cy="564.65" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="564.479" rx="11.5215" ry="11.5215" class="st47"/>
 			<text x="8.24" y="567.95" class="st49" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
-		<g id="shape1041-401" v:mID="1041" v:groupContext="shape" v:layerMember="1" transform="translate(547.5,-307.5)">
+		<g id="shape1041-401" v:mID="1041" v:groupContext="shape" v:layerMember="1" transform="translate(557.1,-306.9)">
 			<title>Number.1041</title>
 			<desc>6</desc>
 			<v:userDefs>
@@ -1474,7 +1474,7 @@
 				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
 				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
-				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(7.6041666666667,4.2708333046773)):40"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(7.7374997694045,4.2624998729676)):40"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(59000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
