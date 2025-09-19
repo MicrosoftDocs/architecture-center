@@ -134,7 +134,7 @@ This approach separates the query logic from the visualization layer. The Log An
 
 ## Monitoring: Visualization
 
-We use Grafana to visualize the results of our Log Analytics health queries in our reference implementation. Grafana shows the results of Log Analytics queries and contains no logic itself. We release the Grafana stack separately from the solution's deployment lifecycle.
+We use Grafana to visualize the results of our Log Analytics health queries. Grafana shows the results of Log Analytics queries and contains no logic itself. We release the Grafana stack separately from the solution's deployment lifecycle.
 
 For more information, see [Visualization](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#visualization).
 
@@ -150,7 +150,7 @@ For more information, see [Automated incident response](/azure/architecture/fram
 
 Composing the failure analysis is mostly a theoretical planning exercise. This theoretical exercise should be used as input for the automated failure injections that are part of the continuous validation process. By simulating the failure modes defined here, we can validate the resiliency of the solution against these failures to minimize outages.
 
-The following table lists example failure cases of the various components of the Azure Mission-Critical reference implementation.
+The following table lists example failure cases of the various components of the architecture.
 
 | Service | Risk | Affect/Mitigation/Comment | Outage |
 | ------- | ---- |-------------------------- | ------ |
@@ -181,13 +181,11 @@ The following table lists example failure cases of the various components of the
 | **Key Vault** | Key Vault unavailable for `GetSecret` or `SetSecret` operations. | New deployments can't be executed. Currently, this failure might cause the entire deployment pipeline to stop, even if only one region is affected. | No |
 | **Key Vault**  | Key Vault throttling | Key Vault has a limit of 1,000 operations per 10 seconds. Because of the automatic update of secrets, you could in theory hit this limit if you had many (thousands) of pods in a stamp. **Possible mitigation: Decrease update frequency even further or turn it off completely.** | No |
 | **Application** | Misconfiguration | Incorrect connection strings or secrets injected to the app. Mitigated by automated deployment (pipeline handles configuration automatically) and blue-green rollout of updates. | No |
-| **Application** | Expired credentials (stamp resource) | If for example, the event hub SAS token or storage account key was changed without properly updating them in Key Vault so that the pods can use them, the respective application component fails. This failure should then affect the Health Service, and the stamp should be taken out of rotation automatically. **Mitigation: Use Microsoft Entra ID-based authentication for all services which support it.** AKS requires pods to authenticate using Microsoft Entra Workload ID (preview). Use of Pod Identity was considered in the reference implementation. It was found that Pod Identity wasn't stable enough currently and was decided against use for the current reference architecture. Pod identity could be a solution in the future. | No |
+| **Application** | Expired credentials (stamp resource) | If for example, the event hub SAS token or storage account key was changed without properly updating them in Key Vault so that the pods can use them, the respective application component fails. This failure should then affect the Health Service, and the stamp should be taken out of rotation automatically. **Mitigation: Use Microsoft Entra ID-based authentication for all services which support it.** AKS requires pods to authenticate using Microsoft Entra Workload ID. | No |
 | **Application** | Expired credentials (globally shared resource) | If for example, the Azure Cosmos DB API key was changed without properly updating it in all stamp Key Vaults so that the pods can use them, the respective application components fail. This failure would bring all stamps down at same time and cause a workload-wide outage. For a possible way around the need for keys and secrets using Microsoft Entra auth, see the previous item. | Full |
 | **Virtual network** | Subnet IP address space exhausted | If the IP address space on a subnet is exhausted, no scale-out operations, such as creating new AKS nodes or pods, can happen. An outage doesn't occur but might decrease performance an effect user experience. **Mitigation: increase the IP space (if possible)**. If that isn't an option, it might help to increase the resources per Node (larger VM SKUs) or per pod (more CPU/memory), so that each pod can handle more traffic, thus decreasing the need for scale-out. | No |
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
-
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+> [Mission-critical: Security](mission-critical-security.md)

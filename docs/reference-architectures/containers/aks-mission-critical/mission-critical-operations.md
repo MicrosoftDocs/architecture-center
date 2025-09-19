@@ -1,13 +1,13 @@
 ---
 title: Operations for mission-critical workloads on Azure
-description: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure. 
+description: Guidance for operations for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom: arb-containers
-summary: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure.  
+summary: Guidance for operations for the architecture of a mission-critical workload on Azure.  
 ---
 
 # Operations for mission-critical workloads on Azure
@@ -51,6 +51,7 @@ The following scenario is an example of automating library updates using [depend
 1. Dependabot detects updates of libraries and SDK used in application code
 
 1. Dependabot updates the application code in a branch and creates a pull request (PR) with those changes against the main branch. The PR contains all relevant information and is ready for final review.
+
    :::image type="content" source="./images/mission-critical-operations-dependabot.png" alt-text="Screenshot of a pull request generated from dependabot." lightbox="./images/mission-critical-operations-dependabot.png":::
 
 1. When code review and testing are done, the PR can be merged to the main branch.
@@ -148,16 +149,13 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal authors:
+Principal author:
 
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
 - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
-
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+> [Well-Architected Framework: Mission-critical workloads](azure/well-architected/mission-critical/mission-critical-overview)

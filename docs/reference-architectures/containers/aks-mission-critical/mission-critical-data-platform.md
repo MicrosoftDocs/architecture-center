@@ -1,6 +1,6 @@
 ---
 title: Data platform for mission-critical workloads on Azure
-description: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
+description: Data decisions for the architecture of a mission-critical workload on Azure.
 author: msimecek
 ms.author: msimecek
 ms.date: 01/30/2025
@@ -8,7 +8,7 @@ ms.topic: reference-architecture
 ms.subservice: reference-architecture
 ms.custom:
   - arb-containers
-summary: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
+summary: Data decisions for the architecture of a mission-critical workload on Azure.
 ---
 # Data platform for mission-critical workloads on Azure
 
@@ -44,7 +44,7 @@ This architecture uses Azure Cosmos DB for NoSQL. This option is chosen because 
 
 - **Multi-region write**
 
-  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Azure Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation uses multi-master technology to provide maximum resiliency and availability.
+  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Azure Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. Mission-critical workloads typically use multi-master technology to provide maximum resiliency and availability.
 
   Zone redundancy is also enabled within each replicated region.
 
@@ -94,25 +94,25 @@ Azure Cosmos DB is configured as follows:
 
 - **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes the properties that are used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
 
-Here's an example from the implementation that shows indexing policy settings using Terraform:
+  Here's an example that shows indexing policy settings using Terraform:
 
-```
-indexing_policy {
+  ```terraform
+  indexing_policy {
 
-  excluded_path {
-    path = "/description/?"
+    excluded_path {
+      path = "/description/?"
+    }
+
+    excluded_path {
+      path = "/comments/text/?"
+    }
+
+    included_path {
+      path = "/*"
+    }
+
   }
-
-  excluded_path {
-    path = "/comments/text/?"
-  }
-
-  included_path {
-    path = "/*"
-  }
-
-}
-```
+  ```
 
 For information about connection from the application to Azure Cosmos DB in this architecture, see [Application platform considerations for mission-critical workloads](./mission-critical-app-design.md#database-connection)
 
@@ -200,7 +200,5 @@ The health of the messaging system must be considered in the health checks for a
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
-
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+> [Mission-critical: Deployment and testing](mission-critical-deploy-test.md)

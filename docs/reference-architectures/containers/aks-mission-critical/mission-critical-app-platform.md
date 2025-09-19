@@ -211,7 +211,6 @@ A system can have resources that are deployed in region but outlive the stamp re
 |Dependencies| The resources can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived. |
 |Scale limits|Determine the scale limit of regional resources by combining all stamps within the region.|
 
-
 ### Monitoring data for stamp resources
 
 Deploying monitoring resources is a typical example for regional resources. In this architecture, each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resources outlive stamp resources, **data is available even when the stamp is deleted**.
@@ -224,7 +223,5 @@ Similarly, Application Insights is also deployed as a regional resource to colle
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
-
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+> [Mission-critical: Application design](mission-critical-app-design.md)
