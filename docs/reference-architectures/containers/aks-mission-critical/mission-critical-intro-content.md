@@ -2,7 +2,7 @@ This article series provides guidance for designing a mission critical workload 
 
 ## Key design strategies
 
-Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
+Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. Apply a set of overarching design strategies to address these factors and ensure the target reliability tier is achieved.
 
 - **Redundancy in layers**
 

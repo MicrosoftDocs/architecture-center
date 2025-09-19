@@ -12,7 +12,7 @@ ms.custom:
 
 # Deployment and testing for mission-critical workloads on Azure
 
-The deployment and testing of the mission critical environment is a crucial piece of the overall architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, and the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
+Deployment and testing of mission-critical environments is a crucial piece of the overall architecture. Deploy individual application stamps using infrastructure as code from a source code repository. Deploy updates to the infrastructure, and the application on top, with zero downtime to the application. Use a DevOps continuous integration pipeline to retrieve the source code from the repository and deploy the individual deployment stamps in Azure.
 
 Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. Infrastructure updates are deployed to these new stamps. Likewise, the new application versions are deployed to these new stamps.
 
@@ -22,7 +22,7 @@ Penetration, chaos, and stress testing are recommended for the deployed environm
 
 ## Deployment
 
-The deployment of the infrastructure in the architecture is dependent upon the following processes and components:
+The deployment of mission-critical infrastructure depends upon the following processes and components:
 
 * **DevOps** - The source code from GitHub and pipelines for the infrastructure.
 
@@ -44,7 +44,7 @@ The DevOps components provide the source code repository and CI/CD pipelines for
 
 * **Azure Pipelines** - The pipelines used by the architecture for all build, test, and release tasks.
 
-An extra component in the design used for the deployment is build agents. Microsoft Hosted build agents are used as part of Azure Pipelines to deploy the infrastructure and updates. The use of Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
+Build agents are an additional component needed for deployment. Use Microsoft Hosted build agents as part of Azure Pipelines to deploy the infrastructure and updates. Using Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
 
 For more information about Azure Pipelines, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 
@@ -146,13 +146,13 @@ The individual component configuration for the Front Door deployment is defined 
 
 ## Deployment: Deployment process
 
-A blue/green deployment is the goal of the deployment process. A new release from a **`release/*`** branch is deployed into the **`prod`** environment. User traffic is gradually shifted to the stamps for the new release.
+Use blue/green deployment as the approach for mission-critical deployment processes. Deploy new releases to production environments using release branches. Gradually shift user traffic to the deployment stamps for the new release.
 
-As a first step in the deployment process of a new version, the infrastructure for the new release unit is deployed with Terraform. Execution of the infrastructure deployment pipeline deploys the new infrastructure from a selected release branch. In parallel to the infrastructure provisioning, the container images are built or imported and pushed to the globally shared container registry (ACR). When the previous processes are completed, the application is deployed to the stamps. From an implementation viewpoint, it's one pipeline with multiple dependent stages. The same pipeline can be re-executed for hotfix deployments.
+As a first step in the deployment process of a new version, deploy the infrastructure for the new release unit using infrastructure as code tools like Terraform. Execute the infrastructure deployment pipeline to deploy the new infrastructure from a selected release branch. In parallel to the infrastructure provisioning, build or import container images and push them to the globally shared container registry. When the previous processes are completed, deploy the application to the deployment stamps. From a process perspective, it's one pipeline and one deployment, but the process has multiple sequential and parallel phases.
 
 After the new release unit is deployed and validated, the new unit is added to Front Door to receive user traffic.
 
-A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new origin group with the API backends must be created. Alternatively, new API backends can be added to an existing origin group. New UI storage accounts are added to the corresponding existing origin group. Weights for new origins should be set according to the desired traffic split. A new routing rule as described previously must be created that corresponds to the appropriate origin group.
+Plan for a switch/parameter that distinguishes between releases that do and don't introduce a new API version. Based on if the release introduces a new API version, create a new origin group with the API backends. Alternatively, add new API backends to an existing origin group. Add new UI storage accounts to the corresponding existing origin group. Set weights for new origins according to the desired traffic split. Create a new routing rule that corresponds to the appropriate origin group.
 
 As a part of the addition of the new release unit, the weights of the new origins should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new origin group over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
@@ -166,27 +166,27 @@ As part of the release cadence, a pre and post release checklist should be used.
 
 * **Pre-release checklist** - Before starting a release, check the following:
 
-    - Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
+  * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
 
-    - Update the changelog file through a PR against the **`main`** branch.
+  * Update the changelog file through a PR against the **`main`** branch.
 
-    - Create a **`release/`** branch from the **`main`** branch.
+  * Create a **`release/`** branch from the **`main`** branch.
 
 * **Post-release checklist** - Before old stamps are destroyed and their references are removed from Front Door, check that:
 
-    - Clusters are no longer receiving incoming traffic.
+  * Clusters are no longer receiving incoming traffic.
 
-    - Event Hubs and other message queues don't contain any unprocessed messages.
+  * Event Hubs and other message queues don't contain any unprocessed messages.
 
 ## Deployment: Limitations and risks of the update strategy
 
-The update strategy described in this architecture has some limitations and risks that should be mentioned:
+The blue-green deployment strategy for mission-critical workloads has some limitations and risks that should be considered:
 
 * Higher cost - When releasing updates, many of the infrastructure components are active twice for the release period.
 
 * Front Door complexity - The update process in Front Door is complex to implement and maintain. The ability to execute effective blue/green deployments with zero downtime is dependent on it working properly.
 
-* Small changes time consuming - The update process results in a longer release process for small changes. This limitation can be partially mitigated with the hotfix process described in the previous section.
+* Small changes time consuming - The update process results in a longer release process for small changes. This limitation can be partially mitigated with a well-designed hotfix process.
 
 ## Deployment: Application data forward compatibility considerations
 

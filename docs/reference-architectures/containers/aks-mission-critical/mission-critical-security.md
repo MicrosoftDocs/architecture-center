@@ -11,14 +11,14 @@ ms.custom: arb-containers
 
 # Security considerations for mission-critical workloads
 
-Mission-critical workloads must be inherently secured. If an application or its infrastructure is compromised, availability is at risk. The focus of this architecture is to maximize reliability so that the application remains performant and available under all circumstances. Security controls are applied primarily with the purpose of mitigating threats that affect availability and reliability.
+Mission-critical workloads must be inherently secured. If an application or its infrastructure is compromised, availability is at risk. Focus on maximizing reliability so that the application remains performant and available under all circumstances. Apply security controls primarily with the purpose of mitigating threats that affect availability and reliability.
 
 > [!NOTE]
 > Your business requirements might need more security measures. We highly recommend that you extend the controls in your implementation according to the guidance in [Azure Well-Architected Framework security considerations for mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-security).
 
 ## Identity and access management
 
-At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. Advanced scenarios like user authentication and user roles are not covered.
+At the application level, implement an appropriate authentication scheme for restricted operations, such as creating catalog items or deleting comments. The rest of this guidance focuses on infrastructure security rather than application scenarios like user authentication and user roles.
 
 If your application requires user authentication and account management, follow the [recommendations for identity and access management](/azure/architecture/framework/security/design-identity-authentication). Some strategies include using managed identity providers, avoiding custom identity management, and using passwordless authentication when possible.
 
@@ -81,7 +81,7 @@ Key vaults should be populated by the deployment pipeline.The required values ar
 Infrastructure and deployment configuration of individual environments, such as `e2e`, `int`, and `prod`, is stored in variable files that are part of the source code repository. This approach has two benefits:
 
 - All changes in an environment are tracked and go through deployment pipelines before they're applied to the environment.
-- Individual `e2e` environments can be configured differently because deployment is based on code in a branch.
+- Individual end-to-end test environments can be configured differently because deployment is based on code in a branch.
 
 One exception is the storage of sensitive values for pipelines. These values are stored as secrets in Azure DevOps variable groups.
 
@@ -108,14 +108,14 @@ These security measures are:
 
 These security measures are also configured for non-Microsoft containers and Helm charts like `cert-manager` when possible. You can use Azure Policy to audit these security measures.
 
-Each environment, including `prod`, `int`, and every `e2e` environment, has a dedicated instance of Container Registry that has global replication to each of the regions where stamps are deployed.
+Each environment should have a dedicated instance of Azure Container Registry with global replication to each of the regions where deployment stamps are deployed.
 
 > [!NOTE]
 > We recommend that you use [Microsoft Defender for container registries](/azure/container-registry/scan-images-defender), potentially [with GitHub Actions](/azure/container-registry/github-action-scan).
 
 ## Traffic ingress
 
-Azure Front Door is the global load balancer in this architecture. All web requests are routed through Azure Front Door, which selects the appropriate back end. Mission-critical applications should take advantage of other Azure Front Door capabilities, such as web application firewalls (WAFs).
+Use Azure Front Door as the global load balancer for mission-critical applications. Route all web requests through Azure Front Door, which selects the appropriate back end. Mission-critical applications should take advantage of other Azure Front Door capabilities, such as web application firewalls (WAFs).
 
 ### Web application firewall
 

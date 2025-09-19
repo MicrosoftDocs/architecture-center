@@ -14,7 +14,7 @@ ms.custom:
 
 # Health modeling for mission-critical workloads
 
-The monitoring of applications and infrastructure is an important part of any infrastructure deployment. For a mission-critical workload, monitoring is a critical part of the deployment. Monitoring application health and key metrics of Azure resources helps you understand if the environment is working as expected.
+Monitoring of applications and infrastructure is an important part of any infrastructure deployment. For mission-critical workloads, monitoring is a critical part of the deployment. Monitor application health and key metrics of Azure resources to understand if the environment is working as expected.
 
 To fully understand these metrics and evaluate the overall health of a workload, requires a holistic understanding of all of the data monitored. A health model can assist with evaluation of the overall health status by displaying a clear indication of the health of the workload instead of raw metrics. The status is often presented as "traffic light" indicators such as red, green, or yellow. Representation of a health model with clear indicators makes it intuitive for an operator to understand the overall health of the workload and respond quickly to issues that arise.
 
@@ -112,7 +112,7 @@ For more information, see [Unified data sink for correlated analysis](/azure/arc
 
 ## Monitoring: Data sources
 
-- **Diagnostic settings**: All Azure services used for Azure Mission-Critical are configured to send all their Diagnostic data including logs and metrics to the deployment specific (global or stamp) Log Analytics Workspace. This process happens automatically as part of the Terraform deployment. New options are identified automatically and added as part of `terraform apply`.
+- **Diagnostic settings**: Configure all Azure services used for mission-critical workloads to send all their diagnostic data including logs and metrics to the deployment-specific (global or stamp) Log Analytics Workspace. This process should happen automatically as part of infrastructure as code deployment. New options should be identified automatically and added as part of infrastructure updates.
 
 - **Kubernetes monitoring**: Diagnostic settings are used to send Azure Kubernetes Service (AKS) logs and metrics to Log Analytics. AKS is configured to use **Container Insights**. Container Insights deploys the **OMSAgentForLinus** via a Kubernetes DaemonSet on each node in the AKS clusters. The OMSAgentForLinux is capable of collecting extra logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. These extra logs and metrics contain more granular data about pods, deployments, services, and the overall cluster health. To gain more insights from the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, it's possible to use [Prometheus scraping](/azure/azure-monitor/containers/container-insights-prometheus-integration). Prometheus scraping configures the OMSAgentForLinux to scrape Prometheus metrics from various endpoints within the cluster.
 

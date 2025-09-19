@@ -17,7 +17,7 @@ The regional distribution of resources in mission-critical architecture requires
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The global load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provides scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections to other stamps aren't required.
+Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to quickly deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
@@ -45,33 +45,33 @@ The application defined in the architecture is internet facing and has several r
 
 - Provide caching abilities at the edge.
 
-The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Front Door uses health probes that issue requests to a URI in each backend/origin. IThe URI called should be a dedicated health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
+Route all traffic through Azure Front Door as the entry point for mission-critical workloads. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Configure Front Door to use health probes that issue requests to a URI in each backend/origin. The URI called should be a dedicated health service. The health service advertises the health of each deployment stamp. Front Door uses the response to determine the health of individual deployment stamps and route traffic to healthy stamps capable of servicing application requests.
 
 Azure Front Door integration with Azure Monitor provides near real-time monitoring of traffic, security, success and failure metrics, and alerting.
 
 Azure Web Application Firewall, integrated with Azure Front Door, is used to prevent attacks at the edge before they enter the network.
 
-:::image type="content" border="false" source="./images/network-diagram-ingress-standard.png" alt-text="Diagram of network ingress for this architecture.":::
+:::image type="content" border="false" source="./images/network-diagram-ingress-standard.png" alt-text="Diagram of network ingress for mission-critical workloads.":::
 
 ## Isolated virtual network - API
 
-The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
+Use Azure Virtual Networks as the traffic isolation boundary for mission-critical APIs. Components in one virtual network can't communicate directly with components in another virtual network.
 
 The standard external Azure Load Balancer distributes requests to the application platform. It checks that traffic reaching the load balancer was routed via Azure Front Door, ensuring Azure WAF inspects all traffic.
 
-Build agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network.
+Build agents used for operations and deployment must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, deploy self-hosted agents in the virtual network.
 
 Network throughput monitoring, performance of the individual components, and health of the application is required.
 
 ## Application platform communication dependency
 
-The application platform used with the individual stamps in the infrastructure, has the following communication requirements:
+Design the application platform for individual stamps with the following communication requirements:
 
 - The application platform must be able to communicate securely with Microsoft PaaS services.
 
 - The application platform must be able to communicate securely with other services when needed.
 
-The architecture as defined uses Azure Key Vault to store secrets, such as connection strings and API keys, to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Secrets can be compromised and increased security and monitoring of the public endpoints is recommended.
+Use Azure Key Vault to store secrets, such as connection strings and API keys, to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Secrets can be compromised and increased security and monitoring of the public endpoints is recommended.
 
 :::image type="content" border="false" source="./images/network-diagram-vnet-paas-dependencies-standard.png" alt-text="Diagram of the application platform communication dependencies." lightbox="./images/network-diagram-vnet-paas-dependencies-standard.png":::
 
@@ -91,21 +91,21 @@ The premium version of Front Door supports the use of Azure Private Endpoints. P
 
 Azure Front Door premium and Azure Private Endpoints enable fully private compute clusters in the individual stamps. Traffic is fully locked down for all Azure PaaS services.
 
-Using private endpoints increases the security of the design. However, it introduces another point of failure. Public endpoints exposed in the application stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
+Using private endpoints increases the security of mission-critical workloads. However, it introduces another point of failure. Public endpoints exposed in the application deployment stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
 
 The increased security must be weighed versus the increased reliability effort, cost, and complexity.
 
-Self-hosted build agents must be used for the stamp deployment. The management of these agents comes with a maintenance overhead.
+Use self-hosted build agents for deployment stamp deployment. The management of these agents comes with a maintenance overhead.
 
-:::image type="content" border="false" source="./images/network-diagram-ingress.png" alt-text="Diagram of network ingress for this architecture with private endpoints.":::
+:::image type="content" border="false" source="./images/network-diagram-ingress.png" alt-text="Diagram of network ingress for mission-critical workloads with private endpoints.":::
 
 ### Private endpoints - Application platform
 
-Private endpoints are supported for all Azure PaaS services used in this design. With private endpoints configured for the application platform, all communication would travel through the virtual network of the stamp.
+Private endpoints are supported for all Azure PaaS services recommended for mission-critical workloads. With private endpoints configured for the application platform, all communication would travel through the virtual network of the stamp.
 
 The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This process isolates the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
-Self-hosted build agents must be used for the stamp deployment the same as previous. The management of these agents comes with a maintenance overhead.
+Use self-hosted build agents for deployment stamp operations. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" border="false" source="./images/network-diagram-vnet-paas-dependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints." lightbox="./images/network-diagram-vnet-paas-dependencies.png":::
 

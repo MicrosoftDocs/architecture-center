@@ -12,7 +12,7 @@ ms.custom:
 
 # Application design considerations for mission-critical workloads
 
-This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution. This article series uses a simple online catalog application to illustrate a highly reliable workload. Users can browse through a catalog of items, review item details, and post ratings and comments for items.
+This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution. This article series uses a simple online catalog scenario as an example of a highly reliable workload where users can browse through a catalog of items, review item details, and post ratings and comments for items.
 
 ## Application composition
 
@@ -57,7 +57,7 @@ For more information, see [Data platform for mission-critical workloads](./missi
 
 For mission-critical applications that prioritize availability over performance, we recommend single-region write and multi-region read with a *strong consistency* level.
 
-This architecture uses Storage to temporarily store state in the stamp for Azure Event Hubs checkpointing.
+Use Azure Storage to temporarily store state in the stamp for Azure Event Hubs checkpointing.
 
 All workload components use the Azure Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Key configuration settings include:
 
@@ -149,7 +149,7 @@ Use instrumentation to evaluate performance bottle necks and health problems tha
 - Implement event correlation to get an end-to-end transaction view. For example, every API response contains an Operation ID as an HTTP header for traceability.
 - Don't rely only on *stdout* logging, or console logging. But you can use these logs to immediately troubleshoot a failing pod.
 
-This architecture implements distributed tracing with Application Insights and an Azure Monitor Logs workspace for application monitoring data. Use Azure Monitor Logs for logs and metrics of workload and infrastructure components. This architecture implements full end-to-end tracing of requests that come from the API, go through Event Hubs, and then to Azure Cosmos DB.
+Implement distributed tracing with Application Insights and an Azure Monitor Logs workspace for application monitoring data. Use Azure Monitor Logs for logs and metrics of workload and infrastructure components. Implement full end-to-end tracing of requests that come from the API, go through Event Hubs, and then to the database.
 
 > [!IMPORTANT]
 > Deploy stamp monitoring resources to a separate monitoring resource group. The resources have a different lifecycle than the stamp itself. For more information, see [Monitoring data for stamp resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#monitoring-data-for-stamp-resources).
@@ -177,7 +177,7 @@ Extensive logging can negatively affect cost and doesn't provide benefits. For t
 
 You can use application monitoring and observability to quickly identify system problems and inform the [health model](/azure/architecture/framework/mission-critical/mission-critical-health-modeling) about the current application state. You can surface health monitoring through *health endpoints*. *Health probes* use health monitoring data to provide information. The main load balancer uses that information to immediately take the unhealthy component out of rotation.
 
-This architecture applies health monitoring at the following levels:
+Apply health monitoring at the following levels:
 
 - Workload pods that run on AKS. These pods have health and liveness probes, so AKS can manage their lifecycle.
 

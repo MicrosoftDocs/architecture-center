@@ -22,7 +22,7 @@ The following sections describe approaches to handling different types of change
 
 ## Application automation
 
-Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed in the following section should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
+Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed in the following section should result in the deployment of an entirely new deployment stamp. The new deployment stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
@@ -46,7 +46,7 @@ For mission-critical applications, it's critical that source code and dependenci
 - JavaScript Node Package Manager packages
 - Terraform Provider
 
-The following scenario is an example of automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
+The following approach demonstrates automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
 
 1. Dependabot detects updates of libraries and SDK used in application code
 
@@ -80,7 +80,7 @@ The following approach is an Azure mission critical tested and documented approa
 
 1. Newly deployed or restarted pods now use the secondary API key for the connection to Azure Cosmos DB.
 
-1. Once all pods on all stamps are restarted, or a new stamp is deployed, regenerate the primary API key for Azure Cosmos DB. Here's an example for the command:
+1. Once all pods on all deployment stamps are restarted, or a new deployment stamp is deployed, regenerate the primary API key for Azure Cosmos DB. Use the following command pattern:
 
    ```Bash
    az cosmosdb keys regenerate --key-kind primary --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup
@@ -135,7 +135,7 @@ Messages that can't be processed should be routed to a dead-letter queue with an
 
 ### Azure Cosmos DB restore
 
-When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
+When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup.
 Restoring from a periodic backup can only be accomplished via a support case. This process should be documented and periodically tested.
 
 ### Quota increases
