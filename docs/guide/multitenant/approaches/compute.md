@@ -43,7 +43,7 @@ Transient state is often useful to improve the performance of your application t
 
 In latency-sensitive applications, the cost of cache hydration can become significant. A multitenant solution can worsen this problem if each tenant requires different data to be cached. To mitigate this problem, some solutions apply *session affinity*. This approach ensures that the same compute worker node processes all requests for a specific user or tenant. Session affinity can improve the ability of the application tier to use its cache effectively. However, session affinity also complicates scaling and traffic load balancing across workers. Consider this trade-off carefully. For many applications, session affinity isn't required.
 
-It's also possible to store data in external caches, such as Azure Cache for Redis. External caches are optimized for low-latency data retrieval, while isolating the state from the compute resources so that they can be scaled and managed separately. In many solutions, external caches enable you to improve application performance, while you keep the compute tier stateless.
+It's also possible to store data in external caches, such as Azure Managed Redis. External caches are optimized for low-latency data retrieval, while isolating the state from the compute resources so that they can be scaled and managed separately. In many solutions, external caches enable you to improve application performance, while you keep the compute tier stateless.
 
 > [!IMPORTANT]
 > Avoid leaking data between tenants when you use in-memory caches or other components that maintain state. For example, consider prepending a tenant identifier to all cache keys to ensure that data is separated for each tenant.
@@ -158,7 +158,7 @@ The [No Caching antipattern](../../../antipatterns/no-caching/index.md) is when 
 
 The implication of the No Caching antipattern is that you also should avoid storing unnecessary state in your compute tier. Be explicit about where you maintain state and why. Stateful front-end or application tiers can reduce your ability to scale. Stateful compute tiers typically also require session affinity, which can reduce your ability to effectively load balance traffic across workers or nodes.
 
-Consider the trade-offs for each piece of state that you maintain in your compute tier, and whether it affects your ability to scale or grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Cache for Redis.
+Consider the trade-offs for each piece of state that you maintain in your compute tier, and whether it affects your ability to scale or grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Managed Redis.
 
 ## Contributors
 
