@@ -15,7 +15,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 ### Dataflow
 
-1. A pull request (PR) to Azure Repos Git or GitHub repository triggers a PR pipeline. This pipeline runs fast quality checks. The checks include
+1. A pull request (PR) to Azure Repos Git or GitHub repository triggers a PR pipeline. This pipeline runs fast quality checks. The checks include:
    - Building the code, which may require pulling dependencies from a dependency management system.
    - The use of tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/episode-fifty-nine).
    - Unit Tests
