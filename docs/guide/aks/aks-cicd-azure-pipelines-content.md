@@ -30,7 +30,7 @@ Use Azure Pipelines to deploy AKS applications.
 7. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
 8. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
 
-   Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
+   Azure monitor managed service for Prometheus collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics workspace is used to store all that data.
 9. Both container images in Azure Container Registry and running containers in Azure Kubernetes Service are scanned by [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). 
 
 ### Components
