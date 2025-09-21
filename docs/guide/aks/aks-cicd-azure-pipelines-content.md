@@ -43,7 +43,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 ## Next steps
 
-- To learn about the AKS product roadmap, see [Azure Kubernetes Service (AKS) Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- To learn about Azure pipelines baseline architecture , see [CI/CD baseline architecture with Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture).
 - If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
 
 ## Related resources
