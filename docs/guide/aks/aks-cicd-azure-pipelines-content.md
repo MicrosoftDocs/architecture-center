@@ -20,7 +20,7 @@ Use Azure Pipelines to deploy AKS applications.
    - The use of tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/episode-fifty-nine).
    - Unit tests
      
-If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
+   If any of the checks fail, the pipeline run ends, and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends, and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
 
 2. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. If the integration tests require secrets, the pipeline gets those [secrets from Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault?view=azure-devops). If any of the checks fail, the pipeline ends and the developer will have to make the required changes. 
 3. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Registry.
