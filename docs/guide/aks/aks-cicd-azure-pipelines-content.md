@@ -28,7 +28,9 @@ Use Azure Pipelines to deploy AKS applications.
 5. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. A manual validation task is run if the tests succeed, requiring a person to validate the deployment and resume the pipeline. The manual validation step is optional. Some organizations will automatically deploy. If any of the checks fail, the pipeline ends and the developer will have to make the required changes.
 6. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
 7. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
-8. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
+8. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
+
+   Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 9. Both container images in Azure Container Registry and running containers in Azure Kubernetes Service are scanned by [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). 
 
 ### Components
