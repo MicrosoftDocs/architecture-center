@@ -18,7 +18,7 @@ Use Azure Pipelines to deploy AKS applications.
 1. A pull request (PR) to Azure Repos Git or GitHub repository triggers a PR pipeline. This pipeline runs fast quality checks. The checks include:
    - Building the code, which may require pulling dependencies from a dependency management system.
    - The use of tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/episode-fifty-nine).
-   - Unit Tests
+   - Unit tests
      
 If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
 
