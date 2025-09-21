@@ -37,7 +37,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 - [Container Insights](/azure/azure-monitor/containers/container-insights-overview) collects logs and metrics and logs and forwards them to Azure Monitor.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images. In this architecture, this is where the compute platform pulls the application's container image from.
-- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, this is the compute platform for the application.
 - [Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
 - [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) performs vulnerability assessment of containers published to Azure Container Registry and running containers in Azure Kubernetes Service. 
 
