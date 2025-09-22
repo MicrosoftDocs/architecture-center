@@ -165,12 +165,12 @@ For optimal performance of datasets larger than 1 TB in size, [Delphix Hyperscal
 
 1. [Deploy the Delphix CC engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/).
 
-1. In Data Factory, deploy both the **Delphix CC: Profiling** and **Delphix CC: Masking** templates. These templates work for both Azure Synapse Analytics and Data Factory pipelines.
+1. In Data Factory, deploy both the **Delphix CC Profiling** and **Delphix CC Masking** templates. These templates work for both Azure Synapse Analytics and Data Factory pipelines.
 1. In the Copy Data components, configure the desired source and target data stores. In the Web Activity components, input the Delphix application IP address or host name and the credentials to authenticate with Delphix CC APIs.
-1. Run the Delphix CC Profiling Data Factory template for initial setup and anytime you want to re-identify sensitive data, such as a schema change. This template provides Delphix CC with the initial configuration that it requires to scan for columns that might contain sensitive data.
-1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/) that indicates the collection of data that you want to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
-1. Review and modify results from the [Inventory screen](https://masking.delphix.com/docs/latest/managing-inventories) as desired. When you want to apply masking, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
-1. In the Data Factory UI, open the Delphix CC Masking Data Factory template. Provide the Masking Job ID from the previous step, then run the template.
+1. Run the **Delphix CC Profiling** Data Factory template for initial setup and anytime you want to re-identify sensitive data, such as a schema change. This template provides Delphix CC with the initial configuration that it requires to scan for columns that might contain sensitive data.
+1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/) that indicates the collection of data that you want to profile. Run a [profiling job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
+1. Review and modify results from the [inventory screen](https://masking.delphix.com/docs/latest/managing-inventories) as desired. When you want to apply masking, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+1. In the Data Factory UI, open the **Delphix CC Masking** Data Factory template. Provide the masking job ID from the previous step, then run the template.
 1. Masked data appears in the target data store of your choice.
 
 > [!NOTE]
@@ -199,9 +199,8 @@ Other contributors:
 
 See the following Delphix resources:
 
-- [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
+- [Get set up with Delphix CC](https://help.delphix.com/cc/)
 - [Use Delphix CC to find where sensitive data resides](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Discovering_Your_Sensitive_Data_-_Intro/)
-- [Customers that use Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
 
 Learn more about the key Azure services in this solution:
 
@@ -214,4 +213,4 @@ Learn more about the key Azure services in this solution:
 
 - [ETL overview](/azure/architecture/data-guide/relational-data/etl)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-- [Analytics end-to-end with Azure Synapse Analytics](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Analytics end-to-end with Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

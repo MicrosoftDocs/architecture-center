@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use Delphix for Data Obfuscation in Azure Data Factory
-  description: Learn how to use Delphix with Azure Data Factory to automate data masking, ensure compliance, and streamline secure data workflows. 
+  title: Use Delphix for Data Masking in Azure Data Factory and Azure Synapse Analytics
+  description: Learn how to use Delphix with Azure Data Factory and Azure Synapse Analytics to automate data masking, ensure compliance, and streamline secure data workflows.
   author: nabhishek
   ms.author: abnarain
   ms.date: 06/18/2024
@@ -10,8 +10,8 @@ metadata:
   ms.custom: arb-data
 azureCategories: [databases]
 products: [azure-data-factory, azure-synapse-analytics]
-name: Use Delphix for data obfuscation in Azure Data Factory
-summary: Learn how to use Delphix with Azure Data Factory to automate data masking, ensure compliance, and streamline secure data workflows.
+name: Use Delphix for data masking in Azure Data Factory and Azure Synapse Analytics
+summary: Learn how to use Delphix with Azure Data Factory and Azure Synapse Analytics to automate data masking, ensure compliance, and streamline secure data workflows.
 thumbnailUrl: /azure/architecture/browse/thumbs/delphix-continuous-compliance-architecture-thumb.png
 content: |
   [!INCLUDE[](data-obfuscation-with-delphix-in-azure-data-factory-content.md)]
