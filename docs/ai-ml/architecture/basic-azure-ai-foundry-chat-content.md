@@ -107,7 +107,9 @@ To simplify the learning experience for building an end-to-end chat solution, th
 
 This architecture also doesn't restrict egress traffic. For example, an agent can be configured to connect to any public endpoint based on the endpoint's OpenAPI specification. So data exfiltration of private grounding data can't be prevented through network controls.
 
-For more information about network security as an extra perimeter in your architecture, see [Networking](baseline-azure-ai-foundry-chat.yml#networking).
+For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-azure-ai-foundry-chat.yml#networking).
+
+As an alternative to not having any network security during your evaluation of this solution, you can use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Azure AI Foundry project. This will give your solution some ingress and egress control prior to this architecture using your virtual network resources. Once the Foundry Agent Service is configured for standard, private deployment, the network security perimeter is removed in favor of Private Link connections.
 
 #### Microsoft Defender for Cloud
 
