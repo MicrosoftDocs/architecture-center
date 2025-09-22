@@ -6,29 +6,19 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
-- **Microsoft Entra tenant**. This component is an instance of Microsoft Entra that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
-- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
-- **Microsoft Entra Connect Sync server**. This component is an on-premises server that runs the Microsoft Entra Connect Sync service. This service synchronizes information held in the on-premises Active Directory to Microsoft Entra ID.
-- **Virtual network gateway**. This optional component is used to send encrypted traffic between an Azure Virtual Network and an on-premises location over the internet.
-- **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
-- **Recovery Services Vault**. This optional component provides Azure file shares backup.
-- **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides features to protect against cybersecurity threats. In this architecture, it serves as the cloud-based directory that stores synchronized objects from on-premises AD DS and authenticates users that access Azure file shares.
+- [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is an on-premises identity and directory service. In this architecture, it authenticates domain-joined clients and integrates with Azure Files to enforce access controls by using Windows access control lists (ACLs). The AD DS directory synchronizes with Microsoft Entra ID to authenticate on-premises users.
+- [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) is a synchronization service that runs on an on-premises server. In this architecture, it ensures identity consistency by syncing AD DS objects to Microsoft Entra ID.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a networking service that sends encrypted traffic between Azure and on-premises networks over the public internet. In this architecture, this optional component provides secure connectivity for accessing Azure file shares when Server Message Block (SMB) port 445 is blocked by internet service providers (ISPs) or firewalls.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides managed cloud-based file shares that can be accessed via SMB, Network File System (NFS), and HTTP protocols. In this architecture, it replaces traditional file servers by providing scalable, secure, and highly available storage integrated with AD DS authentication. File shares are deployed into Azure storage accounts.
+- [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) is a suite of services designed to support data protection, backup, and disaster recovery. In this architecture, an optional Recovery Services vault protects Azure file shares by enabling backup and recovery through incremental share snapshots.
+- **Clients** are user computing devices, such as desktops, laptops, or mobile devices, that access resources within the network. In this architecture, clients refer to AD DS domain-joined computers for users. These clients access Azure file shares by using their existing credentials, which maintains a familiar experience while taking advantage of cloud-based storage.
 
-### Components
-
-Key technologies used to implement this architecture:
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and other identity services to protect against cybersecurity threats.
-- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
-- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-
-## Scenario details
-
-### Potential use cases
+## Potential use cases
 
 Typical uses for this architecture include:
 

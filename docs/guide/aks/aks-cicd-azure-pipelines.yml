@@ -18,6 +18,7 @@ metadata:
     - kubernetes
     - e2e-aks
     - arb-containers
+  ai-usage: ai-assisted
 name: CI/CD for AKS apps with Azure Pipelines
 azureCategories:
   - containers

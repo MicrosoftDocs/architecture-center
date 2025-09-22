@@ -24,7 +24,7 @@ items:
     - name: Overview
       href: guide/architecture-styles/index.md
     - name: Big compute
-      href: guide/architecture-styles/big-compute.yml
+      href: guide/architecture-styles/big-compute.md
     - name: Big data
       href: guide/architecture-styles/big-data.md
     - name: Event-driven architecture
@@ -66,7 +66,7 @@ items:
             - name: Design patterns for microservices
               href: microservices/design/patterns.yml
     - name: N-tier application
-      href: guide/architecture-styles/n-tier.yml
+      href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
       href: guide/architecture-styles/web-queue-worker.yml
   - name: Design principles for Azure applications
@@ -757,7 +757,7 @@ items:
     - name: Guides
       items:
       - name: Azure Sandbox
-        href: guide/azure-sandbox/azure-sandbox.yml
+        href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties

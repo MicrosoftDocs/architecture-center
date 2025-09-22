@@ -260,7 +260,7 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
 [azure-vmware-plans]: /azure/azure-vmware/architecture-private-clouds#hosts
-[big-compute]: ../architecture-styles/big-compute.yml
+[big-compute]: ../architecture-styles/big-compute.md
 [cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [cost-app-service]: https://azure.microsoft.com/pricing/details/app-service
 [cost-aro]:https://azure.microsoft.com/pricing/details/openshift
@@ -276,6 +276,6 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity
 [function-plans]: /azure/azure-functions/functions-scale
 [microservices]: ../architecture-styles/microservices.md
-[n-tier]: ../architecture-styles/n-tier.yml
+[n-tier]: ../architecture-styles/n-tier.md
 [uptime-sla]: /azure/aks/uptime-sla
 [w-q-w]: ../architecture-styles/web-queue-worker.yml

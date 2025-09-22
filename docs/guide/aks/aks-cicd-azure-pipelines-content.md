@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Microservices with AKS and Azure DevOps is a variant of [Design a CI/CD pipeline using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
+> Microservices with Azure Kubernetes Service (AKS) and Azure DevOps is a variant of [Design a continuous integration/continuous deployment (CI/CD) pipeline by using Azure DevOps](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). This article focuses on the AKS-specific facets of deploying AKS applications with Azure Pipelines.
 
 ## Potential use cases
 
@@ -36,9 +36,13 @@ Use Azure Pipelines to deploy AKS applications.
 ### Components
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) Azure monitor managed service for Prometheus collects logs and metrics and logs and forwards them to Azure Monitor.
+
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images. In this architecture, this is where the compute platform pulls the application's container image from.
+
 - [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, this is the compute platform for the application.
-- [Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) In this architecture, Defender for DevOps performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
+
+- [Microsoft Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) In this architecture, Defender for DevOps performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
+
 - [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) In this architecture, defender for containers performs vulnerability assessment of containers published to Azure Container Registry and for running containers in Azure Kubernetes Service. 
 
 ## Next steps

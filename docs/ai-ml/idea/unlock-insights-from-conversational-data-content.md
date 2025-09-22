@@ -46,7 +46,7 @@ The following workflow corresponds to the preceding diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) offering for building and hosting web applications. In this architecture, App Service hosts both the orchestration APIs that coordinate data processing workflows and the interactive web front end that enables users to explore conversation insights through natural language interaction.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a cloud-based platform from Microsoft that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI powers the conversational chat interface. This interface enables users to ask questions about their conversation data and receive contextual responses through the RAG pattern.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) is a cloud-based platform from Microsoft that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI powers the conversational chat interface. This interface enables users to ask questions about their conversation data and receive contextual responses through the RAG pattern.
 
 - [Semantic Kernel](/semantic-kernel/overview/) is an open-source SDK that integrates large language models with conventional programming languages. In this architecture, Semantic Kernel orchestrates the interaction between Azure OpenAI and other Azure AI services. It also manages function calling and coordinates intelligent workflows.
 
