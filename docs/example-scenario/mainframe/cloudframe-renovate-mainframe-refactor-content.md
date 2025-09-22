@@ -58,14 +58,21 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. An Azure VM gives you the flexibility of virtualization, and you don't have to buy and maintain the physical hardware that runs it.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) can help you start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Ultra Disk, Premium SSD, Standard SSD, and Standard HDD. For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure VMs, to communicate with each other, the internet, and on-premises networks, all with enhanced security. Virtual Network is like a traditional network that you'd operate in your own datacenter, but it provides additional benefits like scale, availability, and isolation.
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS.
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build highly scalable and responsive applications by providing fast access to your data.
-- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication of Azure VMs between regions, on-premises VMs, and physical servers to Azure, and by replicating on-premises machines to a secondary datacenter.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Cache for Redis enables application servers in the compute clusters to share application state and data.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications by using Kubernetes. In this architecture, AKS provides a container orchestration platform where Java applications created via Renovate can be deployed in pods as an alternative to VMs. It provides benefits such as improved resource utilization, faster deployment times, and enhanced scalability.
+
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. In this architecture, Azure managed disks provide high-performance storage for the data services layer and we recommend either a Premium SSD or Ultra Disks type.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources with the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the Java Business Services and applications created via Renovate in compute clusters and provides the primary execution environment for the migrated mainframe workloads.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that creates private networks in Azure and enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, Virtual Network provides the networking foundation and secure communication channels for all Azure resources in the migrated environment.
+
+- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this architecture, Data Factory enables data ingestion and synchronization with multiple data sources both within Azure and from external sources, while Blob Storage serves as a common landing zone for external data sources.
+
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that replicates VMs and physical servers to provide business continuity during outages. In this architecture, Site Recovery provides disaster recovery for the VM and container cluster components.
+
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS. In this architecture, SQL Database serves as one of the persistent data sources that business services and applications can connect to for data storage and retrieval.
 
 ## Scenario details
 
