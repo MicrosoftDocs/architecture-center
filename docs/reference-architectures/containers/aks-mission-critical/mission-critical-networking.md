@@ -6,8 +6,6 @@ ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - arb-containers
 summary: Networking decisions for the architecture of a mission-critical workload on Azure.
 ---
 

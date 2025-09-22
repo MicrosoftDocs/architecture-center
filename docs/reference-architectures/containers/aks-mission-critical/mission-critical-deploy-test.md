@@ -6,8 +6,6 @@ ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - arb-containers
 ---
 
 # Deployment and testing for mission-critical workloads on Azure
@@ -250,7 +248,7 @@ Two examples of failure injection tests performed against the architecture are:
 
   | Service | Result |
   | ------- | ------ |
-  | **Key Vault** | When access to Key Vault is blocked, the most direct effect was the failure of new pods to spawn. The Key Vault CSI driver that fetches secrets on pod startup can't perform its tasks and prevents the pod from starting. Corresponding error messages can be observed with **`kubectl describe po CatalogService-deploy-my-new-pod -n workload`**. Existing pods continue to work, although the same error message is observed. The results of the periodic update check for secrets generate the error message. Though untested, executing a deployment doesn't work while Key Vault is inaccessible. Terraform and Azure CLI tasks within the pipeline run makes requests to Key Vault. |
+  | **Key Vault** | When access to Key Vault is blocked, the most direct effect was the failure of new pods to spawn. The Key Vault CSI driver that fetches secrets on pod startup can't perform its tasks and prevents the pod from starting. Corresponding error messages can be observed with **`kubectl describe pod CatalogService-deploy-my-new-pod -n workload`**. Existing pods continue to work, although the same error message is observed. The results of the periodic update check for secrets generate the error message. Though untested, executing a deployment doesn't work while Key Vault is inaccessible. Terraform and Azure CLI tasks within the pipeline run makes requests to Key Vault. |
   | **Event Hubs** | When access to Event Hubs is blocked, new messages sent by the **CatalogService** and **HealthService** fail. Retrievals of messages by the BackgroundProcess slowly fail, with total failure within a few minutes. |
   | **Azure Cosmos DB** | Removal of the existing firewall policy for a virtual network results in the Health Service to begin to fail with minimum lag. This procedure only simulates a specific case, an entire Azure Cosmos DB outage. Most failure cases that occur on a regional level are mitigated automatically with transparent failover of the client to a different Azure Cosmos DB region. The DNS-based failure injection testing described previously is a more meaningful test for Azure Cosmos DB. |
   | **Container registry (ACR)** | When the access to ACR is blocked, the creation of new pods that are pulled and cached previously on an AKS node continue to work. The creation still works due to the **K8s** deployment flag **`pullPolicy=IfNotPresent`**. Nodes can't spawn a new pod and fails immediately with **`ErrImagePull`** errors if the node doesn't pull and cache an image before the block. **`kubectl describe pod`** displays the corresponding **`403 Forbidden`** message. |

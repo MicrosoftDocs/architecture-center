@@ -6,8 +6,6 @@ ms.author: msimecek
 ms.date: 01/30/2025
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom:
-  - arb-containers
 summary: Data decisions for the architecture of a mission-critical workload on Azure.
 ---
 # Data platform for mission-critical workloads on Azure
