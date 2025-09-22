@@ -46,7 +46,7 @@ Certain resources should be shared across all regions. Use these global resource
 |Scale limits|Often these resources are singleton instances in the system, and as such they should be able to scale such that they can handle throughput of the system as a whole.|
 |Availability/disaster recovery|Because regional and stamp resources can consume global resources or are fronted by them, it's critical that global resources are configured with high availability and disaster recovery for the health of the whole system. |
 
-Consider using these Azure services for global layer resources: [Azure Front Door](/azure/frontdoor/) for global load balancing, [Azure Cosmos DB](/azure/cosmos-db/) for globally distributed data, [Azure Container Registry](/azure/container-registry/) for globally-replicated container images, and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
+Consider using these Azure services for global layer resources: [Azure Front Door](/azure/frontdoor/) for global load balancing, [Azure Cosmos DB](/azure/cosmos-db/) for globally distributed data, [Azure Container Registry](/azure/container-registry/) for globally replicated container images, and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
 
 There are other foundational resources in this design, such as Microsoft Entra ID and Azure DNS. They have been omitted in this image for brevity.
 
@@ -101,7 +101,7 @@ Taking hard dependency on foundational services is inevitable because many Azure
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
+Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale-out operations are required during this time, expect decreased user experience.
 
 ## Regional deployment stamp resources
 
