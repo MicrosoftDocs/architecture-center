@@ -1,8 +1,8 @@
-The following architecture outlines the use of Delphix Continuous Compliance in an Azure Data Factory [extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl) pipeline to identify and mask sensitive data.
+The following architecture outlines the use of Delphix Continuous Compliance (Delphix CC) in an Azure Data Factory [extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl) pipeline to identify and mask sensitive data.
 
 ## Architecture
 
-:::image type="content" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
+:::image type="content" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix CC architecture.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
@@ -31,13 +31,13 @@ The following dataflow corresponds to the previous diagram:
 
 ### Alternatives
 
-You can also perform data obfuscation using Microsoft Presidio. Learn more about this option at [Presidio - Data Protection and De-identification SDK](https://microsoft.github.io/presidio/).
+You can also perform data obfuscation by using Microsoft Presidio. For more information, see [Presidio data protection and de-identification SDK](https://microsoft.github.io/presidio/).
 
 ## Scenario details
 
-Data volume rapidly increased in recent years. In order to unlock the strategic value of data, it needs to be dynamic and portable. Data present in silos limits its strategic value and is difficult to use for analytical purposes.
+Data volume rapidly increased in recent years. To unlock the strategic value of data, it needs to be dynamic and portable. Data present in silos limits its strategic value and is difficult to use for analytical purposes.
 
-Breaking down data silos is difficult:
+Breaking down data silos presents challenges:
 
 - Data must be manipulated to fit to a common format. ETL pipelines must be adapted to each system of record and must scale to support the massive datasets of modern enterprises.
 
@@ -47,72 +47,76 @@ Breaking down data silos is difficult:
 
 ### What is Data Factory?
 
-[Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and extract, load, transform (ELT) processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data's power through business insights. Data Factory pipelines are also available in Azure Synapse Analytics.
+[Data Factory](/azure/data-factory/introduction) is a managed, serverless data integration service. It provides a visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and extract, load, transform (ELT) processes code-free in an intuitive environment, or write your own code. To unlock your data's power through business insights, deliver integrated data to Azure Synapse Analytics. Azure Synapse Analytics also includes Data Factory pipelines.
 
-### What is Delphix Continuous Compliance (Delphix CC)?
+### What is Delphix CC?
 
-[Delphix Continuous Compliance](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking. It offers a fast, automated, API-driven way to provide secure data where organizations need it.
+[Delphix CC](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking. It offers an automated, API-driven way to provide secure data.
 
 <a name='how-do-delphix-cc-and-adf-solve-automating-compliant-data'></a>
 
 ### How do Delphix CC and Data Factory solve automating compliant data?
 
-The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy while Data Factory enables connecting and moving data seamlessly. Together Delphix and Data Factory are combining industry-leading compliance and automation offerings to make the delivery of on-demand, compliant data easy for everyone.
+The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy, while Data Factory enables connecting and moving data. Together, Delphix and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
 
 This solution uses Data Factory data source connectors to create two ETL pipelines that automate the following steps:
 
-- Read data from the system of record and write it to CSV files in Azure Blob Storage.
+- Read data from the system of record and write it to CSV files in Azure Blob Storage
 
-- Provide Delphix Continuous Compliance with what it requires in order to identify columns that might contain sensitive data and assign appropriate masking algorithms.
+- Provide Delphix CC with requirements to identify columns that might contain sensitive data and assign appropriate masking algorithms
 
-- Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
+- Run a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values
 
-- Load the compliant data to any Data Factory-supported data store.
+- Load the compliant data to any Data Factory-supported data store
 
 ### Potential use cases
 
-#### Safely activate Azure Data Services for industry-specific solutions
+#### Activate Azure data services for industry-specific solutions safely
 
-- Identify and mask sensitive data in large and complex applications, where customer data is otherwise difficult to identify. Delphix enables end users to automatically move compliant data from sources like SAP, Salesforce, and Oracle E-Business Suite (EBS) to high-value service layers, like Microsoft Synapse.
-- Use the powerful and comprehensive connectors provided by Microsoft Azure to safely unlock, mask, and migrate your data - no matter where it originates.
+- Identify and mask sensitive data in large and complex applications, where customer data is otherwise difficult to identify. Delphix enables users to automatically move compliant data from sources like SAP, Salesforce, and Oracle E-Business Suite (EBS) to high-value service layers, like Azure Synapse Analytics.
+
+- Use Microsoft Azure connectors to safely unlock, mask, and migrate your data from any source.
 
 #### Solve complex regulatory compliance for data
 
-- Automatically put the exhaustive Delphix Algorithm framework to work addressing any regulatory requirements for your data.
-- Apply data-ready rules for regulatory needs like  California Consumer Privacy Act (CCPA), General Data Protection Law (Lei Geral de Proteção de Dados, LGPD), Health Insurance Portability and Accountability Act (HIPAA), and others.
+- Use the Delphix Algorithm Framework to address regulatory requirements for your data.
 
-#### Accelerate the "DevSecOps" shift left
+- Apply data-ready rules for regulatory needs, such as California Consumer Privacy Act (CCPA), General Data Protection Law (Lei Geral de Proteção de Dados, LGPD), and Health Insurance Portability and Accountability Act (HIPAA).
+
+#### Accelerate the DevSecOps shift left
 
 - Provide production-grade data to your development and analytics pipelines, such as Azure DevOps, Jenkins, and Harness, and other automation workflows. To do so, mask sensitive data in centralized Data Factory pipelines.
-- Mask data consistently across data sources, maintaining referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
 
-#### Reduce AI/ML algorithm training time with compliant analytics
+- Mask data consistently across data sources to maintain referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
 
-- Mask data in a manner that doesn't increase training cycles.
-- Retain data integrity while masking to avoid affecting model/prediction accuracy.
+#### Speed up AI and machine learning algorithm training by using compliant analytics
 
-Any Data Factory or Azure Synapse Analytics connector can be used to facilitate a given use case.
+- Mask data without increasing training cycles.
+
+- Retain data integrity while masking to avoid affecting model and prediction accuracy.
+
+Use any Data Factory or Azure Synapse Analytics connector to facilitate a given use case.
 
 ### Key benefits
 
 - Universal connectivity
 - Realistic, deterministic masking that maintains referential integrity
 - Preemptive identification of sensitive data for key enterprise applications
-- Native cloud execution
+- Native cloud implementation
 - Template-based deployment
 - Scalable
 
 ### Example architecture
 
-An anonymous customer provided the following example. It shows how you might architect an environment for this masking use case.
+An anonymous customer shared the following example. It shows how you might architect an environment for this masking use case.
 
 :::image type="content" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
 
 In the previous example architecture:
 
-- Data Factory or Azure Synapse Analytics ingests / connects to production, unmasked data in the landing zone
-- Data is moved to Data Staging in Azure Storage
-- Network File System (NFS) mount of production data to Delphix CC PODs enables the pipeline to call the Delphix CC service
+- Data Factory or Azure Synapse Analytics ingests and connects to production, unmasked data in the landing zone
+- Data is moved to data staging in Storage
+- A Network File System (NFS) mount of production data to Delphix CC PODs enables the pipeline to call the Delphix CC service
 - Masked data is returned for distribution within Data Factory and lower environments
 
 ## Considerations
@@ -123,18 +127,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Delphix CC irreversibly masks data values with realistic data that remains fully functional, enabling the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and also allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a Zero Trust perspective, operators don't need access to the actual data in order to mask it. In addition, the entire delivery of masked data from point A to point B can be automated via APIs.
+Delphix CC irreversibly masks data values with realistic data that remains fully functional, which enables the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a Zero Trust perspective, operators don't need access to the actual data to mask it. The entire delivery of masked data from point A to point B can be automated via APIs.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-By adjusting values on the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), you can see how your particular requirements affect cost.
-Azure Synapse: You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs increase as you ingest more data.
+To see how your particular requirements affect cost, adjust values in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-Data Factory or Azure Synapse Analytics: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your costs increase with each extra data stream and the amount of data processed by each one.
+**Azure Synapse Analytics:** You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs increase as you ingest data.
 
-Delphix CC: Unlike other data compliance products on the market, masking doesn't require a full physical copy of the environment being masked.
+**Data Factory or Azure Synapse Analytics:** Costs are based on the number of read and write operations, monitoring operations, and orchestration activities for each workload. Costs increase with each extra data stream and the amount of data that each one processes.
+
+**Delphix CC:** Unlike other data compliance products, Delphix doesn't require a full physical copy of the environment to perform masking.
 
 Environment redundancy can be expensive because of several reasons:
 
@@ -146,23 +151,23 @@ Environment redundancy can be expensive because of several reasons:
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Delphix CC is horizontally and vertically scalable. The transformations occur in memory and can be parallelized. The product runs both as a service and as a multi-node appliance allowing solution architectures of all sizes depending upon the application. Delphix is the market leader in delivering large masked datasets.
+Delphix CC is horizontally and vertically scalable. The transformations occur in memory and can be parallelized. The product runs both as a service and as a multi-node appliance, so you can design solution architectures of any size based on the application. Delphix is the market leader in delivering large masked datasets.
 
-Masking streams can be increased to engage multiple CPU cores in a job. (Configuration recommendations and details on how to alter memory allocation can be found here: https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+Masking streams can be increased to engage multiple CPU cores in a job. For more information about how to alter memory allocation, see [Create masking jobs](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
 
-For optimal performance for datasets larger than 1 TB in size, [Delphix Hyperscale Masking](https://hyperscale-compliance.delphix.com/3.0.0/) breaks the large and complex datasets into numerous modules and then orchestrates the masking jobs across multiple Continuous Compliance Engines.
+For optimal performance of datasets larger than 1 TB in size, [Delphix Hyperscale Masking](https://hyperscale-compliance.delphix.com/3.0.0/) breaks the datasets into numerous modules and then orchestrates the masking jobs across multiple continuous compliance engines.
 
 ## Deploy this scenario
 
-1. [Deploy the Delphix CC Engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/).
+1. [Deploy the Delphix CC engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/).
 
-1. In Data Factory, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) Data Factory templates. These templates work for both Azure Synapse Analytics and Data Factory pipelines.
-1. In the Copy Data components, configure the desired source and target data stores. In the Web Activity components, input the Delphix application IP address / host name and the credentials to authenticate with Delphix CC APIs.
-1. Run the Delphix CC Profiling Data Factory template for initial setup, and anytime you want to re-identify sensitive data, such as a schema change. This template provides Delphix CC with the initial configuration it requires to scan for columns that might contain sensitive data.
-1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
-1. Review and modify results from the [Inventory screen](https://masking.delphix.com/docs/latest/managing-inventories) as desired. Once you're satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
-1. Back in the Data Factory UI, open the Delphix CC Masking Data Factory template. Provide the Masking Job ID from the previous step, then run the template.
-1. At the end of this step, masked data appears in the target data store of your choice.
+1. In Data Factory, deploy both the **Delphix CC: Profiling** and **Delphix CC: Masking** templates. These templates work for both Azure Synapse Analytics and Data Factory pipelines.
+1. In the Copy Data components, configure the desired source and target data stores. In the Web Activity components, input the Delphix application IP address or host name and the credentials to authenticate with Delphix CC APIs.
+1. Run the Delphix CC Profiling Data Factory template for initial setup and anytime you want to re-identify sensitive data, such as a schema change. This template provides Delphix CC with the initial configuration that it requires to scan for columns that might contain sensitive data.
+1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/) that indicates the collection of data that you want to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
+1. Review and modify results from the [Inventory screen](https://masking.delphix.com/docs/latest/managing-inventories) as desired. When you want to apply masking, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+1. In the Data Factory UI, open the Delphix CC Masking Data Factory template. Provide the Masking Job ID from the previous step, then run the template.
+1. Masked data appears in the target data store of your choice.
 
 > [!NOTE]
 > You need the Delphix application IP address and host name with credentials to authenticate to the Delphix APIs.
@@ -198,11 +203,11 @@ Learn more about the key Azure services in this solution:
 
 - [What is Data Factory?](/azure/data-factory/introduction)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
-- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Introduction to Storage](/azure/storage/common/storage-introduction)
+- [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 ## Related resources
 
-- [Extract, transform, load](/azure/architecture/data-guide/relational-data/etl)
+- [ETL overview](/azure/architecture/data-guide/relational-data/etl)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Analytics end-to-end with Azure Synapse Analytics](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
