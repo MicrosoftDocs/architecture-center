@@ -109,7 +109,7 @@ This architecture also doesn't restrict egress traffic. For example, an agent ca
 
 For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-azure-ai-foundry-chat.yml#networking).
 
-As an alternative to not having any network security during your evaluation of this solution, you can use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Azure AI Foundry project. This will give your solution some ingress and egress control prior to this architecture using your virtual network resources. Once the Foundry Agent Service is configured for standard, private deployment, the network security perimeter is removed in favor of Private Link connections.
+If you want some network security during your evaluation of this solution, you can use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Azure AI Foundry project. This approach provides ingress and egress control before you implement virtual network resources in your architecture. When the Foundry Agent Service is configured for standard, private deployment, the network security perimeter is replaced with Private Link connections.
 
 #### Microsoft Defender for Cloud
 
