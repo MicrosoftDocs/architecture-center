@@ -116,12 +116,12 @@ The following table lists common use scenario requirements and the recommended d
 
 The following table lists features available in Azure database services.
 
-|  Feature         | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Cache for Redis | Azure Cosmos DB for MongoDB | Azure Cosmos DB for Gremlin |
+|  Feature         | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure Cosmos DB for MongoDB
 |------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|
-|Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL |Graph
-|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, wide-column, key-value, graph |Wide-column |Key-value |Document |Graph |
-|Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes (Enterprise and Flash tiers only) |Yes |Yes |
-|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (Flexible Server only) |Virtual network injection (Flexible Server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network injection (Premium, Enterprise, and Flash tiers only) |Virtual network service endpoint |Virtual network service endpoint |
+|Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL
+|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, wide-column, key-value, graph |Wide-column |Key-value |Document |
+|Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes  |Yes 
+|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (Flexible Server only) |Virtual network injection (Flexible Server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network service endpoint |Virtual network service endpoint |
 
 > [!NOTE]
 > [Azure Private Link service](/azure/private-link/private-link-service-overview) simplifies networking design by enabling Azure services to communicate over private networking. All Azure database services support Azure Private Link service. For managed instance database services, these instances are deployed in virtual networks, so you don't need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal) for them.
