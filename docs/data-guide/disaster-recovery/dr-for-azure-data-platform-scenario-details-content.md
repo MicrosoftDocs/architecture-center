@@ -165,24 +165,42 @@ The following sections present a breakdown of Contoso activity necessary across 
         - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region may result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
 
-- **Microsoft Fabric – Pipelines**
+- **Microsoft Fabric – Data Warehouse**
     - Contoso SKU selection: Computed Optimized Gen2
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) the data platform Microsoft Fabric into the secondary region and redeploy the pipelines.
+        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse) the data platform Microsoft Fabric into the secondary region and redeploy the warehouse.
     - Notes
-        - Automatic restore points are [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance).
-        - [User-defined restore points](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance).
+        - Automatic restore points are [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse).
+        - [User-defined restore points](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse).
         - Microsoft Fabric can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a "live" DB copy at specific intervals.
         - Built-in geo-redundancy and automatic failover in paired regions.
         - No manual BCDR setup required.
         - Scalable compute across multiple workspaces without disrupting active workloads.
         - Intelligent workload isolation and automated classification.
         - Cross-Region Restore:
-            - Fabric supports restoring a Warehouse in a secondary region using replicated OneLake data.
+            - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
             - After restore, the Warehouse can be paused, incurring storage costs only—offering a cost-effective way to maintain a “live” snapshot.
-
+              
+- **Microsoft Fabric – Lakehouse**
+    - Contoso SKU selection: Computed Optimized Gen2
+    - DR impact
+        - Azure datacenter failure: N/A
+        - Availability Zone failure: N/A
+        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse) the data platform Microsoft Fabric into the secondary region and redeploy the lakehouse.
+    - Notes
+        - Automatic restore points are [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse).
+        - [User-defined restore points](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse).
+        - Microsoft Fabric can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a "live" DB copy at specific intervals.
+        - Built-in geo-redundancy and automatic failover in paired regions.
+        - No manual BCDR setup required.
+        - Scalable compute across multiple workspaces without disrupting active workloads.
+        - Intelligent workload isolation and automated classification.
+        - Cross-Region Restore:
+            - Fabric supports restoring a Lakehouse in a secondary region using replicated OneLake data.
+            - After restore, the Warehouse can be paused, incurring storage costs only—offering a cost-effective way to maintain a “live” snapshot.
+              
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
     - DR impact
@@ -241,10 +259,6 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Spark Pools and pipelines into the secondary region.
-    - Notes
-        - If an [external Hive metastore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) is used, this will also need a recovery strategy in place.
-            - [Azure Site Recovery](/azure/site-recovery/site-recovery-sql) can be used for a SQL Server metastore.
-            - A [MySQL](/azure/mysql/concepts-business-continuity#recover-from-an-azure-regional-data-center-outage) metastore would use the geo-restore feature or cross-regional read replicas.
 
 - **Power BI**
     - Contoso SKU selection: Power BI Pro
