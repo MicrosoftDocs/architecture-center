@@ -2,7 +2,7 @@ The following architecture outlines the use of Delphix Continuous Compliance (De
 
 ## Architecture
 
-:::image type="content" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix CC architecture.":::
+:::image type="content" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix CC architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
@@ -110,7 +110,7 @@ Use any Data Factory or Azure Synapse Analytics connector to facilitate a given 
 
 An anonymous customer shared the following example. It shows how you might architect an environment for this masking use case.
 
-:::image type="content" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
+:::image type="content" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer." border="false":::
 
 In the previous example architecture:
 
