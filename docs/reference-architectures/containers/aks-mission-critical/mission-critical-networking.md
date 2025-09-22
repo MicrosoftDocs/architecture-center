@@ -11,11 +11,11 @@ summary: Networking decisions for the architecture of a mission-critical workloa
 
 # Networking and connectivity for mission-critical workloads
 
-The regional distribution of resources in mission-critical architecture requires a robust network infrastructure.
+The regional distribution of resources in a mission-critical architecture requires a robust network infrastructure.
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The global load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to quickly deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
+Design regional deployment stamps as the deployable units for mission-critical workloads. The ability to efficiently deploy new deployment stamps provides scalability and supports high availability. Design deployment stamps with an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections between deployment stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
@@ -89,7 +89,7 @@ The premium version of Front Door supports the use of Azure Private Endpoints. P
 
 Azure Front Door premium and Azure Private Endpoints enable fully private compute clusters in the individual stamps. Traffic is fully locked down for all Azure PaaS services.
 
-Using private endpoints increases the security of mission-critical workloads. Application deployment stamps don't need to expose public endpoints exposed, and using private endpoints reduces the risk of networking attacks including DDoS attacks. However, it introduces another point of failure.
+Using private endpoints increases the security of mission-critical workloads. Application deployment stamps don't need to expose public endpoints, and using private endpoints reduces the risk of networking attacks including DDoS attacks. However, it introduces another point of failure.
 
 The increased security must be weighed versus the increased reliability effort, cost, and complexity.
 

@@ -20,7 +20,7 @@ A key design area of any mission critical architecture is the application platfo
 
 - Use a *scale units*-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be **scaled independent of other units** or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit.
 
-For mission-critical workloads, structure the application platform with global, deployment stamp, and regional resources. Provision regional resources as part of a deployment stamp. Each stamp should equate to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
+For mission-critical workloads, structure the application platform with global, deployment stamp, and regional resources. Provision regional resources as part of a deployment stamp. Each stamp should equate to a scale unit. If a given stamp becomes unhealthy, it can be entirely replaced.
 
 The resources in each layer have distinct characteristics. For more information, see [Architecture pattern of a typical mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern).
 
