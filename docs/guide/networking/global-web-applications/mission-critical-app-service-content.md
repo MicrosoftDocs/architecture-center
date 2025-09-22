@@ -51,14 +51,14 @@ This architecture uses the following components.
 
 In the reliable web app pattern, you can:
 
-- [Use Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) instead of App Service. This option works well for complex workloads that have a large number of microservices. AKS provides more control over the underlying infrastructure and allows complex multitier setups.
+- Use Azure Kubernetes Service (AKS) instead of App Service. This option works well for complex workloads that have a large number of microservices. AKS provides more control over the underlying infrastructure and allows complex multitier setups.
 - Containerize the workload. App Service supports containerization, but in this example the workload isn't containerized. Use containers to increase reliability and portability.
 
 For more information, see [Application platform considerations for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-application-platform).
 
 ## Considerations for high availability
 
-Regardless of the application platform that you choose, we recommend that you prioritize the use of availability zones for production workloads. 
+Regardless of the application platform that you choose, we recommend that you prioritize the use of availability zones for production workloads.
 
 *Availability sets* spread deployments across multiple fault and update domains within a datacenter. *Availability zones* spread deployments across individual datacenters within an Azure region. Availability zones are often prioritized, but which strategy you use depends on your workload. For example, latency-sensitive or chatty workloads might benefit from prioritizing availability sets. If you spread the workload across availability zones, it can increase latency and cost for cross-zone traffic. When you use availability zones, ensure that all services in a scale unit support them. All services in the reliable web app pattern support availability zones.
 
@@ -104,7 +104,7 @@ For the reliable web app pattern to set up a network as a security perimeter, it
 - Jump boxes to access services via Azure Bastion.
 - Self-hosted build agents that can access the services.
 
-Another common network requirement for mission-critical applications is to restrict egress traffic to prevent data exfiltration. Restrict egress traffic by routing an Azure firewall through a proper firewall device. Then, filter traffic by using the device. The [Azure mission-critical baseline architecture with network controls](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture) uses a firewall and Private Link.
+Another common network requirement for mission-critical applications is to restrict egress traffic to help prevent data exfiltration. Restrict egress traffic by routing all traffic leaving the subnet through a firewall device where the traffic is filtered before continuing to its next hop.
 
 ## Deployment and testing
 
@@ -127,7 +127,5 @@ For more information, see [Deployment and testing for mission-critical workloads
 
 ## Related resources
 
-- [Mission-critical baseline architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
-- [Mission-critical baseline architecture with network controls](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture)
-- [Mission-critical baseline architecture in an Azure landing zone](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone)
+- [Mission-critical architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
 - [Continuous validation with Azure Load Testing and Azure Chaos Studio](/azure/architecture/guide/testing/mission-critical-deployment-testing)
