@@ -4,7 +4,9 @@ In many enterprises, SAP is the most mission-critical application and the primar
 
 The following architecture outlines the use of Delphix Continuous Compliance (Delphix CC) in an Azure Data Factory or Azure Synapse Analytics pipeline to identify and mask sensitive data.
 
-:::image type="content" source="_images/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" lightbox="_images/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" border="false" alt-text="Diagram that shows the architecture of the environment required to use Delphix to scramble SAP data for use with Azure Data Factory.":::
+:::image type="complex" source="_images/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" lightbox="_images/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" border="false" alt-text="Diagram that shows the architecture of the environment required to use Delphix to scramble SAP data for use with Azure Data Factory.":::
+The diagram shows a left-to-right data processing workflow that uses Microsoft Azure services. It consists of three main sections. A section that includes several components is in the middle, a section that includes SAP HANA is on the left, and a section that includes Data Factory and Azure Synapse Analytics data stores is on the right. In step 1, data is pulled from SAP HANA and stored in source Azure Files. Source Azure Files points to a ForEach activity, which represents step 2. In step 6, the ForEach activity points to another ForEach activity. In step 8, the second ForEach activity points to the Data Factory and Azure Synapse Analytics data stores via an arrow labeled load. In step 3, the first ForEach activity points to a Delphix section via an arrow labeled initiate masking. The Delphix section includes a flow: read unmasked data, preprocess, data mask, postprocess, and write masked data. This section is also labeled Azure virtual machine. In step 5, this section points to target Azure Files and then to the step 8 arrow. A double-sided arrow labeled check status points from the Delphix section to the second ForEach activity, which represents step 7. The Delphix section and main section are connected via virtual networks.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.vsdx) of this architecture.*
 
@@ -67,7 +69,7 @@ This solution uses Data Factory data source connectors to create an ETL pipeline
 - Scalable
 - Low-cost alternative to expensive in-memory HANA hardware
 
-## Getting started
+## Deploy this scenario
 
 1. [Deploy the Delphix CC engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/).
 

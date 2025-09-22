@@ -2,7 +2,9 @@ The following architecture outlines the use of Delphix Continuous Compliance (De
 
 ## Architecture
 
-:::image type="content" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix CC architecture." border="false":::
+:::image type="complex" source="_images/delphix-continuous-compliance-architecture.svg" lightbox="_images/delphix-continuous-compliance-architecture.svg" alt-text="Diagram that shows the Delphix CC architecture." border="false":::
+The diagram shows a left-to-right data processing workflow that uses Microsoft Azure services. It consists of three main sections. A Data Factory section that includes several components is in the middle, and sections that include Data Factory and Azure Synapse Analytics data stores are on either side of the main section. In step 1, data is pulled from supported data stores by Data Factory or Azure Synapse Analytics and stored in source Azure Files. Source Azure Files points to a ForEach activity, which represents step 2. In step 6, the ForEach activity points to another ForEach activity. In step 8, the second ForEach activity points to the Data Factory and Azure Synapse Analytics data stores via an arrow labeled load. In step 3, the first ForEach activity points to a Delphix section via an arrow labeled initiate masking. The Delphix section includes a flow: read unmasked data, preprocess, data mask, postprocess, and write masked data. This section is also labeled Azure self-hosted integration runtime. In step 5, this section points to target Azure Files and then to the step 8 arrow. A double-sided arrow labeled check status points from the Delphix section to the second ForEach activity, which represents step 7. The Delphix section and main Data Factory section are connected via virtual networks.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
@@ -10,7 +12,7 @@ The following architecture outlines the use of Delphix Continuous Compliance (De
 
 The following dataflow corresponds to the previous diagram:
 
-1. Azure Data Factory extracts data from source data stores to a container in Azure Files by using the copy data activity. This container is referred to as the source data container, and the data is in CSV format.
+1. Data Factory extracts data from source data stores to a container in Azure Files by using the Copy Data activity. This container is referred to as the source data container, and the data is in CSV format.
 
 1. Data Factory initiates an iterator (ForEach activity) that loops through a list of masking jobs configured within Delphix. These preconfigured masking jobs mask sensitive data in the source data container.
 1. For each job in the list, the Initiate Masking activity authenticates and initiates the masking job by calling the REST API endpoints on the Delphix CC engine.
@@ -35,7 +37,7 @@ You can also perform data obfuscation by using Microsoft Presidio. For more info
 
 ## Scenario details
 
-Data volume rapidly increased in recent years. To unlock the strategic value of data, it needs to be dynamic and portable. Data present in silos limits its strategic value and is difficult to use for analytical purposes.
+Data volume rapidly increased in recent years. To unlock the strategic value of data, it needs to be dynamic and portable. Data in silos limits its strategic value and is difficult to use for analytical purposes.
 
 Breaking down data silos presents challenges:
 
@@ -57,7 +59,7 @@ Breaking down data silos presents challenges:
 
 ### How do Delphix CC and Data Factory solve automating compliant data?
 
-The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy, while Data Factory enables connecting and moving data. Together, Delphix and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
+Delphix simplifies consistent data compliance, while Data Factory enables connecting and moving data. Together, Delphix and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
 
 This solution uses Data Factory data source connectors to create two ETL pipelines that automate the following steps:
 
@@ -95,7 +97,7 @@ This solution uses Data Factory data source connectors to create two ETL pipelin
 
 - Retain data integrity while masking to avoid affecting model and prediction accuracy.
 
-Use any Data Factory or Azure Synapse Analytics connector to facilitate a given use case.
+- Use any Data Factory or Azure Synapse Analytics connector to facilitate a given use case.
 
 ### Key benefits
 
@@ -108,16 +110,18 @@ Use any Data Factory or Azure Synapse Analytics connector to facilitate a given 
 
 ### Example architecture
 
-An anonymous customer shared the following example. It shows how you might architect an environment for this masking use case.
+The following example shows how you might architect an environment for this masking use case.
 
-:::image type="content" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer." border="false":::
+:::image type="complex" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture." border="false":::
+The diagram presents a multi-layered architecture divided into three main sections: Azure Akora production data, customer's Azure cloud production environment, and enterprise production shared services. On the left, the Azure Akora section includes zones labeled landing zone, single region zone (SRZ), enterprise curated zone, and line-of-business (LOB) curated zone. These zones connect to Data Factory, which moves unmasked production data into an "In Folder" and later into an "Out Folder" after processing. In the center, the customer's Azure cloud production environment shows a sequence of four numbered steps that Data Factory manages: retrieve credentials, instantiate AKS pods and mount Network File System (NFS) folders, run Delphix jobs, and terminate pods. These steps interact with Delphix CC engine PODs that run in Azure Kubernetes Service (AKS). The engine accesses the In Folder via NFS, performs masking, and writes masked data to the Out Folder. On the right, the enterprise production shared services section includes Microsoft Entra ID, Azure Container Registry, and GitHub repositories, which support authentication, container management, and metadata configuration. The diagram uses directional arrows to show dataflow between components and includes a legend to explain icons and color-coded lines that represent unmasked and masked data.
+:::image-end:::
 
-In the previous example architecture:
+The previous example architecture has the following components:
 
-- Data Factory or Azure Synapse Analytics ingests and connects to production, unmasked data in the landing zone
-- Data is moved to data staging in Storage
-- A Network File System (NFS) mount of production data to Delphix CC PODs enables the pipeline to call the Delphix CC service
-- Masked data is returned for distribution within Data Factory and lower environments
+- Data Factory or Azure Synapse Analytics ingests and connects to production, unmasked data in the landing zone.
+- Data is moved to data staging in Storage.
+- A Network File System (NFS) mount of production data to Delphix CC PODs enables the pipeline to call the Delphix CC service.
+- Masked data is returned for distribution within Data Factory and lower environments.
 
 ## Considerations
 
