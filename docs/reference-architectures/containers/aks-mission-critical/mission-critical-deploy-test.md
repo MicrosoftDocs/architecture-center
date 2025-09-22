@@ -44,7 +44,7 @@ The DevOps components provide the source code repository and CI/CD pipelines for
 
 * **Azure Pipelines** - The pipelines used by the architecture for all build, test, and release tasks.
 
-Build agents are an additional component needed for deployment. Use Microsoft Hosted build agents as part of Azure Pipelines to deploy the infrastructure and updates. Using Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
+Build agents are an additional component needed for deployment. Use Microsoft hosted build agents as part of Azure Pipelines to deploy the infrastructure and updates. Using Microsoft hosted build agents removes the management burden for developers to maintain and update the build agent.
 
 For more information about Azure Pipelines, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 
@@ -148,7 +148,7 @@ The individual component configuration for the Front Door deployment is defined 
 
 Use blue/green deployment as the approach for mission-critical deployment processes. Deploy new releases to production environments using release branches. Gradually shift user traffic to the deployment stamps for the new release.
 
-As a first step in the deployment process of a new version, deploy the infrastructure for the new release unit using infrastructure as code tools like Terraform. Execute the infrastructure deployment pipeline to deploy the new infrastructure from a selected release branch. In parallel to the infrastructure provisioning, build or import container images and push them to the globally shared container registry. When the previous processes are completed, deploy the application to the deployment stamps. From a process perspective, it's one pipeline and one deployment, but the process has multiple sequential and parallel phases.
+As a first step in the deployment process of a new version, deploy the infrastructure for the new release unit using infrastructure as code tools like Terraform. Execute the infrastructure deployment pipeline to deploy the new infrastructure from a selected release branch. In parallel with the infrastructure provisioning, build or import container images and push them to the globally shared container registry. When the previous processes are completed, deploy the application to the deployment stamps. From a process perspective, it's one pipeline and one deployment, but the process has multiple sequential and parallel phases.
 
 After the new release unit is deployed and validated, the new unit is added to Front Door to receive user traffic.
 
@@ -198,7 +198,7 @@ The architecture contains different tests used at different stages within the te
 
 These tests include:
 
-* **Unit tests** - These tests validate that the business logic of the application works as expected. A suite of unit tests are executed automatically before every container build by Azure Pipelines. If any test fails, the pipeline stops. Build and deployment stops. The developer must fix the issue before the pipeline can be executed again.
+* **Unit tests** - These tests validate that the business logic of the application works as expected. A suite of unit tests should be executed automatically before every container build by Azure Pipelines. If any test fails, the pipeline stops. Build and deployment stops. The developer must fix the issue before the pipeline can be executed again.
 
 * **Load tests** - These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. A user load generator must be used to create synthetic load patterns that can be used to simulate real traffic.
 

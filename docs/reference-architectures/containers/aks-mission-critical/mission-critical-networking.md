@@ -91,7 +91,7 @@ The premium version of Front Door supports the use of Azure Private Endpoints. P
 
 Azure Front Door premium and Azure Private Endpoints enable fully private compute clusters in the individual stamps. Traffic is fully locked down for all Azure PaaS services.
 
-Using private endpoints increases the security of mission-critical workloads. However, it introduces another point of failure. Public endpoints exposed in the application deployment stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
+Using private endpoints increases the security of mission-critical workloads. Application deployment stamps don't need to expose public endpoints exposed, and using private endpoints reduces the risk of networking attacks including DDoS attacks. However, it introduces another point of failure.
 
 The increased security must be weighed versus the increased reliability effort, cost, and complexity.
 

@@ -105,7 +105,7 @@ Similarly, Microsoft Entra ID is used for control plane operations such as creat
 
 ## Regional deployment stamp resources
 
-Design deployment stamps to deploy the workload and provision resources that participate in completing business transactions. A stamp typically corresponds to a deployment to an Azure region, although a region can have more than one stamp.
+Design deployment stamps to deploy the workload and provision resources that participate in completing business transactions. A stamp typically corresponds to a deployment within an Azure region, although a region can have more than one stamp.
 
 |Characteristics|Considerations|
 |---|---|

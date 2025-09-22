@@ -89,7 +89,7 @@ One exception is the storage of sensitive values for pipelines. These values are
 
 It's necessary to secure container images for all containerized workloads.
 
-Use Workload Docker containers that are based on runtime images, not SDK, to minimize the footprint and potential attack surface. There should be no other tools, such as `ping`, `wget`, or `curl`, installed.
+Use workload Docker containers that are based on runtime images, not SDKs, to minimize the footprint and potential attack surface. There should be no other tools, such as `ping`, `wget`, or `curl`, installed.
 
 The application should run under a nonprivileged user `workload` that was created as part of the image build process:
 
@@ -111,7 +111,7 @@ These security measures are also configured for non-Microsoft containers and Hel
 Each environment should have a dedicated instance of Azure Container Registry with global replication to each of the regions where deployment stamps are deployed.
 
 > [!NOTE]
-> We recommend that you use [Microsoft Defender for container registries](/azure/container-registry/scan-images-defender), potentially [with GitHub Actions](/azure/container-registry/github-action-scan).
+> We recommend that you perform vulnerability scanning of container images. Use [Microsoft Defender for container registries](/azure/container-registry/scan-images-defender), potentially [with GitHub Actions](/azure/container-registry/github-action-scan).
 
 ## Traffic ingress
 

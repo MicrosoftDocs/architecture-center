@@ -4,6 +4,8 @@ This article series provides guidance for designing a mission critical workload 
 
 Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. Apply a set of overarching design strategies to address these factors and ensure the target reliability tier is achieved.
 
+Mission-critical workloads typically target an SLO of 99.99% or higher, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
+
 - **Redundancy in layers**
 
   - Deploy to *multiple regions in an active-active model*. The application is distributed across two or more Azure regions that handle active user traffic.

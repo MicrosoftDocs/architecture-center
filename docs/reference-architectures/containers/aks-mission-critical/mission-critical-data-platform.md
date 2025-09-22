@@ -44,7 +44,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
 - **Multi-region write**
 
-  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Azure Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. Mission-critical workloads typically use multi-master technology to provide maximum resiliency and availability.
+  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Azure Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. Mission-critical workloads typically use technology that provides multi-region write capabilities to provide maximum resiliency and availability.
 
   Zone redundancy is also enabled within each replicated region.
 

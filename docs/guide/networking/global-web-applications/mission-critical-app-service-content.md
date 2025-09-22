@@ -104,7 +104,7 @@ For the reliable web app pattern to set up a network as a security perimeter, it
 - Jump boxes to access services via Azure Bastion.
 - Self-hosted build agents that can access the services.
 
-Another common network requirement for mission-critical applications is to restrict egress traffic to prevent data exfiltration. Restrict egress traffic by routing an Azure firewall through a proper firewall device. Then, filter traffic by using the device. Your workload should use a firewall and Private Link for these concerns.
+Another common network requirement for mission-critical applications is to restrict egress traffic to help prevent data exfiltration. Restrict egress traffic by routing all traffic leaving the subnet through a firewall device where the traffic is filtered before continuing to its next hop.
 
 ## Deployment and testing
 
