@@ -11,6 +11,7 @@ metadata:
 azureCategories:
   - web
 products:
+  - azure-cache-redis
 name: Cache-Aside pattern
 summary: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 thumbnailUrl: /azure/architecture/browse/thumbs/cache-aside-diagram.png
