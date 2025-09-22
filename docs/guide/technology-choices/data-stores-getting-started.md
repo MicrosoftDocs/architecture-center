@@ -119,7 +119,7 @@ The following table lists features available in Azure database services.
 |  Feature         | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure Cosmos DB for MongoDB
 |------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|
 |Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL
-|Data model|Relational |Relational |Relational |Relational |Multimodel: Document, wide-column, key-value, graph |Wide-column |Key-value |Document |
+|Data model|Relational |Relational |Relational |Relational |Wide-column |Multimodel: Document, wide-column, key-value, graph |Key-value |Document |
 |Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes  |Yes 
 |Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (Flexible Server only) |Virtual network injection (Flexible Server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network service endpoint |Virtual network service endpoint |
 
