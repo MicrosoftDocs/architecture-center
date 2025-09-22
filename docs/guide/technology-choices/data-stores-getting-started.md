@@ -76,13 +76,21 @@ Assess your team's ability to support and evolve the solution:
 Answer the following questions about your workloads to make decisions based on the Azure database services decision tree:
 
 - **What level of control do you need over the OS and database engine?** Some scenarios require you to have a high degree of control or ownership of the software configuration and host servers for your database workloads. In these scenarios, you can deploy custom IaaS virtual machines (VMs) to fully control the deployment and configuration of data services. You might not need this level of control, but maybe you're not ready to move to a full PaaS solution. In that case, a managed instance can provide higher compatibility with your on-premises database engine while providing the benefits of a managed platform.
+
 - **Will your workloads use a relational database technology?** If so, choose from [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Database for MySQL](/azure/mysql/overview), and [Azure Database for PostgreSQL](/azure/postgresql/overview), which all provide managed PaaS database capabilities.  
+
 - **Will your workloads use SQL Server?** In Azure, your workloads can run on IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Your choice depends on whether you want to manage your database, apply patches, and take backups, or delegate these operations to Azure. Some scenarios require IaaS-hosted SQL Server because of capability requirements. For more information, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+
 - **Will your workloads use key-value database storage?** [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store based on the latest Redis Enterprise version. It provides low latency and high throughput. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides key-value storage capabilities.
+
 - **Will your workloads use document or graph data?** [Azure Cosmos DB](/azure/cosmos-db/introduction) is a multimodel database service that supports various data types and APIs. It also provides document and graph database capabilities.
+
 - **Will your workloads use column-family data?** [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) provides a managed Apache Cassandra cluster that can extend your existing datacenters into Azure or serve as a cloud-only cluster and datacenter.
+
 - **Will your workloads require high-capacity data analytics capabilities?** [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building.
+
 - **Will your workloads require search engine capabilities?** You can use [Azure AI Search](/azure/search/search-what-is-azure-search) to build AI-enhanced cloud-based search indexes that can integrate into your applications.
+
 - **Will your workloads use time-series data?** [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed, high-performance, big data analytics platform that analyzes high volumes of data in near real time.
 
 > [!NOTE]
