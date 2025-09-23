@@ -19,7 +19,7 @@ The following dataflow corresponds to the previous diagram:
 1. The Delphix CC engine reads data from the source data container and runs through the masking process.
 1. In this masking process, Delphix masks data in-memory and writes the resultant masked data back to a target Azure Files container, which is referred to as the *target data container*.
 1. Data Factory initiates a second iterator (ForEach activity) that monitors the implementations.
-1. For each implementation (masking job) started, the Check Status activity checks the result of masking.
+1. For each implementation (masking job) that starts, the Check Status activity checks the result of masking.
 1. After all masking jobs complete successfully, Data Factory loads the masked data from the target data container to the specified destination.
 
 ### Components
@@ -27,9 +27,9 @@ The following dataflow corresponds to the previous diagram:
 - [Data Factory](/azure/data-factory/introduction) is an ETL service for scale-out serverless data integration and data transformation. It provides a code-free UI for intuitive authoring and unified monitoring and management. In this architecture, Data Factory orchestrates the entire data masking workflow. This workflow includes extracting data, initiating masking jobs, monitoring operations, and loading masked data into destination stores.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this architecture, Azure Synapse Analytics can serve as the destination for masked data and includes Data Factory pipelines for data integration.
-- [Azure Storage](/azure/storage/common/storage-introduction) provides scalable cloud storage for structured and unstructured data. In this architecture, it stores both the raw source data and the masked output data. Azure Storage serves as the intermediary storage layer for data that loads into destination data stores.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based solution that provides scalable storage for both structured and unstructured data. In this architecture, it stores both the raw source data and the masked output data. Azure Storage serves as the intermediary storage layer for data that loads into destination data stores.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private, isolated network environment in Azure. In this architecture, Virtual Network provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse Analytics workspace. It allows you to manage access, security, and routing between resources.
-- Other components might include various source and destination data stores depending on the specific use case. These components integrate into the architecture based on the data sources that you use, such as SAP, Salesforce, or Oracle EBS.
+- Other components might include various source and destination data stores, depending on the specific use case. These components integrate into the architecture based on the data sources that you use, such as SAP, Salesforce, or Oracle EBS.
 
 ### Alternatives
 
@@ -113,7 +113,7 @@ This solution uses Data Factory data source connectors to create two ETL pipelin
 The following example shows how you might architect an environment for this masking use case.
 
 :::image type="complex" source="_images/example-architecture.png" lightbox="_images/example-architecture.png" alt-text="Diagram of a sample architecture." border="false":::
-The diagram presents a multi-layered architecture divided into three main sections: Azure Akora production data, customer's Azure cloud production environment, and enterprise production shared services. On the left, the Azure Akora section includes zones labeled landing zone, single region zone (SRZ), enterprise curated zone, and line-of-business (LOB) curated zone. These zones connect to Data Factory, which moves unmasked production data into an "In Folder" and later into an "Out Folder" after processing. In the center, the customer's Azure cloud production environment shows a sequence of four numbered steps that Data Factory manages: retrieve credentials, instantiate AKS pods and mount Network File System (NFS) folders, run Delphix jobs, and terminate pods. These steps interact with Delphix CC engine PODs that run in Azure Kubernetes Service (AKS). The engine accesses the In Folder via NFS, performs masking, and writes masked data to the Out Folder. On the right, the enterprise production shared services section includes Microsoft Entra ID, Azure Container Registry, and GitHub repositories, which support authentication, container management, and metadata configuration. The diagram uses directional arrows to show dataflow between components and includes a legend to explain icons and color-coded lines that represent unmasked and masked data.
+The diagram presents a multi-layered architecture divided into three main sections: Azure Akora production data, customer's Azure cloud production environment, and enterprise production shared services. On the left, the Azure Akora section includes zones labeled landing zone, single region zone (SRZ), enterprise curated zone, and line-of-business (LOB) curated zone. These zones connect to Data Factory, which moves unmasked production data into an In Folder and later into an Out Folder after processing. In the center, the customer's Azure cloud production environment shows a sequence of four numbered steps that Data Factory manages: retrieve credentials, instantiate AKS pods and mount Network File System (NFS) folders, run Delphix jobs, and terminate pods. These steps interact with Delphix CC engine PODs that run in Azure Kubernetes Service (AKS). The engine accesses the In Folder via NFS, performs masking, and writes masked data to the Out Folder. On the right, the enterprise production shared services section includes Microsoft Entra ID, Azure Container Registry, and GitHub repositories, which support authentication, container management, and metadata configuration. The diagram uses directional arrows to show dataflow between components and includes a legend to explain icons and color-coded lines that represent unmasked and masked data.
 :::image-end:::
 
 The previous example architecture has the following components:
@@ -137,7 +137,7 @@ Delphix CC irreversibly masks data values with realistic data that remains fully
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To see how your particular requirements affect cost, adjust values in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+To see how your specific requirements affect cost, adjust values in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 **Azure Synapse Analytics:** You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs increase as you ingest data.
 
