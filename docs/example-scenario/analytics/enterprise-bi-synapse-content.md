@@ -219,9 +219,9 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use this starting configuration in the [Azure pricing calculator](https://azure.com/e/598c407dc58545e090c8cfd6c7dbc190), and adjust it to fit your scenario. Use the [Fabric pricing overview](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) for detailed information on Fabric F SKUs and [Fabric Capacity Estimator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator) to generate an estimate of overall Fabric consumption.
 
-#### Microsoft Fabric serverless architecture
+#### Microsoft Fabric Scalable architecture
 
-Microsoft Fabric is a serverless architecture that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per terabyte, so your costs increase as you ingest data.
+Microsoft Fabric is a serverless architecture for most workloads that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per terabyte, so your costs increase as you ingest data.
 
 #### Microsoft Fabric Factory pipelines
 
