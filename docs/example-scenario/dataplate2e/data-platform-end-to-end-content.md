@@ -72,7 +72,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 7. Use Dataflows Gen2 to clean and shape parsed data and to detect schema inconsistencies, nulls, or outliers. Once profiled and transformed, save processed data into Warehouse tables. 
 
-8. For enriching data, use [Spark Notebooks](/fabric/data-engineering/author-execute-notebook) to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
+8. For enriching data, use [Spark Notebooks](/fabric/data-engineering/author-execute-notebook) to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or SynapseML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with [scalable batch](/fabric/data-science/model-scoring-predict) and [realtime predictions](/fabric/data-science/model-endpoints). 
 
 ##### Serve
 
@@ -88,9 +88,9 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Serve real-time predictions from any registered ML model using secure, scalable [ML online endpoints](/fabric/data-science/model-endpoints) that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption.  
 
-6. Deliver data to users using a conversational interface with [Fabric Data Agent](/fabric/data-science/concept-data-agent) via natural language queries. 
+6. Enable seamless interaction with enterprise data using [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights. 
 
-7. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. 
+7. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. All Copilot experiences in Microsoft Fabric act as a unified serving layer by translating natural language into actionable insights, code, or visualizations across workloads. They intelligently interpret user intent, enrich it with contextual data, and deliver tailored outputs—making complex tasks simpler and more accessible for users at every level. 
 
 #### Cloud based data platform for Dataverse
 
@@ -110,7 +110,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 3. Reference Dataverse data across other Lakehouses using [shortcuts](/fabric/onelake/onelake-shortcuts) to reuse the same data without copying or duplicating it.  
 
-4. For enriching data, use the [Data Wrangler](/fabric/data-science/data-wrangler) a low-code/no-code tool within Spark notebooks to explore and prepare the data for exploratory data analysis. The operations generate code in either pandas or PySpark, which can be saved back into the notebook as a reusable function
+4. For enriching data, use the [Data Wrangler](/fabric/data-science/data-wrangler) a low-code/no-code tool within fabric notebooks to explore and prepare the data for exploratory data analysis. The operations generate code in either pandas or PySpark, which can be saved back into the notebook as a reusable function
 
 ##### Serve
 
@@ -156,7 +156,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
 
-6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or Synapse ML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with scalable [PREDICT](/fabric/data-science/model-scoring-predict) function and write enriched results back to OneLake. 
+6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or SynapseML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with [scalable batch](/fabric/data-science/model-scoring-predict) and [realtime predictions](/fabric/data-science/model-endpoints).  
 
 ##### Serve
 
@@ -170,9 +170,10 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. 
 
-6. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
+6. Enable seamless interaction with enterprise data using [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights. 
 
-7. Copilot in Fabric acts as a generative AI assistive technology to deliver data to users and applications.
+7. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. All Copilot experiences in Microsoft Fabric act as a unified serving layer by translating natural language into actionable insights, code, or visualizations across workloads. They intelligently interpret user intent, enrich it with contextual data, and deliver tailored outputs—making complex tasks simpler and more accessible for users at every level. 
+
 
 #### Streaming
 
@@ -206,9 +207,10 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 3. Data can also be securely shared with other business units or external trusted partners using Fabric external data sharing with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
-4. Deliver data to users using a conversational interface with Fabric Data Agent(preview) via natural language queries. 
+4. Enable seamless interaction with enterprise data using [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights. 
 
-5. Copilot in Fabric acts as a generative AI assistive technology to deliver data to users and applications.
+5. [Copilot in Fabric](/fabric/fundamentals/copilot-fabric-overview) acts as a generative AI assistive technology to deliver data to users and applications. All Copilot experiences in Microsoft Fabric act as a unified serving layer by translating natural language into actionable insights, code, or visualizations across workloads. They intelligently interpret user intent, enrich it with contextual data, and deliver tailored outputs—making complex tasks simpler and more accessible for users at every level. 
+
 
 ### Components
 
@@ -282,21 +284,20 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 #### Microsoft Purview
 
-1. Use [Microsoft Purview](/azure/purview/overview) for [data discovery](/azure/purview/how-to-browse-catalog) and insights on your [data assets](/azure/purview/asset-insights), [data classification](/azure/purview/classification-insights), and [sensitivity](/azure/purview/sensitivity-insights), which covers the entire organizational data landscape.
+1. [Microsoft Purview ](/purview/data-governance-overview)data governance consists of two solutions. The [Unified Catalog](/purview/unified-catalog) and [Data Map](/purview/data-map) offer a modern governance experience by consolidating metadata from diverse catalogs and sources. This enables comprehensive visibility, enhanced data confidence, and supports responsible innovation across the enterprise
 
-2. Microsoft Purview can help you maintain a [business glossary](/azure/purview/concept-business-glossary) with the specific business terminology required for users to understand the semantics of what datasets mean and how they're meant to be used across the organization.
+2. Microsoft Purview can help you maintain a [glossary terms](/purview/unified-catalog-glossary-terms-create-manage) with the specific business terminology required for users to understand the semantics of what datasets mean and how they're meant to be used across the organization.
 
-3. You can [register all your data sources](/azure/purview/manage-data-sources) and organize them into [Collections](/azure/purview/concept-best-practices-collections), which also serves as a security boundary for your metadata.
+3. You can [register your data sources](/purview/data-map-data-sources-register-manage) and organize them into [Collections](/purview/data-map-domains-collections-manage), which also serves as a security boundary for your metadata.
 
-4. Setup [regular scans](/azure/purview/create-a-scan-rule-set) to automatically catalog and update relevant metadata about data assets in the organization. Microsoft Purview can also automatically add [data lineage](/azure/purview/catalog-lineage-user-guide) information based on information from Azure Data Factory or Azure Synapse pipelines.
+4. Setup [regular scans](/purview/data-map-scan-ingestion) to automatically catalog and update relevant metadata about data assets in the organization. When a Microsoft Fabric tenant is scanned, [metadata and lineage](/purview/data-map-lineage-fabric) from Fabric assets—including Power BI—are automatically ingested into the Microsoft Purview Unified Data Catalog.
 
-5. [Data classification](/azure/purview/apply-classifications) and [data sensitivity](/azure/purview/create-sensitivity-label) labels can be added automatically to your data assets based on preconfigured or customs rules applied during the regular scans.
+5. [Data classification](/purview/data-map-classification) and [data sensitivity](/purview/data-map-sensitivity-labels) labels can be added automatically to your data assets based on preconfigured or customs rules applied during the regular scans.
 
-6. Data governance professionals can use the reports and [insights](/azure/purview/concept-insights) generated by Microsoft Purview to keep control over the entire data landscape and protect the organization against any security and privacy issues.
+6. Data governance professionals can use the [Unified Catalog health management](/purview/unified-catalog-data-health-management) to monitor the overall health over the entire data landscape and protect the organization against any security and privacy issues.
 
 7. A built-in [Purview Hub](/fabric/governance/use-microsoft-purview-hub?tabs=overview) within Fabric provides insights into data inventory, sensitivity labels, and endorsements, acting as a gateway to broader Purview capabilities. 
 
-8. Fabric artifacts are automatically added to the Purview Data Map, enabling cross-platform data discovery and governance without manual setup. 
 
 ### Platform services
 
@@ -358,3 +359,5 @@ Principal authors:
 ## Next step
 
 - Review the guidelines defined in the [Fabric Adoption](/power-bi/guidance/fabric-adoption-roadmap) for building scalable analytics environment in Fabric.
+
+- Explore the [Learning Paths](/training/paths/get-started-fabric/) at Microsoft learn for further training content and labs on the services involved in this reference architecture.
