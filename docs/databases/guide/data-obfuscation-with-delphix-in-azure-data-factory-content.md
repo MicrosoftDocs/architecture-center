@@ -63,13 +63,13 @@ Delphix simplifies consistent data compliance, while Data Factory enables connec
 
 This solution uses Data Factory data source connectors to create two ETL pipelines that automate the following steps:
 
-- Read data from the system of record and write it to CSV files in Azure Blob Storage
+- Read data from the system of record and write it to CSV files in Azure Blob Storage.
 
-- Provide Delphix CC with requirements to identify columns that might contain sensitive data and assign appropriate masking algorithms
+- Provide Delphix CC with requirements to identify columns that might contain sensitive data and assign appropriate masking algorithms.
 
-- Run a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values
+- Run a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
 
-- Load the compliant data to any Data Factory-supported data store
+- Load the compliant data to any Data Factory-supported data store.
 
 ### Potential use cases
 
