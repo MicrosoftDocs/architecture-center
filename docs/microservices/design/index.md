@@ -69,4 +69,5 @@ This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-
 - [Design APIs for microservices](./api-design.yml)
 - [Use API gateways in microservices](./gateway.yml)
 - [Data considerations for microservices](./data-considerations.yml)
+- [Container orchestration for microservices](./orchestration-content.md)
 - [Design patterns for microservices](./patterns.yml)
