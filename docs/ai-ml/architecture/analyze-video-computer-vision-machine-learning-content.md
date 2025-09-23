@@ -15,7 +15,7 @@ This article describes an architecture that you can use to replace the manual an
 4. The inference cluster sends the images to Azure Data Lake Storage.
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
-7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in a Microsoft Fabric Data Warehouse, a fully managed, transactional (ACID) relational store built on open Delta format and integrated with OneLake.
 8. Power BI provides data visualization.
 
 ### Components
@@ -31,6 +31,8 @@ This article describes an architecture that you can use to replace the manual an
 - [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, triggers analysis workflows, processes results, and coordinates the movement and transformation of data.
+
+- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
@@ -54,7 +56,6 @@ If there is no need to call a pre-trained Object Detection Custom Model, we can 
 8. Power BI provides data visualization.
 
 ### Alternative Components 
-- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
 - [SQL database in Fabric](/fabric/database/sql/overview) is a simple, autonomous, and secure SQL database service optimized for AI. It is used in this architecture to store information about the videos retrieved from the Azure Video Retrieval API.
 - [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advance image and video analysis capabilities without requiring machine learning expertise. The [Video Retrieval API](/azure/ai-services/computer-vision/how-to/video-retrieval) is used in this architecture to retrieve information directly from the video.
 
@@ -88,14 +89,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
-For the availability guarantees of the Azure services in this solution, see these resources:
+For the availability guarantees of the Azure services in this solution, see this resources
 
-- [Service-level agreement (SLA) for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5)
-- [SLA for Azure Machine Learning](https://azure.microsoft.com/support/legal/sla/machine-learning-service/v1_0)
-- [SLA for Azure AI services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
-- [SLA for Logic Apps](https://azure.microsoft.com/support/legal/sla/logic-apps/v1_0)
-- [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1)
-- [SLA for Power BI](https://azure.microsoft.com/support/legal/sla/power-bi-embedded/v1_1)
+- [Service-level agreement (SLA) for Storage Accounts](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
 
 ### Security
 
@@ -144,6 +140,9 @@ Principal author:
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk) | Senior Cloud Solutions Architect – Data & AI
 - [Han Wang](https://www.linkedin.com/in/han-hongrun-wang-577187106/) | Cloud Solutions Architect – Data & AI
 
+Other contributors:
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -152,6 +151,6 @@ Principal author:
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Azure AI services?](/azure/ai-services/what-are-ai-services)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
-- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [What is Microsoft Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
 - See the [Business process automation solution](https://github.com/Azure/business-process-automation) on GitHub
