@@ -51,7 +51,7 @@ The diagram shows types of input, like data streams, databases, data services, u
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. Fabric FSKUs provide the compute for Power BI semantic models as explained in [Power BI Premium capacity F64](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus). Power BI can access the data via Import, DirectQuery or DirectLake connectivity.
+- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. Fabric FSKUs provide the compute for Power BI semantic models as explained in [Fabric capacity](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus). Power BI can access the data via Import, DirectQuery or DirectLake connectivity.
 
 ### Components
 
@@ -61,7 +61,7 @@ This scenario uses the following components:
 
 - [Fabric OneLake Storage](/fabric/onelake/onelake-overview) provides unified cloud storage for all structured & unstructured data for the whole organization.
 - [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering to host data warehouse workloads for large datasets.
-- [Power BI Premium](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario.
+- [Power BI](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow.
 
 ## Scenario details
@@ -135,9 +135,9 @@ In a production environment, ETL transformations can also be implemented via [Fa
 > [!NOTE]
 > Use [Native Execution](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) engine for running data engineering or etl workloads.
 
-### Use Power BI Premium to access, model, and visualize data
+### Use Power BI on Fabric Capacities to access, model, and visualize data
 
-Power BI Premium on Fabric Capacities supports several options to connect to data sources on Azure. You can use Fabric Data Warehouse to do the following tasks:
+Power BI on Fabric Capacities supports several options to connect to data sources on Azure. You can use Fabric Data Warehouse to do the following tasks:
 
 - Import: The data is imported into the Power BI model.
 - [DirectQuery](/power-bi/connect-data/desktop-directquery-about): Data is pulled directly from relational storage.
@@ -156,7 +156,7 @@ In this case, the end users want full access to the most recent data with no del
 
 :::image type="content" source="./media/adventure-works-dashboard.png" alt-text="Screenshot that shows the dashboard in Power BI." lightbox="./media/adventure-works-dashboard.png":::
 
-Use [Power BI Premium](/power-bi/enterprise/service-premium-gen2-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with unique value proposition.
+Use [Power BI](/power-bi/enterprise/service-premium-gen2-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with unique value proposition.
 
 When the BI model grows or dashboard complexity increases, you can switch to composite models and import parts of lookup tables via [hybrid tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables), and import preaggregated data. You can enable [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets and use [dual tables](/power-bi/transform-model/desktop-storage-mode) for the storage mode property.
 
@@ -243,9 +243,9 @@ The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to exec
 
 OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/)
 
-#### Power BI Premium
+#### Power BI 
 
-This scenario uses [Power BI Premium workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs.
+This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs.
 
 For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
@@ -272,9 +272,9 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 This section provides details about sizing decisions to accommodate this dataset.
 
 
-#### Power BI Premium and Fabric
+#### Power BI on Fabric Capacity
 
-This article uses the [Power BI Premium F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 (8 vCores) to F1024 (128 vCores).
+This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 (8 vCores) to F1024 (128 vCores).
 
 To determine how much capacity you need:
 
