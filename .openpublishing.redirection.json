@@ -4924,6 +4924,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-science-process/scala-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -7398,6 +7408,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-guide/technology-choices/data-store-overview.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/data-store-classification.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
@@ -7504,9 +7524,14 @@
     },
     {
       "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
-      "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/example-scenario/apps/saas-starter-web-app.yml",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
+      "redirect_document_id": false
+    },  
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-data.yml",
       "redirect_url": "/azure/aks/pci-data",
@@ -7550,6 +7575,16 @@
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-summary.yml",
       "redirect_url": "/azure/aks/pci-summary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-options.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-considerations.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
     }
   ]

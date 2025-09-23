@@ -4,11 +4,11 @@ metadata:
   description: Use AI Builder and Azure AI Document Intelligence in a Power Automate workflow to extract text from images, for indexing and retrieval.
   author: Spucelik
   ms.author: stpuceli
-  ms.date: 09/27/2024
+  ms.date: 09/12/2025
   ms.update-cycle: 180-days
   ms.collection: ce-skilling-ai-copilot 
-  ms.topic: example-scenario
-  ms.subservice: example-scenario
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning

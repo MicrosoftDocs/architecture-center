@@ -7,7 +7,8 @@ metadata:
   ms.date: 06/18/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom: arb-web 
+  ms.custom: arb-web
+  ai-usage: ai-assisted 
 azureCategories:
   - web
   - devops
