@@ -19,7 +19,7 @@ products:
   - azure-machine-learning
   - ai-services
   - azure-logic-apps
-  - azure-synapse-analytics
+  - Microsoft-Fabric
   - azure-data-lake-storage
 name: Perform video analysis by using Azure Machine Learning and Computer Vision
 summary: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
