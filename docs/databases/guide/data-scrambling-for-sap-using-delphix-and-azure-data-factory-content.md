@@ -130,9 +130,9 @@ Principal authors:
 
 Other contributors:
 
-- [Michael Torok](https://www.linkedin.com/in/michaelatorok/) | Senior Director of Digital Customer Experience
-- [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) | Senior Program Manager
 - [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) | Senior Content Developer
+- [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) | Senior Program Manager
+- [Michael Torok](https://www.linkedin.com/in/michaelatorok/) | Senior Director of Digital Customer Experience
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
