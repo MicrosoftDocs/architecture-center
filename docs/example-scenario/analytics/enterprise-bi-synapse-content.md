@@ -300,7 +300,7 @@ Other contributors:
 
 ## Next steps
 
-- [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
+- [What is Power BI?](/power-bi/enterprise/service-premium-what-is)
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
 - [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
 - [What is Microsoft Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
