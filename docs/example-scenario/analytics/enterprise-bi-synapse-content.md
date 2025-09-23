@@ -235,7 +235,9 @@ For pricing details, see the *Data Factory pricing meters* tab on [Data Factory 
 
 The price varies depending on components or activities, frequency, and overall compute associated with orchestration. 
 
-#### Microsoft Fabric Data Lakehouse or Warehouse
+#### Microsoft Fabric Data Lakehouse or Warehouse or Eventhouse
+
+Use this [decision guide](/fabric/fundamentals/decision-guide-data-store) to help you choose a data store for your Microsoft Fabric workloads, all available in a unified storage in the OneLake.
 
 The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to execute ad-hoc queries for analysis, as well as allowing Power BI semantic models to import or direct query the data. The cost associated with a Lakehouse or Warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint.
 
@@ -263,6 +265,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before you move to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
 - Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
 - Use [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) for comprehensive monitoring of Fabric capacity consumption, [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed monitoring of Fabric Workspace telemetry logs.
+- Use [Fabric Capacity Estimator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator?msockid=2cafadf0224a6692090fbbc023586769) to estimate your Fabric Capacity needs.
 
 
 ### Performance Efficiency
