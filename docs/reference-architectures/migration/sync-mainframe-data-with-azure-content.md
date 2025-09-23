@@ -63,7 +63,7 @@ This section describes other tools that you can use during data modernization, s
   
   - **Large‑scale data engineering and machine learning** — via [Data Engineering (Lakehouse + notebooks)](/fabric/data-engineering/lakehouse-overview) with built‑in Spark.
 
-  - **Near Real Time** — via [Real‑Time Intelligence](/fabric/real-time-intelligence/overview) with Eventhouse (KQL) and [Eventstreams](/fabric/real-time-intelligence/event).
+  - **Near Real Time** — via [Real‑Time Intelligence](/fabric/real-time-intelligence/overview) with Eventhouse (KQL) and [Eventstreams](/fabric/real-time-intelligence/event-streams/overview).
   
   - **ETL/ELT workflows** — via [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, Copy, and a broad set of [with hybrid/on‑premises gateway support.
 
@@ -185,7 +185,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 ## Related resources
 
 - [Azure data architecture guide](/azure/architecture/databases/)
-- [Azure data platform end-to-end](/azure/architecture/example-scenario/fabric/fabric-end-to-end)
+- [Azure data platform end-to-end](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
 
