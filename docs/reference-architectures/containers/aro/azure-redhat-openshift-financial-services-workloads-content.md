@@ -119,9 +119,9 @@ Security is paramount in the financial industry. To protect sensitive data and e
     - Use Red Hat OpenShift Service Mesh to enforce traffic management, service identity, security, policy and to gain telemetry. See [Introduction to Red Hat OpenShift Service Mesh](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/service_mesh/service-mesh-2-x#ossm-servicemesh-overview_ossm-about) for more details.
 
 - **Key management service**: Use [Azure Key Vault](/azure/key-vault/general/overview) as the primary service for securely storing and managing secrets, keys, and certificates. 
-    - For workloads requiring **HSM-backed keys** use [Azure Key Vault Premium](/azure/key-vault/general/basic-premium-overview) which now meet **FIPS 140-3 Level 3** standards. 
+    - For workloads requiring **HSM-backed keys** use [Azure Key Vault Premium](/azure/security/fundamentals/key-management-choose) which now meet **FIPS 140-3 Level 3** standards. 
     - Enable [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction) for advanced threat detection, configure [diagnostic logging](/azure/key-vault/general/logging) for auditing, and implement [automated key rotation](/azure/key-vault/keys/how-to-configure-key-rotation) and [secret lifecycle management](/azure/key-vault/secrets/tutorial-rotation) using built-in policies or event-driven automation. 
-    - For advanced or multi-cloud scenarios, consider independent software vendors such as [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) or [CyberArk Conjur](https://www.cyberark.com/products/conjur/). Bring-your-own-key (BYOK) models are fully supported across [Azure services](/azure/storage/common/customer-managed-keys-overview).
+    - For advanced or multi-cloud scenarios, consider independent software vendors such as [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) or [CyberArk Conjur](https://docs.cyberark.com/portal/latest/en/docs.htm). Bring-your-own-key (BYOK) models are fully supported across [Azure services](/azure/storage/common/customer-managed-keys-overview).
 
 
 #### Authentication and authorization
@@ -178,11 +178,8 @@ Principal author:
 - [Red Hat OpenShift on Azure documentation](/azure/openshift/) - Complete technical documentation and tutorials
 
 **Architecture and Best Practices:**
-- [Well-Architected Framework for containers on Azure](/azure/architecture/framework/services/compute/azure-red-hat-openshift) - Production readiness guidance
 - [Azure Architecture Center - Container architectures](/azure/architecture/browse/?expanded=azure&products=azure-kubernetes-service%2Cazure-container-instances%2Cazure-red-hat-openshift) - Reference architectures and design patterns
 - [Azure Red Hat OpenShift support policies](/azure/openshift/support-policies-v4) - Version support and lifecycle information
 
 **Security and Compliance:**
 - [Azure security baseline for Azure Red Hat OpenShift (ARO)](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-red-hat-openshift-aro-security-baseline) - Security baseline guidance from the Microsoft cloud security benchmark version 1.0 to Azure Red Hat OpenShift (ARO)
-- [Microsoft cloud security benchmark for ARO](/security/benchmark/azure/baselines/azure-red-hat-openshift-security-baseline) - Security configuration recommendations
-- [Azure compliance documentation](/azure/compliance/) - Regulatory compliance information for FSI workloads
