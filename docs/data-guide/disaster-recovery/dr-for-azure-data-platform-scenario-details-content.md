@@ -173,7 +173,6 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Microsoft handles the regional failures. Onelake data is available via the API as outlined in the article below.
                  -  [Onelake Disaster Recovery](/fabric/onelake/onelake-disaster-recovery)
           
-- https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery
 - **Microsoft Fabric – Data Warehouse**
     - Contoso SKU selection: Fabric Capacity
     - DR impact
