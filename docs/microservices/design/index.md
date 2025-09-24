@@ -40,7 +40,7 @@ Before you read these articles, start with the following resources:
 ## Example architecture
 
 :::image type="complex" border="false" source="../images/drone-delivery-impl.png" alt-text="Diagram that shows the architecture of a drone delivery workload." lightbox="../images/drone-delivery-impl.png":::
-The diagram presents a high-level system architecture that operates within AKS. The layout flows from left to right. It begins with a component labeled Client positioned outside the AKS boundary. The client sends data to the Ingestion service, which resides inside the AKS environment. A directional arrow connects the client to the ingestion service, indicating the initial data transfer. The ingestion service then forwards the data to Service Bus. From Service Bus, data moves into the Workflow service. The Workflow service directs tasks to one of three specialized services. These services include the Delivery service, the Drone Scheduler service, and the Package service. Each of these services is connected to its own external system or storage solution, represented by arrows leading to distinct icons. The Delivery service and Drone Scheduler service both route data to storage or database components, while the Package service connects to a cloud or external system. All components, except the client, are enclosed within a dotted boundary labeled AKS, which indicates that they're managed within that environment.
+The diagram presents a high-level system architecture that operates within AKS. The layout flows from left to right. It begins with a component labeled Client positioned outside the AKS boundary. The client sends data to the Ingestion service, which resides inside the AKS environment. A directional arrow connects the client to the ingestion service, which indicates the initial data transfer. The ingestion service then forwards the data to Service Bus. From Service Bus, data moves into the Workflow service. The Workflow service directs tasks to one of three specialized services. These services include the Delivery service, the Drone Scheduler service, and the Package service. Each of these services is connected to its own external system or storage solution, represented by arrows that lead to distinct icons. The Delivery service and Drone Scheduler service both route data to storage or database components, while the Package service connects to a cloud or external system. All components, except the client, are enclosed within a dotted boundary labeled AKS, which indicates that they're managed within that environment.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/design-microservice-drone-delivery-imp.vsdx) of this architecture.*
@@ -58,7 +58,7 @@ This scenario involves a fairly complicated domain. Some business concerns inclu
 
 This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-level architectural decisions and challenges apply to any container orchestrator.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Choose a compute option](./compute-options.md)
