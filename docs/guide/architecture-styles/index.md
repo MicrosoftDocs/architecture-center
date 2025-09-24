@@ -3,7 +3,7 @@ title: Architecture Styles
 description: Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 09/23/2025
+ms.date: 09/24/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
@@ -13,12 +13,12 @@ ai-usage: ai-assisted
 
 An *architecture style* is a family of architectures that share specific characteristics. For example, [N-tier][n-tier] is a common architecture style. More recently, [microservice architectures][microservices] are starting to gain favor. Architecture styles don't require the use of specific technologies, but some technologies are better suited for certain architectures. For example, containers are well-suited for microservices.
 
-We identified a set of architecture styles that are commonly found in cloud applications. The article for each style includes:
+We identified a set of architecture styles that are commonly found in cloud applications. The article for each style includes the following components:
 
-- A description and logical diagram of the style.
-- Recommendations for when to choose this style.
-- Benefits, challenges, and best practices.
-- A recommended deployment using relevant Azure services.
+- A description and logical diagram of the style
+- Recommendations for when to choose this style
+- Benefits, challenges, and best practices
+- A recommended deployment that uses relevant Azure services
 
 ## A quick tour of the styles
 
@@ -27,7 +27,7 @@ This section gives a quick tour of the architecture styles that we identified, a
 ### N-tier
 
 :::image type="complex" border="false" source="./images/n-tier-logical.svg" alt-text="Logical diagram of an N-tier architecture style." lightbox="./images/n-tier-logical.svg":::
-   The diagram illustrates the layered structure of an N-tier architecture with clear separation between components. Client requests enter through a web application firewall (WAF) that provides security filtering before reaching the web tier. The web tier acts as the presentation layer, handling user interactions and routing requests to appropriate business logic components. Two distinct processing paths emerge from the web tier: one path flows directly to middle tier one for synchronous operations, while another path uses messaging infrastructure to communicate with middle tier two for asynchronous processing. Both middle tiers represent business logic layers that process requests and interact with the data tier through caching mechanisms to optimize performance. The data tier serves as the foundation, storing and managing application data while supporting both middle tiers through cached data access patterns.
+   The diagram illustrates the layered structure of an N-tier architecture with clear separation between components. Client requests enter through a web application firewall (WAF) that provides security filtering before reaching the web tier. The web tier serves as the presentation layer. It handles user interactions and routing requests to appropriate business logic components. Two distinct processing paths emerge from the web tier: one path flows directly to middle tier one for synchronous operations, while another path uses messaging infrastructure to communicate with middle tier two for asynchronous processing. Both middle tiers represent business logic layers that process requests and interact with the data tier through caching mechanisms to optimize performance. The data tier serves as the foundation. It stores and manages application data while supporting both middle tiers through cached data access patterns.
 :::image-end:::
 
 **[N-tier][n-tier]** is a traditional architecture for enterprise applications that divides an application into logical layers and physical tiers. Each layer has a specific responsibility, and layers manage dependencies by only calling into layers below them. Typical layers include presentation, business logic, and data access.
@@ -37,27 +37,27 @@ N-tier architectures are well-suited for migrating existing applications that al
 ### Web-Queue-Worker
 
 :::image type="complex" border="false" source="./images/web-queue-worker-logical.svg" alt-text="Logical diagram of Web-Queue-Worker architecture style." lightbox="./images/web-queue-worker-logical.svg":::
-   The diagram shows a clean separation between user-facing and background processing components. Client interactions begin with authentication through an identity provider before reaching the web front end, which serves as the primary user interface. The web front end maintains three distinct operational relationships: it can directly communicate with remote services for external integrations, access the database for immediate data operations, and enqueue work items for background processing. The queue acts as a decoupling mechanism. It enables the worker component to process resource-intensive or long-running tasks independently from user requests. The worker retrieves jobs from the queue and performs operations against the database, with caching infrastructure that supports both the web front end and worker for optimized data access. Also, static content is distributed through a content delivery network (CDN) to improve performance for client applications.
+   The diagram shows a clean separation between user-facing and background processing components. Client interactions begin with authentication through an identity provider before reaching the web front end, which serves as the primary user interface. The web front end maintains three distinct operational relationships: it can directly communicate with remote services for external integrations, access the database for immediate data operations, and enqueue work items for background processing. The queue serves as a decoupling mechanism. It enables the worker component to process resource-intensive or long-running tasks independently from user requests. The worker retrieves jobs from the queue and performs operations against the database, with caching infrastructure that supports both the web front end and worker for optimized data access. Also, static content is distributed through a content delivery network (CDN) to improve performance for client applications.
 :::image-end:::
 
-**[Web-Queue-Worker](./web-queue-worker.yml)** is an architecture that consists of a web front end, a message queue, and a back-end worker. The web front end handles HTTP requests and user interactions, while the worker performs resource-intensive tasks, long-running workflows, or batch operations. Communication between the front end and worker occurs through an asynchronous message queue.
+**[Web-Queue-Worker][web-queue-worker]** is an architecture that consists of a web front end, a message queue, and a back-end worker. The web front end handles HTTP requests and user interactions, while the worker performs resource-intensive tasks, long-running workflows, or batch operations. Communication between the front end and worker occurs through an asynchronous message queue.
 
-This architecture is ideal for applications with relatively simple domains that have some resource-intensive processing requirements. It's easy to understand and deploy using managed Azure services like App Service and Azure Functions. You can scale the front end and worker independently to provide flexibility in resource allocation. But without careful design, both components can become large and monolithic.
+This architecture is ideal for applications with relatively simple domains that have some resource-intensive processing requirements. It's easy to understand and deploy by using managed Azure services like App Service and Azure Functions. You can scale the front end and worker independently to provide flexibility in resource allocation. But without careful design, both components can become large and monolithic.
 
 ### Microservices
 
 :::image type="complex" border="false" source="./images/microservices-logical.svg" alt-text="Logical diagram of microservices architecture style." lightbox="./images/microservices-logical.svg":::
-   The diagram depicts a distributed microservices architecture organized into distinct functional layers. On the left, client applications and external systems initiate requests that flow through a centralized API gateway, which serves as the single entry point and routing mechanism for the entire system. The API gateway directs requests to the appropriate microservices layer, which contains multiple service types: domain services that encapsulate specific business capabilities, composition services that orchestrate interactions between domain services, and individual services that handle discrete functions. Each microservice maintains data autonomy through its own dedicated database. The diagram shows a polyglot persistence approach using both SQL and NoSQL databases tailored to each service's specific data requirements. The microservices communicate asynchronously through message-oriented middleware, enabling loose coupling via publish-subscribe patterns and event-driven interactions. Three foundational infrastructure layers support this distributed architecture: observability systems provide comprehensive monitoring, logging, and distributed tracing across service boundaries. Management and orchestration platforms handle automated deployment, scaling, and service discovery. DevOps toolchains enable continuous integration, testing, and delivery pipelines for independent service deployments.
+   The diagram depicts a distributed microservices architecture organized into distinct functional layers. On the left, client applications and external systems initiate requests that flow through a centralized API gateway, which serves as the single entry point and routing mechanism for the entire system. The API gateway directs requests to the appropriate microservices layer, which contains multiple service types: domain services that encapsulate specific business capabilities, composition services that orchestrate interactions between domain services, and individual services that handle discrete functions. Each microservice maintains data autonomy through its own dedicated database. The diagram shows a polyglot persistence approach using both SQL and NoSQL databases tailored to each service's specific data requirements. The microservices communicate asynchronously through message-oriented middleware. This approach enables loose coupling by way of publish-subscribe patterns and event-driven interactions. Three foundational infrastructure layers support this distributed architecture: observability systems provide comprehensive monitoring, logging, and distributed tracing across service boundaries. Management and orchestration platforms handle automated deployment, scaling, and service discovery. DevOps toolchains enable continuous integration, testing, and delivery pipelines for independent service deployments.
 :::image-end:::
 
-**[Microservices][microservices]** architecture decomposes applications into a collection of small, autonomous services. Each service implements a single business capability within a bounded context and is self-contained with its own data storage. Services communicate through well-defined APIs and can be developed, deployed, and scaled independently.
+**The [Microservices][microservices]** architecture decomposes applications into a collection of small, autonomous services. Each service implements a single business capability within a bounded context and is self-contained with its own data storage. Services communicate through well-defined APIs and can be developed, deployed, and scaled independently.
 
-Microservices enable teams to work autonomously and support frequent updates with higher release velocity. This architecture is well-suited for complex domains that require frequent changes and innovation. However, it introduces significant complexity in areas such as service discovery, data consistency, and distributed system management. Success requires mature development and DevOps practices, making it more suitable for organizations with advanced technical capabilities.
+Microservices enable teams to work autonomously and support frequent updates with higher release velocity. This architecture is well-suited for complex domains that require frequent changes and innovation. But it introduces significant complexity in areas such as service discovery, data consistency, and distributed system management. Success requires mature development and DevOps practices, which makes it more suitable for organizations that have advanced technical capabilities.
 
 ### Event-driven architecture
 
 :::image type="complex" border="false" source="./images/event-driven.svg" alt-text="Diagram of an event-driven architecture style." lightbox="./images/event-driven.svg":::
-   The diagram illustrates a decoupled, asynchronous communication pattern fundamental to event-driven architectures. Multiple event producers operate independently. The generated streams of events based on business activities, user interactions, or system state changes without any knowledge of downstream consumers. The producers feed their events into a centralized event ingestion system that serves as an intelligent broker. The broker receives, validates, persists, and reliably distributes events across the architecture. The event ingestion component acts as a critical decoupling point. It ensures producers remain isolated from consumers while it provides guarantees around event delivery, ordering, and durability. From this central hub, events are distributed through a fan-out pattern to multiple independent event consumers positioned on the right side of the diagram. Each consumer represents a distinct business capability or service that subscribes to specific event types relevant to its domain responsibilities. The consumers process events asynchronously and in parallel, enabling the system to scale horizontally while maintaining loose coupling. This architectural pattern removes direct dependencies between producers and consumers. It lets each component evolve, scale, and deploy independently while maintaining system resilience through the event broker's buffering and retry capabilities.
+   The diagram illustrates a decoupled, asynchronous communication pattern fundamental to event-driven architectures. Multiple event producers operate independently. The generated streams of events based on business activities, user interactions, or system state changes without any knowledge of downstream consumers. The producers feed their events into a centralized event ingestion system that serves as an intelligent broker. The broker receives, validates, persists, and reliably distributes events across the architecture. The event ingestion component serves as a critical decoupling point. It ensures producers remain isolated from consumers while it provides guarantees around event delivery, ordering, and durability. From this central hub, events are distributed through a fan-out pattern to multiple independent event consumers positioned on the right side of the diagram. Each consumer represents a distinct business capability or service that subscribes to specific event types relevant to its domain responsibilities. The consumers process events asynchronously and in parallel, enabling the system to scale horizontally while maintaining loose coupling. This architectural pattern removes direct dependencies between producers and consumers. It lets each component evolve, scale, and deploy independently while maintaining system resilience through the event broker's buffering and retry capabilities.
 :::image-end:::
 
 **[Event-driven architectures](./event-driven.md)** use a publish-subscribe model where event producers generate streams of events, and event consumers respond to those events in near real time. Producers and consumers are decoupled from each other, with communication happening through event channels or brokers. This architecture supports both simple event processing and complex event pattern analysis.
@@ -94,7 +94,7 @@ For example, the constraints in microservices include:
 - Every service is independent of the others.
 - Data is private to the service that owns it. Services don't share data.
 
-When you adhere to these constraints, you gain a system where you:
+When you adhere to these constraints, you gain a system that lets you take the following actions:
 
 - Deploy services independently.
 - Isolate faults.
@@ -105,42 +105,46 @@ Each architecture style has its own trade-offs. Before you choose an architectur
 
 Ideally, the choice of architectural style should be made with input from informed workload stakeholders. The workload team should start by identifying the nature of the problem that they're solving. They should then define the key business drivers and the corresponding architecture characteristics, also known as *nonfunctional requirements*, and prioritize them. For example, if time to market is critical, the team might prioritize maintainability, testability, and reliability to enable rapid deployment. If the team has tight budget constraints, feasibility and simplicity might take precedence. Selecting and sustaining an architectural style isn't a one-time task. It requires ongoing measurement, validation, and refinement. Because changing architectural direction later can be costly, it's often worthwhile to invest more effort upfront to support long-term efficiency and reduce risks.
 
-The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
+The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each style.
 
 | Architecture style | Dependency management | Domain type |
 |--------------------|------------------------|-------------|
 | [N-tier][n-tier] | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
-| [Web-Queue-Worker](./web-queue-worker.yml) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource intensive tasks. |
+| [Web-Queue-Worker](./web-queue-worker.yml) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource-intensive tasks. |
 | [Microservices][microservices] | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
-| [Event-driven architecture](./event-driven.md) | Producer or consumer. Independent view for each subsystem. | IoT and real-time systems. |
-| [Big data](./big-data.md) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
+| [Event-driven architecture](./event-driven.md) | Producer or consumer. Independent view for each subsystem. | Internet of Things (IoT) and real-time systems. |
+| [Big data](./big-data.md) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis by using machine learning. |
 | [Big compute](./big-compute.md) | Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
 
 ## Consider challenges and benefits
 
-Constraints also create challenges, so it's important to understand the trade-offs when adopting any of these styles. Do the benefits of the architecture style outweigh the challenges, *for this subdomain and bounded context*.
+Constraints also create challenges, so it's important to understand the trade-offs when you adopt any of these styles. Determine if the benefits of the architecture style outweigh the challenges, *for this subdomain and bounded context*.
 
-Here are some of the types of challenges to consider when selecting an architecture style:
+Consider the following types of challenges when you select an architecture style:
 
-- **Complexity.** The architecture's complexity must match the domain. If it's too simplistic, it can result in a [big ball of mud][ball-of-mud], where dependencies aren't well managed and the structure breaks down.
+- **Complexity:** The architecture's complexity must match the domain. If it's too simplistic, it can result in a [big ball of mud][ball-of-mud], where dependencies aren't well managed and the structure breaks down.
 
-- **Asynchronous messaging and eventual consistency.** Asynchronous messaging is used to decouple services and improve reliability because messages can be retried. It also enhances scalability. However, asynchronous messaging also creates challenges in handling eventual consistency and the possibility of duplicate messages.
+- **Asynchronous messaging and eventual consistency:** Asynchronous messaging is used to decouple services and improve reliability because messages can be retried. It also enhances scalability. However, asynchronous messaging also creates challenges in handling eventual consistency and the possibility of duplicate messages.
 
-- **Interservice communication.** Decomposing an application into separate services might increase communication overhead. In microservices architectures, this overhead often results in latency problems or network congestion.
+- **Interservice communication:** Decomposing an application into separate services might increase communication overhead. In microservices architectures, this overhead often results in latency problems or network congestion.
 
-- **Manageability.** Managing the application includes tasks such as monitoring, deploying updates, and maintaining operational health.
+- **Manageability:** Managing the application includes tasks such as monitoring, deploying updates, and maintaining operational health.
 
 ## Related resources
 
-- [Ten design principles for Azure applications](/azure/architecture/guide/design-principles/)
-- [Build applications on the Microsoft Cloud](/azure/architecture/guide/microsoft-cloud/overview)
+- [Ten design principles for Azure applications](../design-principles/index.md)
+
+## Next steps
+
+- [Build applications on the Microsoft Cloud](/azure/architecture/guide/microsoft-cloud/dev/overview/introduction)
 - [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices)
-- [Cloud Design Patterns](/azure/architecture/patterns/)
-- [Performance testing and antipatterns for cloud applications](/azure/architecture/antipatterns/)
+- [Cloud design patterns](/azure/architecture/patterns)
+- [Performance testing and antipatterns for cloud applications](/azure/architecture/antipatterns)
 - [Architect multitenant solutions on Azure](/azure/architecture/guide/multitenant/overview)
-- [Mission critical workload architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+- [Mission-critical workload architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
 - [Architecture for startups](/azure/architecture/guide/startups/startup-architecture)
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
 [microservices]: ./microservices.md
 [n-tier]: ./n-tier.md
+[web-queue-worker]: ./web-queue-worker.md
