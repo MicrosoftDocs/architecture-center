@@ -166,23 +166,22 @@ The following sections present a breakdown of Contoso activity necessary across 
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
 
 - **Microsoft Fabric – Data Warehouse**
-    - Contoso SKU selection: Computed Optimized Gen2
+    - Contoso SKU selection: Fabric Capacity
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse) the data platform Microsoft Fabric into the secondary region and redeploy the warehouse.
     - Notes
-        - Automatic restore points are [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse).
-        - [User-defined restore points](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse).
-        - Microsoft Fabric can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a "live" DB copy at specific intervals.
-        - Built-in geo-redundancy and automatic failover in paired regions.
-        - No manual BCDR setup required.
-        - Scalable compute across multiple workspaces without disrupting active workloads.
-        - Intelligent workload isolation and automated classification.
         - Cross-Region Restore:
             - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
             - After restore, the Warehouse can be paused, incurring storage costs only—offering a cost-effective way to maintain a “live” snapshot.
              
+- **Microsoft Fabric – Pipelines**
+    - Contoso SKU selection: Fabric Capacity
+    - DR impact
+        - Azure datacenter failure: N/A
+        - Availability Zone failure: N/A
+        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) the data platform Microsoft Fabric into the secondary region and redeploy the pipelines.<img width="730" height="144" alt="image" src="https://github.com/user-attachments/assets/514735c6-50ee-45f9-b321-bb416704bdf2" />
            
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
@@ -229,22 +228,22 @@ The following sections present a breakdown of Contoso activity necessary across 
         - While the Machine Learning infrastructure is managed by Microsoft; the [associated resources are managed by the customer](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
-- **Microsoft Fabric – Data Explorer Pools**
-    - Contoso SKU selection: Computed Optimized, Small (4 cores)
+- **Microsoft Fabric – Eventhouse**
+    - Contoso SKU selection: Fabric Capacity
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Data Explorer Pools and pipelines into the secondary region.
+        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Eventhouse and pipelines into the secondary region.
 
-- **Microsoft Fabric – Spark Pools**
-    - Contoso SKU selection: Compute Optimized Gen2
+- **Microsoft Fabric – Lakehouse**
+    - Contoso SKU selection: Fabric Capacity
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Spark Pools and pipelines into the secondary region and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse) the data platform Microsoft Fabric into the secondary region and redeploy the lakehouse.
+        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Lakehouse and pipelines into the secondary region and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse) the data platform Microsoft Fabric into the secondary region and redeploy the lakehouse.
 
 - **Power BI**
-    - Contoso SKU selection: Power BI Pro
+    - Contoso SKU selection: Fabric Capacity/Power BI Pro
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
