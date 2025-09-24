@@ -66,7 +66,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
 
-- **Availability zones**: Distribute control plane and worker nodes across three availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
+- **Availability zones**: Distribute control plane and worker nodes across all available availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
 
 - **Multi-region deployments**: Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door to route traffic to these clusters for improved resilience.
 

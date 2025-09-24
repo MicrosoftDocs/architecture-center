@@ -22,15 +22,15 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 3. The traffic between the Application Gateway and the frontend internal load balancer will be intercepted by Azure Firewall Premium via User Defined Routes applied on the Application Gateway subnet. The Azure Firewall Premium will apply TLS inspection to the traffic for additional security. The Azure Firewall is zone-redundant as well. If the Azure Firewall detects a threat in the traffic, it will drop the packets. Otherwise, upon successful inspection the Azure Firewall will forward the traffic to the destination web-tier internal load balancer. 
 
-4. The web-tier is the first layer of the three-tier application, it contains the user interface and it also parses user interactions. The web-tier load balancer is spread over all three availability zones, and it will distribute traffic to each of the three web-tier virtual machines.
+4. The web-tier is the first layer of the three-tier application, it contains the user interface and it also parses user interactions. The web-tier load balancer is spread over all availability zones, and it will distribute traffic to the web-tier virtual machines.
 
-5. The web-tier virtual machines are spread across all three availability zones, and they will communicate with the business tier via a dedicated internal load balancer.
+5. The web-tier virtual machines are spread across three availability zones, and they will communicate with the business tier via a dedicated internal load balancer.
 
-6. The business tier processes the user interactions and determines the next steps, and it sits between the web and data tiers. The business-tier internal load balancer distributes traffic to the business-tier virtual machines across the three availability zones. The business-tier load balancer is zone-redundant, like the web-tier load balancer.
+6. The business tier processes the user interactions and determines the next steps, and it sits between the web and data tiers. The business-tier internal load balancer distributes traffic to the business-tier virtual machines. The business-tier load balancer is zone-redundant, like the web-tier load balancer.
 
-7. The business-tier virtual machines are spread across availability zones, and they will route traffic to the availability group listener of the databases.
+7. The business-tier virtual machines are spread across the same availability zones as the web-tier, and they will route traffic to the availability group listener of the databases.
 
-8. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL server on virtual machines distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+8. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL server on virtual machines distributed across same three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
 
 ### Inbound non-HTTP(S) traffic flows
 
@@ -88,7 +88,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 *Traffic Manager -* We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts its load balancing algorithm as endpoint latency changes. Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
 
-*Availability Zones -* The architecture uses three availability zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If there is a zone outage, the remaining availability zones in that region would take over the load, which wouldn't trigger a regional failover.
+*Availability Zones -* The architecture uses three availability zones in the region. If the region supported more, the architecture could be further spread across the additional zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If there is a zone outage, the remaining availability zones in that region would take over the load, which wouldn't trigger a regional failover.
 
 *Application Gateway -* While Traffic Manager provides DNS-based regional load balancing, Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
 

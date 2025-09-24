@@ -270,7 +270,7 @@ The architecture in this guide depicts a highly available SAP HANA database syst
 
 [Availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) can enhance service availability. Zones refer to physically separated locations within a specific Azure region. They improve workload availability and protect application services and VMs against datacenter outages. VMs in a single zone are treated as if they're in a single update or fault domain. When zonal deployment is selected, VMs in the same zone are distributed to fault and upgrade domains on a best-effort basis.
 
-In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) that support this feature, a minimum of three zones are available. The maximum distance between datacenters in these zones isn't guaranteed. To deploy a multiple-tier SAP system across zones, you must know the network latency within a zone and across targeted zones and how sensitive your deployed applications are to network latency.
+In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) that support this feature, a minimum of three zones are available. The number of zones varies by region. The maximum distance between datacenters in these zones isn't guaranteed. To deploy a multiple-tier SAP system across zones, you must know the network latency within a zone and across targeted zones and how sensitive your deployed applications are to network latency.
 
 Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) into account when you decide to deploy resources across availability zones:
 

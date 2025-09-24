@@ -62,8 +62,8 @@ Application Gateway is a regional resource that meets the requirements of this b
 - Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
-- Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
-- Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
+- Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows.
+- Consider using a minimum scale instance count of two or more and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
 - Disable public network access on the App Service to ensure network isolation. In Bicep, this is accomplished by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
 
 ### Flow from App Services to Azure services
@@ -130,7 +130,7 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 
 #### App Services
 
-- Deploy a minimum of three instances of App Services with Availability Zone support.
+- Deploy a minimum two instances of App Services with Availability Zone support. For additional resiliency, the minimum should be at least equal to the number of available zones in your region, with additional instances for redundancy within zones.
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
