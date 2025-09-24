@@ -2,8 +2,8 @@
 metadata:
   title: Use Azure Red Hat OpenShift in the financial services industry
   description: Learn how to use Azure Red Hat OpenShift landing zone to create secure, resilient, and compliant solutions in a hybrid cloud environment.
-  author: mosabami
-  ms.author: dcasati
+  author: dcasati
+  ms.author: dicasati
   ms.date: 09/24/2025
   ms.topic: conceptual
   ms.subservice: example-scenario
