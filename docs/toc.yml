@@ -686,7 +686,7 @@ items:
           - name: High availability for multitier AKS apps
             href: guide/aks/aks-high-availability.yml
           - name: CI/CD for AKS apps (Azure Pipelines)
-            href: guide/aks/aks-cicd-azure-pipelines.yml
+            href: guide/aks/aks-cicd-azure-pipelines.md
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
         - name: Infrastructure
