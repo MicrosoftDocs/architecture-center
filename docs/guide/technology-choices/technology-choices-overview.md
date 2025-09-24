@@ -61,7 +61,7 @@ The Azure Storage platform is the Microsoft cloud storage solution for modern da
 |Article |Summary  |
 |---------|---------|
 |[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Review the storage options for Azure workloads.     |
-|[Azure managed disk types](/azure/virtual-machines/disks-types?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, Standard SSDs, and Standard HDDs.      |
+|[Azure managed disk types](/azure/virtual-machines/disks-types?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, and Standard SSDs.      |
 |[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
 
 ## Choose a data store

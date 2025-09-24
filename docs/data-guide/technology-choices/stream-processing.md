@@ -119,7 +119,7 @@ Consider the following factors:
 
 - [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a managed service that uses a SQL-based query language to enable real-time analytics. Use this service for simple processing tasks like filtering, aggregating, and joining data streams. It integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Stream Analytics best suits low-complexity, real-time tasks where a simple, managed solution with SQL-based queries is sufficient.
 
-- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability), [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security), and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
+- [Spark Structured Streaming](https://spark.apache.org/streaming/) is supported by services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) and [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security). These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.
 
 - [Fabric eventstreams](/fabric/real-time-intelligence/event-streams/overview) is a real-time data streaming capability within Fabric, which is a unified analytics platform. Eventstreams enables seamless ingestion, processing, and integration of streaming data for real-time analytics and applications. Users can access eventstreams with minimal technical expertise. It provides drag-and-drop interfaces to set up data pipelines.
 
@@ -127,7 +127,7 @@ Consider the following factors:
 
 #### General capabilities
 
-| Capability | Stream Analytics | Spark Structured Streaming (Fabric, Azure Databricks, Azure Synapse Analytics) | Fabric eventstreams| Azure Functions|
+| Capability | Stream Analytics | Spark Structured Streaming (Fabric, Azure Databricks) | Fabric eventstreams| Azure Functions|
 | --- | --- | --- | --- | --- | 
 | Micro-batch processing| Yes | Yes | Yes| No | 
 | Event-based processing| No | No | Yes| Yes | 
@@ -153,7 +153,7 @@ Consider the following factors:
 
 - A [Fabric eventhouse](/fabric/real-time-intelligence/eventhouse) is a KQL database for real-time analytics and exploration on vent-based data, such as telemetry and log data, time-series data, and IoT data. It supports ingestion of millions of events per second with low latency. This feature enables near-instant access to streaming data. An eventhouse deeply integrates with the Fabric ecosystem. It enables users to query and analyze streaming data immediately by using tools like Power BI.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It's compatible with multiple APIs, such as SQL, MongoDB, Cassandra, Table, and Gremlin, which provides flexibility for diverse applications. Azure Cosmos DB delivers high throughput and can handle large volumes of streaming data with consistent performance.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It delivers high throughput and can handle large volumes of streaming data with consistent performance.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead. 
 

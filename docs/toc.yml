@@ -66,7 +66,7 @@ items:
             - name: Design patterns for microservices
               href: microservices/design/patterns.yml
     - name: N-tier application
-      href: guide/architecture-styles/n-tier.yml
+      href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
       href: guide/architecture-styles/web-queue-worker.yml
   - name: Design principles for Azure applications
@@ -121,18 +121,10 @@ items:
         href: guide/technology-choices/storage-options.md
     - name: Choose a data store
       items:
-      - name: Understand data stores in Azure
-        href: data-guide/technology-choices/data-store-classification.md
+      - name: Prepare to choose a data store in Azure
+        href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
-        items:
-          - name: Types of data store models
-            href: guide/technology-choices/data-store-overview.md
-          - name: Non-relational data store
-            href: data-guide/big-data/non-relational-data.yml
-          - name: Review data options
-            href: guide/technology-choices/data-options.md
-          - name: Criteria for choosing a data store
-            href: guide/technology-choices/data-store-considerations.md
+        href: data-guide/technology-choices/understand-data-store-models.md
       - name: Selecting a data store model
         items:
           - name: Select a data store
@@ -249,12 +241,8 @@ items:
     href: guide/saas-multitenant-solution-architecture/index.md
   - name: Mission-critical applications
     items:
-    - name: Mission-critical baseline architecture
+    - name: Mission-critical architecture design
       href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-    - name: Mission-critical baseline with network controls
-      href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
-    - name: Mission-critical baseline architecture in Azure landing zones
-      href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
     - name: Mission-critical baseline with App Service
       href: guide/networking/global-web-applications/mission-critical-app-service.yml
     - name: Design areas

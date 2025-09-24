@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 09/15/2025
+ms.date: 09/22/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,9 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Understand Data Models](./data-guide/technology-choices/understand-data-store-models.md)
+- [Prepare to Choose a Data Store in Azure](./guide/technology-choices/data-stores-getting-started.md)
+- [N-tier Architecture Style](./guide/architecture-styles/n-tier.md)
 - [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.md)
 - [Big Compute Architecture Style](./guide/architecture-styles/big-compute.md)
 - [Enterprise Deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
@@ -29,7 +32,60 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Mission-critical architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Networking and connectivity for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-networking.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Security Considerations for Mission-Critical Workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-security.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
+- [Use Azure Synapse Analytics for Near Real-Time Lakehouse Data Processing](./example-scenario/data/real-time-lakehouse-data-processing.yml)  ([#6c01e8c317](https://github.com/MicrosoftDocs/architecture-center/commit/6c01e8c317))
+- [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml)  ([#dbc13eeb47](https://github.com/MicrosoftDocs/architecture-center/commit/dbc13eeb47))
 - [Cache-Aside pattern](./patterns/cache-aside.yml)  ([#071c00e39a](https://github.com/MicrosoftDocs/architecture-center/commit/071c00e39a))
+- [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#572d764469](https://github.com/MicrosoftDocs/architecture-center/commit/572d764469))
+- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Mainframe file and tape backup to Azure using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](./example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Replicate Mainframe Data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Migrate AIX workloads to Azure with Skytap](./example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Migrate IBM i series to Azure with Skytap](./example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Modernize Mainframe and Midrange Data](./example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Move archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [High-volume batch transaction processing](./example-scenario/mainframe/process-batch-transactions.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Re-engineer IBM z/OS batch applications on Azure](./example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Refactor IBM z/TPF mainframe systems to Azure](./example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Refactor mainframe applications with Advanced](./example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Refactor mainframe applications with Astadia](./example-scenario/mainframe/refactor-mainframe-applications-astadia.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#d2dd0a2871](https://github.com/MicrosoftDocs/architecture-center/commit/d2dd0a2871))
+- [Guidance for using Azure Key Vault in a multitenant solution](./guide/multitenant/service/key-vault.md)  ([#e29a661cae](https://github.com/MicrosoftDocs/architecture-center/commit/e29a661cae))
+- [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [CI/CD for AKS apps with Azure Pipelines](./guide/aks/aks-cicd-azure-pipelines.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Blue-green deployment of AKS clusters](./guide/aks/blue-green-deployment-for-aks.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Virtual network peering and VPN gateways](./reference-architectures/hybrid-networking/vnet-peering.yml)  ([#51ff38ab37](https://github.com/MicrosoftDocs/architecture-center/commit/51ff38ab37))
+- [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#8fd4591d55](https://github.com/MicrosoftDocs/architecture-center/commit/8fd4591d55))
+- [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))
+- [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))
+- [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))
+- [Improved-security access to App Service web apps from an on-premises network](./web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))
+- [Busy Front End antipattern](./antipatterns/busy-front-end/index.md)  ([#08e36c8174](https://github.com/MicrosoftDocs/architecture-center/commit/08e36c8174))
+- [Failure mode analysis](./resiliency/failure-mode-analysis.md)  ([#08e36c8174](https://github.com/MicrosoftDocs/architecture-center/commit/08e36c8174))
+- [Extract, transform, load (ETL)](./data-guide/relational-data/etl.yml)  ([#227c825f73](https://github.com/MicrosoftDocs/architecture-center/commit/227c825f73))
 - [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml)  ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [DevSecOps for Infrastructure as Code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml)  ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
@@ -61,11 +117,9 @@ The following new and updated articles have recently been published in the Azure
 - [Network secure ingress pattern implementation with Azure Front Door Premium tier](./pattern-implementations/network-secure-ingress.md)  ([#6580fb4573](https://github.com/MicrosoftDocs/architecture-center/commit/6580fb4573))
 - [Video Analysis by Using Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
-- [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Machine learning operations](./ai-ml/guide/machine-learning-operations-v2.md)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
-- [Use AI to forecast customer orders](./ai-ml/idea/next-order-forecasting.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml)  ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Online transaction processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md)  ([#1d5651f807](https://github.com/MicrosoftDocs/architecture-center/commit/1d5651f807))
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#efb8f963bb](https://github.com/MicrosoftDocs/architecture-center/commit/efb8f963bb))
@@ -115,7 +169,6 @@ The following new and updated articles have recently been published in the Azure
 - [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml)  ([#a892eca707](https://github.com/MicrosoftDocs/architecture-center/commit/a892eca707))
 - [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#a04fb8377e](https://github.com/MicrosoftDocs/architecture-center/commit/a04fb8377e))
 - [Compare AWS and Azure database technology](./aws-professional/databases.md)  ([#1777f1607c](https://github.com/MicrosoftDocs/architecture-center/commit/1777f1607c))
-- [N-tier architecture style](./guide/architecture-styles/n-tier.yml)  ([#92580c07d7](https://github.com/MicrosoftDocs/architecture-center/commit/92580c07d7))
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md)  ([#f11cac6fb0](https://github.com/MicrosoftDocs/architecture-center/commit/f11cac6fb0))
 - [Design for Self-Healing](./guide/design-principles/self-healing.md)  ([#823d678ff1](https://github.com/MicrosoftDocs/architecture-center/commit/823d678ff1))
 - [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)  ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
@@ -204,7 +257,7 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md)  ([#53d19ea22c](https://github.com/MicrosoftDocs/architecture-center/commit/53d19ea22c))
 - [Noisy Neighbor Antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#ce68a59508](https://github.com/MicrosoftDocs/architecture-center/commit/ce68a59508))
 - [Azure for AWS Professionals](./aws-professional/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
-- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
+- [Mission-critical architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
 - [Web architecture design](./web-apps/index.md)  ([#b6ae212e2c](https://github.com/MicrosoftDocs/architecture-center/commit/b6ae212e2c))
 
 ## June 2025
@@ -244,7 +297,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Resource Manager Considerations for Multitenancy](./guide/multitenant/service/resource-manager.md)  ([#ca7914beff](https://github.com/MicrosoftDocs/architecture-center/commit/ca7914beff))
 - [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md)  ([#0c7aa6c9bf](https://github.com/MicrosoftDocs/architecture-center/commit/0c7aa6c9bf))
 - [Deploy Microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)  ([#2bf20fb4ab](https://github.com/MicrosoftDocs/architecture-center/commit/2bf20fb4ab))
-- [Use AI to forecast customer orders](./ai-ml/idea/next-order-forecasting.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
+- [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
 - [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
 - [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))
 - [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#dd428d3ab1](https://github.com/MicrosoftDocs/architecture-center/commit/dd428d3ab1))

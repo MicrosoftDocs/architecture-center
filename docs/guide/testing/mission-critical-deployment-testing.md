@@ -57,11 +57,9 @@ The following video shows a [combined implementation of Chaos and Load Testing](
 
 > [!VIDEO 393a9ab4-6816-4bbf-9c25-94a34a5413e0]
 
-If you're developing a mission-critical workload, take advantage of the reference architectures, detailed guidance, sample implementations, and code artifacts provided as part of the [Azure Mission-Critical project](https://github.com/Azure/Mission-Critical) and [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical).
+If you're developing a mission-critical workload, take advantage of the detailed guidance provided as part of the [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical).
 
-The Mission-Critical implementation deploys the Load Testing service via Terraform and contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service via its API. These scripts can be embedded directly into a deployment pipeline.
-
-One option in the reference implementation is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
+One option is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
 ![Run pipeline screen with the load testing checkbox ticked.](./images/deployment-testing-pipeline-start.png)
 
@@ -86,7 +84,7 @@ The Azure Load Testing service provides a built-in capability called **test crit
 
 The capability is available through the Azure portal, and via the load testing API, and the wrapper scripts developed as part of Azure Mission-critical provide an option to handover a JSON-based baseline definition.
 
-We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development. For an example, see the [sample implementation](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/) in the Azure Mission-critical reference implementation.
+We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development.
 
 In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Well-Architected Framework mission-critical workload guidance](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) and reference implementations can help you design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
 

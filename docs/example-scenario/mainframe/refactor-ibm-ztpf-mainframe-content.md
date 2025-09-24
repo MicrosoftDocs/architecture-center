@@ -43,19 +43,25 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 1. Azure Cache for Redis provides a caching solution that improves application response time by storing copies of the most frequently used data and the session state.
 1. Service Fabric clusters provide container orchestration.
 
-### Components
+## Components
 
-This solution features the following Azure components:
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to cloud services like Azure and Microsoft 365. 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that helps secure remote access to your virtual machines. 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic. 
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. Azure VMs in virtual networks can communicate, with enhanced security, with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but it provides Azure infrastructure benefits like scalability, high availability, and isolation. 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, providing the benefits of a fully managed service. 
-- [Azure databases](/sql/relational-databases/databases/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. 
-   - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale. 
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides secure remote access to your virtual machines directly from the Azure portal over TLS. In this architecture, Azure Bastion improves security for administrative access by minimizing open ports and eliminating the need for public IP addresses on VMs that host the refactored z/TPF applications.
 
-### Alternatives 
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is an in-memory data store that adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, providing the benefits of a fully managed service. In this architecture, Azure Cache for Redis replaces the z/TPF mainframe's shared memory coupling facility by providing high-speed shared memory and session state management across multiple compute nodes.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides the high-performance NoSQL storage solution that delivers the speed and performance required to match z/TPF mainframe database capabilities.
+
+- [Azure databases](/sql/relational-databases/databases/databases) are a collection of cloud-based database services that provide a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. In this architecture, Azure databases provide high-performance data persistence and retrieval to replace mainframe database systems.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. In this architecture, AKS provides robust load balancing, scaling, and container orchestration for the refactored z/TPF applications to meet high-volume transaction requirements.
+
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a network load balancer that distributes incoming traffic across healthy instances of services. You can define rules and other criteria to distribute the traffic. In this architecture, Load Balancer provides another level of failover capabilities to maintain business continuity by distributing traffic to the compute resource clusters that run the refactored z/TPF applications.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks that enables Azure VMs to communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but it provides Azure infrastructure benefits like scalability, high availability, and isolation. In this architecture, Virtual Network provides the secure network foundation for all components of the refactored z/TPF system.
+
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to cloud services like Azure and Microsoft 365. In this architecture, ExpressRoute provides high-bandwidth, low-latency connectivity between on-premises mainframe environments and the refactored z/TPF applications that run on Azure.
+
+### Alternatives
 
 This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling is containers, infrastructure utilization is optimized. 
 
