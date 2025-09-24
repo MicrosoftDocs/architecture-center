@@ -2,7 +2,7 @@
 title: Big Data Architectures
 description: Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.
 author: vibhareddyv
-ms.author: callard
+ms.author: vibhav
 ms.date: 09/12/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -53,11 +53,11 @@ Most big data architectures include some or all of the following components:
   - Use Python, Scala, or SQL language in Azure Databricks notebooks.
   - Use Python, Scala, or SQL language in Fabric notebooks.
 
-- **Real-time message ingestion:** If the solution includes real-time sources, the architecture must capture and store real-time messages for stream processing. For example, you can have a simple data store that collects incoming messages for processing. However, many solutions need a message ingestion store to serve as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This part of a streaming architecture is often referred to as *stream buffering*. Options include Azure IoT Hub and Kafka.
+- **Real-time message ingestion:** If the solution includes real-time sources, the architecture must capture and store real-time messages for stream processing. For example, you can have a simple data store that collects incoming messages for processing. However, many solutions need a message ingestion store to serve as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This part of a streaming architecture is often referred to as *stream buffering*. Options include Azure Event Hubs, Azure IoT Hub and Kafka.
 
 - **Stream processing:** After the solution captures real-time messages, it must process them by filtering, aggregating, and preparing the data for analysis. The processed stream data is then written to an output sink.
 
-  - You can use streaming technologies in Azure Databricks.
+  - You can use open-source Apache streaming technologies, like Spark Streaming, streaming technologies in Azure Databricks.
   - Azure Functions is a serverless compute service that can run event-driven code, which is ideal for lightweight stream processing tasks.
   - Fabric supports real-time data processing by using event streams and Spark processing.
 
@@ -80,7 +80,7 @@ Most big data architectures include some or all of the following components:
 
 ## Lambda architecture
 
-When you work with large datasets, it can take a long time to run the type of queries that clients need. These queries can't be performed in real time, and they often require distributed processing algorithms that operate in parallel across the entire dataset. The query results are stored separately from the raw data and used for further querying.
+When you work with large datasets, it can take a long time to run the type of queries that clients need. These queries can't be performed in real time, and they often require distributed processing algorithms such as [MapReduce](https://en.wikipedia.org/wiki/MapReduce) that operate in parallel across the entire dataset. The query results are stored separately from the raw data and used for further querying.
 
 One drawback to this approach is that it introduces latency. If processing takes a few hours, a query might return results that are several hours old. Ideally, you should get some results in real time, potentially with a loss of accuracy, and combine these results with the results from batch analytics.
 
@@ -167,7 +167,7 @@ Common types of processing include:
 
 - Writing event data to cold storage for archiving or batch analytics.
 
-- Hot path analytics. Analyze the eventstream in near real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
+- Hot path analytics. Analyze the event stream in near real time to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
