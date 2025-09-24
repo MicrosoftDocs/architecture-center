@@ -140,7 +140,6 @@ For more information, see the following resources:
 #### AI and Machine learning reference architectures for Azure
 
 - [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
 - [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
@@ -251,7 +250,6 @@ For more information, see the following resources:
 
 - [Azure Databricks documentation](/azure/azure-databricks/)
 - [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 #### Apache Spark in Azure HDInsight
@@ -395,7 +393,6 @@ Machine Learning offers the following capabilities:
 
   - [Score model](/azure/machine-learning/component-reference/score-model)
   - [Deploy models for scoring in batch endpoints](/azure/machine-learning/how-to-use-batch-model-deployments)
-  - [Batch scoring of Spark models on Azure Databricks](/azure/architecture/ai-ml/architecture/batch-scoring-databricks)
 
 - **Feature engineering and featurization:** Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
 
