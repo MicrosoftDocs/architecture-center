@@ -56,9 +56,9 @@ Azure Pipelines can automate deployments to AKS to ensure consistent, reliable, 
 1. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
 1. Azure Monitor collects observability data, such as logs and metrics, so that an operator can analyze health, performance, and usage data. Application Insights collects application-specific monitoring data, such as traces. A Log Analytics workspace stores all the data.
 
-  [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) continuously monitors the AKS clusters, container images, and workloads for security threats, vulnerabilities, and compliance problems. It integrates with both the container registry scanning during the CI process and runtime protection in the AKS environments.
+    [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) continuously monitors the AKS clusters, container images, and workloads for security threats, vulnerabilities, and compliance problems. It integrates with both the container registry scanning during the CI process and runtime protection in the AKS environments.
 
-  The Defender agent, deployed as a DaemonSet on AKS cluster nodes, collects security telemetry from the runtime environment and forwards threat detection data to Defender for Containers for analysis and alerting.
+    The Defender agent, deployed as a DaemonSet on AKS cluster nodes, collects security telemetry from the runtime environment and forwards threat detection data to Defender for Containers for analysis and alerting.
 
 ### Components
 
