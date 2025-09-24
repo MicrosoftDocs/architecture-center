@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Ten design principles for Azure applications
 
-The design principles in this section provide a foundation for building robust cloud applications that can withstand failures, scale with demand, and evolve with business needs. Whether you're an architect designing a new system, a developer modernizing legacy applications, or an operations team planning for production workloads, these interconnected principles help you make informed decisions about reliability, performance, and maintainability. Together, they form a comprehensive approach to cloud-native application design that balances technical excellence with business value.
+The design principle articles in this section provide a foundation for building cloud applications that can withstand failures, scale with demand, and evolve with business needs. Whether you're an architect designing a new system, a developer modernizing legacy applications, or an operations team planning for production workloads, these interconnected principles help you make informed decisions about reliability, performance, and maintainability. Together, they form a comprehensive approach to cloud-native application design that balances technical excellence with business value.
 
 To make your application more scalable, resilient, and manageable, follow these design principles.
 
@@ -41,13 +41,14 @@ To make your application more scalable, resilient, and manageable, follow these 
 
 - [Build for the needs of business](build-for-business.md). Make design decisions based on business requirements. Define clear objectives like recovery time objectives (RTOs) and recovery point objectives (RPOs), document service-level agreements (SLAs) and service-level objectives (SLOs), model applications around business domains, and plan for growth while balancing functional and nonfunctional requirements.
 
-- [Failure mode analysis for services](../../resiliency/failure-mode-analysis.md). Systematically identify potential failure points in your system and plan recovery strategies. To build resiliency from the beginning, conduct failure mode analysis (FMA) during architecture and design phases. Rate each failure mode by risk and impact, then determine appropriate response and recovery mechanisms.
+- [Perform failure mode analysis for services](../../resiliency/failure-mode-analysis.md). Systematically identify potential failure points in your system and plan recovery strategies. To build resiliency from the beginning, conduct failure mode analysis (FMA) during architecture and design phases. Rate each failure mode by risk and impact, then determine appropriate response and recovery mechanisms.
 
 ## Apply these principles
 
 These principles work together to create resilient, scalable applications:
 
 - **Start with business requirements** to understand what you're building and why.
+
 - **Design for failure** by implementing self-healing capabilities and redundancy.
 - **Plan for scale** through horizontal scaling, partitioning, and minimal coordination.
 - **Use Azure services** to reduce operational complexity and focus on business logic.
