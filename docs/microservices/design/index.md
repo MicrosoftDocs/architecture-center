@@ -25,7 +25,7 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [Data considerations](./data-considerations.yml): Address data management challenges in microservices architectures, including data consistency patterns, distributed transactions, and choosing appropriate data stores. Learn strategies for maintaining data integrity across service boundaries.
 
-- [Container orchestration](./orchestration-content.md): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
+- [Container orchestration](./orchestration.yml): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
 
 - [Design patterns](./patterns.yml): Apply proven design patterns specific to microservices, including the Ambassador pattern for offloading connectivity tasks, the Bulkhead pattern for resource isolation, and the Strangler Fig pattern for incremental application refactoring.
 
@@ -69,5 +69,5 @@ This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-
 - [Design APIs for microservices](./api-design.yml)
 - [Use API gateways in microservices](./gateway.yml)
 - [Data considerations for microservices](./data-considerations.yml)
-- [Container orchestration for microservices](./orchestration-content.md)
+- [Container orchestration for microservices](./orchestration.yml)
 - [Design patterns for microservices](./patterns.yml)
