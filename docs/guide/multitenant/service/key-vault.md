@@ -39,7 +39,7 @@ Consider deploying a vault for each tenant within your (the service provider's) 
 
 An Azure subscription doesn't limit the number of vaults that you can deploy. But consider other limits:
 
-- [Subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-key-vault-limits) on the number of requests you can make within a time period. These limits apply regardless of the number of vaults in the subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
+- [Subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-key-vault-limits) on the number of requests that you can make within a time period. These limits apply regardless of the number of vaults in the subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
 
 - The [number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshoot-limits). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
 
