@@ -25,11 +25,11 @@ To make your application more scalable, resilient, and manageable, follow these 
 
 - [Design to scale out](scale-out.md). Design your application for horizontal scaling by adding or removing instances as demand changes. Avoid session stickiness, identify bottlenecks, decompose workloads by scaling requirements, and use autoscaling based on live metrics to handle variable loads efficiently.
 
-- [Partition around limits](partition.md). Use partitioning to work around database, network, and compute limits. Partition data horizontally, vertically, or functionally, and design partition keys to avoid hotspots. Consider partitioning at multiple levels including databases, queues, and compute resources.
+- [Partition around limits](partition.md). Use partitioning to work around database, network, and compute limits. Partition data horizontally, vertically, or functionally, and design partition keys to avoid hotspots. Consider partitioning at multiple levels, including databases, queues, and compute resources.
 
 ## Operational principles
 
-- [Design for operations](design-for-operations.md). Design your application to provide operations teams with the tools they need for deployment, monitoring, and incident response. Implement comprehensive logging, distributed tracing, standardized metrics, and automate management tasks to enable effective operational oversight.
+- [Design for operations](design-for-operations.md). Design your application to provide operations teams with the tools that they need for deployment, monitoring, and incident response. Implement comprehensive logging, distributed tracing, standardized metrics, and automate management tasks to enable effective operational oversight.
 
 - [Use managed services](managed-services.md). Use platform as a service (PaaS) rather than infrastructure as a service (IaaS). Managed services reduce operational overhead, provide built-in scaling capabilities, and allow teams to focus on application logic rather than infrastructure maintenance.
 
@@ -37,7 +37,7 @@ To make your application more scalable, resilient, and manageable, follow these 
 
 ## Strategic principles
 
-- [Design for evolution](design-for-evolution.md). Design for continuous innovation because all successful applications change over time. Enforce loose coupling, encapsulate domain knowledge, use asynchronous messaging, and expose well-defined APIs with proper versioning to enable independent service evolution.
+- [Design for evolution](design-for-evolution.md). Design for continuous innovation because all successful applications change over time. Enforce loose coupling, encapsulate domain knowledge, use asynchronous messaging, and expose well-defined APIs that include proper versioning to enable independent service evolution.
 
 - [Build for the needs of business](build-for-business.md). Make design decisions based on business requirements. Define clear objectives like recovery time objectives (RTOs), document service-level agreements (SLAs) and service-level objectives (SLOs), model applications around business domains, and plan for growth while balancing functional and nonfunctional requirements.
 
