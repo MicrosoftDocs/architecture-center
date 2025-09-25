@@ -3,7 +3,7 @@ title: Architecture Styles
 description: Learn about architecture styles for cloud applications, including descriptions, recommendations, best practices, and recommended deployment with Azure services.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 09/24/2025
+ms.date: 09/25/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
@@ -136,7 +136,7 @@ Consider the following types of challenges when you select an architecture style
 
 ## Next steps
 
-- [Build applications on the Microsoft Cloud](/azure/architecture/guide/microsoft-cloud/dev/overview/introduction)
+- [Build applications on the Microsoft Cloud](/microsoft-cloud/dev/overview/introduction)
 - [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices)
 - [Cloud design patterns](/azure/architecture/patterns)
 - [Performance testing and antipatterns for cloud applications](/azure/architecture/antipatterns)
@@ -147,4 +147,4 @@ Consider the following types of challenges when you select an architecture style
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
 [microservices]: ./microservices.md
 [n-tier]: ./n-tier.md
-[web-queue-worker]: ./web-queue-worker.md
+[web-queue-worker]: ./web-queue-worker-content.md
