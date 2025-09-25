@@ -178,7 +178,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#warehouse) the data platform Microsoft Fabric into the secondary region and redeploy the warehouse.
+        - Azure regional failure: Contoso would need to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the data platform Microsoft Fabric into the secondary region and redeploy the warehouse.
     - Notes
         - Cross-Region Restore:
             - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
@@ -190,7 +190,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to deploy and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance) the data platform Microsoft Fabric into the secondary region and redeploy the pipelines.
+        - Azure regional failure: Contoso would need to deploy and [restore](/fabric/security/experience-specific-guidance) the data platform Microsoft Fabric into the secondary region and redeploy the pipelines.
            
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
@@ -249,7 +249,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Lakehouse and pipelines into the secondary region and [restore](https://learn.microsoft.com/en-us/fabric/security/experience-specific-guidance#lakehouse) the data platform Microsoft Fabric into the secondary region and redeploy the lakehouse.
+        - Azure regional failure: Contoso would need to redeploy Microsoft Fabric – Lakehouse and pipelines into the secondary region and [restore](/fabric/security/experience-specific-guidance#lakehouse) the data platform Microsoft Fabric into the secondary region and redeploy the lakehouse.
 
 - **Power BI**
     - Contoso SKU selection: Fabric Capacity/Power BI Pro
