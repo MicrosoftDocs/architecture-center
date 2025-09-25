@@ -25,7 +25,7 @@ ai-usage: ai-assisted
 > [!IMPORTANT]
 > This article describes a version of the [continuous integration and continuous deployment (CI/CD) baseline architecture](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). It focuses specifically on deploying Azure Kubernetes Service (AKS) applications by using Azure Pipelines.
 
-Azure Pipelines can automate deployments to AKS to ensure consistent, reliable, and repeatable application delivery. You can integrate your build and release processes into a pipeline to reduce the risk of human error, accelerate release cycles, and improve overall software quality. This article describes how to use Azure Pipelines to implement CI/CD, which makes it easier to deliver updates to AKS clusters.
+Azure Pipelines orchestrates deployment activities to AKS as part of your repeatable application delivery plan. You can integrate your build and release processes into a pipeline to reduce the risk of human error, accelerate release cycles, and improve overall software quality. This article describes how to use Azure Pipelines to implement CI/CD, to push application updates to your AKS clusters.
 
 ## Architecture
 
