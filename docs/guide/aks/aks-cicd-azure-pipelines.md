@@ -39,7 +39,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 1. A pull request (PR) to either an Azure Repos Git repository or a GitHub repository triggers a PR pipeline.
 
-     This pipeline runs quality checks, including the following operations:
+   This pipeline runs quality checks, including the following operations:
    
    - Building code, which might require pulling dependencies from a dependency management system
    - Using tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/cli-cicd-integration)
