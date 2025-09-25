@@ -59,18 +59,14 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
    The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline can include a manual validation task to validate the deployment and resume the pipeline. Some workloads might deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry.
 1. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production registry.
-1. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
+1. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
 1. Azure Monitor collects observability data, such as logs and metrics, so that an operator can analyze health, performance, and usage data. Application Insights collects application-specific monitoring data, such as traces. A Log Analytics workspace stores all the data.
-
-    [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) continuously monitors the AKS clusters, container images, and workloads for security threats, vulnerabilities, and compliance problems. It integrates with both the container registry scanning during the CI process and runtime protection in the AKS environments.
-
-    The Defender agent, deployed as a DaemonSet on AKS cluster nodes, collects security telemetry from the runtime environment and forwards threat detection data to Defender for Containers for analysis and alerting.
 
 ### Components
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a component of Azure DevOps that automatically builds, tests, and deploys code to its compute target. In this architecture, it creates and tests container images, uploads them to Container Registry, and deploys them in AKS.
 
-- [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is an Azure Monitor feature that provides monitoring for containerized environments. In this architecture, it continuously monitors the deployed AKS workloads in both staging and production environments. It collects performance metrics, logs, and health data from containers and forwards this observability data to Azure Monitor for analysis and alerting.
+- [Azure Monitor managed service for Prometheus](/azure-monitor/metrics/prometheus-metrics-overview) is an Azure feature that provides monitoring for containerized environments. In this architecture, it collects performance metrics, logs, and health data from containers and forwards this observability data to Azure Monitor for analysis and alerting.
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
 
@@ -80,11 +76,8 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
 
-- [Microsoft Defender for DevOps](/azure/defender-for-cloud/azure-devops-extension) is a security solution that integrates into development and deployment pipelines to provide continuous security monitoring and analysis. In this architecture, Defender for DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment.
+- [Microsoft Defender for Cloud CLI](/azure/defender-for-cloud/cli-cicd-integration) lets you embed security scanning directly in your continuous integration and continuous deployment (CI/CD) workflows. In this architecture, Defender for Cloud CLI performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Defender for Cloud CLI is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
 
-- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native solution that enhances, monitors, and maintains the security of containerized assets throughout CI/CD pipelines. In this architecture, it scans container images in the registry for vulnerabilities during the CI process and provides runtime threat protection for the AKS clusters and workloads in both staging and production environments.
-
-- A [Defender agent](/azure/defender-for-cloud/defender-for-containers-introduction#sensor-based-capabilities) is a security monitoring component deployed as a DaemonSet on AKS cluster nodes. In this architecture, it runs on each node in both staging and production clusters to collect runtime security telemetry, detect threats, and forward security events to Defender for Containers for centralized analysis and alerting.
 
 ## Alternatives
 
