@@ -182,7 +182,8 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - Cross-Region Restore:
             - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
-            - After restore, the Warehouse can be paused, incurring storage costs only—offering a cost-effective way to maintain a “live” snapshot.
+            - Microsoft Fabric allows capacity to be paused after restore, and during this paused state, only storage costs are incurred, making it a
+              cost-effective strategy for maintaining a “live” snapshot.
              
 - **Microsoft Fabric – Pipelines**
     - Contoso SKU selection: Fabric Capacity
