@@ -58,7 +58,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
    The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline can include a manual validation task to validate the deployment and resume the pipeline. Some workloads might deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry.
-1. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
+1. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production registry.
 1. Container Insights periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
 1. Azure Monitor collects observability data, such as logs and metrics, so that an operator can analyze health, performance, and usage data. Application Insights collects application-specific monitoring data, such as traces. A Log Analytics workspace stores all the data.
 
