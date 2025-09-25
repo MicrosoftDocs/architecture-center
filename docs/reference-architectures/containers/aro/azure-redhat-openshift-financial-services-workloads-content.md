@@ -68,7 +68,7 @@ Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the un
 
 - **Availability zones**: Distribute control plane and worker nodes across three availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
 
-- **Multi-region deployments**: Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redudancy and match that secondary location to the location where the OpenShift cluster will be deployed to.
+- **Multi-region deployments**: Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redundancy and match that secondary location to the location where the OpenShift cluster will be deployed to.
 
 - **Disaster recovery**: Implement rigorous disaster recovery standards to safeguard customer data and ensure continuous business operations. To meet these standards effectively, follow the guidelines in [Considerations for disaster recovery](https://cloud.redhat.com/experts/aro/disaster-recovery/).
 
@@ -110,7 +110,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Encryption of data at rest**: Use default storage policies and configurations to ensure encryption of data at rest. 
     - Enable [*etcd* encryption](https://docs.openshift.com/container-platform/4.10/security/encrypting-etcd.html) behind the control plane, and encrypt storage on each worker node.
-    - Configure the [Azure Key Vault Providor for Secret Store CSI driver (CSI)](https://azure.github.io/secrets-store-csi-driver-provider-azure/) to mount secrets in Azure Key Vault to your pods.
+    - Configure the [Azure Key Vault Provider for Secret Store CSI driver (CSI)](https://azure.github.io/secrets-store-csi-driver-provider-azure/) to mount secrets in Azure Key Vault to your pods.
     - To manage keys through the customer or Azure, use etcd and the Azure Red Hat OpenShift feature, storage data encryption. For more information, see [Security for Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
 - **Encryption of data in transit**: Encrypt interconnections between services in a default Azure Red Hat OpenShift cluster.
@@ -128,12 +128,12 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Identity and access management**: Use Microsoft Entra ID for centralized identity management of Azure Red Hat OpenShift clusters. For more information, see [Configure Azure Red Hat OpenShift to use Microsoft Entra ID group claims](https://cloud.redhat.com/experts/idp/group-claims/aro/).
     - Use [Microsoft Entra to authenticate](/azure/openshift/configure-azure-ad-cli) users against your Azure Red Hat OpenShift cluster.
-    - Use [Priviledged Identity Management (PIM) in Microsoft Entra ID](/azure/openshift/configure-azure-ad-cli) to manage, control and monitor access to the cluster with **just-in-time** priviledge and **multifactor authentication (MFA)**.
+    - Use [Privileged Identity Management (PIM) in Microsoft Entra ID](/azure/openshift/configure-azure-ad-cli) to manage, control and monitor access to the cluster with **just-in-time** privilege and **multifactor authentication (MFA)**.
     - Create a separate service principal with scoped Azure RBAC roles for your Azure Red Hat OpenShift landing zone. For more information, see [Prerequisites Checklist to Deploy ARO Cluster](https://cloud.redhat.com/experts/aro/prereq-list/).
 
 - **RBAC**: Implement RBAC in Azure Red Hat OpenShift to provide granular authorization of user actions and access levels. 
     - Use RBAC in FSI scenarios to ensure least-privilege access to the cloud environment. For more information, see [Using RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
-    - Use role bindings between OpenShift and Microsoft Entra for distinct groups like Site Reliability Engineering, SecOps, DevOps and developers. or more information, see [Configure ARO to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
+    - Use role bindings between OpenShift and Microsoft Entra for distinct groups like Site Reliability Engineering, SecOps, DevOps and developers. For more information, see [Configure ARO to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
 
 #### Compliance
 
@@ -182,4 +182,4 @@ Principal author:
 - [Azure Red Hat OpenShift support policies](/azure/openshift/support-policies-v4) - Version support and lifecycle information
 
 **Security and Compliance:**
-- [Azure security baseline for Azure Red Hat OpenShift (ARO)](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-red-hat-openshift-aro-security-baseline) - Security baseline guidance from the Microsoft cloud security benchmark version 1.0 to Azure Red Hat OpenShift (ARO)
+- [Azure security baseline for Azure Red Hat OpenShift (ARO)](/security/benchmark/azure/baselines/azure-red-hat-openshift-aro-security-baseline) - Security baseline guidance from the Microsoft cloud security benchmark version 1.0 to Azure Red Hat OpenShift (ARO)
