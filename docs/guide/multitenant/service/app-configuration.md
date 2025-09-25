@@ -19,7 +19,7 @@ A *store* refers to a single instance of the App Configuration service.
 
 In a multitenant solution, it's common to have two types of settings:
 
-- **Shared settings**: Apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.md#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings then go out of sync.
+- **Shared settings**: Apply to multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.md#deployment-stamps-pattern). It's often best to store global settings within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings then go out of sync.
 
 - **Tenant-specific settings**: Specify each tenant's database name or internal identifiers. You can use these settings to specify different log levels for each tenant. For example, when you diagnose a problem reported by a specific tenant and you need to collect diagnostic logs from that one tenant. You can choose whether to combine the tenant-specific settings for multiple tenants into a single store, or deploy a store for each tenant. Base your decision on your requirements. If your solution uses a single shared application tier for multiple tenants, there's likely to be minimal benefit to using tenant-specific stores. But if you deploy tenant-specific application instances, you might choose to mirror the same approach by deploying tenant-specific configuration stores.
 
@@ -69,7 +69,7 @@ When you load a single tenant's configuration into your application, you can spe
 
 App Configuration also supports [labels](/azure/azure-app-configuration/concept-key-value#label-keys). With labels, you can define separate values that use the same key.
 
-Labels are often used for versioning, working with multiple deployment environments, or for other purposes in your solution. While you can use tenant identifiers as labels, you then can't use labels for anything else. So, for multitenant solutions, it's typically a good practice to use [key prefixes](#key-prefixes) for managing tenant-specific settings, and use labels for other purposes.
+Labels help with versioning, working with multiple deployment environments, or for other purposes in your solution. While you can use tenant identifiers as labels, you then can't use labels for anything else. So, for multitenant solutions, it's typically a good practice to use [key prefixes](#key-prefixes) for managing tenant-specific settings, and use labels for other purposes.
 
 If you decide to use labels for each tenant, your application can load just the settings for a specific tenant by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters). This approach is helpful if you have separate application deployments for each tenant.
 
