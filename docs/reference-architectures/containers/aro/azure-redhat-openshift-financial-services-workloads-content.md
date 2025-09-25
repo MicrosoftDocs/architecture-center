@@ -88,7 +88,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 #### Networking
 
 - **Private connectivity from an on-premises environment**: Financial industry use cases require exclusive private network connectivity without public internet access. 
-    - Implement Azure Private Link endpoints for secure connectivity and use ExpressRoute for private connectivity from on-premises datacenters. Azure Red Hat OpenShift (ARO) supports private clusters with private ingress controllers and API server endpoints. 
+    - Implement Azure Private Link endpoints for secure connectivity and use ExpressRoute for private connectivity from on-premises datacenters. Azure Red Hat OpenShift (ARO) supports private clusters with private ingress controllers and API endpoints. 
     - For enhanced security, consider using a hub-spoke network topology. For more information, see [Create an Azure Red Hat OpenShift private cluster](/azure/openshift/howto-create-private-cluster-4x). 
     - Use the [Azure Red Hat OpenShift (ARO) landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) template to expedite the creation of a new cluster with the best practices and guidance from the Azure Cloud Adoption Framework.
 
