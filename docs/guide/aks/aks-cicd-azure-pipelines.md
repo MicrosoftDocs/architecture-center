@@ -60,7 +60,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry.
 1. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production registry.
 1. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
-1. Azure Monitor collects observability data, such as logs and metrics, so that an operator can analyze health, performance, and usage data. Application Insights collects application-specific monitoring data, such as traces. A Log Analytics workspace stores all the data.
+1. A Log Analytics workspace stores all the data. Azure Monitor provides multiple tools to analyze the data collected by other features. You can also take advantage of a variety of available [Grafana dashboards](/azure/managed-grafana/overview) that combine different sets of Kubernetes telemetry. Application Insights collects application-specific monitoring data, such as traces. For a complete set of services based on Azure Monitor for monitoring the health and performance of different layers of your Kubernetes infrastructure and the applications that depend on it, see [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
 
 ### Components
 
@@ -70,7 +70,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
 
-- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this architecture, it serves as the central observability platform that receives logs and metrics from Container Insights to provide monitoring and alerting for the AKS clusters and CI/CD pipeline operations.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this architecture, it serves as the central observability platform that provides monitoring and alerting for the AKS clusters and CI/CD pipeline operations.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Container Registry stores private container images. In this architecture, the compute platform pulls the application's container image from Container Registry.
 
