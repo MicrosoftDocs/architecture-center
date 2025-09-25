@@ -147,4 +147,4 @@ Consider the following types of challenges when you select an architecture style
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
 [microservices]: ./microservices.md
 [n-tier]: ./n-tier.md
-[web-queue-worker]: ./web-queue-worker-content.md
+[web-queue-worker]: ./web-queue-worker.yml
