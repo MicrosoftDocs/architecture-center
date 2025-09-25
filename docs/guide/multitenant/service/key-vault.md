@@ -11,11 +11,11 @@ ms.custom: arb-saas
 
 # Use Azure Key Vault in a multitenant solution
 
-Azure Key Vault manages secure data, including secrets, encryption keys, and certificates. This article describes features of Key Vault to use in multitenant solutions. It also provides links to guidance that can help you plan how to use Key Vault.
+Azure Key Vault manages secure data, including secrets, encryption keys, and certificates. This article describes Key Vault features that benefit multitenant solutions. It also provides links to guidance that can help you plan how to use Key Vault.
 
 ## Isolation models
 
-When you work with a multitenant system that uses Key Vault, determine the level of isolation that you want to use. Your isolation model depends on the following factors:
+When you work with a multitenant system that uses Key Vault, determine the level of isolation that you need. Your isolation model depends on the following factors:
 
 - How many tenants you have
 
@@ -28,8 +28,8 @@ The following table summarizes the differences between the main tenancy models f
 | Consideration | Vault for each tenant, in the provider's subscription | Vault for each tenant, in the tenant's subscription | Shared vault |
 |-|-|-|-|
 | **Data isolation** | High | Very high | Low |
-| **Performance isolation** | Medium. High throughput might be limited, even with many vaults | High | Low |
-| **Deployment complexity** | Low-medium, depending on the number of tenants | High. The tenant must correctly grant access to the provider | Low |
+| **Performance isolation** | Medium. High throughput might be limited, even with many vaults. | High | Low |
+| **Deployment complexity** | Low-medium, depending on the number of tenants | High. The tenant must correctly grant access to the provider. | Low |
 | **Operational complexity** | High | Low for the provider, higher for the tenant | Lowest |
 | **Example scenario** | Individual application instances for each tenant | Customer-managed encryption keys | Large multitenant solution that has a shared application tier |
 
@@ -37,17 +37,17 @@ The following table summarizes the differences between the main tenancy models f
 
 Consider deploying a vault for each tenant within your (the service provider's) Azure subscription. This approach provides strong data isolation between each tenant's data. But you must deploy and manage an increasing number of vaults as the number of tenants increases.
 
-An Azure subscription doesn't limit the number of vaults that you can deploy. But consider the following limits:
+An Azure subscription doesn't limit the number of vaults that you can deploy. But consider other limits:
 
 - [Subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-key-vault-limits) on the number of requests you can make within a time period. These limits apply regardless of the number of vaults in the subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
 
-- A [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshoot-limits). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
+- The [number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshoot-limits). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
 
 ### Vault for each tenant, in the tenant's subscription
 
-In some situations, your tenants can create vaults in their own Azure subscriptions and grant your application access to work with secrets, certificates, or keys. Use this approach when you allow *customer-managed keys (CMKs)* for encryption within your solution.
+In some situations, your tenants can create vaults in their own Azure subscriptions and grant your application access to work with secrets, certificates, or keys. Use this approach when you allow customer-managed keys (CMKs) for encryption within your solution.
 
-To access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra instance. You can publish a [multitenant Microsoft Entra application](/entra/identity-platform/single-and-multi-tenant-apps). 
+To access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra ID instance. You can publish a [multitenant Microsoft Entra ID application](/entra/identity-platform/single-and-multi-tenant-apps). 
 
 Your tenants must perform a one-time consent process that includes the following steps:
 
@@ -57,9 +57,9 @@ Your tenants must perform a one-time consent process that includes the following
 1. Provide you with the full resource ID of the vault that they create.
 
 
-After this setup, your application code can use a service principal associated with the multitenant Microsoft Entra application in your Microsoft Entra ID to access each tenant's vault.
+After this setup, your application code can use a service principal associated with the multitenant Microsoft Entra ID application in your Microsoft Entra ID to access each tenant's vault.
 
-Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires that you securely store and manage credentials for each tenant, which introduces a security liability.
+Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires that you securely store and manage credentials for each tenant, which introduces security liability.
 
 If your tenants configure network access controls on their vaults, make sure that you can access the vaults. Design your application to handle situations where a tenant changes their network access controls and blocks your access to their vaults.
 
@@ -67,13 +67,13 @@ If your tenants configure network access controls on their vaults, make sure tha
 
 You can share tenants' secrets within a single vault. You deploy the vault in your (the solution provider's) Azure subscription, and you manage the vault. This approach is the simplest but provides the least data isolation and performance isolation.
 
-You can also deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern), you likely deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, deploy vaults into each region for the following reasons:
+You can also deploy multiple shared vaults. For example, a solution that follows the [Deployment Stamps pattern](../approaches/overview.md#deployment-stamps-pattern) likely deploys a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for the following reasons:
 
-- To avoid cross-region traffic latency when you work with the data in your vault
+- To avoid cross-region traffic latency when you work with data in your vault
 - To support data residency requirements
 - To enable the use of regional vaults within other services that require same-region deployments
 
-When you work with a shared vault, consider the number of operations that you perform against the vault. Operations include reading secrets and performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) made against a single vault and across all vaults within an Azure subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling). Also follow other recommended practices, including securely caching secrets that you retrieve and using [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending all encryption operations to Key Vault. These best practices help you run high-scale solutions against a single vault.
+When you work with a shared vault, consider the number of operations that you perform against the vault. Operations include reading secrets and performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) made against a single vault and across all vaults within an Azure subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling), and apply other recommended practices. Securely cache secrets that you retrieve, and use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending all encryption operations to Key Vault. These best practices help you run high-scale solutions against a single vault.
 
 If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convention like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then, your application code can easily load the value of a specific secret for a specific tenant.
 
@@ -81,7 +81,7 @@ If you need to store tenant-specific secrets, keys, or certificates, consider us
 
 ### Tags
 
-Key Vault supports tagging secrets, certificates, and keys by adding custom metadata, so you can use a tag to track the tenant ID for each tenant-specific secret. But Key Vault doesn't support querying by tags, so this feature works best for management purposes rather than within application logic.
+Key Vault supports tagging secrets, certificates, and keys by adding custom metadata. You can use a tag to track the tenant ID for each tenant-specific secret. But Key Vault doesn't support querying by tags, so this feature works best for management purposes rather than within application logic.
 
 For more information, see the following resources:
 
@@ -100,12 +100,12 @@ For more information, see the following resources:
 
 ### Key Vault Managed HSM and Key Vault Dedicated HSM
 
-If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide a reserved amount of capacity, but they increase cost compared to Key Vault. Also understand the limits on how many instances of these services that you can deploy in each region.
+If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide a reserved amount of capacity, but they increase cost compared to Key Vault. Understand the limits on how many instances of these services that you can deploy in each region.
 
 For more information, see the following resources:
 
-- [Determine whether to use Key Vault or Azure Dedicated HSM](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
-- [Determine whether Azure Dedicated HSM is right for you](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
+- [Determine whether to use Key Vault or Dedicated HSM](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
+- [Determine whether Dedicated HSM is right for you](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
 
 ## Contributors
 
@@ -117,11 +117,11 @@ Principal author:
 
 Other contributors:
 
-- [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Key Vault
+- [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resource
 
-[Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md)
+- [Deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.md)
