@@ -66,7 +66,7 @@ This scenario uses the following components:
 
 ## Scenario details
 
-In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Microsoft Fabric to perform ingestion, analysis, and deliver these analytic insights via Power BI to end users.
+In this scenario, an organization has an SQL database that contains a large on-premises data warehouse. The organization wants to use Microsoft Fabric to perform ingestion, analysis, and deliver these analytic insights via Power BI to end users.
 
 ### Authentication
 
