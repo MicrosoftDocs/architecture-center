@@ -136,6 +136,18 @@ The architecture applies to all types of industries and business use cases. Azur
 
 For examples, see [Databricks customers](https://databricks.com/customers).
 
+### Foundation Model Fine-tuning in MLOps Workflows
+
+With more organizations using large language models for specialised tasks, adding Foundation Model Fine-tuning to MLOps process is crucial. Azure Databricks lets you fine-tune foundation models with your data, supporting custom applications and mature MLOps process. In the context of the MLOps architecture described in this document, fine-tuning aligns with several best practices:
+
+- Modularized Pipelines and Codes: Fine-tuning tasks can be encapsulated as modular components within the training pipeline, allowing for isolated evaluation and easier refactoring.
+- Experiment (Fine Tuning Run) Tracking: MLflow integration ensures that fine-tuning runs are logged with parameters( ex. epochs, learning rate, etc.) and metrics (ex. loss, cross-entropy, etc.), supporting reproducibility, auditability and measured improvements.
+- Model Registry and Deployment: Fine-tuned models are automatically registered in Unity Catalog, streamlining deployment and governance.
+- Automation and CI/CD: Fine-tuning jobs can be triggered via Databricks Workflows or CI/CD pipelines, supporting continuous learning and model refresh cycles.
+
+This approach allows teams to maintain high MLOps maturity while leveraging the flexibility and power of foundation models. For implementation details, refer to the official documentation: [Foundation Model Fine-tuning on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/large-language-models/foundation-model-training/).
+
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -156,3 +168,4 @@ Principal authors:
 
 - [MLOps maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
 - [MLOps v2](../../ai-ml/guide/machine-learning-operations-v2.md)
+- [Train AI and ML models on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/machine-learning/train-model/)
