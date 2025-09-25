@@ -28,7 +28,7 @@ This scenario uses an application that runs on an Azure Red Hat OpenShift cluste
 
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides fully managed, highly available OpenShift 4.x clusters on demand with 99.95% SLA availability. These clusters serve as the primary compute platform in this architecture. Microsoft and Red Hat jointly monitor and operate the clusters, providing enterprise-grade support with automated updates, patching, and lifecycle management. Azure Red Hat OpenShift (ARO) supports OpenShift 4.12+ with regular version updates and extended support options.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis), formerly known as Azure Active Directory, is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, Microsoft Entra ID integrates with Azure RBAC and OpenShift RBAC, providing customers with secure, granular access to external resources.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, Microsoft Entra ID integrates with Azure RBAC and OpenShift RBAC, providing customers with secure, granular access to external resources.
 
 - You can use [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) with a connectivity provider to extend your on-premises networks into the Microsoft cloud over a private connection. This architecture uses ExpressRoute to provide private, high-bandwidth connectivity between on-premises resources and Azure.
 
