@@ -42,7 +42,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
    This pipeline runs quality checks, including the following operations:
    
    - Building code, which might require pulling dependencies from a dependency management system
-   - Using tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/cli-cicd-integration)
+   - Using tools to analyze the code, such as static code analysis, linting, and [security scanning](/azure/defender-for-cloud/azure-devops-extension)
    - Performing unit tests
      
    If any checks fail, the pipeline run ends, and the developer must make the required changes. If all checks pass, the pipeline requires a PR review. If the PR review fails, the pipeline ends, and the developer must make the required changes. A successful pipeline run results in a successful PR merge.
@@ -76,7 +76,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
 
-- [Microsoft Defender for Cloud CLI](/azure/defender-for-cloud/cli-cicd-integration) lets you embed security scanning directly in your continuous integration and continuous deployment (CI/CD) workflows. In this architecture, Defender for Cloud CLI performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Defender for Cloud CLI is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
+- [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) lets you embed security scanning directly in your continuous integration and continuous deployment (CI/CD) workflows. In this architecture, Microsoft Security DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Security DevOps is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
 
 
 ## Alternatives
