@@ -27,6 +27,6 @@ products:
   - power-bi
   - entra-id
   - azure-blob-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.svg
 content: |
    [!INCLUDE[](enterprise-bi-synapse-content.md)]
