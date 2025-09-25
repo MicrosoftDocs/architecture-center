@@ -38,7 +38,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides options to [deploy fine-tuned Azure OpenAI models]([/azure/ai-services/openai/how-to/fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning-deploy).You can also deploy fine-tuned Azure OpenAI models by using the Python SDK or REST API. You can also deploy finetuned foundation models from mutiple providers like Meta, llama etc as [Serverless API](/azure/ai-foundry/how-to/fine-tune-serverless?tabs=chat-completion&pivots=foundry-portal) or using [Managed Compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
+   - Azure AI Foundry provides multiple options to [deploy fine-tuned Azure OpenAI models](/azure/ai-foundry/openai/how-to/fine-tuning-deploy). You can deploy these models by using the Python SDK or REST API. You can also deploy fine-tuned foundation models from providers like Meta or Llama as [serverless APIs](/azure/ai-foundry/how-to/fine-tune-serverless) or by using [managed compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
 
 ### Components
 
@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI models or other foundation models from multiple providers is used for advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI models perform advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained. You can also use foundation models from multiple providers to perform these tasks.
 
 ### Alternatives
 
@@ -80,9 +80,9 @@ You can add more workflows to this scenario based on specific use cases.
 
 - You can use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
 
-  Azure AI Foundry offers two compute options for models as a platform (MaaP) hosting, [Serverless Compute and Managed Compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). There are [certain models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) which support deployments through serverless API, providing models as a service (MaaS).
+  Azure AI Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
 
-  Because there's overlap between Machine Learning and Azure AI Foundry, you must [evaluate their capabilities](/ai/ai-studio-experiences-overview) and choose the best platform for your scenario.
+  Machine Learning and Azure AI Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -205,10 +205,10 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Engineer
 - Dixit Arora | Senior Engineer
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
