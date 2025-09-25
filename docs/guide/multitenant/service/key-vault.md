@@ -45,7 +45,7 @@ An Azure subscription doesn't limit the number of vaults that you can deploy. Bu
 
 ### Vault for each tenant, in the tenant's subscription
 
-In some situations, your tenants can create vaults in their own Azure subscriptions and grant your application access to work with secrets, certificates, or keys. Use this approach when you allow customer-managed keys (CMKs) for encryption within your solution.
+In some scenarios, your tenants can create vaults in their own Azure subscriptions and grant your application access to work with secrets, certificates, or keys. Use this approach when you allow customer-managed keys for encryption within your solution.
 
 To access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra ID instance. You can publish a [multitenant Microsoft Entra ID application](/entra/identity-platform/single-and-multi-tenant-apps). 
 
@@ -59,7 +59,7 @@ Your tenants must perform a one-time consent process that includes the following
 
 After this setup, your application code can use a service principal associated with the multitenant Microsoft Entra ID application in your Microsoft Entra ID to access each tenant's vault.
 
-Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires that you securely store and manage credentials for each tenant, which introduces security liability.
+Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires you to securely store and manage credentials for each tenant, which introduces security liability.
 
 If your tenants configure network access controls on their vaults, make sure that you can access the vaults. Design your application to handle situations where a tenant changes their network access controls and blocks your access to their vaults.
 
@@ -75,7 +75,7 @@ You can also deploy multiple shared vaults. For example, a solution that follows
 
 When you work with a shared vault, consider the number of operations that you perform against the vault. Operations include reading secrets and performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) made against a single vault and across all vaults within an Azure subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling), and apply other recommended practices. Securely cache secrets that you retrieve, and use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending all encryption operations to Key Vault. These best practices help you run high-scale solutions against a single vault.
 
-If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convention like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then, your application code can easily load the value of a specific secret for a specific tenant.
+If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convention like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then your application code can easily load the value of a specific secret for a specific tenant.
 
 ## Features of Key Vault that support multitenancy
 
