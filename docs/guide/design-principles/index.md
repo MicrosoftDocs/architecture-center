@@ -9,9 +9,9 @@ ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
 
-# Ten design principles for Azure applications
+# Design principles for Azure applications
 
-The design principle articles in this section provide a foundation for building cloud applications that can withstand failures, scale with demand, and evolve with business needs. Whether you're an architect designing a new system, a developer modernizing legacy applications, or an operations team planning for production workloads, these interconnected principles help you make informed decisions about reliability, performance, and maintainability. Together, they form a comprehensive approach to cloud-native application design that balances technical excellence with business value.
+The design principle articles in this section provide a foundation to help you build cloud applications that can withstand failures, scale with demand, and evolve with business needs. Whether you want to design a new system, modernize legacy applications, or plan for production workloads, these interconnected principles help you make informed decisions about reliability, performance, and maintainability. Together, they form a comprehensive approach to cloud-native application design that balances technical excellence with business value.
 
 To make your application more scalable, resilient, and manageable, follow these design principles.
 
@@ -39,7 +39,7 @@ To make your application more scalable, resilient, and manageable, follow these 
 
 - [Design for evolution](design-for-evolution.md). Design for continuous innovation because all successful applications change over time. Enforce loose coupling, encapsulate domain knowledge, use asynchronous messaging, and expose well-defined APIs with proper versioning to enable independent service evolution.
 
-- [Build for the needs of business](build-for-business.md). Make design decisions based on business requirements. Define clear objectives like recovery time objectives (RTOs) and recovery point objectives (RPOs), document service-level agreements (SLAs) and service-level objectives (SLOs), model applications around business domains, and plan for growth while balancing functional and nonfunctional requirements.
+- [Build for the needs of business](build-for-business.md). Make design decisions based on business requirements. Define clear objectives like recovery time objectives (RTOs), document service-level agreements (SLAs) and service-level objectives (SLOs), model applications around business domains, and plan for growth while balancing functional and nonfunctional requirements.
 
 - [Perform failure mode analysis for services](../../resiliency/failure-mode-analysis.md). Systematically identify potential failure points in your system and plan recovery strategies. To build resiliency from the beginning, conduct failure mode analysis (FMA) during architecture and design phases. Rate each failure mode by risk and impact, then determine appropriate response and recovery mechanisms.
 
