@@ -47,7 +47,11 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
      
    If any checks fail, the pipeline run ends, and the developer must make the required changes. If all checks pass, the pipeline requires a PR review. If the PR review fails, the pipeline ends, and the developer must make the required changes. A successful pipeline run results in a successful PR merge.
 
-1. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline and adds integration tests. If the integration tests require [secrets](/azure/devops/pipelines/release/azure-key-vault), the pipeline gets them from Azure Key Vault. If any checks fail, the pipeline ends, and the developer must make the required changes.
+1. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline and adds integration tests.
+
+   If the integration tests require [secrets](/azure/devops/pipelines/release/azure-key-vault), the pipeline gets them from Azure Key Vault, a resource dedicated to this environment's CI pipeline.
+
+   If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. A successful CI pipeline run creates and publishes a container image in a nonproduction Azure container registry.
 1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
 1. The CD pipeline deploys a YAML template to the staging AKS environment. The template references the container image from the nonproduction environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline can include a manual validation task to validate the deployment and resume the pipeline. Some organizations deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
