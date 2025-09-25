@@ -50,7 +50,7 @@ items:
           - name: Design a microservices architecture
             items:
             - name: Introduction
-              href: microservices/design/index.yml
+              href: microservices/design/index.md
             - name: Choose a compute option
               href: microservices/design/compute-options.md
             - name: Interservice communication
