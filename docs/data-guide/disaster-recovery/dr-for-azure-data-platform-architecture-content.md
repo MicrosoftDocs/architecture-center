@@ -22,7 +22,7 @@ Contoso has implemented the following foundational Azure architecture, which is 
 > [!NOTE]
 > Many customers still retain a large infrastructure as a service (IaaS) footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
-Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs, aligned to the guidance in [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
+Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs, aligned to the guidance in [Data Platform End-to-End](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
 
 [![Diagram that shows architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
 *Contoso's data platform*
@@ -294,7 +294,7 @@ The following tables present a breakdown of each Azure service and component use
         - Manual geo-backup or geo-replication for active/active setups across regions.
     - Notes
         - Geo-redundancy must be manually configured.
-        - For further details regarding disaster recovery for SQL Databse in Fabric, refer to [Experience-specific disaster recovery guidance - SQL database](/fabric/security/experience-specific-guidance#sql-database).
+        - For further details regarding disaster recovery for SQL Databse in Fabric, refer to [Experience-specific disaster recovery guidance - SQL Database](/fabric/security/experience-specific-guidance#sql-database).
 
 - **Microsoft Fabric: Data Engineering**
     - Component recovery responsibility: Microsoft
@@ -313,7 +313,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Manual geo-backup or geo-replication for active/active setups across regions.
     - Notes
-        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
+        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
         - For customers who need cross-regional disaster recovery and fully automated business continuity, we recommend keeping two Fabric Warehouse setups in two different regions and maintaining code and data parity by doing regular deployments and data ingestion to both sites.
 
 - **Microsoft Fabric: Mirrored Database**
@@ -396,7 +396,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Configure two or more KQL databases in different regions, and keep data and policies in sync between the databases. 
     - Notes
-        - Refer to recovery procedures for [Experience-specific disaster recovery guidance - Real-Time intelligence](/fabric/security/experience-specific-guidance#real-time-intelligence).   
+        - Refer to recovery procedures for [Experience-specific disaster recovery guidance - Real-Time Intelligence](/fabric/security/experience-specific-guidance#real-time-intelligence).   
 
 - **Microsoft Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
@@ -407,7 +407,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - Pipelines can be redeployed via CI/CD.
         - When On-Prem or vNet Data Gateway are used in data pipelines, the gateways need to be reconfigured in another workspace from a different region.
-        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data factory](/fabric/security/experience-specific-guidance#data-factory).
+        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data Factory](/fabric/security/experience-specific-guidance#data-factory).
 
 - **Microsoft Fabric: Data Science**
     - Component recovery responsibility: Microsoft
