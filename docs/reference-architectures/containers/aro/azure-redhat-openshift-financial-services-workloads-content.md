@@ -12,17 +12,17 @@ Before you build a production environment with Azure Red Hat OpenShift, read the
 
 This scenario uses an application that runs on an Azure Red Hat OpenShift cluster. The application connects to on-premises resources and a hub virtual network on Azure that Azure Firewall protects. The following dataflow corresponds to the preceding diagram:
 
-- The developer writes code within the company's network and pushes the code to GitHub Enterprise. You can use any code repository for your scenario.
+1. The developer writes code within the company's network and pushes the code to GitHub Enterprise. You can use any code repository for your scenario.
 
-- The customer's deployment pipeline containerizes the code, which deploys it in an on-premises container registry.
+2. The customer's deployment pipeline containerizes the code, which deploys it in an on-premises container registry.
 
-- The image can then be deployed into an on-premises OpenShift cluster and to the Azure Red Hat OpenShift cluster on Azure. The image also gets deployed to Azure Red Hat OpenShift through Azure ExpressRoute, which routes the traffic through the Azure hub virtual network to the private Azure Red Hat OpenShift cluster in the spoke virtual network. These two networks are peered.
+3. The image can then be deployed into an on-premises OpenShift cluster and to the Azure Red Hat OpenShift cluster on Azure. The image also gets deployed to Azure Red Hat OpenShift through Azure ExpressRoute, which routes the traffic through the Azure hub virtual network to the private Azure Red Hat OpenShift cluster in the spoke virtual network. These two networks are peered.
 
-- Outgoing traffic that comes from the Azure Red Hat OpenShift cluster is first routed through the peered hub virtual network and then through an Azure Firewall instance.
+4. Outgoing traffic that comes from the Azure Red Hat OpenShift cluster is first routed through the peered hub virtual network and then through an Azure Firewall instance.
 
-- To access the application, customers can go to a web address that routes traffic through Azure Front Door.
+5. To access the application, customers can go to a web address that routes traffic through Azure Front Door.
 
-- Azure Front Door uses Azure Private Link service to connect to the private Azure Red Hat OpenShift (ARO) cluster.
+6. Azure Front Door uses Azure Private Link service to connect to the private Azure Red Hat OpenShift (ARO) cluster.
 
 ### Components
 
