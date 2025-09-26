@@ -77,7 +77,7 @@ Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the un
 
     - Start by configuring ARO clusters to attach to Azure storage by default and ensure they automatically reattach after a restore operation. Use the guidance in [Create an Azure Red Hat OpenShift cluster application backup](/azure/openshift/howto-create-a-backup) for application-level backups using Velero.
 
-    - For backup and disaster recovery workflows—including scheduled backups, remote object store replication, and data mover support—consider the Red Hat guide [Backup and Restore for ARO using OADP](https://cloud.redhat.com/experts/aro/backup-restore/). This approach is recommended for production environments that require strict Recovery Time Objectives (RTO), Recovery Point Objectives (RPO), and adherence to compliance standards.
+    - For backup and disaster recovery workflows—including scheduled backups, remote object store replication, and data mover support—review the Red Hat guide [Backup and Restore for ARO using OADP](https://cloud.redhat.com/experts/aro/backup-restore/). This approach is recommended for production environments that require strict Recovery Time Objectives (RTO), Recovery Point Objectives (RPO), and adherence to compliance standards.
 
 ### Security
 
@@ -90,7 +90,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 - **Private connectivity from an on-premises environment**: Financial industry use cases require exclusive private network connectivity without public internet access. 
     - Implement Azure Private Link endpoints for secure connectivity and use ExpressRoute for private connectivity from on-premises datacenters. Azure Red Hat OpenShift (ARO) supports private clusters with private ingress controllers and API endpoints. 
     - For enhanced security, consider using a hub-spoke network topology. For more information, see [Create an Azure Red Hat OpenShift private cluster](/azure/openshift/howto-create-private-cluster-4x). 
-    - Use the [Azure Red Hat OpenShift (ARO) landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) template to expedite the creation of a new cluster with the best practices and guidance from the Azure Cloud Adoption Framework.
+    - Use the [Azure Red Hat OpenShift (ARO) landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) template to expedite the creation of a new cluster that follows Microsoft's recommended practices.
 
 - **Push-only private link**: Financial companies often restrict Azure workload traffic from connecting back to their datacenters. Configure Private Link gateways for inbound-only access from private datacenters to Azure. 
     - Ensure that system dependencies in private datacenters push data to Azure. 
@@ -149,7 +149,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 FSI companies can use robust observability tools and practices to proactively detect and address problems and optimize resource usage. Follow these operational-excellence recommendations:
 
 - **Implement effective logging and monitoring**: Use Azure Monitor and Microsoft Sentinel to track actions and ensure system integrity within your Azure Red Hat OpenShift environment. 
-    - Supplement observability and monitoring practices, use non-Microsoft tools such as Dynatrace, Datadog, and Splunk. 
+    - Supplement observability and monitoring practices with third-party tools such as Dynatrace, Datadog, and Splunk. 
     - Ensure that Managed service for Prometheus or Azure Managed Grafana is available for Azure Red Hat OpenShift.
     - Use the [Cluster Logging Forwarder](https://cloud.redhat.com/experts/aro/clf-to-azure/) to send logs to Azure Monitor and Azure Log Analytics, allowing you to query and view your Azure Red Hat OpenShift (ARO) workloads in Azure Monitor.
 
