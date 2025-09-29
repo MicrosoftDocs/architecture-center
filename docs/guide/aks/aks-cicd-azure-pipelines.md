@@ -54,7 +54,7 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
    If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. A successful CI pipeline run creates and publishes a container image in a nonproduction Azure container registry. Optionally, the container images may be [signed](/azure/container-registry/container-registry-content-trust) for ensuring the integrity of container image.
 1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/defender-for-cloud/tutorial-enable-containers-azure). This is a "push" deployment of the YAML, and can be done with `kubectl` or `helm`.  The template references the container image from the nonproduction registry.
+1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/azure/defender-for-cloud/tutorial-enable-containers-azure). This is a "push" deployment of the YAML, and can be done with `kubectl` or `helm`.  The template references the container image from the nonproduction registry.
 
    The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline can include a manual validation task to validate the deployment and resume the pipeline. Some workloads might deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
 1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry. 
