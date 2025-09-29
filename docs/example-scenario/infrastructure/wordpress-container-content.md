@@ -22,18 +22,18 @@ The following dataflow corresponds to the previous diagram:
 1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
 1. The internal load balancer distributes ingress traffic to pods within AKS.
 1. Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
-1. The WordPress application uses a private endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
+1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
 1. All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
 ### Components
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy, manage, and scale containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform that runs the containerized WordPress application to ensure high availability and scalability.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this architecture, Azure Cache for Redis hosts a key-value cache that all pods share, and WordPress performance optimization plug-ins use it to improve response times.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this architecture, Azure Cache for Redis hosts a key-value cache that all pods share. WordPress performance optimization plug-ins use the cache to improve response times.
 
 - [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against distributed denial of service (DDoS) attacks when combined with application-design best practices and enabled on the perimeter network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial of service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
@@ -75,12 +75,12 @@ Consider the following recommendations when you deploy this solution:
 
 - Use pods in AKS and a load balancer to distribute ingress traffic. This approach provides high availability even if a pod failure occurs.
 
-- The solution supports multiple regions, data replication, and autoscaling. The components distribute traffic to the pods. Health probes ensure that only healthy pods receive traffic.
 - Place all networking components behind Azure Front Door. This approach makes the networking resources and application resilient to problems that can otherwise disrupt traffic and affect user access.
-- Azure Front Door is a global service that supports virtual machine scale sets deployed in another region.
 - Use Azure Front Door to cache all responses to gain a small availability benefit. Specifically, when the origin doesn't respond, you can still access content. But caching doesn't provide a complete availability solution.
-- Replicate Azure NetApp Files storage between paired regions to increase availability. For more information, see [Cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
-- Follow the [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs to increase Azure Database for MySQL availability.
+- Replicate Azure NetApp Files storage between paired regions to increase availability. For more information, see [Understand Azure NetApp Files replication](/azure/azure-netapp-files/replication).
+- Follow [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs to increase Azure Database for MySQL availability.
+- The solution supports multiple regions, data replication, and autoscaling. The components distribute traffic to the pods. Health probes ensure that only healthy pods receive traffic.
+- Azure Front Door is a global service that supports virtual machine scale sets deployed in another region.
 
 ### Security
 
@@ -101,21 +101,21 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Review the following cost considerations when you deploy this solution:
 
-- **Traffic expectations (GB/month):** Your traffic volume has the greatest effect on your cost. The amount of traffic that you receive determines the number of AKS nodes that you need and the price for outbound data transfer. The traffic volume also directly correlates with the amount of data that your content delivery network provides, where outbound data transfer costs are cheaper.
+- **Traffic expectations (GB/month):** Your traffic volume has the greatest effect on your cost. The amount of traffic that you receive determines the number of AKS nodes required and the price for outbound data transfer. The traffic volume also directly correlates with the amount of data that your content delivery network provides, where outbound data transfer costs are cheaper.
 
 - **Amount of hosted data:** Consider the amount of data that you host, because Azure NetApp Files pricing is based on reserved capacity. To optimize costs, reserve the minimum capacity required for your data.
 - **Write percentage:** Consider how much new data you write to your website and the cost to store it. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data mirrored across your regions.
 - **Static versus dynamic content:** Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS cost optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
+- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This scenario uses pods in AKS to host the front end. With the autoscale feature, the number of pods that run the front-end application tier can automatically scale in response to customer demand. They can also scale based on a defined schedule. For more information, see [Scaling options for applications in AKS](/azure/aks/concepts-scale).
+This scenario uses pods in AKS to host the front end. The autoscale feature enables the number of pods that run the front-end application tier to automatically scale in response to customer demand. They can also scale based on a defined schedule. For more information, see [Scaling options for applications in AKS](/azure/aks/concepts-scale).
 
 > [!IMPORTANT]
-> For best performance, you must mount a persistent volume that uses the NFS protocol version 4.1. The following YAML example shows how to configure a `PersistentVolume` object for this purpose. Note the value of the `mountOptions` field.
+> For best performance, mount a persistent volume that uses the NFS protocol version 4.1. The following YAML example shows how to configure a `PersistentVolume` object for this purpose. Note the value of the `mountOptions` field.
 
   ```yaml
   kind: PersistentVolume
@@ -161,7 +161,6 @@ Microsoft training modules:
 
 - [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes)
 - [Introduction to Azure NetApp Files](/training/modules/introduction-to-azure-netapp-files)
-- [Load balance your web service traffic with Azure Front Door](/training/modules/create-first-azure-front-door)
 - [Implement Key Vault](/training/modules/implement-azure-key-vault)
 - [Introduction to Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 
