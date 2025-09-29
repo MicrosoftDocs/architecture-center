@@ -90,9 +90,10 @@ This scenario shows a push-based model to deploy resources in AKS. Push-based de
 
 Alternatively, pull-based deployments rely on clusters to fetch and apply updates. This pattern decouples deployment logic from the pipeline, which allows individual clusters to reconcile against a desired state stored in a central location, such as a Git repository (in GitOps workflows) or an artifact registry. Pull-based deployments work best for environments that prioritize consistency, auditability, and self-healing. The source of truth lives externally, often in version-controlled systems, so clusters continuously monitor and apply updates to match this desired state. This approach reduces the risk of drift. If a cluster experiences a failure or becomes unavailable, it can self-reconcile after it comes back online without requiring redeployment from a central pipeline. For more information, see [GitOps for AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
-### Cluster health
+### CI/CD pipeline using GitHub actions
 
-To enhance this system, use [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) and [Azure Managed Grafana](/azure/managed-grafana/overview). Azure Monitor managed service for Prometheus collects metrics from AKS clusters and forwards them to Azure Monitor, which provides observability for application performance monitoring and alerting beyond the standard Azure Monitor metrics. Azure Managed Grafana provides advanced visualization capabilities. You can create dashboards that visualize pipeline health, AKS cluster performance, and application metrics in a unified view.
+[GitHub actions for AKS](/azure/aks/kubernetes-action) can be used as an alternative to Azure Pipelines. GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. Multiple [starter workflows](/azure/aks/kubernetes-action#next-steps) for AKS are available, which can be customized according to your CI/CD requirements. 
+
 
 ## Next steps
 
