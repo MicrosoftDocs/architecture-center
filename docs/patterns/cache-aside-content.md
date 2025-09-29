@@ -2,7 +2,7 @@ This pattern loads data on demand into a cache from a data store. Use this patte
 
 ## Context and problem
 
-Applications use a cache to improve repeated access to information in a data store. But cached data can't always remain consistent with the data store. Applications should implement a strategy that helps ensure that the data in the cache remains as up-to-date as possible. The strategy should also detect when cached data becomes stale and handle it appropriately.
+Applications use a cache to improve performance for repeated access to information in a data store. But cached data can't always remain consistent with the data store. Applications should implement a strategy that keeps the data in the cache as up-to-date as possible. The strategy should also detect when cached data becomes stale and handle it appropriately.
 
 ## Solution
 
@@ -10,9 +10,9 @@ Many commercial caching systems provide read-through and write-through or write-
 
 For caches that don't provide this functionality, the applications that use the cache must maintain the data.
 
-An application can emulate the functionality of read-through caching by implementing the cache-aside strategy. This strategy loads data into the cache on demand. The following diagram uses the Cache-Aside pattern to store data in the cache.
+An application can emulate the functionality of read-through caching by implementing the Cache-Aside pattern. This strategy loads data into the cache on demand. The following diagram uses the Cache-Aside pattern to store data in the cache.
 
-:::image type="complex" source="./_images/cache-aside-diagram.svg" alt-text="Diagram that shows the use of the Cache-Aside pattern to read and store data in the cache." border="false":::
+:::image type="complex" source="./_images/cache-aside-diagram.svg" alt-text="Diagram that shows the use of the Cache-Aside pattern to read and store data in the cache." border="false" lightbox="./_images/cache-aside-diagram.svg":::
    The diagram includes an app, cache, and data store. The cache points to the app, labeled step 1. The data store points to the app, labeled step 2. The app points to the cache, labeled step 3.
 :::image-end:::
 
@@ -23,7 +23,7 @@ An application can emulate the functionality of read-through caching by implemen
 
 If an application updates information, it can follow the write-through strategy by making the modification to the data store and invalidating the corresponding item in the cache.
 
-When the item is needed again, the cache-aside strategy retrieves the updated data from the data store and adds it to the cache.
+When the item is needed again, the Cache-Aside pattern retrieves the updated data from the data store and adds it to the cache.
 
 ## Problems and considerations
 
@@ -35,13 +35,13 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Configuration:** You can configure cache behavior globally or per cached item. A single global eviction policy might not suit all items. If an item is expensive to retrieve, configure the cache item individually. In this situation, it makes sense to keep the item in the cache, even if it gets accessed less frequently than cheaper items.
 
-- **Priming the cache:** Many solutions prepopulate the cache with data that an application is likely to need as part of the startup processing. The Cache-Aside pattern remains useful when some of this data expires or gets evicted.
+- **Priming the cache:** Many solutions prepopulate the cache with data that an application likely requires as part of the startup processing. The Cache-Aside pattern remains useful when some of this data expires or gets evicted.
 
 - **Consistency:** The Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. For example, an external process can change an item in the data store at any time. This change doesn't appear in the cache until the item loads again. In a system that replicates data across data stores, frequent synchronization can make consistency challenging.
 
-- **Local (in-memory) caching:** A cache can be local to an application instance and be stored in-memory. Cache-aside works well in this environment if an application repeatedly accesses the same data. But a local cache is private, so different application instances can each have a copy of the same cached data. This data can quickly become inconsistent between caches, so you might need to expire data in a private cache and refresh it more frequently. In these scenarios, consider using a shared or distributed caching mechanism.
+- **Local caching:** A cache can be local to an application instance and be stored in-memory. Cache-aside works well in this environment if an application repeatedly accesses the same data. But a local cache is private, so different application instances can each have a copy of the same cached data. This data can quickly become inconsistent between caches, so you might need to expire data in a private cache and refresh it more frequently. In these scenarios, consider using a shared or distributed caching mechanism.
 
-- **Semantic caching:** Some workloads can benefit from doing cache retrieval based on semantic meaning rather than exact keys. This approach reduces the number of requests and tokens sent to language models. Only use semantic caching when the data supports semantic equivalence, doesn't risk returning unrelated responses, and doesn't contain private and sensitive data. For example, "What is my yearly take home salary?" is semantically similar to "What is my yearly take home pay?", but if asked by different users, the answers should differ. You also shouldn't include this sensitive data in your cache.
+- **Semantic caching:** Some workloads can benefit from doing cache retrieval based on semantic meaning rather than exact keys. This approach reduces the number of requests and tokens sent to language models. Only use semantic caching when the data supports semantic equivalence, doesn't risk returning unrelated responses, and doesn't contain private and sensitive data. For example, "What is my yearly take home salary?" is semantically similar to "What is my yearly take home pay?" But if different users ask these questions, the answers should differ. You also shouldn't include this sensitive data in your cache.
 
 ## When to use this pattern
 
@@ -53,7 +53,7 @@ Use this pattern when:
 
 This pattern might not be suitable when:
 
-- The data is sensitive or security-related. Storing data in a cache might be inappropriate, especially when multiple applications or users share the cache. Always retrieve this type of data from the primary source.
+- The data is sensitive or security related. Storing data in a cache might be inappropriate, especially when multiple applications or users share the cache. Always retrieve this type of data from the primary source.
 
 - The cached data set is static. If the data fits into the available cache space, prime the cache with the data on startup and apply a policy that prevents the data from expiring.
 - Most requests don't experience a cache hit. In this situation, the overhead of checking the cache and loading data into it might outweigh the benefits of caching.
@@ -93,7 +93,7 @@ public static ConnectionMultiplexer Connection => lazyConnection.Value;
 
 The `GetMyEntityAsync` method in the following example shows an implementation of the Cache-Aside pattern. This method retrieves an object from the cache by using the read-through approach.
 
-The method identifies an object by using an integer ID as the key. It tries to retrieve an item from the cache by using this key. If the cache contains a matching item, it returns the item. If the cache doesn't contain a match, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. This example omits the code that reads the data from the data store, because that logic depends on the data store. The cached item is configured to expire to prevent it from becoming stale if another service or process updates it.
+The method identifies an object by using an integer ID as the key. It tries to retrieve an item from the cache by using this key. If the cache contains a matching item, it returns the item. If the cache doesn't contain a match, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. This example omits the code that reads the data from the data store because that logic depends on the data store. The cached item is configured to expire to prevent it from becoming stale if another service or process updates it.
 
 ```csharp
 // Set five minute expiration as a default
@@ -155,12 +155,12 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 ## Next steps
 
-- [Data consistency primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)): This primer describes problems with consistency across distributed data, and it summarizes how an application can implement eventual consistency to maintain the availability of data. Cloud applications typically store data across multiple data stores and locations. You must efficiently manage and maintain data consistency in this environment, particularly because of concurrency and availability problems that can arise.
+- [Data consistency primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)): This primer describes problems with consistency across distributed data. It also summarizes how an application can implement eventual consistency to maintain the availability of data. Cloud applications typically store data across multiple data stores and locations. You must efficiently manage and maintain data consistency in this environment, particularly because of concurrency and availability problems that can arise.
 
 - [Use Azure Managed Redis as a semantic cache](/azure/redis/tutorial-semantic-cache): This tutorial shows you how to implement semantic caching by using Azure Managed Redis.
 
 ## Related resources
 
-- [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern): This pattern applies the Cache-Aside pattern to web applications on the cloud.
+- [Reliable Web App pattern](../web-apps/guides/enterprise-app-patterns/overview.md#reliable-web-app-pattern): This pattern applies the Cache-Aside pattern to web applications in the cloud.
 
 - [Caching guidance](../best-practices/caching.yml): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.
