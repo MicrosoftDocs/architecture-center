@@ -1,6 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-This article describes a container solution that hosts a large, storage-intensive installation of WordPress on Azure. The solution maximizes scalability and security. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
+This article describes a container solution that hosts a large, storage-intensive installation of WordPress on Azure. The solution maximizes scalability and security. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
 
 ## Architecture
 
@@ -33,11 +33,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial of service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a managed, performance-intensive, and latency-sensitive storage solution. In this solution, Azure NetApp Files hosts the WordPress content so that all pods have access to the shared data through high-performance file storage.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a managed, performance-intensive, and latency-sensitive storage solution. In this architecture, Azure NetApp Files hosts the WordPress content so that all pods have access to the shared data through high-performance file storage.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that enables deployed resources to communicate with each other, the internet, and on-premises networks. In this architecture, virtual networks provide isolation and segmentation.
 
@@ -52,7 +52,7 @@ The following dataflow corresponds to the previous diagram:
 - Instead of using the Azure Cache for Redis managed service, you can use a self-hosted pod within the AKS cluster as the cache.
 
 - Instead of using a managed storage solution like Azure NetApp Files, you can use a self-hosted solution like [Rook-Ceph storage](https://rook.io). For more information, see [Use Rook Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
-- Instead of using AKS, you can use [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) to host containerized WordPress workloads. Container Apps is a managed serverless container service that suits simpler or smaller-scale scenarios. For large, storage-intensive, and highly customizable deployments, use AKS.
+- Instead of using AKS, you can use [Azure Container Apps](/azure/container-apps/overview) to host containerized WordPress workloads. Container Apps is a managed serverless container service that suits simpler or smaller-scale scenarios. For large, storage-intensive, and highly customizable deployments, use AKS.
 
 ## Scenario details
 
