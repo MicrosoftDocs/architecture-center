@@ -12,7 +12,7 @@ To determine when to use GPUs for AKS workloads, you must understand GPU optimiz
 
 You can use GPUs to accelerate data preprocessing, feature engineering, and model training in data science workflows. To efficiently use GPUs, frameworks like [RAPIDS](https://rapids.ai/) and [Dask GPU](https://docs.dask.org/en/stable/gpu.html) extend popular data-processing libraries, such as pandas and scikit-learn.
 
-Open-source software (OSS)-accelerated SQL query engines and columnar databases like [HeavyDB](https://www.heavy.ai/) use GPUs to rapidly perform queries and analytics on large datasets.
+Open-source software (OSS)-accelerated SQL query engines and columnar databases like [HeavyDB](https://docs.heavy.ai/overview) use GPUs to rapidly perform queries and analytics on large datasets.
 
 #### Machine learning and deep learning
 
@@ -173,7 +173,7 @@ Principal author:
 
 Other contributors:
 - [Steve Buchanan](https://www.linkedin.com/in/steveabuchanan/) | Principal Program Manager
-- [Sachi Desai](https://www.linkedin.com/in/sachi-desai/) | Product Manager
+- [Sachi Desai](https://www.linkedin.com/in/sachi-desai/) | Product Manager 2
 - [Ally Ford](https://www.linkedin.com/in/allison-ford-pm/) | Product Manager 2
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
 - [Erin Schaffer](https://www.linkedin.com/in/erin-schaffer-65800215b/) | Content Developer 2
