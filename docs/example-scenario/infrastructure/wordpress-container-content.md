@@ -4,8 +4,8 @@ This article describes a container solution that hosts a large, storage-intensiv
 
 ## Architecture
 
-:::image type="complex" source="media/wordpress-aks-azure-netapp-files.png" alt-text="Architecture diagram of an AKS WordPress deployment. Azure NetApp Files stores static content. Private endpoints provide access to other services." lightbox="media/wordpress-aks-azure-netapp-files.png" border="false":::
-
+:::image type="complex" source="media/wordpress-aks-azure-netapp-files.svg" alt-text="Architecture diagram of an AKS WordPress deployment. Azure NetApp Files stores static content. Private endpoints provide access to other services." lightbox="media/wordpress-aks-azure-netapp-files.svg" border="false":::
+The diagram shows a WordPress deployment architecture within Microsoft Azure, organized inside a virtual network outlined by a dashed border. On the left, the public internet connects to Azure Front Door, which includes Azure Web Application Firewall. Azure Front Door routes traffic to an internal load balancer, which distributes incoming requests to components inside the virtual network. Within the network, multiple subnets are protected by network security groups (NSGs). The central component is AKS. Traffic flows through an ingress controller into the WordPress pods. These pods access secrets through a Container Storage Interface (CSI) connected to a secure store. Another subnet contains Azure NetApp Files and is protected by its own NSG. On the right side, four services connect to the virtual network via private endpoints: Azure Container Registry, Azure Key Vault, Azure Database for MySQL – Flexible Server, and Azure Cache for Redis. Each service communicates securely within the network without direct internet exposure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-container.vsdx) of this architecture.*
@@ -17,13 +17,13 @@ This article describes a container solution that hosts a large, storage-intensiv
 
 The following dataflow corresponds to the previous diagram:
 
-- Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
+1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 
-- Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
-- The internal load balancer distributes ingress traffic to pods within AKS.
-- Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
-- The WordPress application uses a private endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
-- All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
+1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
+1. The internal load balancer distributes ingress traffic to pods within AKS.
+1. Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
+1. The WordPress application uses a private endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
+1. All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
 ### Components
 
