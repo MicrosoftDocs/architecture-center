@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use Azure Red Hat OpenShift in the financial services industry
+  title: Use Azure Red Hat OpenShift in the Financial Services Industry
   description: Learn how to use Azure Red Hat OpenShift landing zone to create secure, resilient, and compliant solutions in a hybrid cloud environment.
   author: dcasati
   ms.author: dicasati
@@ -10,12 +10,12 @@ metadata:
   ms.custom: arb-containers
 azureCategories:
   - containers
-  - security
   - hybrid
+  - security
 products:
   - azure-redhat-openshift
 name: Use Azure Red Hat OpenShift in the financial services industry
 summary: Learn how to use Azure Red Hat OpenShift landing zone for the financial services industry to create secure, resilient, and compliant solutions in a hybrid cloud environment.
 thumbnailUrl: /azure/architecture/browse/thumbs/fsi-architecture.png
 content: |
-  [!include[](azure-redhat-openshift-financial-services-workloads-content.md)]
+  [!INCLUDE[](azure-redhat-openshift-financial-services-workloads-content.md)]
