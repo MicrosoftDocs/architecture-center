@@ -37,7 +37,7 @@ The following table summarizes the differences between the main tenancy models f
 
 Consider deploying a vault for each tenant within your (the service provider's) Azure subscription. This approach provides strong data isolation between each tenant's data. But you must deploy and manage an increasing number of vaults as the number of tenants increases.
 
-An Azure subscription doesn't limit the number of vaults that you can deploy. But consider other limits:
+Azure doesn't limit the number of vaults that you can deploy within a single subscription. But consider other limits:
 
 - [Subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-key-vault-limits) on the number of requests that you can make within a time period. These limits apply regardless of the number of vaults in the subscription. Follow the [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
 
@@ -59,7 +59,7 @@ Your tenants must perform a one-time consent process that includes the following
 
 After this setup, your application code can use a service principal associated with the multitenant Microsoft Entra ID application in your Microsoft Entra ID to access each tenant's vault.
 
-Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires you to securely store and manage credentials for each tenant, which introduces security liability.
+Or you can ask each tenant to create a service principal for your service to use and provide you with its credentials. But this approach requires you to securely store and manage credentials for each tenant, which introduces a security liability.
 
 If your tenants configure network access controls on their vaults, make sure that you can access the vaults. Design your application to handle situations where a tenant changes their network access controls and blocks your access to their vaults.
 
@@ -98,7 +98,7 @@ For more information, see the following resources:
 - [Integrate Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
 - [Azure Policy built-in definitions for Key Vault](/azure/key-vault/policy-reference)
 
-### Key Vault Managed HSM and Key Vault Dedicated HSM
+### Key Vault Managed HSM and Azure Dedicated HSM
 
 If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide a reserved amount of capacity, but they increase cost compared to Key Vault. Understand the limits on how many instances of these services that you can deploy in each region.
 
