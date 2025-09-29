@@ -66,11 +66,12 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a component of Azure DevOps that automatically builds, tests, and deploys code to its compute target. In this architecture, it creates and tests container images, uploads them to Container Registry, and deploys them in AKS.
 
-- [Azure Monitor managed service for Prometheus](/azure-monitor/metrics/prometheus-metrics-overview) is an Azure feature that provides monitoring for containerized environments. In this architecture, it collects performance metrics, logs, and health data from containers and forwards this observability data to Azure Monitor for analysis and alerting.
+- [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) is an Azure feature that provides monitoring for containerized environments. In this architecture, it collects performance metrics, logs, and health data from containers and forwards this observability data to Azure Monitor for analysis and alerting.
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this architecture, it serves as the central observability platform that provides monitoring and alerting for the AKS clusters and CI/CD pipeline operations.
+  
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Container Registry stores private container images. In this architecture, the compute platform pulls the application's container image from Container Registry.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
