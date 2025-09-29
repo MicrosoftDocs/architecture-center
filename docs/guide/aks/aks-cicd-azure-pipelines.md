@@ -101,7 +101,7 @@ Additionally, the gitops/pull model removes the need for the pipeline to have di
 ## Next steps
 
 - [CI/CD baseline architecture that uses Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture).
-- - For a complete set of services based on Azure Monitor for monitoring the health and performance of different layers of your Kubernetes infrastructure and the applications that depend on it, see [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
+- For a complete set of services based on Azure Monitor for monitoring the health and performance of different layers of your Kubernetes infrastructure and the applications that depend on it, see [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
 - [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure).
 
 ## Related resources
