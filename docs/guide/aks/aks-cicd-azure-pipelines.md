@@ -95,7 +95,7 @@ Additionally, the gitops/pull model removes the need for the pipeline to have di
 
 ### CI/CD pipeline using GitHub actions
 
-[GitHub actions for AKS](/azure/aks/kubernetes-action) can be used as an alternative to Azure Pipelines. GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. Multiple [starter workflows](/azure/aks/kubernetes-action#next-steps) for AKS are available, which can be customized according to your CI/CD requirements. 
+[GitHub actions for AKS](/azure/aks/kubernetes-action) can be used as an alternative to Azure Pipelines. GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. Multiple [starter workflows](/azure/aks/kubernetes-action#next-steps) for AKS are available, which can be customized according to your CI/CD requirements.
 
 
 ## Next steps
