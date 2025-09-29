@@ -73,7 +73,6 @@ For a complete set of services based on Azure Monitor for monitoring the health 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this architecture, it serves as the central observability platform that provides monitoring and alerting for the AKS clusters and CI/CD pipeline operations.
-  
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Container Registry stores private container images. In this architecture, the compute platform pulls the application's container image from Container Registry.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
