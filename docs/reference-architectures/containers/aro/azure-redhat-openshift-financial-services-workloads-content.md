@@ -1,6 +1,6 @@
-This article describes how to implement an Azure Red Hat OpenShift landing zone architecture for the financial services industry (FSI). This guidance outlines how to use Azure Red Hat OpenShift 4.x in a hybrid cloud environment to create secure, resilient, and compliant solutions that meet FSI regulatory requirements and security standards.
+This article describes how to implement an Azure Red Hat OpenShift landing zone architecture for the financial services industry (FSI). This guidance outlines how to use any supported Azure Red Hat OpenShift 4.x version in a hybrid cloud environment to create secure, resilient, and compliant solutions that meet FSI regulatory requirements and security standards.
 
-Before you build a production environment with Azure Red Hat OpenShift, read the [Azure Red Hat OpenShift landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) guidance in the Cloud Adoption Framework for Azure. Consider reviewing the latest [Azure Red Hat OpenShift service updates and version compatibility matrix](/azure/openshift/support-policies-v4) for production planning.
+Before you build a production environment by using Azure Red Hat OpenShift, read the [Azure Red Hat OpenShift landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) guidance in the Cloud Adoption Framework for Azure. Consider reviewing the latest [Azure Red Hat OpenShift service updates and version compatibility matrix](/azure/openshift/support-policies-v4) for production planning.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read the
 
 This scenario uses an application that runs on an Azure Red Hat OpenShift cluster. The application connects to on-premises resources and a hub virtual network on Azure that Azure Firewall protects.
 
-The following dataflow corresponds to the preceding diagram:
+The following dataflow corresponds to the previous diagram:
 
 1. The developer writes code within the company's network and pushes the code to GitHub Enterprise. You can use any code repository for your scenario.
 
@@ -30,31 +30,31 @@ The following dataflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) is a Kubernetes service that provides fully managed, highly available OpenShift 4.x clusters on demand with 99.95% service-level agreement (SLA) availability. In this architecture, these clusters serve as the primary compute platform. Microsoft and Red Hat jointly monitor and operate the clusters, which provides enterprise-grade support with automated updates, patching, and life cycle management. Azure Red Hat OpenShift supports OpenShift 4.12+ with regular version updates and extended support options.
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) is a Kubernetes service that provides managed, highly available OpenShift 4.x clusters on demand with 99.95% service-level agreement (SLA) availability. In this architecture, these clusters serve as the primary compute platform. Microsoft and Red Hat jointly monitor and operate the clusters, which provides enterprise-grade support with automated updates, patching, and life cycle management. Azure Red Hat OpenShift supports OpenShift 4.12 and later with regular version updates and extended support options.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, Microsoft Entra ID integrates with Azure role-based access (Azure RBAC) and OpenShift RBAC. This integration provides customers with secure, granular access to external resources.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that controls access to resources across various environments. In this architecture, Microsoft Entra ID integrates with Azure role-based access control (Azure RBAC) and OpenShift RBAC. This integration provides customers with secure, granular access to external resources.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that you can use with a connectivity provider to extend your on-premises networks into the Microsoft cloud over a private connection. In this architecture, ExpressRoute provides private, high-bandwidth connectivity between on-premises resources and Azure.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that can integrate with a connectivity provider to extend on-premises networks into the Microsoft cloud over a private connection. In this architecture, ExpressRoute provides private, high-bandwidth connectivity between on-premises resources and Azure.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-native key management solution that stores and manages secrets, keys, and certificates with FIPS 140-3 Level 3 validated Hardware Security Module (HSMs). It complies with standards such as PCI DSS, PCI 3DS. For FSI scenarios, this architecture recommends that you use Key Vault Premium tier instead of the Standard SKU to provide enhanced security compliance, including customer-managed keys, bring-your-own-key (BYOK) capabilities, and dedicated HSM backing for applications that run on the private Azure Red Hat OpenShift cluster. Key Vault Premium enables FIPS 140-3 Level 3 compliance required by many financial regulations. Integration with Azure Red Hat OpenShift includes native support for Key Vault CSI driver and Azure Workload Identity. For more information about the different Azure key-management solutions, see [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose#learn-more-about-azure-key-management-solutions).
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) that you can deploy to securely connect to virtual machines (VMs) through a private IP address. In this architecture, Azure Bastion connects to an Azure VM within the private network because this scenario implements a private cluster.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed platform as a service (PaaS) solution that enables connections to virtual machines (VMs) through a private IP address. In this architecture, Azure Bastion connects to an Azure VM within the private network because this scenario implements a private cluster.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads that run in Azure. In this architecture, Azure Firewall monitors and filters network traffic that goes in and out of the Azure Red Hat OpenShift environment.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native and intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. In this architecture, Azure Firewall monitors and filters network traffic that goes in and out of the Azure Red Hat OpenShift environment.
 
 ### Alternatives
 
-You can use Azure Red Hat OpenShift to access the comprehensive OpenShift ecosystem and cloud-native toolchain. When you run OpenShift on-premises, most of the included platform services apply to Azure Red Hat OpenShift. You can use these platform services as alternatives to some of the Azure services mentioned in this article.
+You can use Azure Red Hat OpenShift to access the OpenShift ecosystem and cloud-native toolchain. When you run OpenShift on-premises, most of the included platform services apply to Azure Red Hat OpenShift. You can use these platform services as alternatives to some of the Azure services mentioned in this article.
 
 Non-Microsoft alternatives are available. For example, you can host your container registry on-premises or use OpenShift GitOps instead of GitHub Actions. You can also use non-Microsoft monitoring solutions that work with Azure Red Hat OpenShift environments. This article focuses on Azure alternatives that customers often use to build their solutions on Azure Red Hat OpenShift.
 
 ## Scenario details
 
-FSI and other regulated industry Azure Red Hat OpenShift customers often have stringent requirements for their environments. This architecture outlines comprehensive criteria and guidelines that financial institutions can use to design solutions that meet their unique requirements when they use Azure Red Hat OpenShift in a hybrid cloud environment.
+FSI and other regulated industry Azure Red Hat OpenShift customers often have stringent requirements for their environments. This architecture outlines criteria and guidelines that financial institutions can use to design solutions that meet their unique requirements when they use Azure Red Hat OpenShift in a hybrid cloud environment.
 
-This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement stringent controls on private link usage, establish private registries, ensure network segregation, and deploy encryption for data at rest and data in transit. Identity and access management and role-based access control (RBAC) both ensure secure user administration within Azure Red Hat OpenShift clusters.
+This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement controls on private link usage, establish private registries, ensure network segregation, and deploy encryption for data at rest and data in transit. Identity and access management and RBAC both ensure secure user administration within Azure Red Hat OpenShift clusters.
 
-To add resilience, you can distribute resources across availability zones for fault tolerance. Compliance obligations involve non-Microsoft risk assessments, regulatory adherence, and disaster recovery (DR) protocols. To improve observability, you can add logging, monitoring, and backup mechanisms to uphold operational efficiency and regulatory compliance. The guidelines in this article provide a comprehensive framework that you can use to deploy and manage Azure Red Hat OpenShift solutions that are tailored to the needs of the financial services industry.
+To add resilience, you can distribute resources across availability zones for fault tolerance. Compliance obligations involve non-Microsoft risk assessments, regulatory adherence, and disaster recovery (DR) protocols. To improve observability, you can add logging, monitoring, and backup mechanisms to uphold operational efficiency and regulatory compliance. The guidelines in this article provide a framework that you can use to deploy and manage Azure Red Hat OpenShift solutions that are tailored to the needs of the FSI.
 
 ### Potential use cases
 
@@ -68,19 +68,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Resilience is essential for Microsoft Azure Red Hat OpenShift to maintain the uninterrupted operation of mission-critical applications. Implement the following reliability best practices:
+Resilience is essential for Azure Red Hat OpenShift to maintain the uninterrupted operation of mission-critical applications. Implement the following reliability best practices:
 
 - **Availability zones:** Distribute control plane and worker nodes across three availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
 
-- **Multi-region deployments:** Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redundancy and match that secondary location to the location where the OpenShift cluster will be deployed to.
+- **Multi-region deployments:** Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redundancy and match each secondary location to the location where you deploy the OpenShift cluster.
 
-- **DR:** Implement rigorous DR standards to safeguard customer data and ensure continuous business operations. To meet these standards effectively, follow the guidelines in [Considerations for DR](https://cloud.redhat.com/experts/aro/disaster-recovery/).
+- **DR:** Implement rigorous DR standards to safeguard customer data and ensure continuous business operations. To meet these standards effectively, follow the [DR considerations](https://cloud.redhat.com/experts/aro/disaster-recovery/).
 
 - **Backup:** To protect sensitive customer data and meet stringent compliance requirements, implement a robust backup and restore strategy for Azure Red Hat OpenShift.
 
-  - Start by configuring Azure Red Hat OpenShift clusters to attach to Azure storage by default and ensure that they automatically reattach after a restore operation. Use the guidance in [Create an Azure Red Hat OpenShift cluster application backup](/azure/openshift/howto-create-a-backup) for application-level backups that use Velero.
+  - Start by configuring Azure Red Hat OpenShift clusters to attach to Azure storage by default, and ensure that they automatically reattach after a restore operation. For application-level backups that use Velero, see [Create an Azure Red Hat OpenShift cluster application backup](/azure/openshift/howto-create-a-backup).
 
-  - For backup and DR workflows, including scheduled backups, remote object store replication, and data mover support, review the Red Hat guide [Backup and restore for Azure Red Hat OpenShift by using OpenShift API for Data Protection](https://cloud.redhat.com/experts/aro/backup-restore/). This approach is recommended for production environments that require strict recovery time objectives (RTO), recovery point objectives (RPO), and adherence to compliance standards.
+  - For backup and DR workflows, including scheduled backups, remote object store replication, and data mover support, review [Backup and restore for Azure Red Hat OpenShift by using OpenShift API for Data Protection](https://cloud.redhat.com/experts/aro/backup-restore/). Use this approach for production environments that require strict recovery time objectives (RTOs), recovery point objectives (RPOs), and adherence to compliance standards.
 
 ### Security
 
@@ -92,7 +92,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Private connectivity from an on-premises environment:** Financial industry use cases require exclusive private network connectivity without public internet access.
 
-  - Implement Private Link endpoints for secure connectivity and use ExpressRoute for private connectivity from on-premises datacenters. Azure Red Hat OpenShift supports private clusters with private ingress controllers and API endpoints.
+  - Implement Private Link endpoints for secure connectivity, and use ExpressRoute for private connectivity from on-premises datacenters. Azure Red Hat OpenShift supports private clusters that include private ingress controllers and API endpoints.
   
   - For enhanced security, consider using a hub-spoke network topology. For more information, see [Create an Azure Red Hat OpenShift private cluster](/azure/openshift/howto-create-private-cluster-4x).
 
@@ -106,19 +106,19 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Private registry with vulnerability scanning:** Use Azure Container Registry Premium tier with integrated security scanning to identify vulnerabilities in images hosted in your registry. This feature can be enabled at a subscription level by using the [Microsoft Defender for Container registries](/azure/defender-for-cloud/defender-for-containers-va-acr) powered by Microsoft Defender for Cloud.
 
-  - Implement image signing with notation and cosign for supply chain security.
+  - Implement image signing by using Notation and Cosign for supply chain security.
 
-  - Distribute container images through private endpoints and configure Azure Red Hat OpenShift to use private registries exclusively.
+  - Distribute container images through private endpoints, and configure Azure Red Hat OpenShift to use private registries exclusively.
 
   - Enable quarantine policies for vulnerable images. For more information, see [Use Container Registry in private Azure Red Hat OpenShift clusters](https://cloud.redhat.com/experts/aro/aro-acr/).
 
-  - Use [Private Link for Container Registry](/azure/container-registry/container-registry-private-link).
+  - Use [Private Link to enable private network access to Container Registry](/azure/container-registry/container-registry-private-link).
 
 - **Network segmentation:** Segment default subnets for security and network isolation.
 
-  - Use Azure networking to create distinct subnets for Azure Red Hat OpenShift control plane, worker plane, and data plane, Azure Front Door, Azure Firewall, Azure Bastion, and Azure Application Gateway.
+  - Use Azure networking to create distinct subnets for the Azure Red Hat OpenShift control plane, worker plane, and data plane, Azure Front Door, Azure Firewall, Azure Bastion, and Azure Application Gateway.
 
-  - [Create NetworkPolicy](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/networking/network-policy#about-network-policy) objects to restrict traffic between pods in a project.
+  - Create [NetworkPolicy objects](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/networking/network-policy#about-network-policy) to restrict traffic between pods in a project.
 
 #### Data
 
@@ -126,9 +126,9 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
   - Enable [*etcd* encryption](https://docs.openshift.com/container-platform/4.10/security/encrypting-etcd.html) behind the control plane, and encrypt storage on each worker node.
 
-  - Configure the [Key Vault provider for secret store CSI driver (CSI)](https://azure.github.io/secrets-store-csi-driver-provider-azure/) to mount secrets in Key Vault to your pods.
+  - Configure the [Key Vault provider for Secrets Store CSI driver (CSI)](https://azure.github.io/secrets-store-csi-driver-provider-azure/) to mount secrets in Key Vault to your pods.
 
-  - To manage keys through the customer or Azure, use etcd and storage data encryption, which is a feature of Azure Red Hat OpenShift. For more information, see [Security for Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
+  - To manage keys through the customer or Azure, use *etcd* and storage data encryption, which is a feature of Azure Red Hat OpenShift. For more information, see [Security for Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
 - **Encryption of data in transit:** Encrypt interconnections between services in a default Azure Red Hat OpenShift cluster.
 
@@ -136,15 +136,15 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
   - Use network policies, service mesh, and Key Vault for certificate storage. For more information, see [Update Azure Red Hat OpenShift cluster certificates](/azure/openshift/howto-update-certificates).
 
-  - Use Red Hat OpenShift Service Mesh to enforce traffic management, service identity, security, policy and to gain telemetry. For more information, see [Introduction to Red Hat OpenShift Service Mesh](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/service_mesh/service-mesh-2-x#ossm-servicemesh-overview_ossm-about).
+  - Use Red Hat OpenShift Service Mesh to enforce traffic management, service identity, security, and policy and to gain telemetry. For more information, see [Introduction to Red Hat OpenShift Service Mesh](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/service_mesh/service-mesh-2-x#ossm-servicemesh-overview_ossm-about).
 
-- **Key management service:** Use [Key Vault](/azure/key-vault/general/overview) as the primary service for securely storing and managing secrets, keys, and certificates.
+- **Key management service:** Use [Key Vault](/azure/key-vault/general/overview) as the primary service to securely store and manage secrets, keys, and certificates.
 
-  - For workloads that require **HSM-backed keys** use [Key Vault Premium](/azure/security/fundamentals/key-management-choose), which meets **FIPS 140-3 Level 3** standards.
+  - For workloads that require HSM-backed keys, use [Key Vault Premium](/azure/security/fundamentals/key-management-choose), which meets FIPS 140-3 Level 3 standards.
 
   - Enable [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction) for advanced threat detection. Configure [diagnostic logging](/azure/key-vault/general/logging) for auditing. Implement [automated key rotation](/azure/key-vault/keys/how-to-configure-key-rotation) and [secret life cycle management](/azure/key-vault/secrets/tutorial-rotation) by using built-in policies or event-driven automation.
 
-  - For advanced or multicloud scenarios, consider independent software vendors such as [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) or [CyberArk Conjur](https://docs.cyberark.com/portal/latest/en/docs.htm). BYOK models are fully supported across [Azure services](/azure/storage/common/customer-managed-keys-overview).
+  - For advanced or multicloud scenarios, consider software development companies such as [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) or [CyberArk Conjur](https://docs.cyberark.com/portal/latest/en/docs.htm). BYOK models are fully supported across [Azure services](/azure/storage/common/customer-managed-keys-overview).
 
 #### Authentication and authorization
 
@@ -152,15 +152,15 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
   - Use [Microsoft Entra to authenticate](/azure/openshift/configure-azure-ad-cli) users against your Azure Red Hat OpenShift cluster.
 
-  - Use [Privileged Identity Management (PIM) in Microsoft Entra ID](/azure/openshift/configure-azure-ad-cli) to manage, control, and monitor access to the cluster with **just-in-time (JIT)** privilege and **multifactor authentication (MFA)**.
+  - Use [Microsoft Entra Privileged Identity Management (PIM)](/azure/openshift/configure-azure-ad-cli) to manage, control, and monitor access to the cluster with just-in-time (JIT) privilege and multifactor authentication (MFA).
   
-  - Create a separate service principal with scoped Azure RBAC roles for your Azure Red Hat OpenShift landing zone. For more information, see [Prerequisites checklist to deploy Azure Red Hat OpenShift cluster](https://cloud.redhat.com/experts/aro/prereq-list/).
+  - Create a separate service principal with scoped Azure RBAC roles for your Azure Red Hat OpenShift landing zone. For more information, see [Prerequisites checklist to deploy an Azure Red Hat OpenShift cluster](https://cloud.redhat.com/experts/aro/prereq-list/).
 
 - **RBAC:** Implement RBAC in Azure Red Hat OpenShift to provide granular authorization of user actions and access levels.
 
   - Use RBAC in FSI scenarios to ensure least-privilege access to the cloud environment. For more information, see [Use RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
 
-  - Use role bindings between OpenShift and Microsoft Entra for distinct groups like Site Reliability Engineering, SecOps, DevOps, and developers. For more information, see [Configure Azure Red Hat OpenShift to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
+  - Use role bindings between OpenShift and Microsoft Entra ID for distinct groups like Site Reliability Engineering, SecOps, DevOps, and developers. For more information, see [Configure Azure Red Hat OpenShift to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
 
 #### Compliance
 
@@ -178,25 +178,25 @@ FSI companies can use robust observability tools and practices to proactively de
 
 - **Implement effective logging and monitoring:** Use Azure Monitor and Microsoft Sentinel to track actions and ensure system integrity within your Azure Red Hat OpenShift environment.
 
-  - Supplement observability and monitoring practices with non-Microsoft tools such as Dynatrace, Datadog, and Splunk.
+  - Supplement observability and monitoring practices by using non-Microsoft tools such as Dynatrace, Datadog, and Splunk.
 
   - Ensure that managed service for Prometheus or Azure Managed Grafana is available for Azure Red Hat OpenShift.
 
-  - Use the [Cluster Logging Forwarder](https://cloud.redhat.com/experts/aro/clf-to-azure/) to send logs to Azure Monitor and Azure Log Analytics. This functionality allows you to query and view your Azure Red Hat OpenShift workloads in Azure Monitor.
+  - Use the [Cluster Logging Forwarder](https://cloud.redhat.com/experts/aro/clf-to-azure/) to send logs to Azure Monitor and Log Analytics. This functionality allows you to query and view your Azure Red Hat OpenShift workloads in Azure Monitor.
 
-- **Use Azure Arc-enabled Kubernetes.** Integrate Azure Arc-enabled Kubernetes with your Azure Red Hat OpenShift environment for enhanced logging and monitoring capabilities.
+- **Use Azure Arc-enabled Kubernetes:** Integrate Azure Arc-enabled Kubernetes with your Azure Red Hat OpenShift environment for enhanced logging and monitoring capabilities.
 
   - Use the provided tools to optimize resource usage and maintain compliance with industry regulations.
 
   - Enable comprehensive monitoring and observability. For more information, see [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Enable monitoring for Azure Arc-enabled clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 
-- **Deploy Red Hat Advanced Cluster Management (ACM) and OpenShift Data Foundation (ODF) for Azure Red Hat OpenShift DR.** For business continuity and disaster recovery (BCDR) scenarios, consider running a hub cluster with ACM and the ODF Multicluster Orchestrator to coordinate primary and secondary clusters across peered virtual networks. For more information, see [Deploy ACM and ODF for Azure Red Hat OpenShift DR](https://cloud.redhat.com/experts/aro/acm-odf-aro/).
+- **Deploy Red Hat Advanced Cluster Management (ACM) and OpenShift Data Foundation (ODF) for Azure Red Hat OpenShift DR:** For business continuity and disaster recovery (BCDR) scenarios, consider running a hub cluster with ACM and the ODF Multicluster Orchestrator to coordinate primary and secondary clusters across peered virtual networks. For more information, see [Deploy ACM and ODF for Azure Red Hat OpenShift DR](https://cloud.redhat.com/experts/aro/acm-odf-aro/).
 
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
 - [Diego Casati](https://www.linkedin.com/in/diegocasati/) | Azure Global Black Belt
@@ -207,15 +207,15 @@ Principal author:
 
 **Production deployment resources:**
 
-- [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator) - Comprehensive reference implementation with Terraform/Bicep templates and critical design area recommendations
-- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/) - Hands-on lab exercises for learning Azure Red Hat OpenShift deployment and management
-- [Red Hat OpenShift on Azure documentation](/azure/openshift/) - Complete technical documentation and tutorials
+- [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator): Comprehensive reference implementation with Terraform and Bicep templates and critical design area recommendations
+- [Azure Red Hat OpenShift workshop](https://aroworkshop.io/): Hands-on lab exercises for learning Azure Red Hat OpenShift deployment and management
+- [Red Hat OpenShift on Azure documentation](/azure/openshift/): Complete technical documentation and tutorials
 
 **Architecture and best practices:**
 
-- [Azure Architecture Center - Container architectures](/azure/architecture/browse/?expanded=azure&products=azure-kubernetes-service%2Cazure-container-instances%2Cazure-red-hat-openshift) - Reference architectures and design patterns
-- [Azure Red Hat OpenShift support policies](/azure/openshift/support-policies-v4) - Version support and lifecycle information
+- [Azure Architecture Center - Container architectures](/azure/architecture/browse/?expanded=azure&products=azure-kubernetes-service%2Cazure-container-instances%2Cazure-red-hat-openshift): Reference architectures and design patterns
+- [Azure Red Hat OpenShift support policies](/azure/openshift/support-policies-v4): Version support and life cycle information
 
 **Security and compliance:**
 
-- [Azure security baseline for Azure Red Hat OpenShift](/security/benchmark/azure/baselines/azure-red-hat-openshift-aro-security-baseline) - Security baseline guidance from the Microsoft cloud security benchmark version 1.0 to Azure Red Hat OpenShift
+- [Azure security baseline for Azure Red Hat OpenShift](/security/benchmark/azure/baselines/azure-red-hat-openshift-aro-security-baseline): Security baseline guidance from the Microsoft cloud security benchmark version 1.0 to Azure Red Hat OpenShift
