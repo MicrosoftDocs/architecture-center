@@ -53,7 +53,7 @@ Most big data architectures include some or all of the following components:
   - Use Python, Scala, or SQL language in Azure Databricks notebooks.
   - Use Python, Scala, or SQL language in Fabric notebooks.
 
-- **Real-time message ingestion:** If the solution includes real-time sources, the architecture must capture and store real-time messages for stream processing. For example, you can have a simple data store that collects incoming messages for processing. However, many solutions need a message ingestion store to serve as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This part of a streaming architecture is often referred to as *stream buffering*. Options include Azure Event Hubs, Azure IoT Hub and Kafka.
+- **Real-time message ingestion:** If the solution includes real-time sources, the architecture must capture and store real-time messages for stream processing. For example, you can have a simple data store that collects incoming messages for processing. However, many solutions need a message ingestion store to serve as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. This part of a streaming architecture is often referred to as *stream buffering*. Options include Azure Event Hubs, Azure IoT Hub, and Kafka.
 
 - **Stream processing:** After the solution captures real-time messages, it must process them by filtering, aggregating, and preparing the data for analysis. The processed stream data is then written to an output sink.
 
