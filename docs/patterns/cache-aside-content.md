@@ -19,7 +19,7 @@ An application can emulate the functionality of read-through caching by implemen
 1. The application determines whether an item currently resides in the cache by attempting to read from the cache.
 
 2. If the item isn't in the cache, also known as a *cache miss*, the application retrieves the item from the data store.
-3. The application adds the item to the cache, and then returns it to the caller.
+3. The application adds the item to the cache and then returns it to the caller.
 
 If an application updates information, it can follow the write-through strategy by making the modification to the data store and invalidating the corresponding item in the cache.
 
@@ -65,8 +65,8 @@ Evaluate how to use the Cache-Aside pattern in a workload's design to address th
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | Caching replicates data and, in limited ways, can preserve the availability of frequently accessed data if the origin data store becomes temporarily unavailable. If the cache malfunctions, the workload can fall back to the origin data store.<br/><br/> - [RE:05 Redundancy](/azure/well-architected/reliability/redundancy) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Caching improves performance for read-heavy data that changes infrequently and tolerates some staleness.<br/><br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | Caching replicates data. In limited ways, it can preserve the availability of frequently accessed data if the origin data store becomes temporarily unavailable. If the cache malfunctions, the workload can fall back to the origin data store. <br/><br/> - [RE:05 Redundancy](/azure/well-architected/reliability/redundancy) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | Caching improves performance for read-heavy data that changes infrequently and tolerates some staleness. <br/><br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
 
 If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
