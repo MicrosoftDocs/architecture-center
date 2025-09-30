@@ -9,8 +9,7 @@ The architecture describes how to build scalable automation pipelines in which m
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multiple-agent-workflow-automation.svg" alt-text="Diagram that shows a typical multiple-agent architecture." lightbox="./_images/multiple-agent-workflow-automation.svg":::
-   :::image type="complex" border="false" source="./_images/multiple-agent-workflow-automation.svg" alt-text="Diagram that shows a typical multiple-agent architecture." lightbox="./_images/multiple-agent-workflow-automation.svg":::
-   The diagram shows six numbered workflow steps across multiple Azure services. Step one: Users access the App Service website to submit automation requests. Step two: The App Service website sends requests to the Container Apps API agent orchestration layer, which breaks down tasks and determines the required AI agents. Step three: The Container Apps API connects to the Azure AI Foundry GPT-4o model to coordinate specialized AI agents that collaborate on task operations. Step four: The Container Apps API stores and retrieves task data, plans, and historical information in Azure Cosmos DB for persistence and learning. Step five: GitHub source repository triggers automated builds that create Docker container images. Step six: Docker builds are pushed to Azure Container Registry, which stores versioned images for both the App Service website and the Container Apps API components.
+   The diagram shows six numbered workflow steps across multiple Azure services. In step one, users access the App Service website to submit automation requests. In step two, the App Service website sends requests to the Container Apps API agent orchestration layer, which breaks down tasks and determines the required AI agents. Step three shows how the Container Apps API connects to the Azure AI Foundry GPT-4o model to coordinate specialized AI agents that collaborate on task operations. In step four, the Container Apps API stores and retrieves task data, plans, and historical information in Azure Cosmos DB for persistence and learning. In step five, the GitHub source repository triggers automated builds that create Docker container images. In step six, Docker builds are pushed to Azure Container Registry, which stores versioned images for both the App Service website and the Container Apps API components.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multiple-agent-workflow-automation.vsdx) of this architecture.*
@@ -53,9 +52,9 @@ Other applications of this architecture are in code modernization and legacy sys
 
 ### Potential use cases
 
-The following are potential use cases for multiple-agent workflow automation.
+Consider the following potential use cases for multiple-agent workflow automation.
 
-### Code modernization and migration
+#### Code modernization and migration
 
 **Legacy SQL query translation:** Coordinate multiple specialized agents to translate SQL queries across different database dialects while you preserve business logic and performance characteristics. A SQL analysis agent identifies dialect-specific constructs. A translation agent converts syntax to the target platform. A validation agent tests query equivalence. A documentation agent generates migration notes. This approach addresses the common challenge of maintaining functional equivalence when you migrate from platforms like Oracle to Azure SQL Database or PostgreSQL.
 
@@ -105,7 +104,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Alternative approach:** Use Azure AI Foundry Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
 
-Consider this alternative if your workload has these characteristics:
+Consider this alternative if your workload has the following characteristics:
 
 - You don't require deterministic agent orchestration. You can sufficiently define agent behavior, including knowledge store access and tool use, through a system prompt.
 
@@ -149,7 +148,7 @@ Other contributor:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Next steps
 
 - [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) that uses Semantic Kernel
 - [Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)
