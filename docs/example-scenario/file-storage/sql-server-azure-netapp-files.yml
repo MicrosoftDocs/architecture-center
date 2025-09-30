@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: SQL Server on Azure Virtual Machines With Azure NetApp Files
-  titleSuffix: Azure Example Scenarios
   description: Learn how to implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
   author: gvanteylingen
   ms.author: b-arntdegier
