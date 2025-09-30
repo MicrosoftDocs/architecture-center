@@ -4,7 +4,7 @@ Before you build a production environment by using Azure Red Hat OpenShift, read
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/fsi-architecture.svg" alt-text="Diagram that shows the Azure Red Hat OpenShift hybrid architecture FSI scenario." lightbox="./images/fsi-architecture.svg":::
+:::image type="complex" border="false" source="./images/financial-services-industry-architecture.svg" alt-text="Diagram that shows the Azure Red Hat OpenShift hybrid architecture FSI scenario." lightbox="./images/financial-services-industry-architecture.svg":::
   This diagram provides a detailed view of the Azure Red Hat OpenShift hybrid architecture tailored for financial services. It illustrates the flow of data and integration between on-premises resources and Azure services. Key elements include the deployment pipeline containerizing code into an on-premises registry, the use of Azure ExpressRoute for private connectivity to Azure, and the routing of traffic through a hub virtual network secured by Azure Firewall. The architecture also highlights Azure Front Door for global routing and Azure Private Link for secure access to the Azure Red Hat OpenShift cluster.
 :::image-end:::
 
@@ -36,7 +36,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that can integrate with a connectivity provider to extend on-premises networks into the Microsoft cloud over a private connection. In this architecture, ExpressRoute provides private, high-bandwidth connectivity between on-premises resources and Azure.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-native key management solution that stores and manages secrets, keys, and certificates with FIPS 140-3 Level 3 validated Hardware Security Module (HSMs). It complies with standards such as PCI DSS, PCI 3DS. For FSI scenarios, this architecture recommends that you use Key Vault Premium tier instead of the Standard SKU to provide enhanced security compliance, including customer-managed keys, bring-your-own-key (BYOK) capabilities, and dedicated HSM backing for applications that run on the private Azure Red Hat OpenShift cluster. Key Vault Premium enables FIPS 140-3 Level 3 compliance required by many financial regulations. Integration with Azure Red Hat OpenShift includes native support for Key Vault CSI driver and Azure Workload Identity. For more information about the different Azure key-management solutions, see [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose#learn-more-about-azure-key-management-solutions).
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-native key management solution that stores and manages secrets, keys, and certificates with FIPS 140-3 Level 3 validated Hardware Security Module (HSMs). It complies with standards such as Payment Card Industry Data Security Standard (PCI DSS) and Payment Card Industry Three-Domain Secure (PCI 3DS). For FSI scenarios, this architecture recommends that you use Key Vault Premium tier instead of the Standard SKU to provide enhanced security compliance, including customer-managed keys, bring-your-own-key (BYOK) capabilities, and dedicated HSM backing for applications that run on the private Azure Red Hat OpenShift cluster. Key Vault Premium enables FIPS 140-3 Level 3 compliance required by many financial regulations. Integration with Azure Red Hat OpenShift includes native support for Key Vault CSI driver and Azure Workload Identity. For more information about the different Azure key-management solutions, see [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose#learn-more-about-azure-key-management-solutions).
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a managed platform as a service (PaaS) solution that enables connections to virtual machines (VMs) through a private IP address. In this architecture, Azure Bastion connects to an Azure VM within the private network because this scenario implements a private cluster.
 
@@ -104,7 +104,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
   - Use Private Link and Azure Firewall to apply firewall policy exceptions on an individual basis according to least-privilege principles.
 
-- **Private registry with vulnerability scanning:** Use Azure Container Registry Premium tier with integrated security scanning to identify vulnerabilities in images hosted in your registry. This feature can be enabled at a subscription level by using the [Microsoft Defender for Container registries](/azure/defender-for-cloud/defender-for-containers-va-acr) powered by Microsoft Defender for Cloud.
+- **Private registry with vulnerability scanning:** Use the Azure Container Registry Premium tier with integrated security scanning to identify vulnerabilities in images hosted in your registry. Enable this feature at the subscription level by using [Microsoft Defender for container registries](/azure/defender-for-cloud/defender-for-containers-va-acr).
 
   - Implement image signing by using Notation and Cosign for supply chain security.
 
