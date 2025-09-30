@@ -1,7 +1,8 @@
 ## Use case definition
-To support this worked example, the fictitious firm "Contoso" will be used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
-Business Continuity and Disaster Recovery (BCDR) across Microsoft Azure services operates under a shared responsibility model. Microsoft is responsible for ensuring the availability, resilience, and security of the underlying infrastructure and platform services. However, customers are accountable for implementing disaster recovery strategies tailored to their specific workloads. This includes configuring cross-regional failover, backup and restore mechanisms, and application-level recovery processes. Microsoft provides tools, guidance, and best practices to help customers design and validate BCDR plans that meet their recovery time objectives (RTO) and recovery point objectives (RPO). For more details, refer to the [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
+To support this worked example, the fictitious firm "Contoso" will be used with an Azure data platform based upon Microsoft reference architectures.
+
+Business Continuity and Disaster Recovery (BCDR) across Microsoft Azure services operates under a shared responsibility model. Microsoft is responsible for ensuring the availability, resilience, and security of the underlying infrastructure and platform services. However, customers are accountable, among other things, for implementing disaster recovery strategies tailored to their specific workloads. This includes configuring cross-regional failover, backup and restore mechanisms, and application-level recovery processes. Microsoft provides tools, guidance, and best practices to help customers design and validate BCDR plans that meet their recovery time objectives (RTO) and recovery point objectives (RPO). For more details, refer to the [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
@@ -22,7 +23,7 @@ Contoso has implemented the following foundational Azure architecture, which is 
 > [!NOTE]
 > Many customers still retain a large infrastructure as a service (IaaS) footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
-Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs, aligned to the guidance in [Data Platform End-to-End](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
+Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs, aligned to the guidance in [Data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
 
 [![Diagram that shows architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
 *Contoso's data platform*
@@ -38,22 +39,22 @@ The workflow is read left to right, following the flow of data:
     - Ingest structured, semi-structured, and unstructured data into OneLake using Data Factory, Event Streams, Notebooks, Shortcuts, or Mirroring.
     - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via Real-Time Hub.
     - Mirror supported databases for near real-time replication or use Shortcuts to access external data without copying.
-    - - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+    - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
         
 - **Store**
-    - All ingested data is stored in OneLake, Microsoft Fabric’s unified data lake.
+    - All ingested data is stored in OneLake, Microsoft Fabric's unified data lake.
     - OneLake supports open formats like Delta, Parquet, and CSV with built-in geo-redundancy and BCDR options.
 - **Process**
     - Use Data Engineering (Spark) or Data Factory to transform and prepare data for analytics.
     - Run KQL queries on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
 - **Serve**
     - Serve curated data via Lakehouse, Warehouse, or mirrored database endpoints using SQL Analytics Endpoints.
-    - Create a semantic model in Direct Lake storage mode, and share with business users.
+    - Create a semantic model in Direct Lake storage mode and share with business users.
     - Build real-time dashboards in Real-Time Intelligence (RTI) hub in Microsoft Fabric for discovering instant insights from streaming data.
     - Expose data through Microsoft Fabric API for GraphQL and query multiple data sources quickly and efficiently.
 - **Enrich**
-    - Use Data Science experiences for ML modeling, AutoML, and Azure ML integration to enrich datasets.
-    - Intreact with Data agent in Microsoft Fabric to uncover actionable insights through chat, and access to high-quality enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.
+    - Use data science experiences for ML modeling, AutoML, and Azure ML integration to enrich datasets.
+    - Interact with Data agent in Microsoft Fabric to uncover insights through chat. Access to enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.
 - **Discover and govern**
     - Use Purview integration, OneLake catalog, and Microsoft Fabric governance tools for lineage, metadata, and access control.
 - **Platform**
@@ -301,7 +302,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity (Memory Optimized SKU)
     - DR uplift options:
-        - Backup notebooks, Spark Job Definitions and Lakehouse data in a workspace in another region. 
+        - Backup notebooks, Spark job definitions, and Lakehouse data in a workspace in another region.
     - Notes
         - Notebooks can be redployed via CI/CD.
         - For further details regarding disaster recovery for Data Engineering in Fabric, refer to [Experience-specific disaster recovery guidance - Data Engineering](/fabric/security/experience-specific-guidance#data-engineering).
@@ -420,6 +421,7 @@ The following tables present a breakdown of each Azure service and component use
         - For further details regarding disaster recovery for Fabric Data Science, refer to [Disaster recovery guidance for Fabric Data Science](/fabric/data-science/data-science-disaster-recovery).
 
 ## Stateful vs stateless components
+
 The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
 
 A component/service can be described as stateful if it's designed to remember preceding events or user interactions. Stateless means there's no record of previous interactions, and each interaction request has to be handled based entirely on information that comes with it.

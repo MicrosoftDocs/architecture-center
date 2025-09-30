@@ -20,7 +20,7 @@ The scope of this article series includes:
     - A mid-large organization with a defined operational support function, following an Information Technology Infrastructure Library (ITIL) based service management methodology.
     - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
     - On the journey of cloud migration to Azure, enabled by automation.
-- The Azure data platform has implemented the following designs within the customer's Azure tenancy:
+- The data platform has implemented the following designs within the customer's Azure environment:
     - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security, and so on.
     - [Fabric-Toolbox](https://github.com/microsoft/fabric-toolbox/tree/main) - Fabric Toolbox is a growing repository of tools, accelerators, scripts, and sample solutions designed to help you get the most out of Microsoft Fabric. Created by the Fabric Customer Advisory Team (CAT), this collection offers practical resources you can explore, adapt, and build upon to suit your unique use cases. Whether you're just getting started or looking to optimize your existing workflows, these assets serve as flexible examples to accelerate your journey with Fabric.
 - The processes described in this article will be executed by an Azure technical resource rather than a specialist Azure subject matter expert (SME). As such, the resources should have the following level of knowledge/skills:

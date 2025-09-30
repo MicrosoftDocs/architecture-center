@@ -170,8 +170,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact
         - Azure datacenter failure: N/A
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
-        - Azure regional failure: Microsoft handles the regional failures. Onelake data is available via the API as outlined in the article below.
-                 -  [Onelake Disaster Recovery](/fabric/onelake/onelake-disaster-recovery)
+        - Azure regional failure: Microsoft handles the regional failures. Onelake data is available via the API as outlined in [Onelake Disaster Recovery](/fabric/onelake/onelake-disaster-recovery).
           
 - **Microsoft Fabric – Data Warehouse**
     - Contoso SKU selection: Fabric Capacity
@@ -182,8 +181,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - Cross-Region Restore:
             - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
-            - Microsoft Fabric allows capacity to be paused after restore, and during this paused state, only storage costs are incurred, making it a
-              cost-effective strategy for maintaining a “live” snapshot.
+            - Microsoft Fabric allows capacity to be paused after restoring. During this paused state, only storage costs are incurred, making it a cost-effective strategy for maintaining a "live" snapshot.
              
 - **Microsoft Fabric – Pipelines**
     - Contoso SKU selection: Fabric Capacity
@@ -261,7 +259,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - The customer will [not need to do anything](/power-bi/admin/service-admin-failover#how-does-microsoft-decide-to-fail-over-) if the outage is decided/declared by Power BI team.
             - A failed-over Power BI service instance [only supports read operations](/power-bi/admin/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live connect [won't work during a failover](/power-bi/enterprise/service-admin-failover#do-gateways-function-in-failover-mode-).
             - Publishing Restrictions: Contoso should not publish or modify reports until Microsoft confirms the failover instance is writable or the primary region is restored.
-            - Gateway Limitations: On-premises data refreshes via Power BI gateways will be paused during failover.
+            - Gateway limitations: On-premises data refreshes via Power BI gateways will be paused during failover.
 
 - **Azure Cosmos DB**
     - Contoso SKU selection: Single Region Write with Periodic backup
