@@ -132,4 +132,4 @@ Principal author:
 
 ## Next step
 
-[Azure Red Hat OpenShift Landing Zone Accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator) is an open-source repo that consists of an Azure CLI reference implementation and critical design area recommendations.
+[Cloud Adoption Framework guidance for adopting Azure Red Hat OpenShift in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator)

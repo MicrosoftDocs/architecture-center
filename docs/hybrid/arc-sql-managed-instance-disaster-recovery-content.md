@@ -163,7 +163,7 @@ Other contributor:
 - [Azure Arc-enabled SQL Managed Instance overview][Azure Arc-enabled SQL Managed Instance docs]
 - [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc)
 - [Azure Arc Jumpstart scenarios][Arc Jumpstart data services scenarios]
-- [Introduction to Azure Arc in Azure landing zones][CAF Arc Accelerator]
+- [Introduction to Azure Arc in Azure landing zones](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone)
 
 ## Related resources
 
@@ -172,5 +172,4 @@ Other contributor:
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
 [Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
-[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
