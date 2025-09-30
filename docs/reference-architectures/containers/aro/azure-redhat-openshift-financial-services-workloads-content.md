@@ -168,7 +168,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **Regulatory compliance:** Use Azure Policy to address various regulatory requirements related to compliance in FSI scenarios.
 
-  - Use [Azure Policy to apply tags](/azure/openshift/howto-tag-resources) to resources to an Azure Red Hat OpenShift cluster's managed resource group. For more information, see [Azure Policy](/azure/governance/policy/overview) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives).
+    Use [Azure Policy to apply tags](/azure/openshift/howto-tag-resources) to resources to an Azure Red Hat OpenShift cluster's managed resource group. For more information, see [Azure Policy](/azure/governance/policy/overview) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives).
 
 ### Operational Excellence
 
