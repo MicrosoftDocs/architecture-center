@@ -2,7 +2,7 @@ This article provides guidance about how to migrate SQL Server workloads to Azur
 
 ## Architecture
 
-:::image type="complex" border="false" source="./media/continuous-availability.png" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files." lightbox="./media/continuous-availability.png":::
+:::image type="complex" border="false" source="./media/continuous-availability.svg" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files." lightbox="./media/continuous-availability.svg":::
    A large rectangle that represents an Azure region surrounds the whole diagram. Inside the region, there's another rectangle that represents availability zone one. Availability zone one contains the Azure NetApp Files delegated subnet and the virtual machine (VM) subnet. The VM subnet contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL logs, and SQL backup.
 :::image-end:::
 
@@ -14,8 +14,8 @@ You can deploy SQL Server on Azure virtual machines (VMs) and use Azure NetApp F
 
 You can also deploy a high availability workflow.
 
-:::image type="complex" border="false" source="./media/high-availability.png" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files." lightbox="./media/high-availability.png":::
-   A large rectangle that represents an Azure region surrounds the whole diagram. Inside the region, there's another rectangle that represents availability zone one. Availability zone one contains the Azure NetApp Files delegated subnet and the VM subnet, the latter of which contains the SQL Server VM. The SQL Server VM connects to the Azure NetApp Files capacity pool that contains four volumes: SQL data 1, SQL data 2, SQL logs, and SQL backup.
+:::image type="complex" border="false" source="./media/high-availability.svg" alt-text="Architecture diagram that displays a SQL Server deployment with Azure NetApp Files." lightbox="./media/high-availability.svg":::
+   A large rectangle that represents an Azure region surrounds the whole diagram. There are two availability zones. The VM subnet and Azure NetApp Files delegated subnet both span these zones.
 :::image-end:::
 
 High availability and disaster recovery for SQL Server can be achieved on Azure by using [Always On failover cluster](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server), with two databases on two separate VMs. Both VMs should be in the same virtual network to ensure that they can access each other over the private persistent IP address. You should place the VMs in the same [availability set](/azure/virtual-machines/availability-set-overview) to allow Azure to place them into separate fault and upgrade domains. For geo-redundancy, set up the two databases to replicate between two different regions and configure [Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server).
@@ -45,8 +45,8 @@ Azure NetApp Files was designed to meet the core requirements of running high-pe
 - High availability
 - Advanced data management
 
-:::image type="complex" border="false" source="./media/value-proposition.png" alt-text="Diagram that outlines the benefits of using SQL Server with Azure NetApp Files." lightbox="./media/value-proposition.png":::
-   A diagram is split in two halves. The right half shows the architecture of SQL Server on Azure NetApp Files, showing the storage layer of Azure NetApp Files and separate layers for production (compute and database) and testing and development. The left half of the diagram outlines benefits of running SQL Server on Azure NetApp Files: it's simple to manage, high-performance, space and time-efficient, and provides hybrid and disaster recovery.
+:::image type="complex" border="false" source="./media/value-proposition.svg" alt-text="Diagram that outlines the benefits of using SQL Server with Azure NetApp Files." lightbox="./media/value-proposition.svg":::
+   The image shows sections that describe the benefits of using SQL Server with Azure NetApp Files. They're labeled Simple to manage, Enterprise data management, Highly performant, Hybrid and disaster recovery, Production, and Test and dev. A section labeled Azure NetApp Files storage layer has a map key labeled Performance requirement.
 :::image-end:::
 
 All components (database and log files) can initially be deployed into a single volume. This simplified configuration is easy to manage and well-suited for smaller databases with low transaction activity.
