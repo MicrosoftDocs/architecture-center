@@ -377,7 +377,7 @@ Other contributors:
 - [Node OS upgrade FAQ](/azure/aks/auto-upgrade-node-os-image#node-os-auto-upgrades-faq)
 - [Defining day-2 operations](https://dzone.com/articles/defining-day-2-operations)
 - [A practical guide for zone-redundant AKS clusters](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/4036254)
-- [Cloud Adoption Framework guidance for adopting AKS in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+- [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 

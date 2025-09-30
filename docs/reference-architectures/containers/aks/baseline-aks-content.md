@@ -913,7 +913,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 - [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
 - [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
 - [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
-- [Cloud Adoption Framework guidance for adopting AKS in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+- [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 - [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 - [Microservices architecture on AKS](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)

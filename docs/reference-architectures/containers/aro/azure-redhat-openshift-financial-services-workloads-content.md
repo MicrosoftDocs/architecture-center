@@ -132,4 +132,4 @@ Principal author:
 
 ## Next step
 
-[Cloud Adoption Framework guidance for adopting Azure Red Hat OpenShift in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator)
+[Cloud Adoption Framework guidance for adopting Azure Red Hat OpenShift in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator)

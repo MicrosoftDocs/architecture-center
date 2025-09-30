@@ -135,7 +135,7 @@ Principal authors:
 
 ## Next steps
 
-- [Cloud Adoption Framework guidance for adopting API Management in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+- [Cloud Adoption Framework guidance for adopting API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 - [API Management terminology](/azure/api-management/api-management-terminology)
 - [Application Gateway documentation](/azure/application-gateway/overview)
 
