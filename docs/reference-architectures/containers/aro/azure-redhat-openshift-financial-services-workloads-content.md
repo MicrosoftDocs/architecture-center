@@ -36,7 +36,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a networking service that can integrate with a connectivity provider to extend on-premises networks into the Microsoft cloud over a private connection. In this architecture, ExpressRoute provides private, high-bandwidth connectivity between on-premises resources and Azure.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-native key management solution that stores and manages secrets, keys, and certificates with FIPS 140-3 Level 3 validated Hardware Security Module (HSMs). It complies with standards such as Payment Card Industry Data Security Standard (PCI DSS) and Payment Card Industry Three-Domain Secure (PCI 3DS). For FSI scenarios, this architecture recommends that you use Key Vault Premium tier instead of the Standard SKU to provide enhanced security compliance, including customer-managed keys, bring-your-own-key (BYOK) capabilities, and dedicated HSM backing for applications that run on the private Azure Red Hat OpenShift cluster. Key Vault Premium enables FIPS 140-3 Level 3 compliance required by many financial regulations. Integration with Azure Red Hat OpenShift includes native support for Key Vault CSI driver and Azure Workload Identity. For more information about the different Azure key-management solutions, see [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose#learn-more-about-azure-key-management-solutions).
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-native key management solution that stores and manages secrets, keys, and certificates with FIPS 140-3 Level 3 validated Hardware Security Module (HSMs). It complies with standards such as Payment Card Industry Data Security Standard (PCI DSS) and Payment Card Industry Three-Domain Secure (PCI 3DS). For FSI scenarios, this architecture recommends that you use Key Vault Premium tier instead of the Standard SKU to provide enhanced security compliance, including customer-managed keys, bring-your-own-key (BYOK) capabilities, and dedicated HSM backing for applications that run on the private Azure Red Hat OpenShift cluster. Key Vault Premium enables FIPS 140-3 Level 3 compliance required by many financial regulations. Integration with Azure Red Hat OpenShift includes native support for Key Vault CSI driver and Microsoft Entra Workload ID. For more information about the different Azure key-management solutions, see [Choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose#learn-more-about-azure-key-management-solutions).
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a managed platform as a service (PaaS) solution that enables connections to virtual machines (VMs) through a private IP address. In this architecture, Azure Bastion connects to an Azure VM within the private network because this scenario implements a private cluster.
 
@@ -104,7 +104,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
   - Use Private Link and Azure Firewall to apply firewall policy exceptions on an individual basis according to least-privilege principles.
 
-- **Private registry with vulnerability scanning:** Use the Azure Container Registry Premium tier with integrated security scanning to identify vulnerabilities in images hosted in your registry. Enable this feature at the subscription level by using [Microsoft Defender for container registries](/azure/defender-for-cloud/defender-for-containers-va-acr).
+- **Private registry with vulnerability scanning:** Use the Azure Container Registry Premium tier with integrated security scanning to identify vulnerabilities in images hosted in your registry. Enable this feature at the subscription level by using [Microsoft Defender for Containers](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure).
 
   - Implement image signing by using Notation and Cosign for supply chain security.
 
@@ -188,7 +188,7 @@ FSI companies can use robust observability tools and practices to proactively de
 
   - Use the provided tools to optimize resource usage and maintain compliance with industry regulations.
 
-  - Enable comprehensive monitoring and observability. For more information, see [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Enable monitoring for Azure Arc-enabled clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+  - Enable comprehensive monitoring and observability. For more information, see [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Enable monitoring for Azure Arc-enabled clusters](/azure/architecture/example-scenario/infrastructure/wordpress-container).
 
 - **Deploy Red Hat Advanced Cluster Management (ACM) and OpenShift Data Foundation (ODF) for Azure Red Hat OpenShift DR:** For business continuity and disaster recovery (BCDR) scenarios, consider running a hub cluster with ACM and the ODF Multicluster Orchestrator to coordinate primary and secondary clusters across peered virtual networks. For more information, see [Deploy ACM and ODF for Azure Red Hat OpenShift DR](https://cloud.redhat.com/experts/aro/acm-odf-aro/).
 
