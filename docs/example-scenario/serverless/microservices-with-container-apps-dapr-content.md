@@ -186,4 +186,4 @@ Other contributors:
 
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Continuous integration and continuous delivery for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)
+- [Continuous integration and continuous delivery for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.md)
