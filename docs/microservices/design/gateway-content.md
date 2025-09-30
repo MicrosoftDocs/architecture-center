@@ -81,6 +81,6 @@ Previous articles explored the interfaces *between* microservices and between mi
 ## Related resources
 
 - [Design APIs for microservices](api-design.yml)
-- [Design a microservices architecture](index.yml)
+- [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)

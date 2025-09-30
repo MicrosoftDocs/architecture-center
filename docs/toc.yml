@@ -50,7 +50,7 @@ items:
           - name: Design a microservices architecture
             items:
             - name: Introduction
-              href: microservices/design/index.yml
+              href: microservices/design/index.md
             - name: Choose a compute option
               href: microservices/design/compute-options.md
             - name: Interservice communication
@@ -125,10 +125,6 @@ items:
         href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
         href: data-guide/technology-choices/understand-data-store-models.md
-      - name: Review data options
-        href: guide/technology-choices/data-options.md
-      - name: Criteria for choosing a data store
-        href: guide/technology-choices/data-store-considerations.md
       - name: Selecting a data store model
         items:
           - name: Select a data store

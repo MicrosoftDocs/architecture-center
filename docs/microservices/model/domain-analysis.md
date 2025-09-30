@@ -12,7 +12,7 @@ ms.subservice: architecture-guide
 
 One of the biggest challenges of microservices is to define the boundaries of individual services. The general rule is that a service should do only one thing, but putting that rule into practice requires careful thought. There's no mechanical process that produces the correct design. You have to think deeply about your business domain, requirements, architecture characteristics (also known as *nonfunctional requirements*), and goals. Otherwise, you can end up with a haphazard design that exhibits some undesirable characteristics, such as hidden dependencies between services, tight coupling, or poorly designed interfaces. This article shows a domain-driven approach to designing microservices. Evaluating service boundaries is an ongoing effort on evolving workloads. Sometimes the evaluation results in redefined definitions of existing boundaries that require more application development to accommodate the changes.
 
-This article uses a drone delivery service as a running example. For more information about the scenario and the corresponding reference implementation, see [Design a microservices architecture](../design/index.yml).
+This article uses a drone delivery service as a running example. For more information about the scenario and the corresponding reference implementation, see [Design a microservices architecture](../design/index.md).
 
 ## Introduction
 
@@ -106,6 +106,6 @@ After completing a domain analysis, the next step is to apply tactical DDD, to d
 ## Related resources
 
 - [Microservices architecture design](../../guide/architecture-styles/microservices.md)
-- [Design a microservices architecture](../../microservices/design/index.yml)
+- [Design a microservices architecture](../../microservices/design/index.md)
 - [Identify microservice boundaries](microservice-boundaries.yml)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)
