@@ -41,11 +41,11 @@ Service-to-service traffic inside the cluster is governed by ACNS—policies (Ci
 
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni) is a plugin that enables containers to connect directly to an Azure virtual network. In this architecture, Azure CNI assigns IP addresses from the virtual network to pods, enabling integration with Azure networking services and control over traffic flow.
 
-    - [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) is a suite of managed networking capabilities for AKS that provides network observability and enhanced in-cluster security:
+  - [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) is a suite of managed networking capabilities for AKS that provides network observability and enhanced in-cluster security:
 
-      - **Container Network Observability** uses eBPF-based tooling (Hubble and Retina) to collect DNS queries, pod-to-pod and pod-to-service flows, packet drops, and other metrics. It works across Cilium and non-Cilium Linux data planes and integrates with Azure Monitor managed Prometheus and Azure Managed Grafana for visualization and alerting. In this architecture, it diagnoses policy misconfigurations, DNS latency or errors, and traffic imbalances across microservices. 
+    - **Container Network Observability** uses eBPF-based tooling (Hubble and Retina) to collect DNS queries, pod-to-pod and pod-to-service flows, packet drops, and other metrics. It works across Cilium and non-Cilium Linux data planes and integrates with Azure Monitor managed Prometheus and Azure Managed Grafana for visualization and alerting. In this architecture, it diagnoses policy misconfigurations, DNS latency or errors, and traffic imbalances across microservices. 
 
-      - **Container Network Security** applies to clusters that use Azure CNI powered by Cilium. It enforces Cilium NetworkPolicy resources, including FQDN-based egress filtering, to implement Zero Trust network segmentation and reduce operational overhead. In this architecture, in-cluster FQDN policies work with Azure Firewall or NAT Gateway to enforce least-privilege egress while simplifying policy maintenance.
+    - **Container Network Security** applies to clusters that use Azure CNI powered by Cilium. It enforces Cilium NetworkPolicy resources, including FQDN-based egress filtering, to implement Zero Trust network segmentation and reduce operational overhead. In this architecture, in-cluster FQDN policies work with Azure Firewall or NAT Gateway to enforce least-privilege egress while simplifying policy maintenance.
 
   - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature that provides deep visibility into AKS cluster performance and health. In this architecture, it collects metrics, logs, and telemetry to support monitoring and diagnostics.
 
@@ -164,6 +164,7 @@ spec:
 ```
 
 For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies).
+For Best Practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices).
 
 Azure provides three network policy engines for [enforcing network policies](/azure/aks/use-network-policies):
 
@@ -313,9 +314,9 @@ Azure offers several integrated capabilities for end-to-end visibility:
 - Container insights – Monitor AKS clusters, nodes, and containers for health and resource usage.
 - [Managed Grafana](/azure/managed-grafana/overview) – Visualise metrics and dashboards for clusters and microservices.
 
-Advanced Container Networking Services's Observability complements these tools by providing deep, eBPF-based visibility into network behaviour of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and L7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed Prometheus for metrics and Managed Grafana for dashboards, enabling proactive detection of network bottlenecks, policy misconfigurations, and communication issues that traditional APM might miss.
+[Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) Observability complements these tools by providing deep, eBPF-based visibility into network behaviour of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and L7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed Prometheus for metrics and Managed Grafana for dashboards, enabling proactive detection of network bottlenecks, policy misconfigurations, and communication issues that traditional APM might miss.
 
-Tip: Combine Advanced Container Networking Services's network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
+Tip: Combine ACNS network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
 
 ## Considerations
 
@@ -344,7 +345,7 @@ Consider the following points when you plan for security.
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
-- In-cluster network segmentation and Zero Trust controls:
+- In-cluster network segmentation and Zero Trust controls with [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview):
   Use Cilium network policies on Azure CNI powered by Cilium to implement L3/L4 segmentation within the cluster. ACNS Security extends this foundation by adding advanced capabilities:
   - FQDN-based egress filtering to restrict outbound traffic to approved domains.
   - L7-aware policies (HTTP/gRPC) to validate and control application-level communication.
@@ -411,6 +412,7 @@ Consider the following points when you plan for scalability.
 - [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
+- [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview)
 
 ## Related resources
 
