@@ -127,7 +127,7 @@ Note: there is no commonly accepted definition for the terms “small data” an
 
 The following decision guide serves as a practical tool to help you select a suitable data store for a particular use case by answering a series of questions. In addition to selecting the primary data store, this decision guide may also suggest a complementary secondary data store to support your requirements more fully for a mixed analytical workload. This decision guide is intended to be applied for each use case or each individual data product with the understanding that multiple analytical data stores may be used to accommodate diverse workloads across your entire data estate.
 
-![Decision Guide for Selecting an Analytical Data Store](fabric-data-stores-decision-tree.png "Decision Guide for Selecting an Analytical Data Store")
+:::image type="content" source="../images/fabric-data-stores-decision-tree.png" alt-text="Diagram that shows a decision tree describing how to select an appropriate data store in Microsoft Fabric for different scenarios. The decision tree summarizes guidance found throughout the article." lightbox="../images/fabric-data-stores-decision-tree.png":::
 
 ## Conclusion
 SQL Databases, Data Warehouses, Lakehouses and Eventhouses enable Microsoft Fabric to handle diverse analytical workloads. Each of these analytical data stores provides a unique blend of capabilities and limitations that must be matched to the workload to achieve optimal results. While some use cases can be addressed using a single analytical data store, certain complex use cases that involve mixed workloads are best served by leveraging multiple complementary analytical data stores which are readily available in Microsoft Fabric as the unified data platform.
