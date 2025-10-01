@@ -32,7 +32,7 @@ This article describes an architecture that you can use to replace the manual an
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, triggers analysis workflows, processes results, and coordinates the movement and transformation of data.
 
-- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
@@ -89,9 +89,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
-For the availability guarantees of the Azure services in this solution, see this resources
+For the availability guarantees of the Azure services in this solution, see the [Service-level agreement (SLA) for Storage Accounts](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
 
-- [Service-level agreement (SLA) for Storage Accounts](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
 
 ### Security
 
