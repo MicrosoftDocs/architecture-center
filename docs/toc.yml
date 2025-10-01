@@ -455,6 +455,8 @@ items:
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose an analytical data store in Microsoft Fabric
+          href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
