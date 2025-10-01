@@ -28,9 +28,9 @@ items:
           href: architecture/dataops-mdw.yml
         - name: Greenfield lakehouse on Microsoft Fabric
           href: ../example-scenario/data/greenfield-lakehouse-fabric.yml
-      - name: Azure Data Factory on Azure landing zones
+      - name: Azure Data Factory in Azure landing zones
         items:
-        - name: Azure Data Factory on Azure landing zones index
+        - name: Azure Data Factory in an Azure landing zone
           href: architecture/azure-data-factory-on-azure-landing-zones-index.yml
         - name: Azure Data Factory baseline architecture
           href: architecture/azure-data-factory-on-azure-landing-zones-baseline.yml
