@@ -177,11 +177,11 @@ After your hyperparameters and results are persisted, you should consider making
 
 It's important to understand that designing and evaluating your RAG solution isn't a one-time operation. Your collection of documents changes over time. The questions that your customers ask change over time, and your understanding of the types of questions evolves as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
-## The RAG experiment accelerator
+## The RAG experiment accelerator repository
 
-These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG experiment accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
+These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a custom, code-based experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The framework empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
 
-The RAG experiment accelerator uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
+The implementation in the repository uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
 
 The framework also provides comprehensive support for language model configuration. This support helps you strike the perfect balance between model complexity and generation quality. This tool helps you streamline the experimentation process, save time, and significantly improve the performance of your RAG models.
 
@@ -208,10 +208,10 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator)
 
 > [!div class="nextstepaction"]
-> [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
+> [RAG with Vision Application Framework GitHub repository](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
 
 ## Related resource
 
