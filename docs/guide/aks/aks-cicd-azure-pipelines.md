@@ -25,17 +25,19 @@ ai-usage: ai-assisted
 > [!IMPORTANT]
 > This article describes a version of the [continuous integration and continuous deployment (CI/CD) baseline architecture](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture). It focuses specifically on deploying Azure Kubernetes Service (AKS) applications by using Azure Pipelines.
 
-Azure Pipelines orchestrates deployment activities to AKS as part of your repeatable application delivery plan. You can integrate your build and release processes into a pipeline to reduce the risk of human error, accelerate release cycles, and improve overall software quality. This article describes how to use Azure Pipelines to implement CI/CD, to push application updates to your AKS clusters.
+Azure Pipelines orchestrates deployment activities to AKS as part of a repeatable application delivery plan. You can integrate your build and release processes into a pipeline to reduce the risk of human error, accelerate release cycles, and improve overall software quality. This article describes how to use Azure Pipelines to implement CI/CD and push application updates to AKS clusters.
 
 ## Architecture
 
 :::image type="complex" source="media/aks-cicd-azure-pipelines-architecture.svg" lightbox="media/aks-cicd-azure-pipelines-architecture.svg" alt-text="Architecture diagram of an AKS CI/CD pipeline that uses Azure Pipelines." border="false":::
-    The flow goes from left to right. It starts with step 1, where an engineer pushes code changes to an Azure Repos Git repository. In step 2, An Azure Pipelines PR pipeline gets triggered. This pipeline includes the following tasks: Restore, build, unit tests, PR review, and code analysis, including lint, security scan, and other tools. In step 3, an Azure Pipelines CI pipeline gets triggered. This pipeline includes the following tasks: Get secrets, lint, restore, build, unit tests, integration tests, publish build artifacts, and publish container images. In step 3, a container image is published to a nonproduction Azure container registry. In step 4, an Azure Pipelines CD pipeline gets triggered. This pipeline includes the following tasks: Deploy to staging, acceptance tests, promote container image, manual intervention, and release. In step 5, the CD pipeline deploys to a staging environment that includes AKS and a Defender agent. In step 6, the container image is promoted to the production Azure container registry. In step 7, the CD pipeline is released to a production environment that includes AKS and a Defender agent. In step 8, Azure managed Prometheus forwards telemetry to Azure Monitor. A section that includes an operator, Azure Monitor, Azure managed Prometheus, a Log Analytics workspace, and Defender for Containers represents step 9. Dashed lines go from the line between steps 2 and 3, the line between steps 2 and 4, and the line between steps 4 and the staging and production environments back to the engineer.
+    The flow goes from left to right. It starts with step 1, where an engineer pushes code changes to an Azure Repos Git repository and an Azure Pipelines PR pipeline gets triggered. This pipeline includes the following tasks: Restore, build, unit tests, PR review, and code analysis that includes lint, security scan, and other tools. In step 2, an Azure Pipelines CI pipeline gets triggered. This pipeline includes the following tasks: Get secrets, lint, restore, build, unit tests, integration tests, publish build artifacts, and publish container images. In step 3, a container image is published to a nonproduction Azure container registry. In step 4, an Azure Pipelines CD pipeline gets triggered. This pipeline includes the following tasks: Deploy to staging, acceptance tests, promote container image, optional manual intervention, and release. In step 5, the CD pipeline deploys to a staging environment that includes AKS. In step 6, the container image is promoted to the production Azure container registry. In step 7, the CD pipeline is released to a production environment that includes AKS. In step 8, Azure Monitor managed service for Prometheus forwards telemetry to Azure Monitor. Step 9 is represented by a section that includes an operator, Azure Monitor, Azure Monitor managed service for Prometheus, a Log Analytics workspace, Microsoft Security DevOps, key vaults, Azure Managed Grafana, and Defender for Cloud. A dashed line goes from step 1 to Microsoft Security DevOps. Multiple dashed lines go from step 2, step 4, and the line between steps 4 and the staging and production environments back to the engineer.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-devops-ci-cd-aks-architecture.vsdx) of this architecture.*
 
 ### Dataflow
+
+The following dataflow corresponds with the previous diagram:
 
 1. A pull request (PR) to either an Azure Repos Git repository or a GitHub repository triggers a PR pipeline.
 
@@ -52,17 +54,17 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
    If the integration tests require [secrets](/azure/devops/pipelines/release/azure-key-vault), the pipeline gets them from Azure Key Vault, a resource dedicated to this environment's CI pipeline.
 
    If any checks fail, the pipeline ends, and the developer must make the required changes.
-1. A successful CI pipeline run creates and publishes a container image in a nonproduction Azure container registry. [Defender for containers](/azure/defender-for-cloud/defender-for-container-registries-introduction) scans the container images when they are pushed to Azure Container Registry, and reports the image vulnerabilities to Microsoft Defender for Cloud. Optionally, the container images may be [signed](/azure/container-registry/container-registry-content-trust) for ensuring the integrity of container image.
+1. A successful CI pipeline run creates and publishes a container image in a nonproduction Azure container registry. [Defender for Containers](/azure/defender-for-cloud/defender-for-container-registries-introduction) scans the container images when they're pushed to Azure Container Registry and reports the image vulnerabilities to Microsoft Defender for Cloud. Optionally, the container images might be [signed](/azure/container-registry/container-registry-content-trust) to ensure the integrity of the container image.
 1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/azure/defender-for-cloud/tutorial-enable-containers-azure). This is a "push" deployment of the YAML, and can be done with `kubectl` or `helm`.  The template references the container image from the nonproduction registry.
+1. The CD pipeline deploys a YAML template to the staging AKS environment that includes a [Defender agent](/azure/defender-for-cloud/tutorial-enable-containers-azure). This deployment uses a push model and runs via either kubectl or helm. The template references the container image from the nonproduction registry.
 
-   The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline can include a manual validation task to validate the deployment and resume the pipeline. Some workloads might deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
-1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry. [Defender for containers](/azure/defender-for-cloud/defender-for-container-registries-introduction) scans the container images when they are pushed to Azure Container Registry, and reports the image vulnerabilities to Microsoft Defender for Cloud.
+   The pipeline performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, the pipeline might include a manual validation task to validate the deployment and resume the pipeline. Some workloads deploy automatically. If any checks fail, the pipeline ends, and the developer must make the required changes.
+1. When an individual resumes the manual intervention, the CD pipeline promotes the image from the nonproduction Azure container registry to the production registry. [Defender for Containers](/azure/defender-for-cloud/defender-for-container-registries-introduction) scans the container images when they're pushed to Container Registry and reports the image vulnerabilities to Microsoft Defender for Cloud.
 1. The CD pipeline deploys a YAML template to the production AKS environment that includes a Defender agent. The template specifies the container image from the production registry.
 1. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) periodically forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor.
-1. A Log Analytics workspace stores all the data. Azure Monitor provides multiple tools to analyze the data collected by other features. You can also take advantage of a variety of available [Grafana dashboards](/azure/managed-grafana/overview) that combine different sets of Kubernetes telemetry. Application Insights collects application-specific monitoring data, such as traces.
+1. A Log Analytics workspace stores all data. Azure Monitor provides multiple tools to analyze the data collected by other features. Various [Grafana dashboards](/azure/managed-grafana/overview) combine different sets of Kubernetes telemetry. Application Insights collects application-specific monitoring data, such as traces.
 
-   Defender for containers performs periodic scans of running containers in Azure Kubernetes Service and of container images stored in Azure Container Registry. Defender for Containers also provides real-time threat protection for supported containerized environments and generates alerts for suspicious activities. You use this information to identify security issues and improve the security of your containers.
+   Defender for Containers performs periodic scans of containers that run in AKS and of container images stored in Container Registry. Defender for Containers also provides real-time threat protection for supported containerized environments and generates alerts for suspicious activities. This information helps identify security problems and improve the security of containers.
 
 ### Components
 
@@ -70,40 +72,37 @@ Azure Pipelines orchestrates deployment activities to AKS as part of your repeat
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) is an Azure feature that provides monitoring for containerized environments. In this architecture, it collects performance metrics, logs, and health data from containers and forwards this observability data to Azure Monitor for analysis and alerting.
 
-- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
+- [Key Vault](/azure/key-vault/general/overview) is a cloud service for storing and accessing secrets, such as API keys, passwords, certificates, or cryptographic keys. In this architecture, the pipeline gets secrets required for testing the code from Key Vault.
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring solution that collects, analyzes, and responds to telemetry from cloud and on-premises environments. In this architecture, it serves as the central observability platform that provides monitoring and alerting for the AKS clusters and CI/CD pipeline operations.
   
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Container Registry stores private container images. In this architecture, the compute platform pulls the application's container image from Container Registry.
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Container Registry stores private container images. In this architecture, the compute platform pulls the application's container image from Container Registry.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance. In this architecture, it serves as the compute platform for the application.
 
-- [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) lets you embed security scanning directly in your continuous integration and continuous deployment (CI/CD) workflows. In this architecture, Microsoft Security DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Security DevOps is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction) which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
-
+- [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) lets you embed security scanning directly in your continuous integration and continuous deployment (CI/CD) workflows. In this architecture, Microsoft Security DevOps performs static analysis and provides visibility of security postures across multiple pipelines in AKS development and deployment. Microsoft Security DevOps is part of [Microsoft Defender for Cloud DevOps security](/azure/defender-for-cloud/defender-for-devops-introduction), which provides comprehensive visibility, posture management, and threat protection across multicloud environments.
 
 ## Alternatives
 
-
-The scenario presented here has a few alternatives for you to consider as part of your own implementation.
+Cosider the following alternatives for your implementation.
 
 ### Pull-based model (GitOps)
 
 This scenario shows a push-based model to deploy resources in AKS. Push-based deployments work best when you need deterministic updates to your clusters. Pipelines actively initiate deployments, monitor their success, and take direct action if deployments fail. This approach is often an important characteristic of safe deployment practices in workloads. Push-based deployments also suit multiple deployment targets, such as blue-green environments, where you need a highly controlled rollout pattern within a single cluster or across clusters.
 
-Alternatively, pull-based deployments rely on clusters to fetch and apply updates. This pattern decouples deployment logic from the pipeline, which allows individual clusters to reconcile against a desired state stored in a central location, such as a Git repository (in GitOps workflows) or an artifact registry. Pull-based deployments work best for environments that prioritize consistency, auditability, and self-healing. The source of truth lives externally, often in version-controlled systems, so clusters continuously monitor and apply updates to match this desired state. This approach reduces the risk of drift. If a cluster experiences a failure or becomes unavailable, it can self-reconcile after it comes back online without requiring redeployment from a central pipeline. 
+Alternatively, pull-based deployments rely on clusters to fetch and apply updates. This pattern decouples deployment logic from the pipeline, which allows individual clusters to reconcile against a desired state stored in a central location, such as a Git repository in GitOps workflows or an artifact registry. Pull-based deployments work best for environments that prioritize consistency, auditability, and self-healing. The source of truth lives externally, often in version-controlled systems, so clusters continuously monitor and apply updates to match this desired state. This approach reduces the risk of drift. If a cluster experiences a failure or becomes unavailable, it can self-reconcile after it comes back online without requiring redeployment from a central pipeline.
 
-Additionally, the gitops/pull model removes the need for the pipeline to have direct cluster access and associated deployment credentials, removing an attack vector. Instead the clusters just need read only access to the source repository. For more information, see [GitOps for AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
+The GitOps pull model also removes the need for pipelines to access clusters directly or use associated deployment credentials, which eliminates an attack vector. Clusters only need read-only access to the source repository. For more information, see [GitOps for AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
-### CI/CD pipeline using GitHub actions
+### CI/CD pipeline built with GitHub Actions
 
-[GitHub actions for AKS](/azure/aks/kubernetes-action) can be used as an alternative to Azure Pipelines. GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. Multiple [starter workflows](/azure/aks/kubernetes-action#next-steps) for AKS are available, which can be customized according to your CI/CD requirements.
-
+You can replace Azure Pipelines with [GitHub Actions for AKS](/azure/aks/kubernetes-action). GitHub Actions is a CI/CD platform that you can use to automate your build, test, and deployment pipeline. Consider using a [starter workflow](/azure/aks/kubernetes-action#next-steps) for AKS and customize it according to your CI/CD requirements.
 
 ## Next steps
 
-- [CI/CD baseline architecture that uses Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture).
-- For a complete set of services based on Azure Monitor for monitoring the health and performance of different layers of your Kubernetes infrastructure and the applications that depend on it, see [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
-- [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure).
+- For a complete set of services based on Azure Monitor that monitor the health and performance of different layers in Kubernetes infrastructure and applications that depend on it, see [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-overview).
+- [CI/CD baseline architecture that uses Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture)
+- [Training: Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure)
 
 ## Related resources
 
