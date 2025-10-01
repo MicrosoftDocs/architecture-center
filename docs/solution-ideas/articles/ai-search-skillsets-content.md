@@ -36,7 +36,7 @@ The following dataflow corresponds to the previous diagram. The dataflow describ
 
 - [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
+- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition (NER)](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a REST-based object storage solution optimized for large volumes of unstructured data. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, Blob Storage stores the original JFK Files dataset, including scanned documents and images, which are ingested into the AI enrichment pipeline.
 
@@ -100,7 +100,7 @@ Read product documentation:
 - [What is Vision?](/azure/ai-services/computer-vision/overview)
 - [What is Language?](/azure/ai-services/language-service/overview)
 - [What is OCR?](/azure/ai-services/computer-vision/overview-ocr)
-- [What is named entity recognition in Language?](/azure/ai-services/language-service/named-entity-recognition/overview)
+- [What is NER in Language?](/azure/ai-services/language-service/named-entity-recognition/overview)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Introduction to Functions](/azure/azure-functions/functions-overview)
 
