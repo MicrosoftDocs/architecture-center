@@ -411,7 +411,6 @@ Consider the following points when you plan for scalability.
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
 - [Introduction to Key Vault](/azure/key-vault/general/overview)
 - [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
-- [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview)
 
