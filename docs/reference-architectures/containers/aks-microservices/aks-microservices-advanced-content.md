@@ -351,7 +351,8 @@ Consider the following points when you plan for security.
   - L7-aware policies (HTTP/gRPC) to validate and control application-level communication.
   - WireGuard encryption to secure pod-to-pod traffic and protect sensitive data in transit.
 
-  These features work alongside perimeter defences such as Azure Firewall, delivering a layered security approach that enforces Zero Trust principles inside the cluster.
+  These features work alongside perimeter defenses such as NSGs and Azure Firewall, delivering a layered security approach that enforces traffic control from within the cluster.
+
 - If the microservice needs to communicate to resources, such as external URLs, outside of the cluster, control the access through Azure Firewall. If the microservice doesn't need to make any outbound calls, use [network isolated clusters](/azure/aks/network-isolated).
 
 - Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, run-time threat protection, and other security features.
