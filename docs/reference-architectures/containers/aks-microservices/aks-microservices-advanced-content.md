@@ -306,7 +306,7 @@ Microservices should expose endpoints in their code that facilitate health probe
 
 ### Monitoring
 
-Monitoring is essential in a microservices architecture to detect anomalies, diagnose issues, and understand service dependencies. [Application Insights](/azure/azure-monitor/app/app-insights-overview), part of Azure Monitor, provides application performance monitoring (APM) for live applications written in .NET, Node.js, Java, and many other languages.
+Monitoring is essential in a microservices architecture to detect anomalies, diagnose issues, and understand service dependencies. [Application Insights](/azure/azure-monitor/app/app-insights-overview), part of Azure Monitor, provides application performance monitoring (APM) for applications written in .NET, Node.js, Java, and many other languages.
 
 Azure offers several integrated capabilities for end-to-end visibility:
 
