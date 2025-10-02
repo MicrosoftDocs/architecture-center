@@ -67,7 +67,7 @@ Service-to-service traffic inside the cluster is governed by ACNS—policies (Ci
 
 #### External storage and other components
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is an Azure-managed service that adds a high-performance caching layer to applications. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an Azure-managed service that adds a high-performance caching layer to applications. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
 
