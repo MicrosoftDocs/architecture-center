@@ -6,7 +6,7 @@ This reference architecture demonstrates a common enterprise workload that uses 
 ## Architecture
 
 :::image type="complex" source="../_images/app-service-environment.svg" alt-text="Diagram that shows an architecture for an App Service Environment deployment." lightbox="../_images/app-service-environment.svg" border="false":::
-The diagram shows a secure, zone‑redundant App Service Environment inside an Azure virtual network. Traffic enters through Application Gateway from the internet, then routes to the ILB of the App Service Environment that hosts a web app, a private API, and a function app. Traffic flows to the web app. Outbound traffic flows through Azure Firewall. The environment connects to Azure services such as Azure Service Bus, Azure Cosmos DB, Azure SQL Database, and Azure Key Vault through private endpoints and private Domain Name System (DNS). Azure Cache for Redis connects to the web app via a two-sided arrow. A dashed arrow points from GitHub Actions outside the virtual network to a jumpbox virtual machine (VM) in a subnet. Another dashed arrow points from this subnet to the App Service Environment subnet. Microsoft Entra ID is in the right top corner of the diagram to imply that it handles authentication.
+The diagram shows a secure, zone‑redundant App Service Environment inside an Azure virtual network. Traffic enters through Application Gateway from the internet, then routes to the ILB of the App Service Environment that hosts a web app, a private API, and a function app. Traffic flows to the web app. Outbound traffic flows through Azure Firewall. The environment connects to Azure services such as Azure Service Bus, Azure Cosmos DB, Azure SQL Database, and Azure Key Vault through private endpoints and private Domain Name System (DNS). Azure Managed Redis connects to the web app via a two-sided arrow. A dashed arrow points from GitHub Actions outside the virtual network to a jumpbox virtual machine (VM) in a subnet. Another dashed arrow points from this subnet to the App Service Environment subnet. Microsoft Entra ID is in the right top corner of the diagram to imply that it handles authentication.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment.vsdx) of this architecture.*
@@ -33,7 +33,7 @@ Always deploy an App Service Environment in its own subnet in the enterprise vir
 
 This reference implementation deploys a web app named *Voting App*, which interacts with a private web API and a function. It also deploys a mock web app named *Test App* to demonstrate multiple-app deployments. In the reference implementation, each App Service app runs in its own App Service plan, which enables independent scaling when needed.
 
-The simple voting app in this implementation allows users to view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in an Azure Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Cache for Redis for cache management. A Premium tier Azure Cache for Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
+The simple voting app in this implementation allows users to view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in an Azure Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
 
 The web apps are the only components that can are reachable from the internet. Internet traffic must come via Azure Application Gateway, which is protected with a WAF. An internet client can't access the API or the function app.
 
@@ -234,9 +234,9 @@ App Service has various [pricing options](https://azure.microsoft.com/pricing/de
 
 Application Gateway has various [pricing options](https://azure.microsoft.com/pricing/details/application-gateway/). This implementation uses the Application Gateway Standard v2 and Web Application Firewall v2 SKU, which support autoscaling and zone redundancy. For more information, see [Scale Application Gateway v2 and Web Application Firewall v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-#### Azure Cache for Redis
+#### Azure Managed Redis
 
-Azure Cache for Redis has various [pricing options](https://azure.microsoft.com/pricing/details/cache). This architecture uses the Premium SKU for virtual network support.
+Azure Managed Redis has various [pricing options](https://azure.microsoft.com/en-us/pricing/details/managed-redis).
 
 #### Other dependencies
 
