@@ -57,17 +57,17 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract, transform, and load (ETL) workflows and extract, load, and transform (ELT) workflows.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics combines the best of the following technologies and services:
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise‑ready, end‑to‑end analytics platform that accelerates time to insight across data engineering, data warehousing, data integration, real‑time analytics, and business intelligence—delivered as a unified SaaS experience and centralized storage in **OneLake**. Microsoft Fabric combines the best of the following technologies and services:
 
-  - SQL technologies for enterprise data warehousing
+  - **SQL technologies for enterprise data warehousing** — via [Fabric Data Warehouse](/fabric/data-warehouse/), a fully managed, transactional (ACID) warehouse on an open Delta format.
+  
+  - **Large‑scale data engineering and machine learning** — via [Data Engineering (Lakehouse + notebooks)](/fabric/data-engineering/lakehouse-overview) with built‑in Spark.
 
-  - Spark technologies for big data
+  - **Near Real Time** — via [Real‑Time Intelligence](/fabric/real-time-intelligence/overview) with Eventhouse (KQL) and [Eventstreams](/fabric/real-time-intelligence/event-streams/overview).
+  
+  - **ETL/ELT workflows** — via [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, Copy, and a broad set of [with hybrid/on‑premises gateway support.
 
-  - Azure Data Explorer for log and time series analytics
-
-  - Azure Pipelines for data integration and ETL and ELT workflows
-
-  - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning
+  - **Deep integration with other Microsoft services** — native with Power BI, and integrations with Azure services such as Azure Cosmos DB and Azure Machine Learning/Azure AI.
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -86,8 +86,6 @@ This section describes other tools that you can use during data modernization, s
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, [multiple-model](/azure/cosmos-db/nosql/modeling-data) database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed NoSQL database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2](/azure/databricks/connect/storage/azure-storage) combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also provides the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
-
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities by using integrated services like Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the [community edition of the open-source MySQL database engine](https://www.mysql.com/products/community/).
 
@@ -187,6 +185,12 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 ## Related resources
 
 - [Azure data architecture guide](/azure/architecture/databases/)
-- [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Azure data platform end-to-end](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
+
+## Contributors:
+
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
