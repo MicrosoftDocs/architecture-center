@@ -316,7 +316,8 @@ Azure offers several integrated capabilities for end-to-end visibility:
 
 [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and L7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed Prometheus for metrics and Managed Grafana for dashboards, enabling detection of network bottlenecks, policy misconfigurations, and communication issues that traditional APM might miss.
 
-Tip: Combine ACNS network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
+> [!TIP]
+> Combine ACNS network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
 
 ## Considerations
 
