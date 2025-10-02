@@ -77,7 +77,7 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
-- [CI/CD for AKS apps with Azure Pipelines](./guide/aks/aks-cicd-azure-pipelines.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [CI/CD for AKS apps with Azure Pipelines](./guide/aks/aks-cicd-azure-pipelines.md)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Blue-green deployment of AKS clusters](./guide/aks/blue-green-deployment-for-aks.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
