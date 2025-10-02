@@ -55,7 +55,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution for storing massive amounts of unstructured data like text or binary files. In this architecture, a receipt service uses Blob Storage via a Dapr output binding to store the order receipts.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a distributed, in-memory, scalable managed Redis cache. In this architecture, it's used as a Dapr state store component for the Makeline service to store data on the orders that are being processed.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, in-memory, scalable managed Redis cache. In this architecture, it's used as a Dapr state store component for the Makeline service to store data on the orders that are being processed.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multiple-model managed database service. In this architecture, it's used as a Dapr state store component for the loyalty service to store customers' loyalty data.
 
