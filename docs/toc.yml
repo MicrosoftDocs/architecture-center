@@ -513,7 +513,7 @@ items:
       items:
       - name: VM baseline
         href: virtual-machines/baseline.yml
-      - name: VM baseline in Azure landing zones
+      - name: VM baseline in an Azure landing zone
         href: virtual-machines/baseline-landing-zone.yml
       - name: Teamcenter baseline architecture
         href: example-scenario/manufacturing/teamcenter-baseline.yml
@@ -673,8 +673,8 @@ items:
           items:
           - name: High availability for multitier AKS apps
             href: guide/aks/aks-high-availability.yml
-          - name: CI/CD for AKS apps (Azure Pipelines)
-            href: guide/aks/aks-cicd-azure-pipelines.yml
+          - name: CI/CD for AKS apps via Azure Pipelines
+            href: guide/aks/aks-cicd-azure-pipelines.md
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
         - name: Infrastructure
