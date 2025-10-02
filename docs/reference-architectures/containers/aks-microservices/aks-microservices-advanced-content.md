@@ -304,7 +304,7 @@ Microservices should expose endpoints in their code that facilitate health probe
 
 ### Monitoring
 
-Monitoring is essential in a microservices architecture to detect anomalies, diagnose issues, and understand service dependencies. [Application Insights](/azure/azure-monitor/app/app-insights-overview), part of Azure Monitor, provides application performance monitoring (APM) for live applications written in .NET, Node.js, Java, and many other languages.
+Monitoring is essential in a microservices architecture to detect anomalies, diagnose issues, and understand service dependencies. [Application Insights](/azure/azure-monitor/app/app-insights-overview), part of Azure Monitor, provides application performance monitoring (APM) for applications written in .NET, Node.js, Java, and many other languages.
 
 Azure offers several integrated capabilities for end-to-end visibility:
 
@@ -312,9 +312,10 @@ Azure offers several integrated capabilities for end-to-end visibility:
 - Container insights – Monitor AKS clusters, nodes, and containers for health and resource usage.
 - [Managed Grafana](/azure/managed-grafana/overview) – Visualise metrics and dashboards for clusters and microservices.
 
-[Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) Observability complements these tools by providing deep, eBPF-based visibility into network behaviour of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and L7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed Prometheus for metrics and Managed Grafana for dashboards, enabling proactive detection of network bottlenecks, policy misconfigurations, and communication issues that traditional APM might miss.
+[Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and L7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed Prometheus for metrics and Managed Grafana for dashboards, enabling detection of network bottlenecks, policy misconfigurations, and communication issues that traditional APM might miss.
 
-Tip: Combine ACNS network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
+> [!TIP]
+> Combine ACNS network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
 
 ## Considerations
 
@@ -349,7 +350,8 @@ Consider the following points when you plan for security.
   - L7-aware policies (HTTP/gRPC) to validate and control application-level communication.
   - WireGuard encryption to secure pod-to-pod traffic and protect sensitive data in transit.
 
-  These features work alongside perimeter defences such as Azure Firewall, delivering a layered security approach that enforces Zero Trust principles inside the cluster.
+  These features work alongside perimeter defenses such as NSGs and Azure Firewall, delivering a layered security approach that enforces traffic control from within the cluster.
+
 - If the microservice needs to communicate to resources, such as external URLs, outside of the cluster, control the access through Azure Firewall. If the microservice doesn't need to make any outbound calls, use [network isolated clusters](/azure/aks/network-isolated).
 
 - Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, run-time threat protection, and other security features.
@@ -408,7 +410,6 @@ Consider the following points when you plan for scalability.
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
 - [Introduction to Key Vault](/azure/key-vault/general/overview)
 - [Introduction to Container Registry](/azure/container-registry/container-registry-intro)
-- [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview)
 
