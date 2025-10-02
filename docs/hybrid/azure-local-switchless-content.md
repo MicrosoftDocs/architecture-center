@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-local-baseline.yml). To effectively deploy Azure Local by using a **storage switchless** design, it's important to understand the baseline architecture. This process requires you to familiarize yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article applies to **two-node, three-node, or four-node storage switchless** deployments, with a requirement that you make necessary adjustments based on the number of physical nodes in the instance, which can range between [two nodes](/azure/azure-local/plan/two-node-switchless-two-switches) and [four nodes](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) in scale.
+This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-local-baseline.yml). To effectively deploy Azure Local by using a **storage switchless** design, it's important to understand the baseline architecture. This process requires you to familiarize yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article applies to **two-node, three-node, or four-node storage switchless** deployments. You need to adjust your configuration based on the number of physical nodes in your instance, which can range from [two nodes](/azure/azure-local/plan/two-node-switchless-two-switches) to [four nodes](/azure/azure-local/plan/four-node-switchless-two-switches-two-links).
 
 The storage switchless network design removes the requirement for storage class network switches to connect the network adapter ports that are used for storage traffic. Instead, nodes are directly connected by using interlink Ethernet cables. This configuration is commonly used in retail, manufacturing, or remote office scenarios. This configuration is also suitable for smaller edge use cases that don't have or require extensive datacenter network switches for storage replication traffic.
 
@@ -42,20 +42,20 @@ For guidance and recommendations for your Azure Local instance design choices, r
 When you use the storage switchless design, it's crucial to remember that four nodes is the maximum instance size supported. This limitation is a key consideration for your instance design choices because you must ensure that your workload's capacity requirements don't exceed the physical capacity capabilities of the four-node instance specifications. Because you can't perform an add-node gesture to expand a storage switchless instance beyond four nodes, it's **critically important** to understand your workload capacity requirements beforehand and plan for future growth. This approach helps ensure that your workload doesn't exceed the storage and compute capacity over the expected lifespan of the Azure Local instance hardware.
 
 > [!CAUTION]
-> The maximum supported instance size for the storage switchless network architecture is four physical nodes (*machines*). Be sure to consider this limit during the instance design phase, such as including the present and future growth capacity requirements for your workload.
+> The maximum supported instance size for the storage switchless network architecture is four physical nodes (or *machines*). Be sure to consider this limit during the instance design phase, such as including the present and future growth capacity requirements for your workload.
 
 ### Network design
 
-Network design refers to the overall arrangement of physical and logical components within the network. In a three-node storage switchless configuration for Azure Local, three physical nodes are directly connected without using an external switch for storage traffic. These direct interlinked ethernet connections simplify network design by reducing complexity because there's no requirement to define or apply storage quality of service and prioritization configurations on the switches. The technologies that underpin lossless RDMA communication, such as explicit congestion notification (ECN), priority flow control (PFC), or quality of service (QoS) that are required for RoCE v2 and iWARP, aren't needed. However, this configuration supports a maximum of four machines, which means you can't scale the instance by adding more nodes after deployment, for an existing four node storage switchless instance.
+Network design refers to the overall arrangement of physical and logical components within the network. In a three-node storage switchless configuration for Azure Local, three physical nodes are directly connected without using an external switch for storage traffic. These direct interlinked ethernet connections simplify network design by reducing complexity because there's no requirement to define or apply storage quality of service and prioritization configurations on the switches. The technologies that underpin lossless Remote Direct Memory Access (RDMA) communication, such as explicit congestion notification (ECN), priority flow control (PFC), or quality of service (QoS) that are required for RoCE v2 and iWARP, aren't needed. However, this configuration supports a maximum of four machines, which means that you can't scale the instance by adding more nodes after deployment, for an existing four node storage switchless instance.
 
 > [!NOTE]
 > This three-node storage switchless architecture requires **six network adapter ports** to provide redundant links for all network intents. Take this into consideration if you plan to use a *small form-factor hardware* SKU, or if there's limited physical space in the server chassis for extra network cards. Consult your preferred hardware manufacturer partner for more information.
 >
-> A [four-node storage switchless](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) Azure Local instance with dual links would require **eight network adapter ports** for each node, six ports for the storage intent, and two ports for the management and compute intent.
+> A [four-node storage switchless](/azure/azure-local/plan/four-node-switchless-two-switches-two-links) Azure Local instance with dual links would require **eight network adapter ports** for each node: six ports for the storage intent and two ports for the management and compute intent.
 
 #### Physical network topology
 
-The physical network topology shows the actual physical connections between nodes and networking components. The connections between nodes and networking components for a three-node storage switchless Azure Local deployment are:
+The physical network topology shows the actual physical connections between nodes and networking components. The following configuration outlines the connections between nodes and networking components in a three-node storage switchless Azure Local deployment:
 
 - Three nodes (or machines):
 
@@ -71,15 +71,15 @@ The physical network topology shows the actual physical connections between node
   
   - This design provides link redundancy, dedicated low latency, high bandwidth, and high throughput.
   
-  - Nodes within the Azure Local instance communicate directly through these links to handle storage replication traffic, also known as east-west traffic.
+  - Nodes within the Azure Local instance communicate directly through these links to handle storage replication traffic, also known as *east-west traffic*.
 
   - This direct communication eliminates the need for extra network switch ports for storage and removes the requirement to apply QoS or PFC configuration for SMB Direct or RDMA traffic on the network switches.
   
   - Check with your hardware manufacturer partner or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
   
-- Dual Top-of-Rack (ToR) switches:
+- Dual top-of-rack (ToR) switches:
 
-  - This configuration is *switchless* for storage traffic but still requires ToR switches for the external connectivity. This connectivity is called north-south traffic and includes the cluster *management* intent and the workload *compute* intents.
+  - This configuration is *switchless* for storage traffic but still requires ToR switches for the external connectivity. This connectivity is known as *north-south traffic* and includes the cluster *management* intent and the workload *compute* intents.
   
   - The uplinks to the switches from each node use two network adapter ports. Ethernet cables connect these ports, one to each ToR switch, to provide link redundancy.
   
@@ -119,7 +119,7 @@ The logical network topology provides an overview for how the network data flows
   
 - Storage traffic:
 
-  - The nodes communicate with each other directly for storage traffic by using the four direct interconnect ethernet ports per node, which use six separate nonroutable (or Layer 2) networks for the storage traffic.
+  - The nodes communicate with each other directly for storage traffic by using the four direct interconnect ethernet ports for each node, which use six separate nonroutable (or layer 2) networks for the storage traffic.
 
   - There's *no default gateway* configured on the four storage intent network adapter ports within the Azure Stack HCI OS.
 
@@ -133,34 +133,30 @@ The logical network topology provides an overview for how the network data flows
 
 #### IP address requirements
 
-To deploy a three-node storage switchless configuration of Azure Local with dual links for the storage interconnects, the cluster infrastructure platform requires that you allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware manufacturer partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Local](/azure/azure-local/plan/three-node-ip-requirements).
+To deploy a three-node storage switchless configuration of Azure Local with dual links for the storage interconnects, the cluster infrastructure platform requires you to allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware manufacturer partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Local](/azure/azure-local/plan/three-node-ip-requirements).
 
 When you design and plan IP address requirements for Azure Local, remember to account for extra IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Local instance and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Local, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
 #### Outbound network connectivity
 
-Review the [outbound network connectivity section of the Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#outbound-network-connecivity), as the guidance and recommendations are applicable for both the storage switched and storage switchless architectures.
+Review the [outbound network connectivity section of the Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#outbound-network-connecivity) because the guidance and recommendations are applicable for both the storage switched and storage switchless architectures.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 > [!IMPORTANT]
 > Review the Well-Architected Framework considerations described in the [Azure Local baseline reference architecture](/azure/architecture/hybrid/azure-local-baseline#considerations).
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
-
-Cost optimization considerations include:
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Switchless cluster interconnects versus switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual port RDMA-capable network adapters in each node to form a full mesh. Each node has two direct connections to every other node. Although this implementation is straightforward, it's only supported in two-node, three-node, or four-node instances. An Azure Local instance with five or more nodes requires the *storage switched* network architecture. You can use this architecture to add more nodes after deployment, unlike the storage switchless design that doesn't support add-node operations.
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-Performance efficiency considerations include:
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Review the [supported scenarios for add-node](/azure/azure-local/manage/add-server?view=azloc-24112#supported-scenarios) operations for Azure Local, specifically the storage network architecture requirement when increasing the scale (add-node) of an existing Azure Local instance. The capacity planning aspect of your design phase is critically important when you use the storage switchless architecture, if you're unable to add extra nodes post-cluster deployment.
 
@@ -175,7 +171,7 @@ For more information about how to design, procure, and deploy an Azure Local sol
 Use the following deployment automation template as an example of how to deploy Azure Local by using the three-node storage switchless architecture.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) **Deployment automation**: This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) **Deployment automation:** This [reference template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs) describes how to deploy a **three-node storage switchless Azure Local solution** by using an ARM template and parameter file.
 
 ## Related resources
 
