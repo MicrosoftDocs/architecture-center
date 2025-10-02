@@ -5,7 +5,7 @@ This article describes how to use image processing, natural language processing,
 ## Architecture
 
 :::image type="complex" border="false" source="../media/ai-search-skillsets.svg" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." lightbox="../media/ai-search-skillsets.svg":::
-   The image has three key sections: unstructured data, AI enrichment, and knowledge store. Numbered steps show the flow of data. In the steps, unstructured data is ingested, enriched, indexed, projected, and queried.
+   The image has three key sections: unstructured data, AI enrichment, and knowledge store. The unstructured data section includes Blob Storage, documents, and images. The AI enrichment section includes both built-in skills and custom skills. The knowledge store section includes Blob Storage and Table Storage. Numbered steps show the flow of data. In the steps, unstructured data is ingested, enriched, indexed, projected, and queried.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
