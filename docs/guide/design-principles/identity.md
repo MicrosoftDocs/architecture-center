@@ -17,7 +17,7 @@ For most solutions, we strongly recommend using an identity as a service (IDaaS)
 ## Recommendations
 
 > [!IMPORTANT]
-> By using an IDaaS, like Microsoft Entra ID, Azure AD B2C, or another similar system, you can mitigate many of the issues that are described in this article. We recommend this approach wherever possible.
+> By using an IDaaS, like Microsoft Entra ID, Entra External ID, or another similar system, you can mitigate many of the issues that are described in this article. We recommend this approach wherever possible.
 > 
 > Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While using a prebuilt identity platform mitigates some of the issues that are described in this article, handling many of these issues is still your responsibility with such a solution.
 > 
@@ -114,7 +114,7 @@ Other contributors:
 ## Next steps
 
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
-- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Secure your apps using External ID in an external tenant](/entra/external-id/customers/overview-customers-ciam)
 - [Explore identity and Microsoft Entra ID](/training/modules/explore-identity-azure-active-directory)
 - [Design an identity security strategy](/training/modules/design-identity-security-strategy)
 - [Implement Microsoft identity](/training/paths/m365-identity-associate)
