@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 09/22/2025
+ms.date: 09/30/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Design a Microservices Architecture](./microservices/design/index.md)
 - [Understand Data Models](./data-guide/technology-choices/understand-data-store-models.md)
 - [Prepare to Choose a Data Store in Azure](./guide/technology-choices/data-stores-getting-started.md)
 - [N-tier Architecture Style](./guide/architecture-styles/n-tier.md)
@@ -32,6 +33,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)  ([#44c8ebc26f](https://github.com/MicrosoftDocs/architecture-center/commit/44c8ebc26f))
 - [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
 - [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
 - [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)  ([#492e70d42d](https://github.com/MicrosoftDocs/architecture-center/commit/492e70d42d))
@@ -44,6 +46,10 @@ The following new and updated articles have recently been published in the Azure
 - [Use Azure Synapse Analytics for Near Real-Time Lakehouse Data Processing](./example-scenario/data/real-time-lakehouse-data-processing.yml)  ([#6c01e8c317](https://github.com/MicrosoftDocs/architecture-center/commit/6c01e8c317))
 - [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml)  ([#dbc13eeb47](https://github.com/MicrosoftDocs/architecture-center/commit/dbc13eeb47))
 - [Cache-Aside pattern](./patterns/cache-aside.yml)  ([#071c00e39a](https://github.com/MicrosoftDocs/architecture-center/commit/071c00e39a))
+- [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#2acffc8aba](https://github.com/MicrosoftDocs/architecture-center/commit/2acffc8aba))
+- [Design Principles for Azure Applications](./guide/design-principles/index.md)  ([#400d41d666](https://github.com/MicrosoftDocs/architecture-center/commit/400d41d666))
+- [Use Delphix for Data Masking in Azure Data Factory and Azure Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#ef9e5faee4](https://github.com/MicrosoftDocs/architecture-center/commit/ef9e5faee4))
+- [Scramble SAP Data by using Delphix and Azure Data Factory or Azure Synapse Analytics](./databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)  ([#ef9e5faee4](https://github.com/MicrosoftDocs/architecture-center/commit/ef9e5faee4))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#572d764469](https://github.com/MicrosoftDocs/architecture-center/commit/572d764469))
 - [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
@@ -66,7 +72,6 @@ The following new and updated articles have recently been published in the Azure
 - [Rehost IMS DC and IMS DB on Azure by Using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)  ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
-- [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#d2dd0a2871](https://github.com/MicrosoftDocs/architecture-center/commit/d2dd0a2871))
 - [Guidance for using Azure Key Vault in a multitenant solution](./guide/multitenant/service/key-vault.md)  ([#e29a661cae](https://github.com/MicrosoftDocs/architecture-center/commit/e29a661cae))
 - [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
@@ -124,7 +129,6 @@ The following new and updated articles have recently been published in the Azure
 - [Online transaction processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md)  ([#1d5651f807](https://github.com/MicrosoftDocs/architecture-center/commit/1d5651f807))
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#efb8f963bb](https://github.com/MicrosoftDocs/architecture-center/commit/efb8f963bb))
 - [WordPress on App Service](./example-scenario/infrastructure/wordpress-app-service.yml)  ([#efb8f963bb](https://github.com/MicrosoftDocs/architecture-center/commit/efb8f963bb))
-- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)  ([#efb8f963bb](https://github.com/MicrosoftDocs/architecture-center/commit/efb8f963bb))
 - [Certificate Lifecycle Management on Azure](./example-scenario/certificate-lifecycle/index.yml)  ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Data warehousing and analytics](./example-scenario/data/data-warehouse.yml)  ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))

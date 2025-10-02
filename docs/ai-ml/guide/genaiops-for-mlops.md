@@ -161,7 +161,7 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like Semantic Kernel. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompt engineering, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
 
