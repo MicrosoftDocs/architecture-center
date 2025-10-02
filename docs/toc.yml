@@ -513,7 +513,7 @@ items:
       items:
       - name: VM baseline
         href: virtual-machines/baseline.yml
-      - name: VM baseline in Azure landing zones
+      - name: VM baseline in an Azure landing zone
         href: virtual-machines/baseline-landing-zone.yml
       - name: Teamcenter baseline architecture
         href: example-scenario/manufacturing/teamcenter-baseline.yml
