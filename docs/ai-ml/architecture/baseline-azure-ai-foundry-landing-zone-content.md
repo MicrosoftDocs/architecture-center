@@ -11,7 +11,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 >
 > Azure landing zones divide your organization's cloud footprint into two key areas:
 >
-> - An application landing zone is an Azure subscription where a workload runs. An application landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
+> - An application landing zone is one or more Azure subscriptions where a workload runs. An application landing zone connects to your organization's shared platform resources. That connection provides the landing zone with access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring.
 >
 > - A platform landing zone is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) for platform teams.
 >
