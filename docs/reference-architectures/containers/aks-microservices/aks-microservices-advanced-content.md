@@ -4,7 +4,7 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 
 ## Architecture
 
-:::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.png" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this architecture uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
+:::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.png" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this architecture uses." lightbox="images/aks-microservices-advanced-production-deployment.png":::
    An arrow labeled peering connects the two main sections of the diagram: spoke and hub. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, an arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. An icon that represents ACNS in user node pool has a solid connecting line to Azure Monitor and to FQDN component. ACNS fetches node and pod level data and ingest it to azure monitor for end to end visibility. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, Azure Cloud Services, and FQDNs. These services and FQDNs are outside of the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
 :::image-end:::
 
@@ -31,7 +31,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 1. The delivery microservice reads data from Azure Cache for Redis.
 
-Service-to-service traffic inside the cluster is governed by ACNS—policies (Cilium NetworkPolicy) and optional inter-node pod encryption (WireGuard) are enforced transparently at the dataplane.
+1. Service-to-service traffic inside the cluster is governed by ACNS—policies (Cilium NetworkPolicy) and optional inter-node pod encryption (WireGuard) are enforced transparently at the dataplane. ACNS is not enabled by default.ACNS fetches node and pod level data and ingest it to azure monitor for end to end visibility.
 
 ### Components
 
@@ -162,9 +162,7 @@ spec:
     - port: 80
       protocol: TCP
 ```
-
-For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies).
-For Best Practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices).
+For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies). For best practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices)
 
 Azure provides three network policy engines for [enforcing network policies](/azure/aks/use-network-policies):
 
