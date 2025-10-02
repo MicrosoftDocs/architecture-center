@@ -1033,7 +1033,7 @@ items:
           href: example-scenario/file-storage/moodle-azure-netapp-files.yml
         - name: Oracle Database with Azure NetApp Files
           href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-        - name: SQL Server on VMs with ANF
+        - name: SQL Server on VMs with Azure NetApp Files
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
