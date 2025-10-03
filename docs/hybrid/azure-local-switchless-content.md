@@ -16,7 +16,7 @@ This architecture is a starting point for an [Azure Local instance that uses a s
 ## Architecture
 
 :::image type="complex" source="images/azure-local-switchless.png" lightbox="images/azure-local-switchless.png" alt-text="Diagram that shows a three-node Azure Local instance that uses a switchless storage architecture and has dual ToR switches for external connectivity." border="false":::
-   Diagram that illustrates a three-node Azure Local instance that uses a switchless storage architecture and has dual Top-of-Rack (ToR) switches for external (north-south) connectivity. Azure Local uses several Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Manager, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery.
+   Diagram that illustrates a three-node Azure Local instance that uses a switchless storage architecture and has dual ToR switches for external (north-south) connectivity. Azure Local uses several Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Manager, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery.
 :::image-end:::
 
 For more information about these resources, see [Related resources](#related-resources).
@@ -91,7 +91,9 @@ The physical network topology shows the actual physical connections between node
   
   - The two ToR switches handle the north-south traffic for the Azure Local instance, including traffic related to management and compute intents.
 
-    :::image type="content" source="images/azure-local-3-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." lightbox="images/azure-local-3-node-physical-network.png" border="false":::
+    :::image type="complex" source="images/azure-local-3-node-physical-network.png" lightbox="images/azure-local-3-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." border="false":::
+      The diagram shows the physical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It highlights the direct connections between the nodes for storage traffic and the use of dual top-of-rack (ToR) switches for management and compute traffic. Each node has two network adapters for storage, which are cross-connected to the other nodes, and two network adapters for management and compute, which connect to the ToR switches.
+   :::image-end:::
 
 #### Logical network topology
 
@@ -128,7 +130,7 @@ The logical network topology provides an overview for how the network data flows
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
     :::image type="complex" source="images/azure-local-3-node-logical-network.png" lightbox="images/azure-local-3-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Local instance." border="false":::
-       Diagram that shows the logical networking topology for a three-node Azure Local instance. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity.
+       The diagram shows the logical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It illustrates the flow of network traffic between components. The diagram shows three physical nodes. Network ATC is used to define intents for management, compute, and storage traffic. The management and compute intents are converged onto a virtual switch that uses a Switch Embedded Team (SET). The storage intent uses dedicated RDMA-capable adapters that are directly connected between the nodes in a full mesh. The diagram also depicts logical networks for virtual machines and the connection to the external network via the top-of-rack switches.
     :::image-end:::
 
 #### IP address requirements
