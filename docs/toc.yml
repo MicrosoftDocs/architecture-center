@@ -165,8 +165,8 @@ items:
       items:
       - name: Load balancing options
         href: guide/technology-choices/load-balancing-overview.md
-      - name: VNet peering and VPN gateways
-        href: reference-architectures/hybrid-networking/vnet-peering.yml
+      - name: Virtual network peering and VPN gateways
+        href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging

@@ -82,7 +82,7 @@ The following new and updated articles have recently been published in the Azure
 - [Blue-green deployment of AKS clusters](./guide/aks/blue-green-deployment-for-aks.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
-- [Virtual network peering and VPN gateways](./reference-architectures/hybrid-networking/vnet-peering.yml)  ([#51ff38ab37](https://github.com/MicrosoftDocs/architecture-center/commit/51ff38ab37))
+- [Virtual network peering and VPN gateways](./reference-architectures/hybrid-networking/virtual-network-peering.yml)  ([#51ff38ab37](https://github.com/MicrosoftDocs/architecture-center/commit/51ff38ab37))
 - [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#8fd4591d55](https://github.com/MicrosoftDocs/architecture-center/commit/8fd4591d55))
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))
 - [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml)  ([#0774285af4](https://github.com/MicrosoftDocs/architecture-center/commit/0774285af4))

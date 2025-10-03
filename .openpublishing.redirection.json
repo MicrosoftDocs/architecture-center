@@ -3229,6 +3229,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/hybrid-networking/vnet-peering.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml",
       "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
       "redirect_document_id": false

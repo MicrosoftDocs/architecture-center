@@ -46,7 +46,7 @@ Consider these technologies and solutions as you plan and implement your deploym
 
 - [Azure Private Link in a hub-and-spoke network](../networking/guide/private-link-hub-spoke-network.md)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
-- [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/virtual-network-peering.yml)
 - [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Best practices
