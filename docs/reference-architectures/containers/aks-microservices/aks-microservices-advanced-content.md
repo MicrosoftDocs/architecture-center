@@ -26,12 +26,11 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
    - Sends an HTTPS request to the delivery microservice, which passes data to Azure Cache for Redis external data storage
    - Sends an HTTPS request to the drone scheduler microservice
    - Sends an HTTPS request to the package microservice, which passes data to MongoDB external data storage
+   - Service-to-service traffic inside the cluster is governed by ACNS—policies (Cilium NetworkPolicy) and optional inter-node pod encryption (WireGuard) are enforced transparently at the dataplane. ACNS is not enabled by default.ACNS fetches node and pod level data and ingest it to azure monitor for end to end visibility.
 
 1. The architecture uses an HTTPS GET request to return delivery status. This request passes through Application Gateway into the delivery microservice.
 
 1. The delivery microservice reads data from Azure Cache for Redis.
-
-1. Service-to-service traffic inside the cluster is governed by ACNS—policies (Cilium NetworkPolicy) and optional inter-node pod encryption (WireGuard) are enforced transparently at the dataplane. ACNS is not enabled by default.ACNS fetches node and pod level data and ingest it to azure monitor for end to end visibility.
 
 ### Components
 
@@ -129,38 +128,39 @@ Network policies specify how AKS pods are allowed to communicate with each other
 One strategy to implement a Zero Trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a *deny all* policy that applies to all pods located in the `backend-dev` namespace.
 
 ```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
 metadata:
-  name: default-deny-all
-  namespace: backend-dev
+  name: "deny-all"
+  namespace: "backend-dev"
 spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
+  endpointSelector: {}  # Applies to all pods in the namespace
+  ingress:
+  - fromEntities: []
+  egress:
+  - toEntities: []
 ```
 
-After a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the `backend-dev` namespace that has a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless it's sourced from a pod that has a label that matches `app.kubernetes.io/part-of: dronedelivery`.
+After a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the Cilium network policy is applied to any pod in the `backend-dev` namespace that has a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless it's sourced from a pod that has a label that matches `app.kubernetes.io/part-of: dronedelivery`.
 
 ```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
 metadata:
   name: package-v010-dev-np-allow-ingress-traffic
   namespace: backend-dev
 spec:
-  podSelector:
+  endpointSelector:
     matchLabels:
       app.kubernetes.io/component: backend
   ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app.kubernetes.io/part-of: dronedelivery
-    ports:
-    - port: 80
-      protocol: TCP
+  - fromEndpoints:
+    - matchLabels:
+        app.kubernetes.io/part-of: dronedelivery
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
 ```
 For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies). For best practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices)
 
