@@ -218,6 +218,9 @@ Principal authors:
 
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
 - [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
+
+Other contributors:
+
 - [Tincy Elias](https://www.linkedin.com/in/tincy-elias/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
