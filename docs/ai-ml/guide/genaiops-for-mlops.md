@@ -34,7 +34,7 @@ Some generative AI solutions use traditional machine learning practices like mod
 
 Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model which could be a small or large language model (SLM or LLM).
 
-Fine-tuning a foundation model follow the similar logical processes as training traditional machine learning models such as data preperation, model training, evaluation and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducability and governance. 
+Fine-tuning a foundation model follows the similar logical processes as training traditional machine learning models such as data preparation, model training, evaluation and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducibility and governance. 
 
 ### Prompting
 
