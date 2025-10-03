@@ -111,7 +111,7 @@ These articles can help you explore the networking technologies that are availab
 |Article |Summary  |
 |---------|---------|
 |[Load balancing options](load-balancing-overview.md)    |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
-|[Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/virtual-network-peering.yml)     |   Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.      |
+|[Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml) | Compare virtual network peering and VPN gateways for connecting Azure virtual networks. Learn implementation patterns for spoke-to-spoke communication in hub-and-spoke architectures. |
 
 ## Choose a messaging service
 
