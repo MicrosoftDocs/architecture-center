@@ -4,6 +4,7 @@ description: Learn from a first-hand account about the journey and decisions tha
 author: johndowns
 ms.author: pnp
 ms.date: 10/11/2024
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: arb-saas
