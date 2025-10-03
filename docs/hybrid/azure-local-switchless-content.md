@@ -188,17 +188,18 @@ Use the following deployment automation template as an example of how to deploy 
 Product documentation:
 
 - [Azure Stack HCI OS, version 23H2 release information](/azure/azure-local/release-information-23h2)
-- [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
+- [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Local monitoring?](/azure/azure-local/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Local](/azure/azure-local/manage/azure-site-recovery)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
-- [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
-- [Azure Update Manager overview](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
+- [Change tracking and inventory overview](/azure/automation/change-tracking/overview-monitoring-agent)
+- [Azure Update Manager overview](/azure/update-manager)
 - [What are Azure Arc-enabled data services?](/azure/azure-arc/data/overview)
 - [What are Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is Azure Backup?](/azure/backup/backup-overview)
 - [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere)
+- [Protect your virtual machine settings by using Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding)
 
 Product documentation for specific Azure services:
 
@@ -215,14 +216,16 @@ Product documentation for specific Azure services:
 
 Microsoft Learn modules:
 
-- [Configure Monitor](/training/modules/configure-azure-monitor)
-- [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
-- [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-arc-for-servers)
+- [Configure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data)
+- [Design your site recovery solution in Azure](/training/modules/design-solution-for-backup-disaster-recovery)
+- [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-azure-arc)
 - [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
 - [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
-- [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
-- [Realizing Machine Learning anywhere with AKS and Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-arc-blog/realizing-machine-learning-anywhere-with-azure-kubernetes/ba-p/3470783)
-- [Machine learning on AKS hybrid and Stack HCI by using Azure Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-stack-blog/machine-learning-on-aks-hybrid-amp-stack-hci-using-azure-arc/ba-p/3816127)
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
-- [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
+
+Other resources:
+
+- [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/scale-model-deployment-with-azure-machine-learning-anywhere/2888753)
+- [Realizing Machine Learning anywhere with AKS and Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/blog/azurearcblog/realizing-machine-learning-anywhere-with-azure-kubernetes-service-and-arc-enable/3470783)
+- [Machine learning on AKS hybrid and Stack HCI by using Azure Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/blog/azurestackblog/machine-learning-on-aks-hybrid--stack-hci-using-azure-arc-enabled-ml/3816127)

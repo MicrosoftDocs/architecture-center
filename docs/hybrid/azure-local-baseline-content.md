@@ -18,7 +18,7 @@ For more information about guidelines and recommendations for the five pillars o
 ## Architecture
 
 :::image type="complex" source="images/azure-local-baseline.png" alt-text="Diagram that shows a multi-node Azure Local instance reference architecture with dual top-of-rack (ToR) switches for external north-south connectivity." lightbox="images/azure-local-baseline.png" border="false":::
-   The architecture diagram shows an on-premises Azure Local environment connected to Azure. The on-premises environment contains a multi-node Azure Local cluster. The cluster is connected to dual top-of-rack switches for network connectivity. The Azure environment shows several Azure services that integrate with Azure Local. These services include Azure Arc, Azure Monitor, Azure Key Vault, Azure Policy, Microsoft Defender for Cloud, Azure Update Manager, Azure Backup, and Azure Site Recovery.
+   The architecture diagram shows an on-premises Azure Local environment connected to Azure. The on-premises environment contains a multi-node Azure Local cluster. The cluster is connected to dual ToR switches for network connectivity. The Azure environment shows several Azure services that integrate with Azure Local. These services include Azure Arc, Azure Monitor, Azure Key Vault, Azure Policy, Microsoft Defender for Cloud, Azure Update Manager, Azure Backup, and Azure Site Recovery.
 :::image-end:::
 
 For more information, see [Related resources](#related-resources).
@@ -31,11 +31,11 @@ Typical use cases for Azure Local include running HA workloads in on-premises or
 
 - Deploy and manage HA-virtualized or container-based workloads that are deployed in a single or multiple edge locations. To enable business-critical applications and services to operate in a resilient, cost-effective, and scalable manner.
 
-- Ability to lower the total cost of ownership (TCO) by deploying a solution that's Microsoft and hardware original equipment manufacturer (OEM) partner certified, that uses a modern cloud-based deployment process, and that provides an Azure consistent centralized management and monitoring experience.
+- Ability to lower the total cost of ownership (TCO) by deploying a solution certified by Microsoft and its hardware original equipment manufacturer (OEM) partners, that uses a modern cloud-based deployment process, and that provides an Azure consistent centralized management and monitoring experience.
 
 - Provide a centralized provisioning capability by using Azure and Azure Arc. This functionality enables deployment of workloads across multiple locations consistently and securely. Tools like the Azure portal, the Azure CLI, or using infrastructure as code (IaC) templates (*ARM template, Bicep, and Terraform*) for increased automation and repeatability. This approach enables rapid deployment and management of Azure Kubernetes Service (AKS) clusters for containerized workloads, and Azure Local virtual machines (VMs) for traditional virtualized workloads.
 
-- Adhere to strict security, compliance, and audit requirements. Azure Local is deployed with a hardened security posture configured by default, known as *secure-by-default*. Azure Local incorporates certified hardware, Secure Boot, Trusted Platform Module (TPM), virtualization-based security (VBS), Credential Guard, and enforced Application Control policies. Azure Local has the ability to integrate with modern cloud-based security and threat-management services like Microsoft Defender for Cloud and Microsoft Sentinel. This integration provides extended detection and response (XDR) and security information event management (SIEM) capabilities.
+- Adhere to strict security, compliance, and audit requirements. Azure Local is deployed with a hardened security posture configured by default, known as *secure-by-default*. Azure Local incorporates certified hardware, Secure Boot, Trusted Platform Module (TPM), virtualization-based security (VBS), Credential Guard, and enforced application control policies. Azure Local has the ability to integrate with modern cloud-based security and threat-management services like Microsoft Defender for Cloud and Microsoft Sentinel. This integration provides extended detection and response (XDR) and security information event management (SIEM) capabilities.
 
 ### Scenario details
 
@@ -63,7 +63,7 @@ Azure and Azure Arc integration extend the capabilities of Azure Local virtualiz
 
 - [Azure Arc-enabled machine learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) with an AKS cluster that's deployed on Azure Local as the compute target to run Azure Machine Learning. You can use this approach to train or deploy machine learning models at the edge.
 
-Azure Arc-connected workloads provide enhanced Azure consistency and automation for Azure Local deployments, like automating guest OS configuration with [Azure Local VM extensions][arc-vm-extensions] or evaluating compliance with industry regulations or corporate standards through [Azure Policy][arc-azure-policy]. You can activate Azure Policy through the Azure portal or IaC automation.
+Azure Arc-connected workloads provide enhanced Azure consistency and automation for Azure Local deployments, like automating guest operating system configuration with [Azure Local VM extensions][arc-vm-extensions] or evaluating compliance with industry regulations or corporate standards through [Azure Policy][arc-azure-policy]. You can activate Azure Policy through the Azure portal or IaC automation.
 
 #### Take advantage of the Azure Local default security configuration
 
@@ -89,7 +89,7 @@ The architecture requires the following mandatory resources and components:
 
 - [Cloud witness][cloud-witness] is a feature that uses Azure Storage to serve as a failover cluster quorum. Azure Local (*two machine instances only*) use a cloud witness as the quorum for voting, which ensures HA for the cluster. The storage account and witness configuration are created during the Azure Local cloud deployment process.
 
-- [Update Manager][azure-update-management] is a unified service designed to manage and govern updates for Azure Local. You can use Update Manager to manage workloads that are deployed on Azure Local, including guest OS update compliance for Windows and Linux VMs that can be enabled by using Azure policy. This unified approach streamlines patch management across Azure, on-premises environments, and other cloud platforms through a single dashboard.
+- [Update Manager][azure-update-management] is a unified service designed to manage and govern updates for Azure Local. You can use Update Manager to manage workloads that are deployed on Azure Local, including guest operating system update compliance for Windows and Linux VMs that can be enabled by using Azure policy. This unified approach streamlines patch management across Azure, on-premises environments, and other cloud platforms through a single dashboard.
 
 ### Platform-supporting resources
 
@@ -188,7 +188,7 @@ You need the following components when you design a multi-node storage switched 
   
 - Two or more physical machines and up to a maximum of 16 physical machines:
 
-  - Each machine is a physical server that runs Azure Stack HCI OS.
+  - Each machine is a physical server that runs Azure Stack HCI operating system.
   
   - Each machine requires four network adapter ports in total: two RDMA-capable ports for storage and two network adapter ports for management and compute traffic.
   
@@ -209,7 +209,7 @@ The logical network topology shows an overview of how network data flows between
 The following is a summarization of the logical setup for this multi-node storage switched baseline architecture for Azure Local.
 
 :::image type="complex" source="images/azure-local-baseline-logical-network.png" alt-text="Diagram that shows the logical networking topology for a multi-node Azure Local instance by using the storage switched architecture with dual ToR switches." lightbox="images/azure-local-baseline-logical-network.png" border="false":::
-    The diagram shows the logical network topology for a multi-node Azure Local instance using a storage switched architecture. It illustrates the flow of network traffic between components. The diagram shows two physical nodes, each with multiple network adapters. Network ATC is used to define intents for management, compute, and storage traffic. The management and compute intents are converged onto a virtual switch that uses a SET. The storage intent uses dedicated RDMA-capable adapters. The diagram also depicts logical networks for virtual machines and the connection to the external network via the ToR switches.
+    The diagram shows the logical network topology for a multi-node Azure Local instance using a storage switched architecture. It illustrates the flow of network traffic between components. The diagram shows two physical nodes, each with multiple network adapters. Network ATC is used to define intents for management, compute, and storage traffic. The management and compute intents are converged onto a virtual switch that uses a SET. The storage intent uses dedicated RDMA-capable adapters. The diagram also depicts logical networks for VMs and the connection to the external network via the ToR switches.
 :::image-end:::
 
 - Dual ToR switches:
@@ -238,7 +238,7 @@ The following is a summarization of the logical setup for this multi-node storag
   
   - The *SMB1* and *SMB2* storage ports connect to two separate nonroutable (or Layer 2) networks. Each network has a specific VLAN ID configured that must match the switch ports configuration on the ToR switches' *default storage VLAN IDs: 711 and 712*.
   
-  - There's *no default gateway* configured on the two storage intent network adapter ports within the Azure Stack HCI OS.
+  - There's *no default gateway* configured on the two storage intent network adapter ports within the Azure Stack HCI operating system.
   
   - Each cluster node can access Storage Spaces Direct capabilities of the cluster, such as remote physical drives that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each machine. SMB Multichannel is used for resiliency.
   
@@ -264,7 +264,7 @@ Upfront planning and due diligence for enabling network communication to the req
 
 #### Why outbound network connectivity matters
 
-Outbound network connectivity is required from your Azure Local instance. This requirement includes the physical machines, the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) appliance, AKS clusters, and Azure Local VMs if you use Azure Arc for VM guest OS management. These devices have local agents or services that connect to public endpoints by using outbound network access for real-time communication, which enables connectivity to the management and control plane resource providers that run in Azure. For example, outbound connectivity is necessary for operators to use the Azure portal, the Azure CLI, or IaC tools such as ARM, Bicep, or Terraform templates to provision resources, manage them, or perform both actions. Azure and the Azure Arc resource bridge work in combination with your Azure Local instance's [custom location](/azure/azure-arc/platform/conceptual-custom-locations) resource. This combination enables you to target the specific Azure Local instance for any resource CRUD (*create, read, update, or delete*) operations for your Arc-enabled workload resources.
+Outbound network connectivity is required from your Azure Local instance. This requirement includes the physical machines, the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) appliance, AKS clusters, and Azure Local VMs if you use Azure Arc for VM guest operating system management. These devices have local agents or services that connect to public endpoints by using outbound network access for real-time communication, which enables connectivity to the management and control plane resource providers that run in Azure. For example, outbound connectivity is necessary for operators to use the Azure portal, the Azure CLI, or IaC tools such as ARM, Bicep, or Terraform templates to provision resources, manage them, or perform both actions. Azure and the Azure Arc resource bridge work in combination with your Azure Local instance's [custom location](/azure/azure-arc/platform/conceptual-custom-locations) resource. This combination enables you to target the specific Azure Local instance for any resource CRUD (*create, read, update, or delete*) operations for your Arc-enabled workload resources.
 
 To enable connectivity typically involves configuring your firewall, proxy, or internet egress technology, or a combination of these components, to allow outbound access to the required public endpoints. Consider the following key considerations for Azure Local outbound network requirements:
 
@@ -282,11 +282,11 @@ Insights for Azure Local is built by using Monitor and Log Analytics, which ensu
 
 ### Update management
 
-Azure Local instances and the deployed workload resources, such as Azure Local VMs, need to be updated and patched regularly. By regularly applying updates, you ensure that your organization maintains a strong security posture. You also improve the overall reliability and supportability of your estate. We recommend that you use automatic and periodic manual assessments for early discovery and application of security patches and OS updates.
+Azure Local instances and the deployed workload resources, such as Azure Local VMs, need to be updated and patched regularly. By regularly applying updates, you ensure that your organization maintains a strong security posture. You also improve the overall reliability and supportability of your estate. We recommend that you use automatic and periodic manual assessments for early discovery and application of security patches and operating system updates.
 
 #### Infrastructure updates
 
-Azure Local is continuously updated to enhance the customer experience and introduce new features and functionality. Feature updates are delivered every six months through release trains, with new versions released in April (YY04) and October (YY10). In addition to regular feature updates, Azure Local receives monthly cumulative updates that include OS security and reliability improvements, as well as updates to extensions and agents.
+Azure Local is continuously updated to enhance the customer experience and introduce new features and functionality. Feature updates are delivered every six months through release trains, with new versions released in April (YY04) and October (YY10). In addition to regular feature updates, Azure Local receives monthly cumulative updates that include operating system security and reliability improvements, as well as updates to extensions and agents.
 
 Update Manager is an Azure service that you can use to apply, view, and manage updates for Azure Local. This service provides a mechanism to view all Azure Local instances across your entire infrastructure and edge locations that use the Azure portal to provide a centralized management experience. For more information, see the following resources:
 
@@ -300,9 +300,9 @@ Update Manager is an Azure service that you can use to apply, view, and manage u
 
 It's important to check for new driver and firmware updates regularly, such as every three to six months. If you use a Premier solution category version for your Azure Local hardware, the [Solution Builder Extension package updates](/azure/azure-local/update/solution-builder-extension) are integrated with Update Manager to provide a simplified update experience. If you use validated nodes or an integrated system category, there might be a requirement to download and run an OEM-specific update package that contains the firmware and driver updates for your hardware. To determine how updates are supplied for your hardware, contact your hardware OEM or SI partner.
 
-#### Workload guest OS patching
+#### Workload guest operating system patching
 
-You can enroll Azure Local VMs that are deployed on Azure Local into [Update Manager][azure-update-management] to provide a unified patch management experience by using the same mechanism used to update the Azure Local instance physical machines. You can use Update Manager to create [guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest). These configurations control settings such as the Reboot setting *reboot if necessary*, the schedule (dates, times, and repeat options), and either a dynamic (subscription) or static list of the Azure Local VMs for the scope. These settings control the configuration for when OS security patches are installed inside your workload VM's guest OS.
+You can enroll Azure Local VMs that are deployed on Azure Local into [Update Manager][azure-update-management] to provide a unified patch management experience by using the same mechanism used to update the Azure Local instance physical machines. You can use Update Manager to create [guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest). These configurations control settings such as the Reboot setting *reboot if necessary*, the schedule (dates, times, and repeat options), and either a dynamic (subscription) or static list of the Azure Local VMs for the scope. These settings control the configuration for when operating system security patches are installed inside your workload VM's guest operating system.
 
 ## Considerations
 
@@ -347,7 +347,7 @@ This section describes an example scenario. A fictitious customer known as *Cont
 
   For more information, see [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
-- **Monthly security patches and quarterly baseline updates** are applied to production Azure Local instance only after they're validated by the preproduction environment. Update Manager and the cluster-aware updating feature automate the process of using [VM live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview) to minimize downtime for business-critical workloads during the monthly servicing operations. Contoso Manufacturing standard operating procedures require that security, reliability, or baseline build updates are applied to all production systems within four weeks of their release date. Without this policy, production systems are perpetually unable to stay current with monthly OS and security updates. Out-of-date systems negatively affect platform reliability and security.
+- **Monthly security patches and quarterly baseline updates** are applied to production Azure Local instance only after they're validated by the preproduction environment. Update Manager and the cluster-aware updating feature automate the process of using [VM live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview) to minimize downtime for business-critical workloads during the monthly servicing operations. Contoso Manufacturing standard operating procedures require that security, reliability, or baseline build updates are applied to all production systems within four weeks of their release date. Without this policy, production systems are perpetually unable to stay current with monthly operating system and security updates. Out-of-date systems negatively affect platform reliability and security.
 
   For more information, see [Recommendations for establishing a security baseline](/azure/well-architected/security/establish-baseline).
 
@@ -385,7 +385,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - **Threat detection and remediation:** [Microsoft Advanced Threat Analytics][ms-ata] detects and remediates threats, such as threats that target AD DS, that provide authentication services to Azure Local instance machines and their Windows Server VM workloads.
 
-- **Network isolation:** Isolate networks if needed. For example, you can provision multiple logical networks that use separate VLANs and network address ranges. When you use this approach, ensure that the management network can reach each logical network and VLAN so that Azure Local instance physical machines can communicate with the VLAN networks through the ToR switches or gateways. This configuration is required for management of the workload, such as allowing infrastructure management agents to communicate with the workload guest OS.
+- **Network isolation:** Isolate networks if needed. For example, you can provision multiple logical networks that use separate VLANs and network address ranges. When you use this approach, ensure that the management network can reach each logical network and VLAN so that Azure Local instance physical machines can communicate with the VLAN networks through the ToR switches or gateways. This configuration is required for management of the workload, such as allowing infrastructure management agents to communicate with the workload guest operating system.
 
   For more information, see [Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
 
@@ -414,7 +414,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - **Simplified provisioning and management experience integrated with Azure:** The [cloud-based deployment in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of [managing Azure Local instances][azs-hci-manage-cluster-at-scale] and [Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview). You can automate the portal-based deployment of the Azure Local instance by using [this ARM template][azs-hci-deploy-via-template]. Using templates provides consistency and automation to deploy Azure Local at scale, specifically in edge scenarios such as retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads.
 
-- **Automation capabilities for Azure Virtual Machines:** Azure Local provides a wide range of automation capabilities for managing workloads, such as Azure Local VMs. These capabilities include the automated deployment of Azure Local VMs by using the Azure CLI, ARM, or Bicep templates, and Virtual Machine OS updates delivered through Azure Arc Extension for updates and [Update Manager][azure-update-management] to update each Azure Local instance. Azure Local also provides support for [Azure Local VM management][azs-hci-vm-automate-cli] by using the Azure CLI and [non-Azure Local VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run the Azure CLI commands locally from one of the Azure Local machines or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of extra automation scenarios for [VM workloads][arc-vm-extensions] through Azure Arc extensions.
+- **Automation capabilities for Azure Virtual Machines:** Azure Local provides a wide range of automation capabilities for managing workloads, such as Azure Local VMs. These capabilities include the automated deployment of Azure Local VMs by using the Azure CLI, ARM, or Bicep templates, and Virtual Machine operating system updates delivered through Azure Arc Extension for updates and [Update Manager][azure-update-management] to update each Azure Local instance. Azure Local also provides support for [Azure Local VM management][azs-hci-vm-automate-cli] by using the Azure CLI and [non-Azure Local VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run the Azure CLI commands locally from one of the Azure Local machines or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of extra automation scenarios for [VM workloads][arc-vm-extensions] through Azure Arc extensions.
 
   For more information, see [Recommendations for using IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design).
 
@@ -465,10 +465,10 @@ In this scenario, a project or use case requires you to deploy a hybrid cloud so
 
 1. **Work with the hardware OEM or SI partner to arrange delivery of the hardware.** The SI partner or your employees are then required to integrate the hardware into your on-premises datacenter or edge location, such as racking and stacking the hardware, physical network, and power supply unit cabling for the physical machines.
 
-1. **Perform the Azure Local instance deployment.** Depending on your chosen solution version (Premier solution, Integrated system, or Validated Nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Local software](/azure/azure-local/deploy/deployment-introduction). This step starts by onboarding the physical machines Azure Stack HCI OS into Azure Arc-enabled servers, then starting the Azure Local cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the *Support + Troubleshooting* icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
+1. **Perform the Azure Local instance deployment.** Depending on your chosen solution version (Premier solution, Integrated system, or Validated Nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Local software](/azure/azure-local/deploy/deployment-introduction). This step starts by onboarding the physical machines Azure Stack HCI operating system into Azure Arc-enabled servers, then starting the Azure Local cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the *Support + Troubleshooting* icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
 
    > [!TIP]
-   > ![GitHub logo](../_images/github.svg) The [Azure Stack HCI OS, version 23H2 system reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a switched multi node deployment of Azure Local by using an ARM template and parameter file. Alternatively, [the Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Local instance, including its prerequisites resources.
+   > ![GitHub logo](../_images/github.svg) The [Azure Stack HCI operating system, version 23H2 system reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a switched multi node deployment of Azure Local by using an ARM template and parameter file. Alternatively, [the Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Local instance, including its prerequisites resources.
 
 1. **Deploy highly available workloads on Azure Local using Azure portal, CLI, or ARM + Azure Arc templates for automation.** Use the *custom location* resource of the new Azure Local instance as the target region when you [deploy workload resources such as Azure Local VMs, AKS, Virtual Desktop session hosts, or other Azure Arc-enabled services](#use-azure-arc-with-azure-local) that you can enable through AKS extensions and containerization on Azure Local.
 
@@ -478,8 +478,6 @@ In this scenario, a project or use case requires you to deploy a hybrid cloud so
 
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
-- [Automation in a hybrid environment](azure-automation-hybrid.yml)
-- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps
@@ -487,16 +485,19 @@ In this scenario, a project or use case requires you to deploy a hybrid cloud so
 Product documentation:
 
 - [Azure Local release information](/azure/azure-local/release-information-23h2)
-- [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
-- [Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
+- [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local)
+- [Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Local monitoring?](/azure/azure-local/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Local](/azure/azure-local/manage/azure-site-recovery)
-- [Monitor overview](/azure/azure-monitor/overview)
-- [Change tracking and inventory overview](/azure/automation/change-tracking/overview)
+- [Monitor overview](/azure/azure-monitor/fundamentals/overview)
+- [Change tracking and inventory overview](/azure/automation/change-tracking/overview-monitoring-agent)
 - [Update Manager overview](/azure/update-manager/overview)
 - [What are Azure Arc-enabled data services?](/azure/azure-arc/data/overview)
 - [What are Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Backup service?](/azure/backup/backup-overview)
+- [Automation in a hybrid environment](/azure/automation/overview)
+- [Azure Automation State Configuration](/azure/automation/automation-dsc-overview)
+- [Introduction to Kubernetes compute target in Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere?view=azureml-api-2)
 
 Product documentation for information about specific Azure services:
 
@@ -513,18 +514,20 @@ Product documentation for information about specific Azure services:
 
 Microsoft Learn modules:
 
-- [Configure Monitor](/training/modules/configure-azure-monitor)
-- [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
-- [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-arc-for-servers)
-- [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
+- [Configure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data)
+- [Design your site recovery solution in Azure](/training/modules/design-solution-for-backup-disaster-recovery)
+- [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-azure-arc)
+- [Introduction to Azure Arc-enabled data services](/training/modules/upload-download-and-manage-data-with-azure-storage-explorer)
 - [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
-- [Scale model deployment with Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
-- [Realizing Machine Learning anywhere with AKS and Azure Arc-enabled Machine Learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-arc-blog/realizing-machine-learning-anywhere-with-azure-kubernetes/ba-p/3470783)
-- [Machine learning on AKS hybrid and Stack HCI using Azure Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-stack-blog/machine-learning-on-aks-hybrid-amp-stack-hci-using-azure-arc/ba-p/3816127)
-- [Introduction to Kubernetes compute target in Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere?view=azureml-api-2)
-- [Keep your VMs updated](/training/modules/keep-your-virtual-machines-updated)
-- [Protect your VM settings with Automation state configuration](/training/modules/protect-vm-settings-with-dsc)
-- [Protect your VMs using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
+- [Keep your VMs updated](/training/modules/manage-azure-updates/)
+- [Protect your VM settings with Automation state configuration](/azure/automation)
+- [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
+
+Other resources:
+
+- [Scale model deployment with Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/scale-model-deployment-with-azure-machine-learning-anywhere/2888753)
+- [Realizing Machine Learning anywhere with AKS and Azure Arc-enabled Machine Learning - Tech Community Blog](https://techcommunity.microsoft.com/blog/azurearcblog/realizing-machine-learning-anywhere-with-azure-kubernetes-service-and-arc-enable/3470783)
+- [Machine learning on AKS hybrid and Stack HCI using Azure Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/blog/azurestackblog/machine-learning-on-aks-hybrid--stack-hci-using-azure-arc-enabled-ml/3816127)
 
 [arc-azure-policy]: /azure/azure-arc/servers/security-controls-policy
 [arc-enabled-aks]: /azure/aks/hybrid/cluster-architecture
