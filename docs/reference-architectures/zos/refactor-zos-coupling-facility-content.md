@@ -87,7 +87,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSDs or Ultra Disk Storage.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, and Standard SSD. This architecture works best with Premium SSDs or Ultra Disk Storage.
 
 - [Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration solution that you can use to ingest, prepare, and transform data at scale.
 
