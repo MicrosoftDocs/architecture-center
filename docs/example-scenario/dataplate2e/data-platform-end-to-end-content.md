@@ -4,7 +4,7 @@ This solution integrates various components of Microsoft Fabric to ingest, store
 
 ## Architecture
 
-:::image type="complex" source="./media/azure-analytics-end-to-end.svg" border="false" lightbox="./media/azure-analytics-end-to-end.svg" alt-text="Architecture diagram for a modern data platform using Microsoft Fabric.":::
+:::image type="complex" source="./media/azure-analytics-end-to-end.png" border="false" lightbox="./media/azure-analytics-end-to-end.png" alt-text="Architecture diagram for a modern data platform using Microsoft Fabric.":::
     The diagram presents a detailed architecture on a solution built on Microsoft Fabric. On the left, the architecture begins with diverse data sources including on-premises systems, AWS S3, Google Cloud Storage, and Azure Blob Storage. Real-time data is ingested via evenstreams, and data is mirrored from on-premises databases to cloud platforms like Azure SQL Database, Azure Databricks, and Snowflake. This data is stored in a Lakehouse for raw and semi-structured formats, and in a Data Warehouse for structured analytics, both hosted within Microsoft Fabric.Shortcuts enable seamless access across environments, enhancing agility and integration.
 
     Moving right, stored data is processed using notebooks, Stored procedures, DataFlow Gen2, and pipelines within Microsoft Fabric. Advanced analytics and machine learning models are applied to enrich the data, both before and after it is served. Processed data is made available through Lakehouse and SQL endpoints, Data Agents, and visualized using Power BI. This enrichment ensures high-quality, actionable insights for end-users.
