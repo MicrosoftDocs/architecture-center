@@ -85,7 +85,7 @@ Some structural elements might not add meaning to the document and can safely be
 
 - Are there annotations or comments?
 
-#### Determine a preprocessing and chunking strategy
+#### Determine your document preprocessing requirements
 
 The following questions about the structure of the document can help you decide whether you need to preprocess the document to make it easier to process. They also help you choose a chunking strategy.
 
@@ -107,9 +107,9 @@ The following questions about the structure of the document can help you decide 
 
 - Are there bullets or meaningful indentations?
 
-#### Determine your image processing requirements
+#### Determine your image preprocessing requirements
 
-Understanding the images in your document can help you choose an image processing strategy. You need to know what kind of images you have, whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions help you understand your image processing requirements.
+Knowing attributes about your images, like whether they have sufficient resolution to process, and whether the image contains all the required information can help you understand your image processing requirements. The following questions can help determine those requirements.
 
 - Does the document contain images?
 
@@ -123,28 +123,17 @@ Understanding the images in your document can help you choose an image processin
 
 - Is there rich textual representation, such as accessibility descriptions of the images?
 
-#### Determine your video and audio processing requirements
+#### Determine your video and audio preprocessing requirements
 
-Understanding the video and audio content in your collection can help you choose appropriate processing strategies. You need to know the characteristics of your multimedia content, whether it contains valuable information, and how to extract that information effectively. The following questions help you understand your video and audio processing requirements.
+Knowing the characteristics of your multimedia content, whether it contains valuable information, and how to extract that information effectively can help you understand your video and audio processing requirements. The following questions can help determine those requirements.
 
 - Does your content collection contain videos or audio files?
 
-- What are the quality characteristics of the media files?
-  - Video resolution and frame rate
-  - Audio quality and sample rate
-  - File compression and codec types
+- What are the quality characteristics of the media files? These characteristics include video resolution and framerate, audio quality and sample rate, and file compression and codec types.
 
-- What type of content do the media files contain?
-  - Spoken presentations or lectures
-  - Conversations or interviews
-  - Music or sound effects
-  - Screen recordings or demonstrations
+- What type of content do the media files contain? Content types include spoken presentations, lectures, interviews, music, sound effects and screen recordings.
 
-- Do the video files contain visual information that's important to understanding?
-  - Slides or presentations
-  - Demonstrations of processes
-  - Charts, graphs, or visualizations
-  - Text overlays or captions
+- Do the video files contain visual information that's important to understanding? Examples of this information include presentation slides, demonstrations, charts, graphs, visualizations, text overlays, and captions.
 
 - Are there transcripts or closed captions available for the audio and video content?
 
