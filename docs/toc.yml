@@ -734,7 +734,7 @@ items:
         - name: Microservices with Dapr and KEDA
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
-    href: databases/index.md
+    href: databases/index.yml
   - name: DevOps
     items:
     - name: Get started
