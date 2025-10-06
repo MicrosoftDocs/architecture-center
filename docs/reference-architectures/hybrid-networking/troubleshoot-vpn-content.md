@@ -31,13 +31,13 @@ The *Message* property of each entry provides a description of the error. Some c
                           the VPN server could not be established because the remote server is not responding. This could
                           be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
                           and the remote server is not configured to allow VPN connections. Please contact your
-                          Administrator or your service provider to determine which device may be causing the problem.
+                          Administrator or your service provider to determine which device might be causing the problem.
   Source             : RemoteAccess
   ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, The network connection between
                           your computer and the VPN server could not be established because the remote server is not
                           responding. This could be because one of the network devices (for example, firewalls, NAT, routers, and so on)
                           between your computer and the remote server is not configured to allow VPN connections. Please
-                          contact your Administrator or your service provider to determine which device may be causing the
+                          contact your Administrator or your service provider to determine which device might be causing the
                           problem.}
   InstanceId         : 20111
   TimeGenerated      : 3/18/2024 1:26:02 PM
@@ -103,7 +103,7 @@ Container          :
 
 ## Verify connectivity
 
-**Verify connectivity and routing across the VPN gateway.** The VPN appliance may not be correctly routing traffic through the Azure VPN Gateway. Use a tool such as [PsPing][psping] to verify connectivity and routing across the VPN gateway. For example, to test connectivity from an on-premises machine to a web server located on the VNet, run the following command (replacing `<<web-server-address>>` with the address of the web server):
+**Verify connectivity and routing across the VPN gateway.** The VPN appliance might not be correctly routing traffic through the Azure VPN Gateway. Use a tool such as [PsPing][psping] to verify connectivity and routing across the VPN gateway. For example, to test connectivity from an on-premises machine to a web server located on the VNet, run the following command (replacing `<<web-server-address>>` with the address of the web server):
 
 ```console
 PsPing -t <<web-server-address>>:80
@@ -254,7 +254,7 @@ The following recommendations are useful for determining if there is an issue wi
 
   ![Example VPN network performance graph](../_images/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
 
-- **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they may be overloaded, there may be too few to handle the load, or the load-balancers may not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
+- **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they might be overloaded, there might be too few to handle the load, or the load-balancers might not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
 
   You can use Azure DDoS Protection to help protect against malicious resource exhaustion. [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 

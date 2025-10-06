@@ -111,7 +111,7 @@ The goal of productization is to identify and define the monetized APIs, their m
 
 Productization comprises the following capabilities:
 
-- **API products**. This catalog of APIs is made available to the consumers. A product may be offered for purchase or as a free service.
+- **API products**. This catalog of APIs is made available to the consumers. A product might be offered for purchase or as a free service.
 
 - **Variants**. The developer experience should identify the variants of any API product that's monetized.
 
