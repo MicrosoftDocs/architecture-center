@@ -30,7 +30,11 @@ The following sections examine the economics of chunking images and the overall 
 
 There's a cost to use a language model to generate a description of an image that you chunk. For example, cloud-based services such as Azure OpenAI Service either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you should determine which images are valuable to chunk and which images you should ignore. From there, you need to understand the number and sizes of the images in your solution. Then you should weigh the value of chunking the image descriptions against the cost to generate those descriptions.
 
-One way to determine which images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier model. If you take this approach, make sure to consider the costs to build, host, and maintain your own model.
+One way to determine which images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Alternatives to this approach include:
+
+- You can build your own classifier model. If you take this approach, make sure to consider the costs to build, host, and maintain your own model.
+
+- You can use an LLM to classify and tag images. This approach gives you more flexibilty in your design, but can be less predictable than using Azure AI Vision. When possible, experiment with both approaches and compare the results.
 
 Another cost optimization strategy is to cache by using the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key that's based on the hash of the image. As a first step, check to see if you have a cached result from a prior run or previously processed document. If you do, you can use that result. This approach eliminates the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you cache the result. Future calls for this image use the cache.
 
@@ -74,6 +78,8 @@ You might choose to encapsulate preprocessing logic in the loading phase. This a
 
 - Reformat tables so that they're more easily processed.
 
+- Define document structure (based on headings, subheadings, and other structural elements). Use a tool like [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) when practical to reduce development overhead. Alternatively, you can use a library like Python if you don't want to send data to a SaaS system.
+
 #### Persist the result of the loading code
 
 There are multiple reasons that you might choose to persist the result of the loading code. One reason is if you want the ability to inspect the documents after they're loaded and preprocessed, but before the chunking logic is run. Another reason is that you might want to run different chunking logic against the same preprocessed code while it's in development or in production. Persisting the loaded code speeds up this process.
@@ -102,15 +108,8 @@ This section provides an overview of common chunking approaches. You can use mul
 
 Each approach is accompanied by a summarized decision-making matrix that highlights the tools, associated costs, and more. The engineering effort and processing costs are subjective and are included for relative comparison.
 
-### Sentence-based parsing
-
-This straightforward approach breaks down text documents into chunks that are composed of complete sentences. The advantages of this approach include its low implementation cost, low processing cost, and its applicability to any text-based document that's written in prose or full sentences. One drawback of this approach is that each chunk might not capture the full context of an idea or meaning. Multiple sentences must often be taken together to capture the semantic meaning.
-
-**Tools:** [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/how_to/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
-**Engineering effort:** Low<br/>
-**Processing cost:** Low<br/>
-**Use cases:** Unstructured documents written in prose or full sentences, and your collection of documents contains a prohibitive number of different document types that require individual chunking strategies<br/>
-**Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel, or an essay
+>![IMPORTANT]
+>Your chunking approach is a semi-permanent choice in your overall solution design, so do a thorough comparison of the approaches to find the best fit for your use case prior to settling on one to use in production. Changing chunking strategies can have a significant impact on downstream processes, requiring changes throughout the workflow.
 
 ### Fixed-size parsing, with overlap
 
@@ -123,6 +122,16 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 **Processing cost:** Low<br/>
 **Use cases:** Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your collection of documents contains a prohibitive number of different document types that require individual chunking strategies<br/>
 **Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal notes, research notes, lists
+
+### Semantic chunking
+
+This approach uses embeddings to group conceptually similar content across a document to create chunks. Semantic chunking can produce easily understandable chunks that closely align to the content's topics. The logic for this approach can search throughout a document or set of documents to find recurring topics and create chunks that group those mentions or sections together. It can be a more costly approach as it requires developing complex custom logic.
+
+**Tools:** Custom implementation. Natural Lanugage Processing (NLP) tools like spaCy can help with sentence-based parsing.<br/>
+**Engineering effort:** High<br/>
+**Processing costs:** High<br/>
+**Use cases:** Documents that have topical overlap thoughout their sections<br/>
+**Examples:** Financial or healthcare focused documentation
 
 ### Custom code
 
@@ -163,6 +172,17 @@ Document layout analysis libraries and services expose a model that represents t
 **Use cases:** Semi-structured documents<br/>
 **Examples:** News articles, web pages, resumes
 
+### Graph-based chunking
+
+Graph-based chunking is an iterative approach that involves using a LLM to find entities, like keywords, in documents and to build a graph based on thier relationships. You can start with a simpler chunking strategy, like paragraph-based, to make the graph-building process more efficient. Once you have your initail chunks, you can analyze each chunk to find entities and relationships and build your global graph structure, appending to the graph as you interate through the chunks.
+
+**Tools:** [Microsoft GraphRAG](https://microsoft.github.io/graphrag/), Neo4J<br/>
+**Engineering effort:** High<br/>
+**Processing cost:** High<br/>
+**Use cases:** Diverse statistical data<br/>
+**Examples:** Sports analytics, historical data, and any domain requiring ad hoc quantitative queries across documents.
+
+
 ### Prebuilt model
 
 Services such as Document Intelligence provide prebuilt models that you can take advantage of for various document types. Some models are trained for specific document types, such as the U.S. W-2 tax form, while others target a broader genre of document types such as invoices.
@@ -182,6 +202,16 @@ For highly structured documents where no prebuilt model exists, you might have t
 **Processing cost:** Medium/High<br/>
 **Use cases:** Structured documents where a prebuilt model doesn't exist<br/>
 **Examples:** Automotive repair and maintenance schedules, academic transcripts, records, technical manuals, operational procedures, maintenance guidelines
+
+### Sentence-based parsing
+
+This straightforward approach breaks down text documents into chunks that are composed of complete sentences. Use this approach as a fallback solution if none of the other approaches described above fit your use case. The advantages of this approach include its low implementation cost, low processing cost, and its applicability to any text-based document that's written in prose or full sentences. One drawback of this approach is that each chunk might not capture the full context of an idea or meaning. Multiple sentences must often be taken together to capture the semantic meaning.
+
+**Tools:** [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/how_to/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
+**Engineering effort:** Low<br/>
+**Processing cost:** Low<br/>
+**Use cases:** Unstructured documents written in prose or full sentences, and your collection of documents contains a prohibitive number of different document types that require individual chunking strategies<br/>
+**Examples:** User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel, or an essay
 
 ## Document structure
 

@@ -1,6 +1,6 @@
 ---
 title: Develop a RAG Solution - Preparation Phase
-description: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt-engineering strategies.
+description: Learn how to analyze and gather representative content including documents, images, videos, and audio files. Develop test queries to validate your RAG solution's content processing and retrieval strategies.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/15/2024
@@ -12,7 +12,7 @@ ms.custom: arb-aiml
 
 # RAG preparation phase
 
-The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents, perform document analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, document analysis helps you determine which test documents and test queries you should gather. The questions that you ask must be answerable by content in the documents, and the documents must answer the relevant questions.
+The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents and multimedia content, perform content analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, content analysis helps you determine which test documents, media files, and test queries you should gather. The questions that you ask must be answerable by content in the documents and multimedia, and the content must answer the relevant questions.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -20,52 +20,52 @@ This article is part of a series. Read the [introduction](./rag-solution-design-
 
 The first step in this process is to clearly define the business requirements for the solution or use case. These requirements help you determine what kind of questions the solution should answer and what source data or documents help answer those questions. In later phases, the solution domain helps inform your embedding model strategy.
 
-## Document analysis
+## Content analysis
 
-The goal of document analysis is to gather enough information about your document collection to help you understand:
+The goal of content analysis is to gather enough information about your content collection to help you understand:
 
-- The different classifications of documents. For example, you might have product specifications, quarterly reports, car insurance contracts, or health insurance contracts.
+- The different classifications of content. For example, you might have product specifications, quarterly reports, car insurance contracts, health insurance contracts, training videos, or instructional audio recordings.
 
-- The different types of documents. For example, you might have PDFs, Markdown files, HTML files, or DOCX files.
+- The different types of content and formats. For example, you might have PDFs, Markdown files, HTML files, DOCX files, MP4 videos, MP3 audio files, JPEG images, or PowerPoint presentations.
 
-- The security constraints. For example, you might require authentication and authorization to access the documents depending on whether they're publicly accessible.
+- The security constraints. For example, you might require authentication and authorization to access the content depending on whether it's publicly accessible.
 
-- The structure of the documents. For example, the length of documents might vary. Or they might have topic breaks, contextually relevant images, or tabular data.
+- The structure and characteristics of the content. For example, the length of documents might vary, videos might have different durations and resolutions, audio files might contain speech or background music, or content might have topic breaks, contextually relevant images, or tabular data.
 
 
 The following sections describe how this information helps you choose your loading and chunking strategies.
 
-### Classification of documents
+### Classification of content
 
-You need to understand the different classifications of documents to help you determine the number of test documents that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance. It should also tell you about subclassifications, such as health insurance documents or car insurance documents. You also want to know whether the subclassifications have different structures or content.
+You need to understand the different classifications of content to help you determine the number of test items that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance. It should also tell you about subclassifications, such as health insurance documents, car insurance documents, product demonstration videos, or customer service audio recordings. You also want to know whether the subclassifications have different structures, formats, or content characteristics.
 
-The goal is to understand all of the different document variants that you have. Then you can determine the number and breakdown of test documents that you need. You don't want to over or under represent a specific document classification in your experimentation.
+The goal is to understand all of the different content variants that you have. Then you can determine the number and breakdown of test content that you need. You don't want to over or under represent a specific content classification in your experimentation.
 
-### Document types
+### Content types and formats
 
-Understanding the different file formats in your collection helps you determine the number and breakdown of test documents. For example, if you have PDF and Open XML document types for quarterly reports, you need test documents for each of those document types. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents. These technical requirements include specific libraries that can process those file formats.
+Understanding the different file formats and media types in your collection helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of those formats. If you also have video presentations and audio recordings of the same content, include those in your testing as well. Understanding your content types also helps you understand your technical requirements for loading and processing your content. These technical requirements include specific libraries that can process those file formats, transcription services for audio and video content, and computer vision models for image analysis.
 
 ### Security constraints
 
-Understanding security constraints is crucial for determining your loading and chunking strategies. For example, you need to identify whether some or all of your documents require authentication, authorization, or network visibility. If the documents are within a secure perimeter, ensure that your code can access them or implement a process to securely replicate the documents to an accessible location for your processing code.
+Understanding security constraints is crucial for determining your loading and processing strategies. For example, you need to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it or implement a process to securely replicate the content to an accessible location for your processing code.
 
-Documents sometimes reference multimedia like images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself. If that media requires authentication or network line of sight, you need to make sure that your code can access the media or that you have a process in place that has access and can replicate the content.
+Content sometimes references or includes multimedia like images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary content itself. If that media requires authentication or network line of sight, you need to make sure that your code can access the media or that you have a process in place that has access and can replicate the content. Additionally, consider privacy and compliance requirements when processing audio and video content that might contain personally identifiable information or sensitive conversations.
 
-If your workload requires that different users only have access to distinct documents or document segments, ensure that you understand how to retain those access permissions in your chunking solution.
+If your workload requires that different users only have access to distinct content or content segments, ensure that you understand how to retain those access permissions in your chunking solution.
 
-### Document structure
+### Content structure and characteristics
 
-You need to understand the structure of the document, including its layout and the types of content in the document. Understanding the structure and content of your documents helps you make the following determinations:
+You need to understand the structure and characteristics of your content, including layout, format, duration, and the types of information contained within. Understanding the structure and characteristics of your content helps you make the following determinations:
 
-- Whether the document requires preprocessing to clean up noise, extract media, reformat content, or annotate items to ignore
+- Whether the content requires preprocessing to clean up noise, extract media, transcribe audio, extract frames from video, reformat content, or annotate items to ignore
 
-- Whether you want to ignore or exclude content in the document
+- Whether you want to ignore or exclude parts of the content
 
-- What parts of the document that you want to capture
+- What parts of the content you want to capture and process
 
-- How you want to chunk the document
+- How you want to chunk or segment the content
 
-- How you want to handle images, tables, charts, and other embedded media
+- How you want to handle images, tables, charts, video clips, audio segments, and other embedded media
 
 The following sections list categorized questions that you can use to help you make some of these determinations.
 
@@ -123,6 +123,39 @@ Understanding the images in your document can help you choose an image processin
 
 - Is there rich textual representation, such as accessibility descriptions of the images?
 
+#### Determine your video and audio processing requirements
+
+Understanding the video and audio content in your collection can help you choose appropriate processing strategies. You need to know the characteristics of your multimedia content, whether it contains valuable information, and how to extract that information effectively. The following questions help you understand your video and audio processing requirements.
+
+- Does your content collection contain videos or audio files?
+
+- What are the quality characteristics of the media files?
+  - Video resolution and frame rate
+  - Audio quality and sample rate
+  - File compression and codec types
+
+- What type of content do the media files contain?
+  - Spoken presentations or lectures
+  - Conversations or interviews
+  - Music or sound effects
+  - Screen recordings or demonstrations
+
+- Do the video files contain visual information that's important to understanding?
+  - Slides or presentations
+  - Demonstrations of processes
+  - Charts, graphs, or visualizations
+  - Text overlays or captions
+
+- Are there transcripts or closed captions available for the audio and video content?
+
+- What languages are spoken in the audio and video content?
+
+- Do the media files have metadata or chapters that could help with segmentation?
+
+- Is there background noise or music that might interfere with transcription?
+
+- What's the relationship between multimedia content and accompanying text? Determine whether the media has standalone content or whether there's context in surrounding documents that you should use when processing the media.
+
 #### Determine your table, chart, and other media-processing requirements
 
 Understanding what information is encapsulated in tables, charts, and other media can help you decide how you want to process it. The following questions help you understand your table, chart, and other media-processing requirements.
@@ -141,43 +174,43 @@ Understanding what information is encapsulated in tables, charts, and other medi
 
 - Are there any mathematical equations or scientific notations in the document?
 
-## Gather representative test documents
+## Gather representative test content
 
-In this step, gather documents that best represent the documents that you use in your solution. The documents must address the defined use case and answer the questions that you gathered in the question-gathering parallel phase.
+In this step, gather content that best represents the content that you use in your solution. The content must address the defined use case and answer the questions that you gathered in the question-gathering parallel phase. This includes documents, images, videos, audio files, and any other media types that are part of your content collection.
 
 ### Considerations
 
-Consider the following areas when you evaluate potential representative test documents:
+Consider the following areas when you evaluate potential representative test content:
 
-- **Pertinence:** The documents must meet the business requirements of the conversational application. For example, if you build a chat bot that helps customers perform banking operations, the documents must meet that requirement. For example, the documents should show how to open or close a bank account. The documents must be able to address the test questions that you gather in the parallel step. If the documents don't have information that's relevant to the questions, your solution can't produce a valid response.
+- **Pertinence:** The content must meet the business requirements of the conversational application. For example, if you build a chat bot that helps customers perform banking operations, the content must meet that requirement. This includes documents about opening or closing bank accounts, instructional videos about banking procedures, or audio recordings of customer service interactions. The content must be able to address the test questions that you gather in the parallel step. If the content doesn't have information that's relevant to the questions, your solution can't produce a valid response.
 
-- **Representation:** The documents should represent the different types of documents that your solution uses. For example, a car insurance document contains different information than a health or life insurance document. Suppose that the use case requires the solution to support all three of these insurance types, but you only have car insurance documents. Your solution might perform poorly for health and life insurance operations. You should have at least two documents for each variation.
+- **Representation:** The content should represent the different types of content that your solution uses. For example, a car insurance document contains different information than a health or life insurance document, and a video demonstration might convey information differently than a written procedure. Suppose that the use case requires the solution to support all three of these insurance types across multiple media formats, but you only have car insurance documents. Your solution might perform poorly for health and life insurance operations or might not leverage the rich information available in multimedia content. You should have at least two pieces of content for each variation and format.
 
-- **Physical document quality:** The documents need to be in usable shape. Scanned images, for example, might not let you extract usable information.
+- **Physical content quality:** The content needs to be in usable shape. Scanned images might not let you extract usable information, poor-quality audio recordings might not transcribe accurately, and low-resolution videos might not provide clear visual information.
 
-- **Document content quality:** The documents must have high-quality content. They shouldn't contain misspellings or grammatical errors. Language models don't perform well if you provide them with poor-quality content.
+- **Content quality:** The content must be high-quality. Documents shouldn't contain misspellings or grammatical errors, audio should be clear and audible, and videos should have sufficient resolution and lighting. Language models and other AI services don't perform well if you provide them with poor-quality content.
 
-To successfully gather test documents, you should be *qualitatively confident* that the test documents fully and accurately represent your specific domain.
+To successfully gather test content, you should be *qualitatively confident* that the test content fully and accurately represents your specific domain across all media types.
 
-### Test document guidance
+### Test content guidance
 
-- Choose real documents over synthetic ones. Real documents must go through a cleaning process to remove personal data.
+- Choose real content over synthetic content. Real content must go through a cleaning process to remove personal data, especially important for audio and video content that might contain voices, faces, or other identifying information.
 
-- Consider selectively augmenting your documents with synthetic data. This process helps you ensure that your documents cover all kinds of scenarios, including predicted future scenarios. If you must use synthetic data, do your best to make it resemble real data as much as possible.
+- Consider selectively augmenting your content with synthetic data. This process helps you ensure that your content covers all kinds of scenarios, including predicted future scenarios. If you must use synthetic data, do your best to make it resemble real content as much as possible, including realistic audio quality, video characteristics, and visual elements.
 
-- Make sure that the documents can address the questions that you gather.
+- Make sure that the content can address the questions that you gather. This includes ensuring that video content has clear visuals, audio content has clear speech, and multimedia content provides information that complements or supplements text-based content.
 
-- Have at least two documents for each document variant.
+- Have at least two pieces of content for each content variant and format. For example, if you have instructional videos, include videos with different presenters, environments, or presentation styles.
 
-- Use language models or other tools to help you evaluate the quality of the documents.
+- Use language models, transcription services, computer vision models, and other tools to help you evaluate the quality of the content across all media types.
 
 ## Gather test queries
 
-In this step, you gather test queries that you use to evaluate your chunks, your search solution, and your prompt engineering. Do this step while you gather the representative documents. You should gather the queries and determine how the representative documents address those queries at the same time. By having both the sample queries and the parts of the sample documents that address those queries, you can evaluate every stage of the RAG solution while you experiment with different strategies and approaches.
+In this step, you gather test queries that you use to evaluate your chunks, your search solution, and your prompt engineering. Do this step while you gather the representative content. You should gather the queries and determine how the representative content addresses those queries at the same time. By having both the sample queries and the parts of the sample content that address those queries, you can evaluate every stage of the RAG solution while you experiment with different strategies and approaches.
 
 ### Gather test query output
 
-The output of this phase includes content from the [gather representative test queries](#gather-test-queries) step and the [gather representative test documents](#gather-representative-test-documents) step. The output is a collection that contains the following data:
+The output of this phase includes content from the [gather representative test queries](#gather-test-queries) step and the [gather representative test content](#gather-representative-test-content) step. The output is a collection that contains the following data:
 
 - **Query:** The question, which represents a legitimate user's potential prompt.
 
@@ -220,9 +253,11 @@ It's important to gather queries that the documents don't address and the querie
 
 - State that it doesn't know the answer and provide a link where the user might find more information.
 
-### Gather test queries for embedded media
+### Gather test queries for multimedia content
 
-Like with text, you should gather a diverse set of questions that involve using the embedded media to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you determine in the [images portion of the document analysis step](#determine-your-image-processing-requirements) that the text before or after the image is required to answer some questions, make sure that you have those questions in your test queries.
+Like with text, you should gather a diverse set of questions that involve using multimedia content to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you have videos with demonstrations, presentations, or visual information, include questions that require understanding the visual content. For audio content with spoken information, interviews, or presentations, ensure you have questions that test the system's ability to extract and reason about the spoken content.
+
+If you determine in the content analysis step that the text before or after the multimedia is required to answer some questions, make sure that you have those questions in your test queries. Additionally, consider questions that require combining information from multiple media types, such as a question that requires understanding both a written document and a related instructional video.
 
 ### Gather test queries guidance
 
