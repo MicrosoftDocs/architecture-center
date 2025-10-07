@@ -34,6 +34,7 @@ Use this design and the designs described in the [Azure Local baseline reference
 ## Components
 
 The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-local-baseline#components) used for Azure Local deployments.
+
 ## Cluster design choices
 
 For guidance and recommendations for your Azure Local instance design choices, refer to the [baseline reference architecture](azure-local-baseline.yml). Use these insights and the [Azure Local sizer tool](https://azurelocalsolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Local instance according to the workload requirements.
@@ -58,7 +59,7 @@ The physical network topology shows the actual physical connections between node
 
 - Three nodes (or machines):
 
-  - Each node is a physical server that runs on Azure Stack HCI OS.
+  - Each node is a physical server that runs on Azure Stack HCI operating system.
   
   - Each node requires six network adapter ports in total: four RDMA-capable ports for storage and two ports for management and compute.
   
@@ -74,7 +75,7 @@ The physical network topology shows the actual physical connections between node
 
   - This direct communication eliminates the need for extra network switch ports for storage and removes the requirement to apply QoS or PFC configuration for SMB Direct or RDMA traffic on the network switches.
   
-  - Check with your hardware manufacturer partner or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
+  - Check with your hardware manufacturer partner or network interface card (NIC) vendor for any recommended operating system drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
   
 - Dual top-of-rack (ToR) switches:
 
@@ -126,7 +127,7 @@ The logical network topology provides an overview for how the network data flows
 
   - The nodes communicate with each other directly for storage traffic by using the four direct interconnect Ethernet ports for each node, which use six separate nonroutable (or layer 2) networks for the storage traffic.
 
-  - There's *no default gateway* configured on the four storage intent network adapter ports within the Azure Stack HCI OS.
+  - There's *no default gateway* configured on the four storage intent network adapter ports within the Azure Stack HCI operating system.
 
   - Each node can access Storage Spaces Direct (S2D) capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the Server Message Block (SMB) Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
@@ -188,7 +189,7 @@ Use the following deployment automation template as an example of how to deploy 
 
 Microsoft Learn product documentation:
 
-- [Azure Stack HCI OS, version 23H2 release information](/azure/azure-local/release-information-23h2)
+- [Azure Stack HCI operating system, version 23H2 release information](/azure/azure-local/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Local monitoring?](/azure/azure-local/concepts/monitoring-overview)
@@ -210,7 +211,7 @@ Azure product documentation:
 - [Azure Arc](https://azure.microsoft.com/products/azure-arc)
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
 - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
-- [Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Monitor](https://azure.microsoft.com/products/monitor)
 - [Azure Policy](https://azure.microsoft.com/products/azure-policy)
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
