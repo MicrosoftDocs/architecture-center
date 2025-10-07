@@ -121,7 +121,7 @@ public class AsyncController : ApiController
 }
 ```
 
-For libraries that don't provide asynchronous versions of operations, it might be possible to create asynchronous wrappers around selected synchronous methods. Follow this approach with caution. While it might improve responsiveness on the thread that invokes the asynchronous wrapper, it actually consumes more resources. An extra thread might be created, and there is overhead associated with synchronizing the work done by this thread. Some tradeoffs are discussed in this blog post: [Should I expose asynchronous wrappers for synchronous methods?][async-wrappers]
+For libraries that don't provide asynchronous versions of operations, it might be possible to create asynchronous wrappers around selected synchronous methods. Follow this approach with caution. While it might improve responsiveness on the thread that invokes the asynchronous wrapper, it actually consumes more resources. It can create an extra thread and more overhead associated with synchronizing the work the thread does. Some tradeoffs are discussed in this blog post: [Should I expose asynchronous wrappers for synchronous methods?][async-wrappers]
 
 Here is an example of an asynchronous wrapper around a synchronous method.
 
