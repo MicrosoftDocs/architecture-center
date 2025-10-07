@@ -556,7 +556,7 @@ Microsoft Learn modules:
 [azs-hci-sizer-tool]: https://azurelocalsolutions.azure.microsoft.com/#/sizer
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview

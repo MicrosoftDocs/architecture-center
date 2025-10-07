@@ -22,23 +22,23 @@ The numbers in the diagram correspond to the following data flow.
 
 ### Components
 
-The architecture uses these components:
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) that provides on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Virtual Machines hosts the modern web application that provides a user interface for accessing IBM i resources that run in Skytap on Azure.
 
--   [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power–based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. As a software-defined network, a virtual network provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides secure network isolation and connectivity between the web application, the Skytap on Azure environment, and on-premises systems.
 
--   [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instances provide on-demand, scalable computing power. A virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+  For more information about how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works, see [Skytap well-architected framework](https://skytap.github.io/well-architected-framework/).
 
--   [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. As a software defined network, a virtual network (VNet) provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks.
-Learn more information on how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
 
--   [Azure Private Link](/azure/private-link/private-link-overview) creates your own private link service in your virtual network so the web client can consume resources from Skytap on Azure.
+  For more information about how ExpressRoute works with Skytap, see [Skytap getting started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 
--   [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data.
+- [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it by using the Network File System (NFS) and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure. In this architecture, Data Box Gateway facilitates the migration of IBM i backup files from on-premises systems to Blob Storage and enables data restoration to LPARs in Skytap on Azure.
 
--  [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
-Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing unstructured data, such as text and binary data. In this architecture, Blob Storage serves as the destination for IBM i backup files transferred from Data Box Gateway during the migration process.
 
--   [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it using the Network File System (NFS) and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure.
+- [Private Link](/azure/private-link/private-link-overview) is a networking service that creates your own private link service in your virtual network so that the web client can consume resources from Skytap on Azure. In this architecture, Private Link enables secure data transfer from IBM i systems to Blob Storage through a private endpoint.
+
+- [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power-based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated IBM i LPARs without requiring application refactoring.
 
 ### Alternatives
 
