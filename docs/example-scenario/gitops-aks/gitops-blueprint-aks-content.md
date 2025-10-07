@@ -180,7 +180,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources that AKS uses to host nodes. Please note that AKS free tier does not include an SLA, and hence is not recommended for production workloads. 
+- [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources that AKS uses to host nodes. Please note that AKS free tier does not include an SLA and hence is not recommended for production workloads. 
 - GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing](https://github.com/pricing) page.
 - Azure DevOps offers a free tier that you can use for some scenarios.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
