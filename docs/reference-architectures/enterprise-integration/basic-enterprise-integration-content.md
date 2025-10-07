@@ -207,8 +207,6 @@ With the Premium tier, you can scale an API Management instance across multiple 
 
 The Logic Apps serverless model means administrators don't have to plan for service scalability. The service automatically scales to meet demand.
 
-
-
 ## Next steps
 
 - [Logic Apps][logic-apps]
@@ -224,12 +222,11 @@ For greater reliability and scalability, use message queues and events to decoup
 
 You might also be interested in these articles from the Azure Architecture Center:
 
-- [Azure API Management landing zone accelerator](../../example-scenario/integration/app-gateway-internal-api-management-function.yml)
+- [Azure API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml)
 - [On-premises data gateway for Azure Logic Apps](../../hybrid/gateway-logic-apps.yml)
 
 <!-- links -->
 
-[aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
@@ -238,7 +235,6 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-capacity]: /azure/api-management/api-management-capacity
 [apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
 [apim-domain]: /azure/api-management/configure-custom-domain
-[apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
 [apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
@@ -246,7 +242,6 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [apim-properties]: /azure/api-management/api-management-howto-properties
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-soap]: /azure/api-management/import-soap-api
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [arm]: /azure/azure-resource-manager/resource-group-authoring-templates
@@ -262,6 +257,5 @@ You might also be interested in these articles from the Azure Architecture Cente
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app
-[logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview

@@ -12,6 +12,7 @@ metadata:
     - management-and-governance
   ms.custom:
     - arb-hybrid
+  ai-usage: ai-assisted
 name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid

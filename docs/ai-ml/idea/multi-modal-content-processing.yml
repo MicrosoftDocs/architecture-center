@@ -14,6 +14,7 @@ products:
   - ai-services
   - azure-cosmos-db
   - azure-container-apps
+  - azure-ai-foundry
 name: Extract and map information from unstructured content
 summary: Learn how to build scalable systems for processing text, images, tables, and graphs with quality checks and human review for professional content workflows.
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-modal-content-processing.png

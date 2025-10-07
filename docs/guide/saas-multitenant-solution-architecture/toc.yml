@@ -10,10 +10,6 @@ items:
             href: ../saas/case-studies/dynamics-365-journey-saas.md
           - name: Microsoft SaaS stories
             href: ../saas/case-studies/saas-stories.md
-        - name: Resources
-          items:
-          - name: SaaS starter web app reference architecture
-            href: ../../example-scenario/apps/saas-starter-web-app.yml
       - name: Startups
         items:
         - name: Overview
