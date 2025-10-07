@@ -31,10 +31,9 @@ Use this design and the designs described in the [Azure Local baseline reference
 
 - You can use the storage switchless network design to help reduce the costs associated with the procurement and configuration of storage class network switches for storage traffic, but it does increase the number of network adapter ports required in the physical machines.
 
-## Architecture components
+## Components
 
 The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-local-baseline#components) used for Azure Local deployments.
-Change the heading on line 36 to "Components"
 ## Cluster design choices
 
 For guidance and recommendations for your Azure Local instance design choices, refer to the [baseline reference architecture](azure-local-baseline.yml). Use these insights and the [Azure Local sizer tool](https://azurelocalsolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Local instance according to the workload requirements.
