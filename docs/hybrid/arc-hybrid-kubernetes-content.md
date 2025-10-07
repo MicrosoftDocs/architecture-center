@@ -24,13 +24,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [Azure Arc](/azure/azure-arc/overview) extends the Azure platform, which makes it possible to build applications and services that can run across datacenters, at the edge, and in multicloud environments.
+- [Azure Arc](/azure/azure-arc/overview) is a service that extends the Azure platform to enable building applications and services that can run across datacenters, at the edge, and in multicloud environments. In this architecture, Azure Arc serves as the foundational platform that enables centralized management and governance of Kubernetes clusters regardless of where they're hosted. It provides a unified control plane for hybrid and multicloud scenarios.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed service for deploying and scaling Kubernetes clusters.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed service for deploying and scaling Kubernetes clusters in Azure. In this architecture, AKS provides fully managed Kubernetes clusters within Azure. The clusters can be managed alongside on-premises and other cloud clusters through the same Azure Arc control plane, which reduces operational complexity.
 
-- [Azure Policy](/azure/governance/policy/overview) makes it possible to achieve real-time cloud compliance at scale with consistent resource governance.
+- [Azure Policy](/azure/governance/policy/overview) is a service that enables real-time cloud compliance at scale with consistent resource governance. In this architecture, Azure Policy provides centralized policy management and enforcement across all Arc-enabled Kubernetes clusters. It helps ensure consistent governance, security, and compliance policies whether clusters are running in Azure, on-premises, or in other clouds.
 
-- [Azure Monitor](/azure/azure-monitor/overview) provides end-to-end observability for your applications, infrastructure, and network.
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution that provides end-to-end observability for applications, infrastructure, and networks. In this architecture, Azure Monitor delivers unified monitoring and observability across all Kubernetes clusters in the hybrid environment. It collects metrics, logs, and performance data from both Azure-hosted and Azure Arc-enabled clusters for centralized analysis and alerting.
 
 ## Scenario details
 

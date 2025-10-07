@@ -1,26 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mission-critical baseline architecture on Azure
-  description: Architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.
-  author: calcof
-  ms.author: pnp
-  ms.date: 08/18/2022
-  ms.topic: reference-architecture
-  ms.subservice: reference-architecture
-  ms.custom:
-    - arb-containers
+  title: Mission-critical architecture on Azure
+  description: Architecture design for a highly reliable workload.
+  author: msimecek
+  ms.author: msimecek
+  ms.date: 09/19/2025
+  ms.topic: conceptual
+  ms.subservice: architecture-guide
   ms.category:
     - containers
     - networking
     - security
     - devops
-name: Mission-critical baseline architecture on Azure
+name: Mission-critical architecture on Azure
 azureCategories:
   - containers
   - networking
   - security
   - devops
-summary: Architecture for a highly reliable workload that is accessed over a public endpoint and does not require private network connectivity to other company resources.
+summary: Architecture design for a highly reliable workload.
 products:
   - azure-front-door
   - azure-container-registry
@@ -28,4 +26,4 @@ products:
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-intro-thumb.png
 content: |
-   [!include[](mission-critical-intro-content.md)]
+   [!INCLUDE[](mission-critical-intro-content.md)]

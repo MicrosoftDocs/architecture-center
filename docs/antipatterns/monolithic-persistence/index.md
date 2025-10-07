@@ -65,7 +65,7 @@ public class PolyController : ApiController
 
 - Separate data based on how you use and access it. For example, don't store log information and business data in the same data store. These types of data have different requirements and patterns of access. Log records are inherently sequential, while business data is more likely to require random access, and is often relational.
 
-- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Azure Cosmos DB][cosmos-db]. Use [Azure Cache for Redis][azure-cache] to cache temporary data.
+- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Azure Cosmos DB][cosmos-db]. Use [Azure Managed Redis][azure-managed-redis] to cache temporary data.
 
 - Scale up the database if you follow this guidance but still reach the limits of the database. Also consider scaling horizontally and partitioning the load across database servers. However, partitioning might require redesigning the application. For more information, see [Data partitioning][DataPartitioningGuidance].
 
@@ -142,7 +142,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 - [Data partitioning][DataPartitioningGuidance]
 
 [cosmos-db]: https://azure.microsoft.com/services/cosmos-db
-[azure-cache]: /azure/azure-cache-for-redis/cache-overview
+[azure-managed-redis]: /azure/redis/overview
 [Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
 [DataPartitioningGuidance]: ../../best-practices/data-partitioning.yml
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md

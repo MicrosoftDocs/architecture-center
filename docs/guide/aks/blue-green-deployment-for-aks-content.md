@@ -15,7 +15,7 @@ The following diagram shows the architecture for the public-facing case:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
-Azure Front Door and Azure DNS provide the routing mechanism that switches traffic between the blue and green clusters. For more information, see [Blue-green deployment with Azure Front Door](https://techcommunity.microsoft.com/t5/azure-architecture-blog/blue-green-deployment-with-azure-front-door/ba-p/1609178). By using Azure Front Door, it's possible to implement a full switch or a more controlled switch that's based on [weights](/azure/frontdoor/routing-methods#weighted-traffic-routing-method). This technique is the most reliable and efficient in an Azure environment. If you want to use your own DNS and load balancer, you need to be sure that they're configured to provide a safe and reliable switch.
+Azure Front Door and Azure DNS provide the routing mechanism that switches traffic between the blue and green clusters. For more information, see [Blue-green deployment with Azure Front Door](https://techcommunity.microsoft.com/t5/azure-architecture-blog/blue-green-deployment-with-azure-front-door/ba-p/1609178). By using Azure Front Door, it's possible to implement a full switch or a more controlled switch that's based on [weights](/azure/frontdoor/routing-methods#weighted-traffic-routing-method). This technique is the most reliable and efficient in an Azure environment. If you want to use your own Domain Name System (DNS) and load balancer, you need to be sure that they're configured to provide a safe and reliable switch.
 
 Azure Application Gateway provides the front ends, which are dedicated to the public endpoints.
 
@@ -208,13 +208,19 @@ Here's the situation after the blue cluster is destroyed:
 
 ### Components
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. In this solution it is used as gateway for HTTP traffic to access the AKS clusters.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy and manage containerized applications. This application platform is the main component of this pattern.
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed service used to store and manage container images and related artifacts. In this solution is used to store and distribute container images and artifacts, such as Helm charts, in the AKS clusters.
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. It provides the core monitoring features required to execute the blue green deployment. It is used in this architecture because of its integration with AKS and its ability to provide logging, monitoring, and alerting capabilities that can be used to manage the stage transitions.
-- [Azure Key Vault](/azure/key-vault/general/overview) helps solve the following problems:Secrets Management, Key Management and Certificate Management; it is used to store and manage the secrets and certificates required at platform and application level for this solution.
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and application endpoint management system. It is used in this solution as the public endpoint for HTTP applications that are hosted on AKS. In this solution it has the critical responsibility to manage the traffic switch between the blue and green application gateways.
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. It manages the host names that are used in the solution for the blue and green clusters, and it plays an important role in the traffic switches, particularly for private endpoints.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. In this architecture, Application Gateway serves as the gateway for HTTP traffic to access the AKS clusters. It provides separate instances for blue and green clusters to enable traffic switching during deployments.
+
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, AKS serves as the main application platform. It provides blue and green cluster instances that enable zero-downtime deployments and controlled rollouts of new versions.
+
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed service that stores and manages container images and related artifacts. In this architecture, Container Registry stores and distributes container images and artifacts, such as Helm charts, to the blue and green AKS clusters during the deployment process.
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, it provides the core monitoring features required to run the blue-green deployment. Azure Monitor integrates with AKS and provides logging, monitoring, and alerting capabilities that you can use to manage the stage transitions.
+
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service that helps manage and protect secrets, keys, and certificates. In this architecture, Key Vault stores and manages the secrets and certificates required at platform and application levels.
+
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a global load balancer and application endpoint management system. In this architecture, it serves as the public endpoint for HTTP applications that are hosted on AKS and manages the traffic switch between the blue and green application gateways.
+
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. In this architecture, it manages the host names that are used in the solution for the blue and green clusters. It also plays an important role in the traffic switches, particularly for private endpoints.
 
 ### Alternatives
 
@@ -345,7 +351,6 @@ Other contributors:
 - [Blue-green deployment (Martin Fowler)](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 - [AKS documentation](/azure/aks)
 - [Monitor documentation](/azure/azure-monitor)
-- [AKS in an application landing zone with blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
 - [Architecture pattern for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern)
 - [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)

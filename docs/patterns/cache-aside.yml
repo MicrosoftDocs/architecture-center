@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cache-Aside pattern
+  title: Cache-Aside Pattern
   description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
   ms.author: pnp
   author: claytonsiemens77
-  ms.date: 07/28/2022
+  ms.date: 09/11/2025
   ms.topic: design-pattern
   ms.subservice: design-pattern
   ms.custom: arb-web
@@ -16,4 +16,4 @@ name: Cache-Aside pattern
 summary: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 thumbnailUrl: /azure/architecture/browse/thumbs/cache-aside-diagram.png
 content: |
-  [!include[](cache-aside-content.md)]
+  [!INCLUDE[](cache-aside-content.md)]

@@ -1,8 +1,8 @@
 ---
 title: Data and AI
 description: Compare Azure data and AI services with those of AWS. Explore the differences between services and tools.
-author: rhack
-ms.author: rhackenberg
+author: johnkoukgit
+ms.author: johnkoukaras
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -117,7 +117,7 @@ These systems ingest and analyze data as it's generated to provide immediate ins
 | [Amazon Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/) | [Azure HDInsight with Apache Kafka](https://azure.microsoft.com/services/hdinsight/)   | These services provide managed Apache Kafka clusters for creating real-time streaming data pipelines and applications.     |
 | [AWS Lambda](https://aws.amazon.com/lambda/)    | [Azure Functions](https://azure.microsoft.com/services/functions/)      | These serverless compute platforms run code in response to events and automatically manage the underlying compute resources.             |
 | [Amazon DynamoDB Streams](https://aws.amazon.com/pm/dynamodb/)  | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed)    |These services enable real-time data processing by capturing and providing a stream of data modifications.      |
-| [Amazon ElastiCache with Redis streams](https://aws.amazon.com/elasticache/)   | [Azure Cache for Redis with Redis streams](https://azure.microsoft.com/services/cache/)   | These services provide managed Redis instances that support Redis streams for real-time data ingestion and processing.      |
+| [Amazon ElastiCache with Redis streams](https://aws.amazon.com/elasticache/)   | [Azure Managed Redis with Redis streams](https://azure.microsoft.com/products/managed-redis/)   | These services provide managed Redis instances that support Redis streams for real-time data ingestion and processing.      |
 | [Amazon IoT Analytics](https://aws.amazon.com/iot-analytics/)   | [Azure IoT Hub with Azure Stream Analytics](https://azure.microsoft.com/services/iot-hub/)   | These services enable you to process and analyze data from IoT devices in real time. AWS IoT Analytics provides built-in data storage and analysis capabilities. Azure provides modular services: IoT Hub handles ingestion, and Stream Analytics processes the data.     |
 
 ## Machine learning services
