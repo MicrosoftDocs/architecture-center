@@ -99,7 +99,7 @@ The following example application allows users to submit records of various type
 1. Enrichment
 1. Insertion of the record into the database
 
-All components of the application (API, job processor A, and job processor B) are separate processes that might be scaled independently. The processes do not directly communicate with one another.
+All components of the application (API, job processor A, and job processor B) are separate processes that can be scaled independently. The processes do not directly communicate with one another.
 
 ![A multi-queue, multi-processor flow with partitioned storage for leases, writing to a database.](./_images/rate-limiting-pattern-04.png)
 

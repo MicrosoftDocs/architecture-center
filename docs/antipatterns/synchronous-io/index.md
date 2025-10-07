@@ -154,7 +154,7 @@ You can perform the following steps to help identify the problem:
 
 1. Monitor the production system and determine whether blocked worker threads are constraining throughput.
 
-2. If requests are being blocked due to lack of threads, review the application to determine which operations might be performing I/O synchronously.
+2. If requests are being blocked due to lack of threads, review the application to determine which operations are performing I/O synchronously.
 
 3. Perform controlled load testing of each operation that is performing synchronous I/O, to find out whether those operations are affecting system performance.
 

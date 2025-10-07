@@ -33,7 +33,7 @@ There are some key factors that influence your profitability:
 - **Tenant isolation.** The [tenancy model](tenancy-models.md) you use affects the level of isolation you have between your tenants. If you share your resources, do you need to consider how tenants might over-utilize or abuse the service? How will the level of tenant isolation affect your COGS and performance for everyone?
 
    Some pricing models aren't profitable without additional controls around resource allocation. For example, you might need to implement service throttling to make a flat-rate pricing model sustainable.
-- **Tenant lifecycle.** For example, solutions with high customer churn rates, or services that require a greater on-boarding effort, might suffer lower profitability&mdash;especially if they're priced using a consumption-based model.
+- **Tenant lifecycle.** For example, solutions with high customer churn rates, or services that require a greater on-boarding effort might suffer lower profitability, especially if they're priced using a consumption-based model.
 - **Service level requirements.** Tenants that require higher levels of service might mean your solution isn't profitable anymore. It's critical that you're clear about your customers' service level expectations and any obligations you have, so that you can plan your pricing models accordingly. Consider using different pricing tiers for customers with different service level requirements.
 
 ## Common pricing models
