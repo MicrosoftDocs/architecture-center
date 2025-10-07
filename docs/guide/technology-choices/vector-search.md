@@ -162,12 +162,9 @@ When implementing vector search, you can also consider linking with other Micros
 
 Principal authors:
 
-- [Keita Onabuta](https://www.linkedin.com/in/keita-onabuta/) | Senior Customer Engineer
-- [Gary Lee](https://www.linkedin.com/in/gary3207/) | Senior Customer Engineer
+- [Keita Onabuta](https://www.linkedin.com/in/keita-onabuta/) | Senior Solution Engineer
+- [Yu Saito](https://www.linkedin.com/in/yu-saito-192-profile/) | Solution Engineer
 
-Other contributors:
-
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta/) | Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
