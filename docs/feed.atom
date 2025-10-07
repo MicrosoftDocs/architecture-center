@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-09-22T22:18:09.135Z</updated>
+    <updated>2025-09-30T13:12:43.868Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Design a Microservices Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/microservices/design</id>
+        <link href="https://learn.microsoft.com/azure/architecture/microservices/design"/>
+        <updated>2025-09-25T19:15:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Understand Data Models]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/understand-data-store-models</id>
@@ -63,6 +71,14 @@
         <updated>2025-09-02T15:29:07.000Z</updated>
         <summary type="html"><![CDATA[Learn about cost management and allocation approaches for multitenant solutions, including Azure resource tagging, consumption tracking, and optimization.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WordPress on Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container"/>
+        <updated>2025-09-29T22:05:36.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Application design considerations for mission-critical workloads on Azure]]></title>
@@ -158,6 +174,38 @@
         <link href="https://learn.microsoft.com/azure/architecture/patterns/cache-aside"/>
         <updated>2025-09-11T14:59:26.000Z</updated>
         <summary type="html"><![CDATA[Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and Deploy Custom Document Processing Models on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
+        <updated>2025-09-26T15:30:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design Principles for Azure Applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles"/>
+        <updated>2025-09-25T19:17:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn key design principles for Azure applications, including self-healing, redundancy, scaling, partitioning, and using managed services effectively.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Delphix for Data Masking in Azure Data Factory and Azure Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory"/>
+        <updated>2025-09-23T16:42:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Delphix with Azure Data Factory and Azure Synapse Analytics to automate data masking, ensure compliance, and streamline secure data workflows.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scramble SAP Data by using Delphix and Azure Data Factory or Azure Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory"/>
+        <updated>2025-09-23T16:42:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to perform data scrambling for SAP applications by using Delphix and Azure Data Factory or Azure Synapse Analytics.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -334,14 +382,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/replatform-aix-workloads"/>
         <updated>2025-09-19T19:20:39.000Z</updated>
         <summary type="html"><![CDATA[Learn how to replatform AIX workloads on Azure to reduce your TCO, improve business agility, and improve operational resiliency.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Build and Deploy Custom Document Processing Models on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
-        <updated>2025-09-19T19:00:16.000Z</updated>
-        <summary type="html"><![CDATA[Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -798,14 +838,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-app-service"/>
         <updated>2025-09-05T16:17:45.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress on Azure Kubernetes Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container"/>
-        <updated>2025-09-05T16:17:45.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
