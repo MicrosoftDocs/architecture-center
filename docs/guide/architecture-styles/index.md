@@ -42,7 +42,7 @@ N-tier architectures are well-suited for migrating existing applications that al
 
 **[Web-Queue-Worker][web-queue-worker]** is an architecture that consists of a web front end, a message queue, and a back-end worker. The web front end handles HTTP requests and user interactions, while the worker performs resource-intensive tasks, long-running workflows, or batch operations. Communication between the front end and worker occurs through an asynchronous message queue.
 
-This architecture is ideal for applications with relatively simple domains that have some resource-intensive processing requirements. It's easy to understand and deploy by using managed Azure services like App Service and Azure Functions. You can scale the front end and worker independently to provide flexibility in resource allocation. But without careful design, both components can become large and monolithic.
+This architecture is ideal for applications with relatively simple domains that have some resource-intensive processing requirements. It's easy to understand and deploy with managed Azure services like App Service and Azure Functions. You can scale the front end and worker independently to provide flexibility in resource allocation. But without careful design, both components can become large and monolithic.
 
 ### Microservices
 
@@ -72,7 +72,7 @@ Event-driven architectures excel in scenarios that require real-time processing 
 
 **[Big data](./big-data.md)** architectures handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. These architectures typically include components for data storage (like data lakes), batch processing for historical analysis, stream processing for real-time insights, and analytical data stores for reporting and visualization.
 
-Big data architectures are essential for organizations that need to extract insights from massive datasets, support predictive analytics using machine learning, or process real-time streaming data from IoT devices. Modern implementations often use managed services like Microsoft Fabric or Azure Synapse Analytics to simplify the complexity of building and maintaining big data solutions.
+Big data architectures are essential for organizations that need to extract insights from massive datasets, support predictive analytics using machine learning, or process real-time streaming data from IoT devices. Modern implementations often use managed services like Microsoft Fabric to simplify the complexity of building and maintaining big data solutions.
 
 ### Big compute
 
