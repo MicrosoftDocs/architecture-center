@@ -21,6 +21,10 @@ This architecture is a starting point for an [Azure Local instance that uses a s
 
 For more information about these resources, see [Related resources](#related-resources).
 
+## Components
+
+The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-local-baseline#components) used for Azure Local deployments.
+
 ## Potential use cases
 
 Use this design and the designs described in the [Azure Local baseline reference architecture](azure-local-baseline.yml) to address the following use case requirements:
@@ -30,10 +34,6 @@ Use this design and the designs described in the [Azure Local baseline reference
 - The storage switchless network design removes the requirement to deploy storage class network switches to connect the network adapter ports that are used for the storage traffic.
 
 - You can use the storage switchless network design to help reduce the costs associated with the procurement and configuration of storage class network switches for storage traffic, but it does increase the number of network adapter ports required in the physical machines.
-
-## Components
-
-The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-local-baseline#components) used for Azure Local deployments.
 
 ## Cluster design choices
 
@@ -56,6 +56,10 @@ Network design refers to the overall arrangement of physical and logical compone
 #### Physical network topology
 
 The physical network topology shows the actual physical connections between nodes and networking components. The following configuration outlines the connections between nodes and networking components in a three-node storage switchless Azure Local deployment:
+
+:::image type="complex" source="images/azure-local-3-node-physical-network.png" lightbox="images/azure-local-3-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." border="false":::
+   The diagram shows the physical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It highlights the direct connections between the nodes for storage traffic and the use of dual top-of-rack (ToR) switches for management and compute traffic. Each node has two network adapters for storage, which are cross-connected to the other nodes, and two network adapters for management and compute, which connect to the ToR switches.
+:::image-end:::
 
 - Three nodes (or machines):
 
@@ -87,17 +91,17 @@ The physical network topology shows the actual physical connections between node
   
 - External connectivity:
 
-  - The dual ToR switches connect to the external network, such as the internal corporate LAN, and use your edge border network device, such as a firewall or router, to provide access to the required outbound URLs.
+  - The dual ToR switches connect to the external network, such as the internal corporate local area network (LAN), and use your edge border network device, such as a firewall or router, to provide access to the required outbound URLs.
   
   - The two ToR switches handle the north-south traffic for the Azure Local instance, including traffic related to management and compute intents.
-
-    :::image type="complex" source="images/azure-local-3-node-physical-network.png" lightbox="images/azure-local-3-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." border="false":::
-      The diagram shows the physical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It highlights the direct connections between the nodes for storage traffic and the use of dual top-of-rack (ToR) switches for management and compute traffic. Each node has two network adapters for storage, which are cross-connected to the other nodes, and two network adapters for management and compute, which connect to the ToR switches.
-   :::image-end:::
 
 #### Logical network topology
 
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. The following list summarizes the logical setup for a three-node storage switchless Azure Local instance:
+
+:::image type="complex" source="images/azure-local-3-node-logical-network.png" lightbox="images/azure-local-3-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Local instance." border="false":::
+   The diagram shows the logical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It illustrates the flow of network traffic between components. The diagram shows three physical nodes. Network ATC is used to define intents for management, compute, and storage traffic. The management and compute intents are converged onto a virtual switch that uses a Switch Embedded Team (SET). The storage intent uses dedicated RDMA-capable adapters that are directly connected between the nodes in a full mesh. The diagram also depicts logical networks for virtual machines and the connection to the external network via the ToR switches.
+:::image-end:::
 
 - Dual ToR switches:
 
@@ -132,10 +136,6 @@ The logical network topology provides an overview for how the network data flows
   - Each node can access Storage Spaces Direct (S2D) capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the Server Message Block (SMB) Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
-
-    :::image type="complex" source="images/azure-local-3-node-logical-network.png" lightbox="images/azure-local-3-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Local instance." border="false":::
-       The diagram shows the logical network topology for a three-node Azure Local instance that uses a storage switchless architecture. It illustrates the flow of network traffic between components. The diagram shows three physical nodes. Network ATC is used to define intents for management, compute, and storage traffic. The management and compute intents are converged onto a virtual switch that uses a Switch Embedded Team (SET). The storage intent uses dedicated RDMA-capable adapters that are directly connected between the nodes in a full mesh. The diagram also depicts logical networks for virtual machines and the connection to the external network via the ToR switches.
-    :::image-end:::
 
 #### IP address requirements
 

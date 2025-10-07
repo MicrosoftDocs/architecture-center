@@ -194,7 +194,7 @@ You need the following components when you design a multi-node storage switched 
   
 - External connectivity:
 
-  - Dual ToR switches connect to the external network, such as your internal corporate LAN, to provide access to the required outbound URLs by using your edge border network device. This device can be a firewall or router. These switches route traffic that goes in and out of the Azure Local instance, or north-south traffic.
+  - Dual ToR switches connect to the external network, such as your internal corporate local area network (LAN), to provide access to the required outbound URLs by using your edge border network device. This device can be a firewall or router. These switches route traffic that goes in and out of the Azure Local instance, or north-south traffic.
   
   - External north-south traffic connectivity supports the cluster management intent and compute intents. This networking configuration is achieved by using two switch ports and two network adapter ports for each machine that are converged through SET and a virtual switch within Hyper-V to ensure resiliency. These components provide external connectivity for Azure Local VMs and other workload resources deployed within the logical networks that are created in Resource Manager by using the Azure portal, the Azure CLI, or IaC templates.
 
