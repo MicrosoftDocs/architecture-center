@@ -74,7 +74,7 @@ Using a gateway in this topology allows client-based usage tracking. Unless clie
 
 If controlling your clients' configuration is as easy as or easier than controlling the routing at the gateway level, the added reliability, security, cost, maintenance, and performance impact of the gateway might not be worth the added architectural component.
 
-Also, some workload scenarios could benefit from migrating from a multiple model deployment approach to a multiple Azure OpenAI instance deployment approach. For example, consider multiple Azure OpenAI instances if you have multiple clients that should be using different RBAC or access keys to access their model. Using multiple deployments in a single Azure OpenAI instance and handling logical identity segmentation at the gateway level is possible, but might be excessive when a physical RBAC segmentation approach is available by using distinct Azure OpenAI instances.
+Also, some workload scenarios could benefit from migrating from a multiple model deployment approach to a multiple Azure OpenAI instance deployment approach. For example, consider multiple Azure OpenAI instances if you have multiple clients that should be using different Azure RBAC or access keys to access their model. Using multiple deployments in a single Azure OpenAI instance and handling logical identity segmentation at the gateway level is possible, but might be excessive when a physical Azure RBAC segmentation approach is available by using distinct Azure OpenAI instances.
 
 ## Multiple Azure OpenAI instances in a single region and single subscription
 
@@ -93,7 +93,7 @@ Also, some workload scenarios could benefit from migrating from a multiple model
 
 A topology that includes multiple Azure OpenAI instances in a single region and a single subscription supports the following use cases:
 
-- Enables security segmentation boundaries, such as key or RBAC per client
+- Enables security segmentation boundaries, such as key or Azure RBAC per client
 
 - Enables an easy chargeback model for different clients
 
@@ -348,7 +348,7 @@ When considering whether to take advantage of increased capacity through [global
 
 ### Azure OpenAI authorization
 
-The gateway needs to authenticate with all Azure OpenAI instances that it interfaces with. Unless you designed the gateway to do pass-through authentication, the gateway should use a managed identity for its credentials. So each Azure OpenAI instance needs to configure least-privileged RBAC for the gateways' managed identities. For active-active and failover architectures, make sure the gateway's identity has equivalent permissions across all involved Azure OpenAI instances.
+The gateway needs to authenticate with all Azure OpenAI instances that it interfaces with. Unless you designed the gateway to do pass-through authentication, the gateway should use a managed identity for its credentials. So each Azure OpenAI instance needs to configure least-privileged Azure RBAC for the gateways' managed identities. For active-active and failover architectures, make sure the gateway's identity has equivalent permissions across all involved Azure OpenAI instances.
 
 ### Azure Policy
 

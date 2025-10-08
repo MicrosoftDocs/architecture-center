@@ -125,7 +125,7 @@ You can combine policy management and enforcement tools with GitOps to enforce p
 
 GitOps provides consistency and standardization of the cluster state, and can help to enhance security. You can also use GitOps to ensure consistent state across multiple clusters. For example, GitOps can apply the same configuration across primary and disaster recovery (DR) clusters, or across a farm of clusters.
 
-If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (RBAC), admissions controllers, and other tools.
+If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (Azure RBAC), admissions controllers, and other tools.
 
 ### Use GitOps to bootstrap initial configuration
 

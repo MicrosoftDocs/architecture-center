@@ -500,7 +500,7 @@ The workload's Azure Monitor Logs workspace stores the workload's logs and metri
 Correlated data helps support incident response. The triage runbook for this architecture should address this situation and include organizational contact information if the problem extends beyond workload resources. Workload administrators might require assistance from platform administrators to correlate log entries from enterprise networking, security, or other platform services.
 
 > [!IMPORTANT]
-> **For the platform team:** When possible, grant RBAC permissions to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy. The application teams can use this information to troubleshoot tasks. For more information, see [Recommendations for monitoring and threat detection](/azure/well-architected/security/monitor-threats).
+> **For the platform team:** When possible, grant Azure RBAC permissions to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy. The application teams can use this information to troubleshoot tasks. For more information, see [Recommendations for monitoring and threat detection](/azure/well-architected/security/monitor-threats).
 
 #### Build agents
 

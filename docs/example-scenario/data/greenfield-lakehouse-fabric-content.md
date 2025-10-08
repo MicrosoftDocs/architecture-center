@@ -157,7 +157,7 @@ You can use Fabric to manage, control, and audit your security settings accordin
 
 - Authentication. Configure single sign-on (SSO) in Microsoft Entra ID to provide access from various devices and locations.
 
-- Role-based access control (RBAC). Implement workspace-based access control to manage who can access and interact with specific datasets.
+- Azure Role-based access control (Azure RBAC). Implement workspace-based access control to manage who can access and interact with specific datasets.
 
 - Network security. Use the Fabric inbound and outbound network security controls when you connect to data or services within or outside your network. Key features include [Conditional Access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
 
