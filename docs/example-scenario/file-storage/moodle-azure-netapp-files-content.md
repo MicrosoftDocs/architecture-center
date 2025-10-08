@@ -93,7 +93,7 @@ Azure NetApp Files provides a more cost-effective solution that uses 4 TiB of Ul
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources for your specific requirements. For more information, see [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
-For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
+For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/). Use this calculator to find the optimal balance between capacity, performance, and cost.
 
 ### Operational Excellence
 

@@ -3,7 +3,7 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://registry.terraform.io/modules/Azure/lz-vending) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
@@ -80,7 +80,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see figure 2*).
 
-**Use infrastructure as code.** Your deployment should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify them to fit your implementation needs.
+**Use infrastructure as code.** Your deployment should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://registry.terraform.io/modules/Azure/lz-vending) modules and modify them to fit your implementation needs.
 
 **Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the new subscription. The pipeline should execute the following tasks:
 
@@ -119,7 +119,7 @@ The subscription vending automation ends with subscription creation and configur
 Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
 - [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
-- [Terraform modules](https://aka.ms/lz-vending/tf)
+- [Terraform modules](https://registry.terraform.io/modules/Azure/lz-vending)
 - [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 - [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
