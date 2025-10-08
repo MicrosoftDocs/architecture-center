@@ -184,5 +184,5 @@ Other contributors:
 - [Microsoft Fabric decision guide: Choose between Warehouse and Lakehouse](/fabric/fundamentals/decision-guide-lakehouse-warehouse)
 - [SQL database in Microsoft Fabric](/fabric/database/sql/overview)
 - [Lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview)
-- [Data Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing)
+- [Data warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing)
 - [Eventhouse in Microsoft Fabric](/fabric/real-time-intelligence/eventhouse)
