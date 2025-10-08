@@ -77,7 +77,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service that you can use to deploy and manage containerized applications in container-based compute clusters.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. This architecture uses Azure Cache for Redis to share data and state between compute resources.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. This architecture uses Azure Cache for Redis to share data and state between compute resources.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
@@ -87,7 +87,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSDs or Ultra Disk Storage.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks include Ultra Disk Storage, Premium SSD, and Standard SSD. This architecture works best with Premium SSDs or Ultra Disk Storage.
 
 - [Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration solution that you can use to ingest, prepare, and transform data at scale.
 

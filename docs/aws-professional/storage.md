@@ -66,7 +66,6 @@ Both platforms provide different types of disks to meet particular performance n
 | gp2 |  Premium SSD | Production and performance-sensitive workloads | Yes |
 | gp3 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency | No |
 | io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS | No |
-| st1/sc1 |  Standard HDD | Infrequently accessed workloads | Yes |
 
 On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and can be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
 

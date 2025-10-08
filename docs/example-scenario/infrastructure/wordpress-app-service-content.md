@@ -41,7 +41,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 
 ### Alternatives
 
-- You can use [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared among the App Service web apps.
+- You can use [Azure Managed Redis](/azure/redis/overview) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared among the App Service web apps.
 - Instead of Azure Front Door, you can use Content Delivery Network to deliver web content to users.
 
 ## Scenario details

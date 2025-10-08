@@ -1,4 +1,4 @@
-This article describes how to deploy the Azure Governance Visualizer accelerator. Organizations can use the Azure Governance Visualizer to capture pertinent governance information about their Azure tenants. The tool captures:
+This article describes how to deploy the Azure Governance Visualizer. Organizations can use the Azure Governance Visualizer to capture pertinent governance information about their Azure tenants. The tool captures:
 
 - Management group hierarchy.
 - Policy information, such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
