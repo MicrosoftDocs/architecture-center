@@ -60,7 +60,7 @@ The Unisys enterprise servers trace their heritage to the first commercially ava
 
 A Unisys transition moves the entire Dorado system from today's hardware to Azure via a VM. The 2200 Exec OS and all processors, libraries, and data appear as they did on the physical environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions. The architecture also uses Azure storage features, including:
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and Virtual Machines uses. The available types of disks are Azure Ultra Disks, Azure Premium SSDs, Azure Standard SSDs, and Standard HDDs. For this architecture, you should use either Premium SSDs or Ultra Disk SSDs.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and Virtual Machines uses. The available types of disks are Azure Ultra Disks, Azure Premium SSDs, and Azure Standard SSDs. For this architecture, you should use either Premium SSDs or Ultra Disk SSDs.
 
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) is a service that you can use to fully manage file shares in the cloud that are accessible by using the industry-standard Server Message Block protocol. Cloud or on-premises deployments of Windows, Linux, and macOS can mount Azure file shares concurrently.
 
