@@ -20,7 +20,6 @@ This article discusses various ways to augment your chunks, including some commo
 >This article focuses only on vector-based RAG solutions. Strategies related to graph-based, agentic, tag-augmented generation (TAG) and other RAG solutions are not in scope.
 
 > This article is part of a series. Here's the [introduction](./rag-solution-design-and-evaluation-guide.md).
-,
 The following code sample shows chunks that are enriched with data.
 
 :::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram that shows JSON records. A single field is being enriched." border="false":::
@@ -36,9 +35,9 @@ Chunking your data helps your workload find the most relevant chunks, typically 
 
 - **Implement lowercasing strategies.** Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match corresponding words within a sentence. Embeddings are typically case-sensitive, so "Cheetah" and "cheetah" would result in a different vector for the same logical word. For example, for the embedded query "what is faster, a cheetah or a puma?" the embedding "cheetahs are faster than pumas" is a closer match than "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies lowercase only the first words in sentences.
 
-- **Guard against prompt injection attacks.** Reduce the risk of prompt injection attacks by using techniques like isolating user prompts from system prompts, using pattern and anomaly detection, and using allow/deny lists to limit acceptable prompts.
+- **Guard against prompt injection attacks.** If an attacker knows that a content repository is processed for indexing, that attacker can attempt to add content to that repository that includes instructions that are evaluated by your language models and agents. Ensure the data obtained from your content is never allowed to be used as a source of instructions during this or future processing tasks.
 
-- **Sanitize your date.** Improve security with techniques like flagging or excluding media that has embedded instructions. Consider using an LLM with constrained decoding to classify and sanitize inputs.
+  Improve security with techniques like flagging or excluding media that has embedded instructions. Consider using a language model with constrained decoding to classify and sanitize inputs.
 
 - **Remove stop words.** Stop words are words like "a", "an," and "the." You can remove stop words to reduce the dimensionality of the resulting vector. If you remove stop words in the previous example, "a cheetah is faster than a puma" and "the cheetah is faster than the puma" are vectorially equal to "cheetah faster puma."  However, it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but it holds significant semantic meaning. You need to test to determine the effect of removing stop words.
 

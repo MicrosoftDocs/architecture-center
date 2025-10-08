@@ -3,7 +3,7 @@ title: Develop a RAG Solution - Preparation Phase
 description: Learn how to analyze and gather representative content including documents, images, videos, and audio files. Develop test queries to validate your RAG solution's content processing and retrieval strategies.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 12/15/2024
+ms.date: 10/10/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -43,13 +43,13 @@ The goal is to understand all of the different content variants that you have. T
 
 ### Content types and formats
 
-Understanding the different file formats and media types in your collection helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of those formats. If you also have video presentations and audio recordings of the same content, include those in your testing as well. Understanding your content types also helps you understand your technical requirements for loading and processing your content. These technical requirements include specific libraries that can process those file formats, transcription services for audio and video content, and computer vision models for image analysis.
+Understanding the different file formats in your collection helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of those formats. If you also have video presentations and audio recordings of the same content, include those in your testing as well. Understanding your content types also helps you understand your technical requirements for loading and processing your content. These technical requirements include specific libraries that can process those file formats, transcription services for audio and video content, and computer vision models for image analysis.
 
 ### Security constraints
 
 Understanding security constraints is crucial for determining your loading and processing strategies. For example, you need to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it or implement a process to securely replicate the content to an accessible location for your processing code.
 
-Content sometimes references or includes multimedia like images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary content itself. If that media requires authentication or network line of sight, you need to make sure that your code can access the media or that you have a process in place that has access and can replicate the content. Additionally, consider privacy and compliance requirements when processing audio and video content that might contain personally identifiable information or sensitive conversations.
+Documents sometimes reference or embeds images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary document itself. If that media requires authentication or network line of sight, you need to make sure that your code can access the media or that you have a process in place that has access and can replicate the content. Additionally, consider privacy and compliance requirements when processing audio and video content that might contain personally identifiable information or sensitive conversations.
 
 If your workload requires that different users only have access to distinct content or content segments, ensure that you understand how to retain those access permissions in your chunking solution.
 
@@ -111,8 +111,6 @@ The following questions about the structure of the document can help you decide 
 
 Knowing attributes about your images, like whether they have sufficient resolution to process, and whether the image contains all the required information can help you understand your image processing requirements. The following questions can help determine those requirements.
 
-- Does the document contain images?
-
 - What resolution are the images?
 
 - Is there text embedded in the images?
@@ -126,8 +124,6 @@ Knowing attributes about your images, like whether they have sufficient resoluti
 #### Determine your video and audio preprocessing requirements
 
 Knowing the characteristics of your multimedia content, whether it contains valuable information, and how to extract that information effectively can help you understand your video and audio processing requirements. The following questions can help determine those requirements.
-
-- Does your content collection contain videos or audio files?
 
 - What are the quality characteristics of the media files? These characteristics include video resolution and framerate, audio quality and sample rate, and file compression and codec types.
 
@@ -189,7 +185,7 @@ To successfully gather test content, you should be *qualitatively confident* tha
 
 - Make sure that the content can address the questions that you gather. This includes ensuring that video content has clear visuals, audio content has clear speech, and multimedia content provides information that complements or supplements text-based content.
 
-- Have at least two pieces of content for each content variant and format. For example, if you have instructional videos, include videos with different presenters, environments, or presentation styles.
+- Have at least two pieces of content for each content variant and format. For example, if you have instructional videos, include videos with different presenters, environments, or spoken language.
 
 - Use language models, transcription services, computer vision models, and other tools to help you evaluate the quality of the content across all media types.
 

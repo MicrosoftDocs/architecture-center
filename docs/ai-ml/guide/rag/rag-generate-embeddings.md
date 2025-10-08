@@ -160,7 +160,7 @@ When you design your system, you should consider the cost of embedding in terms 
 ## Next step
 
 > [!div class="nextstepaction"]
-> ./rag-information-retrieval.md
+> [Information-retrieval phase](./rag-information-retrieval.md)
 
 ## Related resources
 

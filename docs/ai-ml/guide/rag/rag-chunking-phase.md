@@ -34,7 +34,7 @@ One way to determine which images to process is to use a service such as [Azure 
 
 - You can build your own classifier model. If you take this approach, make sure to consider the costs to build, host, and maintain your own model.
 
-- You can use an LLM to classify and tag images. This approach gives you more flexibilty in your design, but can be less predictable than using Azure AI Vision. When possible, experiment with both approaches and compare the results.
+- You can use a language model to classify and tag images. This approach gives you more flexibility in your design but can be less predictable than using Azure AI Vision. When possible, experiment with both approaches and compare the results.
 
 Another cost optimization strategy is to cache by using the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key that's based on the hash of the image. As a first step, check to see if you have a cached result from a prior run or previously processed document. If you do, you can use that result. This approach eliminates the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you cache the result. Future calls for this image use the cache.
 
@@ -78,7 +78,7 @@ You might choose to encapsulate preprocessing logic in the loading phase. This a
 
 - Reformat tables so that they're more easily processed.
 
-- Define document structure (based on headings, subheadings, and other structural elements). Use a tool like [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) when practical to reduce development overhead. Alternatively, you can use a library like Python if you don't want to send data to a SaaS system.
+- Define document structure (based on headings, subheadings, and other structural elements). Use a tool like [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) when practical to reduce development overhead. Alternatively, you can use a library like Python if you have sensitive data that you can't send data to an external system.
 
 #### Persist the result of the loading code
 
@@ -109,7 +109,7 @@ This section provides an overview of common chunking approaches. You can use mul
 Each approach is accompanied by a summarized decision-making matrix that highlights the tools, associated costs, and more. The engineering effort and processing costs are subjective and are included for relative comparison.
 
 >![IMPORTANT]
->Your chunking approach is a semi-permanent choice in your overall solution design, so do a thorough comparison of the approaches to find the best fit for your use case prior to settling on one to use in production. Changing chunking strategies can have a significant impact on downstream processes, requiring changes throughout the workflow.
+>Your chunking approach is a semi-permanent choice in your overall solution design, so do a thorough comparison of the approaches to find the best fit for your use case prior to settling on one to use in production per content type. Changing chunking strategies can have a significant impact on downstream processes, requiring changes throughout the workflow.
 
 ### Fixed-size parsing, with overlap
 
@@ -174,14 +174,13 @@ Document layout analysis libraries and services expose a model that represents t
 
 ### Graph-based chunking
 
-Graph-based chunking is an iterative approach that involves using a LLM to find entities, like keywords, in documents and to build a graph based on thier relationships. You can start with a simpler chunking strategy, like paragraph-based, to make the graph-building process more efficient. Once you have your initail chunks, you can analyze each chunk to find entities and relationships and build your global graph structure, appending to the graph as you interate through the chunks.
+Graph-based chunking is an iterative approach that involves using a language model to find entities, like keywords, in documents and to build a graph based on their relationships. You can start with a simpler chunking strategy, like paragraph-based, to make the graph-building process more efficient. Once you have your initial chunks, you can analyze each chunk to find entities and relationships and build your global graph structure, appending to the graph as you iterate through the chunks.
 
 **Tools:** [Microsoft GraphRAG](https://microsoft.github.io/graphrag/), Neo4J<br/>
 **Engineering effort:** High<br/>
 **Processing cost:** High<br/>
 **Use cases:** Diverse statistical data<br/>
 **Examples:** Sports analytics, historical data, and any domain requiring ad hoc quantitative queries across documents.
-
 
 ### Prebuilt model
 
