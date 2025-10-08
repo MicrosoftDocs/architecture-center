@@ -4354,6 +4354,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/networking/guide/spoke-to-spoke-networking.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
