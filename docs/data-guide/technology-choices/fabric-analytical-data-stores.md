@@ -169,7 +169,7 @@ Other contributors:
 
 - [Panos Antonopoulos](https://www.linkedin.com/in/panagiotis-antonopoulos) | Distinguished Engineer
 - [Miles Cole](https://www.linkedin.com/in/mileswcole/) | Principal Program Manager
-- [Anna Hoffman](https://www.linkedin.com/in/amthomas46) | Principal Group PM Manager
+- [Anna Hoffman](https://www.linkedin.com/in/amthomas46) | Principal Group Product Manager
 - [Joanna Podgoetsky](https://www.linkedin.com/in/joanpo) | Principal PM Manager
 - [Shane Risk](https://www.linkedin.com/in/shanerisk/) | Principal PM Manager
 - [Brad Schacht](https://www.linkedin.com/in/bradleyschacht/) | Principal Program Manager
