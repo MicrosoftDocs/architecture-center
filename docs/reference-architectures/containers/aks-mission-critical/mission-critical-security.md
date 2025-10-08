@@ -57,7 +57,7 @@ The combination of the CSI driver's automatic reload and `reloadOnChange: true` 
 
 ## Custom domains and TLS
 
-Web-based workloads should use HTTPS to prevent man-in-the-middle (MITM) attacks on all interaction levels, such as communication from the client to the API or from API to API. Make sure to automate certificate rotation because expired certificates are still a common cause of outages and degraded experiences.
+Web-based workloads should use HTTPS to prevent on-path (formerly MITM) attacks on all interaction levels, such as communication from the client to the API or from API to API. Make sure to automate certificate rotation because expired certificates are still a common cause of outages and degraded experiences.
 
 To enable full automation of the deployment, you should manage the custom domain through an Azure DNS Zone. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these records automatically to an Azure Front Door instance.
 
