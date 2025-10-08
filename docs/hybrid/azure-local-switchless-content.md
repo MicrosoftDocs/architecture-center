@@ -111,8 +111,6 @@ The logical network topology provides an overview for how the network data flows
 
   - Azure Local applies network automation and *intent-based network configuration* by using the [Network ATC service](/azure/azure-local/deploy/network-atc).
   
-  - Azure Local applies network automation and *intent-based network configuration* by using the [Network ATC service](/azure/azure-local/deploy/network-atc).
-  
   - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network traffic *intents*. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster *management*, workload *compute*, and cluster *storage* intents.
   
   - Intent-based policies simplify the network configuration requirements by automating the node network configuration based on parameter inputs that are specified as part of the Azure Local cloud deployment process.
