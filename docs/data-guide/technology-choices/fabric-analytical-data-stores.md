@@ -125,13 +125,13 @@ There's no commonly accepted definition for the terms *small data* and *big data
 
 <sup>3</sup> Refers to the ability to extend data transformations by using user-defined functions, methods, referencing external modules or libraries, and other methods.
 
-<sup>4</sup> Represents lower bounds of run times for light queries by using small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Query run times can be heavily influenced by numerous factors. Results might vary based on your specific workload.
+<sup>4</sup> Represents lower bounds of run times for light queries by using small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Numerous factors can heavily influence query run times. Results might vary based on your specific workload.
 
 <sup>5</sup> Represents lower bounds of response times to mixed queries using moderate volumes of data, excluding network latency or the time needed to render results in a client application. Query run times can be heavily influenced by numerous factors and results might vary with your specific workload.
 
 <sup>6</sup> Peak number of queries that can be executing simultaneously, relative to other analytical data stores.
 
-<sup>7</sup> Peak number of queries that can be completed over a given period of time, relative to other analytical data stores. This number is influenced by concurrency, query duration, and other factors.
+<sup>7</sup> Peak number of queries that can be completed over a given period of time, relative to other analytical data stores. Concurrency, query duration, and other factors affect the number of queries.
 
 <sup>8</sup> Partial object-level security is implemented using Restricted View Access Policies.
 
@@ -147,15 +147,15 @@ There's no commonly accepted definition for the terms *small data* and *big data
 
 ## Decision tree for analytical store selection in Microsoft Fabric
 
-The following decision guide serves as a practical tool to help you select a suitable data store for a specific use case by answering a series of questions. In addition to selecting the primary data store, this decision guide might also suggest a complementary secondary data store to support your requirements more fully for a mixed analytical workload. This decision guide is intended to be applied for each use case or each individual data product with the understanding that multiple analytical data stores might be used to accommodate diverse workloads across your entire data estate.
+The following decision guide helps you select a suitable data store for each use case or data product. You might need more than one analytical data store to support different workloads in your data estate.
 
 :::image type="complex" border="false" source="../images/fabric-data-stores-decision-tree.png" alt-text="Diagram that shows a decision tree describing how to select an appropriate data store in Microsoft Fabric for different scenarios." lightbox="../images/fabric-data-stores-decision-tree.png":::
-   Decision tree diagram for selecting an analytical data store in Microsoft Fabric. The diagram begins by asking about the volume of data (small, moderate, or big data), then guides users through questions about data type (structured, semi-structured, or unstructured), ingestion pattern (batch or real-time), and query requirements (selective lookups, large scans, aggregations, or real-time analytics). Based on the answers, the tree directs users to the recommended data store: SQL Database, Data Warehouse, Lakehouse, or Eventhouse. The diagram visually illustrates how different workload characteristics map to the most suitable analytical data store in Microsoft Fabric.
+  Decision tree diagram for selecting an analytical data store in Microsoft Fabric. The diagram begins by asking about the volume of data, such as small, moderate, or big data. It then guides users through questions about data type, including structured, semi-structured, or unstructured data. Next, it considers the ingestion pattern, which can be batch or real-time, and query requirements, such as selective lookups, large scans, aggregations, or real-time analytics. Based on the answers, the tree directs users to the recommended data store: SQL Database, Data Warehouse, Lakehouse, or Eventhouse. The diagram visually illustrates how different workload characteristics map to the most suitable analytical data store in Microsoft Fabric.
 :::image-end:::
 
 ## Conclusion
 
-SQL databases, data warehouses, lakehouses, and eventhouses enable Microsoft Fabric to handle diverse analytical workloads. Each of these analytical data stores provides a unique blend of capabilities and limitations that must be matched to the workload to achieve optimal results. Some use cases can be addressed by using a single analytical data store. However, specific complex use cases that involve mixed workloads are best served by using multiple complementary analytical data stores which are readily available in Microsoft Fabric as the unified data platform.
+SQL databases, data warehouses, lakehouses, and eventhouses enable Microsoft Fabric to handle diverse analytical workloads. Each of these analytical data stores provides a unique blend of capabilities and limitations that must be matched to the workload to achieve optimal results. Some use cases can be addressed by using a single analytical data store. However, specific complex use cases that involve mixed workloads are best served by using multiple complementary analytical data stores, which are readily available in Microsoft Fabric as the unified data platform.
 
 ## Contributors
 
