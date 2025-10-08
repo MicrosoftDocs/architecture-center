@@ -735,9 +735,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-    items:
-    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
-      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
@@ -1033,7 +1030,7 @@ items:
           href: example-scenario/file-storage/moodle-azure-netapp-files.yml
         - name: Oracle Database with Azure NetApp Files
           href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-        - name: SQL Server on VMs with ANF
+        - name: SQL Server on VMs with Azure NetApp Files
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml

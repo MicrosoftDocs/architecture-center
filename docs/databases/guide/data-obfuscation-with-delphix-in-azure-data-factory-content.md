@@ -89,7 +89,7 @@ This solution uses Data Factory data source connectors to create two ETL pipelin
 
 - Provide production-grade data to your development and analytics pipelines, such as Azure DevOps, Jenkins, and Harness, and other automation workflows. To do so, mask sensitive data in centralized Data Factory pipelines.
 
-- Mask data consistently across data sources to maintain referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
+- Mask data consistently across data sources to maintain referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and George's SSN appear in Oracle, Salesforce, or SAP.
 
 #### Speed up AI and machine learning algorithm training by using compliant analytics
 
