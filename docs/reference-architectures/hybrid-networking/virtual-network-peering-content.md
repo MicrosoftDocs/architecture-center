@@ -1,54 +1,50 @@
-This article compares two ways to connect virtual networks in Azure: virtual network peering and VPN gateways. It also explores spoke-to-spoke communication patterns for hub-and-spoke architectures to help you choose the optimal approach for your networking requirements.
+This article compares two ways to connect virtual networks in Azure: virtual network peering and virtual private network (VPN) gateways. It also explores spoke-to-spoke communication patterns for hub-and-spoke architectures to help you choose the optimal approach for your networking requirements.
 
-A [virtual network](/azure/virtual-network/virtual-networks-overview) is a virtual, isolated portion of the Azure public network. By default, traffic can't be routed between two virtual networks. However, it's possible to connect virtual networks, either within a single region or across two regions, so that traffic can be routed between them.
+A [virtual network](/azure/virtual-network/virtual-networks-overview) is a private network space in Azure that provides isolation for your resources. By default, Azure doesn't route traffic between virtual networks. But you can connect virtual networks, either within a single region or across two regions, to route traffic between them.
 
 ## Virtual network connection types
 
-- **Virtual network peering:** Virtual network peering connects two Azure virtual networks. Once peered, the virtual networks appear as one for connectivity purposes. Traffic between virtual machines in the peered virtual networks is routed through the [Microsoft backbone infrastructure](/azure/networking/microsoft-global-network), through private IP addresses only. No public internet is involved. You can also peer virtual networks across Azure regions (global peering).
+- **Virtual network peering** connects two Azure virtual networks, which makes them appear as one for connectivity purposes. Azure routes traffic between virtual machines in the peered virtual networks through the Microsoft backbone by using private IP addresses only.
 
-  Virtual network peering provides a low-latency, high-bandwidth connection. There is no gateway in the path, so there are no extra hops. It's useful in scenarios such as cross-region data replication and database failover. Because traffic is private and remains on the Microsoft backbone, also consider virtual network peering if you have strict data policies and want to avoid sending any traffic over the internet.
+- **Subnet peering** connects specific [subnets](/azure/virtual-network/virtual-network-manage-subnet) between virtual networks instead of peering entire virtual networks.
 
-- **Subnet peering:** Subnet peering enables users to connect specific [subnets](/azure/virtual-network/virtual-network-manage-subnet) between virtual networks instead of peering entire virtual networks. Subnet peering provides fine-grained control over which subnets to link. Use it for scenarios like overlapping virtual network ranges, IPv6-only connections, and selective gateway exposure.
-
-- **VPN gateways:** A VPN gateway is a specific type of virtual network gateway that is used to send traffic between an Azure virtual network and a cross-premises location over the public internet. You can also use a VPN gateway to send traffic between Azure virtual networks. Each virtual network can have at most one VPN gateway. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
-
-  VPN gateways provide a limited bandwidth connection and are useful in scenarios where you need encryption but can tolerate bandwidth restrictions. In these scenarios, customers are also not as latency-sensitive. 
+- **VPN gateways** are specific types of virtual network gateways that send traffic between an Azure virtual network and a cross-premises location over the public internet. You can also use a VPN gateway to send traffic between Azure virtual networks. Each virtual network supports only one VPN gateway.
 
 ## Gateway transit
 
-Virtual network peering and VPN gateways can also coexist via gateway transit
+Virtual network peering and VPN gateways can also coexist through gateway transit.
 
-Gateway transit enables you to use a peered virtual network's gateway for connecting to on-premises, instead of creating a new gateway for connectivity. As you increase your workloads in Azure, you need to scale your networks across regions and virtual networks to keep up with the growth. Gateway transit allows you to share an [ExpressRoute](/azure/expressroute/expressroute-introduction) or VPN gateway with all peered virtual networks and lets you manage the connectivity in one place. Sharing enables cost-savings and reduction in management overhead.
+Gateway transit lets you use a peered virtual network's gateway to connect to on-premises, instead of creating a new gateway. As your workloads in Azure increase, you must scale your networks across regions and virtual networks to support that growth. Use gateway transit to share an [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or VPN gateway with all peered virtual networks and manage connectivity in one place. This method saves money and simplifies management.
 
-With gateway transit enabled on virtual network peering, you can create a transit virtual network that contains your VPN gateway, Network Virtual Appliance, and other shared services. As your organization grows with new applications or business units and as you spin up new virtual networks, you can connect to your transit virtual network using peering. This prevents adding complexity to your network and reduces management overhead of managing multiple gateways and other appliances.
+When you enable gateway transit on virtual network peering, you can create a transit virtual network that contains your VPN gateway, network virtual appliance (NVA), and other shared services. As your organization adds new applications or business units and creates new virtual networks, you can connect them to your transit virtual network by using peering. This setup avoids network complexity and reduces the effort required to manage multiple gateways and appliances.
 
-## Configuring connections
+## Configure connections
 
-Virtual network peering and VPN gateways both support the following connection types:
+Virtual network peering and VPN gateways support the following connection types:
 
-- Virtual networks in different regions.
-- Virtual networks in different Microsoft Entra tenants.
-- Virtual networks in different Azure subscriptions.
+- Virtual networks in different regions
+- Virtual networks in different Microsoft Entra tenants
+- Virtual networks in different Azure subscriptions
 
 For more information, see the following articles:
 
-- [Create a virtual network peering: Azure Resource Manager, different subscriptions](/azure/virtual-network/create-peering-different-subscriptions)
+- [Create a virtual network peering across different subscriptions by using Azure Resource Manager](/azure/virtual-network/create-peering-different-subscriptions)
 - [Configure a virtual network-to-virtual network VPN gateway connection by using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
 - [Connect virtual networks from different deployment models by using the portal](/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)
-- [VPN Gateway FAQ](/azure/vpn-gateway/vpn-gateway-vpn-faq)
+- [Azure VPN Gateway FAQ](/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
 ## Comparison of virtual network peering and VPN gateway
 
-| Item | Virtual network peering | VPN gateway |
+| Feature or capability | Virtual network peering | VPN gateway |
 |------|--------------|--------------|
-| Limits |  Up to 500 virtual network peerings per virtual network (see [Networking limits](/azure/azure-subscription-service-limits#networking-limits)). To increase further, the Azure Virtual Network Manager connectivity configuration feature allows users to create up to 1,000 virtual networks peerings per virtual network. | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
-| Pricing model | [Ingress/Egress](https://azure.microsoft.com/pricing/details/virtual-network/) | [Hourly + Egress](https://azure.microsoft.com/pricing/details/vpn-gateway/) |
-| Encryption | [Azure Virtual Network Encryption](/azure/virtual-network/virtual-network-encryption-overview) can be leveraged. | Custom [IPsec/IKE](/azure/vpn-gateway/vpn-gateway-about-vpn-devices) policy can be applied to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
-| Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
-| Private? | Yes. Routed through Microsoft backbone and private. No public internet involved. | Public IP involved, but routed through Microsoft backbone if [Microsoft global network](/azure/virtual-network/ip-services/routing-preference-overview) is enabled. |
-| Transitive relationship | Peering connections are nontransitive. Transitive networking can be achieved using NVAs or gateways in the hub virtual network. See [Hub-spoke network topology](../../networking/architecture/hub-spoke.yml) for an example. | If virtual networks are connected via VPN gateways and [BGP](/azure/vpn-gateway/vpn-gateway-bgp-overview) is enabled in the virtual network connections, transitivity works. |
-| Initial setup time | Fast | ~30 minutes |
-| Typical scenarios | Data replication, database failover, and other scenarios needing frequent backups of large data. | Encryption-specific scenarios that are not latency sensitive and do not need high throughout. |
+| Limits |  Up to [500 virtual network peerings per virtual network](/azure/azure-subscription-service-limits#networking-limits). Use the Azure Virtual Network Manager connectivity configuration feature to create up to 1,000 virtual networks peerings per virtual network. | One VPN gateway per virtual network. The maximum number of tunnels per gateway depends on the [gateway SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). |
+| Pricing model | [Ingress and egress](https://azure.microsoft.com/pricing/details/virtual-network/) | [Hourly and egress](https://azure.microsoft.com/pricing/details/vpn-gateway/) |
+| Encryption | Use [Azure Virtual Network encryption](/azure/virtual-network/virtual-network-encryption-overview) | Apply custom [IPsec/IKE](/azure/vpn-gateway/vpn-gateway-about-vpn-devices) policy to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
+| Bandwidth limitations | No bandwidth limitations | Varies [based on SKU](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku) |
+| Private? | Yes, routes through the Microsoft backbone and avoids the public internet | Involves public IP, but routes through the Microsoft backbone when the [Microsoft global network](/azure/virtual-network/ip-services/routing-preference-overview) is enabled |
+| Transitive relationship | Peering connections are nontransitive. Use NVAs or gateways in the hub virtual network to enable transitive networking. See a [hub-spoke network topology example](../../networking/architecture/hub-spoke.yml). | Transitive routing is supported if you connect virtual networks via VPN gateways and enable [Border Gateway Protocol (BGP)](/azure/vpn-gateway/vpn-gateway-bgp-overview) in the connections. |
+| Initial setup time | Fast | About 30 minutes |
+| Typical scenarios | Data replication, database failover, and other scenarios that need frequent backups of large data | Encryption-specific scenarios that aren't latency sensitive and don't need high throughput |
 
 The virtual network peering and VPN gateway technologies form the foundation for more complex networking architectures. One of the most common enterprise patterns is hub-and-spoke networking, where multiple spoke virtual networks need to communicate with each other. The choice between virtual network peering and VPN gateways significantly affects how you implement inter-spoke communication.
 
@@ -58,17 +54,17 @@ The virtual network peering and VPN gateway technologies form the foundation for
 
 Inter-spoke networking provides the following benefits:
 
-- **Better performance**: Direct connections eliminate extra hops and bottlenecks
-- **Lower costs**: Fewer peering connections and reduced hub infrastructure requirements  
-- **Easier management**: Less complex routing with fewer components to monitor
+- **Better performance**: Direct connections eliminate extra hops and bottlenecks.
+- **Lower costs**: Fewer peering connections and reduced hub infrastructure requirements.
+- **Easier management**: Less complex routing and fewer components to monitor.
 
-Hub-and-spoke architectures provide excellent centralized control and security, but they can become performance bottlenecks and cost centers when *all* workload-to-workload traffic must traverse the hub. Inter-spoke networking provides architectural flexibility to optimize for performance and cost where it makes business sense, while maintaining centralized control where security and governance require it.
+Hub-and-spoke architectures provide centralized control and security, but they can become performance bottlenecks and cost centers when *all* workload-to-workload traffic must traverse the hub. Inter-spoke networking provides architectural flexibility to optimize for performance and cost where it makes business sense, while maintaining centralized control for security and governance needs.
 
-There are two main patterns that connect spoke virtual networks to each other:
+Two main patterns connect spoke virtual networks to each other:
 
-- **Spokes directly connect to each other.** Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
+- **Pattern 1: Spokes directly connect to each other.** Create virtual network peerings or VPN tunnels between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
 
-- **Spokes communicate over a network appliance.** Each spoke virtual network peers with either Virtual WAN or a hub virtual network. An appliance routes traffic between spokes. You can manage the appliance yourself, or Microsoft can manage it for you. This management model works similarly to how management is handled in Virtual WAN deployments.
+- **Pattern 2: Spokes communicate over a network appliance.** Peer each spoke virtual network with either Azure Virtual WAN or a hub virtual network. A network appliance routes traffic between spokes. You can manage the appliance yourself, or Microsoft can manage it. This management model works similarly to management in Virtual WAN deployments.
 
 ### Choose your approach
 
@@ -86,59 +82,66 @@ The following sections provide implementation details for each pattern.
 
 ### Pattern 1: Spokes directly connect to each other
 
-Direct connections between spokes typically provide better throughput, latency, and scalability than connections that go through a network virtual appliance (NVA) across a hub. Sending traffic through NVAs can add latency if the NVAs are in different [availability zones](/azure/availability-zones/az-overview) and at least two virtual network peerings need to be crossed when traffic is sent over the hub. The options for connecting two spoke virtual networks to each other directly include virtual network peering, Azure Virtual Network Manager, and VPN tunnels.
+Direct connections between spokes typically provide better throughput, latency, and scalability than connections that go through an NVA across a hub. Sending traffic through NVAs can add latency if the NVAs reside in different [availability zones](/azure/availability-zones/az-overview) and traffic must cross at least two virtual network peerings.
+
+To connect two spoke virtual networks to each other directly, use virtual network peering, Virtual Network Manager, or VPN tunnels.
 
 | Technology | Best for | Limitations | Management |
 |------------|----------|-------------|------------|
 | Virtual network peering | High performance, same cloud | 500 peering limit | Manual |
-| Virtual Network Manager | Enterprise scale (More than five spokes) | Learning curve | Automated |
+| Virtual Network Manager | Enterprise scale (more than five spokes) | Learning curve | Automated |
 | VPN tunnels | Cross-cloud, encryption | 1.25 Gbps per tunnel | Complex |
 
 #### Virtual network peering
 
-Virtual network peering provides the highest performance option for direct spoke-to-spoke connectivity. As described earlier, virtual network peering creates low-latency, high-bandwidth connections through the Microsoft backbone.
+Virtual network peering provides the highest performance option for direct spoke-to-spoke connectivity. Virtual network peering creates low-latency, high-bandwidth connections through the [Microsoft backbone infrastructure](/azure/networking/microsoft-global-network), without gateways or extra hops in the path. You can also peer virtual networks across Azure regions, which is known as *global peering*.
+
+Use virtual network peering for scenarios such as cross-region data replication and database failover. Because traffic stays private and travels only on the Microsoft backbone, virtual network peering supports strict data policies and avoids sending traffic over the public internet.
 
 **For spoke-to-spoke implementation:**
 
-- Create peering connections directly between spoke virtual networks
-- Maintain existing hub-to-spoke peerings for centralized services
-- Consider environment boundaries (connect dev spokes to dev spokes)
-- Plan for scaling: manual peering works for 2-5 spokes, beyond that use Virtual Network Manager
+- Create peering connections directly between spoke virtual networks.
+- Maintain existing hub-to-spoke peerings for centralized services.
+- Consider environment boundaries.
+- Plan for scaling. Manual peering works for two to five spokes. Use Virtual Network Manager for more spokes.
 
 **Best practices:**
 
-- Keep spoke-to-spoke peerings within the same environment tier
-- Monitor the 500 peering limit per virtual network
-- Use regional peering when possible for lowest latency
-- Use [network security groups](/azure/virtual-network/network-security-groups-overview) to control traffic flow between peered networks
+- Monitor the 500 peering limit per virtual network.
+- Use regional peering when possible for lowest latency.
+- Use [network security groups](/azure/virtual-network/network-security-groups-overview) to control traffic flow between peered networks.
 
-[Subnet peering][subnet-peering] is similar to virtual network peering, but subnet peering allows more granularity by specifying which subnets at both sides of the peering are allowed to communicate with each other.
+[Subnet peering][subnet-peering] works similarly to virtual network peering but provides more granular control. You can specify which subnets at both sides of the peering can communicate with each other. This feature requires subscription registration and enforces a 400 subnet limit per peering connection. Subnet peering supports scenarios like overlapping virtual network ranges, IPv6-only connections, and selective gateway exposure. You must configure subnet peering by using Terraform, PowerShell, API, CLI, or Azure Resource Manager templates (ARM templates).
 
 #### Virtual Network Manager
 
-[Virtual Network Manager][avnm-hns] provides automated management for virtual network connectivity at scale. Use Virtual Network Manager to build three types of topologies across subscriptions. These topologies work with both existing and new virtual networks.
+[Virtual Network Manager][avnm-hns] provides automated management for virtual network connectivity at scale. You can use Virtual Network Manager to build three types of topologies across subscriptions. These topologies work with both existing and new virtual networks.
 
-  - Hub and spoke with spokes that aren't connected to each other.
+  - Hub and spoke with spokes that don't connect to each other
 
-  - Hub and spoke with spokes that are directly connected to each other, without a hop in the middle.
+  - Hub and spoke with spokes that directly connect to each other, without a hop in the middle
 
-  - A meshed group of virtual networks that are interconnected.
+  - A meshed group of virtual networks that connect to each other
 
     :::image type="complex" border="false" source="images/virtual-network-manager-connectivity-options.svg" alt-text="Network diagram that shows the topologies that Virtual Network Manager supports." lightbox="images/virtual-network-manager-connectivity-options.svg":::
-       These topologies include hub and spoke, mesh, and hub and spoke with direct connectivity between spokes.
+    The diagram shows three network topology diagrams, labeled hub and spoke, mesh, and hub and spoke with direct connectivity between spokes. The first diagram features a central node connected to six outer nodes via solid black lines. The second diagram displays six nodes arranged in a square grid, with each node connected to every other node by green dashed lines. The third diagram combines both styles and shows a central node linked to six outer nodes with black lines. Green dashed lines connect the outer nodes to each other.
     :::image-end:::
 
     *Download a [Visio file](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) of this architecture.*
   
-When you create a hub-and-spoke topology with Virtual Network Manager in which spokes are connected to each other, direct connectivity between spoke virtual networks in the same [network group][avnm-network-group] are automatically created bi-directionally. By using Virtual Network Manager, you can statically or dynamically make spoke virtual networks members of a specific network group, which automatically creates virtual network connectivity.
+When you create a hub-and-spoke topology by using Virtual Network Manager and connect spokes to each other, Azure automatically creates bi-directional connectivity between spoke virtual networks in the same [network group][avnm-network-group].
+
+Use Virtual Network Manager to statically or dynamically assign spoke virtual networks to specific network groups. This assignment automatically creates virtual network connectivity.
   
-You can create multiple network groups to isolate clusters of spoke virtual networks from direct connectivity. Each network group provides the same region and multiregion support for spoke-to-spoke connectivity. Understand the [limits for Virtual Network Manager][avnm-limits].
+You can create multiple network groups to isolate clusters of spoke virtual networks from direct connectivity. Each network group supports both single-region and multiregion spoke-to-spoke connections. Understand the [limits for Virtual Network Manager][avnm-limits].
 
-#### VPN tunnels for cross-cloud connectivity
+#### VPN tunnels
 
-You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][virtual-network-to-virtual-network] or non-Microsoft VPN NVAs. Spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or connectivity cross-cloud providers. If there are software-defined wide area network NVAs in each spoke virtual network, you can use the non-Microsoft provider's control plane and feature set to manage virtual network connectivity.
+You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][virtual-network-to-virtual-network] or non-Microsoft VPN NVAs. VPN gateways provide limited bandwidth connections and work well in scenarios that require encryption but can tolerate bandwidth restrictions and latency. Enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 
-This option also helps meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter that [Media Access Control Security encryption][macsec] doesn't provide.
+Spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or between cross-cloud providers. If each spoke virtual network includes software-defined wide area network NVAs, use the non-Microsoft provider's control plane and feature set to manage virtual network connectivity.
+
+This option also helps meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter, where [Media Access Control Security encryption (MACsec)][macsec] doesn't apply.
 
 This approach has the following limitations:
 
@@ -148,90 +151,89 @@ This approach has the following limitations:
 
 #### Single vs. multiple regions
 
-The following diagram shows the network toplogy for a single region, regardless of the technology used for spoke virtual network connection.
+The following diagram shows the network topology for a single region, regardless of the technology used for spoke virtual network connection.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings.svg" alt-text="Network diagram that shows a single-region hub-and-spoke design. It has spokes that are connected via virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings.svg":::
-   The image shows four virtual network sections. Three black lines connect the hub virtual network to three separate virtual networks. A green triangle connects the three spoke networks.
+:::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings.svg" alt-text="Network diagram that shows a single-region hub-and-spoke design." lightbox="images/spoke-to-spoke-through-peerings.svg":::
+The image shows four virtual network sections. Three black lines connect the hub virtual network to three separate virtual networks. A green triangle connects the three spoke networks.
 :::image-end:::
 
-Designs that connect all spoke virtual networks to each other can extend across multiple regions. Virtual Network Manager helps reduce the administrative overhead required to maintain a large number of connections.
+The following diagram shows the network topology for multiple regions. Designs that connect all spoke virtual networks to each other can extend across multiple regions. Virtual Network Manager helps reduce the administrative effort required to maintain a large number of connections.
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-2-hubs-full-mesh.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design with spokes in the same region connected via virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings-2-hubs-full-mesh.svg":::
-   The image shows the East US hub, the West US hub, and six spoke virtual networks. A black line connects the East US hub and the West US hub. Three black lines point from the East US hub to three separate spokes. Two black lines point from the West US hub to two separate spokes. Five green lines point from each spoke and interconnect the six spokes.
+The image shows an East US hub and West US hub at the top and six spoke virtual networks. A black line connects the East US hub and the West US hub. Three black lines point from the East US hub to three separate spokes. Three black lines point from the West US hub to three separate spokes. Five green lines point from each spoke and interconnect the six spokes.
 :::image-end:::
 
 > [!NOTE]
-> When you connect spoke virtual networks directly, either in one region or in multiple regions, consider doing so for spoke virtual networks in the same environment. For example, connect one spoke development virtual network with another spoke development virtual network. But avoid connecting a spoke development virtual network with a spoke production virtual network.
+> When you use the direct connection method, whether in a single region or multiple regions, connect spoke virtual networks within the same environment. For example, connect one spoke development virtual network with another spoke development virtual network. Don't connect a spoke development virtual network with a spoke production virtual network.
 
-When you directly connect spoke virtual networks to each other in a fully meshed topology, consider the potentially high number of virtual network peerings required. The following diagram shows this problem. In this scenario, use Virtual Network Manager to automatically create virtual network connections.
+When you directly connect spoke virtual networks to each other in a fully meshed topology, expect a high number of virtual network peerings. The following diagram shows this challenge. In this scenario, use Virtual Network Manager to automatically create virtual network connections.
 
 :::image type="complex" border="false" source="images/peering-number-chart.svg" alt-text="Diagram that shows how the required number of peerings grows with the number of spokes." lightbox="images/peering-number-chart.svg":::
-   The image shows a line chart that represents the peerings required for full mesh connectivity. The x axis shows the number of spoke virtual networks. The y axis shows the number of peerings. As the number of virtual networks increases, so do the number of peerings.
+The image shows a line chart that represents the peerings required for full mesh connectivity. The x axis shows the number of spoke virtual networks. The y axis shows the number of peerings. The number of virtual networks increases as the number of peerings increases.
 :::image-end:::
 
 ### Pattern 2: Spokes communicate over a network appliance
 
-Instead of connecting spoke virtual networks directly to each other, you can use network appliances to forward traffic between spokes. Network appliances provide other network services like deep packet inspection and traffic segmentation or monitoring. But they can introduce latency and performance bottlenecks if they're not properly sized. These appliances are typically located in a hub virtual network that the spokes connect to. The following options use a network appliance to forward traffic between spokes:
+Instead of connecting spoke virtual networks directly to each other, you can use network appliances to forward traffic between spokes. Network appliances provide other network features like deep packet inspection, traffic segmentation, and monitoring. But they can introduce latency and performance bottlenecks if not properly sized. These appliances typically reside in a hub virtual network that the spokes connect to.
 
-- **Virtual WAN hub router:** Virtual WAN is managed by Microsoft. It contains a virtual router that attracts traffic from spokes and routes it to either another virtual network that's connected to Virtual WAN or to on-premises networks via ExpressRoute or site-to-site or point-to-site VPN tunnels. The Virtual WAN router scales up and down automatically, so you only need to make sure that the traffic volume between spokes stays within the [Virtual WAN limits][vwan-limits].
+The following options use a network appliance to forward traffic between spokes:
 
-- **Azure Firewall:** [Azure Firewall][azfw] is a network appliance that Microsoft manages and can be deployed in hub virtual networks that you manage or in Virtual WAN hubs. It can forward IP address packets, and it can also inspect them and apply traffic segmentation rules that are defined in policies. It provides autoscaling up to the [Azure Firewall limits][azfw-limits] so that it doesn't become a bottleneck. Azure Firewall provides built-in multiregion capabilities only when used with Virtual WAN. Without Virtual WAN, you need to implement user-defined routes to achieve cross-regional spoke-to-spoke communication.
+- **Virtual WAN hub router:** Microsoft manages Virtual WAN. Virtual WAN contains a virtual router that attracts traffic from spokes. It routes that traffic to either another virtual network connected to Virtual WAN or to on-premises networks via ExpressRoute or site-to-site or point-to-site VPN tunnels. The Virtual WAN router scales up and down automatically. You only need to ensure that the traffic volume between spokes stays within the [Virtual WAN limits][vwan-limits].
 
-- **Non-Microsoft NVAs:** If you prefer to use an NVA from a Microsoft partner to perform routing and network segmentation, you can deploy NVAs in either a hub-and-spoke or a Virtual WAN topology. For more information, see [Deploy highly available NVAs][nva-ha] or [NVAs in a Virtual WAN hub][vwan-nva]. You need to be sure that the NVA supports the bandwidth that the inter-spoke communications generate.
+- **Azure Firewall:** [Azure Firewall][azfw] is a Microsoft-managed network appliance that you can deploy in hub virtual networks that you manage or in Virtual WAN hubs. It forwards IP address packets, inspects them, and applies traffic segmentation rules defined in policies. Azure Firewall automatically scales up its [limits][azfw-limits] so that it doesn't become a bottleneck. It supports built-in multiregion capabilities only when used with Virtual WAN. Without Virtual WAN, you must implement user-defined routes to enable cross-regional spoke-to-spoke communication.
 
-- **Azure VPN Gateway:** You can use a VPN gateway as a next hop type of user-defined route. However, we don't recommend that you use VPN virtual network gateways to route spoke-to-spoke traffic. These devices are designed for encrypting traffic to on-premises sites or VPN users. For example, there's no guaranteed bandwidth between spokes that a VPN gateway can route.
+- **Non-Microsoft NVAs:** If you prefer Microsoft partner NVAs to perform routing and network segmentation, you can deploy them in either a hub-and-spoke or a Virtual WAN topology. For more information, see [Deploy highly available NVAs][nva-ha] and [NVAs in a Virtual WAN hub][vwan-nva]. Ensure that the NVA supports the bandwidth that the inter-spoke communications generate.
 
-- **ExpressRoute:** In specific configurations, an ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication, sending traffic to the Microsoft Edge router, where it's routed to the destination spoke. This pattern is sometimes known as *ExpressRoute hairpinning* and needs to be [explicitly enabled][expressroute-hairpinning]. We strongly discourage this scenario because it introduces latency by sending traffic to the Microsoft backbone edge and back. It also creates a single point of failure and a large blast radius. And it puts extra pressure on the ExpressRoute infrastructure, specifically the gateway and physical routers, which can result in packet drops.
+- **Azure VPN Gateway:** You can use a VPN gateway as a next hop type of user-defined route. Don't use VPN virtual network gateways to route spoke-to-spoke traffic. These devices are designed to encrypt traffic to on-premises sites or VPN users. For example, Azure doesn't guarantee bandwidth between spokes when you route through a VPN gateway.
+- **ExpressRoute:** An ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication. This setup sends traffic to the Microsoft Edge router, which then routes it to the destination spoke. This pattern, known as *ExpressRoute hairpinning*, must be [explicitly enabled][expressroute-hairpinning]. Avoid using this approach because it introduces latency by sending traffic to the Microsoft backbone edge and back. It creates a single point of failure and expands the blast radius. It also puts extra load on the ExpressRoute infrastructure, specifically the gateway and physical routers, which can result in packet drops.
 
-In self-managed hub-and-spoke network designs that have centralized NVAs, the appliance is typically placed in the hub. Virtual network peerings between hub-and-spoke virtual networks need to be created manually or automatically with Virtual Network Manager:
+In self-managed hub-and-spoke network designs that include centralized NVAs, place the appliance in the hub. Create virtual network peerings between hub-and-spoke virtual networks manually, or use Virtual Network Manager to automate the configuration:
 
-- **Manual virtual network peerings or subnet peerings:** This approach is sufficient when you have a low number of spoke virtual networks. However, it creates management overhead at scale.
+- **Manual virtual network peerings or subnet peerings:** This approach works well when you have a few spoke virtual networks. But it adds management overhead at scale.
 
-- **[Virtual Network Manager][avnm-hns]:** Virtual Network Manager provides features to manage virtual network environments and peerings at scale. Peering configurations between hub-and-spoke virtual networks are automatically configured bi-directionally for network groups.
-
-  Virtual Network Manager can statically or dynamically add spoke virtual network memberships to a specific [network group][avnm-network-group], which automatically creates the peering connection for new members. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity][avnm-hub-as-gw]. Be sure to stay below the maximum [limits for Virtual Network Manager][avnm-limits].
+- **[Virtual Network Manager][avnm-hns]:** Virtual Network Manager automates peering configurations between hub and spoke virtual networks at scale. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity][avnm-hub-as-gw]. Stay within the [limits for Virtual Network Manager][avnm-limits].
 
 #### Single region deployment
 
-The following diagram shows a single-region hub-and-spoke topology that sends traffic between spokes through an Azure firewall that's deployed in the hub virtual network. Traffic is forwarded to the centralized appliance in the hub via [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview) that are applied to the spoke subnets.
+The following diagram shows a single-region hub-and-spoke topology that sends traffic between spokes through an Azure firewall deployed in the hub virtual network. [User-defined routes](/azure/virtual-network/virtual-networks-udr-overview) applied to the spoke subnets forward traffic to the centralized appliance in the hub.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva.svg" alt-text="Network diagram that shows a basic hub-and-spoke design with spokes interconnected through a centralized NVA." lightbox="images/spoke-to-spoke-via-nva.svg":::
-   The image shows a basic hub-and-spoke design with spokes interconnected through a centralized NVA. The three black lines connect the hub to the three spokes.
+:::image type="complex" border="false" source="images/spoke-to-spoke-via-nva.svg" alt-text="Network diagram that shows a basic hub-and-spoke design with spokes that interconnect through a centralized NVA." lightbox="images/spoke-to-spoke-via-nva.svg":::
+The image shows a basic hub-and-spoke design with spokes interconnected through a centralized NVA. The three black lines connect the hub to the three spokes.
 :::image-end:::
 
-In specific circumstances, it might be beneficial to separate the NVAs that handle spoke-to-spoke and internet traffic for scalability. You can achieve this separation by taking the following actions:
+To improve scalability, you can separate NVAs that handle spoke-to-spoke traffic from NVAs that handle internet traffic. To separate NVAs, do the following steps:
 
 - Tune the [route tables](/azure/virtual-network/manage-route-table) in each spoke to send private address traffic, such as traffic that uses RFC 1918 prefixes like `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, to an NVA. This appliance handles Azure-to-Azure and Azure-to-on-premises traffic, often known as *east-west traffic*.
 
-- Tune internet traffic, which has a `0.0.0.0/0` route, to a second NVA. This NVA is responsible for Azure-to-internet traffic, also known as *north-south traffic*.
+- Tune internet traffic, which has a `0.0.0.0/0` route, to a second NVA. This NVA manages Azure-to-internet traffic, also known as *north-south traffic*.
 
 The following diagram shows this configuration.
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-north-south.svg" alt-text="Network diagram that shows a basic hub-and-spoke design. It has spokes connected via two centralized NVAs for internet and private traffic." lightbox="images/spoke-to-spoke-via-nva-north-south.svg":::
-   The image shows a North-South hub and an East-West hub. Three dotted lines point from the North-South hub to three separate spokes. Three black lines point from the East-West hub to three separate spokes.
+The image shows a North-South hub and an East-West hub. The North-South hub includes one NVA. The East-West hub includes two NVAs. Three dotted lines point from the North-South hub to three separate spokes. Three black lines point from the East-West hub to the same three spokes.
 :::image-end:::
 
 > [!NOTE]
-> The Azure firewall requires that only one Azure Firewall resource be deployed in a virtual network. Therefore, a separate hub virtual network is required for extra Azure Firewall resources. For NVA scenarios, you can use a single hub virtual network for extra NVA deployments.
+> Azure Firewall supports only one firewall resource per virtual network. To deploy extra Azure Firewall resources, create separate hub virtual networks. For NVA scenarios, use a single hub virtual network for extra NVA deployments.
 
 #### Multiple region deployment
 
-You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, you should apply extra [route tables](/azure/virtual-network/manage-route-table) to the Azure Firewall subnets in each hub for the spokes in the remote region. This configuration ensures that inter-region traffic can be forwarded between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks then traverses both Azure firewalls. For more information, see [Use Azure Firewall to route a multi-hub and spoke topology][azfw-multi-hub-and-spoke].
+You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, apply extra [route tables](/azure/virtual-network/manage-route-table) to the Azure Firewall subnets in each hub. These route tables support spokes in remote regions and ensure that inter-region traffic flows between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks traverses both Azure firewalls. For more information, see [Use Azure Firewall to route a multi-hub and spoke topology][azfw-multi-hub-and-spoke].
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-2-hubs.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design via NVAs in the hubs." lightbox="images/spoke-to-spoke-via-nva-2-hubs.svg":::
-   The image shows an East US hub and a West US hub. A black line connects the two hubs. Three solid black lines connect the East US hub to three separate spokes. Three solid black lines connect the West US hub to three separate spokes.
+The image shows an East US hub and a West US hub. Each hub includes a firewall. A black line connects the two hubs. Three solid black lines connect the East US hub to three separate spokes. Three solid black lines connect the West US hub to three separate spokes.
 :::image-end:::
 
-The design variation that has separate Azure firewalls or NVAs for north-south and east-west traffic is also possible in a multiregion hub-and-spoke topology.
+The following diagram shows a design variation that has separate Azure firewalls or NVAs for north-south and east-west traffic in a multiregion hub-and-spoke topology.
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-2-hubs-north-south.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design. It has separate east-west and north-south firewalls in each region." lightbox="images/spoke-to-spoke-via-nva-2-hubs-north-south.svg":::
-   The image shows the following hubs: a North-South East US hub, an East-West East US hub, an East-West West US hub, and a North-South West US hub. Three dotted lines connect the North-South East US hub to three separate spokes. Three solid lines connect the East-West East US hub to the same spokes. Three solid lines connect the East-West West US hub to three different separate spokes. Three dotted lines connect the North-South West US hub to these spokes.
+The image shows the following hubs: a North-South East US hub, an East-West East US hub, an East-West West US hub, and a North-South West US hub. Three dotted lines connect the North-South East US hub to three separate spokes. Three solid lines connect the East-West East US hub to the same spokes. Three solid lines connect the East-West West US hub to three different separate spokes. Three dotted lines connect the North-South West US hub to these spokes.
 :::image-end:::
 
-Virtual WAN creates a similar topology and takes over the routing complexity. It manages routing in the hubs, which Microsoft manages, and in the spokes, where routes can be injected without manual route table edits. The network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to worry about forwarding traffic between regions.
+The following topology uses Virtual WAN to simplify routing. Virtual WAN manages routing in the hubs, which Microsoft manages, and in the spokes, where it can inject routes automatically without manual route table edits. The network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to manage traffic forwarding between regions.
 
-:::image type="complex" border="false" source="images/spoke-to-spoke-through-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN." lightbox="images/spoke-to-spoke-through-virtual-wan.svg":::
-   The image shows Virtual WAN with East US and West US virtual hubs. Two groups of three lines connect Virtual WAN to three separate spokes. There are six spokes in total.
+:::image type="complex" border="false" source="images/spoke-to-spoke-through-virtual-wan.svg" alt-text="Network diagram that shows a design with spokes connected via Virtual WAN." lightbox="images/spoke-to-spoke-through-virtual-wan.svg":::
+The diagram shows Virtual WAN with East US and West US virtual hubs. Two groups of three lines connect Virtual WAN to three separate spokes.
 :::image-end:::
 
 ## Contributors

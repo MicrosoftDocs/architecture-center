@@ -21,6 +21,7 @@ products:
   - entra-id
   - azure-virtual-network
   - azure-vpn-gateway
+  - virtual-network-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!INCLUDE[](virtual-network-peering-content.md)]
