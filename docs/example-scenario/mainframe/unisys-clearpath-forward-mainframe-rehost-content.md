@@ -50,7 +50,7 @@ The following workflow corresponds to the previous diagrams. The first three ste
 
 - [Virtual Network interface cards](/azure/virtual-network/virtual-networks-overview) enable an Azure VM to communicate with online, Azure, and on-premises resources. In this architecture, you can add more network interface cards to the same Azure VM. This setup enables Solaris child VMs to each have a dedicated network interface device and IP address.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure and used with Virtual Machines. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD. For this architecture, we recommend either Premium SSD or Ultra Disk Storage to ensure high performance and reliability for the migrated workloads.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure and used with Virtual Machines. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. For this architecture, we recommend either Premium SSD or Ultra Disk Storage to ensure high performance and reliability for the migrated workloads.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible by using the industry-standard Server Message Block protocol. Cloud or on-premises deployments of Windows, Linux, and macOS can mount Azure file shares concurrently. Azure Files supports the migrated workloads by providing reliable and scalable file storage.
 
