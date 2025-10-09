@@ -464,7 +464,7 @@ Determine who should apply the DDoS Protection plan that covers your solution's 
 
 #### Identity and access management
 
-Unless the platform team's governance automation requires extra controls, this architecture doesn't introduce new authorization requirements because of the platform team's involvement. Azure role-based access control (RBAC) should continue to fulfill the principle of least privilege, which grants limited access only to individuals who need it and only when needed. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
+Unless the platform team's governance automation requires extra controls, this architecture doesn't introduce new authorization requirements because of the platform team's involvement. Azure role-based access control (Azure RBAC) should continue to fulfill the principle of least privilege, which grants limited access only to individuals who need it and only when needed. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 #### Certificates and encryption
 
