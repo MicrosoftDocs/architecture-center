@@ -16,7 +16,7 @@ keywords:
 
 # Improper Instantiation antipattern
 
-Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance, and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and might even be counter-productive.
+Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and might be counter-productive.
 
 ## Problem description
 
