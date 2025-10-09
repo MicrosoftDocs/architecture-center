@@ -168,7 +168,7 @@ Other contributors:
 - [Joanna Podgoetsky](https://www.linkedin.com/in/joanpo) | Principal PM Manager
 - [Shane Risk](https://www.linkedin.com/in/shanerisk/) | Principal PM Manager
 - [Brad Schacht](https://www.linkedin.com/in/bradleyschacht/) | Principal Program Manager
-- [Marcelo Silva](https://www.linkedin.com/in/marcelo-silva-azure/) | Senior Data Engineer
+- [Marcelo Silva](https://www.linkedin.com/in/marcelo-girao-silva) | Senior Data Engineer
 - [Buck Woody](https://www.linkedin.com/in/buckwoody/) | Principal Data Scientist
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
