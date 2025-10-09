@@ -32,14 +32,15 @@ Some generative AI solutions use traditional machine learning practices like mod
 
 ### Fine-tuning language models
 
-Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model which could be a small or large language model (SLM or LLM).
+Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model, which can be a small language model or large language model.
 
-Fine-tuning a foundation model follows the similar logical processes as training traditional machine learning models such as data preparation, model training, evaluation and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducibility and governance. 
+Fine-tuning a foundation model follows the similar logical processes as training traditional machine learning models, such as data preparation, model training, evaluation, and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducibility, and governance.
 
 ### Prompting
 
-Prompting is the art and science of crafting effective inputs for language models. These inputs typically fall into two categories: system prompts, which define the model’s persona, tone, or behavior; and user prompts, which represent the end user's interaction with the language model.
-An orchestrator typically manages the workflow that generates these prompts. It can retrieve grounding data from various sources—directly or via agents and apply logic to construct the most effective prompt. This orchestrator is often deployed as an API endpoint, enabling client applications to access it as part of an intelligent system.
+Prompting is the art and science of crafting effective inputs for language models. These inputs typically fall into two categories. System prompts define the model's persona, tone, or behavior. User prompts represent the end user's interaction with the language model.
+
+An orchestrator typically manages the workflow that generates these prompts. It can retrieve grounding data from various sources, either directly or via agents, and apply logic to construct the most effective prompt. This orchestrator is often deployed as an API endpoint, which enables client applications to access it as part of an intelligent system.
 
 The following diagram shows an architecture for prompt engineering.
 
@@ -56,7 +57,7 @@ This category of technical patterns can address many use cases:
 
 ### RAG
 
-RAG (Retrieval-Augmented Generation) is an architectural pattern that enhances language models by incorporating domain-specific data into the prompt. This grounding data enables the model to reason over information specific to your company, customers, or domain. In a RAG solution, an orchestration layer queries your data sources and injects the most relevant results into the prompt. The orchestrator then sends this enriched prompt to the language model, typically exposed via an API endpoint for use in intelligent applications.
+RAG is an architectural pattern that enhances language models by incorporating domain-specific data into the prompt. This grounding data enables the model to reason over information specific to your company, customers, or domain. In a RAG solution, an orchestration layer queries your data sources and injects the most relevant results into the prompt. The orchestrator then sends this enriched prompt to the language model, typically exposed via an API endpoint for use in intelligent applications.
 
 A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to perform both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
@@ -106,7 +107,7 @@ Experimentation, a part of the inner loop, is the iterative process of creating,
 
 #### Training and fine-tuning
 
-When you fine-tune an existing language model or train an SLM, you can take advantage of your current MLOps investments. For instance, Machine Learning pipelines provide a toolkit for conducting experiments efficiently and effectively. These pipelines enable you to manage the entire fine-tuning process, from data preprocessing to model training and evaluation.
+When you fine-tune an existing language model or train a small language model, you can take advantage of your current MLOps investments. For instance, Machine Learning pipelines provide a toolkit for conducting experiments efficiently and effectively. These pipelines enable you to manage the entire fine-tuning process, from data preprocessing to model training and evaluation.
 
 #### RAG and prompt engineering
 
@@ -130,11 +131,11 @@ Evaluation is key in the iterative experimentation process of building, evaluati
 
 #### Fine-tuning
 
-For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new SLMs. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
+For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
 
 #### RAG and prompting
 
-You need to extend your existing MLOps investments to evaluate generative AI solutions. You can leverage the Evaluations within AI Foundry or our Evaluation SDK. 
+You need to extend your existing MLOps investments to evaluate generative AI solutions. You can use the Evaluations within AI Foundry or our Evaluation SDK.
 
 The experimentation process remains consistent, regardless of the use case for your generative AI solution. These use cases include classification, summarization, translation, and RAG. The important difference is the metrics that you use to evaluate the different use cases. Consider the following metrics based on use case:
 
@@ -144,13 +145,13 @@ The experimentation process remains consistent, regardless of the use case for y
 - RAG: Groundedness, Relevancy, Coherence, Fluency
 
 > [!NOTE]
-> For more information about how to evaluate language models and RAG solutions, see [LLM end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
+> For more information about how to evaluate language models and RAG solutions, see [Large language model end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
 
 Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompting and managing grounding data. Because prompting and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompting and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
 
-Investing in generative AI solutions helps alleviate some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments. 
+Investing in generative AI solutions helps reduce some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
-It is also a good idea to involve the subject matter experts for their feedback when performing evaluations during the initial phase of the project. 
+It's also a good idea to involve the subject matter experts for their feedback when performing evaluations during the initial phase of the project.
 
 ### Deployment
 
@@ -158,13 +159,13 @@ Some generative AI solutions include deploying custom-trained models or fine-tun
 
 #### Fine-tuning
 
-You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune an LLM in Azure OpenAI Service, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained SLM, you can take advantage of your existing MLOps investments.
+You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI Service, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
 
 #### RAG and prompting
 
 For RAG and prompting, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
-Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with LLMs is to [use a gateway in front of the LLM](azure-openai-gateway-guide.yml).
+Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
 
 Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](azure-openai-gateway-guide.yml#implementation-options). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, which allows you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
 
@@ -192,7 +193,7 @@ For prompting in generative AI solutions, you have extra monitoring concerns. Yo
 
 In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality and consistency of the agents that your orchestrator interfaces with.
 
-As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that end users are not encountering significant issues.
+As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that end users aren't encountering significant problems.
 
 #### Learn from production
 
