@@ -134,9 +134,6 @@ The following tables summarize the key differences in the capabilities of natura
 | Date matcher | Yes | Possible in CLU through DateTime recognizers |
 | Chunker | Yes | No |
 
-> [!NOTE]
-> Language Understanding (LUIS) will be retired on October 1, 2025. You should migrate existing LUIS applications to the conversational language understanding (CLU) feature of Azure AI Language, which enhances language understanding capabilities and provides new features.
-
 ### High-level natural language processing capabilities
 
 | Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
@@ -156,27 +153,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ## Set up Spark NLP in Azure
 
-To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
-
-```bash
-# Install Spark NLP from PyPI.
-pip install spark-natural language processing==<version>
-
-# Install Spark NLP from Anaconda or Conda.
-conda install -c johnsnowlabs spark-natural language processing
-
-# Load Spark NLP with Spark Shell.
-spark-shell --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with PySpark.
-pyspark --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with Spark Submit.
-spark-submit --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP as an external JAR after compiling and building Spark NLP by using SBT assembly.
-spark-shell --jars spark-natural language processing-assembly-3 <version>.jar
-```
+To install Spark NLP, follow the [Install Spark NLP](https://sparknlp.org/docs/en/install) instructions in the Spark NLP documentation.
 
 ## Develop natural language processing pipelines
 
