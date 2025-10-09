@@ -1,6 +1,6 @@
 This reference architecture describes several configurations to consider when you run microservices on Azure Kubernetes Service (AKS). This article discusses network policy configuration, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which Microsoft recommends as the starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which serves as a starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
 
 ## Architecture
 
@@ -38,7 +38,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 ### Components
 
-- **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
 
   - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
 
@@ -54,7 +54,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy) is a built-in extension that brings governance and compliance controls directly into your AKS clusters. It applies governance rules across AKS resources by using Azure Policy. In this architecture, it enforces compliance by validating configurations and restricting unauthorized deployments.
 
-  - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) is a feature in AKS that simplifies how you expose your applications to the internet by using HTTP/HTTPS traffic. It provides a preconfigured NGINX ingress controller for AKS. In this architecture, it handles traffic routing to services and enables public exposure of workloads.
+  - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) is a feature in AKS that simplifies how you expose your applications to the internet by using HTTP or HTTPS traffic. It provides a preconfigured NGINX ingress controller for AKS. In this architecture, it handles traffic routing to services and enables public exposure of workloads.
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools) is an architectural practice that divides cluster nodes into two distinct types of node pools and isolates AKS infrastructure components from application workloads. In this architecture, security and resource efficiency are enhanced by dedicating node pools to specific operational roles.
 
@@ -72,7 +72,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an Azure-managed service that adds a high-performance caching layer to applications. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
 
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it by using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure-managed, globally distributed NoSQL, relational, and vector database service. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as external data stores for each microservice.
 
@@ -80,7 +80,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) is an Azure-managed observability platform that collects metrics, logs, and telemetry across services. In this architecture, it enables monitoring of the application, alerting, dashboarding, and root cause analysis for failures across AKS and integrated services.
 
-  - **Network observability for Advanced Container Networking Services:** Flow visibility (Hubble) and curated network telemetry (Retina) integrate with managed observability back ends (such as Prometheus/Grafana) for troubleshooting and service-level objective (SLO) reporting.
+  **Container network observability for Advanced Container Networking Services** uses Hubble for flow visibility and Retina for curated network telemetry. These tools integrate with managed observability back ends, such as Azure Monitor managed service for Prometheus and Azure Managed Grafana, for troubleshooting and service-level objective (SLO) reporting.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus acts as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
 
@@ -90,7 +90,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - [Helm](https://helm.sh/) is a Kubernetes-native package manager that bundles Kubernetes objects into a single unit for publishing, deploying, versioning, and updating. In this architecture, Helm is used to package and deploy microservices to the AKS cluster.
 
-- [Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver) is an Azure-integrated driver that enables AKS clusters to mount secrets from Key Vault using [CSI volumes](https://kubernetes-csi.github.io/docs/). In this architecture, secrets are mounted directly into microservice containers, allowing secure retrieval of credentials for Azure Cosmos DB and Azure Cache for Redis.
+- [Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver) is an Azure-integrated driver that enables AKS clusters to mount secrets from Key Vault by using [CSI volumes](https://kubernetes-csi.github.io/docs/). In this architecture, secrets are mounted directly into microservice containers, which allows secure retrieval of credentials for Azure Cosmos DB and Azure Cache for Redis.
 
 ### Alternatives
 
@@ -207,7 +207,7 @@ limits:
   memory: 500Mi
 ```
 
-For more information about resource quotas, see:
+For more information about resource quotas, see the following articles:
 
 - [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
 - [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
@@ -218,7 +218,7 @@ Kubernetes supports *autoscaling* to increase the number of pods allocated to a 
 
 #### Cluster autoscaling
 
-The Cluster Autoscaler (CA) scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
+The Cluster Autoscaler (CA) scales the number of nodes. If pods can't be scheduled because of resource constraints, the CA provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
 
 The following example shows the CA configuration from the cluster's Bicep template:
 
@@ -242,7 +242,7 @@ autoScalerProfile: {
 }
 ```
 
-The following lines in the Bicep template set example minimum and maximum nodes for the cluster autoscaler:
+The following lines in the Bicep template set example minimum and maximum nodes for the CA:
 
 ```bicep
 minCount: 2
@@ -290,13 +290,13 @@ In this architecture, VPA increases the CPU and memory requests and limits for m
 
 #### Kubernetes event-driven autoscaling
 
-The [Kubernetes Event Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
+The [Kubernetes Event-Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
 
 In the Fabrikam drone delivery scenario, KEDA scales out the workflow microservice depending on the Service Bus queue depth and based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
 
 ### Health probes
 
-Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement.
+Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that start successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement.
 
 Kubernetes defines three types of health probes that a pod can expose:
 
@@ -308,7 +308,7 @@ Kubernetes defines three types of health probes that a pod can expose:
 
 The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which alerts Kubernetes to restart the pod.
 
-Sometimes, a pod might not be ready to receive traffic, even though the pod started successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
+Sometimes, a pod might not be ready to receive traffic, even though the pod starts successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
 
 Microservices should expose endpoints in their code that facilitate health probes, with delay and timeout tailored specifically to the checks that they perform. The [HPA formula](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details) relies on the pod's ready phase, so it's crucial that health probes exist and are accurate.
 
@@ -337,7 +337,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Consider the following points when you plan for security.
+Consider the following points when you plan for security:
 
 - Use [deployment safeguards](/azure/aks/deployment-safeguards) in the AKS cluster. Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
 
@@ -389,7 +389,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Consider the following points when you plan for manageability.
+Consider the following points when you plan for manageability:
 
 - Manage the AKS cluster infrastructure via an automated deployment pipeline, such as [GitHub Actions](https://help.github.com/actions) workflows.
 
@@ -401,7 +401,7 @@ Consider the following points when you plan for manageability.
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Consider the following points when you plan for scalability.
+Consider the following points when you plan for scalability:
 
 - Don't combine autoscaling and imperative or declarative management of the number of replicas. Users and an autoscaler both attempting to modify the number of replicas might cause unexpected behavior. When HPA is enabled, reduce the number of replicas to the minimum number that you want to be deployed.
 
