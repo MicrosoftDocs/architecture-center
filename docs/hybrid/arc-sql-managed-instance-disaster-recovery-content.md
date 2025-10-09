@@ -136,7 +136,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://jumpstart.azure.com/) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
