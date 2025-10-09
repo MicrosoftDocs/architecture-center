@@ -31,13 +31,13 @@ The *Message* property of each entry provides a description of the error. Some c
                           the VPN server could not be established because the remote server is not responding. This could
                           be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
                           and the remote server is not configured to allow VPN connections. Please contact your
-                          Administrator or your service provider to determine which device might be causing the problem.
+                          Administrator or your service provider to determine which device may be causing the problem.
   Source             : RemoteAccess
   ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, The network connection between
                           your computer and the VPN server could not be established because the remote server is not
                           responding. This could be because one of the network devices (for example, firewalls, NAT, routers, and so on)
                           between your computer and the remote server is not configured to allow VPN connections. Please
-                          contact your Administrator or your service provider to determine which device might be causing the
+                          contact your Administrator or your service provider to determine which device may be causing the
                           problem.}
   InstanceId         : 20111
   TimeGenerated      : 3/18/2024 1:26:02 PM

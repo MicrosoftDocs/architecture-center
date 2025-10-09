@@ -27,7 +27,7 @@ There are additional factors to consider in the above example:
 
 Rate limiting can reduce your traffic and potentially improve throughput by reducing the number of records sent to a service over a given period of time.
 
-A service might throttle based on different metrics over time, such as:
+A service can throttle based on different metrics over time, such as:
 
 - The number of operations (for example, 20 requests per second).
 - The amount of data (for example, 2 GiB per minute).

@@ -190,7 +190,7 @@ Equally, customers often expect non-production environments to be significantly 
 - Offer a [freemium tier](#freemium-pricing), like you might already do for paid customers. This should be carefully monitored, as some organizations might create many testing and training environments, which will consume additional resources to operate.
   > [!NOTE]
   > Time-limited trials using freemium tiers aren't usually suitable for testing and training environments. Customers usually need their non-production environments to be available for the lifetime of the production service.
-- Offer a testing or training tier of your service, with [lower usage limits](#usage-limits). You might choose to restrict the availability of this tier to customers who have an existing paid tenant.
+- Offer a testing or training tier of your service, with [lower usage limits](#usage-limits). You can choose to restrict the availability of this tier to customers who have an existing paid tenant.
 - Offer a discounted [per-user](#per-user-pricing), [per-active user](#per-active-user-pricing), or [per-unit](#per-unit-pricing) pricing for non-production tenants, with a lower or no service level agreement.
 - For tenants using [flat-rate pricing](#flat-rate-pricing), non-production environments might be negotiated as part of the agreement.
 
@@ -232,7 +232,7 @@ Usage limits are often used in combination with [feature and service-level prici
 
 ### Rate limits
 
-A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.yml). Rate limits prevent continuous overuse. They're often used to limit the number of calls to an API, over a defined time period. For example, an API might only be called 20 times per minute, and it will return an HTTP 429 error, if it is called more frequently than this.
+A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.yml). Rate limits prevent continuous overuse. They're often used to limit the number of calls to an API, over a defined time period. For example, an API can only be called 20 times per minute, and it will return an HTTP 429 error, if it is called more frequently than this.
 
 The following scenarios often include rate limits:
 
