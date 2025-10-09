@@ -81,7 +81,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 | **Data transformation capabilities** ||||||
 || Various types of supported structured data | High | Moderate | Moderate | Moderate |
 || Parsing of semi-structured data | ⚠️ | ⚠️ | ✅ | ✅ |
-|| Parsing of unstructured data | ❌  | ❌  | ✅ | ⚠️ |
+|| Parsing of unstructured data | ❌ | ❌ | ✅ | ⚠️ |
 || SQL support (any dialect) | ✅ | ✅ | ✅ | ⚠️ |
 || SQL surface area (any dialect) | Broad | Moderate | Broad | Limited<sup>2</sup> |
 || T-SQL surface area  | Broad | Moderate | Limited<sup>2</sup> | Limited<sup>2</sup> |
