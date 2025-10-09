@@ -125,10 +125,8 @@ items:
         href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
         href: data-guide/technology-choices/understand-data-store-models.md
-      - name: Selecting a data store model
+      - name: Selecting a specialized data store model
         items:
-          - name: Select a data store
-            href: guide/technology-choices/data-store-decision-tree.md
           - name: Big data storage
             href: data-guide/technology-choices/data-storage.md
           - name: Search data store
@@ -735,9 +733,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-    items:
-    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
-      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started

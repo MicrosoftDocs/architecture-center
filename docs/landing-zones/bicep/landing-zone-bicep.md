@@ -30,7 +30,7 @@ This article discusses the design considerations of the modularized [Azure Landi
 
 ## Azure landing zone Bicep implementation
 
-You can find step by step guidance around implementing, automating, and maintaining your Azure landing zone Bicep module with the [Azure landing zones Bicep accelerator documentation](https://aka.ms/alz/bicep/accelerator "Azure landing zone Bicep accelerator documentation").
+You can find step by step guidance around implementing, automating, and maintaining your Azure landing zone Bicep module with the [Azure landing zones Bicep documentation](https://azure.github.io/Azure-Landing-Zones/accelerator/ "Azure landing zone Bicep accelerator documentation").
 
 The Bicep implementation was developed to provide:
 
