@@ -94,8 +94,8 @@ There's no commonly accepted definition for the terms *small data* and *big data
 | **Data retrieval patterns** ||||||
 || Optimized for selective lookups | ✅ | ❌ | ❌ | ✅ |
 || Optimized for large scans and aggregations | ⚠️ | ✅ | ✅ | ✅ |
-|| Ideal query run time<sup>4</sup> | Milliseconds+ | Tens of milliseconds+ | Tens of milliseconds+ | Milliseconds+ |
-|| Realistic query run time<sup>5</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
+|| Ideal query runtime<sup>4</sup> | Milliseconds+ | Tens of milliseconds+ | Tens of milliseconds+ | Milliseconds+ |
+|| Realistic query runtime<sup>5</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
 || Peak query concurrency<sup>6</sup> | High | High | High | High |
 || Peak query throughput<sup>7</sup> | Very high | High | High | Very high |
 | **Granular access controls** ||||||
@@ -120,9 +120,9 @@ There's no commonly accepted definition for the terms *small data* and *big data
 
 <sup>3</sup> Refers to the ability to extend data transformations by using user-defined functions, methods, referencing external modules or libraries, and other methods.
 
-<sup>4</sup> Represents lower bounds of run times for light queries that use small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Numerous factors influence query run times. Results might vary based on your specific workload.
+<sup>4</sup> Represents lower bounds of runtimes for light queries that use small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
 
-<sup>5</sup> Represents lower bounds of response times to mixed queries that use moderate volumes of data, excluding network latency or the time needed to render results in a client application. Numerous factors influence query run times. Results might vary based on your specific workload.
+<sup>5</sup> Represents lower bounds of response times to mixed queries that use moderate volumes of data, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
 
 <sup>6</sup> Peak number of queries that can run simultaneously, relative to other analytical data stores.
 
