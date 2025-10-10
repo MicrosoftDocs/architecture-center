@@ -114,10 +114,6 @@ Principal author:
 
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Experience Engineer
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Technical Writer
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

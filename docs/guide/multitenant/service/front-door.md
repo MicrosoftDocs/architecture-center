@@ -346,7 +346,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Fernando Antivero](https://www.linkedin.com/in/fernandoantivero/) | Fullstack Developer & Cloud Platform Engineer
 - [Duong Au](https://www.linkedin.com/in/duong-au-32427b46/) | Senior Content Developer, C+E Skilling Content R&D
 - [Harikrishnan M B (Hari)](https://www.linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
