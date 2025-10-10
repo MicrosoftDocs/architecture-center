@@ -83,10 +83,10 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || SQL support (any dialect) | ✅ | ✅ | ✅ | ⚠️ |
 || SQL surface area (any dialect) | Broad | Moderate | Broad | Limited<sup>2</sup> |
 || T-SQL surface area  | Broad | Moderate | Limited<sup>2</sup> | Limited<sup>2</sup> |
-|| KQL support | ❌ | ❌ | ⚠️3 | ✅ |
+|| Python support | ❌ | ❌ | ✅ | ⚠️ |
+|| Spark support (PySpark, Spark SQL, Scala, R) | ❌ | ❌ | ✅ | ❌ |
+|| KQL support | ❌ | ❌ | ⚠️<sup>3</sup> | ✅ |
 || Transformation extensibility<sup>4</sup> | Moderate | Moderate | Very high | High |
-|| KQL support | ❌ | ❌ | ❌ | ✅ |
-|| Transformation extensibility<sup>3</sup> | Moderate | Moderate | Very high | High |
 || Single-table transaction support | ✅ | ✅ | ✅ | ✅ |
 || Multi-table transaction support  | ✅ | ✅ | ❌ | ⚠️ |
 | **Data retrieval patterns** ||||||
