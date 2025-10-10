@@ -1,7 +1,7 @@
 This article provides a basic architecture intended for learning about running web applications on Azure App Service in a single region.
 
 > [!IMPORTANT]
-> This architecture isn't meant to be used for production applications. It's intended to be an introductory architecture you can use for learning and proof of concept (POC) purposes. When designing your production Azure App Service application, see the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml).
+> This architecture isn't meant to be used for production applications. It serves as an introductory setup for learning and proof of concept (POC) purposes. When designing your production Azure App Service application, see the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml).
 
 ## Architecture
 
@@ -14,7 +14,7 @@ This article provides a basic architecture intended for learning about running w
 
 ### Workflow
 
-1. A user issues an HTTPS request to the App Service's default domain on `azurewebsites.net`. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
+1. A user issues an HTTPS request to the App Service's default domain on `azurewebsites.net`. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. Azure fully managed the certificate.
 1. Easy Auth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
 1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance, using a connection string configured in the App Service configured as an app setting.
 1. The information about original request to App Service and the call to Azure SQL Database are logged in Application Insights.
@@ -47,7 +47,7 @@ Because this architecture isn't designed for production deployments, the followi
 
 See how to overcome these reliability concerns in the [reliability section in the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#reliability).
 
-If this workload will eventually require a multi-region active-active or active-passive architecture, see the following resource:
+If the workload requires a multi-region active-active or active-passive architecture, see the following resource::
 
 - [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
 
@@ -72,9 +72,9 @@ Because this architecture isn’t designed for production deployments, the follo
 
 - Leaving local authentication methods for FTP and SCM site deployments enabled is fine while in the development or proof of concept phase. When you move to production, you should disable local authentication to those endpoints.
 
-- You don't need to enable [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction) in the proof of concept phase. When moving to production, you should enable Defender for App Service to generate security recommendations you should implement to increase your security posture and to detect multiple threats to your App Service.
+- You don't need to enable [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction) in the proof of concept phase. When moving to production, you should enable Defender for App Service to generate security recommendations. These should be implemented to increase your security posture and to detect multiple threats to your App Service.
 
-- Azure App Service includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. HTTP requests are redirected to the HTTPS endpoint by default. For production deployments, you'll typically use a custom domain associated with application gateway or API management in front of your App Service deployment.
+- Azure App Service includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. HTTP requests are redirected to the HTTPS endpoint by default. For production deployments, a custom domain is typically used with Application Gateway or API Management in front of your App Service deployment..
 
 - Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
@@ -121,7 +121,7 @@ The following are configuration recommendations and considerations:
 
 #### Containers
 
-The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you're using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
+The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. Custom or multi-container apps help fine-tune the runtime environment or support code languages not natively supported. This approach requires the introduction of a container registry.
 
 #### Control plane
 
