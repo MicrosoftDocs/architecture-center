@@ -320,7 +320,7 @@ Azure provides several integrated capabilities for end-to-end visibility:
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) collects and alerts on infrastructure and workload metrics.
 
-- [Container insights](/azure/azure-monitor/containers/container-insights-livedata-overview) monitors AKS clusters, nodes, and containers for health and resource usage.
+- The [Live Data feature in Container insights](/azure/azure-monitor/containers/container-insights-livedata-overview) monitors AKS clusters, nodes, and containers for health and resource usage.
 
 - [Azure Managed Grafana](/azure/managed-grafana/overview) visualizes metrics and dashboards for clusters and microservices.
 
