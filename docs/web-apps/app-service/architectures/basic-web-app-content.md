@@ -163,10 +163,7 @@ An outcome of your proof of concept should be SKU selection that you estimate is
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy Azure App Service with an SQL Database](/azure/app-service/tutorial-dotnetcore-sqldb-app).
-
-> [!div class="nextstepaction"]
-> [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml)
+> [Deploy Azure App Service with an SQL Database](/azure/app-service/tutorial-dotnetcore-sqldb-app)
 
 ## Related resources
 
