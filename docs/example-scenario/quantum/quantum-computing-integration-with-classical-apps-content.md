@@ -156,9 +156,9 @@ Some of the Azure quantum targets (especially quantum hardware) will be a limite
 
 #### Reliability
 
-As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout may still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
+As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout might still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
 
-As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article may provide additional measures of resiliency.
+As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article might provide additional measures of resiliency.
 
 #### Cost Optimization
 
