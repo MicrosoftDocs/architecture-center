@@ -22,7 +22,7 @@ azureCategories:
   - containers
 summary: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications."
 products:
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-front-door
   - azure-kubernetes-service
   - azure-load-balancer
