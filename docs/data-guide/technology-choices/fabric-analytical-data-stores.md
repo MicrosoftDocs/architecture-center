@@ -16,7 +16,7 @@ Analytical data stores are essential for storing, processing, and serving data t
 
 ## Overview of primary analytical data stores in Microsoft Fabric
 
-This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store data but aren't treated as primary analytical data stores. For example, Power BI semantic models can store data, but they're typically used as a semantic layer. Similarly, other Power BI items, like Power BI Dataflows Gen 1, store data for Power BI solutions only and aren't included in this article.
+This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store data but aren't treated as primary analytical data stores. For example, Power BI semantic models can store data, but they're typically used as a semantic layer. Other Power BI items, like Power BI Dataflows Gen 1, store data for Power BI solutions only. Similarly, Fabric Cosmos DB physically stores data but typically supports operational workloads, rather than analytical workloads.
 
 ### SQL databases
 
@@ -36,7 +36,7 @@ Lakehouses combine features of data lakes and data warehouses and provide a unif
 
 Lakehouses use a flexible, scalable Spark compute engine that supports PySpark, Spark SQL, Scala, and R for complex data engineering and data science scenarios. They support both batch and real-time ingestion to meet diverse analytical workloads.
 
-Lakehouses sit on OneLake and store data in Delta format to promote sharing and interoperability across the enterprise. An integrated SQL analytics endpoint lets you query OneLake data by using T-SQL as if it's a relational data warehouse. It enforces granular access controls at the object, column, and row levels. Lakehouses excel at analytical data retrieval and can query massive data volumes.
+Lakehouses sit on OneLake and store data in Delta format to promote sharing and interoperability across the enterprise. Lakehouses excel at analytical data retrieval and can query massive data volumes. An integrated SQL analytics endpoint lets you query OneLake data by using T-SQL as if it's a relational data warehouse while enforcing granular access controls at the object, column, and row levels. Similarly, an integrated eventhouse endpoint unlocks the performance and rich capabilities of the KQL language. 
 
 ### Eventhouses
 
@@ -61,8 +61,8 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Semi-structured | ⚠️ | ⚠️ | ✅ | ✅ |
 || Unstructured | ❌ | ❌ | ✅ | ✅|
 | **Primary compute engine** ||||||
-|| Write operations | T-SQL | T-SQL | Spark | KQL |
-||||| (PySpark, Spark SQL, Scala, R), Python ||
+|| Write operations | T-SQL | T-SQL | Spark (PySpark, Spark SQL, Scala, R), Python | KQL |
+|| Read operations | T-SQL | T-SQL | T-SQL2, Spark (PySpark, Spark SQL, Scala, R), Python, KQL3 | KQL, T-SQL2 |
 || Read operations | T-SQL | T-SQL | T-SQL, Spark | KQL, T-SQL |
 ||||| (PySpark, Spark SQL, Scala, R), Python ||
 | **Data ingestion patterns** ||||||
@@ -85,27 +85,28 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || SQL support (any dialect) | ✅ | ✅ | ✅ | ⚠️ |
 || SQL surface area (any dialect) | Broad | Moderate | Broad | Limited<sup>2</sup> |
 || T-SQL surface area  | Broad | Moderate | Limited<sup>2</sup> | Limited<sup>2</sup> |
-|| Python support | ❌ | ❌ | ✅ | ⚠️ |
-|| Spark support (PySpark, Spark SQL, Scala, R) | ❌ | ❌ | ✅ | ❌ |
+|| KQL support | ❌ | ❌ | ⚠️3 | ✅ |
+|| Transformation extensibility<sup>4</sup> | Moderate | Moderate | Very high | High |
 || KQL support | ❌ | ❌ | ❌ | ✅ |
 || Transformation extensibility<sup>3</sup> | Moderate | Moderate | Very high | High |
 || Single-table transaction support | ✅ | ✅ | ✅ | ✅ |
 || Multi-table transaction support  | ✅ | ✅ | ❌ | ⚠️ |
 | **Data retrieval patterns** ||||||
-|| Optimized for selective lookups | ✅ | ❌ | ❌ | ✅ |
-|| Optimized for large scans and aggregations | ⚠️ | ✅ | ✅ | ✅ |
-|| Ideal query runtime<sup>4</sup> | Milliseconds+ | Tens of milliseconds+ | Tens of milliseconds+ | Milliseconds+ |
-|| Realistic query runtime<sup>5</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
+|| Ideal query runtime<sup>5</sup> | Milliseconds+ | Tens of milliseconds+ | Tens of milliseconds+ | Milliseconds+ |
+|| Realistic query runtime<sup>6</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
+|| Peak query concurrency<sup>7</sup> | High | High | High | High |
+|| Peak query throughput<sup>8</sup> | Very high | High | High | Very high |
 || Peak query concurrency<sup>6</sup> | High | High | High | High |
-|| Peak query throughput<sup>7</sup> | Very high | High | High | Very high |
-| **Granular access controls** ||||||
-|| Object-level security  | Yes | Yes | Yes | Yes<sup>8</sup> |
+|| Object-level security  | Yes | Yes | Yes | Yes<sup>9</sup> |
+|| Column-level security | Yes | Yes | Yes<sup>10</sup> | No |
+|| Row-level security | Yes | Yes | Yes<sup>10</sup> | Yes |
 || Column-level security | Yes | Yes | Yes<sup>9</sup> | No |
-|| Row-level security | Yes | Yes | Yes<sup>9</sup> | Yes |
-| **OneLake integration** ||||||
-|| Data available in OneLake | Yes<sup>10</sup> | Yes | Yes | Yes<sup>11</sup>  |
-|| Data stored in open format (Delta) | Yes<sup>10</sup> | Yes | Yes | Yes<sup>11</sup> |
-|| Can be a source of shortcuts | Yes<sup>10</sup> | Yes | Yes  | Yes<sup>11</sup> |
+|| Data available in OneLake | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup>  |
+
+|| Data stored in open format (Delta) | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup> |
+|| Can be a source of shortcuts | Yes<sup>11</sup> | Yes | Yes  | Yes<sup>12</sup> |
+|| Access data via shortcuts | No | Yes<sup>13</sup> | Yes | Yes |
+|| Cross-warehouse and lakehouse queries | Yes<sup>14</sup>| Yes | Yes | Yes<sup>12</sup> |
 || Access data via shortcuts | No | Yes<sup>12</sup> | Yes | Yes |
 || Cross-warehouse and lakehouse queries | Yes<sup>13</sup>| Yes | Yes | Yes<sup>11</sup> |
 | **Compute management** ||||||
@@ -116,29 +117,29 @@ There's no commonly accepted definition for the terms *small data* and *big data
 
 <sup>1</sup> Data warehouses, lakehouses, and eventhouses don't have minimum data volume requirements and provide equivalent functionality across all data volumes. However, some benefits provided by these highly scalable systems might not be fully realized with small data volumes.
 
-<sup>2</sup> Lakehouses and eventhouses support a subset of T-SQL surface area and are limited to read-only operations.
+<sup>3</sup> Lakehouses expose an eventhouse endpoint, which supports read-only KQL operations.
 
-<sup>3</sup> Refers to the ability to extend data transformations by using user-defined functions, methods, referencing external modules or libraries, and other methods.
+<sup>4</sup> Refers to the ability to extend data transformations by using user-defined functions, methods, referencing external modules or libraries, and other approaches.
 
-<sup>4</sup> Represents lower bounds of runtimes for light queries that use small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
+<sup>5</sup> Represents lower bounds of runtimes for light queries that use small volumes of data from warm cache, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
 
-<sup>5</sup> Represents lower bounds of response times to mixed queries that use moderate volumes of data, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
+<sup>6</sup> Represents lower bounds of response times to mixed queries that use moderate volumes of data, excluding network latency or the time needed to render results in a client application. Numerous factors influence query runtimes. Results might vary based on your specific workload.
 
-<sup>6</sup> Peak number of queries that can run simultaneously, relative to other analytical data stores.
+<sup>7</sup> Peak number of queries that can run simultaneously, relative to other analytical data stores.
 
-<sup>7</sup> Peak number of queries that can be completed over a given period of time, relative to other analytical data stores. Concurrency, query duration, and other factors affect the number of queries.
+<sup>8</sup> Peak number of queries that can be completed over a given period of time, relative to other analytical data stores. Concurrency, query duration, and other factors affect the number of queries.
 
-<sup>8</sup> Partial object-level security is implemented by using restricted view access policies.
+<sup>9</sup> Partial object-level security is implemented by using restricted view access policies.
 
-<sup>9</sup> Granular access controls are available for the SQL analytics endpoint.
+<sup>10</sup> Granular access controls are available for the SQL analytics endpoint.
 
-<sup>10</sup> OneLake integration is implemented via automatic database mirroring.
+<sup>11</sup> OneLake integration is implemented via automatic database mirroring.
 
-<sup>11</sup> Via automatic sync from KQL Database to OneLake.
+<sup>12</sup> Via automatic sync from KQL Database to OneLake.
 
-<sup>12</sup> Indirectly, via cross-database queries to lakehouses.
+<sup>13</sup> Indirectly, via cross-database queries to lakehouses.
 
-<sup>13</sup> Available for mirrored data accessed via the SQL analytics endpoint.
+<sup>14</sup> Available for mirrored data accessed via the SQL analytics endpoint.
 
 ## Decision tree for analytical store selection in Microsoft Fabric
 
@@ -158,7 +159,7 @@ SQL databases, data warehouses, lakehouses, and eventhouses enable Microsoft Fab
 
 Principal author:
 
-- [Slava Trofimov](https://www.linkedin.com/in/slava-trofimov/) | Principal Technical Specialist
+- [Slava Trofimov](https://www.linkedin.com/in/slava-trofimov/) | Principal Solution Engineer
 
 Other contributors:
 
