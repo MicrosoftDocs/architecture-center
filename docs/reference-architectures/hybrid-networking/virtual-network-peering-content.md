@@ -1,6 +1,8 @@
 This article compares two ways to connect virtual networks in Azure: virtual network peering and virtual private network (VPN) gateways. It also explores spoke-to-spoke communication patterns for hub-and-spoke architectures to help you choose the optimal approach for your networking requirements.
 
-A [virtual network](/azure/virtual-network/virtual-networks-overview) is a private network space in Azure that provides isolation for your resources. By default, Azure doesn't route traffic between virtual networks. But you can connect virtual networks, either within a single region or across two regions, to route traffic between them.
+Hub-and-spoke virtual network topologies are the most common networking design patterns in Azure, deployed across one or multiple Azure regions. These topologies can optionally connect to on-premises networks via Azure ExpressRoute or site-to-site VPN tunnels. Ensure that your network design satisfies requirements for east-west traffic to provide performance, scalability, and resiliency to your applications that run in Azure.
+
+Virtual networks form the foundation of these topologies. A [virtual network](/azure/virtual-network/virtual-networks-overview) is a private network space in Azure that provides isolation for your resources. By default, Azure doesn't route traffic between virtual networks. But you can connect virtual networks, either within a single region or across two regions, to route traffic between them.
 
 ## Virtual network connection types
 
@@ -14,7 +16,7 @@ A [virtual network](/azure/virtual-network/virtual-networks-overview) is a priva
 
 Virtual network peering and VPN gateways can also coexist through gateway transit.
 
-Gateway transit lets you use a peered virtual network's gateway to connect to on-premises, instead of creating a new gateway. As your workloads in Azure increase, you must scale your networks across regions and virtual networks to support that growth. Use gateway transit to share an [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or VPN gateway with all peered virtual networks and manage connectivity in one place. This method saves money and simplifies management.
+Gateway transit lets you use a peered virtual network's gateway to connect to on-premises, instead of creating a new gateway. As your workloads in Azure increase, you must scale your networks across regions and virtual networks to support that growth. Use gateway transit to share an [ExpressRoute](/azure/expressroute/expressroute-introduction) or VPN gateway with all peered virtual networks and manage connectivity in one place. This method saves money and simplifies management.
 
 When you enable gateway transit on virtual network peering, you can create a transit virtual network that contains your VPN gateway, network virtual appliance (NVA), and other shared services. As your organization adds new applications or business units and creates new virtual networks, you can connect them to your transit virtual network by using peering. This setup avoids network complexity and reduces the effort required to manage multiple gateways and appliances.
 
@@ -52,11 +54,14 @@ The virtual network peering and VPN gateway technologies form the foundation for
 
 *Inter-spoke networking* refers to direct communication between workloads that run in different spoke virtual networks within hub-and-spoke architectures. This method eliminates the need to route traffic through the central hub.
 
+Most design guides focus on *north-south traffic*, which flows between users and applications (from on-premises networks or the internet to Azure virtual networks). This article focuses on *east-west traffic*, which represents communication flows between workloads deployed in Azure virtual networks, either within a single region or across multiple regions.
+
 Inter-spoke networking provides the following benefits:
 
 - **Better performance**: Direct connections eliminate extra hops and bottlenecks.
 - **Lower costs**: Fewer peering connections and reduced hub infrastructure requirements.
 - **Easier management**: Less complex routing and fewer components to monitor.
+- **Regional flexibility**: Support for both single-region and cross-region communication patterns.
 
 Hub-and-spoke architectures provide centralized control and security, but they can become performance bottlenecks and cost centers when *all* workload-to-workload traffic must traverse the hub. Inter-spoke networking provides architectural flexibility to optimize for performance and cost where it makes business sense, while maintaining centralized control for security and governance needs.
 
