@@ -3,9 +3,6 @@ This article provides a basic architecture intended for learning about running w
 > [!IMPORTANT]
 > This architecture isn't meant to be used for production applications. It's intended to be an introductory architecture you can use for learning and proof of concept (POC) purposes. When designing your production Azure App Service application, see the [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml).
 
-> [!IMPORTANT]
-> ![GitHub logo](../../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-basic-implementation) which showcases this basic App Service implementation on Azure. This implementation can be used as a basis for your POC to experience working with Azure App Service.
-
 ## Architecture
 
 :::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.svg" alt-text="Diagram that shows a basic App Service architecture." border="false":::
@@ -163,11 +160,10 @@ An outcome of your proof of concept should be SKU selection that you estimate is
   - For production deployments, consider Premium tiers that support [automatic autoscaling](/azure/app-service/manage-automatic-scaling) where the platform automatically handles scaling decisions.
 - Follow the [guidance to scale up individual databases with no application downtime](/azure/sql-database/sql-database-single-database-scale) if you need a higher service tier or performance level for SQL Database.
 
-## Deploy this scenario
-
-The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-basic-implementation) that showcases a basic App Service implementation on Azure.
-
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploy Azure App Service with an SQL Database](/azure/app-service/tutorial-dotnetcore-sqldb-app).
 
 > [!div class="nextstepaction"]
 > [Baseline highly available zone-redundant web application](./baseline-zone-redundant.yml)
