@@ -18,7 +18,7 @@ products:
   - azure-kubernetes-service
   - azure-cosmos-db
   - azure-virtual-network
-  - azure-cache-redis
+  - azure-managed-redis
 name: Refactor IBM z/TPF mainframe systems to Azure
 summary: Learn how to refactor IBM z/TPF mainframe systems to functionally equivalent systems on Azure. 
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-migration-after.png
