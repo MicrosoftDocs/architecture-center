@@ -30,7 +30,7 @@ A database can be partitioned *horizontally*, *vertically*, or *functionally*.
 
 - In functional partitioning, data is partitioned according to how it is used by each bounded context in the system. For example, store invoice data in one partition and product inventory data in another. The schemas are independent.
 
-For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
+For more information, see [Data partitioning][data-partitioning-guidance].
 
 ## Recommendations
 

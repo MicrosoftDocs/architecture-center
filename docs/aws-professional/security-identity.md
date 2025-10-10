@@ -15,7 +15,7 @@ ms.collection:
 This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS identity management solutions to similar Azure solutions.
 
 > [!TIP]
-> For information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
+> For more information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
 ## Core identity services
 

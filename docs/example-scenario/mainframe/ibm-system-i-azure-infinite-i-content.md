@@ -183,7 +183,7 @@ Principal author:
 
 ## Next steps
 
-- See the [Well-Architected Framework](/azure/well-architected) recommendations for [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
+- For more information about [optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs), see the [Well-Architected Framework](/azure/well-architected) recommendations.
 
 - Infinite i from partner Infinite Corporation:
 
