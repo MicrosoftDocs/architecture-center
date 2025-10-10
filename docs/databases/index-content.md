@@ -1,6 +1,6 @@
 This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 
-![Diagram that contrasts relational database management system (RDBMS) and big data solutions.](_images/data-service-classifications.png)
+![Diagram that contrasts relational database management system (RDBMS) and big data solutions.](_images/data-service-classification.png)
 
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -87,6 +87,14 @@ These articles help you choose the best technologies for your needs.
 ## Stay current with databases
 
 Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases) to keep current with Azure Databases technology.
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+- [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
