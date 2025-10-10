@@ -52,7 +52,7 @@ Diagram that shows the single-region challenge. The secured virtual hub can't re
 
 1. With the DNS result in hand, the public IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
 1. The request is sent to the public IP address of the storage account. This request fails for many reasons:
-   - The NSG on the workload subnet may not allow this Internet-bound traffic.
+   - The NSG on the workload subnet might not allow this Internet-bound traffic.
    - The Azure Firewall that is filtering Internet-bound egress traffic likely doesn't have an application rule to support this flow.
    - Even if both the NSG and Azure Firewall did have allowances for this request flow, the Storage account is configured to block all public network access.
 The attempt ultimately violates our goal of only allowing access to the storage account via the private endpoint.

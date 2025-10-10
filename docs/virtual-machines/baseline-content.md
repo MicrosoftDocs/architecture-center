@@ -328,7 +328,7 @@ Only the patches that are classified as *critical* or *security* are applied aut
 
 For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
 
-Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
+Automatic patching can put a burden on the system and can be disruptive because VMs use resources and might reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
 
 Be aware of the tradeoff on cost associated with overprovisioning.
 
