@@ -62,9 +62,7 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Unstructured | ❌ | ❌ | ✅ | ✅|
 | **Primary compute engine** ||||||
 || Write operations | T-SQL | T-SQL | Spark (PySpark, Spark SQL, Scala, R), Python | KQL |
-|| Read operations | T-SQL | T-SQL | T-SQL2, Spark (PySpark, Spark SQL, Scala, R), Python, KQL3 | KQL, T-SQL2 |
-|| Read operations | T-SQL | T-SQL | T-SQL, Spark | KQL, T-SQL |
-||||| (PySpark, Spark SQL, Scala, R), Python ||
+|| Read operations | T-SQL | T-SQL | T-SQL<sup>2</sup>, Spark (PySpark, Spark SQL, Scala, R), Python, KQL<sup>3</sup> | KQL, T-SQL<sup>2</sup> |
 | **Data ingestion patterns** ||||||
 || Typical ingestion frequency | Moderate-high | Moderate | Moderate-high | High |
 || Recommended batch size | Small-medium | Medium-large | Small-large | Small-large |
