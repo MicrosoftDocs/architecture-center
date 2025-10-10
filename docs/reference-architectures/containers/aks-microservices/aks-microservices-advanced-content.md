@@ -320,7 +320,7 @@ Azure provides several integrated capabilities for end-to-end visibility:
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) collects and alerts on infrastructure and workload metrics.
 
-- [Container insights](/azure/azure-monitor/containers/container-insights-livedata-overview) monitors AKS clusters, nodes, and containers for health and resource usage.
+- The [Live Data feature in Container insights](/azure/azure-monitor/containers/container-insights-livedata-overview) monitors AKS clusters, nodes, and containers for health and resource usage.
 
 - [Azure Managed Grafana](/azure/managed-grafana/overview) visualizes metrics and dashboards for clusters and microservices.
 
@@ -355,9 +355,7 @@ Consider the following points when you plan for security:
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
-- In-cluster network segmentation and Zero Trust controls with [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview):
-
-  Use Cilium network policies on Azure CNI Powered by Cilium to implement Layer-3 and Layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
+[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and Zero Trust controls for AKS clusters. Use Cilium network policies on [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement Layer-3 and Layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
 
   - FQDN-based egress filtering to restrict outbound traffic to approved domains
 
