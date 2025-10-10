@@ -90,23 +90,22 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Single-table transaction support | ✅ | ✅ | ✅ | ✅ |
 || Multi-table transaction support  | ✅ | ✅ | ❌ | ⚠️ |
 | **Data retrieval patterns** ||||||
+|| Optimized for selective lookups | ✅ | ❌ | ❌ | ✅ |
+|| Optimized for large scans and aggregations | ⚠️ | ✅ | ✅ | ✅ |
 || Ideal query runtime<sup>5</sup> | Milliseconds+ | Tens of milliseconds+ | Tens of milliseconds+ | Milliseconds+ |
 || Realistic query runtime<sup>6</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
 || Peak query concurrency<sup>7</sup> | High | High | High | High |
 || Peak query throughput<sup>8</sup> | Very high | High | High | Very high |
-|| Peak query concurrency<sup>6</sup> | High | High | High | High |
+| **Granular access controls** ||||||
 || Object-level security  | Yes | Yes | Yes | Yes<sup>9</sup> |
 || Column-level security | Yes | Yes | Yes<sup>10</sup> | No |
 || Row-level security | Yes | Yes | Yes<sup>10</sup> | Yes |
-|| Column-level security | Yes | Yes | Yes<sup>9</sup> | No |
+| **OneLake integration** ||||||
 || Data available in OneLake | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup>  |
-
 || Data stored in open format (Delta) | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup> |
 || Can be a source of shortcuts | Yes<sup>11</sup> | Yes | Yes  | Yes<sup>12</sup> |
 || Access data via shortcuts | No | Yes<sup>13</sup> | Yes | Yes |
 || Cross-warehouse and lakehouse queries | Yes<sup>14</sup>| Yes | Yes | Yes<sup>12</sup> |
-|| Access data via shortcuts | No | Yes<sup>12</sup> | Yes | Yes |
-|| Cross-warehouse and lakehouse queries | Yes<sup>13</sup>| Yes | Yes | Yes<sup>11</sup> |
 | **Compute management** ||||||
 || Ability to customize size and configuration of compute resources | Low | Low | High | Low |
 | | Administrative skillset needed to manage or tune compute resources | Low | Low | Moderate-high | Low |
@@ -114,6 +113,8 @@ There's no commonly accepted definition for the terms *small data* and *big data
 **Notes:**
 
 <sup>1</sup> Data warehouses, lakehouses, and eventhouses don't have minimum data volume requirements and provide equivalent functionality across all data volumes. However, some benefits provided by these highly scalable systems might not be fully realized with small data volumes.
+
+<sup>2</sup> Lakehouses and eventhouses support a subset of T-SQL surface area and are limited to read-only operations.
 
 <sup>3</sup> Lakehouses expose an eventhouse endpoint, which supports read-only KQL operations.
 
