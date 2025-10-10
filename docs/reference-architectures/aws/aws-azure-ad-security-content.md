@@ -26,9 +26,9 @@ Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
 - Single sign-on (SSO) across legacy, traditional, and modern authentication solutions.
 - Multifactor authentication (MFA), including integration with non-Microsoft solutions through external authentication methods.
-- *Conditional Access* features for strong authentication and governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources.
-- Large-scale threat detection and automated response. Microsoft Entra ID processes over 30 billion authentication requests per day, along with trillions of signals about threats worldwide.
-- *Privileged Access Management (PAM)* to enable *Just-In-Time (JIT) provisioning* to specific resources.
+- Conditional Access features for strong authentication and governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources.
+- Large-scale threat detection and automated response. Microsoft processes over 30 billion authentication requests per day, along with trillions of signals about threats worldwide.
+- Privileged Identity Management (PIM) to enable *Just-In-Time (JIT)* access to specific resources.
 
 <a name='advanced-azure-ad-identity-management-with-aws-accounts'></a>
 
