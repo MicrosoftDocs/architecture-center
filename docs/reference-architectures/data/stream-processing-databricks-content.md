@@ -20,7 +20,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
 
-1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
+1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
 
     - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve these results by using [serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark pools](/azure/synapse-analytics/spark/apache-spark-overview). These analytics engines are available from your Azure Synapse Analytics workspace.
 
@@ -203,12 +203,16 @@ The average fare amount is then inserted into Azure Cosmos DB:
 
 ```scala
 maxAvgFarePerNeighborhood
-      .writeStream
-      .queryName("maxAvgFarePerNeighborhood_cassandra_insert")
-      .outputMode(OutputMode.Append())
-      .foreach(new CassandraSinkForeach(connector))
-      .start()
-      .awaitTermination()
+  .writeStream
+  .format("cosmos.oltp")
+  .option("spark.cosmos.accountEndpoint", "<your-cosmos-endpoint>")
+  .option("spark.cosmos.accountKey", "<your-cosmos-key>")
+  .option("spark.cosmos.database", "<your-database-name>")
+  .option("spark.cosmos.container", "<your-container-name>")
+  .option("checkpointLocation", "/mnt/checkpoints/maxAvgFarePerNeighborhood")
+  .outputMode("append")
+  .start()
+  .awaitTermination()
 ```
 
 ## Considerations
