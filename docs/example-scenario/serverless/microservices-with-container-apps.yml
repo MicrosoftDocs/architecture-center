@@ -14,6 +14,7 @@ metadata:
     - example-scenario
     - arb-web
     - arb-containers
+  ai-usage: ai-assisted
 name: Deploy microservices with Azure Container Apps
 azureCategories:
   - developer-tools

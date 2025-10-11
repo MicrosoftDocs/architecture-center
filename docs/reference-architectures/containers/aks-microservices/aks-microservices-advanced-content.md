@@ -33,47 +33,51 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 ### Components
 
-- **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools.
+- **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
 
-   This architecture uses the following AKS infrastructure features:
+  - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
 
-   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-   - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/enable-authentication-microsoft-entra-id)
-   - [Workload ID](/azure/aks/workload-identity-overview)
-   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy)
-   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-   - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview)
-   - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing)
+  - [Azure Container Networking Interface](/azure/aks/configure-azure-cni) is a plugin that enables containers to connect directly to an Azure virtual network, which allows pods to receive IP addresses from Azure virtual networks. In this architecture, it enables integration with Azure networking services and provides control over traffic flow.
 
-- **[Azure Virtual Network](/azure/well-architected/service-guides/virtual-network)** provides isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network hosts the Azure Firewall and Azure Bastion subnets. The spoke virtual network contains the AKS system and user node pool subnets and the Application Gateway subnet.
+  - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature that provides deep visibility into AKS cluster performance and health. In this architecture, it collects metrics, logs, and telemetry to support monitoring and diagnostics.
 
-- **[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Azure Key Vault through the Microsoft backbone network. Platform as a service solutions like Container Registry and Key Vault are accessed via a private endpoint from the AKS system and user node pool subnet.
+  - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy) is a built-in extension that brings governance and compliance controls directly into your AKS clusters. It applies governance rules across AKS resources by using Azure Policy. In this architecture, it enforces compliance by validating configurations and restricting unauthorized deployments.
 
-- **[Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) load balances web traffic to the web application. In this architecture, Application Gateway exposes the ingestion microservice as a public endpoint.
+  - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) is a feature in AKS that simplifies how you expose your applications to the internet by using HTTP/HTTPS traffic. It provides a preconfigured NGINX ingress controller for AKS. In this architecture, it handles traffic routing to services and enables public exposure of workloads.
 
-- **[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a cloud-native, intelligent network firewall security service that provides threat protection for your Azure cloud workloads. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic. In this architecture, Azure Firewall controls outbound communications from microservices to resources outside the virtual network.
+  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools) is an architectural practice that divides cluster nodes into two distinct types of node pools and isolates AKS infrastructure components from application workloads. In this architecture, security and resource efficiency are enhanced by dedicating node pools to specific operational roles.
+
+  - [Workload ID](/azure/aks/workload-identity-overview) a secure and scalable way for Kubernetes workloads to access Azure resources by using Microsoft Entra ID without needing secrets or credentials stored in the cluster. Workload ID enables AKS workloads to securely access Azure resources by using federated identity. In this architecture, it eliminates the need for secrets and improves security posture through identity-based access.
+
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an Azure-managed service that provides layer 7 load balancing and web application firewall (WAF) capabilities. In this architecture, it exposes the ingestion microservice as a public endpoint and balances incoming web traffic to the application.
+
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, which allows only approved fully qualified domain names (FQDNs) as egress traffic.
+
+- [Azure Private Link](/azure/private-link/private-link-overview) is an Azure-managed service that enables private connectivity to Azure platform-as-a-service (PaaS) offerings via the Microsoft backbone network. In this architecture, it assigns private IP addresses to access Azure Container Registry and Azure Key Vault from AKS node pools through private endpoints.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is an Azure-managed service that provides isolated and highly secure environments for running applications and virtual machines. In this architecture, it uses a peered hub-spoke topology. The hub network hosts Azure Firewall and Azure Bastion, while the spoke network contains AKS system and user node pool subnets along with the Application Gateway subnet.
 
 #### External storage and other components
 
-- **[Key Vault](/azure/key-vault/general/overview)** stores and manages security keys, secret values, and certificates for Azure services. In this architecture, Azure key vaults store credentials for Azure Cosmos DB and Azure Cache for Redis.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an Azure-managed service that adds a high-performance caching layer to applications. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
 
-- **[Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry by using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub. In this architecture, Container Registry stores the container images for microservices.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
 
-- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed NoSQL, relational, and vector database. Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB has open-source APIs for MongoDB, PostgreSQL, and Cassandra. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as data stores for each microservice.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure-managed, globally distributed NoSQL, relational, and vector database service. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as external data stores for each microservice.
 
-- **[Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** provides reliable cloud messaging as a service and hybrid integration. Service Bus supports asynchronous messaging patterns that are common in microservices applications. In this architecture, Service Bus serves as the asynchronous queueing layer between the ingestion and workflow microservices.
+- [Key Vault](/azure/key-vault/general/overview) is an Azure-managed service that securely stores and manages secrets, keys, and certificates. In this architecture, Key Vault stores credentials used by microservices to access Azure Cosmos DB and Azure Cache for Redis.
 
-- **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy-traffic loads. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside).
+- [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) is an Azure-managed observability platform that collects metrics, logs, and telemetry across services. In this architecture, it enables monitoring of the application, alerting, dashboarding, and root cause analysis for failures across AKS and integrated services.
 
-- **[Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. In this architecture, you can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus acts as the queueing layer between the ingestion and workflow microservices, enabling decoupled and scalable message exchange.
 
 #### Other operations support system components
 
-- **[Helm](https://helm.sh/)** is a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update. In this architecture, use Helm commands to package and deploy microservices to the AKS cluster.
+- [Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2) is an Azure-supported, open and extensible continuous delivery solution for Kubernetes that enables [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks). In this architecture, Flux automates deployments by syncing application manifest files from a Git repository, which ensures consistent and declarative delivery of microservices to the AKS cluster.
 
-- **[Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver)** The Key Vault provider for Secrets Store CSI Driver allows for the integration of a key vault as a secret store with an AKS cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). In this architecture, the key vault secrets are mounted as a volume in microservice containers so that microservices can retrieve credentials for Azure Cosmos DB, Azure Cache for Redis, and Service Bus.
+- [Helm](https://helm.sh/) is a Kubernetes-native package manager that bundles Kubernetes objects into a single unit for publishing, deploying, versioning, and updating. In this architecture, Helm is used to package and deploy microservices to the AKS cluster.
 
-- **[Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)** is an open and extensible continuous delivery solution for Kubernetes that enables [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
+- [Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver) is an Azure-integrated driver that enables AKS clusters to mount secrets from Key Vault using [CSI volumes](https://kubernetes-csi.github.io/docs/). In this architecture, secrets are mounted directly into microservice containers, allowing secure retrieval of credentials for Azure Cosmos DB and Azure Cache for Redis.
 
 ### Alternatives
 

@@ -30,15 +30,15 @@ Students access the Moodle application data through an Azure Application Gateway
 
 ### Components
 
-- [Moodle](https://www.moodlecloud.com/) is one of the most popular and widely adopted free, open-source learning management systems.
+- [Moodle](https://www.moodlecloud.com/) is a free, open-source learning management system. In this architecture, Moodle serves as the core application that delivers educational content and tracks student progress. 
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure.
+- [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service. In this architecture, it stores Moodle's structured data, including course content, user profiles, and student progress.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence) is a secure data cache and messaging broker that provides high-throughput, low-latency access to data for applications.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
 
-- Use [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) to create and manage a group of load-balanced VMs. You can automatically increase or decrease the number of VM instances in response to demand or a defined schedule.
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is an Azure compute service that you can use to deploy and manage a group of identical, load-balanced virtual machines. In this architecture, it hosts the Moodle application and automatically scales the number of VMs up or down based on demand.
 
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure service that you can use to migrate and run the most demanding enterprise-file workloads in the cloud, such as native SMBv3, NFSv3, and NFSv4.1 file shares, databases, data warehouses, and high-performance computing applications.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a high-performance file storage service. You can use this service to migrate and run the most demanding enterprise-file workloads in the cloud, such as native SMBv3, NFSv3, and NFSv4.1 file shares, databases, data warehouses, and high-performance computing applications. In this architecture, it stores Moodle's learning content and user-uploaded files. It provides scalable, low-latency access and cross-zone replication for high availability and disaster recovery.
 
 ### Alternatives
 
@@ -93,7 +93,7 @@ Azure NetApp Files provides a more cost-effective solution that uses 4 TiB of Ul
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources for your specific requirements. For more information, see [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
-For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
+For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/). Use this calculator to find the optimal balance between capacity, performance, and cost.
 
 ### Operational Excellence
 

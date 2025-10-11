@@ -1,13 +1,12 @@
 ---
 title: Operations for mission-critical workloads on Azure
-description: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure. 
+description: Guidance for operations for the architecture of a mission-critical workload on Azure. 
 author: asudbring
 ms.author: allensu
 ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.subservice: reference-architecture
-ms.custom: arb-containers
-summary: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure.  
+summary: Guidance for operations for the architecture of a mission-critical workload on Azure.  
 ---
 
 # Operations for mission-critical workloads on Azure
@@ -22,7 +21,7 @@ The following sections describe approaches to handling different types of change
 
 ## Application automation
 
-Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed in the following section should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
+Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed in the following section should result in the deployment of an entirely new deployment stamp. The new deployment stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
@@ -46,11 +45,12 @@ For mission-critical applications, it's critical that source code and dependenci
 - JavaScript Node Package Manager packages
 - Terraform Provider
 
-The following scenario is an example of automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
+The following approach demonstrates automating library updates using [dependabot](https://github.com/dependabot) in a GitHub repository.
 
 1. Dependabot detects updates of libraries and SDK used in application code
 
 1. Dependabot updates the application code in a branch and creates a pull request (PR) with those changes against the main branch. The PR contains all relevant information and is ready for final review.
+
    :::image type="content" source="./images/mission-critical-operations-dependabot.png" alt-text="Screenshot of a pull request generated from dependabot." lightbox="./images/mission-critical-operations-dependabot.png":::
 
 1. When code review and testing are done, the PR can be merged to the main branch.
@@ -79,7 +79,7 @@ The following approach is an Azure mission critical tested and documented approa
 
 1. Newly deployed or restarted pods now use the secondary API key for the connection to Azure Cosmos DB.
 
-1. Once all pods on all stamps are restarted, or a new stamp is deployed, regenerate the primary API key for Azure Cosmos DB. Here's an example for the command:
+1. Once all pods on all deployment stamps are restarted, or a new deployment stamp is deployed, regenerate the primary API key for Azure Cosmos DB. Use the following command pattern:
 
    ```Bash
    az cosmosdb keys regenerate --key-kind primary --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup
@@ -134,7 +134,7 @@ Messages that can't be processed should be routed to a dead-letter queue with an
 
 ### Azure Cosmos DB restore
 
-When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
+When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup.
 Restoring from a periodic backup can only be accomplished via a support case. This process should be documented and periodically tested.
 
 ### Quota increases
@@ -148,16 +148,13 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal authors:
+Principal author:
 
-- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
 - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
-
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+> [Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview)

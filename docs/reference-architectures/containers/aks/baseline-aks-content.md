@@ -757,7 +757,7 @@ For cluster and workload operations (DevOps) considerations, see the [Operationa
 
 After you do provisioning, you have a working cluster, but you might still have some required steps before you can deploy workloads. The process of preparing your cluster is called bootstrapping. Bootstrapping can consist of deploying prerequisite images onto cluster nodes, creating namespaces, and doing other tasks that fulfill the requirements of your organization's use case.
 
-To decrease the gap between a provisioned cluster and a properly configured one, cluster operators should think about what their unique bootstrapping process looks like. They need to prepare the relevant assets in advance. For example, if having Kured running on each node before deploying application workloads is important, the cluster operator should verify that a Container Registry instance that contains the target Kured image, already exists *before* they provision the cluster.
+To speed up the transition from a newly provisioned cluster to a properly configured one, you must define your unique bootstrapping process and prepare relevant assets in advance. For example, if you use a service mesh like [Linkerd](https://linkerd.io/2.16/getting-started/) or [Consul Connect](https://developer.hashicorp.com/consul/docs/connect), you typically deploy the mesh before application workloads can be scheduled. Before you provision the cluster, you must validate that the service mesh's images exist in a previously created container registry. This validation helps prevent deployment delays or failures.
 
 You can configure the bootstrapping process by using one of the following methods:
 
@@ -913,7 +913,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 - [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
 - [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
 - [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+- [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 - [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 - [Microservices architecture on AKS](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)

@@ -37,7 +37,7 @@ This section describes the nature of availability for services in this architect
 
 - [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jumpbox in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
 
 ## Considerations
 

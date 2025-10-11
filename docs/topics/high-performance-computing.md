@@ -1,5 +1,5 @@
 ---
-title: "High-performance computing (HPC) on Azure"
+title: "High-Performance Computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: claytonsiemens77
 ms.author: pnp
@@ -39,7 +39,7 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.yml)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
 - [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist
@@ -160,7 +160,6 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
 
 ### Azure Batch
@@ -172,7 +171,6 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
 
 ![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
-
 
 ### Azure CycleCloud
 
@@ -334,22 +332,6 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
-## Customer stories
-
-There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
-
-- [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
-- [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
-- [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
-- [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
-- [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
-- [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
-- [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
-- [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-- [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
-- [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
-- [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
-
 ## Other important information
 
 - Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas) has been increased before attempting to run large-scale workloads.
@@ -372,4 +354,4 @@ These tutorials will provide you with details on running applications on Microso
 
 ## Related resources
 
-- [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
+- [Big compute architecture style](../guide/architecture-styles/big-compute.md)

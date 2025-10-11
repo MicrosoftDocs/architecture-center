@@ -1,7 +1,7 @@
 ---
 title: Compare AWS and Azure database technology
 description: Compare database technology differences between Azure and AWS. Review the Amazon RDS and Azure relational database services. See equivalents for analytics and big data.
-author: splitfinity-zz-zz
+author: splitfinity81
 ms.author: yubaijna
 ms.date: 06/02/2025
 ms.topic: conceptual
@@ -54,7 +54,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): a modern data lake solution in Azure that combines the scalability and durability of Blob Storage with hierarchical namespace support. It is optimized for big data analytics and integrates seamlessly with services like Azure Databricks, and Microsoft Fabric.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): a modern data lake solution in Azure that combines the scalability and durability of Blob Storage with hierarchical namespace support. It is optimized for big data analytics and integrates with services like Azure Databricks, and Microsoft Fabric.
 
 - [Azure Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
 

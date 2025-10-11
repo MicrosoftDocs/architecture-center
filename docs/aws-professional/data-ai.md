@@ -1,8 +1,8 @@
 ---
 title: Data and AI
 description: Compare Azure data and AI services with those of AWS. Explore the differences between services and tools.
-author: rhack
-ms.author: rhackenberg
+author: johnkoukgit
+ms.author: johnkoukaras
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -27,7 +27,7 @@ Both Microsoft Purview and the combination of AWS services described in the foll
 
 ## All-in-one platform vs. AWS services
 
-Microsoft Fabric provides an all-in-one platform that unifies the data and AI services required for modern analytics solutions. It streamlines the process of moving data between services, provides unified governance and security, and simplifies pricing models. This unified approach contrasts with the AWS approach, in which services are often used separately and require more effort to integrate. Fabric provides seamless integration across these functions that can help your organization accelerate your data-driven initiatives in the Azure ecosystem.
+Microsoft Fabric provides an all-in-one platform that unifies the data and AI services required for modern analytics solutions. It streamlines the process of moving data between services, provides unified governance and security, and simplifies pricing models. This unified approach contrasts with the AWS approach, in which services are often used separately and require more effort to integrate. Fabric provides integration across these functions that can help your organization accelerate your data-driven initiatives in the Azure ecosystem.
 
 Both AWS and Fabric provide services for data integration, processing, analytics, machine learning, and business intelligence.
 
@@ -58,7 +58,7 @@ Data integration and extract, transform, load (ETL) tools help you extract, tran
 | [AWS Glue](https://aws.amazon.com/glue/)    | [Data Factory](https://azure.microsoft.com/services/data-factory/)    | AWS Glue and Azure Data Factory are fully managed ETL services that facilitate data integration across various sources.     |
 | [Amazon Managed Workflows for Apache Airflow (MWAA)](https://aws.amazon.com/managed-workflows-for-apache-airflow/) | [Data Factory with Azure Synapse Analytics pipelines](https://azure.microsoft.com/services/synapse-analytics/)   | Apache Airflow provides managed workflow orchestration for complex data pipelines. Azure Synapse Analytics pipelines integrate Apache Airflow with Azure Data Factory for a more integrated experience. AWS MWAA is a managed Airflow solution.   |
 | [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html)|[Data Factory](https://azure.microsoft.com/services/data-factory/) | AWS Data Pipeline and Azure Data Factory enable the movement and processing of data across services and locations. |
-| [AWS Database Migration Service (DMS)](https://aws.amazon.com/dms/)   | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)  | These services can help you migrate databases to the cloud with minimal downtime. The main difference is that the Azure service is optimized for seamless migration to Azure databases, providing assessment and recommendation tools, whereas AWS DMS focuses on migrations within the AWS environment. AWS DMS provides ongoing replication features for hybrid architectures. |
+| [AWS Database Migration Service (DMS)](https://aws.amazon.com/dms/)   | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)  | These services can help you migrate databases to the cloud with minimal downtime. The main difference is that the Azure service is optimized for migrating to Azure databases, providing assessment and recommendation tools, whereas AWS DMS focuses on migrations within the AWS environment. AWS DMS provides ongoing replication features for hybrid architectures. |
 | [Amazon AppFlow](https://aws.amazon.com/appflow/)  | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)  | These services enable automated data flows between cloud applications and services without requiring code. Logic Apps provides extensive integration capabilities with a wide range of connectors and a visual designer. AppFlow focuses on secure data transfer between specific SaaS applications and AWS services and provides built-in data transformation features.   |
 | [AWS Step Functions](https://aws.amazon.com/step-functions/)   | [Data Factory](https://azure.microsoft.com/services/data-factory/) with [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | These services provide workflow orchestration for coordinating distributed applications and microservices. Step Functions is designed for orchestrating AWS services and microservices in serverless applications. Logic Apps is used for both data integration and enterprise workflow automation.   |
 
@@ -117,7 +117,7 @@ These systems ingest and analyze data as it's generated to provide immediate ins
 | [Amazon Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/) | [Azure HDInsight with Apache Kafka](https://azure.microsoft.com/services/hdinsight/)   | These services provide managed Apache Kafka clusters for creating real-time streaming data pipelines and applications.     |
 | [AWS Lambda](https://aws.amazon.com/lambda/)    | [Azure Functions](https://azure.microsoft.com/services/functions/)      | These serverless compute platforms run code in response to events and automatically manage the underlying compute resources.             |
 | [Amazon DynamoDB Streams](https://aws.amazon.com/pm/dynamodb/)  | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed)    |These services enable real-time data processing by capturing and providing a stream of data modifications.      |
-| [Amazon ElastiCache with Redis streams](https://aws.amazon.com/elasticache/)   | [Azure Cache for Redis with Redis streams](https://azure.microsoft.com/services/cache/)   | These services provide managed Redis instances that support Redis streams for real-time data ingestion and processing.      |
+| [Amazon ElastiCache with Redis streams](https://aws.amazon.com/elasticache/)   | [Azure Managed Redis with Redis streams](https://azure.microsoft.com/products/managed-redis/)   | These services provide managed Redis instances that support Redis streams for real-time data ingestion and processing.      |
 | [Amazon IoT Analytics](https://aws.amazon.com/iot-analytics/)   | [Azure IoT Hub with Azure Stream Analytics](https://azure.microsoft.com/services/iot-hub/)   | These services enable you to process and analyze data from IoT devices in real time. AWS IoT Analytics provides built-in data storage and analysis capabilities. Azure provides modular services: IoT Hub handles ingestion, and Stream Analytics processes the data.     |
 
 ## Machine learning services

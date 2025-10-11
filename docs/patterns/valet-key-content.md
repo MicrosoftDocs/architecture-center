@@ -60,7 +60,7 @@ Other issues to be aware of when implementing this pattern are:
 
 - Keys should only be handed out to authenticated clients with proper authorization.
 
-- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service may allow access to sensitive systems by third parties, making the security of this service of particular importance.
+- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service might allow access to sensitive systems by third parties, making the security of this service of particular importance.
 
 ## When to use this pattern
 

@@ -10,10 +10,6 @@ items:
             href: ../saas/case-studies/dynamics-365-journey-saas.md
           - name: Microsoft SaaS stories
             href: ../saas/case-studies/saas-stories.md
-        - name: Resources
-          items:
-          - name: SaaS starter web app reference architecture
-            href: ../../example-scenario/apps/saas-starter-web-app.yml
       - name: Startups
         items:
         - name: Overview
@@ -55,7 +51,7 @@ items:
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation
-            href: ../multitenant/approaches/cost-management-allocation.yml
+            href: ../multitenant/approaches/cost-management-allocation.md
           - name: Deployment and configuration
             href: ../multitenant/approaches/deployment-configuration.md
           - name: Compute

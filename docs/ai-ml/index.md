@@ -140,7 +140,6 @@ For more information, see the following resources:
 #### AI and Machine learning reference architectures for Azure
 
 - [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
 - [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
@@ -251,7 +250,6 @@ For more information, see the following resources:
 
 - [Azure Databricks documentation](/azure/azure-databricks/)
 - [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 #### Apache Spark in Azure HDInsight
@@ -395,7 +393,6 @@ Machine Learning offers the following capabilities:
 
   - [Score model](/azure/machine-learning/component-reference/score-model)
   - [Deploy models for scoring in batch endpoints](/azure/machine-learning/how-to-use-batch-model-deployments)
-  - [Batch scoring of Spark models on Azure Databricks](/azure/architecture/ai-ml/architecture/batch-scoring-databricks)
 
 - **Feature engineering and featurization:** Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
 
@@ -434,7 +431,7 @@ If the data follows a pattern, you can use structured text to train a model. You
 
 #### Custom translator
 
-[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems integrate into existing applications, workflows, and websites.
 
 You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list of languages, see [Translator language support](/azure/ai-services/translator/language-support).
 
@@ -478,7 +475,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
 - Organize your work. Your AI Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
-- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, and AutoGen.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
 - Discover and benchmark from over 1,600 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.
@@ -531,7 +528,6 @@ For general information about custom AI on Azure, see the following resources:
 
 Many industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Volkswagen: Machine translation speaks Volkswagen in 60 languages](https://www.microsoft.com/customers/story/1542868888535759612-volkswagen-group-automotive-azure)
 - [Healthcare for all with Kry using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
 - [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)

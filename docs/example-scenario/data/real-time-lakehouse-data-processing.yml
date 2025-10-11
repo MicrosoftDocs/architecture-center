@@ -1,13 +1,14 @@
 ### YamlMime:Architecture
 metadata:
-  title: Near real-time lakehouse data processing
+  title: Use Azure Synapse Analytics for Near Real-Time Lakehouse Data Processing
   description: Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.
   author: pratimav0420
   ms.author: prvalava
-  ms.date: 06/07/2024
+  ms.date: 06/10/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-data
+  ai usage: ai-assisted
 azureCategories:
   - analytics
 products:
@@ -16,8 +17,8 @@ products:
   - azure-data-lake
   - azure-event-hubs
   - azure-synapse-analytics
-name: Near real-time lakehouse data processing
+name: Use Azure Synapse Analytics for near real-time lakehouse data processing
 summary: Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.
-thumbnailUrl: /azure/architecture/browse/thumbs/real-time-lakehouse-data-processing.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-near-realtime-data-processing.png
 content: |
   [!INCLUDE[](real-time-lakehouse-data-processing-content.md)]

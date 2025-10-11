@@ -136,7 +136,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://jumpstart.azure.com/) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
@@ -151,10 +151,6 @@ Principal author:
 
 - [Seif Bassem](https://www.linkedin.com/in/seif-bassem) | Senior Cloud Solution Architect
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -163,7 +159,7 @@ Other contributor:
 - [Azure Arc-enabled SQL Managed Instance overview][Azure Arc-enabled SQL Managed Instance docs]
 - [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc)
 - [Azure Arc Jumpstart scenarios][Arc Jumpstart data services scenarios]
-- [Introduction to Azure Arc in Azure landing zones][CAF Arc Accelerator]
+- [Introduction to Azure Arc in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone)
 
 ## Related resources
 
@@ -172,5 +168,4 @@ Other contributor:
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
 [Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
-[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator

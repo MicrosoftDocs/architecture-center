@@ -553,10 +553,10 @@ Microsoft Learn modules:
 [azs-hci-rbac]: /azure/azure-local/manage/assign-vm-rbac-roles
 [azs-hci-security-default]: /azure/azure-local/manage/manage-secure-baseline
 [azs-hci-security-syslog]: /azure/azure-local/manage/manage-syslog-forwarding
-[azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
+[azs-hci-sizer-tool]: https://azurelocalsolutions.azure.microsoft.com/#/sizer
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview

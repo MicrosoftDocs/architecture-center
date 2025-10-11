@@ -8,6 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom: fcp
+  ai-usage: ai-assisted
 name: IPv6 hub-spoke network topology
 azureCategories:
   - networking
