@@ -16,7 +16,7 @@ Analytical data stores are essential for storing, processing, and serving data t
 
 ## Overview of primary analytical data stores in Microsoft Fabric
 
-This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store data but aren't treated as primary analytical data stores. For example, Power BI semantic models can store data, but they're typically used as a semantic layer. Other Power BI items, like Power BI Dataflows Gen 1, store data for Power BI solutions only. Similarly, Fabric Cosmos DB physically stores data but typically supports operational workloads, rather than analytical workloads.
+This article covers SQL databases, data warehouses, lakehouses, and eventhouses as the primary analytical data stores in Microsoft Fabric. Microsoft Fabric also has other items that can store data but aren't treated as primary analytical data stores. For example, Power BI semantic models can store data, but they're typically used as a semantic layer. Other Power BI items, like Power BI Dataflows Gen 1, store data for Power BI solutions only. Similarly, Fabric Cosmos DB stores data physically but is typically optimized for operational workloads rather than analytical workloads.
 
 ### SQL databases
 
@@ -96,11 +96,11 @@ There's no commonly accepted definition for the terms *small data* and *big data
 || Realistic query runtime<sup>6</sup> | Subsecond+ | Seconds+ | Seconds+ | Subsecond+ |
 || Peak query concurrency<sup>7</sup> | High | High | High | High |
 || Peak query throughput<sup>8</sup> | Very high | High | High | Very high |
-| **Granular access controls** ||||||
+| Granular access controls ||||||
 || Object-level security  | Yes | Yes | Yes | Yes<sup>9</sup> |
 || Column-level security | Yes | Yes | Yes<sup>10</sup> | No |
 || Row-level security | Yes | Yes | Yes<sup>10</sup> | Yes |
-| **OneLake integration** ||||||
+| OneLake integration ||||||
 || Data available in OneLake | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup>  |
 || Data stored in open format (Delta) | Yes<sup>11</sup> | Yes | Yes | Yes<sup>12</sup> |
 || Can be a source of shortcuts | Yes<sup>11</sup> | Yes | Yes  | Yes<sup>12</sup> |
