@@ -56,7 +56,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 3. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
-4. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time. The user may retrieve the password from an Azure Key Vault, if the password was stored as a secret in the Key Vault, and sufficient RBAC permissions are configured to limit access to the appropriate user account.
+4. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time. The user might retrieve the password from an Azure Key Vault, if the password was stored as a secret in the Key Vault, and sufficient RBAC permissions are configured to limit access to the appropriate user account.
 
 ### Components
 

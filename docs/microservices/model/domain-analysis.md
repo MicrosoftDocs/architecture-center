@@ -12,11 +12,11 @@ ms.subservice: architecture-guide
 
 One of the biggest challenges of microservices is to define the boundaries of individual services. The general rule is that a service should do only one thing, but putting that rule into practice requires careful thought. There's no mechanical process that produces the correct design. You have to think deeply about your business domain, requirements, architecture characteristics (also known as *nonfunctional requirements*), and goals. Otherwise, you can end up with a haphazard design that exhibits some undesirable characteristics, such as hidden dependencies between services, tight coupling, or poorly designed interfaces. This article shows a domain-driven approach to designing microservices. Evaluating service boundaries is an ongoing effort on evolving workloads. Sometimes the evaluation results in redefined definitions of existing boundaries that require more application development to accommodate the changes.
 
-This article uses a drone delivery service as a running example. For more information about the scenario and the corresponding reference implementation, see [Design a microservices architecture](../design/index.yml).
+This article uses a drone delivery service as a running example. For more information about the scenario and the corresponding reference implementation, see [Design a microservices architecture](../design/index.md).
 
 ## Introduction
 
-Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed. Architecture characteristics have to be defined for each microservice to match its domain concerns, rather than being defined for the entire system. For example, a customer-facing microservice may need to have performance, availability, fault tolerance, security, testability, and agility. A backend microservice may need to have only fault tolerance and security. If microservices have synchronous communications with each other, the dependency between them often produces the need to share the same architecture characteristics.
+Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed. Architecture characteristics have to be defined for each microservice to match its domain concerns, rather than being defined for the entire system. For example, a customer-facing microservice might need to have performance, availability, fault tolerance, security, testability, and agility. A backend microservice might need to have only fault tolerance and security. If microservices have synchronous communications with each other, the dependency between them often produces the need to share the same architecture characteristics.
 
 Domain-driven design (DDD) provides a framework that can get you most of the way to a set of well-designed microservices. DDD has two distinct phases, strategic and tactical. In strategic DDD, you define the large-scale structure of the system. Strategic DDD helps to ensure that your architecture remains focused on business capabilities. Tactical DDD provides a set of design patterns that you can use to create the domain model. These patterns include entities, aggregates, and domain services. These tactical patterns help you to design microservices that are both loosely coupled and cohesive.
 
@@ -34,7 +34,7 @@ In this article and the next, we'll walk through the following steps, applying t
 
 4. Use the results from the previous step to identify the microservices in your application.
 
-In this article, we cover the first three steps, which are primarily concerned with DDD. In the next article, we'll identify the microservices. However, it's important to remember that DDD is an iterative, ongoing process. Service boundaries aren't fixed in stone. As an application evolves, you may decide to break apart a service into several smaller services.
+In this article, we cover the first three steps, which are primarily concerned with DDD. In the next article, we'll identify the microservices. However, it's important to remember that DDD is an iterative, ongoing process. Service boundaries aren't fixed in stone. As an application evolves, you might decide to break apart a service into several smaller services.
 
 > [!NOTE]
 > This article doesn't show a complete and comprehensive domain analysis. We deliberately kept the example brief, to illustrate the main points. For more background on DDD, we recommend Eric Evans' *Domain-Driven Design*, the book that first introduced the term. Another good reference is *Implementing Domain-Driven Design* by Vaughn Vernon.
@@ -67,11 +67,11 @@ After some initial domain analysis, the Fabrikam team came up with a rough sketc
 - **Drone management** is also core to the business. Functionality that is closely related to drone management includes **drone repair** and using **predictive analysis** to predict when drones need servicing and maintenance.
 - **ETA analysis** provides time estimates for pickup and delivery.
 - **Third-party transportation** will enable the application to schedule alternative transportation methods if a package cannot be shipped entirely by drone.
-- **Drone sharing** is a possible extension of the core business. The company may have excess drone capacity during certain hours, and could rent out drones that would otherwise be idle. This feature will not be in the initial release.
+- **Drone sharing** is a possible extension of the core business. The company might have excess drone capacity during certain hours, and could rent out drones that would otherwise be idle. This feature will not be in the initial release.
 - **Video surveillance** is another area that the company might expand into later.
 - **User accounts**, **Invoicing**, and **Call center** are subdomains that support the core business.
 
-Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems may involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
+Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems might involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
 
 > [!NOTE]
 > When an application depends on an external system, there's a risk that the external system's data schema or API can leak into the application. This kind of leakage can compromise the architectural design. It's especially common with legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, it's important to establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) to enforce this boundary.
@@ -106,6 +106,6 @@ After completing a domain analysis, the next step is to apply tactical DDD, to d
 ## Related resources
 
 - [Microservices architecture design](../../guide/architecture-styles/microservices.md)
-- [Design a microservices architecture](../../microservices/design/index.yml)
+- [Design a microservices architecture](../../microservices/design/index.md)
 - [Identify microservice boundaries](microservice-boundaries.yml)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

@@ -29,7 +29,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that provides scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 
@@ -43,7 +43,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a load balancing service that provides low-latency layer-4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multitiered hybrid apps. In this architecture, Load Balancer distributes incoming traffic among healthy batch processing instances to optimize performance.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are four disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD. In this architecture, Azure managed disks provide persistent storage for batch processing applications and temporary data.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure managed disks provide persistent storage for batch processing applications and temporary data.
 
 - [Azure network interface](/azure/networking/fundamentals/networking-overview) is a component that connects a VM to the internet and to Azure and on-premises resources. You can give each child VM its own network interface and IP address. In this architecture, network interfaces enable connectivity between batch processing VMs and the Service Bus messaging system. For more information about network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
 

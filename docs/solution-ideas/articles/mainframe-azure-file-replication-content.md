@@ -34,7 +34,7 @@ The following dataflow corresponds to the architecture diagram:
 
    - Mainframe file data conversion can be achieved by using the Azure Logic Apps connector for IBM host files.
 
-   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you may use Fabric Data Factory and OneLake store.
+   - Before you transfer data to Azure data stores, you might need to transform the data or use it for analytics. Azure Data Factory can manage these extract-transform-load (ETL) and extract-load-transform (ELT) activities and store the data directly in Azure Data Lake Storage. Alternatively, you can use Fabric Data Factory and OneLake store.
 
    - For big data integrations, Azure Databricks, as well as Microsoft Fabric, can perform all transformation activities fast and effectively by using the Apache Spark engine for in-memory computations.
 

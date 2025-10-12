@@ -160,10 +160,6 @@ Principal authors:
 - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
 - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

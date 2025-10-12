@@ -268,7 +268,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
 - [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Architect
 

@@ -90,7 +90,7 @@ Cassandra writes perform best when commit logs are on disks with high throughput
 
 Commit logs must be durable, so that a restarted node can reconstruct any data not yet in data files from the flushed commit logs. For better durability, store commit logs on premium managed disks and not on local storage, which can be lost if the VM is migrated to another host.
 
-Based on our tests, Cassandra on CentOS 7.x may have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
+Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
 
 For more information, see [Observations on ext4 and xfs file systems and compressed commit logs](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-commitlogs-xfs-ext4.md) (GitHub).
 
@@ -138,7 +138,7 @@ For more information, see [Measuring impact of multi-dc cross-region replication
 
 ### Hinted-handoff configuration
 
-In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM may lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
+In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM might lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
 
 For more information, see [Observations on hinted handoff in cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-hinted-handoff-cross-region.md) (GitHub).
 
