@@ -99,9 +99,9 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 - Use multiple development workspaces that share a common production workspace.
 
-- Exchange one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](/azure/data-factory/introduction) to orchestrate Databricks jobs.
+- Exchange one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](/azure/data-factory/introduction) or [Fabric pipelines](/fabric/data-factory/pipeline-overview) to orchestrate Databricks jobs.
 - Integrate with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
-- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) or [Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning) as alternative services for machine learning capabilities.
+- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) as alternative service for machine learning capabilities. Organizations adopting Microsoft Fabric can leverage Fabric Data Factory for pipeline orchestration and hybrid/on-premises connectivity. Fabric also provides integrated workloads for data engineering (Lakehouse with Spark), data warehousing, and OneLake for unified storage. See [Fabric Data Factory](/fabric/data-factory/data-factory-overview) and [Fabric overview](/fabric/fundamentals/microsoft-fabric-overview).
 
 ## Scenario details
 
@@ -144,6 +144,10 @@ Principal authors:
 
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
+
+Other contributors:
+
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
