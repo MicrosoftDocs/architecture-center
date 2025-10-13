@@ -46,7 +46,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
   Zone redundancy is also enabled within each replicated region.
 
-  For details on multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/sql/how-to-multi-master).
+  For more information about multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/sql/how-to-multi-master).
 
 - **Conflict management**
 

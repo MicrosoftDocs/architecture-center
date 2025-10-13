@@ -30,7 +30,7 @@ This article describes an approach for using Azure Front Door with another CDN. 
 A third-party CDN can be integrated into your Azure solution to provide isolation from Microsoft's infrastructure. This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and the alternative CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
 > [!NOTE]
-> Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more details, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
+> Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more information, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
 
 The following diagram shows how traffic flows between the CDNs:
 
