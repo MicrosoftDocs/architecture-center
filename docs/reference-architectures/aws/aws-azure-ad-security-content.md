@@ -342,9 +342,7 @@ To create a new Conditional Access policy that requires MFA:
 
    :::image type="content" source="media/test-policy.png" alt-text="Screenshot of MFA sign-in prompt.":::
 
-1. Complete the MFA setup process. It's best to use the mobile app for authentication, instead of relying on SMS.
-
-   :::image type="content" source="media/additional-verification.png" alt-text="Screenshot of mobile app MFA configuration screen.":::
+1. Complete the MFA setup process. It's best to use a phishing-resistant method for authentication, instead of relying on SMS.
 
 You might need to create several Conditional Access policies to meet business needs for strong authentication. Consider the naming convention you use when creating the policies to ensure ease of identification and ongoing maintenance. Also, unless MFA is already widely deployed, make sure the policy is scoped to affect only the intended users. Other policies should cover other user groups' needs.
 
