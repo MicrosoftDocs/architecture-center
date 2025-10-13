@@ -89,6 +89,7 @@ Notebooks are a popular way to interact with lakehouse data. Fabric provides a w
 Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to simplify creating Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This mode allows you to get in-memory performance on your reports without moving your data out of the lakehouse.
 
 While direct lake mode in Power BI offers significant benefits in terms of performance and latency, there are some data scenarios which requires falling back to direct query mode to fulfil a query. Example scenarios when a fall back to direct query can occur:
+
 - Semantic model table stats exceed the associated [capacity guardrails](/fabric/fundamentals/direct-lake-overview#fabric-capacity-requirements).
 - Semantic model has RLS applied on it.
 - Semantic model references views instead of direct OneLake tables.
