@@ -54,7 +54,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy) is a built-in extension that brings governance and compliance controls directly into your AKS clusters. It applies governance rules across AKS resources by using Azure Policy. In this architecture, it enforces compliance by validating configurations and restricting unauthorized deployments.
 
-  - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) is a feature in AKS that simplifies how you expose your applications to the internet by using HTTP or HTTPS traffic. It provides a preconfigured NGINX ingress controller for AKS. In this architecture, it handles traffic routing to services and enables public exposure of workloads.
+  - [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) is a feature in AKS that helps you to expose your applications to the internet by using HTTP or HTTPS traffic. It provides a preconfigured NGINX ingress controller for AKS. In this architecture, it handles traffic routing to services and enables exposure of pods to Application Gateway.
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools) is an architectural practice that divides cluster nodes into two distinct types of node pools and isolates AKS infrastructure components from application workloads. In this architecture, security and resource efficiency are enhanced by dedicating node pools to specific operational roles.
 
@@ -133,11 +133,11 @@ Network policies specify how AKS pods communicate with each other and with other
 One strategy to implement a Zero Trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a *deny all* policy that applies to all pods located in the `backend-dev` namespace.
 
 ```yaml
-apiVersion: "cilium.io/v2"
+apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: "deny-all"
-  namespace: "backend-dev"
+  name: deny-all
+  namespace: backend-dev
 spec:
   endpointSelector: {}  # Applies to all pods in the namespace
   ingress:
@@ -149,7 +149,7 @@ spec:
 After a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the Cilium network policy is applied to any pod in the `backend-dev` namespace that has a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless it's sourced from a pod that has a label that matches `app.kubernetes.io/part-of: dronedelivery`.
 
 ```yaml
-apiVersion: "cilium.io/v2"
+apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: package-v010-dev-np-allow-ingress-traffic
