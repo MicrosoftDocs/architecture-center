@@ -66,17 +66,17 @@ Security provides assurances against deliberate attacks and abuse of your valuab
 
 The following principles and guidelines are important for any cloud security solution:
 
+- Follow the principles of [Zero Trust](/security/zero-trust/zero-trust-overview): verify explicitly, use least privilege, and assume breach. Instead of believing everything behind the corporate firewall is safe, the Zero Trust model assumes breach and verifies each request as though it originated from an uncontrolled network. Regardless of where the request originates or what resource it accesses, the Zero Trust model teaches us to "never trust, always verify."
+
 - Ensure that the organization can monitor, detect, and automatically protect user and programmatic access into cloud environments.
 
 - Continually review current accounts to ensure identity and permission governance and control.
-
-- Follow [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and [Zero Trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that each user can access only the specific resources they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights they need for the role they're performing. Review regularly.
 
 - Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
 
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
 
-- Take advantage of solutions you might already own, like Microsoft Entra ID P2, that can increase security without more expense.
+- Take advantage of solutions you might already own that can increase security without more expense.
 
 #### Basic AWS account security
 
