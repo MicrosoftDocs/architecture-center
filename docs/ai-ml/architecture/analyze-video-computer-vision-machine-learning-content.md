@@ -89,7 +89,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
-For the availability guarantees of the Azure services in this solution, see the [Service-level agreement (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
+For the availability guarantees of the Azure services in this solution, see the [Service-level agreement (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 
 ### Security
