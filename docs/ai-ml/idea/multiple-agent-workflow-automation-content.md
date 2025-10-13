@@ -122,7 +122,7 @@ When you design multi-agent automation systems, consider how agents must coordin
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
+For more information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
 
 Pricing varies by region and usage, so it's not possible to predict exact costs in advance. Most Azure resources in this infrastructure follow usage-based pricing models. But Container Registry incurs a daily fixed cost for each registry.
 

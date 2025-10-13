@@ -30,7 +30,7 @@ This article discusses the design considerations of the modularized [Azure Landi
 
 ## Azure landing zone Bicep implementation
 
-You can find step by step guidance around implementing, automating, and maintaining your Azure landing zone Bicep module with the [Azure landing zones Bicep accelerator documentation](https://aka.ms/alz/bicep/accelerator "Azure landing zone Bicep accelerator documentation").
+You can find step by step guidance around implementing, automating, and maintaining your Azure landing zone Bicep module with the [Azure landing zones Bicep documentation](https://azure.github.io/Azure-Landing-Zones/accelerator/ "Azure landing zone Bicep accelerator documentation").
 
 The Bicep implementation was developed to provide:
 
@@ -88,7 +88,7 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 > [!TIP]
 > See [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
 
-Once the platform landing zone is implemented the next step is to deploy [Application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications, while the `online` management group is for applications that are primarily publicly facing, but may still connect to corporate applications via hub networks in some scenarios. 
+Once the platform landing zone is implemented the next step is to deploy [Application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications, while the `online` management group is for applications that are primarily publicly facing, but might still connect to corporate applications via hub networks in some scenarios. 
 
 > [!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
 

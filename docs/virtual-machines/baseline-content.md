@@ -25,7 +25,7 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
-For information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
+For more information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
 
 ### Components
 
@@ -304,9 +304,9 @@ VMs need to be updated and patched regularly so that they don't weaken the secur
 
 ### Infrastructure updates
 
-Azure updates its platform periodically to enhance the reliability, performance, and security of the host infrastructure for virtual machines. These updates include patching software components in the hosting environment, upgrading networking components or decommissioning hardware, and more. For information about the update process, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
+Azure updates its platform periodically to enhance the reliability, performance, and security of the host infrastructure for virtual machines. These updates include patching software components in the hosting environment, upgrading networking components or decommissioning hardware, and more. For more information about the update process, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
 
-If an update doesn’t require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. If maintenance requires a reboot, you’re notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance, at your convenience. For information about the self-maintenance window and how to configure the available options, see [Handling planned maintenance notifications](/azure/virtual-machines/maintenance-notifications).
+If an update doesn’t require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. If maintenance requires a reboot, you’re notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance, at your convenience. For more information about the self-maintenance window and how to configure the available options, see [Handling planned maintenance notifications](/azure/virtual-machines/maintenance-notifications).
 
 Some workloads might not tolerate even few seconds of a VM freezing or disconnection for maintenance. For greater control over all maintenance activities, including zero-impact and rebootless updates, see [Maintenance Configurations](/azure/virtual-machines/maintenance-configurations). Creating a Maintenance Configuration gives you the option to skip all platform updates and apply the updates at your convenience. When this custom configuration is set, Azure skips all non-zero-impact updates, including rebootless updates. For more information, see [Managing platform updates with Maintenance Configurations](/azure/virtual-machines/maintenance-configurations)
 
@@ -328,7 +328,7 @@ Only the patches that are classified as *critical* or *security* are applied aut
 
 For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
 
-Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
+Automatic patching can put a burden on the system and can be disruptive because VMs use resources and might reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
 
 Be aware of the tradeoff on cost associated with overprovisioning.
 

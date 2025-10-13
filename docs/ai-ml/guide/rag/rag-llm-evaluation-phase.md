@@ -22,7 +22,7 @@ This article is part of a series. Read the [introduction](./rag-solution-design-
 
 ## Language model evaluation metrics
 
-There are several metrics that you should use to evaluate the language model's response, including groundedness, completeness, utilization, relevancy, and correctness. Because the overall goal of the RAG pattern is to provide relevant data as context to a language model when generating a response, ideally, each of the above metrics should score highly. However, depending on your workload, you may need to prioritize one over another.
+There are several metrics that you should use to evaluate the language model's response, including groundedness, completeness, utilization, relevancy, and correctness. Because the overall goal of the RAG pattern is to provide relevant data as context to a language model when generating a response, ideally, each of the above metrics should score highly. However, depending on your workload, you might need to prioritize one over another.
 
 > [!IMPORTANT]
 > Language model responses are nondeterministic, which means that the same prompt to a language model often returns different results. This concept is important to understand when you use a language model as part of your evaluation process. Consider using a target range instead of a single target when you evaluate language model use.
@@ -121,7 +121,7 @@ There are several ways to evaluate correctness, including:
 
 When correctness is low, do the following tasks:
 
-1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You may need to correct any issues in the source documents or content.
+1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You might need to correct any issues in the source documents or content.
 1. If the chunks are factually correct, evaluate your prompt.
 1. Evaluate if there are inherit inaccuracies in the model that needs to be overcome with additional factual grounding data or fine-tuning.
 
@@ -161,7 +161,7 @@ This metric combination is one where prioritizing one over the other could be ve
 
 ### Utilization and completeness
 
-Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario may indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
+Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario might indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
 
 ### Groundedness and utilization and similarity
 

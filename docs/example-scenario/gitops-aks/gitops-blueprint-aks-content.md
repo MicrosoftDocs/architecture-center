@@ -194,7 +194,7 @@ GitOps teams often manage multiple environments for the same application. It's t
 
 ## Deploy a scenario
 
-The following list provides references for information about deploying the five scenarios:
+For more information about deploying the five scenarios, see the following resources:
 
 - **Scenario 1:** For guidance on using GitOps with Flux v2 to deploy applications to AKS, see [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli). For an example of how to use the Flux extension to bootstrap AKS cluster deployment, see the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests).
 - **Scenario 2:** For guidance on using GitOps with Flux v2 on AKS to deploy applications and to implement CI/CD, see: [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd).

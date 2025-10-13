@@ -16,7 +16,7 @@ azureCategories:
   - storage
 products:
   - azure-application-gateway
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-database-mysql
   - azure-netapp-files
   - azure-vm-scalesets

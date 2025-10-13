@@ -68,7 +68,7 @@ The following diagram shows the patient record creation request flow:
 
 ## Next steps
 
-- Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
+- For more information, contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure].
 - See [TmaxSoft OpenFrame][Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace] on Azure Marketplace.
 - Read how to [install TmaxSoft OpenFrame on Azure][Install TmaxSoft OpenFrame on Azure article].
 
