@@ -219,7 +219,7 @@ If there's more than one AWS account to administer, such as DevTest and Producti
 
 Use the following steps to configure Microsoft Entra SSO for AWS:
 
-1. Follow the steps in the article [Configure Microsoft Entra SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
+1. Follow the steps in the article [Configure Microsoft Entra SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-microsoft-entra-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
 
 1. On **AWS Console**, follow the steps on [Configure AWS SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
