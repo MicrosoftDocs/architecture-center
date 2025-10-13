@@ -162,7 +162,7 @@ Stream Analytics can be expensive if you are not processing the data in real-tim
 
 #### Azure Event Hubs and Azure Cosmos DB
 
-For cost considerations about Azure Event Hubs and Azure Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
+For Azure Event Hubs and Azure Cosmos DB cost considerations, see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
 
 ### Operational Excellence
 

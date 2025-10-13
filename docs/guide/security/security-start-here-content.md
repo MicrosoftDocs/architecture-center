@@ -40,7 +40,7 @@ Here are two learning paths to get you started:
 
 ## Best practices
 
-The Azure Well-Architected Framework is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. For information, see [Overview of the security pillar](/azure/architecture/framework/security/overview) and [Security design principles in Azure](/azure/architecture/framework/security/security-principles).
+The Azure Well-Architected Framework is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview) and [Security design principles in Azure](/azure/architecture/framework/security/security-principles).
 
 The Well-Architected Framework also provides these checklists:
 
