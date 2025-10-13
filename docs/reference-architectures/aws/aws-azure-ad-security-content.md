@@ -140,9 +140,9 @@ To prepare for deployment of Azure security solutions, review and record current
    - **Policies**. Out-of-the-box policies have **AWS managed**, **Job function**, or **Customer managed** in the **Type** column. Record all other policies, which are custom. Also record where each policy is assigned, from the entries in the **Used as** column.
    - **Identity providers**, to understand any existing Security Assertion Markup Language (SAML) identity providers. Plan how to replace the existing identity providers with the single Microsoft Entra identity provider.
 
-1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), review the Microsoft Entra tenant:
 
-   - Assess **Tenant information** to see whether the tenant has a Microsoft Entra ID P1 or P2 license. A P2 license provides [Advanced Microsoft Entra identity management](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
+   - Assess **Tenant information** to see whether the tenant has a Microsoft Entra ID P1 or P2 license.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
 <a name='plan-azure-ad-deployment'></a>
@@ -320,18 +320,18 @@ Test signing-in as each of the test users to confirm that the SSO works.
 
 To create a new Conditional Access policy that requires MFA:
 
-1. In the Azure portal, navigate to **Microsoft Entra ID** > **Security**, and then select **Conditional Access**.
-
-1. In the left navigation, select **Policies**.
-
-   :::image type="content" source="media/conditional-access.png" alt-text="Screenshot of the Microsoft Entra Conditional Access screen with Policies selected.":::
-
-1. Select **New policy**, and complete the form as follows:
-   - **Name**: Enter *AWS Console – MFA*
-   - **Users and Groups**: Select the two role groups you created earlier:
-     - **AWS-Account1-Administrators**
-     - **AWS-Account1-Developers**
-   - **Grant**: Select **Require multi-factor authentication**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../role-based-access-control/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Entra ID** > **Conditional Access** > **Policies**.
+1. Select **New policy**.
+1. Complete the form as follows:
+   1. **Name**: *AWS Console – MFA*
+   1. Under **Assignments**, select **Users or workload identities**.
+      1. Under **Include**,  Select the two role groups you created earlier:
+         1. **AWS-Account1-Administrators**
+         1. **AWS-Account1-Developers**
+      1. Under **Exclude**:
+         1. Choose your organization's [emergency access or break-glass accounts](/entra/identity/role-based-access-control/security-emergency-access).
+   1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Set **Enable policy** to **On**.
 
    :::image type="content" source="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form.":::
