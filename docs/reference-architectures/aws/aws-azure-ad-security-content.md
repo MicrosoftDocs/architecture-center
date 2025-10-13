@@ -353,7 +353,7 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/)
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security)
 - For full details of how to implement and manage Microsoft Entra ID, see [Securing Azure environments with Microsoft Entra ID](/entra/architecture/secure-introduction)
-- [AWS tutorial: Microsoft Entra ID with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
+- [AWS tutorial: Microsoft Entra ID with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/idp-microsoft-entra.html)
 - [Microsoft tutorial: SSO for AWS](/entra/identity/saas-apps/amazon-web-service-tutorial)
 - [PIM deployment plan](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
 - [Identity protection overview](/entra/id-protection/overview-identity-protection)
