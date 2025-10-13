@@ -35,7 +35,7 @@ The following describes a typical workflow for this pattern:
 
 1. The presentation layer calls an object responsible for reading from a read-only store. The data returned is used to populate the UI.
 1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
-1. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
+1. The command handler calls the event store to get the historical events for the entity. For example, it might retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
 1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
 1. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
     1. Writing the events to the event store
@@ -67,7 +67,7 @@ Consider the following points when deciding how to implement this pattern:
 - **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
 
   > [!NOTE]
-  > See the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for information about eventual consistency.
+  > For more information about eventual consistency, see the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
 - **Versioning events** - The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity or undo a change is to add a compensating event to the event store. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version. Your application will need to support changes to events structures. This can be done in several ways.
 

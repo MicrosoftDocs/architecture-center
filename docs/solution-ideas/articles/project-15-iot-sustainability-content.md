@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A story in five parts](https://aka.ms/project15story).
+Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A story in five parts](https://techcommunity.microsoft.com/blog/greentechblog/project-15-from-microsoft-%e2%80%93-a-story-in-five-parts/2323531).
 
 ## Architecture
 
@@ -149,7 +149,7 @@ Principal authors:
 - [Introduction to Azure IoT][Introduction to Azure IoT]
 - [Internet of Things event learning path][Internet of Things Learning Path]
 - [Microsoft and sustainability][Microsoft & Sustainability]
-- [Seeed Studio's IoT into the wild][Seeed Studio’s IoT Into the Wild]
+- [Seeed Studio's IoT into the wild][Seeed Studio's IoT Into the Wild]
 
 ## Related resources
 
@@ -157,7 +157,6 @@ Principal authors:
 
 [API Apps]: /azure/app-service/overview
 [App Service]: /azure/well-architected/service-guides/app-service-web-apps
-[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [Azure Digital Twins]: /azure/digital-twins/overview
 [Azure Maps]: /azure/azure-maps/about-azure-maps
@@ -174,13 +173,11 @@ Principal authors:
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview
-[Project 15 on GitHub]: https://aka.ms/project15code
+[Project 15 on GitHub]: https://microsoft.github.io/project15/
 [Project 15 from Microsoft]: /shows/Azure-Videos/project-15
 [Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
-[Project 15 YouTube Channel]: https://aka.ms/project15video
-[Solution details]: #solution-details
 [Stream Analytics]: /azure/stream-analytics/stream-analytics-introduction
 [Microsoft Power Platform]: /power-platform
-[Internet of Things Learning Path]: https://aka.ms/iotlp
+[Internet of Things Learning Path]: https://techcommunity.microsoft.com/blog/iotblog/internet-of-things---event-learning-path-learn-to-build-iot-solutions-on-microso/1636151
 [Introduction to Azure IoT]: https://learn.microsoft.com/training/modules/introduction-to-azure-iot/
 [Seeed Studio's IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
