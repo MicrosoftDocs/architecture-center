@@ -60,7 +60,7 @@ Typical examples of tasks that are suited to schedule-driven invocation include 
 If you use a schedule-driven task that must run as a single instance, be aware of the following:
 
 - If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task. For more information about this, read this [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean).
-- If tasks run for longer than the period between scheduler events, the scheduler may start another instance of the task while the previous one is still running.
+- If tasks run for longer than the period between scheduler events, the scheduler might start another instance of the task while the previous one is still running.
 
 ## Returning results
 
@@ -140,7 +140,11 @@ For more information, see these articles:
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
+For more information, see the following resources:
+
+- [Azure App Services, Cloud Services, and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm)
+- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
+- [Operating systems and prebuilt images for Virtual Machines](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute)
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -206,7 +210,7 @@ Containers can be useful for running background jobs. Some of the benefits inclu
 
 <!-- markdownlint-enable MD024 -->
 
-- Requires an understanding of how to use a container orchestrator. Depending on the skill set of your DevOps team, this may or may not be an issue.
+- Requires an understanding of how to use a container orchestrator. 
 
 For more information, see:
 
@@ -226,7 +230,7 @@ Azure Container Apps enables you to build serverless microservices based on cont
 
 #### Considerations
 
-Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
+Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams prefer to start building container microservices with Azure Container Apps.
 
 For more information, see:
 

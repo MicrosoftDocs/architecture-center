@@ -25,7 +25,7 @@ This diagram is for the private-facing case:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
-For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For details, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
+For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For more information, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
 
 Application Gateway provides the front ends, which are dedicated to the private endpoints.
 
