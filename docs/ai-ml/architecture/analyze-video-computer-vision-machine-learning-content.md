@@ -140,6 +140,7 @@ Principal author:
 - [Han Wang](https://www.linkedin.com/in/han-hongrun-wang-577187106/) | Cloud Solutions Architect – Data & AI
 
 Other contributors:
+
 - [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
