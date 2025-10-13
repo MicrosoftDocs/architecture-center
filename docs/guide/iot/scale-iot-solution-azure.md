@@ -289,7 +289,7 @@ Principal author:
 
 Other contributors:
 
-- [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineer, Microsoft Azure CXP
+- [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineering Manager, Microsoft Azure CXP
 - [Alberto Gorni](https://www.linkedin.com/in/gornialberto/) | Former Senior Customer Engineer, Microsoft Azure CXP
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
