@@ -50,7 +50,6 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
     - **Container Network Security** applies to clusters that use Azure CNI Powered by Cilium. It enforces Cilium NetworkPolicy resources, including fully qualified domain name (FQDN)-based egress filtering, to implement Zero Trust network segmentation and reduce operational overhead. In this architecture, in-cluster FQDN policies work with Azure Firewall or Azure NAT Gateway to enforce least-privilege egress while simplifying policy maintenance.
 
-  - [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature that provides deep visibility into AKS cluster performance and health. In this architecture, it collects metrics, logs, and telemetry to support monitoring and diagnostics.
 
   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy) is a built-in extension that brings governance and compliance controls directly into your AKS clusters. It applies governance rules across AKS resources by using Azure Policy. In this architecture, it enforces compliance by validating configurations and restricting unauthorized deployments.
 
