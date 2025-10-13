@@ -3,8 +3,8 @@ title: Scale Out an Azure IoT Hub-based Solution to Support Millions of Devices
 description: Learn how to scale out your Azure IoT Hub-based solution by using a scale-out pattern model, such as low-touch or zero-touch, to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 06/09/2025
-ms.topic: conceptual
+ms.date: 10/12/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-iot
 ---
