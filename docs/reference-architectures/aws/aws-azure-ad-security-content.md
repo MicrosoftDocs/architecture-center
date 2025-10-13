@@ -201,7 +201,7 @@ This procedure covers the following steps:
 The following links provide full detailed implementation steps and troubleshooting:
 
 - [Microsoft tutorial: Microsoft Entra SSO integration with AWS](/entra/identity/saas-apps/amazon-web-service-tutorial)
-- [AWS tutorial: Microsoft Entra ID to AWS SSO using the SCIM protocol](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
+- [AWS tutorial: Microsoft Entra ID to AWS SSO using the SCIM protocol](https://docs.aws.amazon.com/singlesignon/latest/userguide/idp-microsoft-entra.html)
 
 <a name='add-an-aws-app-to-your-azure-ad-enterprise-applications'></a>
 
@@ -229,7 +229,7 @@ Use the following steps to configure Microsoft Entra SSO for AWS:
 
 Based on these configuration steps, you can diagram the interactions like this:
 
-![Diagram of the configuration interactions.](https://user-images.githubusercontent.com/90685955/136037309-9e60846e-6dc9-4796-8e01-bc05ae1078c0.png)
+![Diagram of the configuration interactions.](media/diagram-example.png)
 
 On **AWS Console**, use the following steps to create more roles.
 
