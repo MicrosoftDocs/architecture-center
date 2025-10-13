@@ -79,26 +79,6 @@ services.AddHealthChecks()
     .AddRedis(Configuration.GetValue<string>("ConnectionEndpoints:RedisConnectionEndpoint"));
 ```
 
-The following code shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/) script configures the back-end pools and the health probe for the application gateway.
-
-```bash
-# Generates parameters file for Azure Application Gateway script
-cat <<EOF > appgwApps.parameters.json
-[
-  {
-    "name": "votapp",
-    "routingPriority": 100,
-    "hostName": "${APPGW_APP1_URL}",
-    "backendAddresses": [
-      {
-        "fqdn": "${INTERNAL_APP1_URL}"
-      }
-    ],
-    "probePath": "/health"
-  }
-]
-```
-
 If any components, including the web front end, the API, or the cache, fail the health probe, Application Gateway routes the request to the other application in the back-end pool. This configuration ensures that the request always routes to the application in a completely available App Service Environment subnet.
 
 The standard reference implementation also uses the health probe. In that implementation, the gateway returns an error if the health probe fails. But the highly available implementation improves the resiliency of the application and the quality of the user experience.
