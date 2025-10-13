@@ -61,7 +61,7 @@ In App Configuration, you work with key-value pairs that represent application s
 
 For example, suppose you need to store a setting to indicate the logging level for your application. In a single-tenant solution, you might name this setting `LogLevel`. In a multitenant solution, you might choose to use a hierarchical key name, such as `tenant1/LogLevel` for tenant 1, `tenant2/LogLevel` for tenant 2, and so on.
 
-Use App Configuration to specify long key names and multiple levels in a hierarchy. If you choose to use long key names, ensure that you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
+You can specify long key names and multiple levels in a hierarchy. If you choose to use long key names, ensure that you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 
 When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select) to only load that tenant's keys. You can also configure the provider library for App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix) from the keys, before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with that tenant's values loaded into the application.
 
