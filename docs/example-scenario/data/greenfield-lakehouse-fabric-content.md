@@ -94,7 +94,7 @@ While direct lake mode in Power BI offers significant benefits in terms of perfo
 - Semantic model has RLS applied on it.
 - Semantic model references views instead of direct OneLake tables.
   
-This can be addressed by complementary use of SQL analytics endpoint as the source for Power BI. When one uses 'direct lake on SQL analytics endpoint', it allows the semantic model queries to [fall back](/fabric/fundamentals/direct-lake-overview#directquery-fallback) on direct query mode where direct lake is not supported.
+This can be addressed by complementary use of SQL analytics endpoint as the source for Power BI. When one uses *direct lake on SQL analytics endpoint*, it allows the semantic model queries to [fall back](/fabric/fundamentals/direct-lake-overview#directquery-fallback) on direct query mode where direct lake is not supported.
 
 
 ###### Custom APIs
