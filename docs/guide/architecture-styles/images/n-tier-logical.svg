@@ -145,7 +145,7 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
        id="tspan7">eb</tspan><tspan
        x="247.78"
        y="203.39999"
-       id="tspan8">Tier</tspan></text>
+       id="tspan8">tier</tspan></text>
   <rect
      class="cls-4"
      x="484.75"
@@ -162,7 +162,7 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
      y="98.010002">Middle<tspan
    x="500.70001"
    y="119.61"
-   id="tspan9">Tier 1</tspan></text>
+   id="tspan9">tier 1</tspan></text>
   <rect
      class="cls-4"
      x="484.75"
@@ -179,7 +179,7 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
      y="278.59">Middle<tspan
    x="500.70001"
    y="300.19"
-   id="tspan10">Tier 2</tspan></text>
+   id="tspan10">tier 2</tspan></text>
   <rect
      class="cls-4"
      x="334.75"
@@ -241,7 +241,7 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
        id="tspan13">emote</tspan><tspan
        x="715.53003"
        y="63.110001"
-       id="tspan14">Service</tspan></text>
+       id="tspan14">service</tspan></text>
   <rect
      class="cls-4"
      x="691"
@@ -258,12 +258,12 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
      y="232.58">Data<tspan
    x="728.77002"
    y="254.18001"
-   id="tspan15">Tier</tspan></text>
+   id="tspan15">tier</tspan></text>
   <rect
      class="cls-4"
-     x="120.25"
+     x="107.25"
      y="95.879997"
-     width="70"
+     width="98"
      height="185.75"
      rx="8"
      ry="8"
@@ -271,16 +271,22 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
   <text
      class="cls-7"
      id="text17"
-     x="136.98999"
-     y="192.71001"><tspan
+     x="112.98999"
+     y="159.71001"><tspan
        class="cls-9"
-       id="tspan16">W</tspan><tspan
-       x="153.10001"
-       y="192.71001"
-       id="tspan17">AF</tspan></text>
+       id="tspan16">Web</tspan><tspan
+       x="112.98999"
+       y="181.71001"
+       id="tspan17">application</tspan><tspan
+       x="112.98999"
+       y="203.71001"
+       id="tspan18">framework</tspan><tspan
+       x="112.98999"
+       y="225.71001"
+       id="tspan19">(WAF)</tspan></text>
   <line
      class="cls-1"
-     x1="190"
+     x1="205"
      y1="188.75999"
      x2="213.24001"
      y2="188.75999"
@@ -303,12 +309,12 @@ text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetic
      class="cls-1"
      x1="86"
      y1="188.75999"
-     x2="109.24"
+     x2="93.24"
      y2="188.75999"
      id="line18" />
   <polygon
      class="cls-2"
-     points="110,176.76 97.05,169.28 97.05,184.24 "
+     points="97,176.76 84.05,169.28 84.05,184.24 "
      id="polygon18"
      transform="translate(10,12)" />
   <metadata
