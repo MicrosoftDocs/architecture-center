@@ -79,7 +79,7 @@ services.AddHealthChecks()
     .AddRedis(Configuration.GetValue<string>("ConnectionEndpoints:RedisConnectionEndpoint"));
 ```
 
-The following code shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_ha.azcli) script configures the back-end pools and the health probe for the application gateway.
+The following code shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/) script configures the back-end pools and the health probe for the application gateway.
 
 ```bash
 # Generates parameters file for Azure Application Gateway script
