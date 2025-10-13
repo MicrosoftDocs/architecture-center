@@ -52,7 +52,7 @@ Other advanced Microsoft Entra features provide extra layers of control for the 
 
 Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information require strong identity protection and access control. AWS identity management is enhanced when combined with Microsoft Entra ID. Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that helps secure and protect AWS accounts and environments. Microsoft Entra ID provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication (MFA)* and Conditional Access policies. Microsoft Entra ID supports AWS identity management, role-based identities, and access control.
 
-Many organizations that use AWS rely on Microsoft Entra ID for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can use Microsoft Entra ID with their AWS accounts, often at no extra cost. Other, [advanced Microsoft Entra features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Microsoft Entra ID Protection can help protect the most sensitive AWS accounts.
+Many organizations that use AWS rely on Microsoft Entra ID for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can use Microsoft Entra ID with their AWS accounts, often at no extra cost. Other [advanced Microsoft Entra features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Microsoft Entra ID Protection can help protect the most sensitive AWS accounts.
 
 Microsoft Entra ID integrates with other Microsoft security solutions, like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](../../guide/aws/aws-azure-security-solutions.yml). Microsoft security solutions are extensible and provide multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
@@ -209,7 +209,7 @@ The following links provide full detailed implementation steps and troubleshooti
 
 AWS administrators and developers use an enterprise application to sign in to Microsoft Entra ID for authentication, then redirect to AWS for authorization and access to AWS resources. One way to access the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides direct access.
 
-Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application. These instructions let you know what AWS app to add to your Microsoft Entra enterprise applications.
+Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial) to set up the enterprise application. These instructions let you know what AWS app to add to your Microsoft Entra enterprise applications.
 
 If there's more than one AWS account to administer, such as DevTest and Production, use a unique name for the enterprise application that includes an identifier for the company and specific AWS account.
 
@@ -219,7 +219,7 @@ If there's more than one AWS account to administer, such as DevTest and Producti
 
 Use the following steps to configure Microsoft Entra SSO for AWS:
 
-1. Follow the steps in the article [Configure Microsoft Entra SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
+1. Follow the steps in the article [Configure Microsoft Entra SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-microsoft-entra-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
 
 1. On **AWS Console**, follow the steps on [Configure AWS SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
@@ -353,7 +353,7 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/)
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security)
 - For full details of how to implement and manage Microsoft Entra ID, see [Securing Azure environments with Microsoft Entra ID](/entra/architecture/secure-introduction)
-- [AWS tutorial: Microsoft Entra ID with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
+- [AWS tutorial: Microsoft Entra ID with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/idp-microsoft-entra.html)
 - [Microsoft tutorial: SSO for AWS](/entra/identity/saas-apps/amazon-web-service-tutorial)
 - [PIM deployment plan](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
 - [Identity protection overview](/entra/id-protection/overview-identity-protection)
