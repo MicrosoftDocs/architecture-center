@@ -209,7 +209,7 @@ The following links provide full detailed implementation steps and troubleshooti
 
 AWS administrators and developers use an enterprise application to sign in to Microsoft Entra ID for authentication, then redirect to AWS for authorization and access to AWS resources. One way to access the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides direct access.
 
-Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application. These instructions let you know what AWS app to add to your Microsoft Entra enterprise applications.
+Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/entra/identity/saas-apps/amazon-web-service-tutorial) to set up the enterprise application. These instructions let you know what AWS app to add to your Microsoft Entra enterprise applications.
 
 If there's more than one AWS account to administer, such as DevTest and Production, use a unique name for the enterprise application that includes an identifier for the company and specific AWS account.
 
