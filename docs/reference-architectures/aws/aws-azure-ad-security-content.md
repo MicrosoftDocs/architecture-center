@@ -12,7 +12,7 @@ Many organizations need more than one AWS account, resulting in *identity silos*
 
 ![Diagram showing a multiple-account AWS environment.](media/aws-multiple-accounts.png)
 
-To allow centralized identity management and avoid managing multiple identities and passwords, most organizations want to use single sign-on for platform resources. Some AWS customers rely on server-based Windows Server Active Directory for SSO integration. Other customers invest in non-Microsoft solutions to synchronize or federate their identities and provide SSO.
+To allow centralized identity management and avoid managing multiple identities and passwords, most organizations want to use single sign-on for platform resources. Some AWS customers rely on Windows Server Active Directory for SSO integration. Other customers invest in non-Microsoft solutions to synchronize or federate their identities and provide SSO.
 
 Microsoft Entra ID provides centralized identity management with strong single sign-on (SSO) authentication. Almost any app or platform that follows common web authentication standards, including AWS, can use Microsoft Entra ID for identity and access management.
 
