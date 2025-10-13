@@ -91,7 +91,7 @@ sequenceNumberEnd, enqueueTimeStart, enqueueTimeEnd, dispatchTimeMilliseconds
 
 ### Dispatch latency visualization
 
-This query visualizes the 50th and 90th percentile event dispatch latency for a given event hub triggered function. See the above query for more details and notes.
+This query visualizes the 50th and 90th percentile event dispatch latency for a given event hub triggered function. For more information and notes, see the previous query.
 
 ```kusto
 traces

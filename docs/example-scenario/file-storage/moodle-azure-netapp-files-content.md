@@ -81,7 +81,7 @@ Azure NetApp Files provides high availability for your stored data. For the Azur
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For more information and best practices for Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
 
 ### Cost Optimization
 
@@ -93,7 +93,7 @@ Azure NetApp Files provides a more cost-effective solution that uses 4 TiB of Ul
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources for your specific requirements. For more information, see [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
-For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
+For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/). Use this calculator to find the optimal balance between capacity, performance, and cost.
 
 ### Operational Excellence
 

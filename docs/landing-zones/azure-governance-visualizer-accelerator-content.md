@@ -84,7 +84,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight. The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective.
 
-- Use the Azure pricing calculator to see a [pricing estimate for this solution](https://aka.ms/azgovvizacceleratorpricing).
+- Use the Azure pricing calculator to see a [pricing estimate for this solution](https://azure.microsoft.com/pricing/calculator/?shared-estimate=61029210b61b4cce8602cb905d7c0dda).
 
 - The sample in GitHub only deploys one instance of App Service, but you can choose to deploy more if needed.
 

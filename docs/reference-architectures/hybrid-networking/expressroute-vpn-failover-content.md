@@ -168,7 +168,7 @@ By default, BGP sessions use an idle timeout value of 60 seconds. If a session t
 
 You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
 
-- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
+- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). For more information, see [SLA for Azure ExpressRoute][sla-for-expressroute].
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
 
@@ -265,7 +265,7 @@ The ExpressRoute Premium add-on provides:
 - An increased number of virtual network links per ExpressRoute circuit.
 - Global connectivity for services.
 
-See [ExpressRoute pricing][expressroute-pricing] for details.
+For more information, see [ExpressRoute pricing][expressroute-pricing].
 
 Although some providers allow you to change your bandwidth, be sure to choose an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you have two options:
 
