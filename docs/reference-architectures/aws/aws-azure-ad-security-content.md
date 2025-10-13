@@ -213,8 +213,6 @@ Follow the instructions in [add Amazon Web Services (AWS) from the gallery](/ent
 
 If there's more than one AWS account to administer, such as DevTest and Production, use a unique name for the enterprise application that includes an identifier for the company and specific AWS account.
 
-![Screenshot that shows creating the enterprise application in Azure AD.](media/provisioning.png)
-
 <a name='configure-azure-ad-sso-for-aws'></a>
 
 ### Configure Microsoft Entra SSO for AWS
