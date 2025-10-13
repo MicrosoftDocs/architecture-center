@@ -1,8 +1,8 @@
 ---
 title: Compare AWS and Azure compute services
 description: Compare the compute services in Azure and AWS. Explore the differences in virtual machines, containers, and serverless technologies.
-author: kobile70
-ms.author: kobilevi
+author: splitfinity81
+ms.author: yubaijna
 ms.date: 06/24/2022
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -29,7 +29,7 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
+| [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For more information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
 | [VMware Cloud on AWS](https://aws.amazon.com/vmware) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | AWS and Azure solutions let you move VMware vSphere-based workloads and environments to the cloud. Azure VMware Solution is a VMware-verified Microsoft service that runs on Azure infrastructure. You can manage existing environments with VMware solution tools, while modernizing applications with cloud native services. |
 | [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
 

@@ -260,7 +260,7 @@ This example scenario demonstrates how to use Fabric to build a modern data plat
 
 This approach can also be used to:
 
-- Enterprise Data Platform Modernization to replace fragmented data tools with a unified platform. 
+- Perform enterprise data platform modernization, replacing fragmented data tools with a unified platform.
 
 - Establish a [medallion lake architecture](/fabric/onelake/onelake-medallion-lakehouse-architecture), using Fabric’s Lakehouse organized with bronze layer for raw data ingestion from data sources, silver Layer for cleansed and transformed data and gold layer for business ready data for analytics and AI. Warehouses can also be added as subject-area or domain-specific solutions tailored to particular topics that may require customized analytics.
 
@@ -343,7 +343,7 @@ Use the [Microsoft Fabric - Pricing](https://azure.microsoft.com/pricing/detai
 
 Similar architecture can also be implemented for preproduction environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment. 
 
-See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com/?product=administration%2Cgovernanceandsecurity).
+See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com).
 
 ## Contributors
 

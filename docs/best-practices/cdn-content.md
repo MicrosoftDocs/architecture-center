@@ -32,7 +32,7 @@ Typical uses for a CDN include:
 
 There are several challenges to take into account when planning to use a CDN.
 
-- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Take into account the process for deploying static content and resources. For example, you may need to implement a separate step to load content into Azure blob storage.
+- **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system. Take into account the process for deploying static content and resources. For example, you might need to implement a separate step to load content into Azure blob storage.
 
 - **Versioning and cache-control**. Consider how you will update static content and deploy new versions. Understand how the CDN performs caching and time-to-live (TTL). For Azure Content Delivery Network, see [How caching works](/azure/cdn/cdn-how-caching-works).
 
@@ -46,7 +46,7 @@ There are several challenges to take into account when planning to use a CDN.
 
 - **Resilience**. The CDN is a potential single point of failure for an application.
 
-Scenarios where a CDN may be less useful include:
+Scenarios where a CDN might be less useful include:
 
 - If the content has a low hit rate, it might be accessed only few times while it is valid (determined by its time-to-live setting).
 
@@ -58,7 +58,7 @@ Using a CDN is a good way to minimize the load on your application, and maximize
 
 ### Deployment
 
-Static content may need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process. Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.
+Static content might need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process. Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.
 
 Consider using bundling and minification techniques to reduce load times for clients. Bundling combines multiple files into a single file. Minification removes unnecessary characters from scripts and CSS files without altering functionality.
 
@@ -66,11 +66,11 @@ If you need to deploy the content to an additional location, this will be an ext
 
 Consider how you will handle local development and testing when some static content is expected to be served from a CDN. For example, you could predeploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
 
-Consider the options for file compression, such as gzip (GNU zip). Compression may be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
+Consider the options for file compression, such as gzip (GNU zip). Compression can be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
 
 ### Routing and versioning
 
-You may need to use different CDN instances at various times. For example, when you deploy a new version of the application you may want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can create a separate storage account or a separate container and point the CDN endpoint to it.
+You might need to use different CDN instances at various times. For example, when you deploy a new version of the application you might want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can create a separate storage account or a separate container and point the CDN endpoint to it.
 
 Do not use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
 
@@ -100,4 +100,4 @@ If you deliver static assets such as font files by using the CDN, you might enco
 
 ### CDN fallback
 
-Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
+Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications might be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.

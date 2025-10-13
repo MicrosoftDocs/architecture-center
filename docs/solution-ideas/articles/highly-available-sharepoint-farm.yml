@@ -19,6 +19,7 @@ metadata:
     - sharepoint farm solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/highly-available-sharepoint-farm"
+  ai-usage: ai-assisted
 name: Highly available SharePoint farm
 azureCategories:
   - web

@@ -8,6 +8,7 @@ metadata:
   ms.reviewer: ssumner
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
+  ai-usage: ai-assisted
 azureCategories:
   - networking
   - web

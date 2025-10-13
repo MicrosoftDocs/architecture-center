@@ -262,7 +262,7 @@ Outbound network connectivity is required from your Azure Local instance, this i
 
 To enable connectivity typically involves configuring your firewall, proxy and/or internet egress technology to allow outbound access to the required public endpoints. Key considerations for Azure Local outbound network requirements:
 
-- Azure Local does not support SSL / TLS packet inspection along any of the networking paths from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For details information, refer to [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
+- Azure Local does not support SSL / TLS packet inspection along any of the networking paths from your Azure Local instances to the public endpoints. Additionally, Private Link and Express route are not supported for the connectivity to the required public endpoints. For more information, see [Firewall requirements for Azure Local](/azure/azure-local/concepts/firewall-requirements).
 
 - Consider using the [Azure Arc gateway](/azure/azure-local/deploy/deployment-azure-arc-gateway-overview) to simplify connectivity requirements, as this significantly reduces the number of required endpoints that need to be added to your firewall or proxy rules for the deployment and management of Azure Local.
 
@@ -553,10 +553,10 @@ Microsoft Learn modules:
 [azs-hci-rbac]: /azure/azure-local/manage/assign-vm-rbac-roles
 [azs-hci-security-default]: /azure/azure-local/manage/manage-secure-baseline
 [azs-hci-security-syslog]: /azure/azure-local/manage/manage-syslog-forwarding
-[azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
+[azs-hci-sizer-tool]: https://azurelocalsolutions.azure.microsoft.com/#/sizer
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview

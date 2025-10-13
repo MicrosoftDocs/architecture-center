@@ -42,7 +42,7 @@ This article describes an architecture that you can use to process various docum
 
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that you can use to integrate large language models (LLMs) into your applications. This architecture uses Semantic Kernel to create embeddings for the document content and metadata information, which are stored in AI Search.
 
-- [Azure OpenAI Service](/azure/well-architected/service-guides/azure-openai) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
+- [Azure OpenAI Service](/azure/ai-foundry/openai/overview) provides access to OpenAI's powerful models. This architecture uses Azure OpenAI to provide a natural language interface for users to interact with the document-processing system.
 
 ### Alternatives
 
@@ -51,6 +51,8 @@ This article describes an architecture that you can use to process various docum
 - To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview).
 
 - Semantic Kernel is one of several options for creating embeddings. You can also use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/what-are-ai-services) to create embeddings.
+
+- The [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) could be used instead of Semantic Kernel to orchestrate the workflows.
 
 - To provide a natural language interface for users, you can use other language models within Azure AI Foundry. The platform supports various models from different providers, including Mistral, Meta, Cohere, and Hugging Face.
 

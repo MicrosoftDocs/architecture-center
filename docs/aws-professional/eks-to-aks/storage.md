@@ -273,7 +273,6 @@ You can use [Azure disk storage](/azure/aks/azure-disk-csi) to create a Kubernet
 - [Premium SSD v2](/azure/aks/use-premium-v2-disks)
 - [Azure Ultra Disk Storage](/azure/aks/use-ultra-disks)
 - [Standard SSD](/azure/aks/azure-disk-csi)
-- Azure Standard HDD
 
 > [!TIP]
 > For most production and development workloads, use Premium SSD.

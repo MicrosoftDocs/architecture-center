@@ -28,13 +28,20 @@ This article discusses the design considerations of the modularized [Azure Landi
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
-### ALZ Bicep Accelerator
+## Azure landing zone Bicep implementation
 
-You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the [ALZ Bicep Accelerator](https://aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
+You can find step by step guidance around implementing, automating, and maintaining your Azure landing zone Bicep module with the [Azure landing zones Bicep documentation](https://azure.github.io/Azure-Landing-Zones/accelerator/ "Azure landing zone Bicep accelerator documentation").
 
-The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
+The Bicep implementation was developed to provide:
 
-## Design
+- Support for onboarding and deployment of landing zones using full-fledged CI/CD pipelines.
+- Support for GitHub Actions and Azure DevOps Pipelines.
+- A process to stay in-sync with new Bicep releases.
+- An ability to modify or add custom modules.
+- Branching strategy guidance.
+- Pull request pipelines for linting and validating Bicep modules.
+
+### Design
 
 :::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture-highres.png":::
 
@@ -42,14 +49,13 @@ The architecture takes advantage of the modular nature of Azure Bicep and is com
 
 The architecture proposes the inclusion of orchestrator modules to simplify the deployment experience. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
 
-
-## Modules
+### Modules
 
 A core concept in Bicep is the use of [modules](/azure/azure-resource-manager/bicep/modules). Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
 The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
-## Layers and staging
+#### Layers and staging
 
 > [!VIDEO https://www.youtube.com/embed/FNT0ZtUxYKQ]
 
@@ -59,7 +65,7 @@ In addition to modules, the Bicep landing zone architecture is structured using 
 
 A benefit of this layered approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of the layers. You can add the remaining layers at a subsequent stage when you’re ready.
 
-## Module descriptions
+#### Module descriptions
 
 This section provides a high-level overview of the core modules in this architecture.
 
@@ -82,12 +88,10 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 > [!TIP]
 > See [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
 
-Once the platform landing zone is implemented the next step is to deploy [Application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications, while the `online` management group is for applications that are primarily publicly facing, but may still connect to corporate applications via hub networks in some scenarios. 
+Once the platform landing zone is implemented the next step is to deploy [Application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications, while the `online` management group is for applications that are primarily publicly facing, but might still connect to corporate applications via hub networks in some scenarios. 
 
 > [!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
 
 The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure Landing Zones (ALZ) Bicep - Wiki- Consumer Guide](https://github.com/Azure/ALZ-Bicep/wiki/ConsumerGuide). You can use it as a starting point and configure it as per your needs.
-
-

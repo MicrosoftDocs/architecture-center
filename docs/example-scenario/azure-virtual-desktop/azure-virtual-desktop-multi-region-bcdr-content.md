@@ -227,7 +227,7 @@ The following example shows a Cloud Cache configuration and related registry key
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
   > [!NOTE]
-  > If you previously downloaded the **FSLogix Templates**, you can accomplish the same configurations through the Active Directory Group Policy Management Console. For more details on how to set up the Group Policy Object for FSLogix, refer to the guide, [Use FSLogix Group Policy Template Files](/fslogix/use-group-policy-templates-ht).
+  > If you previously downloaded the **FSLogix Templates**, you can accomplish the same configurations through the Active Directory Group Policy Management Console. For more information about how to set up the Group Policy Object for FSLogix, see [Use FSLogix Group Policy Template Files](/fslogix/use-group-policy-templates-ht).
 
   [ ![Screenshot that shows the Cloud Cache registry keys.](images/fslogix-cloud-cache-registry-keys-hires.png)](images/fslogix-cloud-cache-registry-keys-hires.png#lightbox)
 

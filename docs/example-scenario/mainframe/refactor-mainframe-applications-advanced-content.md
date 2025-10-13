@@ -66,27 +66,45 @@ This is the architecture of the example system shown above when refactored for A
 
 ### Components
 
-This example features the following Azure components. Several of these components and workflows are interchangeable or optional depending on your scenario.
+This example features the following Azure components. Several of these components and workflows are interchangeable or optional, depending on your scenario.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365.
-- [Azure Bastion](/azure/bastion/bastion-overview) provides seamless Remote Desktop Protocol (RDP) or secure shell (SSH) connectivity to virtual network VMs from the Azure portal over Transport Layer Security (TLS). Azure Bastion maximizes admin access security by minimizing open ports.
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. AKS offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers many sizes and types of on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. VMs within virtual networks can communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation.
-- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure services. Private Link eliminates public internet exposure to simplify network architecture and secure the connections between Azure endpoints.
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, with the benefits of a fully managed service.
-- [Azure Storage](/azure/well-architected/service-guides/azure-cache-redis/reliability) is scalable, secure cloud storage for all your data, applications, and workloads.
-  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disk storage are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture uses either Premium SSD or Ultra Disk Storage.
-  - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount file shares concurrently.
-  - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
-  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
-- [Azure databases](/sql/relational-databases/databases/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
-  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with high availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source PostgreSQL relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines by using sharding, for applications that require greater scale and performance.
-  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale.
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) mirrors Azure VMs to a secondary Azure region for quick failover and data recovery if an Azure datacenter fails.
-- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, and load (ETL) service for scale-out, serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides secure Remote Desktop Protocol (RDP) or Secure Shell (SSH) connectivity to virtual network VMs directly from the Azure portal over Transport Layer Security (TLS). In this architecture, Azure Bastion maximizes admin access security by minimizing open ports to the VMs that host the refactored COBOL applications.
+
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service that adds a quick caching layer to application architecture to handle large volumes at high speed. Azure Cache for Redis scales performance simply and cost-effectively, with the benefits of a fully managed service. In this architecture, Azure Cache for Redis enables application servers to share application state and data across compute clusters for the refactored mainframe applications.
+
+- [Azure Data Factory](/azure/data-factory/introduction) is an extract, transform, and load (ETL) service for scale-out, serverless data integration and data transformation. It provides a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. In this architecture, Azure Data Factory provides data integration and transformation capabilities for migrating and processing mainframe data in the refactored solution.
+
+- [Azure databases](/sql/relational-databases/databases/databases) are a collection of cloud-based database services that provide fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security. In this architecture, Azure databases provide persistent data storage solutions to replace mainframe database systems.
+
+  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database with open APIs for any scale. In this architecture, Azure Cosmos DB provides globally distributed NoSQL database services for refactored applications that require flexible, scalable data storage.
+
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed database based on the open-source PostgreSQL relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines by using sharding for applications that require greater scale and performance. In this architecture, Azure Database for PostgreSQL provides open-source relational database services for refactored applications that require PostgreSQL capabilities.
+
+  - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that always runs on the latest stable version of SQL Server and a patched OS with high availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. In this architecture, SQL Database provides managed relational database services for refactored applications that require SQL Server compatibility.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. In this architecture, AKS provides container orchestration for deploying and scaling the refactored COBOL applications with rapid scale-out capabilities.
+
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a network load balancer that distributes incoming traffic across multiple targets to ensure high availability and reliability. You can define rules and other criteria to distribute the traffic. In this architecture, Load Balancer provides access to the application compute clusters and enables scale-out compute resources to process the input work from refactored mainframe applications.
+
+- [Azure Private Link](/azure/private-link/private-link-overview) is a networking service that provides private connectivity from a virtual network to Azure services. Private Link eliminates public internet exposure to simplify network architecture and secure the connections between Azure endpoints. In this architecture, Private Link enables the refactored applications to connect securely to private endpoints of various PaaS services.
+
+- [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Azure Storage provides various storage options to support the data requirements of refactored mainframe applications.
+
+  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disk storage are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. In this architecture, Azure Disk Storage provides high-performance storage for the refactored applications by using either Premium SSD or Ultra Disk Storage.
+
+  - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides fully managed file shares in the cloud that can be accessed via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount file shares concurrently. In this architecture, Azure Files provides shared file storage that can be accessed by multiple instances of the refactored applications.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a cloud computing service that provides many sizes and types of on-demand, scalable computing resources. By using Virtual Machines, you get the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the refactored mainframe applications and provides scalable compute resources as an alternative to containerized deployments.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block of Azure private networks. VMs within virtual networks can communicate securely with each other, the internet, and on-premises networks. A virtual network is like a traditional on-premises network, but with Azure infrastructure benefits like scalability, high availability, and isolation. In this architecture, Virtual Network provides the secure network foundation for all components of the refactored mainframe system.
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this architecture, Blob Storage provides object storage for unstructured data and archival requirements of the refactored mainframe applications.
+
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to Microsoft cloud services like Azure and Microsoft 365. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises mainframe environments and the refactored applications that run on Azure.
+
+- [NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a fully managed file storage service that provides enterprise-grade Azure file shares that are powered by NetApp, making it easy for enterprises to migrate and run complex, file-based applications with no code changes. In this architecture, NetApp Files provides high-performance file storage for enterprise-grade refactored mainframe applications that require advanced file system capabilities.
+
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that mirrors Azure VMs to a secondary Azure region for quick failover and data recovery if an Azure datacenter fails. In this architecture, Site Recovery provides business continuity and disaster recovery capabilities for the refactored mainframe applications.
 
 ## Scenario details
 
@@ -150,7 +168,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for VM instances.
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. For more information about cost optimization for VM instances, see [Azure Well-Architected Framework](/azure/well-architected/).
 - The VMs in this architecture use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
@@ -181,8 +199,7 @@ Principal author:
 ## Next steps
 
 - For more information, please contact legacy2azure@microsoft.com.
-- [Advanced's Automated COBOL Refactoring solution](https://modernsystems.oneadvanced.com/services/cobol)
-- [Case study: Modernizing to the Cloud While Racing the Clock](https://modernsystems.oneadvanced.com/case-studies/uk-government-agency/?utm_medium=CampaignPage&utm_source=Website&utm_campaign=UKGOVCaseStudy).
+- [Automated COBOL Refactoring Factsheet (PDF)](https://uat.modernsystems.oneadvanced.com/globalassets/modern-systems-assets/resources/application-modernization-collateral/mdsy-factsheets/automated-application-refactoring-factsheet.pdf)
 
 ## Related resources
 
