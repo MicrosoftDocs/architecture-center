@@ -8,7 +8,7 @@ To address business transformations like acquisitions or divestitures, teams nee
    This diagram outlines a resource migration process. First the Azure Resource Manager template and configuration files are extracted and stored in a source code repository or configuration repository. Then those files are deployed to target resource groups in a new tenant. A temporary subscription, known as a sidecar subscription, is created in the original tenant to hold backups and cloned data service resources. Resources are then cloned by using tools like Azure Data Factory or AzCopy. After the resources are cloned, the subscription is moved to the new tenant. Finally, the resources are migrated or restored in their target groups before the temporary subscription is deleted.
 :::image-end:::
 
-*Download a [Visio file](/docs/browse/thumbs/cross-tenant-migration-strategy.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
 
 ### Dataflow
 
