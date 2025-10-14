@@ -47,7 +47,7 @@ Plan your path to production by reviewing:
 |--------------|-------------|
 | [Operational Excellence patterns](/azure/well-architected/operational-excellence/design-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). |
-| [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
+| [Continuous Integration through Git Integration](/fabric/cicd/git-integration/intro-to-git-integration?tabs=azure-devops) and [Continuous Deployment through Fabric Deployment Pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines?tabs=new-ui/) | In Microsoft Fabric, [CI/CD](/fabric/cicd/manage-deployment/) is achieved by connecting your Fabric workspace to a Git repository (Azure DevOps or GitHub) for version control and branch-based workflows. Continuous Deployment is managed using Fabric Deployment Pipelines, which allow you to promote content across environments, either manually or via automation using Fabric REST APIs.
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
 ### Azure DevOps services
@@ -95,7 +95,7 @@ The following articles are about best practices that are specific to DevOps and 
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
-- [Reliability guides by service](/azure/reliability/overview-reliability-guidance)
+- [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)
 - [Monitoring best practices for reliability in Azure applications](/azure/architecture/framework/resiliency/monitor-best-practices)
 - [Overview of the Azure Security Benchmark (v1)](/security/benchmark/azure/overview-v1)
