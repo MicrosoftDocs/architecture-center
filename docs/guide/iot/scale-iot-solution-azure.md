@@ -20,7 +20,6 @@ The steps in order are gather requirements, understand Azure IoT concepts, under
 For more information, see the following articles:
 
 - [Best practices for large-scale Microsoft Azure IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale)
-
 - [IoT Hub](/azure/iot-hub/)
 - [IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/)
 
