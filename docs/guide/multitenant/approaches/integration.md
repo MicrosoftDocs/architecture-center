@@ -213,9 +213,10 @@ Principal authors:
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
-Other contributor:
+Other contributors:
 
 - [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
