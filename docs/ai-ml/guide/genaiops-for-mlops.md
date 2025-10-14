@@ -201,7 +201,7 @@ A crucial aspect of monitoring during the inferencing stage is learning from pro
 
 Solutions that use generative models to reason over grounding data use [metrics](rag/rag-llm-evaluation-phase.md#language-model-evaluation-metrics) like groundedness, completeness, usage, and relevancy. The goal is to ensure that the model fully answers the query and bases the response on its context. In this solution, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
-Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from end users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down. You can use this data to periodically evaluate the responses.
+Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down. You can use this data to periodically evaluate the responses.
 
 A typical pattern for generative AI solutions is to [deploy a gateway in front of the generative models](azure-openai-gateway-guide.yml). One of the use cases for the gateway is to [monitor the foundation models](azure-openai-gateway-monitoring.yml). You can use the gateway to log input prompts and model output.
 
