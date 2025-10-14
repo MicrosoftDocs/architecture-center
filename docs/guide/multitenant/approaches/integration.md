@@ -152,7 +152,7 @@ Alternatively, you can use a service like [Event Grid](/azure/event-grid/overvie
 
 When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-access-or-user-delegated-access).
 
-For example, suppose that your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, and Azure Cosmos DB. Each tenant has their own Microsoft Entra directory. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
+For example, suppose that your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, such as [Microsoft Fabric workspaces](/fabric/fundamentals/microsoft-fabric-overview) for analytics, Azure Storage, and Azure Cosmos DB. Each tenant has their own Microsoft Entra directory. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
 
 Delegated access is easier if the data store supports Microsoft Entra authentication. Many Azure services support [Microsoft Entra identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
