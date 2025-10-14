@@ -2,7 +2,7 @@ This article describes how to deploy the Azure Governance Visualizer. Organizati
 
 - Management group hierarchy.
 - Policy information, such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
-- Role-based access control (RBAC) information, such as custom role definitions, orphaned custom role definitions, and role assignments.
+- Azure role-based access control (Azure RBAC) information, such as custom role definitions, orphaned custom role definitions, and role assignments.
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
@@ -50,7 +50,7 @@ The Azure Governance Visualizer is a PowerShell script, which can be run directl
 
 ## Scenario details
 
-Azure Governance Visualizer is a PowerShell-based script that iterates your Azure Tenant´s Management Group hierarchy down to subscription level. It captures most relevant Azure governance capabilities, such as Azure Policy, RBAC, Microsoft Entra ID, and Blueprints. From the collected data, Azure Governance Visualizer visualizes all of this information in an easy to navigate HTML report.
+Azure Governance Visualizer is a PowerShell-based script that iterates your Azure Tenant´s Management Group hierarchy down to subscription level. It captures most relevant Azure governance capabilities, such as Azure Policy, Azure RBAC, Microsoft Entra ID, and Blueprints. From the collected data, Azure Governance Visualizer visualizes all of this information in an easy to navigate HTML report.
 
 ## Considerations
 
