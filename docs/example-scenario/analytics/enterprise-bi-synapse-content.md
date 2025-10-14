@@ -65,7 +65,7 @@ In this scenario, an organization has an SQL database that contains a large on-p
 
 ### Authentication
 
-Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on connects users to the data in Fabric Warehouse & Power BI semantic model. Authorization occurs on the source.
+Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on connects users to the data in Fabric Warehouse and Power BI semantic model. Authorization occurs on the source.
 
 ### Incremental loading
 
@@ -97,15 +97,15 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
 
 1. Build a pipeline that does the following tasks:
 
-     The pipeline includes these activities:
+    The pipeline includes these activities:
 
-      -  Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where  we'll stop this time). Both values get passed to the copy activity.
+      - Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where  we'll stop this time). Both values get passed to the copy activity.
       - A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
       - A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
 
 :::image type="content" source="./media/metadata-copy.png" alt-text="Logic of metadata driven framework." lightbox="./media/metadata-copy.png":::
 
-A completed pipeline looks as below. More details about implementation can be found at [Incremental Ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse)
+A completed pipeline looks as below. More details about implementation can be found at [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse)
 
 :::image type="content" source="./media/metadata-ingestion-pipeline.png" alt-text="Completed pipeline metadata driven framework." lightbox="./media/metadata-copy.png":::
 
