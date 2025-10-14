@@ -9,6 +9,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
   - arb-containers
+  ai-usage: ai-assisted
 azureCategories:
   - containers
   - devops

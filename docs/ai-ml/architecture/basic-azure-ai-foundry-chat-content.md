@@ -62,7 +62,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture doesn't enable autoscaling for the client UI. To prevent reliability problems because of inefficient compute resources, overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
-- This architecture deploys Foundry Agent Service as a fully Microsoft-hosted solution. In this configuration, Microsoft hosts an Azure Cosmos DB database, an Azure Storage account container, and an AI Search index on your behalf. Your subscription doesn't show these dependent resources. You don't have any control over the reliability of Foundry Agent Service or its dependencies. You can acquire control of these dependencies to do actions like implement a business continuity and disaster recovery strategy. For guidance about bringing your own dependencies, see the [baseline architecture](baseline-azure-ai-foundry-chat.yml).
+- This architecture deploys Foundry Agent Service as a fully Microsoft-hosted solution. In this configuration, Microsoft hosts an Azure Cosmos DB database, an Azure Storage account container, and an AI Search index on your behalf. Your subscription doesn't show these dependent resources. You don't have any control over the reliability of Foundry Agent Service or its dependencies. You can acquire control of these dependencies to do actions like implement a business continuity and disaster recovery strategy. For more information about bringing your own dependencies, see the [baseline architecture](baseline-azure-ai-foundry-chat.yml).
 
   > [!NOTE]
   > The AI Search instance in the components section and diagram is different from the instance that's a dependency of Foundry Agent Service. The instance in the components section stores your grounding data. The dependency does real-time chunking of files that are uploaded within a chat session.
@@ -107,7 +107,9 @@ To simplify the learning experience for building an end-to-end chat solution, th
 
 This architecture also doesn't restrict egress traffic. For example, an agent can be configured to connect to any public endpoint based on the endpoint's OpenAPI specification. So data exfiltration of private grounding data can't be prevented through network controls.
 
-For more information about network security as an extra perimeter in your architecture, see [Networking](baseline-azure-ai-foundry-chat.yml#networking).
+For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-azure-ai-foundry-chat.yml#networking).
+
+If you want some network security during your evaluation of this solution, you can use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Azure AI Foundry project. This approach provides ingress and egress control before you implement virtual network resources in your architecture. When the Foundry Agent Service is configured for standard, private deployment, the network security perimeter is replaced with Private Link connections.
 
 #### Microsoft Defender for Cloud
 

@@ -18,7 +18,7 @@ azureCategories:
 products:
   - azure-app-service
   - azure-front-door
-  - azure-cache-redis
+  - azure-managed-redis
   - dotnet
 name: Modern Web App pattern for .NET
 summary: Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.

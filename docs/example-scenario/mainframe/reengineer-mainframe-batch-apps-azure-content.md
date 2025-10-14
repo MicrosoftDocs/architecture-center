@@ -70,48 +70,69 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
 ### Components
 
+This solution uses the following components.
+
 #### Network and identity
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365.
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-- [Microsoft Entra ID](/entra/fundamentals/whatis): Microsoft Entra ID is an identity and access management service that can sync with an on-premises directory.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Microsoft 365. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises mainframe environments and Azure services.
+
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that's used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative connectivity option for accessing Azure resources when ExpressRoute isn't available.
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can sync with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and authorization services for users and applications that access the reengineered batch system.
 
 #### Application
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
-- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview): You can use the Service Bus for messaging between a user interface and back-end services. This system can decouple applications and services and increase reliability and use.
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security): Azure Databricks is a cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models.
-- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview): Azure Spring Apps makes it easy to deploy, manage, and run Spring microservices to Azure. It supports both Java and .NET Core.
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
-- [Batch](/azure/batch/batch-technical-overview): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
-- [Functions](/azure/well-architected/service-guides/azure-functions-security): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud service that helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Service Bus, or get files uploaded to a file share. In this architecture, Logic Apps provides workflow orchestration and scheduling capabilities for triggering and coordinating batch processes.
+
+- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a cloud messaging service that you can use for messaging between a user interface and back-end services. This system can decouple applications and services and increase reliability and use. In this architecture, Service Bus provides reliable messaging capabilities for triggering batch processes and coordinating between different components of the reengineered system.
+
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform and cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models. In this architecture, Azure Databricks provides high-performance compute capabilities for processing large-scale batch workloads with fast cluster start times and autoscaling.
+
+- [Azure Spring Apps](/azure/spring-apps/basic-standard/overview) is a fully managed service for deploying, managing, and running Spring microservices on Azure. It supports both Java and .NET Core. In this architecture, Azure Spring Apps provides a platform for running reengineered mainframe applications written in Java Spring Boot as microservices.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. In this architecture, AKS provides container orchestration capabilities for running reengineered batch applications in a scalable, microservices-based architecture.
+
+- [Azure Batch](/azure/batch/batch-technical-overview) is a cloud service designed to run general-purpose batch computing in the cloud across many VMs that can scale based on the workload. It supports ETL or AI use cases where multiple tasks are implemented in parallel, independent from each other. In this architecture, Batch provides scalable compute infrastructure for running reengineered mainframe batch jobs across multiple VMs.
+
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service that you can use to run small pieces of code. By using Functions, the cloud infrastructure provides all the up-to-date servers that you need to keep your application running at scale. In this architecture, Functions provides serverless compute for short-running batch programs that are originally written in COBOL or PL/1.
+
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps and APIs. By using [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs. In this architecture, App Service with WebJobs provides a platform for running background batch processing tasks.
+
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and Redis Enterprise, a commercial product from Redis Labs, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve the performance of reengineered batch applications.
 
 #### Storage
 
 Azure storage provides multiple tiers of hot, cool, and archive data. Effective usage of these storage tiers can give you a price-to-performance advantage.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage): Scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](/azure/well-architected/service-guides/azure-files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
-- [Table Storage](/azure/storage/tables/table-storage-overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
-- [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability): Simple, cost-effective, durable message queueing for large workloads.
-- [Azure SQL](/azure/azure-sql/): Azure's fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that you can use to migrate non-tabular data from the mainframes. In this architecture, Azure Cosmos DB provides globally distributed NoSQL database services for migrating mainframe non-relational databases like IMS, IDMS, and VSAM.
+
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides simple, secure, and serverless enterprise-grade cloud file shares. Azure Files is especially useful for reengineered mainframe solutions. It provides an effective add-on for the managed SQL storage. In this architecture, Azure Files provides shared file storage that multiple batch processing nodes can access.
+
+- [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability) is a cost-effective, durable message queueing service for large workloads. In this architecture, Queue Storage provides reliable message queuing for coordinating batch job execution and workflow management.
+
+- [Azure SQL](/azure/azure-sql/) is a fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. In this architecture, Azure SQL provides managed relational database services for migrated mainframe databases like Db2 and Informix.
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable and secure object storage service for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable object storage for batch input files, output data, and intermediate processing results.
+
+- [Azure Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development by using large semi-structured datasets. In this architecture, Table Storage provides fast NoSQL storage for batch processing metadata and lookup data.
 
 #### Monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains Application Insights, Azure Monitor Logs, and Log Analytics features. In this architecture, Azure Monitor provides end-to-end monitoring and observability for the reengineered batch applications, including performance metrics, logs, and alerts.
 
 #### Management
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops): Re-engineer mainframe applications on Azure during every phase of software development and team collaboration. DevOps provides the following services:
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of development tools that help you reengineer mainframe applications on Azure during every phase of software development and team collaboration. In this architecture, Azure DevOps provides comprehensive DevOps capabilities for source control, continuous integration/continuous deployment (CI/CD), and project management throughout the mainframe reengineering process. DevOps provides the following services:
 
-    - **Azure Boards**: Agile planning, work item tracking, visualization, and reporting tool.
-    - **Azure Pipelines**: A language, platform, and cloud agnostic CI/CD platform with support for containers or Kubernetes.
-    - **Azure Repos**: Provides cloud-hosted private git repos.
-    - **Azure Artifacts**: Provides integrated package management with support for Maven, npm, Python, and NuGet package feeds from public or private sources.
-    - **Azure Test Plans**: provides an integrated, planned, and exploratory testing solution.
+  - [Azure Artifacts](/azure/devops/artifacts/start-using-azure-artifacts?view=azure-devops) is a package management service that supports Maven, npm, Python, and NuGet package feeds from public or private sources. In this architecture, Azure Artifacts manages dependencies and libraries required for the reengineered mainframe applications.
+
+  - [Azure Boards](/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops) is an agile project management tool that provides work item tracking, sprint planning, visualization, and reporting capabilities. In this architecture, Azure Boards helps manage the mainframe reengineering project by tracking development tasks, user stories, and migration milestones.
+
+  - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) is a CI/CD service that supports multiple languages, platforms, and cloud environments, including containers and Kubernetes. In this architecture, Azure Pipelines automates the build, test, and deployment processes for reengineered mainframe applications.
+
+  - [Azure Repos](/azure/devops/repos/get-started/what-is-repos?view=azure-devops) is a cloud-hosted Git repository service that provides unlimited private repositories with collaborative pull requests and advanced file management. In this architecture, Azure Repos provides version control for the reengineered application code and configuration files.
+
+  - [Azure Test Plans](/azure/devops/test/overview?view=azure-devops) is a test management service that provides manual testing, exploratory testing, and user acceptance testing capabilities. In this architecture, Azure Test Plans ensures the quality and functionality of reengineered mainframe applications through comprehensive testing workflows.
 
 ## Scenario details
 

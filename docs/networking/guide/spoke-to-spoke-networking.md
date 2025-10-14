@@ -216,7 +216,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
 - [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
 - [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
