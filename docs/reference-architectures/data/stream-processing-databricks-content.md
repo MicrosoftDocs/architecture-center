@@ -5,7 +5,7 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks.svg":::
-   Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data is ingested via Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Azure Synapse Link and Azure Log Analytics.
+  Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data is ingested via Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Microsoft Fabric (querying mirrored operational data in a lakehouse or warehouse) and Azure Log Analytics.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx) of this architecture.*
@@ -22,9 +22,9 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
 
-    - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve these results by using [serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark pools](/azure/synapse-analytics/spark/apache-spark-overview). These analytics engines are available from your Azure Synapse Analytics workspace.
+**Analyzing Azure Cosmos DB data in Microsoft Fabric** lets you run near real-time analytical queries on operational data without affecting the transactional workload. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can query it by using Fabric SQL analytics endpoints in a lakehouse or warehouse, Spark notebooks for data engineering, or Real-Time Analytics (KQL) for time-series exploration. These capabilities avoid impacting ingestion performance.
 
-    - **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
+**[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric. It keeps the operational dataset synchronized so lakehouse, warehouse, and Real-Time Analytics queries can use current data without custom ETL.
 
 1. **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
 
