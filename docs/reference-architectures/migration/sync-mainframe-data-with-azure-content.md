@@ -67,7 +67,7 @@ This section describes other tools that you can use during data modernization, s
   
   - **ETL/ELT workflows** — via [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, and a broad set of [connectors](/fabric/data-factory/connector-overview) with hybrid/on‑premises gateway support.
 
-  - **Deep integration with other Microsoft services** — native with Power BI, and integrations with Azure services such as Azure Cosmos DB and Azure Machine Learning/Azure AI.
+  - **Integration with other Microsoft services** — native with Power BI, and integrations with Azure services such as Azure Cosmos DB and Azure Machine Learning/Azure AI.
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
