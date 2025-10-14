@@ -1,12 +1,7 @@
 This article describes how to transfer data from an on-premises data warehouse to a cloud environment and then use a business intelligence (BI) model to serve the data. You can use this approach as an end goal or a first step toward full modernization with cloud-based components.
 
-This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. This process has multiple options to extract data from on-premises SQL Server. Then it performs data transformation for analysis. 
+This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. This process has multiple options to extract data from on-premises SQL Server such as Fabric Data Factory pipelines, Mirorring, COPY JOB, Fabric Real Time Eventstreams CDC for SQL. Then it performs data transformation for analysis. 
 
-- Microsoft Fabric Data Factory pipelines to ingest data in a metadata driven framework from an SQL database into Fabric Lakehouse/Warehouse. This batch method of extraction should be preferred for maximum flexibility in the ingestion process
-
-- Microsoft Fabric Mirroring/COPY Job for SQL Server to ingest data in a low-code GUI based process for full and incremental loads. This service is a cost effective managed process for continuous ingestion of data into OneLake via Mirroring or highly scalable ingestion through COPY JOB.
-
-- Microsoft Fabric Real Time Intelligence Eventstreams for event driven real time ingestion framework for SQL Server CDC(Change Data Capture) source processes.
 
 ## When to use this architecture
 
