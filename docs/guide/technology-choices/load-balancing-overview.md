@@ -58,7 +58,7 @@ The following table summarizes the Azure load balancing services.
 | Service             | Global or regional | Recommended traffic |
 | :--- | :--- | :---  |
 | API Management      | Regional or global | HTTP(S) APIs only   |
-| Application Gateway | Regional           | HTTP(S) & Non-HTTP(S)  |
+| Application Gateway | Regional           | HTTP(S), TCP, & TLS |
 | Azure Front Door    | Global             | HTTP(S)             |
 | Load Balancer       | Regional or global | Non-HTTP(S)         |
 | Traffic Manager     | Global             | Non-HTTP(S)         |
