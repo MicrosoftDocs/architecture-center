@@ -39,7 +39,7 @@ This article describes some strategies for global routing using Azure Traffic Ma
 
 This architecture diagram shows a general approach with multiple redundant traffic paths.
 
-:::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
+:::image type="content" source="./media/overview/alternate-traffic-paths.svg" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
 With this approach, we will introduce several components and provide guidance that will make significant changes associated to the delivery of your web application(s):
 
@@ -178,7 +178,7 @@ There are multiple global load balancing solutions that enable you to monitor th
 
 When you use Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server. You should configure Traffic Manager to monitor the health of your Azure Front Door endpoint.
 
-Don't rely solely on Traffic Manager's endpoint monitoring. It's advisable to have a secondary monitoring system as well, which might require third-party or custom monitoring solutions. Because Azure Front Door is a globally distributed system that uses anycast networking, it's important to perform connectivity checks from within the same geographic regions as your clients.
+**Don't rely solely on Traffic Manager's endpoint monitoring.** It's advisable to have a secondary monitoring system as well, which might require third-party or custom monitoring solutions. Because Azure Front Door is a globally distributed system that uses anycast networking, it's important to perform connectivity checks from within the same geographic regions as your clients.
 
 You also should be prepared to trigger your response procedures manually if your monitoring systems don't detect it.
 
