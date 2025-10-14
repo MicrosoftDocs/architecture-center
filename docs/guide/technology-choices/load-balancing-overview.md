@@ -3,7 +3,7 @@ title: Load Balancing Options
 description: Learn about Azure load balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 14/10/2025
+ms.date: 10/14/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: copilot-scenario-highlight
@@ -65,7 +65,7 @@ The following table summarizes the Azure load balancing services.
 
 > [!NOTE]
 > Traffic Manager and Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer-7 capabilities. Unlike Load Balancer, Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
-> Know more about differences between [Load Balancer's and Application Gateway's Non-HTTP(S) capabilities](azure/application-gateway/tcp-tls-proxy-overview#comparing-azure-load-balancer-with-azure-application-gateway).
+> Know more about differences between [Load Balancer's and Application Gateway's Non-HTTP(S) capabilities](/azure/application-gateway/tcp-tls-proxy-overview#comparing-azure-load-balancer-with-azure-application-gateway).
 
 ## Choose a load balancing solution for your scenario
 
