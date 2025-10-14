@@ -67,7 +67,7 @@ This section describes other tools that you can use during data modernization, s
   
   - **ETL/ELT workflows** — via [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, and a broad set of [connectors](/fabric/data-factory/connector-overview) with hybrid/on‑premises gateway support.
 
-  - **Integration with other Microsoft services** — native with Power BI, and integrations with Azure services such as Azure Cosmos DB and Azure Machine Learning/Azure AI.
+  - **Integration with other Microsoft services** — natively integrated with Power BI, and with Azure services such as Azure Cosmos DB and Azure Machine Learning.
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -125,7 +125,7 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-When you use Azure Data Factory to extract data, take steps to [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
+When you use Azure Data Factory to extract data, take steps to [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps). When you use Microsoft Fabric Data Factory to extract data, apply recommended practices to optimize pipeline performance, such as tuning parallelism, batch size, and connector settings. See [Fabric Data Factory Pipeline overview](/fabric/data-factory/pipeline-overview) and [Fabric connector overview](/fabric/data-factory/connector-overview) for guidance.
 
 ## Considerations
 
@@ -177,6 +177,16 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Choose the right [IR configuration](/azure/data-factory/choose-the-right-integration-runtime-configuration) for your scenario.
 
+## Contributors:
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Contact [Azure Data Engineering - On-premises Modernization][Email address for information on Azure Data Engineering On-premises Modernization] for more information.
@@ -188,9 +198,3 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - [Azure data platform end-to-end](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
-
-## Contributors:
-
-- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
