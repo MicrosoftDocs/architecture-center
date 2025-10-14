@@ -4,7 +4,7 @@ description: Learn how to develop highly resilient global web applications.
 author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
-ms.date: 02/19/2025
+ms.date: 10/14/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
@@ -45,7 +45,7 @@ With this approach, we will introduce several components and provide guidance th
 
 1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to the alternative service that you've selected.
 
-    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which  determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). Using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) will make traffic flow through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable.
+    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which  determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). Using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) will make traffic flow through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable, and [you can also manually switch traffic](#response-procedures) if you need to.
 
     > [!IMPORTANT]
     >
@@ -71,7 +71,7 @@ While this mitigation strategy can make the application be available during plat
 
 - **Operational complexity**: Every time you add additional components to your solution, you increase your management overhead. Any change to one component might impact other components.
 
-    Suppose you decide to use the new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
+    Suppose you decide to use new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
 
 - **Performance**: This design requires additional CNAME lookups during name resolution. In most applications, this isn't a significant concern, but you should evaluate whether your application performance is affected by introducing additional layers into your ingress path.
 
@@ -82,7 +82,7 @@ While this mitigation strategy can make the application be available during plat
 
 ## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but no traffic management service can guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
+Azure Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but no traffic management service can provide an absolute guarantee of 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
 
 Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
@@ -111,8 +111,7 @@ If your alternative path also provides a WAF, consider the following questions:
 - Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
 
 > [!WARNING]
->
-> You might choose not to use WAF for your alternative ingress path. This approach can be considered to support the reliability target of the application. However, this isn't a good security practice and we don't recommend it.
+> You might choose not to use a WAF for your alternative ingress path. This approach can be considered to support the reliability target of the application. However, this isn't a good security practice and we don't recommend it.
 
 Consider the tradeoff in accepting traffic from the internet without any checks. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
 
@@ -173,19 +172,71 @@ Include these questions in your health model design:
 - How long does it take for an outage to be detected?
 - After an outage is detected, how long does it take for traffic to be routed through an alternative path?
 
-There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs. Azure Traffic Manager is suitable in most cases. With Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
+#### Health monitoring
 
-If Azure Front Door is unavailable, then multiple factors influence the amount of time that the outage affects your traffic, including:
+There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs. Azure Traffic Manager is suitable in most cases.
+
+When you use Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server. You should configure Traffic Manager to monitor the health of your Azure Front Door endpoint.
+
+Don't rely solely on Traffic Manager's endpoint monitoring. It's advisable to have a secondary monitoring system as well, which might require third-party or custom monitoring solutions. Because Azure Front Door is a globally distributed system that uses anycast networking, it's important to perform connectivity checks from within the same geographic regions as your clients.
+
+You also should be prepared to trigger your response procedures manually if your monitoring systems don't detect it.
+
+#### Response procedures
+
+If your monitoring systems detect that Azure Front Door is unavailable, you need Traffic Manager to redirect traffic through your alternative path by using one of these approaches:
+
+- **If Traffic Manager's health probes detect the outage:** Traffic Manager automatically switches to the secondary endpoint, as long as the profile is configured to use [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+
+- **If you use custom or third-party monitoring tooling:** You can precreate automated response plans that programmatically reconfigure Traffic Manager to disable the endpoint, using one of these approaches:
+
+    #### [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az network traffic-manager endpoint update \
+        --resource-group MyRG \
+        --profile-name MyProfile \
+        --name MyEndpoint \
+        --type externalEndpoints \
+        --endpoint-status Disabled
+    ```
+
+    For more information, see [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
+
+    #### [Azure PowerShell](#tab/powershell)
+    
+    ```azurepowershell
+    Disable-AzTrafficManagerEndpoint `
+        -ResourceGroupName MyRG `
+        -ProfileName MyProfile `
+        -Name MyEndpoint `
+        -Type ExternalEndpoints
+    ```
+    For more information, see [Using PowerShell to manage Traffic Manager](/azure/traffic-manager/traffic-manager-powershell-arm#example-1-enabling-and-disabling-a-traffic-manager-profile).
+
+    #### [Azure REST API](#tab/rest-api)
+    
+    Use the [Endpoints - Update API](/rest/api/trafficmanager/endpoints/update) to disable the endpoint.
+
+    ---
+
+- **If you manually detect the outage:** Manually disable the endpoint in your Traffic Manager profile. For detailed steps, see [Add, disable, enable, delete, or move endpoints](/azure/traffic-manager/traffic-manager-manage-endpoints#to-disable-an-endpoint).
+
+> [!IMPORTANT]
+> Redirecting traffic through the secondary path is a short-term solution that enables business continuity during an ongoing outage. After the outage is resolved, restore normal operations through Azure Front Door as soon as practicable.
+
+Multiple factors influence the amount of time that the outage affects your traffic, including:
 
 - The time to live (TTL) on your DNS records.
-- How frequently Traffic Manager runs its health checks.
-- How many failed probes Traffic Manager is configured to see before it reroutes traffic.
+- Which monitoring system (Traffic Manager or your own custom monitoring) detects the outage first.
+- How frequently you run health checks.
+- How many failed health checks must be returned before traffic is rerouted.
 - How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
 
 You also need to determine which of those factors are within your control and whether upstream services beyond your control might affect user experience. For example, even if you use low TTL on your DNS records, upstream DNS caches might still serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 > [!TIP]
-> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered slow in order for the application to remain responsive.
+> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered too slow in order for the application to remain responsive.
 
 > Refer to: [Mission-critical design area: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)
 
