@@ -82,7 +82,7 @@ While this mitigation strategy can make the application be available during plat
 
 ## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but no traffic management service can provide an absolute guarantee of 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
+Azure Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but traffic management needs extra measures to provide 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
 
 Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
@@ -176,7 +176,7 @@ Include these questions in your health model design:
 
 There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs. Azure Traffic Manager is suitable in most cases.
 
-When you use Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server. You should configure Traffic Manager to monitor the health of your Azure Front Door endpoint.
+When you use Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server. You should configure Traffic Manager to monitor the health of your Azure Front Door endpoint. Review the [Architecture best practices for Azure Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager) to learn more about how Traffic Manager configuration affects your overall architecture.
 
 **Don't rely solely on Traffic Manager's endpoint monitoring.** It's advisable to have a secondary monitoring system as well, which might require third-party or custom monitoring solutions. Because Azure Front Door is a globally distributed system that uses anycast networking, it's important to perform connectivity checks from within the same geographic regions as your clients.
 
@@ -289,3 +289,8 @@ Principal authors:
 ## Next steps
 
 Review the [global HTTP ingress](./mission-critical-global-http-ingress.md) and [global content delivery](./mission-critical-content-delivery.md) scenarios to understand whether they apply to your solution.
+
+## Related resources
+
+- [Architecture best practices for Azure Front Door](/azure/well-architected/service-guides/azure-front-door)
+- [Architecture best practices for Azure Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager)
