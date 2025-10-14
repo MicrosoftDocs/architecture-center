@@ -531,7 +531,7 @@ To control consumption model costs in this architecture, use a combination of th
 
 This architecture requires Azure Firewall as an egress control point. To optimize costs, use the Basic tier of Azure Firewall unless the rest of your workload components require advanced features. Higher tiers add cost, so only use them if you need their capabilities.
 
-If your organization uses Azure landing zones, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
+If your organization uses an Azure landing zone, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
 
 #### Microsoft Defender for Cloud
 

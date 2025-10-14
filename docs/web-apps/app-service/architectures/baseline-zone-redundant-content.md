@@ -120,7 +120,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones may still be unaffected.
+The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones might still be unaffected.
 
 The architecture also ensures enough instances of Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture. This way, availability zones help you achieve reliability by providing high availability and fault tolerance.
 

@@ -201,7 +201,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect – US Customer Success
 - [Veera Vemula](https://www.linkedin.com/in/veera-vemula-7a05279/) | Senior Cloud Solution Architect – US Customer Success
 

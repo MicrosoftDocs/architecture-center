@@ -1,19 +1,19 @@
 ---
 title: Data and AI
-description: Compare Azure and AWS Data and AI services. Explore the differences between services and tools.
+description: Compare Azure data and AI services with those of AWS. Explore the differences between services and tools.
 author: johnkoukgit
 ms.author: johnkoukaras
-ms.date: 10/01/2025
+ms.date: 11/13/2024
 ms.topic: conceptual
 ms.subservice: architecture-guide
-ms.collection:
+ms.collection: 
  - migration
  - aws-to-azure
 ---
 
 # Data and AI
 
-This article compares the core Azure and Fabric Data and AI services to the corresponding Amazon Web Services (AWS) services.
+This article compares the core Azure data and AI services to the corresponding Amazon Web Services (AWS) services.
 
 For comparison of other AWS and Azure services, see [Azure for AWS professionals](./index.md).
 
@@ -31,7 +31,7 @@ Microsoft Fabric provides an all-in-one platform that unifies the data and AI se
 
 Both AWS and Fabric provide services for data integration, processing, analytics, machine learning, and business intelligence.
 
-| AWS services | Microsoft Fabric | Description          |
+| AWS services | Fabric | Description          |
 |  --| ------  |  -- |
 | [AWS Glue](https://aws.amazon.com/glue/) | [Data integration with Azure Data Factory](/fabric/data-factory/) | AWS provides a service to build data and analytics solutions. This approach provides flexibility but requires more effort to integrate the services into an end-to-end solution. Fabric provides these capabilities within a single unified platform to simplify workflows, collaboration, and management. |
 
@@ -41,11 +41,11 @@ A comparison of key AWS services and their corresponding Microsoft Fabric compon
 
 | AWS services| Microsoft service  |
 |------|---- |
-| [AWS Glue](https://aws.amazon.com/glue/), [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html)       | [Data Integration with Data Factory](/fabric/data-factory/)             |
-| [Amazon Elastic MapReduce (EMR)](https://aws.amazon.com/emr/), [AWS Glue interactive sessions](https://docs.aws.amazon.com/glue/latest/dg/interactive-sessions.html)  | [Data engineering with Spark](/fabric/data-engineering/)       |
-| [Amazon Redshift](https://aws.amazon.com/redshift/)    | [Fabric Data Warehouse](/fabric/data-warehouse/) |
-| [Amazon SageMaker](https://aws.amazon.com/sagemaker/)     | [Data science in Fabric (Azure Machine Learning integration)](/fabric/data-science/)      |
-| [Amazon Kinesis](https://aws.amazon.com/kinesis/), [Amazon Managed Service for Apache Flink](https://aws.amazon.com/kinesis/data-analytics/)      | [Real-Time Intelligence in Fabric (KQL database)](/fabric/real-time-analytics/)   |
+| [AWS Glue](https://aws.amazon.com/glue/), [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html)       | [Data integration with Data Factory](/fabric/data-factory/)             |
+| [Amazon EMR](https://aws.amazon.com/emr/), [AWS Glue interactive sessions](https://docs.aws.amazon.com/glue/latest/dg/interactive-sessions.html)  | [Data engineering with Spark](/fabric/data-engineering/)       |
+| [Amazon Redshift](https://aws.amazon.com/redshift/)    | [Data warehousing  with Synapse Data Warehouse](/fabric/data-warehouse/) |
+| [Amazon SageMaker](https://aws.amazon.com/sagemaker/)     | [Data science (Azure Machine Learning integration)](/fabric/data-science/)      |
+| [Amazon Kinesis](https://aws.amazon.com/kinesis/), [Amazon Managed Service for Apache Flink](https://aws.amazon.com/kinesis/data-analytics/)      | [Real-time analytics (KQL database)](/fabric/real-time-analytics/)   |
 | [Amazon QuickSight](https://aws.amazon.com/quicksight/)       | [Power BI for business intelligence](https://powerbi.microsoft.com/)          |
 | [Amazon S3](https://aws.amazon.com/s3/)     | [OneLake unified data lake storage](/fabric/onelake/)       |
 | [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [Amazon Macie](https://aws.amazon.com/macie/) | [Data governance (Microsoft Purview integration)](https://azure.microsoft.com/services/purview/)    |
@@ -62,7 +62,7 @@ Data integration and extract, transform, load (ETL) tools help you extract, tran
 | [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Data Factory in Fabric](/fabric/data-factory/)   |  AWS Data Pipeline, Azure Data Factory, and Data Factory in Fabric enable the movement and processing of data across services and locations. |
 | [AWS Database Migration Service (DMS)](https://aws.amazon.com/dms/)   | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) , [Fabric Migration Assistant for Data Warehouse](/fabric/data-warehouse/migration-assistant) | These services help you migrate databases to the cloud with minimal downtime. The Azure service is optimized for migration to Azure databases, providing assessment and recommendation tools. The Fabric Migration Assistant is a built-in tool in Fabric that guides users through migrating data and metadata from source databases to Fabric Data Warehouse. It converts schemas and uses AI to resolve migration issues, and supports migratings from SQL-based sources. The AWS DMS focuses on migrations within the AWS environment, and provides ongoing replication features for hybrid architectures. |
 | [Amazon AppFlow](https://aws.amazon.com/appflow/)  | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)  | These services enable automated data flows between cloud applications and services without requiring code. Logic Apps provides extensive integration capabilities with a wide range of connectors and a visual designer. AppFlow focuses on secure data transfer between specific SaaS applications and AWS services and provides built-in data transformation features.   |
-| [AWS Step Functions](https://aws.amazon.com/step-functions/)   | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) with [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | These services provide workflow orchestration for coordinating distributed applications and microservices. Step Functions is designed for orchestrating AWS services and microservices in serverless applications. Logic Apps is used for both data integration and enterprise workflow automation.   |
+| [AWS Step Functions](https://aws.amazon.com/step-functions/)   | [Data Factory](https://azure.microsoft.com/services/data-factory/) with [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | These services provide workflow orchestration for coordinating distributed applications and microservices. Step Functions is designed for orchestrating AWS services and microservices in serverless applications. Logic Apps is used for both data integration and enterprise workflow automation.   |
 
 ## Data warehousing
 
@@ -91,16 +91,17 @@ These platforms store vast amounts of raw unstructured and structured data in it
 
 These services process and analyze large and complex datasets to uncover patterns, insights, and trends. The following table provides direct comparisons of individual big data services. Microsoft Fabric is an all-in-one service for big data and analytics. It provides the following services and more.
 
-| AWS service   | Azure/Microsoft Fabric service | Analysis      |
+| AWS service   | Microsoft service | Analysis      |
 | ------------- | ----- | -------------- |
 | [Amazon EMR](https://aws.amazon.com/emr/) | [Fabric Data Engineering workloads](/fabric/data-engineering/data-engineering-overview/) powered by [Apache Spark](/fabric/data-engineering/runtime/), [Azure Databricks](/azure/databricks/introduction/), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) | Amazon EMR is a managed big data service for running frameworks like Spark, Hadoop, and Hive, with cluster provisioning and tuning requirements. In Azure, the equivalents are HDInsight (cluster-based, with multiple open-source engines) and Azure Databricks (a collaborative Spark platform with ML and Delta Lake capabilities). In Microsoft Fabric, Data Engineering workload, powered by Apache Spark, removes the need to manage clusters, providing a serverless, integrated, and governed experience within the Fabric ecosystem, rather than a separate service. |
+| [Amazon Kinesis](https://aws.amazon.com/kinesis/)  | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | These services provide real-time data streaming and analytics for processing and analyzing high-volume data streams.    |
 | [AWS Glue with AWS Glue Studio](https://aws.amazon.com/glue/) | [Fabric Data Engineering workloads](/fabric/data-engineering/data-engineering-overview/) powered by [Apache Spark](/fabric/data-engineering/runtime/), [Azure Databricks](/azure/databricks/introduction/) and [Azure Data Factory](/azure/data-factory/introduction/) | AWS Glue Studio combined with Kinesis provides data integration and real-time streaming pipelines, but it requires managing data movement between services. In Azure, these roles are split between Data Factory for orchestration and pipelines, and Databricks for Spark-based data engineering and transformations. Microsoft Fabric Data Engineering workloads, powered by Apache Spark, bring these capabilities directly into the Fabric platform: batch and streaming transformations, orchestration, and governance are integrated with OneLake, Purview, and Power BI. Fabric delivers a single experience for data integration and engineering, without management of separate services for ETL, streaming, and analytics. |
 
 ## Business intelligence and reporting
 
 These services provide data visualization, reporting, and dashboards to help businesses make informed decisions.
 
-| AWS service   | Azure/Microsoft Fabric service | Analysis      |
+| AWS service   | Microsoft service         | Analysis      |
 | ------------- | ----- | -------------- |
 | [Amazon QuickSight](https://aws.amazon.com/quicksight/)     | [Power BI](https://powerbi.microsoft.com/)  |  QuickSight and Power BI provide business analytics tools for data visualization and interactive dashboards.|
 | [Amazon Managed Grafana](https://aws.amazon.com/grafana/)   | [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/) | These services provide managed Grafana, which enables you to visualize metrics, logs, and traces across multiple data sources. |
@@ -109,8 +110,9 @@ These services provide data visualization, reporting, and dashboards to help bus
 
 ## Real-time data processing
 
-These systems ingest and analyze data as it is generated to provide immediate insights and responses.
-| AWS service    | Azure/Microsoft Fabric service | Analysis     |
+These systems ingest and analyze data as it's generated to provide immediate insights and responses.
+
+| AWS service    | Microsoft service     | Analysis     |
 | ---  |  ------- |  ---- |
 | [Amazon Kinesis](https://aws.amazon.com/kinesis/)  | [Fabric Real-Time hub](/fabric/real-time-hub/real-time-hub-overview/), [Fabric Eventstream](/fabric/real-time-intelligence/event-streams/overview?tabs=enhancedcapabilities/) with [Fabric KQL database](/fabric/real-time-intelligence/create-database/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | Amazon Kinesis enables real-time data streaming, ingestion and processing across services like S3, Redshift, and Lambda. In Azure, similar experience is delivered through Azure Event Hubs for high-throughput ingestion and Azure Stream Analytics for real-time processing. Microsoft Fabric offers streaming architecture. The Fabric Real-Time hub supports ingestion from multiple sources—including Amazon Kinesis, Kafka, and Azure Event Hubs, and Google Pub/Sub, while Fabric Eventstream enables stream routing, transformation and alerting. |
 | [Amazon Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/) | [Azure Event Hubs for Apache Kafka](/azure/event-hubs/azure-event-hubs-apache-kafka-overview/), [Azure HDInsight with Apache Kafka](https://azure.microsoft.com/services/hdinsight/) and [Fabric Eventstream](/fabric/real-time-intelligence/event-streams/overview/) with Kafka endpoints | Amazon Managed Streaming for Apache Kafka (MSK) is AWS's fully managed Kafka service. In Azure, Azure Event Hubs for Apache Kafka exposes a Kafka‑compatible endpoint and existing clients can connect with minimal changes. It also supports Kafka Streams in Premium/Dedicated tiers, and Azure HDInsight with Apache Kafka, which gives you a managed Kafka cluster that you control inside your virtual networks for full broker‑level management. In Microsoft Fabric, Eventstream with Kafka endpoints lets you publish/consume via the Kafka protocol, and also ingest directly from Amazon MSK into Fabric's Real‑Time hub for downstream processing and analytics (for example, Eventhouse with Power BI). Azure offers both a fully managed Kafka‑compatible ingestion plane (Event Hubs) and a managed Kafka cluster (HDInsight), while Fabric provides a Kafka‑integrated, end‑to‑end real‑time analytics hub. |
@@ -122,7 +124,7 @@ These systems ingest and analyze data as it is generated to provide immediate in
 ## Machine learning services
 
 These tools and platforms enable the development, training, and deployment of machine learning models.
-| AWS service    | Azure/Microsoft Fabric service | Analysis     |
+| AWS service    | Microsoft service | Analysis     |
 | ---  |  ------- |  ---- |
 | [Amazon SageMaker](https://aws.amazon.com/sagemaker/) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) and [Fabric Data Science workload with Azure Machine Learning integration](/fabric/data-science/data-science-overview/) | Amazon SageMaker is AWS's fully managed platform for building, training, and deploying machine learning models at scale. Azure provides an equivalent through Azure Machine Learning, an end-to-end managed service that supports everything from data preparation and automated ML to model deployment and MLOps. The Fabric Data Science workload brings model development and enrichment, integrating with Azure Machine Learning for training, GPU acceleration and enterprise-grade deployment. |
 | [AWS Deep Learning AMIs](https://aws.amazon.com/machine-learning/amis/)   | [Azure Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) with [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) | AWS Deep Learning AMIs provide prebuilt virtual machine images with popular deep learning frameworks, GPU drivers, and libraries to accelerate AI model development. Azure offers a similar experience through the Azure Data Science Virtual Machine (DSVM), which comes preconfigured with Python, R, Jupyter, and major deep learning frameworks like TensorFlow and PyTorch. Combined with Azure Machine Learning, DSVMs become part of a fully managed platform for training, deployment and MLOps. |
@@ -157,14 +159,15 @@ These AI services create new content or data that resembles human-generated outp
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Regina Hackenberg](https://www.linkedin.com/in/reginahackenberg/) | Senior Technical Specialist
 
 Other contributor:
+
 - [Adam Cerini](https://www.linkedin.com/in/adamcerini) | Director, Partner Technology Strategist
 - [Filipa Lobão](https://www.linkedin.com/in/filipalobao) | Cloud Solution Architect
 
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

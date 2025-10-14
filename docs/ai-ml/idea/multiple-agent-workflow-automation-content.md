@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior are defined in custom software with Semantic Kernel. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically.
+This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior are defined in custom software with Microsoft Agent Framework. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically.
 
 This article highlights the infrastructure and DevOps aspects of how to manage multiple-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
 
@@ -34,9 +34,9 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
 
-- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Semantic Kernel.
+- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Microsoft Agent Framework.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Semantic Kernel-based agents to invoke.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Microsoft Agent Framework-based agents to invoke.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run. The API reads data when users access their automation history via the App Service website.
 
@@ -100,7 +100,7 @@ This architecture includes multiple components that you can substitute with othe
 
 ### Agent orchestration
 
-**Current approach:** This solution uses custom agent code, written with the Semantic Kernel SDK, to orchestrate agents and their interactions. Container Apps serves as the central orchestrator compute that runs the code. The code coordinates the multiple AI agents that operate on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
+**Current approach:** This solution uses custom agent code, written with the Microsoft Agent Framework SDK, to orchestrate agents and their interactions. Container Apps serves as the central orchestrator compute that runs the code. The code coordinates the multiple AI agents that operate on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
 
 **Alternative approach:** Use Azure AI Foundry Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
 
@@ -122,7 +122,7 @@ When you design multi-agent automation systems, consider how agents must coordin
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
+For more information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
 
 Pricing varies by region and usage, so it's not possible to predict exact costs in advance. Most Azure resources in this infrastructure follow usage-based pricing models. But Container Registry incurs a daily fixed cost for each registry.
 
@@ -150,5 +150,5 @@ Other contributor:
 
 ## Next steps
 
-- [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) that uses Semantic Kernel
+- [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) that uses Microsoft Agent Framework
 - [Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)

@@ -157,7 +157,7 @@ For more information, see:
 
 Use Traffic View in Traffic Manager to see traffic patterns and latency metrics. Traffic View can help you plan your footprint expansion to new Azure regions.
 
-See [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) for details.
+For more information, see [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview).
 
 ### Application Gateway
 

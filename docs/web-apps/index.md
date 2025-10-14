@@ -47,7 +47,7 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 
 For a good overview, see [Characteristics of modern web applications](/dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics).
 
-For information specific to Azure App Service, see:
+For more information specific to Azure App Service, see:
 
 - [Architecture best practices for Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
 - [App Service deployment best practices](/azure/app-service/deploy-best-practices)

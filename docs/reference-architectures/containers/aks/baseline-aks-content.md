@@ -297,7 +297,7 @@ In the non-overlay CNI model, every pod gets an IP address from the subnet addre
 
 In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
 
-For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
