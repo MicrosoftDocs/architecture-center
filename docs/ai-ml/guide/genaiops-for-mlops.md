@@ -45,7 +45,7 @@ An orchestrator typically manages the workflow that generates these prompts. It 
 The following diagram shows an architecture for prompt engineering.
 
 :::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.svg" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
-   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. And then the orchestrator sends a prompt to Azure OpenAI Service.
+   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. Then the orchestrator sends a prompt to Azure OpenAI.
 :::image-end:::
 
 This category of technical patterns can address many use cases:
@@ -64,7 +64,7 @@ A typical RAG implementation is to break up your source data into chunks and sto
 The following diagram illustrates a RAG architecture that includes data from documents.
 
 :::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.svg" alt-text="Diagram that shows a RAG architecture." border="false":::
-   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI Service and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
+   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
 :::image-end:::
 
 ## Extend MLOps for generative AI technical patterns
@@ -97,7 +97,7 @@ Data pipelines for chunking documents aren't part of DataOps in traditional MLOp
 
 Just like training and fine-tuning, Azure Machine Learning pipelines or other data pipelining tools can be used to orchestrate the stages of chunking.
 
-##### Search index maintenance
+#### Search index maintenance
 
 You also must extend your operations to maintain the freshness and validity of the search indexes in your data stores. You might need to periodically rebuild these indexes if you can't incrementally add, remove, or update data in place. Index updates must meet the business requirements for data freshness, the nonfunctional requirements, such as performance and availability, and the compliance requirements, such as *right to be forgotten* requests. You need to extend your existing MLOps process to account for maintaining and updating search indexes to ensure accuracy, compliance, and optimal performance.
 
@@ -159,7 +159,7 @@ Some generative AI solutions include deploying custom-trained models or fine-tun
 
 #### Fine-tuning
 
-Use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI Service, ensure that your training and validation datasets are in JSONL format, and upload the data via a REST API. Also create a fine-tuning job. To deploy a trained small language model, take advantage of your existing MLOps investments.
+Use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI, ensure that your training and validation datasets are in JSONL format, and upload the data via a REST API. Also create a fine-tuning job. To deploy a trained small language model, take advantage of your existing MLOps investments.
 
 #### RAG and prompting
 
@@ -219,7 +219,7 @@ You can also explore the benefits and trade-offs of introducing new tools into y
 
 ## MLOps and GenAIOps maturity models
 
-You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [Generative AI Operations (GenAIOps) maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
+You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
 
 Use the [GenAIOps Maturity Model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
 
