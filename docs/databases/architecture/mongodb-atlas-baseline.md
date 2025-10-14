@@ -1,15 +1,28 @@
-# Baseline MongoDB Atlas Reference Architecture in an Azure Landing Zone
+--- 
+title: Baseline MongoDB Atlas architecture
+description: Learn how to deploy MongoDB Atlas in an Azure application landing zone
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 10/14/2025
+ms.topic: concept-article
+ms.subservice: reference-architecture
+ms.custom: fcp
+keyword: Azure
+---
+
+# Baseline MongoDB Atlas architecture
 
 > [!IMPORTANT]
-> The [Terraform Landing Zone for MongoDB Atlas on Azure](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) assumes that you already successfully implemented an Azure landing zone. However, you can use the Terraform Landing Zone for MongoDB Atlas on Azure if your infrastructure doesn't conform to Azure landing zones. For more information, refer to [Cloud Adoption Framework enterprise-scale landing zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/).
+> The [Terraform Landing Zone for MongoDB Atlas on Azure](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) assumes that you already successfully implemented an Azure landing zone. However, you can use the Terraform Landing Zone for MongoDB Atlas on Azure if your infrastructure doesn't conform to Azure landing zones. For more information, refer to [Cloud Adoption Framework enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/).
 
 ## Overview
 
-This document presents a baseline reference architecture for deploying MongoDB Atlas in an Azure landing zone. The solution demonstrates how to establish secure, private connectivity between Azure resources and MongoDB Atlas clusters, while following Azure landing zone principles for governance, network segmentation, and automation.
+This article describes a baseline reference architecture for deploying MongoDB Atlas in an Azure application landing zone. The solution demonstrates how to establish secure, private connectivity between Azure resources and MongoDB Atlas clusters, according to the Well-Architected Framework .
 
 By leveraging managed cloud services and Azure-native networking, this architecture provides a foundation for scalable, resilient, and secure application data workloads across both single-region and multi-region scenarios.
 
----
+> [!IMPORTANT]
+> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) that demonstrates a baseline MongoDB Atlas solution on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
 
 ## Architecture
 
@@ -21,7 +34,7 @@ In the single-region deployment, all core components—including the MongoDB Atl
 
 #### Architecture Diagram
 
-![Single-region Atlas on Azure reference architecture](../images/architecture-single-region-numbered.png)
+:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="Diagram showing MongoDB Atlas single-region architecture deployed in Azure with private endpoints, VNet integration, and monitoring components." lightbox="../images/mongodb-atlas-single-region.png":::
 
 #### Workflow
 
@@ -41,7 +54,7 @@ For organizations with higher requirements for business continuity and disaster 
 
 #### Architecture Diagram
 
-![Multi-region Atlas on Azure reference architecture](../images/architecture-multi-region-numbered.png)
+:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="Diagram illustrating MongoDB Atlas multi-region architecture with VNet peering across multiple Azure regions for high availability and disaster recovery." lightbox="../images/mongodb-atlas-multi-region.png":::
 
 #### Workflow
 
@@ -74,7 +87,7 @@ The architecture brings together several core components to deliver security, sc
 
 When considering the deployment of MongoDB Atlas in Azure, several alternative database services and deployment patterns may be evaluated based on organizational requirements, technical constraints, and existing skill sets:
 
-- [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) is a fully managed, globally distributed NoSQL database service that supports multiple APIs, including MongoDB API compatibility. While Cosmos DB offers high availability and low latency, it may not provide complete parity with all MongoDB Atlas features. Organizations seeking a fully Azure-native solution with API-level compatibility may consider Cosmos DB, but should review functional differences and potential migration impacts.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed, globally distributed NoSQL database service that supports multiple APIs, including MongoDB API compatibility. While Cosmos DB offers high availability and low latency, it may not provide complete parity with all MongoDB Atlas features. Organizations seeking a fully Azure-native solution with API-level compatibility may consider Cosmos DB, but should review functional differences and potential migration impacts.
 
 - **Self-Managed MongoDB on Azure Virtual Machines**: Organizations may choose to deploy and manage MongoDB clusters directly on Azure infrastructure using virtual machines. While this approach offers maximum control, it increases operational overhead and places responsibility for maintenance, scaling, backups, and security on the organization.
 
@@ -86,7 +99,7 @@ For more information about MongoDB Atlas and its [use cases](https://www.mongodb
 
 ## Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](https://learn.microsoft.com/en-us/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Most databases store sensitive data. Implementing security only at the database level isn't enough to secure the architecture where you deploy these workloads. Defense in-depth is a comprehensive approach to security that implements multiple layers of defense mechanisms to protect data. Instead of relying on a single security measure at a specific level, such as focusing only on network security mechanisms, the defense in-depth strategy uses a combination of different layer security measures to create a robust security posture. You can architect the defense in-depth approach for MongoDB Atlas workloads by using hardened network security with private endpoints and VNet peering from the Azure infrastructure side. For detailed information about MongoDB Atlas security features, see [MongoDB Atlas Security](https://www.mongodb.com/docs/atlas/setup-cluster-security/).
 
@@ -103,10 +116,10 @@ When implementing VNet peering for MongoDB Atlas connectivity, consider the foll
 
 > We recommend evaluating whether additional Microsoft security services beyond those listed, e.g Azure Firewall, Defender for DDoS, Defender for Cloud, Microsoft Entra, and Azure Key Vault - are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
 >
-> - [Azure Web Application Firewall (WAF)](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview)
-> - [Defender for App Service](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction)
-> - [Defender for Servers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview)
-> - [Microsoft Entra Global Secure Access (GSA)](https://learn.microsoft.com/en-us/entra/global-secure-access/overview-what-is-global-secure-access)
+> - [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview)
+> - [Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
+> - [Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview)
+> - [Microsoft Entra Global Secure Access (GSA)](/entra/global-secure-access/overview-what-is-global-secure-access)
 
 **Note**: Azure Key Vault or Atlas secrets management can be integrated to secure application credentials.
 
@@ -137,7 +150,7 @@ Use Microsoft Cost Management tools to track overall Azure expenses across all s
 
 ## Monitoring
 
-Monitoring is a critical part of any production-level solution. Support Azure solutions with a [monitoring strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
+Monitoring is a critical part of any production-level solution. Support Azure solutions with a [monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
 
 The *Landing Zone for MongoDB Atlas on Azure* does not deploy or configure monitoring solutions for MongoDB Atlas on Azure. Users are responsible for implementing these practices based on their specific requirements.
 
