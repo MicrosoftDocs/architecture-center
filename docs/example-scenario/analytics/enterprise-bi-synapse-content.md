@@ -292,13 +292,11 @@ To determine how much capacity you need:
 Principal authors:
 
 - [Bibhu Acharya](https://www.linkedin.com/in/bibhu-acharya-1848b1132/) | Principal Cloud Solution Architect
-- [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
-- [Noah Costar](https://www.linkedin.com/in/noah-costar-6204b8157/) | Cloud Solution Architect
-- [George Stevens](https://www.linkedin.com/in/george-stevens/) | Cloud Solution Architect
-
 
 Other contributors:
 
+- [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
+- [George Stevens](https://www.linkedin.com/in/george-stevens/) | Solution Engineer
 - [Jim McLeod](https://www.linkedin.com/in/jimmcleodaustralia/) | Cloud Solution Architect
 - [Miguel Myers](https://www.linkedin.com/in/miguelmyers/) | Senior Program Manager
 

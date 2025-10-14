@@ -2,9 +2,9 @@
 metadata:
   title: Use Microsoft Fabric to Design an Enterprise BI Solution
   description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Microsoft Fabric and transforms the data for analysis.
-  author: galinagpolyakova
-  ms.author: gapolyak
-  ms.date: 02/07/2025
+  author: bibhuacharya
+  ms.author: bibhuacharya
+  ms.date: 11/01/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:
