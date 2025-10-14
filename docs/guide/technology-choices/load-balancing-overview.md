@@ -3,7 +3,7 @@ title: Load Balancing Options
 description: Learn about Azure load balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/10/2025
+ms.date: 14/10/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom: copilot-scenario-highlight
@@ -26,7 +26,7 @@ The following main load balancing services and service with load balancing capab
   > [!IMPORTANT]
   > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional within its broader API management functionality. API Management is included in this article for completeness because it provides load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
 
-- [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer. It provides application delivery controller functionality as a managed service. It also provides various Layer-7 load balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+- [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer-7 capabilities for your application such as Secure Sockets Layer (SSL) offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
@@ -58,13 +58,14 @@ The following table summarizes the Azure load balancing services.
 | Service             | Global or regional | Recommended traffic |
 | :--- | :--- | :---  |
 | API Management      | Regional or global | HTTP(S) APIs only   |
-| Application Gateway | Regional           | HTTP(S)             |
+| Application Gateway | Regional           | HTTP(S) & Non-HTTP(S)  |
 | Azure Front Door    | Global             | HTTP(S)             |
 | Load Balancer       | Regional or global | Non-HTTP(S)         |
 | Traffic Manager     | Global             | Non-HTTP(S)         |
 
 > [!NOTE]
 > Traffic Manager and Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer-7 capabilities. Unlike Load Balancer, Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
+> Know more about differences between [Load Balancer's and Application Gateway's Non-HTTP(S) capabilities](azure/application-gateway/tcp-tls-proxy-overview#comparing-azure-load-balancer-with-azure-application-gateway).
 
 ## Choose a load balancing solution for your scenario
 
