@@ -57,17 +57,17 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract, transform, and load (ETL) workflows and extract, load, and transform (ELT) workflows.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise‑ready, end‑to‑end analytics platform that accelerates time to insight across data engineering, data warehousing, data integration, real‑time analytics, and business intelligence—delivered as a unified SaaS experience and centralized storage in **OneLake**. Microsoft Fabric combines the following technologies and services:
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise analytics platform that accelerates time to insight across data engineering, data warehousing, data integration, real‑time analytics, and business intelligence. It is delivered as a SaaS solution and has centralized storage in OneLake. Microsoft Fabric combines the following technologies and services:
 
-  - **SQL technologies for enterprise data warehousing** — via [Fabric Data Warehouse](/fabric/data-warehouse/), a fully managed, transactional (ACID) warehouse on an open Delta format.
+  - **SQL technologies for enterprise data warehousing** is available in [Fabric Data Warehouse](/fabric/data-warehouse/), a managed, transactional (ACID) warehouse on an open Delta format.
   
-  - **Large‑scale data engineering and machine learning** — via [Data Engineering (Lakehouse + notebooks)](/fabric/data-engineering/lakehouse-overview) with built‑in Spark.
+  - **Large‑scale data engineering and machine learning** is provided by [Data Engineering (Lakehouse + notebooks)](/fabric/data-engineering/lakehouse-overview) with built‑in Spark capabilities.
 
-  - **Near Real Time** — via [Real‑Time Intelligence](/fabric/real-time-intelligence/overview) with Eventhouse (KQL) and [Eventstreams](/fabric/real-time-intelligence/event-streams/overview).
+  - **Near real time** is addressed by [Real‑Time Intelligence](/fabric/real-time-intelligence/overview) with Eventhouse (KQL) and [Eventstreams](/fabric/real-time-intelligence/event-streams/overview).
   
-  - **ETL/ELT workflows** — via [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, and a broad set of [connectors](/fabric/data-factory/connector-overview) with hybrid/on‑premises gateway support.
+  - **ETL/ELT workflows** are implemented with [Data Factory in Fabric](/fabric/data-factory/data-factory-overview), including [pipelines](/fabric/data-factory/pipeline-overview), Dataflows Gen2, and a broad set of [connectors](/fabric/data-factory/connector-overview) with hybrid/on‑premises gateway support.
 
-  - **Integration with other Microsoft services** — natively integrated with Power BI, and with Azure services such as Azure Cosmos DB and Azure Machine Learning.
+  - Fabric has native integrations with Power BI and with Azure services such as Azure Cosmos DB and Azure Machine Learning.
 
 - [SSIS](/sql/integration-services/sql-server-integration-services) is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
