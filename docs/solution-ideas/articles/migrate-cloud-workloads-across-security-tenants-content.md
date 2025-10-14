@@ -8,7 +8,7 @@ To address business transformations like acquisitions or divestitures, teams nee
    This diagram outlines a resource migration process. First the Azure Resource Manager template and configuration files are extracted and stored in a source code repository or configuration repository. Then those files are deployed to target resource groups in a new tenant. A temporary subscription, known as a sidecar subscription, is created in the original tenant to hold backups and cloned data service resources. Resources are then cloned by using tools like Azure Data Factory or AzCopy. After the resources are cloned, the subscription is moved to the new tenant. Finally, the resources are migrated or restored in their target groups before the temporary subscription is deleted.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
+*Download a [Visio file](/docs/browse/thumbs/cross-tenant-migration-strategy.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -46,7 +46,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and durable cloud storage solution for various data objects in the cloud. In this architecture, it stores configuration artifacts and data backups used during migration.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service for big data and data warehousing. In this architecture, it supports enterprise-scale data analysis across migrated workloads.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a software as a service (SaaS) analytics platform that unifies data integration, data engineering, data warehousing, real-time analytics, data science, and business intelligence. In this architecture, it provides an enterprise-scale analytics platform across migrated workloads by consolidating data pipelines, storage (OneLake), and analytical compute in the target tenant.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service for accelerating and managing the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that are recreated in the target tenant.
 
