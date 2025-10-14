@@ -66,7 +66,6 @@ The following table summarizes the Azure load balancing services.
 > [!NOTE]
 > Traffic Manager and Load Balancer can distribute any traffic type, including HTTP(S). However, these services don't provide Layer-7 capabilities. Unlike Load Balancer, Traffic Manager doesn't handle the traffic directly. Traffic Manager uses DNS to direct clients to the appropriate endpoints.
 
-
 ## Choose a load balancing solution for your scenario
 
 Consider the following factors when you select a load balancing solution:
