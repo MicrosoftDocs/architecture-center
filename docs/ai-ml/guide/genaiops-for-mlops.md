@@ -34,11 +34,11 @@ Some generative AI solutions use traditional machine learning practices like mod
 
 Many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model, which can be a small language model or large language model.
 
-Fine-tuning a foundation model follows the similar logical processes as training traditional machine learning models, such as data preparation, model training, evaluation, and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducibility, and governance.
+Fine-tuning a foundation model follows logical processes similar to the processes for training traditional machine learning models, such as data preparation, model training, evaluation, and deployment. These processes should use your existing MLOps investments to ensure scalability, reproducibility, and governance.
 
 ### Prompting
 
-Prompting is the art and science of crafting effective inputs for language models. These inputs typically fall into two categories. System prompts define the model's persona, tone, or behavior. User prompts represent the end user's interaction with the language model.
+Prompting is the art and science of crafting effective inputs for language models. These inputs typically fall into two categories. System prompts define the model's persona, tone, or behavior. User prompts represent the user's interaction with the language model.
 
 An orchestrator typically manages the workflow that generates these prompts. It can retrieve grounding data from various sources, either directly or via agents, and apply logic to construct the most effective prompt. This orchestrator is often deployed as an API endpoint, which enables client applications to access it as part of an intelligent system.
 
@@ -131,7 +131,7 @@ Evaluation is key in the iterative experimentation process of building, evaluati
 
 #### Fine-tuning
 
-For the evaluation of fine-tuned or trained generative AI models, you should take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
+To evaluate fine-tuned or trained generative AI models, take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
 
 #### RAG and prompting
 
@@ -142,7 +142,7 @@ The experimentation process remains consistent, regardless of the use case for y
 - Translation: BLEU
 - Summarization: ROUGE, BLEU, BERTScore, METEOR
 - Classification: Precision, Recall, Accuracy, Cross-entropy
-- RAG: Groundedness, Relevancy, Coherence, Fluency
+- RAG: Groundedness, Relevance, Coherence, Fluency
 
 > [!NOTE]
 > For more information about how to evaluate language models and RAG solutions, see [Large language model end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
@@ -151,7 +151,7 @@ Generative AI solutions generally extend the responsibilities of the machine lea
 
 Investing in generative AI solutions helps reduce some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
-It's also a good idea to involve the subject matter experts for their feedback when performing evaluations during the initial phase of the project.
+It's also a good idea to request feedback from subject matter experts when you perform evaluations during the initial phase of the project.
 
 ### Deployment
 
@@ -159,11 +159,11 @@ Some generative AI solutions include deploying custom-trained models or fine-tun
 
 #### Fine-tuning
 
-You should use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI Service, you need to ensure that your training and validation datasets are in JSONL format, and you need to upload the data via a REST API. You also need to create a fine-tuning job. To deploy a trained small language model, you can take advantage of your existing MLOps investments.
+Use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI Service, ensure that your training and validation datasets are in JSONL format, and upload the data via a REST API. Also create a fine-tuning job. To deploy a trained small language model, take advantage of your existing MLOps investments.
 
 #### RAG and prompting
 
-For RAG and prompting, other considerations include orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. Also, agent orchestrators can be low code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
 
@@ -193,7 +193,7 @@ For prompting in generative AI solutions, you have extra monitoring concerns. Yo
 
 In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality and consistency of the agents that your orchestrator interfaces with.
 
-As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that end users aren't encountering significant problems.
+As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that users aren't encountering significant problems.
 
 #### Learn from production
 
