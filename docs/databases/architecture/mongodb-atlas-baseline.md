@@ -34,7 +34,7 @@ In the single-region deployment, all core components—including the MongoDB Atl
 
 #### Architecture Diagram
 
-:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="Diagram showing MongoDB Atlas single-region architecture deployed in Azure with private endpoints, VNet integration, and monitoring components." lightbox="../images/mongodb-atlas-single-region.png":::
+:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="Diagram showing MongoDB Atlas single-region architecture deployed in Azure with private endpoints, VNet integration, and monitoring components." lightbox="_images/mongodb-atlas-single-region.png":::
 
 #### Workflow
 
@@ -54,7 +54,7 @@ For organizations with higher requirements for business continuity and disaster 
 
 #### Architecture Diagram
 
-:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="Diagram illustrating MongoDB Atlas multi-region architecture with VNet peering across multiple Azure regions for high availability and disaster recovery." lightbox="../images/mongodb-atlas-multi-region.png":::
+:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="Diagram illustrating MongoDB Atlas multi-region architecture with VNet peering across multiple Azure regions for high availability and disaster recovery." lightbox="_images/mongodb-atlas-multi-region.png":::
 
 #### Workflow
 
