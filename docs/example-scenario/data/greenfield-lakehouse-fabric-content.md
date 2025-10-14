@@ -96,7 +96,6 @@ While direct lake mode in Power BI offers significant benefits in terms of perfo
   
 This can be addressed by complementary use of SQL analytics endpoint as the source for Power BI. When one uses *direct lake on SQL analytics endpoint*, it allows the semantic model queries to [fall back](/fabric/fundamentals/direct-lake-overview#directquery-fallback) on direct query mode where direct lake is not supported.
 
-
 ###### Custom APIs
 
 Fabric provides a rich API surface across its items. OneLake provides open access to all Fabric items through Azure Data Lake Storage APIs and SDKs. You can access your data in OneLake through any API, SDK, or tool that's compatible with Data Lake Storage by just using a OneLake URI instead. You can upload data to a lakehouse by using Azure Storage Explorer or read a delta table via a shortcut from Azure Databricks. OneLake also supports the [Azure Blob Filesystem (ABFS) driver](/azure/storage/blobs/data-lake-storage-abfs-driver) for more compatibility with Data Lake Storage and Azure Blob Storage. To consume streaming data in downstream apps, you can push eventstream data to a custom API endpoint. You can then consume this streaming output from Fabric by using Azure Event Hubs or the AMQP or Kafka protocol.
@@ -120,7 +119,6 @@ This solution uses the following components:
   - [Data Science](/fabric/data-science/data-science-overview) is a workload in Fabric that provides tools to build machine learning models and generate insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
     
   - [Data Warehouse](/fabric/data-warehouse/data-warehousing) is an enterprise scale relational warehouse on a data lake foundation. Every Lakehouse in Fabric comes pre-wired with a SQL endpoint which provides the familiar SQL native warehouse semantics on top of a Lakehouse. [This article](/fabric/data-warehouse/guidelines-warehouse-performance) contains best practices for data ingestion, table management, data preparation, statistics, and querying in warehouses and SQL analytics endpoints. Data warehouse is typically used as one of the ways to serve curated gold data out of the Lakehouse. It can be utilized for interactive analysis by data analysts or for generating reports for business users.
-
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
