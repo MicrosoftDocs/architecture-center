@@ -54,8 +54,8 @@ This scenario uses the following components:
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an Azure-hosted PaaS SQL server. This architecture uses SQL Database to demonstrate the flow of data for the migration scenario. 
 
-- [Fabric OneLake Storage](/fabric/onelake/onelake-overview) provides unified cloud storage for all structured & unstructured data for the whole organization.
-- [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering to host data warehouse workloads for large datasets.
+- [Fabric OneLake Storage](/fabric/onelake/onelake-overview) provides unified cloud storage for all structured & unstructured data for the whole organization. This architecture uses OneLake storage artifacts such as Lakehouse/Warehouse, Eventhouse, and Mirrored db to store various types of data.
+- [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is a SaaS offering to host data warehouse workloads for large datasets. This architecture uses Fabric DW as final store of dimensional datasets.
 - [Power BI](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario.
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow.
 
