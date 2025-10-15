@@ -291,10 +291,10 @@ Principal authors:
 Review the next articles in this series for specific guidance about these scenarios:
 
 > [!div class="nextstepaction"]
-> [Global HTTP ingress](mission-critical-global-http-ingress.md)
+> [Mission-critical global HTTP ingress](mission-critical-global-http-ingress.md)
 
 > [!div class="nextstepaction"]
-> [Global content delivery](mission-critical-content-delivery.md)
+> [Mission-critical global content delivery](mission-critical-content-delivery.md)
 
 ## Related resources
 
