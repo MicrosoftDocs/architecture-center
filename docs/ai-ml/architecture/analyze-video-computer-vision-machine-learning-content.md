@@ -32,7 +32,7 @@ This article describes an architecture that you can use to replace the manual an
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, triggers analysis workflows, processes results, and coordinates the movement and transformation of data.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end unified analytics platform to streamline data integration.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform. It is used in this architecture as data ingestion platform to pull the JSON objects and pass it on to the SQL database in Fabric.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end‑to‑end **unified** analytics platform that streamlines integration of data workflows across data engineering, data integration, warehousing, real‑time analytics, and BI. In this architecture, after Logic Apps parses the JSON results, the data is stored and analyzed in [Fabric Data Warehouse](/fabric/data-warehouse/) for governed analytics before visualization in Power BI.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
@@ -91,18 +91,6 @@ A reliable workload is one that's both resilient and available. *Resiliency* is 
 
 For the availability guarantees of the Azure services in this solution, see the [Service-level agreement (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-Consider the following resources:
-
-- [Identity management](/azure/architecture/framework/security/overview#identity-management)
-- [Protect your infrastructure](/azure/architecture/framework/security/overview#protect-your-infrastructure)
-- [Application security](/azure/architecture/framework/security/overview#application-security)
-- [Data sovereignty and encryption](/azure/architecture/framework/security/overview#data-sovereignty-and-encryption)
-- [Security resources](/azure/architecture/framework/security/overview#security-resources)
 
 ### Cost Optimization
 
