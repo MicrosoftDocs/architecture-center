@@ -220,9 +220,9 @@ Microsoft Fabric is a serverless architecture for most workloads that you can us
 
 Three main components influence the price of a pipeline:
 
-- Data pipeline activities for orchestration, to optimize cost one should reduce the total orchestration by implementing parallel flows
-- Dataflow Gen2 for compute, to optimize cost one should simplify ETL pipelines by filtering unnecessary data and process incremental extraction
-- Data movement for COPY JOB/ Copy Activity, to optimize cost configure COPY JOB with incremental extraction and adjust throughput for Copy activity
+- Data pipeline activities for orchestration, to optimize cost one should reduce the total orchestration time by implementing parallel flows.
+- Dataflow Gen2 for compute, to optimize cost one should simplify ETL pipelines by filtering unnecessary data and process incremental extraction.
+- Data movement for COPY JOB/ Copy Activity, to optimize cost configure COPY JOB with incremental extraction and adjust throughput for Copy activity.
 
 For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview). 
 
