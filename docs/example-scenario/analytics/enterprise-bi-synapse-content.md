@@ -258,7 +258,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Consider staging your workloads where practical. Deploy your workload to various stages. Run validation checks at each stage before you move to the next stage. This approach pushes updates to your production environments in a controlled way and minimizes unanticipated deployment problems. Use [blue-green deployment][blue-green-dep] and [canary release][canary-releases] strategies to update live production environments.
 - Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
 - Use [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) for comprehensive monitoring of Fabric capacity consumption, [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed monitoring of Fabric Workspace telemetry logs.
-- Use [Fabric Capacity Estimator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator?msockid=2cafadf0224a6692090fbbc023586769) to estimate your Fabric Capacity needs.
+- Use [Fabric Capacity Estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator?msockid=2cafadf0224a6692090fbbc023586769) to estimate your Fabric Capacity needs.
 
 
 ### Performance Efficiency
@@ -270,7 +270,7 @@ This section provides details about sizing decisions to accommodate this dataset
 
 #### Power BI on Fabric Capacity
 
-This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum available SKU size available at [Fabric FSKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/).
+This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum available SKU size available at [Fabric FSKU](https://azure.microsoft.com/pricing/details/microsoft-fabric/).
 
 To determine how much capacity you need:
 
