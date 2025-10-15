@@ -270,7 +270,7 @@ This section provides details about sizing decisions to accommodate this dataset
 
 #### Power BI on Fabric Capacity
 
-This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to maximum available SKU size available at [Fabric FSKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/).
+This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum available SKU size available at [Fabric FSKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/).
 
 To determine how much capacity you need:
 
