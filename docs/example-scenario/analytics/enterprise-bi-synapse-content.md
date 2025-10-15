@@ -173,7 +173,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 #### Microsoft Fabric reliability
 
-This [article](/azure/reliability/reliability-fabric) describes reliability support in Microsoft Fabric, and both regional resiliency with availability zones and cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with Fabric's service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) capability for OneLake data.
+This document on [Reliability](/azure/reliability/reliability-fabric) describes reliability support in Microsoft Fabric, and both regional resiliency with availability zones and cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with Fabric's service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) capability for OneLake data.
 
 ### Security
 
