@@ -288,7 +288,13 @@ Principal authors:
 
 ## Next steps
 
-Review the [global HTTP ingress](./mission-critical-global-http-ingress.md) and [global content delivery](./mission-critical-content-delivery.md) scenarios to understand whether they apply to your solution.
+Review the next articles in this series for specific guidance about these scenarios:
+
+> [!div class="nextstepaction"]
+> [Global HTTP ingress](mission-critical-global-http-ingress.md)
+
+> [!div class="nextstepaction"]
+> [Global content delivery](mission-critical-content-delivery.md)
 
 ## Related resources
 
