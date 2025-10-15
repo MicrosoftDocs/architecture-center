@@ -181,7 +181,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cloud modernization introduces security concerns, such as data breaches, malware infections, and malicious code injection. You need a cloud provider or service solution that can address your concerns because inadequate security measures can create major problems.
 
-This scenario addresses the most demanding security concerns by using a combination of layered security controls: network, identity, privacy, and authorization controls. A Microsoft Fabric Data Warehouse stores most of the data. Power BI accesses the data via DirectQuery through single sign-on. You can use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
+This scenario addresses the most demanding security concerns by using a combination of layered security controls: network, identity, privacy, and authorization controls. A Microsoft Fabric Data Warehouse stores most of the data. Power BI accesses the data via DirectQuery through single sign-on. You should use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
 
 Some common security questions include:
 
@@ -191,10 +191,10 @@ Some common security questions include:
 
       - Workspace: a collaborative environment for creating and managing items. Workspace roles can be managed at this level.
       
-      - Item: a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it using  
-        OneLake. Items inherit permissions from the workspace roles, but can have additional permissions as well.
+      - Item: a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it  
+        using OneLake. Items inherit permissions from the workspace roles, but can have additional permissions as well.
 
-      - Folders: folders within an item that are used for storing and managing data, such as Tables/ or Files/
+      - Folders: folders within an item that are used for storing and managing data, such as `Tables/` or `Files/`.
 
 - Determine how to verify a user's identity.
   - Use Microsoft Fabric to control who can access what data via [access control](/fabric/security/white-paper-landing-page) and [authentication](/fabric/security/workspace-identity-authenticate).
