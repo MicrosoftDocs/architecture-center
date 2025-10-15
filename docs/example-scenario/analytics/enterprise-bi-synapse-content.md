@@ -97,15 +97,15 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
 
 1. Build a pipeline that does the following tasks:
 
-    The pipeline includes these activities:
+   The pipeline includes these activities:
 
-      - Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where  we'll stop this time). Both values get passed to the copy activity.
+   - Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where we'll stop this time). Both values get passed to the copy activity.
       - A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
       - A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
 
-:::image type="content" source="./media/metadata-copy.png" alt-text="Logic of metadata driven framework." lightbox="./media/metadata-copy.png":::
+   :::image type="content" source="./media/metadata-copy.png" alt-text="Logic of metadata driven framework." lightbox="./media/metadata-copy.png":::
 
-A completed pipeline looks as below. More details about implementation can be found at [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse)
+A completed pipeline looks as below. More details about implementation can be found at [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse).
 
 :::image type="content" source="./media/metadata-ingestion-pipeline.png" alt-text="Completed pipeline metadata driven framework." lightbox="./media/metadata-copy.png":::
 
@@ -191,8 +191,7 @@ Some common security questions include:
 
       - Workspace: a collaborative environment for creating and managing items. Workspace roles can be managed at this level.
       
-      - Item: a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it  
-        using OneLake. Items inherit permissions from the workspace roles, but can have additional permissions as well.
+      - Item: a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it using OneLake. Items inherit permissions from the workspace roles but can have additional permissions as well.
 
       - Folders: folders within an item that are used for storing and managing data, such as `Tables/` or `Files/`.
 
@@ -204,7 +203,6 @@ Some common security questions include:
   - Use Azure Synapse Analytics [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities, such as SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
 - Determine how to protect data on Fabric OneLake.
   - Help [protect](/fabric/security/security-overview#protect-data) data on Microsoft Fabric by using sensitivity labels from Microsoft Purview Information Protection. These labels such as General, Confidential, and Highly Confidential are widely used in Microsoft Office apps such as Word, PowerPoint, and Excel to protect sensitive information and they follow the data automatically from item to item as it flows through Fabric, all the way from data source to business user. 
-
 
 ### Cost Optimization
 
@@ -224,9 +222,9 @@ Three main components influence the price of a pipeline:
 - Dataflow Gen2 for compute, to optimize cost one should simplify ETL pipelines by filtering unnecessary data and process incremental extraction.
 - Data movement for COPY JOB/ Copy Activity, to optimize cost configure COPY JOB with incremental extraction and adjust throughput for Copy activity.
 
-For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview). 
+For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview).
 
-The price varies depending on components or activities, frequency, and overall compute associated with orchestration. 
+The price varies depending on components or activities, frequency, and overall compute associated with orchestration.
 
 #### Microsoft Fabric Data Lakehouse or Warehouse or Eventhouse
 
@@ -236,7 +234,7 @@ The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to exec
 
 #### OneLake storage
 
-OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/). To optimize OneLake costs, focus on managing storage volume by regularly deleting unused data, including data in "soft delete" storage, and optimizing read/write operations. Since OneLake storage is billed separately from compute, monitor your usage with the Fabric Capacity Metrics app and reduce data stored to lower storage bills, which are calculated based on average daily usage over the month.
+OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/). To optimize OneLake costs, focus on managing storage volume by regularly deleting unused data, including data in "soft delete" storage, and optimizing read/write operations. Since OneLake storage is billed separately from compute, monitor your usage with the Fabric Capacity Metrics app and reduce data stored to lower storage bills, which are calculated based on average daily usage over the month.
 
 #### Power BI 
 
