@@ -175,8 +175,6 @@ Reliability helps ensure that your application can meet the commitments that you
 
 This [article](/azure/reliability/reliability-fabric) describes reliability support in Microsoft Fabric, and both regional resiliency with availability zones and cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with Fabric's service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) capability for OneLake data.
 
-Don't disable geo-backup. By default, Azure Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. This gives you a base RPO of 24 hours. It isn't recommended to turn this feature off. For more information, see [Geo-backups](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
-
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
