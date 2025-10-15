@@ -122,13 +122,13 @@ Pipelines in Microsoft Fabric Data Factory pipelines define an ordered set of ac
 
 ### Transform the data
 
-If transformation is needed, then [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) can be used to design low code AI-assisted ETL transformations to change nature of data. It uses the PowerQuery engine to execute transformations and writes output of transformation to Fabric Data Warehouse
+If transformation is needed, then [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) should be used to design low code AI-assisted ETL transformations to change nature of data. It uses the PowerQuery engine to execute transformations and writes output of transformation to Fabric Data Warehouse.
 
-In a production environment, ETL transformations can also be implemented via [Fabric Notebooks](/fabric/data-engineering/how-to-use-notebook) for an Apache Spark driven framework that works well for large datasets.
+In a production environment, [Fabric Notebooks](/fabric/data-engineering/how-to-use-notebook) should be used for implementing ETL transformations that work well for large datasets via an Apache Spark driven distributed computing framework.
 
 
 > [!NOTE]
-> Use [Native Execution](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) engine for running data engineering or etl workloads.
+> Use the [Native Execution engine](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) for running data engineering or ETL workloads.
 
 ### Use Power BI on Fabric Capacities to access, model, and visualize data
 
