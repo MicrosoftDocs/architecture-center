@@ -75,7 +75,7 @@ To isolate the virtual network that the VM uses, avoid connecting the virtual ne
 
 The hybrid runbook worker uses the [Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target VM's resources and the other Azure services that the solution requires.
 
-The minimum role-based access control (RBAC) permissions required for a system-assigned managed identity are divided into two categories:
+The minimum Azure role-based access control (Azure RBAC) permissions required for a system-assigned managed identity are divided into two categories:
 
 - Access permissions to the SOC Azure architecture that contains the solution core components
 - Access permissions to the target architecture that contains the target VM resources
@@ -89,7 +89,7 @@ Access to the target architecture includes the following roles:
 
 - **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
 
-- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if RBAC is used to control the Key Vault access
+- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if Azure RBAC is used to control the Key Vault access
 
 - Access policy to **Get Secret** on the target VM's key vault that's used to store the BEK, only if the access policy is used to control the Key Vault access
 
@@ -167,7 +167,7 @@ It's Cohasset's opinion that Azure Storage, with the immutable storage feature o
 
 #### Least privilege
 
-When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
+When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [Azure RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
 
 #### Least access
 

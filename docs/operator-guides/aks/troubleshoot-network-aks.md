@@ -178,7 +178,7 @@ These are some other potential causes of service problems:
 - A CNI plugin error or network route error is occurring.
 - kube-proxy isn't running or iptables rules aren't configured correctly.
 - Network Policies is dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies).
-  - If you're using Calico as your network plugin, you can capture network policy traffic as well. For information on configuring that, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic).
+  - If you're using Calico as your network plugin, you can capture network policy traffic as well. For more information about configuration, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic).
 
 ## Nodes can't reach the API server
 

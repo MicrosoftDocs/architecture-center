@@ -14,7 +14,7 @@ Here are some of the main challenges arising from service-to-service communicati
 
 **Distributed tracing**. A single transaction might span multiple services. That can make it hard to monitor the overall performance and health of the system. Even if every service generates logs and metrics, without some way to tie them together, they are of limited use. 
 
-**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. See [API Versioning](./api-design.yml#api-versioning) for more discussion of this issue.
+**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. For more information, see [API versioning](./api-design.yml#api-versioning).
 
 **TLS encryption and mutual TLS authentication**. For security reasons, you might want to encrypt traffic between services with TLS, and use mutual TLS authentication to authenticate callers.
 
