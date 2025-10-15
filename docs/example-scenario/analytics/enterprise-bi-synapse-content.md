@@ -220,9 +220,9 @@ Microsoft Fabric is a serverless architecture for most workloads that you can us
 
 Three main components influence the price of a pipeline:
 
-- Data pipeline activities for orchestration
-- Dataflow Gen2 for compute
-- Data movement for Copy job
+- Data pipeline activities for orchestration, to optimize cost one should reduce the total orchestration by implementing parallel flows
+- Dataflow Gen2 for compute, to optimize cost one should simplify ETL pipelines by filtering unnecessary data and process incremental extraction
+- Data movement for COPY JOB/ Copy Activity, to optimize cost configure COPY JOB with incremental extraction and adjust throughput for Copy activity
 
 For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview). 
 
@@ -232,15 +232,15 @@ The price varies depending on components or activities, frequency, and overall c
 
 Use this [decision guide](/fabric/fundamentals/decision-guide-data-store) to help you choose a data store for your Microsoft Fabric workloads, all available in a unified storage in the OneLake.
 
-The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to execute ad-hoc queries for analysis, as well as allowing Power BI semantic models to import or direct query the data. The cost associated with a Lakehouse or Warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint.
+The SQL Endpoint for Fabric Lakehouse or Warehouse offers the capability to execute ad-hoc queries for analysis, as well as allowing Power BI semantic models to import or direct query the data. The cost associated with a Lakehouse or Warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint. To optimize cost, implement [Z-Ordering & V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql&branch=main) in Lakehouse to improve query performance, for Data Warehouse optimize queries to read smaller batches.
 
 #### OneLake storage
 
-OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/)
+OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/). To optimize OneLake costs, focus on managing storage volume by regularly deleting unused data, including data in "soft delete" storage, and optimizing read/write operations. Since OneLake storage is billed separately from compute, monitor your usage with the Fabric Capacity Metrics app and reduce data stored to lower storage bills, which are calculated based on average daily usage over the month.
 
 #### Power BI 
 
-This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs.
+This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs. To optimize cost, implement [Incremental Refresh](/power-bi/connect-data/incremental-refresh-overview) for IMPORT mode extraction, and wherever possible implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for reporting on larger datasets to reduce overall load on Fabric Capacities.
 
 For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
