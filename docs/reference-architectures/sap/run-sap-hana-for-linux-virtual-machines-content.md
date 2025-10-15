@@ -151,7 +151,7 @@ For network security, use network security groups (NSGs) and Azure Firewall or a
 
 * Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications are, and also to control your outbound internet connectivity.
 
-For User and Authorization, implement Azure role-based access control (Azure RBAC) and resource locks as follows:
+For user authorization, implement Azure role-based access control (Azure RBAC) and resource locks as follows:
 
 * Follow the principle of least privilege, using [Azure RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. The fundamental purpose of Azure RBAC is the segregation and control of duties for your users/group. Azure RBAC is designed to grant only the amount of access to resources that's needed to enable users to do their jobs.
 

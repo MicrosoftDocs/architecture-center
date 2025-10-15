@@ -109,8 +109,7 @@ Clearly understand and review other AWS IAM account components for appropriate m
 
 - *IAM policies* provide delegated access rights to AWS account resources. AWS provides over 750 unique IAM policies, and customers can also define custom policies.
 
-- *IAM roles* attach specific policies to identities. Roles are the way to administer *role-based access control (RBAC
-- )*. The current solution uses [External Identities](/entra/external-id/) to implement Microsoft Entra identities by assuming IAM roles.
+- *IAM roles* attach specific policies to identities. Roles are the way to administer *role-based access control (RBAC)*. This solution uses [External Identities](/entra/external-id/) to implement Microsoft Entra identities by assuming IAM roles.
 
 - *IAM groups* are also a way to administer RBAC. Instead of assigning IAM policies directly to individual IAM users, create an IAM group, assign permissions by attaching one or more IAM policies, and add IAM users to the group to inherit the appropriate access rights to resources.
 
