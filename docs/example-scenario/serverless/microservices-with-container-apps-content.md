@@ -13,15 +13,11 @@ The example workload runs a containerized microservices application. The workloa
 
 ## Architecture
 
-**Image TODO: Remove this image.**
-
-:::image type="content" border="false" source="./media/microservices-with-container-apps-deployment.png" alt-text="Diagram showing microservices deployed with Azure Container Apps." lightbox="./media/microservices-with-container-apps-deployment.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
-
-**Image TODO: Long Description. Add numbers, Add ACR.**
+**Image TODO: Add numbers**
 
 :::image type="content" border="false" source="./media/microservices-with-container-apps-runtime-diagram.png" alt-text="Diagram showing the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps-runtime-diagram.png":::
+  The diagram shows an Azure Container Apps environment as a large rectangle containing five container apps. At the far left an HTTP traffic source arrow points right into the Ingestion service at the upper left of the environment. An upward arrow from Ingestion goes to Azure Service Bus above the environment, and a downward arrow from Azure Service Bus returns to the Workflow service centered in the top row. From Workflow, three black connectors descend and bend toward each lower service: left to Package service, straight down to Drone Scheduler service, and right to Delivery service. Each lower service has a vertical arrow to its own external state store placed below the environment: Package service to Azure Cosmos DB for MongoDB API, Drone Scheduler service to Azure Cosmos DB, and Delivery service to Azure Cache for Redis. Two rightward arrows exit the middle of the environment: the upper goes to Azure Application Insights and the lower to Azure Log Analytics workspace. Below the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows. Microsoft Azure branding appears at the lower left outside the environment.
+:::image-end:::
 
 This diagram illustrates the runtime architecture for the solution.
 
@@ -164,7 +160,7 @@ Container Apps allows you to deploy, manage, maintain, and monitor the applicati
 
 - Avoid storing state directly within your Azure Container Apps environment, always externalize to a dedicated state store per microservice. In this architecture, state is distributed across three distinct state stores.
 
-- All resources, including Azure Container Apps, should be deployed using a multi-zone topology.  For more details on availability zone support, see [Availability zone support in Azure Container Apps](/reliability/reliability-azure-container-apps#availability-zone-support).
+- All resources, including Azure Container Apps, should be deployed using a multi-zone topology.  For more details on availability zone support, see [Availability zone support in Azure Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
 
   Set the minimum replica count for non-transient applications is at least three or more. You want the replicas to be distributed across the availability zones in your workload's region.
 
