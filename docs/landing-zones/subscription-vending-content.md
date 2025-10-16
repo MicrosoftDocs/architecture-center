@@ -87,7 +87,7 @@ The last task of the subscription vending automation is to create and configure 
 | Task category | Pipeline task |
 | --- | --- |
 | Identity |• Create or update Microsoft Entra resources to represent subscription ownership.<br>• Configure privileged workload identities for workload team deployments.|
-| Governance |• Place in management group hierarchy.<br>• Assign subscription owner.<br>• Configure subscription-level role-based access controls (RBACs) to configured security groups.<br>• Assign subscription-level Azure Policy.<br>• Configure the Microsoft Defender for Cloud enrollment.|
+| Governance |• Place in management group hierarchy.<br>• Assign subscription owner.<br>• Configure subscription-level Azure role-based access control (Azure RBAC) to the correct security groups.<br>• Assign subscription-level Azure Policy.<br>• Configure the Microsoft Defender for Cloud enrollment.|
 | Networking |• Deploy virtual networks.<br>• Configure virtual network peering to platform resources (regional hub).|
 | Budgets |• Create budgets for the subscription owners by using the collected data.|
 | Reporting |• Update external systems, such as IPAM, to commit to IP reservations.<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID).<br>• Notify the application team that the subscription is ready.|

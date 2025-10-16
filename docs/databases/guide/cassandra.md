@@ -160,7 +160,7 @@ Other contributor:
 
 For more information about these performance results, see [Cassandra on Azure VMs Performance Experiments][repo].
 
-For information on general Cassandra settings, not specific to Azure, see:
+For more information about general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
 

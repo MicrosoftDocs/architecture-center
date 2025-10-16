@@ -138,7 +138,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-- **Access**. To apply access policies to the resources in a group, you can use [Azure role-based access control (Azure RBAC)][rbac].
+- **Access**. To apply access policies to the resources in a group, you can use [Azure RBAC][rbac].
 
 - **Billing**. You can view rollup costs for the resource group.
 

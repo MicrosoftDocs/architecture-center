@@ -84,7 +84,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For detailed guidance on the differences in these tiers, see the [Azure API Management pricing guidance][apim-pricing].
+API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For more information about the differences in these tiers, see [Azure API Management pricing guidance][apim-pricing].
 
 You can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
 

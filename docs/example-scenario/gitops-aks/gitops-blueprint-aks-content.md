@@ -125,7 +125,7 @@ You can combine policy management and enforcement tools with GitOps to enforce p
 
 GitOps provides consistency and standardization of the cluster state, and can help to enhance security. You can also use GitOps to ensure consistent state across multiple clusters. For example, GitOps can apply the same configuration across primary and disaster recovery (DR) clusters, or across a farm of clusters.
 
-If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (RBAC), admissions controllers, and other tools.
+If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (Azure RBAC), admissions controllers, and other tools.
 
 ### Use GitOps to bootstrap initial configuration
 
@@ -194,7 +194,7 @@ GitOps teams often manage multiple environments for the same application. It's t
 
 ## Deploy a scenario
 
-The following list provides references for information about deploying the five scenarios:
+For more information about deploying the five scenarios, see the following resources:
 
 - **Scenario 1:** For guidance on using GitOps with Flux v2 to deploy applications to AKS, see [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli). For an example of how to use the Flux extension to bootstrap AKS cluster deployment, see the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests).
 - **Scenario 2:** For guidance on using GitOps with Flux v2 on AKS to deploy applications and to implement CI/CD, see: [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd).

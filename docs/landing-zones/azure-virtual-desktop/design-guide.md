@@ -22,7 +22,7 @@ An Azure landing zone provides the necessary foundation for cloud workloads such
 
 Azure landing zones have [two categories](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones):
 
-- **Platform landing zones** provide shared foundational services like networking, identity management, and resource governance. Platform landing zones form the core infrastructure that supports application workloads.
+- **Platform landing zone** provides shared foundational services like networking, identity management, and resource governance. The platform landing zone forms the core infrastructure that supports application workloads.
 
 - **Application landing zones** host specific applications, workloads, or services. They provide the necessary environment to run applications. Policies and management groups enforce governance in application landing zones.
 
