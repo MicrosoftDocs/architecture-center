@@ -100,17 +100,17 @@ Vector data indexing is the ability to efficiently store and retrieve vectors. T
 
 Indexes are typically based on an exhaustive k-nearest neighbor (Ek-NN) or an ANN algorithm. Ek-NN does an exhaustive search on all data points one by one and returns the accurate *K* nearest neighbors. Ek-NN works in milliseconds with a small amount of data but can cause latency for large amounts of data.
 
-[DiskANN](https://www.microsoft.com/research/project/project-akupara-approximate-nearest-neighbor-search-for-large-scale-semantic-search/), [Hierarchical Navigable Small World (HNSW)](https://wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs), and [IVFFlat](https://wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy requires careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. DiskANN can adapt to change in the dataset and save computational resources. HNSW excels in systems that require fast query responses and can adapt to changes in the dataset. IVFFlat is effective in environments where hardware resources are limited or query volumes aren't high.
+[DiskANN](https://www.microsoft.com/research/project/project-akupara-approximate-nearest-neighbor-search-for-large-scale-semantic-search/), [Hierarchical navigable small world (HNSW)](https://wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs), and [IVFFlat](https://wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy requires careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. DiskANN can adapt to change in the dataset and save computational resources. HNSW excels in systems that require fast query responses and can adapt to changes in the dataset. IVFFlat is effective in environments where hardware resources are limited or query volumes aren't high.
 
 Understand what types of vector data indexing are provided from the following table.
 
 | Indexing approach | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL Flexible Server | AI Search | Azure SQL Database |
 | --- | --- | --- | --- | --- | --- | --- |
 | DiskANN | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> | Yes <a href="#e1"><sup>1</sup></a> | No | Yes <a href="#e3"><sup>3</sup></a> |
-| Exhaustive K-nearest Neighbor (EKNN) | Yes | Yes | Yes | Yes | Yes | Yes |
+| Exhaustive K-nearest neighbor (EKNN) | Yes | Yes | Yes | Yes | Yes | Yes |
 | HNSW | Yes | No | Yes <a href="#e2"><sup>2</sup></a> | Yes | Yes | No |
 | IVFflat | Yes | No | Yes | Yes | No | No |
-| Other | - | flat, quantizedFlat<a href="#e4"><sup>4</sup></a> | Vector field limitation <a href="#e5"><sup>5</sup></a> </br> Vector index limitation <a href="#e6"><sup>6</sup></a> | - | - | External libraries are available<a href="#e7"><sup>7</sup></a> |
+| Other | - | Flat, quantizedFlat<a href="#e4"><sup>4</sup></a> | Vector field limitation <a href="#e5"><sup>5</sup></a> </br> Vector index limitation <a href="#e6"><sup>6</sup></a> | - | - | External libraries are available<a href="#e7"><sup>7</sup></a> |
 
 1. <span id="e1">[DiskANN for Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgdiskann).</span>
 1. <span id="e2">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search).</span>
@@ -122,7 +122,7 @@ Understand what types of vector data indexing are provided from the following ta
 
 ### Similarity and distance calculation capabilities
 
-There are [Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), [Dot product](https://en.wikipedia.org/wiki/Dot_product), and [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors.
+There are [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), [dot product](https://en.wikipedia.org/wiki/Dot_product), and [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors.
 
 Preliminary data analysis benefits from both metrics and Euclidean distances, which allow for the extraction of different insights on data structure. Text classification generally performs better under Euclidean distances. Retrieval of the most similar texts to a given text typically functions better with cosine similarity.
 
