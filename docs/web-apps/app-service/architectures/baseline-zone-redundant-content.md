@@ -1,8 +1,5 @@
 This baseline architecture is based on the [Basic web application architecture](./basic-web-app.yml) and extends it to provide detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Azure Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure platform as a service (PaaS) solutions such as Azure Key Vault and Azure SQL Database.
 
-> [!IMPORTANT]
-> :::image type="icon" source="../../../_images/github.svg"::: The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
-
 ## Architecture
 
 :::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
@@ -86,13 +83,13 @@ Consider the following points when implementing virtual network integration and 
 
 ### Virtual network segmentation and security
 
-The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
+The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a selection of NSG rules that could be added to each subnet. The table gives a description of a rule.
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
-| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
-| snet-PrivateEndpoints | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
-| snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| GatewaySubnet    | Rule 1: Allow inbound control plane access<br><br>Rule 2: Allow inbound internet HTTPS access | Rule 1: Allow outbound access to PrivateEndpointsSubnet<br><br>Rule 2`: Allow outbound access to Azure Monitor |
+| PrivateEndpointsSubnet | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+| AppServicesSubnet | Default rules: Allow inbound from vnet  | Rule 1: Allow outbound access to PrivateEndpointsSubnet<br><br>Rule 2: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
@@ -109,8 +106,6 @@ An example of a network schema could be:
 | Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubject          | 10.0.2.32/27  |
-
-Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation/tree/main)
 
 ## Considerations
 
@@ -363,7 +358,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Read Highly available multi-region web application](./multi-region.yml)
+> [Read Enterprise web app patterns](/azure/architecture/web-apps/guides/enterprise-app-patterns/overview)
 
 ## Related resources
 
