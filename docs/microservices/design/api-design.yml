@@ -4,7 +4,7 @@ metadata:
   description: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 07/26/2022
+  ms.date: 10/16/2025
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom: arb-web
@@ -13,6 +13,8 @@ azureCategories:
   - developer-tools
 products:
   - azure-devops
+  - azure-api-management
+  - azure-application-gateway
 name: Design APIs for microservices
 summary: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
 thumbnailUrl: /azure/architecture/browse/thumbs/api-design.png
