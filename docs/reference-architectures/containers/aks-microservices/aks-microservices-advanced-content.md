@@ -40,7 +40,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
 
-  - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
+  - [AKS-managed Microsoft Entra ID for Azure role-based access control (Azure RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
 
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni) is a plug-in that enables containers to connect directly to an Azure virtual network. In this architecture, Azure CNI assigns IP addresses from the virtual network to pods. This configuration enables integration with Azure networking services and control over traffic flow.
 
@@ -346,7 +346,7 @@ Consider the following points when you plan for security:
 
 - When you use managed identities, the application can quickly get Azure Resource Manager OAuth 2.0 tokens when it runs. It doesn't need passwords or connection strings. In AKS, you can assign identities to individual pods by using [Workload ID](/azure/aks/workload-identity-overview).
 
-- Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
+- Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged Azure RBAC assignments. You should only assign identities to services that require them.
 
 - In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information, see [Manage Kubernetes service accounts](/azure/aks/concepts-identity#kubernetes-service-accounts).
 
