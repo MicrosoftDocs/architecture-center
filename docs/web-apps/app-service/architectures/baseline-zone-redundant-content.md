@@ -121,7 +121,7 @@ The architecture also ensures enough instances of Azure services to meet demand.
 
 #### Application Gateway
 
-Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three. This minimum avoids the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
+Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three. This minimum avoids the six to seven-minute startup time for an instance of Application Gateway if there's a failure.
 
 #### App Services
 
@@ -197,7 +197,7 @@ Web apps benefit from Azure Policy by enforcing architectural and security decis
 - Microsoft Defender for App Service should be enabled
 - Web Application Firewall should be enabled for Application Gateway
 
-See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
+See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies don't fully cover your needs. Prefer built-in policies when they're available.
 
 #### Identity and Access Management
 
