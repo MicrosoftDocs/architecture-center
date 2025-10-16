@@ -55,8 +55,10 @@ The tables in this section summarize the key differences in capabilities.
 
 Native support for vector data types, approximate nearest neighbor (ANN) vector indexes, vector dimension limits, multiple vector fields, and multiple vector indexes are sometimes different between the services. Your workload requirements might require some of these specific features. Understand the basic vector features of each Azure service, which is shown in the following table.
 
-| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL Flexible Server | AI Search | Azure SQL Database || :---- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Built-in vector search | Yes <a href="#a1"><sup>1</sup></a> | Yes | Yes <a href="#a2"><sup>2</sup></a> | Yes <a href="#a1"><sup>1</sup></a> | Yes <a href="#a3"><sup>3</sup></a> | Yes || Vector data type | Yes | Yes | Yes | Yes | Yes | Yes <a href="#a8"><sup>8</sup></a> |
+| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL Flexible Server | AI Search | Azure SQL Database |
+| :---- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Built-in vector search | Yes <a href="#a1"><sup>1</sup></a> | Yes | Yes <a href="#a2"><sup>2</sup></a> | Yes <a href="#a1"><sup>1</sup></a> | Yes <a href="#a3"><sup>3</sup></a> | Yes |
+| Vector data type | Yes | Yes | Yes | Yes | Yes | Yes <a href="#a8"><sup>8</sup></a> |
 | Dimension limits <a href="#a5"><sup>5</sup></a> | 16,000 <a href="#a6"><sup>6</sup></a> or 2000 | 505<a href="#a7"><sup>7</sup></a> or 4096 | 16,000 | 16,000 <a href="#a6"><sup>6</sup></a> or 2000 | 4,096 | 1998 (preview)<a href="#a4"><sup>4</sup></a> |
 | Multiple vector fields | Yes | Yes | No | Yes | Yes | Yes |
 | Multiple vector indexes | Yes | Yes | No | Yes | Yes | Yes |
@@ -139,8 +141,9 @@ Azure OpenAI embeddings rely on cosine similarity to compute similarity between 
 
 When you implement vector search, you can also consider linking with other Microsoft components. For example, Azure OpenAI helps you create vectors for your data and input queries for vector similarity search.
 
-| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL Flexible Server | AI Search | Azure SQL Database || --- | --- | --- | --- | --- | --- | --- |
-| Azure OpenAI - add your own data | No | No | Yes <a href="#g1"><sup>1</sup></a>  | No | Yes <a href="#g2"><sup>2</sup></a> | No |
+| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL Flexible Server | AI Search | Azure SQL Database |
+| --- | --- | --- | --- | --- | --- | --- |
+| Azure OpenAI - add your own data | No | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a> | No |
 | Vector embedding with Azure OpenAI | No | No | No | Yes <a href="#g3"><sup>3</sup></a> | Yes <a href="#g4"><sup>4</sup></a> | Yes <a href="#g5"><sup>5</sup></a> |
 | Integration with Semantic Kernel | Yes <a href="#g6"><sup>6</sup></a> | Yes<a href="#g7"><sup>7</sup></a> | Yes<a href="#g8"><sup>8</sup></a> | Yes <a href="#g6"><sup>6</sup></a> | Yes <a href="#g9"><sup>9</sup></a> | Yes <a href="#g10"><sup>10</sup></a> |
 
