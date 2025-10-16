@@ -3,7 +3,7 @@ This baseline architecture is based on the [Basic web application architecture](
 ## Architecture
 
 :::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
-    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault and Azure Storage.
+    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage.
 :::image-end:::
 *Figure 1: Baseline Azure App Service architecture*
 
@@ -13,7 +13,7 @@ This baseline architecture is based on the [Basic web application architecture](
 
 Many components of this architecture are the same as the [basic web application architecture](./basic-web-app.yml#components). The following list highlights only the changes to the basic architecture.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, it's the single public entry point that terminates Transport Layer Security (TLS), evaluates Web Application Firewall rules, and forwards approved requests over a private endpoint to App Service instances across availability zones.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, the Application Gateway acts as a single public entry point. It is also configured to terminate Transport Layer Security (TLS), evaluate Web Application Firewall rules, and forward approved requests privately to App Service instances across availability zones.
 - [Web Application Firewall](/azure/web-application-firewall/overview) is a cloud-native feature that protects web apps from common exploits, such as SQL injection and cross-site scripting. In this architecture, it runs on Application Gateway to block malicious requests before they reach App Service, which improves security and helps maintain availability.
 - [Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. In this architecture, it stores the TLS certificate (X.509) that Application Gateway uses and holds application secrets that App Service accesses privately.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that enables you to create isolated and secure private virtual networks in Azure. In this architecture, the virtual network provides private endpoints, App Service integration, and dedicated subnets for Application Gateway. This setup isolates traffic and enables private endpoint connectivity required for secure communication between App Service and its dependent Azure services.
@@ -22,12 +22,12 @@ Many components of this architecture are the same as the [basic web application 
 
 ## Networking
 
-Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture ensures the following:
+Network security is at the core of the App Services baseline architecture (*see Figure 2*).  From a high level, the network architecture enables the following capabilities:
 
 1. A single secure entry point for client traffic
 1. Network traffic is filtered
 1. Data in transit is encrypted end-to-end with TLS
-1. Data exfiltration is minimized by keeping traffic in Azure through the use of Private Link
+1. Data exfiltration is minimized by keeping traffic in Azure by using Private Link
 1. Network resources are logically grouped and isolated from each other through network segmentation
 
 ### Network flows
@@ -56,16 +56,16 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 
 Application Gateway is a regional resource that meets the requirements of this baseline architecture. Application Gateway is a scalable, regional, layer 7 load balancer that supports features such as web application firewall and TLS offloading. Consider the following points when implementing Application Gateway for ingress to Azure App Services.
 
-- Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
+- Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
 - Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
 - Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
-- Disable public network access on the App Service to ensure network isolation. In Bicep, this is accomplished by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
+- Disable public network access on the App Service to ensure network isolation. In Bicep, public network access is disabled by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
 
 ### Flow from App Services to Azure services
 
-This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, just internal traffic, such as traffic bound for private endpoints.
+This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, only internal traffic such as traffic bound for private endpoints.
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
@@ -121,7 +121,7 @@ The architecture also ensures enough instances of Azure services to meet demand.
 
 #### Application Gateway
 
-Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three to avoid the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
+Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three. This minimum avoids the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
 
 #### App Services
 
@@ -325,7 +325,7 @@ The following sections discuss scalability for key components in this architectu
 #### Application Gateway
 
 - Implement autoscaling for Application Gateway to scale in or out to meet demand.
-- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
+- Set the maximum instance count to a number higher than your expected need. You're only charged for the Capacity Units you use.
 - Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
 - Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
 
@@ -353,7 +353,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 - Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
   - Semi-static transaction data.
   - Session state.
-  - HTML output. This can be useful in applications that render complex HTML output.
+  - Complex HTML output.
 
 ## Next steps
 
