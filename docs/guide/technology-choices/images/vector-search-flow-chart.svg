@@ -23,14 +23,14 @@
 		.st6 {fill:#3f3f3f;fill-opacity:1;stroke:#3f3f3f;stroke-opacity:1;stroke-width:0.47169811320755}
 		.st7 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
 		.st8 {fill:#000000;font-family:Segoe UI;font-size:1.00001em;font-weight:bold}
-		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt}
-		.st10 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st11 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
-		.st12 {font-size:1em}
-		.st13 {fill:#a5a5a5;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st14 {marker-end:url(#mrkr4-144);stroke:#0c0c0c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st9 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st10 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
+		.st11 {font-size:1em}
+		.st12 {fill:#a5a5a5;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st14 {marker-end:url(#mrkr4-145);stroke:#0c0c0c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st15 {fill:#0c0c0c;fill-opacity:1;stroke:#0c0c0c;stroke-opacity:1;stroke-width:0.47169811320755}
-		.st16 {marker-end:url(#mrkr4-243);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.237638}
+		.st16 {marker-end:url(#mrkr4-249);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.237638}
 		.st17 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.086174404659928}
 		.st18 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -44,11 +44,11 @@
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-144" class="st15" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-145" class="st15" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-243" class="st17" v:arrowType="4" v:arrowSize="2" v:setback="23.2087" refX="-23.208747514911"
+		<marker id="mrkr4-249" class="st17" v:arrowType="4" v:arrowSize="2" v:setback="23.2087" refX="-23.208747514911"
 				orient="auto" markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-11.604373757455,-11.604373757455) "/>
 		</marker>
@@ -397,7 +397,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="100.5" cy="602.25" width="60.01" height="22.4037"/>
 			<path d="M0 603 L197.46 603" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="90.9725" y="595.052" width="19.055" height="14.4001" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="90.9725" y="595.052" width="19.055" height="14.4001" class="st7"/>
 			<text x="90.97" y="605.85" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape28-63" v:mID="28" v:groupContext="shape" v:layerMember="0" transform="translate(396,-468)">
 			<title>Dynamic connector.28</title>
@@ -421,55 +421,55 @@
 			<path d="M0 603 L116.46 603" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="53.4725" y="595.8" width="19.055" height="14.4001" class="st7"/>
 			<text x="53.47" y="606.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape35-77" v:mID="35" v:groupContext="shape" transform="translate(706.667,-437.04)">
+		<g id="shape35-77" v:mID="35" v:groupContext="shape" transform="translate(711,-432.54)">
 			<title>Sheet.35</title>
-			<desc>Workload needs MPP architecture</desc>
+			<desc>Workload needs massively parallel processing (MPP) architecture</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(18000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="51.12" cy="596.52" width="102.24" height="30.96"/>
-			<rect x="0" y="581.04" width="102.24" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Workload needs <tspan x="4" dy="1.2em"
-						class="st12">MPP architecture</tspan></text>		</g>
-		<g id="group46-81" transform="translate(918.01,-450)" v:mID="46" v:groupContext="group">
+			<v:textRect cx="75.2916" cy="596.52" width="150.59" height="30.96"/>
+			<rect x="0" y="581.04" width="150.583" height="30.96" class="st9"/>
+			<text x="4" y="585.72" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Workload needs massively <tspan x="4"
+						dy="1.2em" class="st11">parallel processing (MPP) </tspan><tspan x="4" dy="1.2em" class="st11">architecture</tspan></text>		</g>
+		<g id="group46-82" transform="translate(918.01,-450)" v:mID="46" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(19000):26"/>
 			</v:userDefs>
 			<title>Sheet.46</title>
-			<g id="shape41-82" v:mID="41" v:groupContext="shape">
+			<g id="shape41-83" v:mID="41" v:groupContext="shape">
 				<title>Sheet.41</title>
-				<rect x="0" y="558" width="179.995" height="53.9997" class="st13"/>
+				<rect x="0" y="558" width="179.995" height="53.9997" class="st12"/>
 			</g>
-			<g id="shape44-84" v:mID="44" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
+			<g id="shape44-85" v:mID="44" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.44</title>
 				<desc>Azure Cosmos DB for PostgreSQL</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.471" width="125.55" height="39.0585"/>
-				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st13"/>
+				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st12"/>
 				<text x="12.98" y="588.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL</tspan></text>			</g>
+							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st11">for PostgreSQL</tspan></text>			</g>
 		</g>
-		<g id="group47-88" transform="translate(918.024,-378.004)" v:mID="47" v:groupContext="group">
+		<g id="group47-89" transform="translate(918.024,-378.004)" v:mID="47" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(20000):26"/>
 			</v:userDefs>
 			<title>Sheet.47</title>
-			<g id="shape48-89" v:mID="48" v:groupContext="shape">
+			<g id="shape48-90" v:mID="48" v:groupContext="shape">
 				<title>Sheet.48</title>
-				<rect x="0" y="557.993" width="179.995" height="54.0069" class="st13"/>
+				<rect x="0" y="557.993" width="179.995" height="54.0069" class="st12"/>
 			</g>
-			<g id="shape49-91" v:mID="49" v:groupContext="shape" transform="translate(53.9901,-7.46851)">
+			<g id="shape49-92" v:mID="49" v:groupContext="shape" transform="translate(53.9901,-7.46851)">
 				<title>Sheet.49</title>
-				<desc>Azure Database for PostgreSQL (flex)</desc>
+				<desc>Azure Database for PostgreSQL Flexible Server</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.468" width="125.55" height="39.0637"/>
-				<rect x="0" y="572.936" width="125.546" height="39.0637" class="st13"/>
+				<rect x="0" y="572.936" width="125.546" height="39.0637" class="st12"/>
 				<text x="18.71" y="581.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL </tspan><tspan x="47.78"
-							dy="1.2em" class="st12">(flex)</tspan></text>			</g>
+							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st11">for PostgreSQL </tspan><tspan x="21.47"
+							dy="1.2em" class="st11">Flexible Server</tspan></text>			</g>
 		</g>
-		<g id="shape50-96" v:mID="50" v:groupContext="shape" v:layerMember="0" transform="translate(720,-468)">
+		<g id="shape50-97" v:mID="50" v:groupContext="shape" v:layerMember="0" transform="translate(720,-468)">
 			<title>Dynamic connector.50</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -480,7 +480,7 @@
 			<path d="M0 603 L188.47 603" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="89.4774" y="595.8" width="19.055" height="14.4001" class="st7"/>
 			<text x="89.48" y="606.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape51-103" v:mID="51" v:groupContext="shape" v:layerMember="0" transform="translate(684,-450)">
+		<g id="shape51-104" v:mID="51" v:groupContext="shape" v:layerMember="0" transform="translate(684,-450)">
 			<title>Dynamic connector.51</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -489,26 +489,26 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="135.75" cy="654.75" width="60.01" height="22.4037"/>
 			<path d="M0 612 L0 656.99 L224.48 656.99" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="127.342" y="647.55" width="16.8168" height="14.4001" class="st7"/>
+			<rect v:rectContext="textBkgnd" x="127.342" y="647.55" width="16.8168" height="14.4001" class="st13"/>
 			<text x="127.34" y="658.35" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="group53-110" transform="translate(918.017,-306.007)" v:mID="53" v:groupContext="group">
+		<g id="group53-111" transform="translate(918.017,-306.007)" v:mID="53" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<title>Sheet.53</title>
-			<g id="shape54-111" v:mID="54" v:groupContext="shape">
+			<g id="shape54-112" v:mID="54" v:groupContext="shape">
 				<title>Sheet.54</title>
-				<rect x="0" y="558" width="179.995" height="53.9997" class="st13"/>
+				<rect x="0" y="558" width="179.995" height="53.9997" class="st12"/>
 			</g>
-			<g id="shape55-113" v:mID="55" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
+			<g id="shape55-114" v:mID="55" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.55</title>
 				<desc>Azure SQL Database</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.471" width="125.55" height="39.0585"/>
-				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st13"/>
+				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st12"/>
 				<text x="6.07" y="596.07" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure SQL Database</text>			</g>
 		</g>
-		<g id="shape56-116" v:mID="56" v:groupContext="shape" v:layerMember="0" transform="translate(486,-450)">
+		<g id="shape56-117" v:mID="56" v:groupContext="shape" v:layerMember="0" transform="translate(486,-450)">
 			<title>Dynamic connector.56</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -519,25 +519,25 @@
 			<path d="M0 612 L0 730.66 L422.48 730.66" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="148.268" y="723.464" width="16.8168" height="14.4001" class="st7"/>
 			<text x="148.27" y="734.26" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="group77-123" transform="translate(918.017,-198)" v:mID="77" v:groupContext="group">
+		<g id="group77-124" transform="translate(918.017,-198)" v:mID="77" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(25000):26"/>
 			</v:userDefs>
 			<title>Sheet.77</title>
-			<g id="shape78-124" v:mID="78" v:groupContext="shape">
+			<g id="shape78-125" v:mID="78" v:groupContext="shape">
 				<title>Sheet.78</title>
-				<rect x="0" y="558" width="179.995" height="53.9997" class="st13"/>
+				<rect x="0" y="558" width="179.995" height="53.9997" class="st12"/>
 			</g>
-			<g id="shape79-126" v:mID="79" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
+			<g id="shape79-127" v:mID="79" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.79</title>
 				<desc>Azure CosmosDB for NoSQL</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.471" width="125.55" height="39.0585"/>
-				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st13"/>
+				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st12"/>
 				<text x="14.64" y="588.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure CosmosDB<v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="33.37" dy="1.2em" class="st12">for NoSQL</tspan></text>			</g>
+							v:horizAlign="1"/><tspan x="33.37" dy="1.2em" class="st11">for NoSQL</tspan></text>			</g>
 		</g>
-		<g id="shape85-130" v:mID="85" v:groupContext="shape" v:layerMember="1" transform="translate(558,-198)">
+		<g id="shape85-131" v:mID="85" v:groupContext="shape" v:layerMember="1" transform="translate(558,-198)">
 			<title>Decision.85</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -565,7 +565,7 @@
 			</v:userDefs>
 			<path d="M0 585 L36 558 L72 585 L36 612 L0 585 Z" class="st4"/>
 		</g>
-		<g id="shape86-132" v:mID="86" v:groupContext="shape" v:layerMember="0" transform="translate(630,-216)">
+		<g id="shape86-133" v:mID="86" v:groupContext="shape" v:layerMember="0" transform="translate(630,-216)">
 			<title>Dynamic connector.86</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -574,9 +574,9 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="142.95" cy="603" width="60.01" height="22.4037"/>
 			<path d="M0 603 L276.36 603" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="133.423" y="595.8" width="19.055" height="14.4001" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="133.423" y="595.8" width="19.055" height="14.4001" class="st7"/>
 			<text x="133.42" y="606.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape87-139" v:mID="87" v:groupContext="shape" v:layerMember="0" transform="translate(360,-450)">
+		<g id="shape87-140" v:mID="87" v:groupContext="shape" v:layerMember="0" transform="translate(360,-450)">
 			<title>Dynamic connector.87</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -587,26 +587,26 @@
 			<path d="M0 612 L0 837 L188.46 837" class="st14"/>
 			<rect v:rectContext="textBkgnd" x="-6.90829" y="718.8" width="16.8168" height="14.4001" class="st7"/>
 			<text x="-6.91" y="729.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="group88-147" transform="translate(918.032,-126)" v:mID="88" v:groupContext="group">
+		<g id="group88-148" transform="translate(918.032,-126)" v:mID="88" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(29000):26"/>
 			</v:userDefs>
 			<title>Sheet.88</title>
-			<g id="shape89-148" v:mID="89" v:groupContext="shape">
+			<g id="shape89-149" v:mID="89" v:groupContext="shape">
 				<title>Sheet.89</title>
-				<rect x="0" y="558" width="179.995" height="53.9997" class="st13"/>
+				<rect x="0" y="558" width="179.995" height="53.9997" class="st12"/>
 			</g>
-			<g id="shape90-150" v:mID="90" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
+			<g id="shape90-151" v:mID="90" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.90</title>
 				<desc>Azure CosmosDB for MongoDB (vCore)</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.471" width="125.55" height="39.0585"/>
-				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st13"/>
+				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st12"/>
 				<text x="14.64" y="581.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure CosmosDB<v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="24.07" dy="1.2em" class="st12">for MongoDB </tspan><tspan x="42.05"
-							dy="1.2em" class="st12">(vCore)</tspan></text>			</g>
+							v:horizAlign="1"/><tspan x="24.07" dy="1.2em" class="st11">for MongoDB </tspan><tspan x="42.05"
+							dy="1.2em" class="st11">(vCore)</tspan></text>			</g>
 		</g>
-		<g id="shape91-155" v:mID="91" v:groupContext="shape" v:layerMember="0" transform="translate(594,-198)">
+		<g id="shape91-156" v:mID="91" v:groupContext="shape" v:layerMember="0" transform="translate(594,-198)">
 			<title>Dynamic connector.91</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -617,24 +617,24 @@
 			<path d="M0 612 L0 658.51 L314.49 658.51" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="173.092" y="652.8" width="16.8168" height="14.4001" class="st7"/>
 			<text x="173.09" y="663.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="group92-162" transform="translate(918.01,-36.0002)" v:mID="92" v:groupContext="group">
+		<g id="group92-163" transform="translate(918.01,-36.0002)" v:mID="92" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
 			</v:userDefs>
 			<title>Sheet.92</title>
-			<g id="shape93-163" v:mID="93" v:groupContext="shape">
+			<g id="shape93-164" v:mID="93" v:groupContext="shape">
 				<title>Sheet.93</title>
-				<rect x="0" y="558" width="179.995" height="53.9997" class="st13"/>
+				<rect x="0" y="558" width="179.995" height="53.9997" class="st12"/>
 			</g>
-			<g id="shape94-165" v:mID="94" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
+			<g id="shape94-166" v:mID="94" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.94</title>
 				<desc>Azure AI Search</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="592.471" width="125.55" height="39.0585"/>
-				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st13"/>
+				<rect x="0" y="572.941" width="125.546" height="39.0585" class="st12"/>
 				<text x="18.27" y="596.07" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Search</text>			</g>
 		</g>
-		<g id="shape95-168" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(117,-297)">
+		<g id="shape95-169" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(117,-297)">
 			<title>Dynamic connector.95</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -645,7 +645,7 @@
 			<path d="M0 612 L182.51 612 L182.51 846 L791.47 846" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="88.7225" y="604.802" width="19.055" height="14.4001" class="st7"/>
 			<text x="88.72" y="615.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape96-175" v:mID="96" v:groupContext="shape" v:layerMember="0" transform="translate(117,-207)">
+		<g id="shape96-176" v:mID="96" v:groupContext="shape" v:layerMember="0" transform="translate(117,-207)">
 			<title>Dynamic connector.96</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -656,7 +656,7 @@
 			<path d="M0 612 L182.51 612 L182.51 756.01 L791.47 756.01" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="87.2225" y="604.052" width="19.055" height="14.4001" class="st7"/>
 			<text x="87.22" y="614.85" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape97-182" v:mID="97" v:groupContext="shape" v:layerMember="0" transform="translate(117,-117)">
+		<g id="shape97-183" v:mID="97" v:groupContext="shape" v:layerMember="0" transform="translate(117,-117)">
 			<title>Dynamic connector.97</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -667,28 +667,31 @@
 			<path d="M0 612 L182.51 612 L182.51 666.01 L791.47 666.01" class="st5"/>
 			<rect v:rectContext="textBkgnd" x="87.2225" y="604.802" width="19.055" height="14.4001" class="st7"/>
 			<text x="87.22" y="615.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape98-189" v:mID="98" v:groupContext="shape" transform="translate(507.33,-437.04)">
+		<g id="shape98-190" v:mID="98" v:groupContext="shape" transform="translate(507.33,-425.25)">
 			<title>Sheet.98</title>
-			<desc>Need vector data type with ANN vector index</desc>
+			<desc>Need vector data type with approximate nearest neighbor (ANN)...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="72.0036" cy="596.52" width="144.01" height="30.96"/>
-			<rect x="0" y="581.04" width="144.007" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Need vector data type <tspan x="4"
-						dy="1.2em" class="st12">with ANN vector index</tspan></text>		</g>
-		<g id="shape99-193" v:mID="99" v:groupContext="shape" transform="translate(378.667,-437.04)">
+			<rect x="0" y="581.04" width="144.007" height="30.96" class="st9"/>
+			<text x="4" y="578.52" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Need vector data type <tspan x="4"
+						dy="1.2em" class="st11">with approximate nearest </tspan><tspan x="4" dy="1.2em" class="st11">neighbor (ANN) vector </tspan><tspan
+						x="4" dy="1.2em" class="st11">index</tspan></text>		</g>
+		<g id="shape99-196" v:mID="99" v:groupContext="shape" transform="translate(373.5,-410.04)">
 			<title>Sheet.99</title>
-			<desc>Prefer RDBMS</desc>
+			<desc>Prefer relational database management system (RDBMS)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="54" cy="596.52" width="108" height="30.96"/>
-			<rect x="0" y="581.04" width="108" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Prefer RDBMS<v:newlineChar/></text>		</g>
-		<g id="shape100-196" v:mID="100" v:groupContext="shape" transform="translate(108.011,-432.007)">
+			<v:textRect cx="58.5" cy="596.52" width="117" height="30.96"/>
+			<rect x="0" y="581.04" width="117" height="30.96" class="st9"/>
+			<text x="4" y="571.32" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Prefer relational <tspan x="4" dy="1.2em"
+						class="st11">database </tspan><tspan x="4" dy="1.2em" class="st11">management </tspan><tspan x="4"
+						dy="1.2em" class="st11">system (RDBMS)</tspan><v:newlineChar/></text>		</g>
+		<g id="shape100-202" v:mID="100" v:groupContext="shape" transform="translate(108.011,-432.007)">
 			<title>Sheet.100</title>
 			<desc>Insert, update, or delete vector data frequently. The search ...</desc>
 			<v:userDefs>
@@ -696,10 +699,10 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="89.9964" cy="596.52" width="180" height="30.96"/>
-			<rect x="0" y="581.04" width="179.993" height="30.96" class="st10"/>
-			<text x="4" y="585.72" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Insert, update, or delete vector <tspan
-						x="4" dy="1.2em" class="st12">data frequently. The search </tspan><tspan x="4" dy="1.2em" class="st12">result must be up</tspan>-to-date.</text>		</g>
-		<g id="shape101-201" v:mID="101" v:groupContext="shape" transform="translate(108.004,-347.04)">
+			<rect x="0" y="581.04" width="179.993" height="30.96" class="st9"/>
+			<text x="4" y="585.72" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Insert, update, or delete vector <tspan
+						x="4" dy="1.2em" class="st11">data frequently. The search </tspan><tspan x="4" dy="1.2em" class="st11">result must be up</tspan>-to-date.</text>		</g>
+		<g id="shape101-207" v:mID="101" v:groupContext="shape" transform="translate(108.004,-347.04)">
 			<title>Sheet.101</title>
 			<desc>Cost optimization is top priority</desc>
 			<v:userDefs>
@@ -707,9 +710,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="89.9964" cy="596.52" width="180" height="30.96"/>
-			<rect x="0" y="581.04" width="179.993" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Cost optimization is top priority<v:newlineChar/></text>		</g>
-		<g id="shape102-204" v:mID="102" v:groupContext="shape" v:layerMember="0" transform="translate(117,-387)">
+			<rect x="0" y="581.04" width="179.993" height="30.96" class="st9"/>
+			<text x="4" y="592.92" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Cost optimization is top priority<v:newlineChar/></text>		</g>
+		<g id="shape102-210" v:mID="102" v:groupContext="shape" v:layerMember="0" transform="translate(117,-387)">
 			<title>Dynamic connector.102</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -718,9 +721,9 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="102" cy="612" width="60.01" height="22.4037"/>
 			<path d="M0 612 L183.43 612 L183.43 522 L197.46 522" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="92.4725" y="604.802" width="19.055" height="14.4001" class="st7"/>
+			<rect v:rectContext="textBkgnd" x="92.4725" y="604.802" width="19.055" height="14.4001" class="st13"/>
 			<text x="92.47" y="615.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape103-211" v:mID="103" v:groupContext="shape" transform="translate(107.996,-257.04)">
+		<g id="shape103-217" v:mID="103" v:groupContext="shape" transform="translate(107.996,-257.04)">
 			<title>Sheet.103</title>
 			<desc>Built-in advanced search features with high quality</desc>
 			<v:userDefs>
@@ -728,10 +731,10 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="72.0036" cy="596.52" width="144.01" height="30.96"/>
-			<rect x="0" y="581.04" width="144.007" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Built-in advanced search <tspan x="4"
-						dy="1.2em" class="st12">features with high quality</tspan></text>		</g>
-		<g id="shape105-215" v:mID="105" v:groupContext="shape" transform="translate(107.996,-167.04)">
+			<rect x="0" y="581.04" width="144.007" height="30.96" class="st9"/>
+			<text x="4" y="592.92" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Built-in advanced search <tspan x="4"
+						dy="1.2em" class="st11">features with high quality</tspan></text>		</g>
+		<g id="shape105-221" v:mID="105" v:groupContext="shape" transform="translate(107.996,-167.04)">
 			<title>Sheet.105</title>
 			<desc>Need to index unstructured data</desc>
 			<v:userDefs>
@@ -739,9 +742,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="99" cy="596.52" width="198" height="30.96"/>
-			<rect x="0" y="581.04" width="198" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Need to index unstructured data<v:newlineChar/></text>		</g>
-		<g id="shape106-218" v:mID="106" v:groupContext="shape" transform="translate(108.011,-77.04)">
+			<rect x="0" y="581.04" width="198" height="30.96" class="st9"/>
+			<text x="4" y="592.92" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Need to index unstructured data<v:newlineChar/></text>		</g>
+		<g id="shape106-224" v:mID="106" v:groupContext="shape" transform="translate(108.011,-77.04)">
 			<title>Sheet.106</title>
 			<desc>Up to 3,072 vector dimensions with high performance</desc>
 			<v:userDefs>
@@ -749,10 +752,10 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="89.9892" cy="596.52" width="179.98" height="30.96"/>
-			<rect x="0" y="581.04" width="179.978" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Up to 3,072 vector dimensions <tspan
-						x="4" dy="1.2em" class="st12">with high performance</tspan></text>		</g>
-		<g id="shape107-222" v:mID="107" v:groupContext="shape" transform="translate(615.996,-185.04)">
+			<rect x="0" y="581.04" width="179.978" height="30.96" class="st9"/>
+			<text x="4" y="592.92" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Up to 3,072 vector dimensions <tspan
+						x="4" dy="1.2em" class="st11">with high performance</tspan></text>		</g>
+		<g id="shape107-228" v:mID="107" v:groupContext="shape" transform="translate(615.996,-185.04)">
 			<title>Sheet.107</title>
 			<desc>Need to have more than 2,000 dimensions</desc>
 			<v:userDefs>
@@ -760,15 +763,15 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="72.0036" cy="596.52" width="144.01" height="30.96"/>
-			<rect x="0" y="581.04" width="144.007" height="30.96" class="st10"/>
-			<text x="4" y="592.92" class="st11" v:langID="1033"><v:paragraph/><v:tabList/>Need to have more than <tspan x="4"
-						dy="1.2em" class="st12">2,000 dimensions</tspan></text>		</g>
-		<g id="shape110-226" v:mID="110" v:groupContext="shape" v:layerMember="2" transform="translate(918.029,-306.043)">
+			<rect x="0" y="581.04" width="144.007" height="30.96" class="st9"/>
+			<text x="4" y="592.92" class="st10" v:langID="1033"><v:paragraph/><v:tabList/>Need to have more than <tspan x="4"
+						dy="1.2em" class="st11">2,000 dimensions</tspan></text>		</g>
+		<g id="shape110-232" v:mID="110" v:groupContext="shape" v:layerMember="2" transform="translate(918.029,-306.043)">
 			<title>Sheet.110</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(44000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 			<image x="0" y="558.014" width="53.9856" height="53.9856" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAABMkSURBVHhe7V0JdFTXeSbN6bHeeyPT1imJKSRxa3KStpC0dhNsN7F7HBaxCJBAC2ijuI5NwCbghMU2UAcnxgYMIqwCs0ky
@@ -835,14 +838,14 @@
 						ISjhaTEg+SUxMGW3GJSWKi2+1CCFpH+qt3dqRhs1Q6d59F0pJKNVWnz1imnx5Sgh6OKvpOCL00yhFx/cj0K9n/HworS/M4Vf/RdTSMZz
 						YkjGfCksK9wUlr1SCs1ZI4XnrxcjCjaJEcVvSkuL10tLC18zRRSs9I4oiDBF5PpJ4fnPSxFZk02heePGbIbRD/cdHaNjyMb/AzREMJoA
 						N8W6AAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 		</g>
-		<g id="shape115-230" v:mID="115" v:groupContext="shape" transform="translate(918.022,-378.029)">
+		<g id="shape115-236" v:mID="115" v:groupContext="shape" transform="translate(918.022,-378.029)">
 			<title>Sheet.115</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(45000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 			<image x="0" y="558.014" width="53.9856" height="53.9856" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAABT/SURBVHhe7V0JdBNHmmZ23r5Y3SaZGXIQyDUJye4kS3aSTM7dmc28hPs0NtgYn5ibEMKRAQIJJjDcpznMfRkb24CxMdj4
@@ -915,14 +918,14 @@
 						+Mikniq/xA+YccnTGN/TWxm/symsf3odG5Dxgzy8EytaqTMUKxp92qboH9kA9XnWPzvL0z9zj8ovbQ47Pm2AZ2Ba9/0p1LaUR8ee/Z1n
 						cPZrngHqD5kA9Wg2KDfYM0gziw3Mm8cG5y9iQvRLmZDCL9nQwkVsqGG+Z4h+Vs8QfYhniHYMG5z/ERuS298zUPdkj3B4+OO+D8vD8sDK
 						/wOfSgmeeQe/agAAAABJRU5ErkJggg=="/>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 		</g>
-		<g id="shape116-234" v:mID="116" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-450.014)">
+		<g id="shape116-240" v:mID="116" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-450.014)">
 			<title>Sheet.116</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 			<image x="0" y="558.014" width="53.9856" height="53.9856" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAABZOSURBVHhe7V0JdBRVugbHeaOmG5cRHXFBEBVkUdwAZQlJV8/oPGeceePxvXlvNKlI2AQRFFACBmRVUHTcBlFcHi7A6Ci4
@@ -999,21 +1002,21 @@
 						br8kSt5AMliVWQWjYurU/VCB1of7b4R7rBcDjysGYCctKQ3w/0tklMGFZhS/jdsVhxGxQ+LcRIXBO24GT6fsJAaYER6uEaQC78Sh5mQ3
 						wj848J12wwjMyeC59M1wKj0nhTgRbvUD/j8GtFwKCYPv2Oi12YUR8/7+KUQH3F3GErqrNhBMwdriB7cxPh5X7zeF6OE2YAv+pxH0eApJ
 						hpvBf2PKR4+nkGTgPHLcM5oeTyGFHw7+B3pu3FLlXHUQAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 		</g>
-		<g id="shape119-238" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(936.018,-360.029)">
+		<g id="shape119-244" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(936.018,-360.029)">
 			<title>Dynamic connector.119</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(47000):26"/>
 			</v:userDefs>
 			<path d="M9 612 L9 599.52" class="st16"/>
 		</g>
-		<g id="shape120-244" v:mID="120" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-198)">
+		<g id="shape120-250" v:mID="120" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-198)">
 			<title>Sheet.120</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(48000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 			<image x="0" y="558.014" width="53.9856" height="53.9856" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAABZOSURBVHhe7V0JdBRVugbHeaOmG5cRHXFBEBVkUdwAZQlJV8/oPGeceePxvXlvNKlI2AQRFFACBmRVUHTcBlFcHi7A6Ci4
@@ -1090,14 +1093,14 @@
 						br8kSt5AMliVWQWjYurU/VCB1of7b4R7rBcDjysGYCctKQ3w/0tklMGFZhS/jdsVhxGxQ+LcRIXBO24GT6fsJAaYER6uEaQC78Sh5mQ3
 						wj848J12wwjMyeC59M1wKj0nhTgRbvUD/j8GtFwKCYPv2Oi12YUR8/7+KUQH3F3GErqrNhBMwdriB7cxPh5X7zeF6OE2YAv+pxH0eApJ
 						hpvBf2PKR4+nkGTgPHLcM5oeTyGFHw7+B3pu3FLlXHUQAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 		</g>
-		<g id="shape121-248" v:mID="121" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-126)">
+		<g id="shape121-254" v:mID="121" v:groupContext="shape" v:layerMember="2" transform="translate(918.036,-126)">
 			<title>Sheet.121</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(49000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 			<image x="0" y="558.014" width="53.9856" height="53.9856" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAABZOSURBVHhe7V0JdBRVugbHeaOmG5cRHXFBEBVkUdwAZQlJV8/oPGeceePxvXlvNKlI2AQRFFACBmRVUHTcBlFcHi7A6Ci4
@@ -1174,14 +1177,14 @@
 						br8kSt5AMliVWQWjYurU/VCB1of7b4R7rBcDjysGYCctKQ3w/0tklMGFZhS/jdsVhxGxQ+LcRIXBO24GT6fsJAaYER6uEaQC78Sh5mQ3
 						wj848J12wwjMyeC59M1wKj0nhTgRbvUD/j8GtFwKCYPv2Oi12YUR8/7+KUQH3F3GErqrNhBMwdriB7cxPh5X7zeF6OE2YAv+pxH0eApJ
 						hpvBf2PKR4+nkGTgPHLcM5oeTyGFHw7+B3pu3FLlXHUQAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="558.014" width="53.9856" height="53.9856" class="st9"/>
 		</g>
-		<g id="shape122-252" v:mID="122" v:groupContext="shape" v:layerMember="2" transform="translate(918.04,-35.9892)">
+		<g id="shape122-258" v:mID="122" v:groupContext="shape" v:layerMember="2" transform="translate(918.04,-35.9892)">
 			<title>Sheet.122</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(50000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="557.993" width="54.0072" height="54.0072" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="557.993" width="54.0072" height="54.0072" class="st9"/>
 			<image x="0" y="557.993" width="54.0072" height="54.0072" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYl
 						AUlSJPAAAA9GSURBVHhe7VwJdFTl2Z4udv3/riRgBMRgWQoIFDGsEgRBhAm2p631nK5HS5t9wQTIAhMSsw5Si5Wq1XIKCaBtI1oVkYIL
@@ -1235,7 +1238,7 @@
 						9dao5Hp7FG1IvzFN46ocTr4GI4wXzpYY64jrJdV/FJVU/3p0Uv1PTZvG4J/DhTf4VHRi4y3fTKxNHpdYt39cYu2ZcYm13qjEug/HJdZC
 						VGKdAKoJi6CacB1EJSmMNfWrc2oln8j8eDXEs0XGWsd/OTq5LhCVWHc2Krnu6ajEul98I7V+Ijv51WObzl0XldT8P9carsgjwTDDDDPM
 						MMMMM8wwwwwzzDDDDDPsGrX/B9pyLurarE6JAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="557.993" width="54.0072" height="54.0072" class="st10"/>
+			<rect v:rectContext="foreign" x="0" y="557.993" width="54.0072" height="54.0072" class="st9"/>
 		</g>
 	</g>
 </svg>
