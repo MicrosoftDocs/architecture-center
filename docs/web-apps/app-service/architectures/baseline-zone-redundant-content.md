@@ -93,7 +93,7 @@ The network in this architecture has separate subnets for the Application Gatewa
 
 Consider the following points when implementing virtual network segmentation and security.
 
-- Enable [DDoS protection](azure/ddos-protection/manage-ddos-protection) for the virtual network with a subnet that is part of an application gateway with a public IP.
+- Enable [DDoS protection](/azure/ddos-protection/manage-ddos-protection) for the virtual network with a subnet that is part of an application gateway with a public IP.
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
