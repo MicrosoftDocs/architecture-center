@@ -59,7 +59,7 @@ Application Gateway is a regional resource that meets the requirements of this b
 - Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
-- Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
+- Consider implementing [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) for Application Gateway to readily adjust to dynamic traffic flows. 
 - Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
 - Disable public network access on the App Service to ensure network isolation. In Bicep, public network access is disabled by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
 
@@ -93,7 +93,7 @@ The network in this architecture has separate subnets for the Application Gatewa
 
 Consider the following points when implementing virtual network segmentation and security.
 
-- Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
+- Enable [DDoS protection](azure/ddos-protection/manage-ddos-protection) for the virtual network with a subnet that is part of an application gateway with a public IP.
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
@@ -205,7 +205,7 @@ The App Service baseline configures authentication and authorization for user id
 
 ##### User identities
 
-- Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+- Use the [integrated authentication mechanism for App Service](/azure/app-service/overview-authentication-authorization) ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 - Configure the reply URL for the custom domain. You must redirect the web app to `https://<application-gateway-endpoint>/.auth/login/<provider>/callback`. Replace `<application-gateway-endpoint>` with either the public IP address or the custom domain name associated with your application gateway. Replace `<provider>` with the authentication provider you're using, such as "aad" for Microsoft Entra ID. You can use [the Azure Front documentation](/azure/app-service/overview-authentication-authorization#considerations-when-using-azure-front-door) to set up this flow with Application Gateway or [Setting up Application Gateway](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/setting-up-application-gateway-with-an-app-service-that-uses/ba-p/392490).
 
 ##### Workload identities
@@ -313,7 +313,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 
 ##### Database
 
-- User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
+- User database Insights. For Azure SQL databases, it is recommended to use [Database Watcher](/azure/azure-sql/database-watcher-overview). Database watcher is a managed monitoring solution for database services in the Azure SQL family. For more information and other options, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 - If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
 ### Performance Efficiency
