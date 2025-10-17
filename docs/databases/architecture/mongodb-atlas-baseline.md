@@ -82,9 +82,11 @@ The architecture brings together several core components to deliver security, sc
 - **Observability**: [Azure Application Insights](azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility.
 - **Infrastructure Automation**: Terraform modules and GitHub Actions enable infrastructure as code, automation, and repeatable deployments.
 
----
+## Considerations
 
-## Alternatives
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Alternatives
 
 When considering the deployment of MongoDB Atlas in Azure, several alternative database services and deployment patterns may be evaluated based on organizational requirements, technical constraints, and existing skill sets:
 
@@ -98,7 +100,7 @@ Each alternative has its own trade-offs in terms of cost, operational complexity
 
 For more information about MongoDB Atlas and its [use cases](https://www.mongodb.com/solutions/use-cases), refer to the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/).
 
-## Security
+### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
@@ -124,32 +126,11 @@ When implementing VNet peering for MongoDB Atlas connectivity, consider the foll
 
 **Note**: Azure Key Vault or Atlas secrets management can be integrated to secure application credentials.
 
----
-
-## Operational Excellence
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-### Backup and Recovery
-
-- MongoDB Atlas automated backup policies ensure that data can be restored to any point in time, within retention limits.
-- Operational runbooks should include regular backup testing and validation.
-
-### Cost Optimization
-
-Cost tracking requires careful monitoring across multiple subscription architectures because MongoDB Atlas billing consolidates under the primary subscription. Understand cost allocation patterns and use appropriate tools for comprehensive expense tracking.
-
-Use Microsoft Cost Management tools to track overall Azure expenses across all subscriptions:
-
-- **Review costs regularly by using Cost Management tools.** These tools provide insights into overall Azure expenses and track resource usage patterns across your MongoDB Atlas deployment.
-
-- **Understand billing consolidation.** Charges related to MongoDB Atlas resources in the primary subscription consolidate under that subscription. Individual per-subscription billing details aren't itemized in Azure for MongoDB Atlas resources.
-
-- **Track independent charges through MongoDB Atlas.** For detailed cost tracking and invoicing specific to MongoDB Atlas usage, refer to MongoDB Atlas cost management tools and reports.
-
-- **Cluster sizing is based on observed workload metrics** with reserved capacity available for predictable workloads. For more information related to Cluster configuration costs, check [this document](https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/) in the MongoDB Atlas site.
-
-### Monitoring
+#### Monitoring
 
 Monitoring is a crucial part of workload operations. Design a comprehensive workload [monitoring solution](/azure/well-architected/operational-excellence/observability) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
 
@@ -169,7 +150,24 @@ Also, we recommend to configure **Project Alerts** to notify on metric drift fro
 
 **Note:** Azure Monitor cannot read Atlas metrics directly. Use Atlas UI/API/webhooks or supported integrations to ingest them.
 
----
+#### Backup and Recovery
+
+- MongoDB Atlas automated backup policies ensure that data can be restored to any point in time, within retention limits.
+- Operational runbooks should include regular backup testing and validation.
+
+### Cost Optimization
+
+Cost tracking requires careful monitoring across multiple subscription architectures because MongoDB Atlas billing consolidates under the primary subscription. Understand cost allocation patterns and use appropriate tools for comprehensive expense tracking.
+
+Use Microsoft Cost Management tools to track overall Azure expenses across all subscriptions:
+
+- **Review costs regularly by using Cost Management tools.** These tools provide insights into overall Azure expenses and track resource usage patterns across your MongoDB Atlas deployment.
+
+- **Understand billing consolidation.** Charges related to MongoDB Atlas resources in the primary subscription consolidate under that subscription. Individual per-subscription billing details aren't itemized in Azure for MongoDB Atlas resources.
+
+- **Track independent charges through MongoDB Atlas.** For detailed cost tracking and invoicing specific to MongoDB Atlas usage, refer to MongoDB Atlas cost management tools and reports.
+
+- **Cluster sizing is based on observed workload metrics** with reserved capacity available for predictable workloads. For more information related to Cluster configuration costs, check [this document](https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/) in the MongoDB Atlas site.
 
 ## Next Steps
 
