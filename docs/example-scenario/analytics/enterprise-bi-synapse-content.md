@@ -224,7 +224,7 @@ Three main components influence the price of a pipeline:
 
 For pricing details, see the *Data Factory pricing meters* tab on [Data Factory pricing](/fabric/data-factory/pricing-overview).
 
-The price varies depending on components or activities, frequency, and overall compute associated with orchestration.
+The price varies depending on components or activities, frequency, and overall compute associated with orchestration. Any data movement due to pipeline activities or COPY JOB will incur cost, but compute associated with data movement via [Fabric Mirroring](/fabric/mirroring/overview#cost-of-mirroring) is free and storage cost of Mirrored data is free upto Capacity size. For example, if you purchase an F64 capacity, you get 64 free terabytes worth of storage, exclusively used for mirroring. OneLake storage is billed if free Mirroring storage limit is exceeded, or when the capacity is paused. 
 
 #### Microsoft Fabric Data Lakehouse or Warehouse or Eventhouse
 
