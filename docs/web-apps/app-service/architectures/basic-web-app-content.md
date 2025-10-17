@@ -65,7 +65,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 This architecture isn't designed for production deployments. The following critical security features were omitted in this architecture, along with other reliability recommendations and considerations:
 
-- This basic architecture doesn't implement network privacy. The data and management planes for the resources, such as App Service and Azure SQL Server, are reachable over the public internet. Omitting private networking significantly increases the attack surface of your architecture. For more information about how implementing private networking ensures the following security features, see [Baseline highly available zone-redundant web application - Networking](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#networking):
+- This basic architecture doesn't implement network privacy. The data and management planes for the resources, such as App Service and Azure SQL Server, are reachable over the public internet. Omitting private networking significantly increases the attack surface of your architecture. For more information about how implementing private networking ensures the following security features, see [Baseline highly available zone-redundant web application – Networking](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#networking). Implementing private networking helps mitigate these risks by providing the following security features:
 
   - A single secure entry point for client traffic.
 
@@ -117,7 +117,7 @@ This architecture optimizes for cost through the many trade-offs against the oth
 
 - No private endpoints
 
-- Minimal logs and log retention period in Log Analytics
+- Minimal logs and log retention period in Azure Monitor Logs
 
 To view the estimated cost of this architecture, see the [pricing calculator estimate](https://azure.com/e/a5e725c0fda44d4286fd1836976f56f8) that uses this architecture's components. The cost of this architecture can usually be further reduced by using an [Azure Dev/Test subscription](https://azure.microsoft.com/pricing/offers/dev-test/), which would be an ideal subscription type for POCs like this.
 
@@ -137,7 +137,7 @@ Consider the following configuration recommendations and considerations:
 
 - When you move to production, store your secrets in Key Vault. Key Vault improves the governance of secrets in two ways:
 
-  - Externalizing your storage of secrets to Key Vault allows you to centralize your storage of secrets. This approach provides a single, centralized location to manage secrets.
+  - Externalizing your secrets to Key Vault provides a single, centralized location for secure secret management.
 
   - By using Key Vault, you can log every interaction with secrets, including every time a secret is accessed.
 
