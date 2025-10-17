@@ -56,6 +56,12 @@ The workflow is read left to right, following the flow of data:
     - Use data science experiences for ML modeling, AutoML, and Azure ML integration to enrich datasets.
     - Empower data scientists to train and deploy models directly on Fabric’s unified data foundation with Azure ML, delivering real-time predictive insights seamlessly into analytics experiences for end users.
     - Interact with Data agent in Microsoft Fabric to uncover insights through chat. Access to enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.
+- **Data share**
+    - External data sharing in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing seamless cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. For detailed information on how external data sharing works in Microsoft Fabric, refer to [External data sharing in Microsoft Fabric](/fabric/governance/external-data-sharing-overview).
+    - Disaster recovery DR ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
+      - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
+      - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
+      - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
 - **Discover and govern**
     - Use Purview integration, OneLake catalog, and Microsoft Fabric governance tools for lineage, metadata, and access control.
 - **Platform**
@@ -180,6 +186,52 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
+- **Azure Cosmos DB**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Microsoft
+    - Contoso SKU selection: Single Region Write with Periodic backup
+    - DR uplift options:
+        - Single-region accounts might lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/reliability/reliability-cosmos-db-nosql#availability).
+        - It's [recommended](/azure/reliability/reliability-cosmos-db-nosql#availability) that Azure Cosmos DB accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity.
+    - Notes:
+        - To protect against data loss in a region, Azure Cosmos DB provides [two different backup](/azure/reliability/reliability-cosmos-db-nosql#durability) modes - Periodic and Continuous.
+        - [Regional failovers](/azure/reliability/reliability-cosmos-db-nosql#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application.
+        - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/reliability/reliability-cosmos-db-nosql#what-to-expect-during-a-region-outage).
+
+- **Azure Database for PostgreSQL Flexible Server**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: General Purpose or Memory Optimized tiers
+    - DR uplift options:
+        - Enable Geo-redundant backup storage for restore in paired region.
+        - Configure Cross-region read replicas for DR and read scale.
+    - Notes:
+        - Automatic backups with retention up to 35 days; HA with zone redundancy available.
+        - For details on Azure CosmosDB disaster recovery, see [Geo-disaster recovery in Azure Database for PostgreSQL](azure/postgresql/flexible-server/concepts-geo-disaster-recovery)
+
+- **Azure Databricks**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Premium or Enterprise tier
+    - DR uplift options:
+        - Deploy secondary workspace in a paired region and replicate configurations and data.
+        - Use Azure Storage geo-redundant options for underlying data in ADLS Gen2.
+    - Notes:
+        - In-region HA is built-in with zone redundancy; cross-region DR requires manual setup.
+        - For details on Azure Databricks disaster recovery, see [Disaster recovery - Azure Databricks](Disaster recovery).
+  
+- **Azure Event Hubs**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Standard/Premium/Dedicated tiers
+    - DR uplift options:
+        - Enable Geo-disaster recovery for metadata replication across paired namespaces.
+        - For full data replication, use Geo-replication (Premium/Dedicated tiers only).
+    - Notes:
+        - Geo-disaster recovery replicates metadata only, not event data.
+        - Geo-replication replicates both metadata and data for business continuity.
+        - For details on Azure Event Hubs disaster recovery, see [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+
 - **Azure Machine Learning**
     - Component recovery responsibility: Contoso and Microsoft
     - Workload/configuration recovery responsibility: Contoso
@@ -189,6 +241,27 @@ The following tables present a breakdown of each Azure service and component use
         - Resiliency can be uplifted via a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
     - Notes:
         - Azure Machine Learning itself doesn't [provide automatic failover or disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning).
+
+- **Azure SQL Database**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Business Critical or Premium tier recommended
+    - DR uplift options:
+        - Enable Failover Groups for automatic cross-region failover.
+        - Use Active Geo-replication for readable secondary databases.
+        - Configure Geo-redundant backup storage for geo-restore capability.
+    - Notes:
+        - For details on Azure SQL Database disaster recovery, see [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance).
+
+- **Dataverse**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Microsoft
+    - Contoso SKU selection: N/A
+    - DR uplift options:
+        - Built-in DR with Azure availability zones for in-region resilience.
+        - Self-service cross-region failover available for production environments.
+    - Notes:
+        - For details on Dynamics 365 and Power Platform disaster recovery SaaS applications, see [Business continuity and disaster recovery - Dynamic 365 and Power Platform](/power-platform/admin/business-continuity-disaster-recovery)
 
 - **Power BI**
     - Component recovery responsibility: Microsoft
@@ -206,7 +279,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR uplift options: N/A
     - Notes
-        - As of October 2024, [Microsoft Purview doesn't support automated business continuity and disaster recovery (BCDR)](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
+        - [Microsoft Purview doesn't support automated business continuity and disaster recovery (BCDR)](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
 
  - **Microsoft Fabric: OneLake**
     - Component recovery responsibility: Microsoft
@@ -256,6 +329,19 @@ The following tables present a breakdown of each Azure service and component use
     - Note:
         - Mirrored databases from the primary region remain unavailable to customers and the settings aren't replicated to the secondary region.
         - Recreate mirrored database in another workspace from a different region.
+
+- **Third party data sources**
+    - Amazon S3
+        - Note:
+            - For further details regarding disaster recovery for Amazon S3, refer to [Resilience in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/disaster-recovery-resiliency.html).
+    - GCP Storage
+        - Note: For further details regarding disaster recovery for GCP Storage, refer to [Architecting disaster recovery for GCP storage](https://cloud.google.com/architecture/disaster-recovery#cloud_storage).
+    - Snowflake
+        - Note: For further details regarding disaster recovery for Snowflake, refer to [business continuity & disaster recovery in Snowflake](https://docs.snowflake.com/en/user-guide/replication-intro).
+    - Amazon Web Service (General)
+        - Note: For further details regarding disaster recovery for Amazon Web Service, refer to [Disaster recovery options in AWS](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html).
+    - Google Cloud Platform (General)
+        - Note: For further details regarding disaster recovery for Google Cloud Platform, refer to [Architecting disaster recovery for GCP infrastructure outages](https://cloud.google.com/architecture/disaster-recovery).
       
 ### Stateless data platform-specific services
 
@@ -274,7 +360,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Configure two or more KQL databases in different regions, and keep data and policies in sync between the databases. 
     - Notes
-        - Refer to recovery procedures for [Experience-specific disaster recovery guidance - Real-Time Intelligence](/fabric/security/experience-specific-guidance#real-time-intelligence).   
+        - Refer to recovery procedures for [Experience-specific disaster recovery guidance - Real-Time Intelligence](/fabric/security/experience-specific-guidance#real-time-intelligence).
 
 - **Microsoft Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
@@ -297,11 +383,15 @@ The following tables present a breakdown of each Azure service and component use
         - Disaster recovery for Data Science in Microsoft Fabric involves manual copying and recreation of resources in a secondary region, with no built-in cross region replication.
         - For further details regarding disaster recovery for Fabric Data Science, refer to [Disaster recovery guidance for Fabric Data Science](/fabric/data-science/data-science-disaster-recovery).
 
+- **Third party data source**
+    - AWS Kinesis
+        - Notes: For further details regarding disaster recovery for AWS Kinesis, refer to [Resilience in Amazon Kinesis Data Streams]([https://docs.snowflake.com/en/user-guide/replication-intro](https://docs.aws.amazon.com/streams/latest/dev/disaster-recovery-resiliency.html).
+
 ## Stateful vs stateless components
 
-The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
+The speed of innovation across the Microsoft product suite—and Azure in particular—means the set of components used in this example will continue to evolve. To help future-proof this guidance and make it easier to apply to components not explicitly covered here, the section below offers direction based on a simple classification of state.
 
-A component/service can be described as stateful if it's designed to remember preceding events or user interactions. Stateless means there's no record of previous interactions, and each interaction request has to be handled based entirely on information that comes with it.
+A component or service is considered stateful if it’s designed to retain information from previous events or interactions. Examples include Lakehouse, Eventhouse, and Warehouse, which store data and metadata that must be protected and recovered. By contrast, stateless components keep no record of prior interactions; each request is processed independently using only the information provided at that moment. Examples include Data Factory and Notebooks, which orchestrate or process data without persisting it, relying on external stateful components for storage.
 
 For a DR scenario that calls for redeployment:
 
@@ -314,6 +404,26 @@ For a DR scenario that calls for redeployment:
         - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption or errors may result in an earlier backup being used in place of the latest version available.
     - Any delta between the component date/timestamp and the current date should be addressed by reexecuting or replaying the data ingestion processes from that point forward.
     - Once the component's dataset is up to date, it can be introduced into the broader system.
+
+## Other key services
+
+This section contains high availability (HA) and DR guidance for other key Azure data components and services.
+    - Azure Analysis Services - HA guidance can be found in the [product documentation](/analysis-services/azure-analysis-services/analysis-services-bcdr).
+    - Azure Database for MySQL
+        - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity).
+        - Single Server HA guidance can be found in the [product documentation](/azure/mysql/).
+    - SQL
+        - SQL on Azure VMs guidance can be found in the [product documentation](/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
+        - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
+    - Azure IoT Hubs - oT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub. IoT Hub provides [Intra-Region HA](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#intra-region-ha) and will automatically use an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#availability-zones).
+    - Azure Stream Analytics - While Azure Stream Analytics is a fully managed platform as a service (PaaS) offering, it doesn't provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure regions.
+    - Azure Data Share - The Azure Data Share resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
+    - Azure Synapse: Pipelines - Disaster recovery uplift option for the pipelines are not applicable because Azure Synapse resiliency is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature. If Self-Hosted Data Pipelines are used, they'll remain the customer's responsibility for recovery from a disaster.
+    - Azure Synapse: Data Explorer Pools - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available.
+    - Azure Synapse: Spark Pools - Currently, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery) and [doesn't support it for Apache Spark pools](https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/microsoft-defender-for-key-vault---deploy-to-azure-synapse-analytics/3201308)
+    - Azure Synapse: Serverless and Dedicated SQL Pools - Azure Synapse Analytics [automatically takes snapshots](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#database-restore-points) throughout the day to create restore points that are available for seven days, and Azure Synapse Analytics performs a [standard geo-backup](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours. If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
+    - Azure AI services - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
+    - Azure AI Search - There's [no built-in mechanism for disaster recovery](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
 
 ## Next steps
 Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml).
