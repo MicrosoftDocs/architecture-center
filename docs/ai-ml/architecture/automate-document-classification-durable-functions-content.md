@@ -124,7 +124,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
-Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
+Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
 
 ## Contributors
 

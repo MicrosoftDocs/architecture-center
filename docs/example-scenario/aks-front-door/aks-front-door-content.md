@@ -83,7 +83,7 @@ The following steps describe the message flow for a request that an external cli
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 
-- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
+- The deployment requires [Azure role-based access control (Azure RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
 
   - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
