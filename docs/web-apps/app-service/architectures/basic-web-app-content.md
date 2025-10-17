@@ -193,23 +193,25 @@ An outcome of your POC should be SKU selection that you estimate is suitable for
 
 ## Next steps
 
+Deployment tutorials:
+
 - [Deploy App Service with a SQL Database](/azure/app-service/tutorial-dotnetcore-sqldb-app)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/azure/devops/pipelines/targets/azure-sqldb)
 
 Product documentation:
 
 - [App Service overview](/azure/app-service/overview)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [App Service plan overview](/azure/app-service/overview-hosting-plans)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
-- [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
+- [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 
 Microsoft Learn modules:
 
-- [Configure and manage Azure Monitor](/training/modules/azure-monitor)
-- [Configure Microsoft Entra ID](/training/modules/configure-azure-active-directory)
-- [Configure Azure Monitor](/training/modules/configure-azure-monitor)
-- [Deploy and configure servers, instances, and databases for Azure SQL](/training/modules/azure-sql-deploy-configure)
+- [Secure Azure by using Microsoft Defender for Cloud and Microsoft Sentinel](/training/paths/secure-azure-using-microsoft-defender-cloud-sentinel)
+- [Understand Microsoft Entra ID](/training/modules/understand-azure-active-directory)
+- [Configure Azure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data)
 - [Explore App Service](/training/modules/introduction-to-azure-app-service)
 - [Host a web application with App Service](/training/modules/host-a-web-app-with-azure-app-service)
 - [Host your domain on Azure DNS](/training/modules/host-domain-azure-dns)
