@@ -12,25 +12,28 @@ keyword: Azure
 
 # Baseline MongoDB Atlas architecture
 
-> [!IMPORTANT]
-> The [Terraform Landing Zone for MongoDB Atlas on Azure](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) assumes that you already successfully implemented an Azure landing zone. However, you can use the Terraform Landing Zone for MongoDB Atlas on Azure if your infrastructure doesn't conform to Azure landing zones. For more information, refer to [Cloud Adoption Framework enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-
 ## Overview
 
-This article describes a baseline reference architecture for deploying MongoDB Atlas in an Azure application landing zone. The solution demonstrates how to establish secure, private connectivity between Azure resources and MongoDB Atlas clusters, according to the Well-Architected Framework .
+This article describes a baseline architecture for deploying MongoDB Atlas in an Azure application landing zone. The solution demonstrates how to establish secure, private connectivity between Azure resources and MongoDB Atlas clusters, according to the Well-Architected Framework .
+
+> [!IMPORTANT]
+> **What are Azure landing zones?**
+> Azure landing zones present two perspectives of an organization's cloud footprint. An *application landing zone* is an Azure subscription in which a workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure that runs the workload, such as networking, identity access management, policies, and monitoring. A *platform landing zone* is a collection of various subscriptions, each with a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) that are available for application teams to use.
+>
+> We recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone) to help you prepare for the implementation of this architecture.
 
 By leveraging managed cloud services and Azure-native networking, this architecture provides a foundation for scalable, resilient, and secure application data workloads across both single-region and multi-region scenarios.
 
 > [!IMPORTANT]
-> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) that demonstrates a baseline MongoDB Atlas solution on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
+> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone) that demonstrates a baseline MongoDB Atlas solution on Azure. It is recommended that you deploy the solution in an Azure application landing zone, but it isn't required. You can deploy the solution into a clean Azure subscription.
 
 ## Architecture
 
-The MongoDB Atlas Azure landing zone accelerator supports two deployment patterns, each designed to address different requirements for availability, resilience, and operational complexity:
+You can deploy the MongoDB Atlas service according to two deployment patterns, each designed to address different requirements for availability, resilience, and operational complexity:
 
-### Single-Region Architecture
+### Single-region architecture
 
-In the single-region deployment, all core components—including the MongoDB Atlas cluster, Azure Virtual Network, monitoring, and supporting application infrastructure—are provisioned within a single Azure region. This setup is ideal for applications with regional data residency requirements or when resilience to regional failure is not a primary concern.
+In the single-region deployment, all core components, including the MongoDB Atlas cluster, Azure Virtual Network, monitoring, and supporting application infrastructure, are provisioned within a single Azure region. This setup is ideal for applications with regional data residency requirements or when resilience to regional failure is not a primary concern.
 
 #### Architecture Diagram
 
@@ -40,7 +43,7 @@ In the single-region deployment, all core components—including the MongoDB Atl
 
 The following steps describe the end-to-end workflow for the single-region scenario. Each step corresponds to a numbered element in the architecture diagram:
 
-1. **Application or Service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
+1. **Application or service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
 2. **MongoDB Atlas Cluster**: The MongoDB Atlas clusers are visible through a private endpoint connection and can connect to the applications or services deployed in the secured Virtual Network.
 3. **Observability**: An Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in Application Insights dashboards.
 
@@ -60,8 +63,8 @@ For organizations with higher requirements for business continuity and disaster 
 
 The following steps outline the multi-region scenario, with numbering matching the architecture diagram:
 
-1. **Application or Service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
-2. **MongoDB Atlas Cluster**: The MongoDB Atlas clusers are visible through a private endpoint connection and can connect to the applications or services deployed in the secured Virtual Network.
+1. **Application or service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
+2. **MongoDB Atlas cluster**: The MongoDB Atlas clusers are visible through a private endpoint connection and can connect to the applications or services deployed in the secured Virtual Network.
 3. **Observability**: An Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in Application Insights dashboards.
 4. **Resiliency**: VNet Peering is enabled so that in case of a regional outage, all remaining regions have visibility to the rest of the MongoDB Atlas clusters.
 
@@ -69,16 +72,14 @@ This architecture enables organizations to deliver highly available, resilient s
 
 Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/architecture/current/deployment-paradigms/multi-region/#5-node--3-region-architecture--2-2-1-) for more detailed information on 5-Node, 3-Region Architecture (2+2+1).
 
----
-
 ## Components
 
 The architecture brings together several core components to deliver security, scalability, and operational excellence:
 
-- **MongoDB Atlas (Managed Service)**: Provides managed database clusters with automated backups, high availability, and optional multi-region deployment. Atlas role-based access control (RBAC) ensures fine-grained data security.
-- **Azure Virtual Networks and Private Endpoints**: Ensure all communications between Azure resources and MongoDB Atlas are private and encrypted, never traversing the public internet.
-- **Network Security Groups (NSGs) and NAT Gateways**: Enforce network segmentation and secure outbound connectivity.
-- **Observability**: Azure Application Insights and Function Apps provide centralized monitoring and operational visibility.
+- **[MongoDB Atlas (Managed Service)](/azure/partner-solutions/mongo-db/overview)**: Provides managed database clusters with automated backups, high availability, and optional multi-region deployment. Atlas role-based access control (RBAC) ensures fine-grained data security.
+- **Azure Virtual Networks and [Private Endpoints](/azure/private-link/private-endpoint-overview)**: Ensure all communications between Azure resources and MongoDB Atlas are private and encrypted, never traversing the public internet.
+- **Network Security Groups (NSGs) and [NAT Gateways](/azure/nat-gateway/nat-overview)**: Enforce network segmentation and secure outbound connectivity.
+- **Observability**: [Azure Application Insights](azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility.
 - **Infrastructure Automation**: Terraform modules and GitHub Actions enable infrastructure as code, automation, and repeatable deployments.
 
 ---
@@ -125,7 +126,9 @@ When implementing VNet peering for MongoDB Atlas connectivity, consider the foll
 
 ---
 
-## Operational Considerations
+## Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 ### Backup and Recovery
 
@@ -146,26 +149,23 @@ Use Microsoft Cost Management tools to track overall Azure expenses across all s
 
 - **Cluster sizing is based on observed workload metrics** with reserved capacity available for predictable workloads. For more information related to Cluster configuration costs, check [this document](https://www.mongodb.com/docs/atlas/billing/cluster-configuration-costs/) in the MongoDB Atlas site.
 
----
+### Monitoring
 
-## Monitoring
+Monitoring is a crucial part of workload operations. Design a comprehensive workload [monitoring solution](/azure/well-architected/operational-excellence/observability) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
 
-Monitoring is a critical part of any production-level solution. Support Azure solutions with a [monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
+The *Landing Zone for MongoDB Atlas on Azure* includes a monitoring component, as shown in the architecture diagrams, where an Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in the Application Insights dashboards. However, monitoring best practices can be further extended, and users are responsible for implementing these practices based on their specific requirements.
 
-The *Landing Zone for MongoDB Atlas on Azure* does not deploy or configure monitoring solutions for MongoDB Atlas on Azure. Users are responsible for implementing these practices based on their specific requirements.
+Please reference the [How to Monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor) article for more information about:
 
-Use Atlas to monitor:
-
-- **Metrics**
-- **Real-Time Performance Panel**
+- **Scan and order**
+- **Query targeting**
+- **Normalized System CPU**
 - **Namespace Insights**
 - **Query Profiler**
 - **Performance Advisor**
 - **Billing Cost Explorer**
 
-References for metrics: [How to Monitor MongoDB and What Metrics to Monitor](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor).
-
-Configure **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). Docs: [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/).
+Also, we recommend to configure **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, check out the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
 
 **Note:** Azure Monitor cannot read Atlas metrics directly. Use Atlas UI/API/webhooks or supported integrations to ingest them.
 
