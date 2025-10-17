@@ -8,8 +8,8 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
-> [!Note]
-> This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines.  Delphix CC Profiling and Delphix CC Masking templates are not yet available for Microsoft Fabric Data Factory.
+> [!NOTE]
+> This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines. Delphix CC Profiling and Delphix CC Masking templates are not yet available for Microsoft Fabric Data Factory. Contact your Perforce Delphix account representative about [Microsoft Fabric support](https://www.perforce.com/solutions/microsoft-compliance).
 
 ### Dataflow
 
