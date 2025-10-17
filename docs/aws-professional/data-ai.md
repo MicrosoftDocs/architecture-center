@@ -167,7 +167,7 @@ These AI services create new content or data that resembles human-generated outp
 
 | AWS service     | Azure services    | Analysis   |
 | ----  | --------  | ------  |
-| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/) | Amazon Bedrock, Azure AI Foundry, and Azure OpenAI Service provide foundation models for creating and deploying generative AI applications. |
+| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/) | Amazon Bedrock and Azure AI Foundry provide foundation models for creating and deploying generative AI applications. |
 
 ## Contributors
 
