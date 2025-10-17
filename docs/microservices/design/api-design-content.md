@@ -186,7 +186,7 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 }
 ```
 
-We expect that most requests create a new entity, so the method optimistically calls `CreateAsync` on the repository object, and then handles any duplicate-resource exceptions by updating the resource instead.
+It's expected that most requests create a new entity, so the method optimistically calls `CreateAsync` on the repository object and then handles any duplicate-resource exceptions by updating the resource instead.
 
 ## Next steps
 
