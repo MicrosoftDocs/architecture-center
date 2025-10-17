@@ -200,7 +200,7 @@ Some common security questions include:
 - Choose a network security technology to protect the integrity, confidentiality, and access of your networks and data.
   - Help secure Microsoft Fabric by using [network security](/fabric/security/protect-inbound-traffic) options.
 - Choose tools to detect and notify you of threats.
-  - Use Azure Synapse Analytics [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities, such as SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
+  - Microsoft Fabric doesn't have built-in threat detection. We recommend using combination of [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies) to set up alerts and review [Audit Logs](/fabric/security/security-overview#audit-logs) to track user activities.
 - Determine how to protect data on Fabric OneLake.
   - Help [protect](/fabric/security/security-overview#protect-data) data on Microsoft Fabric by using sensitivity labels from Microsoft Purview Information Protection. These labels such as General, Confidential, and Highly Confidential are widely used in Microsoft Office apps such as Word, PowerPoint, and Excel to protect sensitive information and they follow the data automatically from item to item as it flows through Fabric, all the way from data source to business user. 
 
