@@ -332,16 +332,15 @@ The following tables present a breakdown of each Azure service and component use
 
 - **Third party data sources**
     - Amazon S3
-        - Note:
-            - For further details regarding disaster recovery for Amazon S3, refer to [Resilience in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/disaster-recovery-resiliency.html).
+        - For further details regarding disaster recovery for Amazon S3, refer to [Resilience in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/disaster-recovery-resiliency.html).
     - GCP Storage
-        - Note: For further details regarding disaster recovery for GCP Storage, refer to [Architecting disaster recovery for GCP storage](https://cloud.google.com/architecture/disaster-recovery#cloud_storage).
+        - For further details regarding disaster recovery for GCP Storage, refer to [Architecting disaster recovery for GCP storage](https://cloud.google.com/architecture/disaster-recovery#cloud_storage).
     - Snowflake
-        - Note: For further details regarding disaster recovery for Snowflake, refer to [business continuity & disaster recovery in Snowflake](https://docs.snowflake.com/en/user-guide/replication-intro).
+        - For further details regarding disaster recovery for Snowflake, refer to [business continuity & disaster recovery in Snowflake](https://docs.snowflake.com/en/user-guide/replication-intro).
     - Amazon Web Service (General)
-        - Note: For further details regarding disaster recovery for Amazon Web Service, refer to [Disaster recovery options in AWS](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html).
+        - For further details regarding disaster recovery for Amazon Web Service, refer to [Disaster recovery options in AWS](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html).
     - Google Cloud Platform (General)
-        - Note: For further details regarding disaster recovery for Google Cloud Platform, refer to [Architecting disaster recovery for GCP infrastructure outages](https://cloud.google.com/architecture/disaster-recovery).
+        - For further details regarding disaster recovery for Google Cloud Platform, refer to [Architecting disaster recovery for GCP infrastructure outages](https://cloud.google.com/architecture/disaster-recovery).
       
 ### Stateless data platform-specific services
 
