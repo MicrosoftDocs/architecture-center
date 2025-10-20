@@ -332,7 +332,7 @@ resource "azurerm_role_assignment" "acr_contributor_user_role_assignement" {
 
 The Modern Web App pattern starts to break up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
-- *Use stateless services.* Ensure that your services are stateless. If your web app contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
+- *Use stateless services.* Ensure that your services are stateless. If your web app contains in-process session state, externalize it to a distributed cache like Azure Managed Redis or a database like SQL Server.
 
 - *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, like Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control that allows you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
 
