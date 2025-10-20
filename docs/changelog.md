@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/13/2025
+ms.date: 10/20/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -23,11 +23,21 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Build a CI/CD Pipeline for AKS Apps by Using Azure Pipelines](./guide/aks/aks-cicd-azure-pipelines.md)
+- [Choose an Analytical Data Store in Microsoft Fabric](./data-guide/technology-choices/fabric-analytical-data-stores.md)
 
 ### Updated articles
 
+- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#fd98c13018](https://github.com/MicrosoftDocs/architecture-center/commit/fd98c13018))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml) ([#c2a02c20b5](https://github.com/MicrosoftDocs/architecture-center/commit/c2a02c20b5))
 - [SQL Server on Azure Virtual Machines With Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml) ([#942ff4bcde](https://github.com/MicrosoftDocs/architecture-center/commit/942ff4bcde))
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#461ec5c22c](https://github.com/MicrosoftDocs/architecture-center/commit/461ec5c22c))
+- [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#95cd197bcc](https://github.com/MicrosoftDocs/architecture-center/commit/95cd197bcc))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml) ([#7f72473005](https://github.com/MicrosoftDocs/architecture-center/commit/7f72473005))
+- [Machine learning operations](./ai-ml/guide/machine-learning-operations-v2.md) ([#7f72473005](https://github.com/MicrosoftDocs/architecture-center/commit/7f72473005))
+- [Databases architecture design](./databases/index.yml) ([#8b27a99705](https://github.com/MicrosoftDocs/architecture-center/commit/8b27a99705))
+- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#958e7153c0](https://github.com/MicrosoftDocs/architecture-center/commit/958e7153c0))
+- [Greenfield lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#63425739e5](https://github.com/MicrosoftDocs/architecture-center/commit/63425739e5))
+- [Azure App Configuration Considerations for Multitenancy](./guide/multitenant/service/app-configuration.md) ([#9ecc68fc6f](https://github.com/MicrosoftDocs/architecture-center/commit/9ecc68fc6f))
 - [Architecture Styles](./guide/architecture-styles/index.md) ([#f32add9408](https://github.com/MicrosoftDocs/architecture-center/commit/f32add9408))
 - [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#201780f215](https://github.com/MicrosoftDocs/architecture-center/commit/201780f215))
 - [Azure Local Storage Switchless Architecture](./hybrid/azure-local-switchless.yml) ([#201780f215](https://github.com/MicrosoftDocs/architecture-center/commit/201780f215))
@@ -49,7 +59,6 @@ The following new and updated articles have recently been published in the Azure
 - [Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md) ([#e85a727da0](https://github.com/MicrosoftDocs/architecture-center/commit/e85a727da0))
 - [Use AI Enrichment With Image and Text Processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#50db6c881f](https://github.com/MicrosoftDocs/architecture-center/commit/50db6c881f))
 - [Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#2b218fd4f3](https://github.com/MicrosoftDocs/architecture-center/commit/2b218fd4f3))
-- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#0a69ca8afd](https://github.com/MicrosoftDocs/architecture-center/commit/0a69ca8afd))
 - [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#78cf66ffc7](https://github.com/MicrosoftDocs/architecture-center/commit/78cf66ffc7))
 - [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#164a16ed9f](https://github.com/MicrosoftDocs/architecture-center/commit/164a16ed9f))
 - [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#b48a068ca2](https://github.com/MicrosoftDocs/architecture-center/commit/b48a068ca2))
