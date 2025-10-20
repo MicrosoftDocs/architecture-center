@@ -5,11 +5,11 @@ author: konabuta
 ms.author: keonabut
 ms.reviewer: saitoyu
 ms.date: 01/10/2025
+ms.update-cycle: 180-days
 ms.subservice: architecture-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
-ms.update-cycle: 180-days
 ---
 
 # Choose an Azure service for vector search
