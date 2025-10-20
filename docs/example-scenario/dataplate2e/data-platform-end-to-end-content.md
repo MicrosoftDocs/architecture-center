@@ -82,7 +82,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
    1. Additionally, you can use a [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
-3. Data can also be securely shared with other business units or external trusted partners using [Fabric external data sharing](/fabric/governance/external-data-sharing-overview) with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
+3. [Fabric external data sharing](/fabric/governance/external-data-sharing-overview) enables a user in one Fabric tenant (the provider) to share data with a user in another Fabric tenant (the consumer). This is useful for cross-organization collaboration while maintaining governance and security boundaries. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
 4. Use the [Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), which allows you to expose data from [supported Fabric data sources](/fabric/data-engineering/api-graphql-overview#supported-data-sources) through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
 
@@ -156,7 +156,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 5. Create Internal Shortcuts within the Fabric to reference data in a Lakehouse. 
 
-6. For enriching data, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or SynapseML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with [scalable batch](/fabric/data-science/model-scoring-predict) and [realtime predictions](/fabric/data-science/model-endpoints).  
+6. For enriching data while processing, use Spark Notebooks to load the data from Lakehouses or Warehouses. [Train or load ML Models](/fabric/data-science/model-training-overview) using libraries like scikit-learn, XGBoost, or SynapseML. Use [MLFlow to track experiments](/fabric/data-science/machine-learning-experiment) and register models. Score data with [scalable batch](/fabric/data-science/model-scoring-predict) and [realtime predictions](/fabric/data-science/model-endpoints).  
 
 ##### Serve
 
@@ -164,11 +164,11 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Data can be served directly to Power BI. You can create Semantic models to simplify the analysis of business data and relationships. Use DirectLake mode for high-performance analytics. Additionally, you can use a Fabric Activator to set up alerts on Power BI visuals to monitor metrics that change frequently, define alert conditions and receive Email or Microsoft Teams Notification 
 
-3. Data can also be securely shared with other business units or external trusted partners using Fabric external data sharing with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
+3. [Fabric external data sharing](/fabric/governance/external-data-sharing-overview) enables a user in one Fabric tenant (the provider) to share data with a user in another Fabric tenant (the consumer). This is useful for cross-organization collaboration while maintaining governance and security boundaries. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
 4. Use the Fabric API for GraphQL, which allows you to expose data from supported Fabric data sources through a single, flexible API endpoint. This is ideal for building modern applications that require efficient, real-time access to structured data. 
 
-5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. 
+5. Serve real-time predictions from any registered ML model using secure, scalable ML online endpoints that are automatically configured. If you're looking for a fabric native real-time deployment, these endpoints are built-in properties for most Fabric models and can be called from other Fabric engines or external apps, for wider and reliable consumption. Create a Semantic Model from predictions data and visualize predictions with a Power BI report.
 
 6. Enable seamless interaction with enterprise data using [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights. 
 
@@ -195,7 +195,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [KQL Queryset](/fabric/real-time-intelligence/create-query-set) to run write, run, and manage Kusto Query Language (KQL) queries across various real-time data sources. It’s a central tool in the Real-Time Intelligence (RTI) experience, enabling users to explore, analyze, and visualize streaming or time-series data. 
 
-2. You can use T-SQL in Microsoft Fabric’s Real-Time Intelligence (RTI) experience to query streaming data stored in KQL databases. While KQL is the primary language for real-time analytics, Fabric also supports T-SQL for users familiar with SQL-based analytics. 
+2. You can use [T-SQL in Microsoft Fabric’s Real-Time Intelligence (RTI)](/kusto/query/t-sql?view=microsoft-fabric&source=recommendations) experience to query streaming data stored in KQL databases. While KQL is the primary language for real-time analytics, Fabric also supports T-SQL for users familiar with SQL-based analytics. 
 
 3. For cross-engine processing, turn on [OneLake Availability](/fabric/real-time-intelligence/event-house-onelake-availability) to create a logical copy of KQL database data. You can query the data in your KQL database in Delta Lake format via other Fabric engines such as Direct Lake mode in Power BI, Warehouse, Lakehouse, Notebooks, and more.  
 
@@ -205,7 +205,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 2. Create a Power BI report to generate reports from Semantic Models built from the KQL database as a source. 
 
-3. Data can also be securely shared with other business units or external trusted partners using Fabric external data sharing with a dedicated Fabric-Fabric Authentication. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
+3. [Fabric external data sharing](/fabric/governance/external-data-sharing-overview) enables a user in one Fabric tenant (the provider) to share data with a user in another Fabric tenant (the consumer). This is useful for cross-organization collaboration while maintaining governance and security boundaries. Data consumers access read-only data via OneLake Shortcuts in their own Lakehouse. 
 
 4. Enable seamless interaction with enterprise data using [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights. 
 
@@ -228,11 +228,13 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Fabric OneLake to create dashboards and reports.
 
-- [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice in Microsoft Cost Management display multiple meters associated with your Fabric capacity resource.
+- [Azure Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice in Microsoft Cost Management display multiple meters associated with your Fabric capacity resource.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud-based service for securely storing and managing sensitive information like secrets, keys, and certificates. In this architecture, it manages credentials used in Fabric connections and Gateways.
 
 - [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the Fabric data platform.
+
+- [Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management service that provides secure access for users, devices, and workloads. In this architecture, it can enable your users to sign-in to Fabric with their Microsoft Entra accounts and establish zero trust access controls.
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a comprehensive suite of development tools and services offered by Microsoft to support the entire software development lifecycle. In this architecture, Azure DevOps integrated with Fabric workspaces for Lifecycle Management and source control.
 
