@@ -106,7 +106,7 @@ When you migrate your Kubernetes manifests, you must adapt the configuration to 
 
    1. Review your existing Kubernetes manifest files for AWS-specific configurations, such as VPC and IAM roles.
 
-   1. Review the EKS IAM roles that are associated with nodes, service accounts, and other resources. Map the roles with equivalent Azure AKS role-based access control (RBAC) roles. For more information, see [Kubernetes workload identity and access](workload-identity.md).
+   1. Review the EKS IAM roles that are associated with nodes, service accounts, and other resources. Map the roles with equivalent Azure AKS role-based access control (Azure RBAC) roles. For more information, see [Kubernetes workload identity and access](workload-identity.md).
    1. Modify the manifest files to replace AWS-specific settings with Azure-specific settings, like annotations.
 
 1. **Apply manifests to AKS:**

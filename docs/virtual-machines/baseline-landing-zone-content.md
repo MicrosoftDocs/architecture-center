@@ -240,7 +240,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 > [!IMPORTANT]
 >
-> **For the platform team:** Where possible, grant role-based access control (RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
+> **For the platform team:** Where possible, grant Azure role-based access control (Azure RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
 
 ## Azure Policy
 
