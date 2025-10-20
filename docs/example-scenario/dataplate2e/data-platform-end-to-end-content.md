@@ -234,7 +234,7 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces governance rules across Azure resources. In this architecture, it ensures compliance, data governance, and cost control across the Fabric data platform.
 
-- [Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management service that provides secure access for users, devices, and workloads. In this architecture, it can enable your users to sign-in to Fabric with their Microsoft Entra accounts and establish zero trust access controls.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management solution that ensures secure access for users, devices, and workloads. Within this architecture, it enables users to sign in to Fabric using their Entra credentials while enforcing zero trust access controls.
 
 - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a comprehensive suite of development tools and services offered by Microsoft to support the entire software development lifecycle. In this architecture, Azure DevOps integrated with Fabric workspaces for Lifecycle Management and source control.
 
