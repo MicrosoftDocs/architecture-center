@@ -158,7 +158,7 @@ Security is paramount in the financial industry. To protect sensitive data and e
 
 - **RBAC:** Implement Azure RBAC in Azure Red Hat OpenShift to provide granular authorization of user actions and access levels.
 
-  - Use Azure RBAC in FSI scenarios to ensure least-privilege access to the cloud environment. For more information, see [Use RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
+  - Use cluster RBAC in FSI scenarios to implement least-privilege access to the platform. For more information, see [Use RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
 
   - Use role bindings between OpenShift and Microsoft Entra ID for distinct groups like Site Reliability Engineering, SecOps, DevOps, and developers. For more information, see [Configure Azure Red Hat OpenShift to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
 

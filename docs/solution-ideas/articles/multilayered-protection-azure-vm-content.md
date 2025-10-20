@@ -82,11 +82,11 @@ This solution uses the following components:
 
   Azure Bastion is optional in this solution. Users can connect directly to Azure VMs by using the RDP protocol. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. This configuration blocks connections that don't come from the user's on-premises environment.
   
-- [Key Vault][Azure Key Vault] is a service for storing secrets, keys, and certificates. In this architecture, Key Vault stores VM passwords as secrets and integrates with Azure Bastion to allow retrieval by authorized users. You can configure the secret Azure RBAC so that only the user account that accesses the VM can retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using the Azure CLI) or from the Azure portal.
+- [Key Vault][Azure Key Vault] is a service for storing secrets, keys, and certificates. In this architecture, Key Vault stores VM passwords as secrets and integrates with Azure Bastion to allow retrieval by authorized users. You should configure the secret Azure RBAC so that only the user account that accesses the VM can retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using the Azure CLI) or from the Azure portal.
 
   ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
