@@ -16,7 +16,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Load balancing or Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
-  [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, do not impact the availability of the Azure OpenAI service from a regional endpoint availability perspective. You still have the responsibility to implement failover logic yourself.
+  [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, don't impact the availability of the Azure OpenAI service from a regional endpoint availability perspective. You still have the responsibility to implement failover logic yourself.
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
