@@ -34,7 +34,7 @@ A third-party CDN can be integrated into your Azure solution to provide isolatio
 
 The following diagram shows how traffic flows between the CDNs:
 
-:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
 
 - **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, Traffic Manager sends the request through the alternative CDN instead.
 
