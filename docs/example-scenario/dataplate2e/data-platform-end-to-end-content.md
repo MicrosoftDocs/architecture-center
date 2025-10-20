@@ -189,7 +189,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Eventstream supports routing data to different destinations listed [here](/fabric/real-time-intelligence/event-streams/add-manage-eventstream-destinations?pivots=enhanced-capabilities). 
 
-2. Store large volumes of data in an [EventHouse](/fabric/real-time-intelligence/eventhouse) that is a high performant, optimized and scalable storage solution. You can create a [KQL Database](/fabric/real-time-intelligence/create-database) within an Eventhouse that is a specialized database designed for event-driven data analysis using the Kusto Query language. 
+2. Store large volumes of data in an [EventHouse](/fabric/real-time-intelligence/eventhouse) that is a high performant, optimized, and scalable storage solution. You can create a [KQL Database](/fabric/real-time-intelligence/create-database) within an Eventhouse that is a specialized database designed for event-driven data analysis using the Kusto Query language. 
 
 ##### Process
 
