@@ -40,7 +40,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
   - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a capability hosted in Azure AI Foundry. You use this service to define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Foundry Agent Service orchestrates the flow that fetches grounding data from an instance of AI Search and other connected knowledge sources and passes it along with the prompt to the deployed Azure OpenAI model.
 
-    The agents defined in Foundry Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections defines how the agent behave for all requests.
+    The agents defined in Foundry Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behave for all requests.
   
   - [Azure AI Foundry models](/azure/ai-foundry/how-to/deploy-models-openai) allow you to deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach is considered an MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
@@ -105,7 +105,7 @@ You're responsible for creating the required role assignments for the managed id
 
 #### Network security
 
-To simplify the learning experience for building an end-to-end chat solution, this architecture doesn't implement network security. It uses identity as its perimeter and uses public cloud resources. Services such as AI Search, Azure AI Foundry, and App Service are reachable from the internet. This setup increases the attack surface of the architecture.
+To simplify the learning experience for building an end-to-end chat solution, this architecture doesn't implement network security. It uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Azure AI Foundry, and App Service are reachable from the internet. This setup increases the attack surface of the architecture.
 
 This architecture also doesn't restrict egress traffic. For example, an agent can be configured to connect to any public endpoint based on the endpoint's OpenAPI specification. So data exfiltration of private grounding data can't be prevented through network controls.
 
