@@ -175,7 +175,7 @@ For more information, see [Configure Azure Firewall with your App Service Enviro
 
 #### Microsoft Entra ID
 
-Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID, managed identities and Azure role-based access control (RBAC).
+Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID, managed identities and Azure role-based access control (Azure RBAC).
 
 On cloud applications, you must secure the credentials required to authenticate to cloud services. Ideally, the credentials should never appear on developer workstations or in source control. Key Vault securely stores credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed identities for Azure resources** provides Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
 
