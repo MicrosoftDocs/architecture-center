@@ -8,7 +8,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 ## Architecture
 
 :::image type="complex" source="media/mainframe-midrange-data-replication-azure-qlik.svg" alt-text="Diagram of an architecture that uses Qlik to migrate data to Azure." lightbox="media/mainframe-midrange-data-replication-azure-qlik.svg" border="false":::
-   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like Kafka and Azure Event Hubs, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
+   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like Eventstream and Eventhouse, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
@@ -17,14 +17,13 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 1. **Host agent:** The host agent on the on-premises system captures change log information from Db2, Information Management System (IMS), and Virtual Storage Access Method (VSAM) data stores and passes it to the Qlik replication server.
 
-1. **Replication server:** The Qlik replication server software passes the change log information to Kafka and Azure Event Hubs. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
+1. **Replication server:** The Qlik replication server software ingests the change log information to Eventstream. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
 
 1. **Stream ingestion:** Eventstream and Eventhouse provides for data staging and preperation.
 
-     - **Eventstream:** Collects and routes real-time events, delivering them via the hot path to Eventhouse to enable near-realtime analytics.
-     - **Eventhouse:** Acts as the real-time analytical store in Fabric for querying and analytics.
-     - **OneLake:** Unified data lake for historical analysis and large-scale data preparation for advanced analytics via the cold path. Stores curated or replicated data from Eventhouse (through OneLake availability) or ingests directly from Eventstream.
-
+     - **Eventstream:** Routes the real-time change log data from Qlik replication server, delivering them via the hot path to Eventhouse to enable near-realtime analytics.
+     - **Eventhouse:** Acts as the real-time analytical store, storing the change log data in Fabric for querying and analytics.
+     - **OneLake:** Unified data lake for historical analysis and large-scale data preparation for advanced analytics via the cold path. Stores curated or replicated change log data from Eventhouse (through OneLake availability) or ingests directly from Eventstream.
 
 1. **Azure data services:** Azure provides the following efficient data storage services and data procesing services.
 
@@ -55,19 +54,13 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a dedicated, private connection between your on-premises infrastructure and Microsoft cloud services. In this architecture, it ensures secure, high-throughput connectivity to Azure and Microsoft 365 and bypasses the public internet for improved reliability and performance.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that enables encrypted communication between Azure and on-premises environments over the public internet. In this architecture, it provides secure site-to-site or point-to-site VPN access for hybrid connectivity.
-
 #### Application
 
 Azure provides managed services that support more secure, scalable, and efficient application deployment. This architecture uses application tier services that can help you optimize your application architecture.
 
-- [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform used for high-throughput data pipelines, streaming analytics, and mission-critical applications. In this architecture, it ingests Db2 change data and integrates with Qlik for real-time data movement and transformation.
-
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, it transforms and analyzes large volumes of ingested data by using machine learning models and supports development in R, Python, Java, Scala, and Spark SQL.
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage for storing structured and unstructured data. In this architecture, it serves as the persistent storage layer for processed change log data from on-premises systems.
-
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. You can transform and store event hub data by using a real-time analytics provider or a custom adapter. In this architecture, it captures Db2, IMS, and VSAM change data messages and forwards them to analytics platforms or custom adapters for transformation and storage.
 
 #### Storage and databases
 
