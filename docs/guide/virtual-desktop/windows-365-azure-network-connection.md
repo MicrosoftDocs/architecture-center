@@ -87,7 +87,7 @@ The following diagram represents the components in the Windows 365 service. This
 This diagram has six main sections: Windows 365 clients, Windows 365 service, Azure Virtual Desktop, Microsoft Entra ID, Intune, and a customer Azure subscription. The Windows 365 clients, Virtual Desktop, and a virtual network in the Windows 365 service connect to the internet. Microsoft Entra ID connects to clients. Intune connects to Microsoft Entra ID via the Intune web console. Clients connect to the user portal in Windows 365. The customer Azure subscription has an optional connection to a non-Microsoft VPN and to the virtual network in Windows 365. The VPN has an optional connection to an on-premises network, which also connects to ExpressRoute in the subscription. Active Directory and Configuration Manager connect to that on-premises network. The Intune section includes three subsections: Configure devices, protect data, and manage apps. It also contains Autopilot and Autopatch, co-management, and Azure role-based access control (Azure RBAC). The Intune section points to Windows Update for business and Microsoft Defender for Endpoint. The virtual network in Windows 365 contains a Microsoft Hosted Network and an Azure network connection. Both of these components point to the Virtual Desktop section, which contains a gateway, broker, and web. The Azure network connection also has an optional connection to a Cloud PC. The Microsoft Hosted has a default connection to a Cloud PC.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-4.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/w365-azure-network-connection-4.vsdx) of this architecture.*
 
 The following sections expand on the Azure network connection options.
 
@@ -101,7 +101,7 @@ For more information, see [Virtual Desktop for the enterprise](../../example-sce
 This diagram contains three main sections, an Azure subscription, an on-premises network, and Azure Files and Azure NetApp Files. The subscription contains a hub virtual network and spoke virtual network. The hub virtual network contains a gateway subnet, perimeter zone subnet, desktop subnet, and Active Directory subnet. The Active Directory subnet connects to a desktop spoke virtual network via peering. The hub desktop subnet connects to a storage account in the Azure Files section. All subnets except the gateway subnet have network security groups. The on-premises network contains a Microsoft Entra Connect server, an optional AD DS server, a network gateway, and endpoints. It connects to the Azure subscription via an ExpressRoute connection. And it connects to Microsoft Entra ID via Microsoft Entra Connect. The network gateway points to the network virtual appliance in the perimeter network subnet. The Virtual Desktop control plane is at the top of the diagram, under Microsoft Entra ID. It includes web access, a gateway, a broker, diagnostics, and a REST API.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-5.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/w365-azure-network-connection-5.vsdx) of this architecture.*
 
 > [!NOTE]
 > Windows 365 uses the components in the **Virtual Desktop control plane** to facilitate user and Cloud PC connections. Therefore, it inherits most of the connection-related capabilities of Azure Virtual Desktop. Familiarize yourself with how Virtual Desktop networking operates when you design the Azure network connection architecture in this article.
@@ -176,7 +176,7 @@ The following architecture pattern uses a Microsoft Entra join identity to manag
 This diagram shows a network flow. A Microsoft-managed component in a virtual network of the customer subscription connects to an on-premises customer environment and Microsoft Entra ID. The component points to user connectivity and has a two-way connection to user devices.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-6.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/w365-azure-network-connection-6.vsdx) of this architecture.*
 
 The following architecture pattern uses Microsoft Entra hybrid join identity to manage the Cloud PC. This architecture requires *line-of-sight* network communication with Active Directory Domain Services (AD DS) domain controllers in on-premises environments.
 
@@ -184,7 +184,7 @@ The following architecture pattern uses Microsoft Entra hybrid join identity to 
 This diagram shows the same network flow as the previous diagram except a domain controller replaces the customer environment. A Microsoft-managed component in a virtual network of the customer subscription connects to an on-premises domain controller and Microsoft Entra ID. The component points to user connectivity and has a two-way connection to user devices.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-7.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/w365-azure-network-connection-7.vsdx) of this architecture.*
 
 | Component | An Azure subscription that hosts the virtual network that provides connectivity for a Cloud PC to an on-premises environment and the internet. |
 | --- | --- |
