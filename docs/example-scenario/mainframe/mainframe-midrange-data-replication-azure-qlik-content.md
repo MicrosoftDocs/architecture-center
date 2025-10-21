@@ -36,7 +36,6 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
      - Azure Database for PostgreSQL
      - Azure Database for MySQL
      - Azure Cosmos DB
-     
 
      There are many factors to consider when you choose a data storage service. Consider the type of workload, cross-database queries, two-phase commit requirements, the ability to access the file system, amount of data, required throughput, and latency.
 
