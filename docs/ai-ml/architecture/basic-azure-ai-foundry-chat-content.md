@@ -25,7 +25,7 @@ The following workflow corresponds to the previous diagram:
 1. An application user interacts with a web application that contains chat functionality. They issue an HTTPS request to the App Service default domain on `azurewebsites.net`. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security connection is established from the client directly to App Service. Azure fully manages the certificate.
 
 1. The App Service feature called Easy Auth ensures that the user who accesses the website is authenticated via Microsoft Entra ID.
-1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs that are also hosted in that same App Service instance. The API code connects to an Azure AI agent in Azure AI Foundry by using the [Azure AI Persistent Agents SDK](/dotnet/api/overview/azure/ai.agents.persistent-readme).
+1. The application code deployed to App Service handles the request and renders a chat UI for the application user. The chat UI code connects to APIs that are also hosted in that same App Service instance. The API code connects to an agent in Azure AI Foundry by using the [Azure AI Persistent Agents SDK](/dotnet/api/overview/azure/ai.agents.persistent-readme).
 1. Azure AI Foundry Agent Service connects to Azure AI Search or requests up to date public knowledge to fetch grounding data for the query. The grounding data is added to the prompt that's sent to the Azure OpenAI model in the next step.
 1. Foundry Agent Service connects to an Azure OpenAI model that's deployed in Azure AI Foundry and sends the prompt that includes the relevant grounding data and chat context.
 1. Application Insights logs information about the original request to App Service and the call agent interactions.
@@ -40,7 +40,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
   - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a capability hosted in Azure AI Foundry. You use this service to define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Foundry Agent Service orchestrates the flow that fetches grounding data from an instance of AI Search and other connected knowledge sources and passes it along with the prompt to the deployed Azure OpenAI model.
 
-    The agents defined in Foundry Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, defines how the agent behave for requests.
+    The agents defined in Foundry Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections defines how the agent behave for all requests.
   
   - [Azure AI Foundry models](/azure/ai-foundry/how-to/deploy-models-openai) allow you to deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach is considered an MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
@@ -50,7 +50,9 @@ Many of this architecture's components are the same as the [basic App Service we
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications by using Azure AI Foundry and Azure OpenAI. The following sections outline deficiencies of this basic architecture and describe recommendations and considerations.
+This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can learn how to build end-to-end chat applications by using Azure AI Foundry. The following sections outline deficiencies of this basic architecture and describe recommendations and considerations.
+
+These omissions are deliberate for a learning environment to minimize setup time. Don't extend usage of this topology beyond exploration; each omission increases production risk.
 
 ### Reliability
 
@@ -137,6 +139,8 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture doesn't include cost governance or containment controls. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like deployed models in Azure AI Foundry.
 
+For budgeting purposes, modify the [pricing calculator estimate](https://azure.com/e/6324d7c192ae4fd59092d5c2c60c07d9) of this architecture to fit your scenario.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
@@ -164,7 +168,7 @@ For the basic architecture, you can create agents by using the browser-based exp
 
 ##### Evaluation
 
-You can evaluate your generative application in Azure AI Foundry. We recommend that you learn how to [use evaluators to evaluate your generative AI applications](/azure/ai-foundry/concepts/evaluation-evaluators/general-purpose-evaluators). This practice helps ensure that your chosen model meets customer and workload design requirements.
+You can evaluate your generative application in Azure AI Foundry. We recommend that you learn how to [use evaluators to evaluate your generative AI applications](/azure/ai-foundry/concepts/evaluation-evaluators/general-purpose-evaluators). This practice helps ensure that your chosen model, prompts, and data quality meets customer and workload design requirements.
 
 ### Performance Efficiency
 
