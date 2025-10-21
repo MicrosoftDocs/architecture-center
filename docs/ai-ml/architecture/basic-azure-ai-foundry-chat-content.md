@@ -198,4 +198,4 @@ Architects should design AI and machine learning workloads, such as this one, wi
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Deploy AI models in the Azure AI Foundry portal](/azure/ai-foundry/concepts/deployments-overview)
 - [Explore Azure AI Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/concepts/agents-overview)
+- [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/agents/overview)
