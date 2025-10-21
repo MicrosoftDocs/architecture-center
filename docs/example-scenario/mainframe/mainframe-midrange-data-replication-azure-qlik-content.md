@@ -19,7 +19,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 1. **Replication server:** The Qlik replication server software passes the change log information to Kafka and Azure Event Hubs. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
 
-1. **Stream ingestion:** Eventstream and Eventhouse provides for stage and prep.
+1. **Stream ingestion:** Eventstream and Eventhouse provides for data staging and preperation.
 
      - **Eventstream:** Collects and routes real-time events, delivering them via the hot path to Eventhouse to enable near-realtime analytics.
      - **Eventhouse:** Acts as the real-time analytical store in Fabric for querying and analytics.
