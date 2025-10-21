@@ -47,7 +47,7 @@ There are many resources for designing RESTful APIs. Here are some that you migh
 
 Here are some specific considerations to keep in mind.
 
-- Watch out for APIs that leak internal implementation details or mirror an internal database schema. The API should model the domain. Ideally, you should only change the API when you add new functionality, not just because you refactored code or changed the database schema.
+- Watch out for APIs that leak internal implementation details or mirror an internal database schema. The API should model the domain. It's a contract between services. Ideally, you should only change the API when you add new functionality, not just because you refactored code or changed the database schema.
 
 - Different types of client, such as mobile application and desktop web browser, might require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, which expose an optimal interface for that client.
 
