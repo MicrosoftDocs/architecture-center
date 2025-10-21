@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Local baseline reference architecture
-  description: Learn how to design Azure Local for highly available virtualized and containerized workloads
+  title: Azure Local Baseline Reference Architecture
+  description: Learn how to design Azure Local for highly available virtualized and containerized workloads, focusing on reliability and security.
   author: neilbird
   ms.author: nebird
-  ms.date: 08/14/2025
-  ms.topic: conceptual
+  ms.date: 10/13/2025
+  ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
     - hybrid

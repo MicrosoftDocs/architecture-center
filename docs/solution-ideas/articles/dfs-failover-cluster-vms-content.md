@@ -77,7 +77,6 @@ Principal author:
 Other contributor:
 
 - [Marcos Motta](https://www.linkedin.com/in/marcos-augusto-motta-dos-santos-junior-b8b17328/) | Cloud Solution Architect
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 

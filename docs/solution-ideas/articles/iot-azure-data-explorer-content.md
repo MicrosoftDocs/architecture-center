@@ -22,7 +22,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
    Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) account into Azure Data Explorer by using an [Event Grid data connection](/azure/data-explorer/ingest-data-event-grid).
 
-   You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
+   You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For more information, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
 1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 

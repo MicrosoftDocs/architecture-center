@@ -218,10 +218,6 @@ Principal author:
 
 - [Ira Rainey](https://www.linkedin.com/in/ira-rainey) | Principal Software Engineer
 
-Other contributor:
- 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
-
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

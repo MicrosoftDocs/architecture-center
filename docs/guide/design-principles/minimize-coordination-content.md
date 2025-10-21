@@ -42,7 +42,7 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [Azure Cosmos DB][cosmos-db-faq] and [Azure Storage][storage-concurrency].
 
-**Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you may be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
+**Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you might be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
 
 **Use leader election for coordination.** In cases where you need to coordinate operations, make sure the coordinator does not become a single point of failure in the application. Using the [Leader Election pattern][leader-election], one instance is the leader at any time, and acts as the coordinator. If the leader fails, a new instance is elected to be the leader.
 

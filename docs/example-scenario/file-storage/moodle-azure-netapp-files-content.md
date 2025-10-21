@@ -34,7 +34,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 - [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service. In this architecture, it stores Moodle's structured data, including course content, user profiles, and student progress.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
 
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is an Azure compute service that you can use to deploy and manage a group of identical, load-balanced virtual machines. In this architecture, it hosts the Moodle application and automatically scales the number of VMs up or down based on demand.
 
@@ -81,7 +81,7 @@ Azure NetApp Files provides high availability for your stored data. For the Azur
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For more information and best practices for Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
 
 ### Cost Optimization
 
@@ -93,7 +93,7 @@ Azure NetApp Files provides a more cost-effective solution that uses 4 TiB of Ul
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources for your specific requirements. For more information, see [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
-For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
+For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/). Use this calculator to find the optimal balance between capacity, performance, and cost.
 
 ### Operational Excellence
 

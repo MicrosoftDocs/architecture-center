@@ -1,4 +1,4 @@
-Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and orchestration SDKs like Semantic Kernel. These chat applications typically consist of the following components:
+Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and orchestration SDKs like the Microsoft Agent Framework. These chat applications typically consist of the following components:
 
 - A chat user interface (UI) that's integrated into a larger enterprise application. It provides users with a conversational experience alongside other business functions.
 
@@ -93,7 +93,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** This architecture uses [Foundry Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Foundry Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
 
-**Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Semantic Kernel](/semantic-kernel/overview/) or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
+**Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
 
 Consider this alternative if your workload requires the following capabilities:
 
@@ -335,9 +335,9 @@ If you use customer-managed keys (CMK) for encryption, you can host both the CMK
 
 ##### Azure AI Foundry portal employee access
 
-When you onboard employees to Azure AI Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and role-based access control (RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
+When you onboard employees to Azure AI Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
 
-The Azure AI Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
+The Azure AI Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
 To mitigate the risk of unauthorized access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Azure AI Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
@@ -531,7 +531,7 @@ To control consumption model costs in this architecture, use a combination of th
 
 This architecture requires Azure Firewall as an egress control point. To optimize costs, use the Basic tier of Azure Firewall unless the rest of your workload components require advanced features. Higher tiers add cost, so only use them if you need their capabilities.
 
-If your organization uses Azure landing zones, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
+If your organization uses an Azure landing zone, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
 
 #### Microsoft Defender for Cloud
 
