@@ -10,7 +10,7 @@ This article describes several ways to transfer files to Azure, convert and tran
    The image contains an on-premises section and an Azure section that both have multiple sections and subsections. The on-premises section shows the first step in the migration process. It includes three flows. The first flow points from Local storage to an icon that represents FTP using JCL and then to a section that contains Azure Virtual Machines. The second flow points from a Mainframe dataset to SHIR and then to Azure Data Factory via the Azure Data Factory FTP connector. The last flow points from an IBM mainframe to Azure Blob Storage via non-Microsoft solutions. The Azure section contains steps two and three. The step two section contains a subsection that includes Host Integration Server, Azure Databricks and Microsoft Fabric paired together, Azure Data Factory, and Azure Data Lake Storage. Azure Data Factory points to Data Lake Storage and Fabric Data Factory points to OneLake. The step three section contains Azure SQL Database, Azure Database for PostgreSql, Azure Cosmos DB, Azure Database for MySQL, Data Lake Storage, Blob Storage, and Microsoft Fabric.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
 
 ### Dataflow
 
