@@ -197,7 +197,7 @@ export class Location {
     readonly longitude: number;
 
     constructor(latitude: number, longitude: number) {
-        if !Number.isFinite(latitude) || (latitude < -90 || latitude > 90) {
+        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90) {
             throw new RangeError('latitude must be between -90 and 90');
         }
         if !Number.isFinite(latitude) || (longitude < -180 || longitude > 180) {
