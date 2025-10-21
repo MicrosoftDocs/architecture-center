@@ -122,14 +122,14 @@ Customization might not be a requirement for every product, but if a product doe
 
 As you consider your deployment model on Azure, a critical component to consider is your resiliency if there are issues in a dependent service&mdash;for example, a networking issue, a power problem, or the maintenance of a virtual machine. In the on-premises world, where the infrastructure serves a single customer tenant, many customers rely on high availability strategies for each infrastructure component. But when you consider resiliency at cloud scale, high availability is often necessary but not sufficient. With enough scale, failures happen.
 
-A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage impacts a datacenter or an entire availability zone.
+A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage affects a datacenter or an entire availability zone.
 
 To apply this mindset to your own solution, there are some important practices to follow.
 
 - Make sure that you invest in monitoring tools to quickly identify problems. With SaaS, your customers expect you to know about outages and to engage rapidly to restore service.
 - Use platform capabilities like availability zones and zone redundancy if they're appropriate for your service.
 - Design your applications for resiliency at every layer. For example, it's important to also consider other cloud best practices like using [retries](../../../patterns/retry.yml), [circuit breakers](../../../patterns/circuit-breaker.md), and [bulkheads](/azure/architecture/patterns/bulkhead), and adopting asynchronous communication practices. These practices can keep your service healthy even when other services you depend on are under stress.
-- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are impacted.
+- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are affected.
 - When you've implemented capabilities for resiliency, run tests. You never know if your plans and features are complete until you try to use them. It can be useful to exercise your failover processes as part of your normal maintenance activities, which can give you both an approach to maintenance without downtime and a validation of your failover mechanisms.
 
 The [reliability pillar of the Azure Well-Architected Framework](/azure/well-architected/reliability/) provides great guidance on these topics.

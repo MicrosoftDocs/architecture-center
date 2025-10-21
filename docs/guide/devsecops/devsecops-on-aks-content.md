@@ -76,7 +76,7 @@ Security controls are implemented in each phase of the software development life
 
 ### Plan phase
 
-The plan phase usually has the least amount of automation, but it has important security implications that significantly impact later DevOps lifecycle stages. This phase involves collaboration between security, development, and operations teams. Including security stakeholders in this phase of designing and planning ensures security requirements and security issues are appropriately accounted for or mitigated.
+The plan phase usually has the least amount of automation, but it has important security implications that significantly affect later DevOps lifecycle stages. This phase involves collaboration between security, development, and operations teams. Including security stakeholders in this phase of designing and planning ensures security requirements and security issues are appropriately accounted for or mitigated.
 
 #### Best Practice – Design a more secure application platform
 
