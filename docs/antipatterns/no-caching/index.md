@@ -62,7 +62,7 @@ This antipattern typically occurs because:
 The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 
 - On read, the application tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
-- On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it is required.
+- On write, the application writes the change directly to the data source and removes the old value from the cache. It's retrieved and added to the cache the next time it is required.
 
 This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside-pattern] pattern.
 
