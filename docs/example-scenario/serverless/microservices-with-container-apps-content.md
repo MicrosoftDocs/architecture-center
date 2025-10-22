@@ -171,6 +171,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 #### Secrets
 
 - Your container app can store and retrieve sensitive values as secrets. After a secret is defined for the container app, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, a new revision isn't created. However, for any running revisions to load the new secret value, you need to restart them. In this scenario, application and environment variable values are used.
+
+  Service code should be rewritten to use the app's own managed identity to authenticate to its dependencies instead of depending on preshared secrets. All of the dependencies have SDKs that support managed identity based authentication.
+
 - Environment variables: sensitive values can be securely stored at the application level. When environment variables are changed, the container app spawns a new revision.
 
 #### Network security
@@ -198,11 +201,13 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
+  **TODO: WAITING ON UPDATED LINK**
+
 - In this scenario, Azure Cosmos DB and Azure Managed Redis are the main cost drivers.
 
 - Use a dedicated workload profile for components with predictable usage that could share multiple dedicated nodes. However for this to be a cost optimization, consider that you should still have a multiple of three nodes per dedicated profile to ensure an even distribution of the replicas on all the availability zones of a region.
 
-- TODO: What other recommendations do we have?
+- Eliminate compute costs during periods of inactivity by ensuring components can effectively scale to zero, which ensures that you only pay for resources when you need them. This approach reduces expenses for apps that have variable or infrequent usage patterns. In this architecture the workflow service could be re-implemented as a job to take advantage of scale-to-zero for the periods when there is no work to be done.
 
 ### Operational Excellence
 
