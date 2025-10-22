@@ -43,11 +43,13 @@ This architecture uses the following components.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together data integration, data warehousing, and data analytics. It helps you scale, compute, and store data elastically and independently, with a massively parallel processing architecture. In this architecture, Azure Synapse Analytics serves as the data warehouse destination for large-scale mainframe data analytics.
+- [Microsoft Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Microsoft Fabric. It provides a logical storage layer that spans all Fabric workloads, enabling seamless data sharing and governance. OneLake supports open formats like Delta Parquet and integrates with external storage through shortcuts, making it the foundation for data warehousing, lakehouse, and real-time analytics in Fabric.
+
+- [Microsoft Fabric](/fabric/get-started/overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It provides elastic scaling of compute and storage, supports open formats like Delta Parquet, and integrates seamlessly with Power BI for real-time insights. In this architecture, Microsoft Fabric serves as the data warehouse destination for large‑scale mainframe data analytics, providing enterprise‑scale relational storage with ACID compliance, horizontal scale out, open formats (Delta, Parquet), and tight integration with analytics services. Microsoft Fabric uses OneLake as its underlying storage foundation, ensuring all data across workloads is accessible in a unified, governed, and open format environment.
 
 #### Analysis and reporting
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive unplanned analysis. In this architecture, Power BI provides business intelligence capabilities for analyzing replicated mainframe data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive unplanned analysis. In this architecture, Power BI provides business intelligence capabilities for analyzing replicated mainframe data. Power BI is natively integrated with Microsoft Fabric for unified analytics.
 
 #### Monitoring
 
@@ -65,7 +67,7 @@ This architecture uses the following components.
 
  You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
-Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
+Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Microsoft Fabric Data Warehouse, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
 
@@ -115,6 +117,10 @@ For more information, see [Autoscaling best practices in Azure](../../best-pract
 Principal author:
 
 - [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan) | Senior Engineering Architect
+
+Contributors:
+
+- [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Solution Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
