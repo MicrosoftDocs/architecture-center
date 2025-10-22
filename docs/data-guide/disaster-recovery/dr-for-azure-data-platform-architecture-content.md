@@ -36,34 +36,43 @@ The workflow is read left to right, following the flow of data:
   - The sources or types of data that the data platform can consume from.
     
 - **Ingest**
-    - Ingest structured, semi-structured, and unstructured data into OneLake using Data Factory, Event Streams, Notebooks, Shortcuts, or Mirroring.
-    - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via Real-Time Hub.
-    - Mirror supported databases for near real-time replication or use Shortcuts to access external data without copying.
-    - Use Data Factory in Fabric for orchestrating ingestion pipelines. Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
+    - Ingest structured, semi-structured, and unstructured data into [OneLake](/fabric/onelake/onelake-overview) using [Data Factory](/fabric/data-factory/data-factory-overview), [Event Streams](/fabric/real-time-intelligence/event-streams/overview), [Notebooks](/fabric/data-engineering/how-to-use-notebook), [Shortcuts](/fabric/onelake/onelake-shortcuts), or [Mirroring](/fabric/mirroring/overview).
+    - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via [Real-Time Hub](/fabric/real-time-hub/).
+    - Mirror supported databases for near real-time replication or use Shortcuts to access external data without copying the data into OneLake.
+    - Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
         
 - **Store**
     - All ingested data is stored in OneLake, Microsoft Fabric's unified data lake.
-    - OneLake supports open formats like Delta, Parquet, and CSV with built-in geo-redundancy and BCDR options.
+    - OneLake supports open formats like Delta, Parquet, and CSV with built-in geo-redundancy and [BCDR option for OneLake](/fabric/onelake/onelake-disaster-recovery).
+      
 - **Process**
-    - Use Data Engineering (Spark) or Data Factory to transform and prepare data for analytics.
+
+    - Notebook: Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
+    - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
+    - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
     - Run KQL queries on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
+      
 - **Serve**
-    - Serve curated data via Lakehouse, Warehouse, or mirrored database endpoints using SQL Analytics Endpoints.
-    - Create a semantic model in Direct Lake storage mode and share with business users.
-    - Build real-time dashboards in Real-Time Intelligence (RTI) hub in Microsoft Fabric for discovering instant insights from streaming data.
-    - Expose data through Microsoft Fabric API for GraphQL and query multiple data sources quickly and efficiently.
+    - Serve curated data via [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing), or mirrored database endpoints [using SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint).
+    - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) and share with business users.
+    - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in Real-Time Intelligence (RTI) hub in Microsoft Fabric for discovering instant insights from streaming data.
+    - Expose data through [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview) and query multiple data sources quickly and efficiently.
+      
 - **Enrich**
-    - Use data science experiences for ML modeling, AutoML, and Azure ML integration to enrich datasets.
+    - Use data science experiences for ML modeling, and Azure ML integration to enrich datasets.
     - Empower data scientists to train and deploy models directly on Fabric’s unified data foundation with Azure ML, delivering real-time predictive insights seamlessly into analytics experiences for end users.
-    - Interact with Data agent in Microsoft Fabric to uncover insights through chat. Access to enterprise data with Azure AI Foundry integration with Data agent for data-driven decision-making.
+    - Engage with [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through conversational queries. Leverage Azure AI Foundry integration with the Data Agent to access enterprise data and enable data-driven decision-making.
+      
 - **Data share**
-    - External data sharing in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing seamless cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. For detailed information on how external data sharing works in Microsoft Fabric, refer to [External data sharing in Microsoft Fabric](/fabric/governance/external-data-sharing-overview).
+    - [External data sharing](/en-us/fabric/governance/external-data-sharing-overview) in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing seamless cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. 
     - Disaster recovery DR ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
       - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
       - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
       - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
+        
 - **Discover and govern**
-    - Use Purview integration, OneLake catalog, and Microsoft Fabric governance tools for lineage, metadata, and access control.
+    - Use [Microsoft Purview](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Microsoft Fabric governance tools for lineage, metadata, and access control.
+      
 - **Platform**
     - Fabric provides an end-to-end, unified SaaS analytics platform unified SaaS experience with centralized data storage with OneLake and embedded AI capabilities.
 
@@ -134,7 +143,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR uplift options: N/A, Covered as part of the Azure service.
 
-- **Cost Management**
+- **Azure Cost Management**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: N/A
@@ -219,6 +228,25 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - In-region HA is built-in with zone redundancy; cross-region DR requires manual setup.
         - For details on Azure Databricks disaster recovery, see [Disaster recovery - Azure Databricks](Disaster recovery).
+
+- **Azure Data Explorer**
+
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Pay As You Go (or cluster size based on workload)
+    - DR uplift options:
+        - Azure Data Explorer does not provide automatic regional failover. For disaster recovery, deploy multiple clusters in paired regions (Active/Active or Active/Passive) and replicate ingestion pipelines.
+        - Use Zone Redundant Storage (ZRS) for intra-region resiliency and select Availability Zones during cluster creation to protect against zone-level failures.
+For regional resiliency, combine ZRS with multi-cluster architecture and ingestion redundancy via Event Hubs or IoT Hub.
+    - Note:
+        - For details on Azure Data Explorer disaster recovery, see [Disaster Recovery - Azure Data Explorer](/azure/data-explorer/business-continuity-overview).
+
+
+Notes:
+
+Regularly validate failover and ingestion recovery processes.
+Consider enabling resource locks and retention policies to prevent accidental deletion.
+RPO/RTO targets should guide whether Active/Active or Active/Passive architecture is used.
   
 - **Azure Event Hubs**
     - Component recovery responsibility: Microsoft
@@ -415,15 +443,16 @@ This section contains high availability (HA) and DR guidance for other key Azure
 - SQL
     - SQL on Azure VMs guidance can be found in the [product documentation](/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
     - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
+- Azure AI services - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
+- Azure AI Search - There's [no built-in mechanism for disaster recovery](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
 - Azure IoT Hubs - IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub. IoT Hub provides [Intra-Region HA](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#intra-region-ha) and will automatically use an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#availability-zones).
 - Azure Stream Analytics - While Azure Stream Analytics is a fully managed platform as a service (PaaS) offering, it doesn't provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure regions.
 - Azure Data Share - The Azure Data Share resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
+- Azure Data Explorer – [High availability](/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer) can be achieved by deploying clusters across availability zones within a region and using storage redundancy options such as Zone Redundant Storage (ZRS). Disaster recovery is not automatic; it requires deploying clusters in paired regions and replicating ingestion pipelines for geo-resiliency.
 - Azure Synapse: Pipelines - Disaster recovery uplift option for the pipelines are not applicable because Azure Synapse resiliency is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature. If Self-Hosted Data Pipelines are used, they'll remain the customer's responsibility for recovery from a disaster.
+- Azure Synapse: Serverless and Dedicated SQL Pools - Azure Synapse Analytics [automatically takes snapshots](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#database-restore-points) throughout the day to create restore points that are available for seven days, and Azure Synapse Analytics performs a [standard geo-backup](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours. If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
 - Azure Synapse: Data Explorer Pools - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available.
 - Azure Synapse: Spark Pools - Currently, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery) and [doesn't support it for Apache Spark pools](https://techcommunity.microsoft.com/blog/microsoftdefendercloudblog/microsoft-defender-for-key-vault---deploy-to-azure-synapse-analytics/3201308)
-- Azure Synapse: Serverless and Dedicated SQL Pools - Azure Synapse Analytics [automatically takes snapshots](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#database-restore-points) throughout the day to create restore points that are available for seven days, and Azure Synapse Analytics performs a [standard geo-backup](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours. If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster.
-- Azure AI services - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
-- Azure AI Search - There's [no built-in mechanism for disaster recovery](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
 
 ## Next steps
 Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml).
