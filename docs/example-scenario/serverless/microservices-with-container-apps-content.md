@@ -94,8 +94,7 @@ The microservices application was deployed to an AKS cluster. However, the Fabri
 
 ### Potential use cases
 
-- Deploy a brownfield microservice-based application into a platform as a service (PaaS) to simplify management and avoid the complexity of running a container orchestrator.
-- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
+Deploy a brownfield microservice-based application into a platform as a service (PaaS) to simplify management and avoid the complexity of running a container orchestrator.
 
 Other common uses of Container Apps include:
 
@@ -150,7 +149,7 @@ Container Apps allows you to deploy, manage, maintain, and monitor the applicati
 
   Performance monitoring allows you to evaluate the application under load. Metrics and logging information give you the data needed to recognize trends to prevent failures and perform root-cause analysis of failures when they occur.
 
-- Use [health and readiness probes](/azure/container-apps/health-probes) to manage and handle long starting containers and avoid sending traffic to them before they are ready or unhealthy.
+- Use [health and readiness probes](/azure/container-apps/health-probes) to manage and handle long starting containers and avoid sending traffic to them before they are ready or unhealthy. The Kubernetes implementation had these application endpoints already, and they should continue to be used if they were effective signals.
 
 - When a service unexpectedly terminates, the Container Apps service automatically restarts it. Container Apps will attempt to restart failing containers and abstracts away hardware from users.
 
@@ -209,6 +208,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Eliminate compute costs during periods of inactivity by ensuring components can effectively scale to zero, which ensures that you only pay for resources when you need them. This approach reduces expenses for apps that have variable or infrequent usage patterns. In this architecture the workflow service could be re-implemented as a job to take advantage of scale-to-zero for the periods when there is no work to be done.
 
+- To avoid cross-region network charges, ensure all components such as the various state stores and container registry in this architecture are deployed the same region.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
@@ -218,6 +219,8 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Use multi-revision mode with traffic splitting for testing changes to your workload code and scale rules.
 
 - Integrate with Application Insights and Log Analytics to provide insight into your workload. Use the same log analytics workspace as the rest of your workload's components to keep all workload insights together.
+
+- An important change over the Kubernetes implementation is the switch from managing kubernetes manifest files over to managing the application code and configuration as part of the container image.
 
 ### Performance Efficiency
 
