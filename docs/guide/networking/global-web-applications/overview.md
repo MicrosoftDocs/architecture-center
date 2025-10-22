@@ -45,7 +45,7 @@ With this approach, we will introduce several components and provide guidance th
 
 1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to the alternative service that you've selected.
 
-    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which  determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). Using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) will make traffic flow through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable, and [you can also manually switch traffic](#response-procedures) if you need to.
+    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which  determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). Using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) will make traffic flow through Azure Front Door by default. If Traffic Manager's endpoint monitoring detects that Azure Front Door is unavailable, it automatically switches traffic to your alternate path. You should also [manually monitor the health of Azure Front Door](#health-monitoring), and [you can manually switch traffic to route through the alternative path](#response-procedures) if you need to.
 
     > [!IMPORTANT]
     >
