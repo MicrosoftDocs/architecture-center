@@ -4390,12 +4390,12 @@
 		</g>
 		<g id="shape2549-916" v:mID="2549" v:groupContext="shape" transform="translate(445.039,-367.654)">
 			<title>Sheet.2549</title>
-			<desc>Lakehouse or warehouse</desc>
+			<desc>Fabric Lakehouse or Fabric Warehouse</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="56.2777" cy="838.197" width="112.56" height="31.7626"/>
 			<rect x="0" y="822.316" width="112.555" height="31.7626" class="st11"/>
-			<text x="32.95" y="835.2" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Lakehouse<v:newlineChar/><tspan
-						x="26.4" dy="1.2em" class="st4">or warehouse</tspan></text>		</g>
+			<text x="18.4" y="835.2" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Fabric Lakehouse<v:newlineChar/><tspan
+						x="10.79" dy="1.2em" class="st4">or Fabric Warehouse</tspan></text>		</g>
 		<g id="shape2336-920" v:mID="2336" v:groupContext="shape" transform="translate(457.002,-449.397)">
 			<title>Sheet.2336</title>
 			<desc>Enterprise data warehouse capabilities</desc>

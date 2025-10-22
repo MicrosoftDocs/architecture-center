@@ -1,34 +1,34 @@
-This article describes how to transfer data from an on-premises data warehouse to a cloud environment and then use a business intelligence (BI) model to serve the data. You can use this approach as an end goal or a first step toward full modernization with cloud-based components.
+This article describes how to transfer data from an on-premises data warehouse to a cloud environment and then use a business intelligence (BI) model to serve the data. You can use this approach as an end goal or as a first step toward full modernization with cloud-based components.
 
-This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. There are multiple options to extract data from an on-premises SQL Server, such as Fabric Data Factory pipelines, Mirroring, Copy job, and Fabric Real Time Eventstreams CDC for SQL. After extraction, the data is transformed for analysis.
+This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. There are multiple options to extract data from an on-premises SQL Server, such as Fabric Data Factory pipelines, Mirroring, Copy job, and Fabric real-time eventstreams change data capture (CDC) for SQL. After extraction, the data is transformed for analysis.
 
 ## When to use this architecture
 
-You can use various methods to meet business requirements for enterprise BI. Various aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you have a preference for platform as a service (PaaS) or software as a service (SaaS).
+You can use various methods to meet business requirements for enterprise BI. Various aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you prefer platform as a service (PaaS) or software as a service (SaaS).
 
 Consider the following design approaches:
 
-- [A lakehouse in Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+- [A lakehouse in Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
 - [Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers that have existing investment in Azure Databricks and Power BI and want to modernize with Fabric
 
 - Enterprise BI for small and medium businesses that use an [Azure SQL ecosystem and Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 
-- Data warehousing completely on Fabric for customers that prefer SaaS
+- End-to-end data warehousing on Fabric for customers who prefer a SaaS solution
 
-The architecture in this article assumes that you use Microsoft Fabric data Lakehouse or Warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for business intelligence. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
+The architecture in this article assumes that you use a Fabric Lakehouse or Fabric Warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for BI. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
 
 ## Architecture
 
-:::image type="complex" source="./media/enterprise-bi-scoped-architecture.svg" border="false" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Microsoft Fabric.":::
-  The diagram shows types of input, like data streams, databases, data services, unstructured data, and structured data. Components in the Ingest phase receive the data input. The Ingest phase components are Azure Event Hubs, Azure IoT Hub, Fabric Pipelines, Fabric RTI Eventstreams, and Mirroring and Copy jobs. Microsoft Fabric OneLake is the primary storage for the Store phase via multiple options such as Lakehouse or Warehouse, Eventhouse, or mirrored databases. Then the data goes to the process phase for Fabric Eventstreams and KQL query sets to process the data in real time, and Spark notebooks, SQL scripts, and Dataflows Gen2 for batch workloads. Some of the machine learning models data goes to the Enrich phase, which contains Azure AI Foundry and Azure Machine Learning. The other data goes to the Serve phase, which contains Power BI, Fabric Data Agents, and OneLake shortcuts. The data outputs to business users, analytics, applications, and shared datasets.
+:::image type="complex" source="./media/enterprise-bi-scoped-architecture.svg" border="false" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Fabric.":::
+  The diagram shows types of input, like data streams, databases, data services, unstructured data, and structured data. Components in the Ingest phase receive the data input. The Ingest phase components are Azure Event Hubs, Azure IoT Hub, Fabric pipelines, Fabric real-time intelligence (RTI) eventstreams, mirroring, and Copy jobs. Microsoft Fabric OneLake is the primary storage for the Store phase via multiple options such as Fabric Lakehouse, Fabric Warehouse, Fabric Eventhouse, or mirrored databases. Then the data goes to the process phase for Fabric Eventstreams and KQL query sets to process the data in real time, and Spark notebooks, SQL scripts, and Dataflows Gen2 for batch workloads. Some of the machine learning models data goes to the Enrich phase, which contains Azure AI Foundry and Azure Machine Learning. The other data goes to the Serve phase, which contains Power BI, Fabric data agents, and OneLake shortcuts. The data outputs to business users, analytics, applications, and shared datasets.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-scoped-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
-The following dataflow corresponds to the previous diagram.
+The following workflow corresponds to the previous diagram.
 
 #### Data source
 
@@ -36,47 +36,47 @@ The following dataflow corresponds to the previous diagram.
 
 #### Ingestion and data storage
 
-- [Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is single, unified, logical data lake for your whole organization. This SaaS provides various data storage options such as a [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) for data engineering lakehouse workloads, [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for data warehouse workloads, and [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse) for high volume time series and log datasets.
+- [Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is a single, unified, logical data lake for your entire organization. This SaaS provides various data storage options such as [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) for data engineering lakehouse workloads, [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for data warehouse workloads, and [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse) for high volume time series and log datasets.
 
-- [Microsoft Fabric Data Factory pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) to build complex extract, transform, load (ETL) and data factory workflows that can perform many different tasks at scale. Control flow capabilities are built into data pipelines that allow you to build workflow logic, which provides loops and conditionals. Here, metadata driven frameworks are used for incremental ingestion for multiple tables at scale.
+- [Fabric Data Factory pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) allows you to build complex extract, transform, load (ETL) and data factory workflows that can perform many different tasks at scale. Control flow capabilities are built into data pipelines that allow you to build workflow logic, which provides loops and conditionals. In this architecture, metadata-driven frameworks enable incremental ingestion of multiple tables at scale.
 
-- [Fabric Data Factory Mirroring](/fabric/mirroring/sql-server) provides an easy experience to avoid complex ETL and integrate your existing SQL Server estate with the rest of your data in Microsoft Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric's OneLake. [Fabric Data Factory Copy job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination without needing pipelines. With a simple, guided experience, you can set up data transfers by using built-in patterns for both batch and incremental copy with highly scalable performance.
+- [Fabric Data Factory mirroring](/fabric/mirroring/sql-server) allows you to avoid complex ETL processes and integrate your existing SQL Server estate with the rest of your data in Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric's OneLake. [Fabric Data Factory Copy job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination without needing pipelines. Data transfers can be configured through built-in patterns for batch and incremental copy, with support for scalable performance.
 
-- [Microsoft Fabric Eventstreams](/fabric/real-time-intelligence/event-streams/add-source-sql-server-change-data-capture) provides high throughput real time data ingestion from a SQL Server database on a virtual machine (VM) using CDC extraction. This pattern is suitable for use cases that need real time dashboards and alerting.
+- [Fabric Eventstreams](/fabric/real-time-intelligence/event-streams/add-source-sql-server-change-data-capture) provides high-throughput, real-time data ingestion from a SQL Server database hosted on a virtual machine (VM) by using CDC extraction. This pattern suits use cases that require real-time dashboards and alerting.
 
 #### Analysis and reporting
 
-- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. Fabric FSKUs provide the compute for Power BI semantic models as explained in [Fabric capacity](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus). Power BI can access the data via Import, DirectQuery or DirectLake connectivity.
+- The data-modeling approach in this scenario combines the [enterprise model][enterprise-model] and the [BI semantic model][bi-model]. [Fabric SKUs provide the compute for Power BI semantic models](/fabric/enterprise/powerbi/service-premium-what-is#capacities-and-skus). Power BI can access the data via Import, DirectQuery, or DirectLake connectivity.
 
 ### Components
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an Azure-hosted PaaS SQL server. In this architecture, Azure SQL Database provides the source data and demonstrates the flow of data for the migration scenario.
 
-- [Fabric OneLake Storage](/fabric/onelake/onelake-overview) is a unified, cloud-based data lake for storing both structured and unstructured data across the organization. In this architecture, OneLake serves as the central storage layer, using artifacts such as Lakehouse or Warehouse, Eventhouse, and mirrored database to persist and organize various types of data for analytics and reporting.
+- [OneLake storage](/fabric/onelake/onelake-overview) is a unified, cloud-based data lake for storing both structured and unstructured data across the organization. In this architecture, OneLake serves as the central storage layer. It uses artifacts such as Fabric Lakehouse, Fabric Warehouse, Fabric Eventhouse, and mirrored databases to persist and organize various types of data for analytics and reporting.
 
-- [Fabric DataWarehouse](/fabric/data-warehouse/data-warehousing) is an SaaS offering to host data warehouse workloads for large datasets. In this architecture, Fabric DataWarehouse serves as the final store for dimensional datasets and supports analytics and reporting.
+- [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is an SaaS offering to host data warehouse workloads for large datasets. In this architecture, Fabric Data Warehouse serves as the final store for dimensional datasets and supports analytics and reporting.
 
-- [Power BI](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario. In this architecture, Power BI enables business users to interact with dashboards and reports based on data from Fabric DataWarehouse and other sources.
+- [Power BI](/power-bi/enterprise/service-premium-what-is) is a BI tool hosted on Fabric compute that presents and visualizes data in this scenario. In this architecture, Power BI enables business users to interact with dashboards and reports based on data from Fabric Data Warehouse and other sources.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a multicloud identity and network solution suite that supports the authentication and authorization flow. In this architecture, Microsoft Entra ID provides secure access for users connecting to Power BI and Fabric resources.
 
 ## Scenario details
 
-In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Microsoft Fabric to perform ingestion, analysis, and deliver these analytic insights via Power BI to end users.
+In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Fabric to ingest and analyze the data, and deliver analytic insights to users through Power BI.
 
 ### Authentication
 
-Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on connects users to the data in Fabric Warehouse and Power BI semantic model. Authorization occurs on the source.
+Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on (SSO) connects users to the data in Fabric Warehouse and Power BI semantic model. Authorization occurs at the source.
 
 ### Incremental loading
 
-When you run an automated ETL or ELT process, you should load only the data that changed since the previous run. This process is called as an [incremental load](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse). Conversely, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
+When you run an automated ETL or ELT process, you should load only the data that changed since the previous run. This process is known as an [incremental load](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse). In contrast, a full load loads all the data. To perform an incremental load, determine how to identify the changed data. You can use a *high water mark* value approach, which tracks the latest value of a date-time column or a unique integer column in the source table.
 
 You can use [temporal tables](/sql/relational-databases/tables/temporal-tables) in SQL Server. Temporal tables are system-versioned tables that store data change history. The database engine automatically records the history of every change in a separate history table. To query the historical data, you can add a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
-Temporal tables support dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date. The column can be used as the watermark value. For example, in the AdventureWorks data warehouse, the `SalesLT.*` tables have a `LastModified` field.
+Temporal tables support dimension data, which can change over time. Fact tables typically represent immutable transactions, such as a sale, where keeping system version history isn't meaningful. Instead, transactions typically have a column that represents the transaction date. The column can be used as the watermark value. For example, in the AdventureWorks data warehouse, the `SalesLT.*` tables have a `LastModified` field.
 
-Here's the general flow for the ELT pipeline:
+The following steps describe the general flow of the ELT pipeline:
 
 1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. On initial setup, all times are set to `1-1-1900`.
 
@@ -90,56 +90,60 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven ingestion framework
 
-The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse) within Fabric Data Factory pipelines incrementally loads all tables that are contained in the relational database. While the article refers to a data warehouse as a source, it can be replaced with an Azure SQL DB as source.
+The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse) within Fabric Data Factory pipelines incrementally loads all tables that are contained in the relational database. The article refers to a data warehouse as a source, but it can be replaced with an Azure SQL database as source.
 
-1. Pick a watermark column. Choose one column in your source table that helps track new or changed records. This column usually contains values that increase when rows are added or updated (like a timestamp or ID). We use the highest value in this column as our "watermark" to know where we left off.
+1. Select a watermark column. Choose one column in your source table that helps track new or changed records. This column typically contains values that increase when rows are added or updated (like a timestamp or ID). We use the highest value in this column as our *watermark* to know where we left off.
 
 1. Set up a table to store your last watermark value.
 
-1. Build a pipeline that does the following tasks:
+1. Build a pipeline that includes the following activities:
 
-   The pipeline includes the following activities:
-
-   - Two lookup activities. The first one gets the last watermark value (where we stopped last time). The second one gets the new watermark value (where we'll stop this time). Both values get passed to the copy activity.
+   - Two lookup activities. The first activity gets the last watermark value (where we stopped last time). The second activity gets the new watermark value (where we stop this time). Both values are passed to the copy activity.
 
    - A copy activity that finds rows where the watermark column value is between the old and new watermarks. It then copies this data from your Data Warehouse to your Lakehouse as a new file.
   
-   - A stored procedure activity that saves the new watermark value so the next pipeline run knows where to start.
+   - A stored procedure activity that saves the new watermark value so that the next pipeline run knows where to start.
 
-   :::image type="content" source="./media/metadata-copy.png" alt-text="Logic of metadata driven framework." lightbox="./media/metadata-copy.png":::
+   :::image type="complex" border="false" source="./media/metadata-copy.png" alt-text="Image that shows the logic of a metadata-driven framework." lightbox="./media/metadata-copy.png":::
+     The image shows a flowchart. A line connects two sections that read Get last watermark (Lookup activity). An arrow points from these sections and to a section that reads Delta load between these two watermarks from the source table to the destination (Copy activity). An arrow points from this section to a section that reads Update the watermark for delta data loading next time (Stored procedure activity).
+  :::image-end:::
 
-A completed pipeline looks as below. More details about implementation can be found at [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse).
+The following image shows a completed pipeline. For more information, see [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse).
 
-:::image type="content" source="./media/metadata-ingestion-pipeline.png" alt-text="Completed pipeline metadata driven framework." lightbox="./media/metadata-copy.png":::
+:::image type="complex" border="false" source="./media/metadata-ingestion-pipeline.png" alt-text="Diagram that shows the completed pipeline metadata-driven framework." lightbox="./media/metadata-ingestion-pipeline.png":::
+   The screenshot shows the media ingestion pipeline. It starts with two lookup activities to retrieve the old and new watermark values, followed by a copy data activity that transfers only the new or changed data. After the data copy, a stored procedure is performed to update the watermark in the target data warehouse, with parameters for the last modified time and table name dynamically set from the lookup results.
+:::image-end:::
 
-### Load data into a Microsoft Fabric Data Warehouse
+### Load data into a Fabric data warehouse
 
-The [copy activity](/fabric/data-factory/copy-data-activity) copies data from the SQL database into the Fabric Data Warehouse. This example's SQL database is in Azure, so it uses a connection set up within the Fabric portal under **Manage Connection & Gateways**.
+The [copy activity](/fabric/data-factory/copy-data-activity) copies data from the SQL database into the Fabric Data Warehouse. This example's SQL database is in Azure, so it uses a connection set up within the Fabric portal under **Manage Connection and Gateways**.
 
-### Use Fabric Data Factory Pipelines
+### Use Fabric Data Factory pipelines
 
 Pipelines in Fabric Data Factory pipelines define an ordered set of activities to complete an incremental load pattern. Manual or automatic triggers start the pipeline.
 
 ### Transform the data
 
-If transformation is needed, then [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) should be used to design low code AI-assisted ETL transformations to change nature of data. It uses the PowerQuery engine to execute transformations and writes output of transformation to Fabric Data Warehouse.
+If transformation is needed, then [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) to design low-code, AI-assisted ETL transformations that reshape the data. Fabric Dataflows rely on the Power Query engine to apply those transformations and write the results to Fabric Data Warehouse.
 
-In a production environment, [Fabric Notebooks](/fabric/data-engineering/how-to-use-notebook) should be used for implementing ETL transformations that work well for large datasets via an Apache Spark driven distributed computing framework.
+In a production environment, [Fabric notebooks](/fabric/data-engineering/how-to-use-notebook) should be used for implementing ETL transformations that work well for large datasets via an Apache Spark-driven distributed computing framework.
 
 > [!NOTE]
-> Use the [Native Execution engine](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) for running data engineering or ETL workloads.
+> Use the [native execution engine](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) for running data engineering or ETL workloads.
 
-### Use Power BI on Fabric Capacities to access, model, and visualize data
+### Use Power BI on Fabric capacities to access, model, and visualize data
 
-Power BI on Fabric Capacities supports several options to connect to data sources on Azure. You can use Fabric Data Warehouse to do the following tasks:
+## Power BI connectivity options on Microsoft Fabric capacities
 
-- Import: The data is imported into the Power BI model.
+Power BI on Microsoft Fabric capacities provides several storage modes for connecting to Azure data sources:
 
-- [DirectQuery](/power-bi/connect-data/desktop-directquery-about): Data is pulled directly from relational storage.
+- **Import:** Loads data into the Power BI semantic model for in-memory querying.
 
-- [Composite model](/power-bi/transform-model/desktop-composite-models): Combine *Import* for some tables and *DirectQuery* for others.
+- **[DirectQuery](/power-bi/connect-data/desktop-directquery-about):** Runs queries directly against relational storage without loading data into memory.
 
-- [DirectLake](/fabric/fundamentals/direct-lake-overview): is a storage mode option for tables in a Power BI semantic model that's stored in a Microsoft Fabric workspace. It's optimized for large volumes of data that can be quickly loaded into memory from Delta tables stored in OneLake that enables high performance interactive analysis on very large tables.
+- **[Composite model](/power-bi/transform-model/desktop-composite-models):** Combines Import mode for some tables with DirectQuery for others in the same dataset.
+
+- **[DirectLake](/fabric/fundamentals/direct-lake-overview):** Queries Delta tables stored in OneLake from a Fabric workspace semantic model. It's optimized for interactive analysis of very large tables by loading data into memory on demand.
 
 This scenario uses the DirectQuery dashboard because it has a small amount of data and low model complexity. DirectQuery delegates the query to the underlying compute engine and uses security capabilities on the source. DirectQuery ensures that results are always consistent with the latest source data.
 
@@ -149,15 +153,17 @@ Import mode can provide the lowest query latency. Consider import mode if the fo
 - The data latency between refreshes is acceptable.
 - You require complex transformations between the source system and the final model.
 
-In this case, the end users want full access to the most recent data with no delays in Power BI refreshing, and they want all historical data, which exceeds the Power BI dataset capacity. A Power BI dataset can handle 25-400 GB, depending on the capacity size. The data model in the dedicated SQL pool is already in a star schema and doesn't require transformation, so DirectQuery is an appropriate choice.
+In this case, the users want full access to the most recent data with no delays in Power BI refreshing, and they want all historical data, which exceeds the Power BI dataset capacity. A Power BI dataset can handle 25 gigabytes (GB) to 400 GB, depending on the capacity size. The data model in the dedicated SQL pool is already in a star schema and doesn't require transformation, so DirectQuery is an appropriate choice.
 
-:::image type="content" source="./media/adventure-works-dashboard.png" alt-text="Screenshot that shows the dashboard in Power BI." lightbox="./media/adventure-works-dashboard.png":::
+:::image type="complex" border="false" source="./media/adventure-works-dashboard.png" alt-text="Screenshot that shows the dashboard in Power BI." lightbox="./media/adventure-works-dashboard.png":::
+  A screenshot shows the Power BI dashboard that displays sales analytics. The top section shows four key metrics: Sales, Orders, Customers, and Products sold. There are four bar charts that visualize trends by month for Sales, Orders, Customers, and Products sold. The left sidebar provides filters for Location, Company, and Product. The lower section presents a detailed table with categories, sales amounts, orders, customers, and products sold.
+:::image-end:::
 
 Use [Power BI](/power-bi/enterprise/service-premium-gen2-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with unique value proposition.
 
 When the BI model grows or dashboard complexity increases, you can switch to composite models and import parts of lookup tables via [hybrid tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables), and import preaggregated data. You can enable [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets and use [dual tables](/power-bi/transform-model/desktop-storage-mode) for the storage mode property.
 
-Within the composite model, datasets serve as a virtual pass-through layer. When users interact with visualizations, Power BI generates SQL queries to Microsoft Fabric Data Warehouse. Power BI determines whether to use in-memory or DirectQuery storage based on efficiency. The engine decides when to switch from in-memory to DirectQuery and pushes the logic to the Fabric Data Warehouse. Depending on the context of the query tables, they can act as either cached (imported) or noncached composite models. You can choose which table to cache into memory, combine data from one or more DirectQuery sources, or combine DirectQuery source data and imported data.
+Within the composite model, datasets serve as a virtual pass-through layer. When users interact with visualizations, Power BI generates SQL queries to Fabric Data Warehouse. Power BI determines whether to use in-memory or DirectQuery storage based on efficiency. The engine decides when to switch from in-memory to DirectQuery and pushes the logic to the Fabric Data Warehouse. Depending on the context of the query tables, they can serve as either cached (imported) or noncached composite models. You can choose which table to cache into memory, combine data from one or more DirectQuery sources, or combine DirectQuery source data and imported data.
 
 When you use DirectQuery with a Fabric Data Warehouse or Lakehouse, take the following actions:
 
@@ -173,9 +179,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-#### Microsoft Fabric reliability
+#### Fabric reliability
 
-This document on [Reliability](/azure/reliability/reliability-fabric) describes reliability support in Microsoft Fabric, and both regional resiliency with availability zones and cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with Fabric's service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) capability for OneLake data.
+The article [Reliability](/azure/reliability/reliability-fabric) explains how Fabric supports reliability, including regional resiliency through availability zones, along with cross-region recovery and business continuity. Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure regional pairings align with Fabric's service presence. When the disaster recovery capacity setting is turned on, cross-region replication is enabled as a [disaster recovery capability](/azure/reliability/reliability-fabric#disaster-recovery-capacity-setting) for OneLake data.
 
 ### Security
 
@@ -183,74 +189,73 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cloud modernization introduces security concerns, such as data breaches, malware infections, and malicious code injection. You need a cloud provider or service solution that can address your concerns because inadequate security measures can create major problems.
 
-This scenario addresses the most demanding security concerns by using a combination of layered security controls: network, identity, privacy, and authorization controls. A Microsoft Fabric Data Warehouse stores most of the data. Power BI accesses the data via DirectQuery through single sign-on. You should use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
+This scenario addresses the most demanding security concerns by using a combination of layered security controls. These controls include network, identity, privacy, and authorization controls. A Fabric data warehouse stores most of the data. Power BI accesses the data via DirectQuery through SSO. Use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization within the provisioned pools.
 
-Some common security questions include:
+Consider the following common security concerns:
 
 - Define who can see what data.
 
-  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Microsoft Fabric provides holistic security coverage [data protection capabilities](/fabric/security/security-overview) to achieve compliance.
+  - Ensure that your data complies with federal, local, and company guidelines to mitigate data breach risks. Fabric provides holistic security coverage [data protection capabilities](/fabric/security/security-overview) to achieve compliance.
 
   - [OneLake security](/fabric/onelake/security/get-started-security) controls all access to OneLake data with different permissions inherited from the parent item or workspace permissions.
 
     - **A workspace** is a collaborative environment for creating and managing items. Workspace roles can be managed at this level.
 
-    - **An item** is a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it using OneLake. Items inherit permissions from the workspace roles but can have extra permissions as well.
-
-      - **Folders** within an item are used for storing and managing data, such as `Tables/` or `Files/`.
+    - **An item** is a set of capabilities bundled together into a single component. A data item is a subtype of item that allows data to be stored within it by using OneLake. Items inherit permissions from the workspace roles but can have extra permissions as well. **Folders** within an item are used for storing and managing data, such as `Tables/` or `Files/`.
 
 - Determine how to verify a user's identity.
 
-  - Use Microsoft Fabric to control who can access what data via [access control](/fabric/security/white-paper-landing-page) and [authentication](/fabric/security/workspace-identity-authenticate).
+  - Use Fabric to control who can access what data via [access control](/fabric/security/white-paper-landing-page) and [authentication](/fabric/security/workspace-identity-authenticate).
 
 - Choose a network security technology to protect the integrity, confidentiality, and access of your networks and data.
 
-  - Help secure Microsoft Fabric by using [network security](/fabric/security/protect-inbound-traffic) options.
+  - Help secure Fabric by using [network security](/fabric/security/protect-inbound-traffic) options.
 
 - Choose tools to detect and notify you of threats.
 
-  - Microsoft Fabric doesn't have built-in threat detection. We recommend using combination of [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies) to set up alerts and review [Audit Logs](/fabric/security/security-overview#audit-logs) to track user activities.
+  - Fabric doesn't have built-in threat detection. We recommend that you use combination of [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies) to set up alerts and review [audit logs](/fabric/security/security-overview#audit-logs) to track user activities.
+
 - Determine how to protect data on Fabric OneLake.
 
-  - Help [protect](/fabric/security/security-overview#protect-data) data on Microsoft Fabric by using sensitivity labels from Microsoft Purview Information Protection. These labels such as General, Confidential, and Highly Confidential are widely used in Microsoft Office apps such as Word, PowerPoint, and Excel to protect sensitive information and they follow the data automatically from item to item as it flows through Fabric, all the way from data source to business user.
+  - Help [protect data on Fabric](/fabric/security/security-overview#protect-data) by using sensitivity labels from Microsoft Purview Information Protection. Labels such as General, Confidential, and Highly Confidential are widely used in Microsoft Office apps such as Word, PowerPoint, and Excel to protect sensitive information. They follow the data automatically from item to item as it flows through Fabric, all the way from data source to business user.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This section provides information about pricing for different services involved in this solution, and mentions decisions made for this scenario with a sample dataset. Use the starting configuration in the [Azure pricing calculator](https://azure.com/e/6cfedbbb9b894042aced62f518a77ec3) and adjust it to fit your scenario. Use the [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/) for detailed information about Fabric F SKUs and [Fabric Capacity Estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator) to generate an estimate of overall Fabric consumption.
+This section outlines pricing details for the various services used in the solution and explains the decisions made for this scenario by using a sample dataset. Use the starting configuration in the [Azure pricing calculator](https://azure.com/e/6cfedbbb9b894042aced62f518a77ec3) and adjust it to fit your scenario. For more information about Fabric SKUs, see [Fabric pricing overview](https://azure.microsoft.com/pricing/details/microsoft-fabric/). For more information about how to generate an estimate of overall Fabric consumption, see the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
 
-#### Microsoft Fabric scalable architecture
+#### Fabric scalable architecture
 
-Microsoft Fabric is a serverless architecture for most workloads that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per gigabyte, so your costs increase as you ingest data.
+Fabric is a serverless architecture for most workloads that you can use to scale your compute and storage levels independently. Compute resources incur costs based on usage. You can scale or pause these resources on demand. Storage resources incur costs per GB, so your costs increase as you ingest data.
 
-#### Microsoft Fabric Factory pipelines
+#### Fabric factory pipelines
 
 Three main components influence the price of a pipeline:
 
-- Data pipeline activities for orchestration, to optimize cost one should reduce the total orchestration time by implementing parallel flows.
+- **Data pipeline activities for orchestration:** To optimize cost, reduce the total orchestration time by implementing parallel flows.
 
-- Dataflow Gen2 for compute, to optimize cost one should simplify ETL pipelines by filtering unnecessary data and process incremental extraction.
+- **Dataflow Gen2 for compute:** To optimize cost, simplify ETL pipelines by filtering unnecessary data and processing incremental extraction.
 
-- Data movement for Copy job or Copy activity, to optimize cost configure Copy job with incremental extraction and adjust throughput for Copy activity.
+- **Data movement for Copy job or Copy activity:** To optimize cost, configure the Copy job with incremental extraction and adjust throughput for the Copy activity.
 
-For pricing details, see the **Data Factory pricing meters** tab on [Data Factory pricing](/fabric/data-factory/pricing-overview).
+For more information, see the **Data Factory pricing meters** tab on [Data Factory pricing](/fabric/data-factory/pricing-overview).
 
-The price varies depending on components or activities, frequency, and overall compute associated with orchestration. Any data movement due to pipeline activities or Copy job will incur cost, but compute associated with data movement via [Fabric mirroring](/fabric/mirroring/overview#cost-of-mirroring) is free and storage cost of mirrored data is free up to capacity size. For example, if you purchase an F64 capacity, you get 64 free terabytes worth of storage, exclusively used for mirroring. OneLake storage is billed if free Mirroring storage limit is exceeded, or when the capacity is paused.
+The price varies depending on components or activities, frequency, and the overall compute associated with orchestration. Any data movement that results from pipeline activities or a Copy job incurs a cost. However, compute associated with data movement via [Fabric mirroring](https://learn.microsoft.com/fabric/mirroring/overview#cost-of-mirroring) is free, and the storage cost of mirrored data is free up to the capacity size. For example, if you purchase an F64 capacity, you receive 64 free terabytes (TB) of storage that's exclusively used for mirroring. OneLake storage is billed if the free mirroring storage limit is exceeded or when the capacity is paused.
 
-#### Microsoft Fabric Data Lakehouse or Warehouse or Eventhouse
+#### Fabric workload decision guide
 
-Use this [decision guide](/fabric/fundamentals/decision-guide-data-store) to help you choose a data store for your Microsoft Fabric workloads, all available in a unified storage in the OneLake.
+Use this [decision guide](/fabric/fundamentals/decision-guide-data-store) to select a data store for your Fabric workloads. All options are available in unified storage within OneLake.
 
-The SQL Endpoint for Fabric Lakehouse or Warehouse provides the capability to execute ad-hoc queries for analysis, as well as allowing Power BI semantic models to import or direct query the data. The cost associated with a Lakehouse or Warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint. To optimize cost, implement [Z-Ordering & V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql&branch=main) in Lakehouse to improve query performance, for Data Warehouse optimize queries to read smaller batches.
+The SQL endpoint for Fabric Lakehouse or Fabric Warehouse provides the capability to run ad-hoc queries for analysis. It also allows Power BI semantic models to import or direct query the data. The cost associated with a lakehouse or warehouse is equivalent to the [CUs consumption](/fabric/enterprise/azure-billing) for SQL queries against the SQL endpoint. To optimize cost, implement [Z-Ordering and V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order) in Fabric Lakehouse to improve query performance. For Data Warehouse, optimize queries to read smaller batches.
 
 #### OneLake storage
 
-OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information about pricing, see [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/). To optimize OneLake costs, focus on managing storage volume by regularly deleting unused data, including data in "soft delete" storage, and optimizing read/write operations. Because OneLake storage is billed separately from compute, monitor your usage with the Fabric Capacity Metrics app and reduce data stored to lower storage bills, which are calculated based on average daily usage over the month.
+OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric capacity units (CUs). Fabric items like lakehouses and warehouses consume OneLake storage. For more information, see [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/). To optimize OneLake costs, focus on managing storage volume by regularly deleting unused data, including data in *soft delete* storage, and optimizing read/write operations. OneLake storage is billed separately from compute, so it's important to monitor usage with the Fabric capacity metrics app. To reduce storage costs, which are calculated based on average daily usage over the month, consider minimizing the amount of data stored.
 
 #### Power BI
 
-This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs. To optimize cost, implement [Incremental Refresh](/power-bi/connect-data/incremental-refresh-overview) for IMPORT mode extraction, and wherever possible implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for reporting on larger datasets to reduce overall load on Fabric Capacities.
+This scenario uses [Power BI workspaces](/power-bi/admin/service-premium-what-is) with built-in performance enhancements to accommodate demanding analytical needs. To optimize cost, implement [incremental refresh](/power-bi/connect-data/incremental-refresh-overview) for Import mode extraction. Implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for reporting on larger datasets when possible to reduce overall load on Fabric capacities.
 
 For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
@@ -258,7 +263,7 @@ For more information, see [Power BI pricing](https://powerbi.microsoft.com/prici
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of a Microsoft Fabric workspace artifact across multiple environments. For more information, see [Continuous integration and continuous delivery for Microsoft Fabric workspace](/fabric/cicd/manage-deployment).
+- Use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of a Fabric workspace artifact across multiple environments. For more information, see [Continuous integration and continuous delivery for a Fabric workspace](/fabric/cicd/manage-deployment).
 
 - Put each workload in a separate deployment template, and store the resources in source control systems. You can deploy the templates together or individually as part of a continuous integration and continuous delivery (CI/CD) process. This approach simplifies the automation process. This architecture has four main workloads:
 
@@ -271,9 +276,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Use a rollback strategy to handle failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. Use the `--rollback-on-error` flag in the Azure CLI.
 
-- Use [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) for comprehensive monitoring of Fabric capacity consumption, [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed monitoring of Fabric Workspace telemetry logs.
+- Use the [Fabric capacity metrics app](/fabric/enterprise/metrics-app) for comprehensive monitoring of Fabric capacity consumption and [workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed monitoring of Fabric workspace telemetry logs.
 
-- Use [Fabric Capacity Estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator?msockid=2cafadf0224a6692090fbbc023586769) to estimate your Fabric Capacity needs.
+- Use the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator?msockid=2cafadf0224a6692090fbbc023586769) to estimate your Fabric capacity needs.
 
 ### Performance Efficiency
 
@@ -281,9 +286,9 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This section provides details about sizing decisions to accommodate this dataset.
 
-#### Power BI on Fabric Capacity
+#### Power BI on Fabric capacity
 
-This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum available SKU size available at [Fabric FSKU](https://azure.microsoft.com/pricing/details/microsoft-fabric/).
+This article uses the [Fabric F64 capacity](/power-bi/enterprise/service-premium-what-is#capacities-and-skus) to demonstrate BI capabilities. Dedicated Power BI capacities in Fabric range from F64 to the maximum available SKU size available at [Fabric SKUs](https://azure.microsoft.com/pricing/details/microsoft-fabric/).
 
 To determine how much capacity you need, take the following actions:
 
@@ -312,10 +317,10 @@ Other contributors:
 
 ## Next steps
 
-- [What is Power BI?](/power-bi/enterprise/service-premium-what-is)
+- [What is Power BI?](/fabric/enterprise/powerbi/service-premium-what-is)
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
-- [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
-- [What is Microsoft Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
+- [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/connect/storage/azure-storage)
+- [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [Pipelines and activities in Fabric Data Factory](/fabric/data-factory/data-factory-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
