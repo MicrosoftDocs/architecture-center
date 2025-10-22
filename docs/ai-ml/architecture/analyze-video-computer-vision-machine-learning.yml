@@ -4,7 +4,7 @@ metadata:
   description: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
   author: oscarsk91
   ms.author: oscarsh
-  ms.date: 12/20/2024
+  ms.date: 10/01/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
@@ -19,8 +19,8 @@ products:
   - azure-machine-learning
   - ai-services
   - azure-logic-apps
-  - fabric
   - azure-data-lake-storage
+  - fabric
 name: Perform video analysis by using Azure Machine Learning and Computer Vision
 summary: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-video-thumb.png
