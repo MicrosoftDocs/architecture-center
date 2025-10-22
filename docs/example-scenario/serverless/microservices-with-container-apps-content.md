@@ -1,4 +1,4 @@
-This example scenario shows an example of an existing workload that was originally designed to run on Kubernetes can instead run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration.
+This example scenario shows an example of an existing workload that was originally designed to run on Kubernetes replatformed instead to run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration.
 
 The example workload runs a containerized microservices application. The workload used is the same workload as defined in [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml). This architecture rehosts it in Azure Container Apps as its application platform.
 
@@ -13,10 +13,10 @@ The example workload runs a containerized microservices application. The workloa
 
 ## Architecture
 
-**Image TODO: Add numbers**
+**Image TODO: Add numbers, update to AMR**
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps-runtime-diagram.png" alt-text="Diagram showing the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps-runtime-diagram.png":::
-   The diagram shows an Azure Container Apps environment as a large rectangle containing five container apps. At the far left an HTTP traffic source arrow points right into the Ingestion service at the upper left of the environment. An upward arrow from Ingestion goes to Azure Service Bus above the environment, and a downward arrow from Azure Service Bus returns to the Workflow service centered in the top row. From Workflow, three black connectors descend and bend toward each lower service: left to Package service, straight down to Drone Scheduler service, and right to Delivery service. Each lower service has a vertical arrow to its own external state store placed below the environment: Package service to Azure Cosmos DB for MongoDB API, Drone Scheduler service to Azure Cosmos DB, and Delivery service to Azure Cache for Redis. Two rightward arrows exit the middle of the environment: the upper goes to Azure Application Insights and the lower to Azure Log Analytics workspace. Below the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows. Microsoft Azure branding appears at the lower left outside the environment.
+   The diagram shows an Azure Container Apps environment as a large rectangle containing five container apps. At the far left an HTTP traffic source arrow points right into the Ingestion service at the upper left of the environment. An upward arrow from Ingestion goes to Azure Service Bus above the environment, and a downward arrow from Azure Service Bus returns to the Workflow service centered in the top row. From Workflow, three black connectors descend and bend toward each lower service: left to Package service, straight down to Drone Scheduler service, and right to Delivery service. Each lower service has a vertical arrow to its own external state store placed below the environment: Package service to Azure Cosmos DB for MongoDB API, Drone Scheduler service to Azure Cosmos DB, and Delivery service to Azure Managed Redis. Two rightward arrows exit the middle of the environment: the upper goes to Azure Application Insights and the lower to Azure Log Analytics workspace. Below the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows. Microsoft Azure branding appears at the lower left outside the environment.
 :::image-end:::
 
 This diagram illustrates the runtime architecture for the solution.
@@ -31,7 +31,7 @@ The services sharing the same environment benefit from:
 
 ### Dataflow
 
-1. **Ingestion service:** Receives client requests, buffers them and sends them via Azure Service Bus to the workflow service.
+1. **Ingestion service:** Receives client requests, buffers them and sends them via Azure Service Bus to the workflow service. This is the only ingress point into the workload.
 1. **Workflow service:** Consumes messages from Azure Service Bus and dispatches them to underlying microservices.
 1. **Package service:** Manages packages. The service maintains its own state in Azure Cosmos DB.
 1. **Drone scheduler service:** Schedules drones and monitors drones in flight. The service maintains its own state in Azure Cosmos DB.
@@ -65,7 +65,7 @@ The following features replace many of the capabilities of the previous AKS arch
 
 - **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction) API. Microservices should write their state to a dedicated external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and SQL where the microservices write their state and application data.
 
-- **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow microservice.
+- **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow microservice. The rest of the services were designed to be invoked via HTTP requests.
 
 - **[Azure Managed Redis](/azure/redis/overview)** is an in-memory caching service based on the Redis cache. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
 
@@ -94,7 +94,7 @@ The microservices application was deployed to an AKS cluster. However, the Fabri
 
 ### Potential use cases
 
-Deploy a brownfield microservice-based application into a platform as a service (PaaS) to simplify management and avoid the complexity of running a container orchestrator.
+Deploy a brownfield microservice-based application into a platform as a service (PaaS) to simplify management and avoid the complexity of running a container orchestrator. This brownfield workload also experienced cost savings using this architecture over their kubernetes deployment due its choice of workload profiles.
 
 Other common uses of Container Apps include:
 
@@ -111,7 +111,7 @@ The goal of the workload team was to migrate the existing workload to Container 
 
 ### Avoid designs the require single revision mode
 
-The workflow service container app is running in single revision mode. A container app running in single revision mode has a single revision, backed by zero to many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container. The workflow service was not designed to have forward compatibility with message schemas, so ensuring two different versions of the service are deployed at the same time is important.
+The workflow service container app is running in single revision mode. A container app running in single revision mode has a one revision, backed by zero to many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container. The workflow service was not designed to have forward compatibility with message schemas, so ensuring two different versions of the service are deployed at the same time is important.
 
 If the schema for the messages in service bus need to change, you're forced to drain the bus before deploying the new version of the workflow service. A better approach would be to update the service code to expect future schema changes and move the workflow service to multi-revision mode to reduce downtime associated with draining queues before workload changes that have compatibility issues.
 
@@ -127,7 +127,7 @@ The workflow service is implemented as a long-running container app. However, th
 
 ### Implement ingress control
 
-The workload uses the built-in external ingress feature of Container Apps to expose the Ingestion service. This approach doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall. To achieve this, you should disable the built-in public ingress and Application Gateway to front the Container Apps environment.
+The workload uses the built-in external ingress feature of Container Apps to expose the Ingestion service. This approach doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall. To achieve this, you should disable the built-in public ingress and add Application Gateway to front the Container Apps environment.
 
 ### Modernization with Dapr
 
@@ -180,7 +180,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Ingress: To limit external access, only the Ingestion service is configured for external ingress. The backend services are accessible only through the internal virtual network in the Container Apps environment and are configured as internal mode. Only expose services to the Internet where required. Because this architecture uses the built-in external ingress feature, this solution doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall. For ingress improvements, see [Implement ingress control](#implement-ingress-control) in the Optimizations section.
 - Virtual network: When you create an environment, you can provide a custom virtual network; otherwise, a virtual network is automatically generated and managed by Microsoft. You can't manipulate this Microsoft-managed virtual network, such as by adding network security groups (NSGs) or force tunneling traffic to an egress firewall. This example uses an automatically generated virtual network, which should be improved by using a custom virtual network, giving you more security control such as [Network Security Groups](/azure/container-apps/firewall-integration) and UDR-based routing through Azure Firewall.
 
-For more network topology options, see [Networking architecture in Azure Container Apps](/azure/container-apps/networking).
+For more network topology options, including private endpoint support for ingress, see [Networking architecture in Azure Container Apps](/azure/container-apps/networking).
 
 #### Workload identities
 
@@ -206,7 +206,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Use a dedicated workload profile for components with predictable usage that could share multiple dedicated nodes. However for this to be a cost optimization, consider that you should still have a multiple of three nodes per dedicated profile to ensure an even distribution of the replicas on all the availability zones of a region.
 
-- Eliminate compute costs during periods of inactivity by ensuring components can effectively scale to zero, which ensures that you only pay for resources when you need them. This approach reduces expenses for apps that have variable or infrequent usage patterns. In this architecture the workflow service could be re-implemented as a job to take advantage of scale-to-zero for the periods when there is no work to be done.
+- Eliminate compute costs during periods of inactivity by ensuring components can effectively scale to zero, which ensures that you only pay for resources when you need them. This approach reduces expenses for apps that have variable or infrequent usage patterns. In this architecture the workflow service could be re-implemented as a job to take advantage of scale-to-zero for the periods when there is no work to be done. This couples well with workloads that can use a [consumption plan](/azure/container-apps/plans#consumption).
 
 - To avoid cross-region network charges, ensure all components such as the various state stores and container registry in this architecture are deployed the same region.
 
