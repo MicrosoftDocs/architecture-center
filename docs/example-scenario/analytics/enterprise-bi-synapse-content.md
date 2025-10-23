@@ -1,6 +1,6 @@
 This article describes how to transfer data from an on-premises data warehouse to a cloud environment and then use a business intelligence (BI) model to serve the data. You can use this approach as an end goal or as a first step toward full modernization with cloud-based components.
 
-This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. There are multiple options to extract data from an on-premises SQL Server, such as Fabric Data Factory pipelines, Mirroring, Copy job, and Fabric real-time eventstreams change data capture (CDC) for SQL. After extraction, the data is transformed for analysis.
+This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. There are multiple options to extract data from an on-premises SQL server, such as Fabric Data Factory pipelines, mirroring, copy job, and Fabric real-time eventstreams change data capture (CDC) for SQL. After extraction, the data is transformed for analysis.
 
 ## When to use this architecture
 
@@ -16,7 +16,7 @@ Consider the following design approaches:
 
 - End-to-end data warehousing on Fabric for customers who prefer a SaaS solution
 
-The architecture in this article assumes that you use a Fabric Lakehouse or Fabric Warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for BI. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
+The architecture in this article assumes that you use a Fabric lakehouse or Fabric warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for business intelligence. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The following workflow corresponds to the previous diagram.
 
 - [Fabric Data Factory pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) allow you to build complex extract, transform, load (ETL) and data factory workflows that can perform many different tasks at scale. Control flow capabilities are built into data pipelines that allow you to build workflow logic, which provides loops and conditionals. In this architecture, metadata-driven frameworks enable incremental ingestion of multiple tables at scale.
 
-- [Fabric Data Factory mirroring](/fabric/mirroring/sql-server) allows you to avoid complex ETL processes and integrate your existing SQL Server estate with the rest of your data in Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric's OneLake. [Fabric Data Factory Copy job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination without needing pipelines. Data transfers can be configured through built-in patterns for batch and incremental copy, with support for scalable performance.
+- [Fabric Data Factory mirroring](/fabric/mirroring/sql-server) allows you to avoid complex ETL processes and integrate your existing SQL Server estate with the rest of your data in Fabric. You can continuously replicate your existing SQL Server databases directly into Fabric OneLake. The [Fabric Data Factory copy job](/fabric/data-factory/what-is-copy-job) makes it easy to move data from your source to your destination without needing pipelines. Data transfers can be configured through built-in patterns for batch and incremental copy, with support for scalable performance.
 
 - [Fabric eventstreams](/fabric/real-time-intelligence/event-streams/add-source-sql-server-change-data-capture) provide high-throughput, real-time data ingestion from a SQL Server database hosted on a virtual machine (VM) by using CDC extraction. This pattern suits use cases that require real-time dashboards and alerting.
 
@@ -313,7 +313,7 @@ Other contributors:
 
 - [What is Power BI Premium?](/fabric/enterprise/powerbi/service-premium-what-is)
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
-- [Access Data Lake Storage and Azure Blob Storage with Azure Databricks](/azure/databricks/connect/storage/azure-storage)
+- [Connect to Azure Data Lake Storage and Blob Storage](/azure/databricks/connect/storage/azure-storage)
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [What is Data Factory in Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
