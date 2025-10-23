@@ -5,7 +5,7 @@ author: splitfinity81
 ms.author: yubaijna
 ms.date: 01/02/2025
 ms.topic: conceptual
-ms.subservice: architecture-guide
+ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure
