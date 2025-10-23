@@ -252,7 +252,6 @@ The following new and updated articles have recently been published in the Azure
 - [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md)
 - [Azure Private Link in a Hub-and-Spoke Network](./networking/guide/private-link-hub-spoke-network.md)
 - [Use API Management to Protect Access Tokens in Single-Page Applications](./web-apps/guides/security/secure-single-page-application-authorization.md)
-- [Patterns for Inter-Spoke Networking](./networking/guide/spoke-to-spoke-networking.md)
 - [Organize Azure Resources in Multitenant Solutions](./guide/multitenant/approaches/resource-organization.md)
 - [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md)
 - [Microservices Architecture Style](./guide/architecture-styles/microservices.md)
