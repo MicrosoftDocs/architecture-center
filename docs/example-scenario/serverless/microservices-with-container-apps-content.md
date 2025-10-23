@@ -131,6 +131,10 @@ The workload uses the built-in external ingress feature of Container Apps to exp
 
 The workload could be further modernized by integrating with [Dapr (Distributed Application Runtime)](https://dapr.io/). This would add abstraction between workload code and state stores, messaging systems, and service discovery mechanisms. For more information, see [Deploy Microservices with Azure Container Apps and Dapr](./microservices-with-container-apps-dapr.yml).
 
+### Migrate to user authentication and authorization
+
+The workload does not delegate authorization to a gateway; the ingestion service handles authorization of its clients. A better approach is offload this responsibility to the [built-in authentication and authorization feature](/azure/container-apps/authentication) (often referred to as "Easy Auth"). This change will take advantage of platform capabilities and reduce custom code in the ingestion microservice.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
@@ -149,7 +153,7 @@ Container Apps allows you to deploy, manage, maintain, and monitor the applicati
 
 - Use [health and readiness probes](/azure/container-apps/health-probes) to handle slow-starting containers and avoid sending traffic before they are ready. The Kubernetes implementation already had these endpoints; continue using them if they are effective signals.
 
-- When a service unexpectedly terminates, Container Apps automatically restarts it.
+- When a service unexpectedly terminates, Container Apps automatically restarts it. Service discovery is enabled so that the workflow service can discover its downstream microservices. Use [resiliency policies](/azure/container-apps/service-discovery-resiliency) to handle timeouts and introduce circuit breaker logic without needing to further adjust the code.
 
 - You should enable autoscaling rules to meet demand as traffic and workloads increase.
 
