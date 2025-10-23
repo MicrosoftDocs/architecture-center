@@ -50,7 +50,7 @@ The workflow is read left to right, following the flow of data:
     - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
     - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
     - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-    - [Run KQL queries](fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
+    - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
       
 - **Serve**
     - Serve curated data via [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing), or mirrored database endpoints [using SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint).
@@ -216,7 +216,7 @@ The following tables present a breakdown of each Azure service and component use
         - Configure Cross-region read replicas for DR and read scale.
     - Notes:
         - Automatic backups with retention up to 35 days; HA with zone redundancy available.
-        - For details on Azure CosmosDB disaster recovery, see [Geo-disaster recovery in Azure Database for PostgreSQL](azure/postgresql/flexible-server/concepts-geo-disaster-recovery)
+        - For details on Azure CosmosDB disaster recovery, see [Geo-disaster recovery in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-geo-disaster-recovery)
 
 - **Azure Databricks**
     - Component recovery responsibility: Microsoft
@@ -459,7 +459,7 @@ This section contains high availability (HA) and DR guidance for other key Azure
     - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity).
     - Single Server HA guidance can be found in the [product documentation](/azure/mysql/).
 - SQL
-    - SQL on Azure VMs guidance can be found in the [product documentation](/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
+    - SQL on Azure VMs guidance can be found in the [product documentation](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
     - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
 - Azure AI services - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
 - Azure AI Search - There's [no built-in mechanism for disaster recovery](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
