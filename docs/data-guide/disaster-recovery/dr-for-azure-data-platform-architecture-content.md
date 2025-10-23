@@ -195,18 +195,6 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
-- **Azure Cosmos DB**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Microsoft
-    - Contoso SKU selection: Single Region Write with Periodic backup
-    - DR uplift options:
-        - Single-region accounts might lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/reliability/reliability-cosmos-db-nosql#availability).
-        - It's [recommended](/azure/reliability/reliability-cosmos-db-nosql#availability) that Azure Cosmos DB accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity.
-    - Notes:
-        - To protect against data loss in a region, Azure Cosmos DB provides [two different backup](/azure/reliability/reliability-cosmos-db-nosql#durability) modes - Periodic and Continuous.
-        - [Regional failovers](/azure/reliability/reliability-cosmos-db-nosql#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application.
-        - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/reliability/reliability-cosmos-db-nosql#what-to-expect-during-a-region-outage).
-
 - **Azure Database for PostgreSQL Flexible Server**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
@@ -230,7 +218,6 @@ The following tables present a breakdown of each Azure service and component use
         - For details on Azure Databricks disaster recovery, see [Disaster recovery - Azure Databricks](Disaster recovery).
 
 - **Azure Data Explorer**
-
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Pay As You Go (or cluster size based on workload)
@@ -240,13 +227,6 @@ The following tables present a breakdown of each Azure service and component use
 For regional resiliency, combine ZRS with multi-cluster architecture and ingestion redundancy via Event Hubs or IoT Hub.
     - Note:
         - For details on Azure Data Explorer disaster recovery, see [Disaster Recovery - Azure Data Explorer](/azure/data-explorer/business-continuity-overview).
-
-
-Notes:
-
-Regularly validate failover and ingestion recovery processes.
-Consider enabling resource locks and retention policies to prevent accidental deletion.
-RPO/RTO targets should guide whether Active/Active or Active/Passive architecture is used.
   
 - **Azure Event Hubs**
     - Component recovery responsibility: Microsoft
@@ -347,6 +327,17 @@ RPO/RTO targets should guide whether Active/Active or Active/Passive architectur
     - Notes
         - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
         - For customers who need cross-regional disaster recovery and fully automated business continuity, we recommend keeping two Fabric Warehouse setups in two different regions and maintaining code and data parity by doing regular deployments and data ingestion to both sites.
+
+- **Microsoft Fabric: SQL Analytics Endpoint**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+        - Enable DR Capacity in Fabric for cross-region replication of Lakehouse and Warehouse data via OneLake.
+        - Use CI/CD pipelines to redeploy SQL objects (views, stored procedures, security roles) in the DR region.
+        - Use metadata sync API or UI refresh to ensure SQL endpoint schema is up-to-date after failover.
+    - Notes:
+        - SQL analytics endpoint is read-only over Delta Lake tables stored in OneLake.
 
 - **Microsoft Fabric: Mirrored Database**
     - Component recovery responsibility: Microsoft
