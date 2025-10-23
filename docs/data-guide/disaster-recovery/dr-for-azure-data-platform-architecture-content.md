@@ -365,9 +365,9 @@ For regional resiliency, combine ZRS with multi-cluster architecture and ingesti
 
   - **Azure AI Foundry**
     - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Pay As You Go
-    - DR uplift options: Applications utilizing Azure OpenAI resources that require strong resiliency and business continuity may need to take extra measures to reinforce their model infrastructure [Business Continuity and Disaster Recovery (BCDR) considerations with Azure OpenAI in Azure AI Foundry Models](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery)
+    - DR uplift options: Applications utilizing Azure OpenAI resources that require strong resiliency and business continuity may need to take [extra measures to reinforce their model infrastructure](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery).
     - Notes
         - Refer to [Customer-enabled disaster recovery](/azure/ai-foundry/how-to/disaster-recovery) for guidance on business continuity and disaster recovery with Azure AI Foundry.
 
