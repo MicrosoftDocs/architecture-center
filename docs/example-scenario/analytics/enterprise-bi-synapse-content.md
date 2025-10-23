@@ -2,22 +2,6 @@ This article describes how to transfer data from an on-premises data warehouse t
 
 This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics]. There are multiple options to extract data from an on-premises SQL server, such as Fabric Data Factory pipelines, mirroring, copy job, and Fabric real-time eventstreams change data capture (CDC) for SQL. After extraction, the data is transformed for analysis.
 
-## When to use this architecture
-
-You can use various methods to meet business requirements for enterprise business intelligence. Various aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you prefer platform as a service (PaaS) or software as a service (SaaS).
-
-Consider the following design approaches:
-
-- [A lakehouse in Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
-
-- [Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers that have existing investment in Azure Databricks and Power BI and want to modernize with Fabric
-
-- Enterprise BI for small and medium businesses that use an [Azure SQL ecosystem and Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
-
-- End-to-end data warehousing on Fabric for customers who prefer a SaaS solution
-
-The architecture in this article assumes that you use a Fabric lakehouse or Fabric warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for business intelligence. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
-
 ## Architecture
 
 :::image type="complex" source="./media/enterprise-bi-scoped-architecture.svg" border="false" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Fabric.":::
@@ -64,6 +48,22 @@ The following workflow corresponds to the previous diagram.
 
 In this scenario, an organization has a SQL database that contains a large on-premises data warehouse. The organization wants to use Fabric to ingest and analyze the data and to deliver analytic insights to users through Power BI.
 
+### When to use this architecture
+
+You can use various methods to meet business requirements for enterprise business intelligence. Various aspects define business requirements, such as current technology investments, human skills, the timeline for modernization, future goals, and whether you prefer platform as a service (PaaS) or software as a service (SaaS).
+
+Consider the following design approaches:
+
+- [A lakehouse in Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
+
+- [Fabric and Azure Databricks](/azure/architecture/solution-ideas/articles/small-medium-modern-data-platform) for customers that have existing investment in Azure Databricks and Power BI and want to modernize with Fabric
+
+- Enterprise BI for small and medium businesses that use an [Azure SQL ecosystem and Fabric](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+
+- End-to-end data warehousing on Fabric for customers who prefer a SaaS solution
+
+The architecture in this article assumes that you use a Fabric lakehouse or Fabric warehouse as the persistent layer of the enterprise semantic model and that you use Power BI for business intelligence. This SaaS approach has the flexibility to accommodate various business requirements and preferences.
+
 ### Authentication
 
 Microsoft Entra ID authenticates users who connect to Power BI dashboards and apps. Single sign-on (SSO) connects users to the data in the Fabric warehouse and Power BI semantic model. Authorization occurs at the source.
@@ -104,15 +104,11 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
   
    - A stored procedure activity that saves the new watermark value to determine the starting point for the next pipeline run.
 
-   :::image type="complex" border="false" source="./media/metadata-copy.png" alt-text="Diagram that shows the logic of a metadata-driven framework." lightbox="./media/metadata-copy.png":::
-     The image shows a flowchart. A line connects two sections that read Get last watermark (Lookup activity). An arrow points from these sections and to a section that reads Delta load between these two watermarks from the source table to the destination (Copy activity). An arrow points from this section to a section that reads Update the watermark for delta data loading next time (Stored procedure activity).
-  :::image-end:::
+   :::image type="content" source="./media/metadata-copy.png" alt-text="The image shows a flowchart of activities for retrieving, using, and updating watermark values." lightbox="./media/metadata-copy.png":::
 
 The following image shows a completed pipeline. For more information, see [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse).
 
-:::image type="complex" border="false" source="./media/metadata-ingestion-pipeline.png" alt-text="Diagram that shows the completed pipeline metadata-driven framework." lightbox="./media/metadata-ingestion-pipeline.png":::
-   The screenshot shows the media ingestion pipeline. It starts with two lookup activities to retrieve the old and new watermark values, followed by a copy data activity that transfers only the new or changed data. After the data copy, a stored procedure is performed to update the watermark in the target data warehouse with parameters for the last modified time and table name dynamically set from the lookup results.
-:::image-end:::
+:::image type="content" source="./media/metadata-ingestion-pipeline.png" alt-text="The screenshot shows a media ingestion pipeline with lookup activities to get watermark values, a copy activity for new data, and a stored procedure to update the watermark." lightbox="./media/metadata-ingestion-pipeline.png":::
 
 ### Load data into a Fabric data warehouse
 
@@ -133,7 +129,7 @@ In a production environment, use [Fabric notebooks](/fabric/data-engineering/how
 
 ### Use Power BI on Fabric capacities to access, model, and visualize data
 
-Power BI on Fabric capacities provides several storage modes for connecting to Azure data sources:
+Fabric capacities in Power BI support multiple storage modes for connecting to Azure data sources:
 
 - **Import:** Loads data into the Power BI semantic model for in-memory querying.
 
@@ -153,9 +149,7 @@ Import mode can provide the lowest query latency. Consider Import mode if the fo
 
 In this case, the users want full access to the most recent data with no delays in Power BI refreshing, and they want all historical data, which exceeds the Power BI dataset capacity. A Power BI dataset can handle 25 gigabytes (GB) to 400 GB, depending on the capacity size. The data model in the dedicated SQL pool is already in a star schema and doesn't require transformation, so DirectQuery is an appropriate choice.
 
-:::image type="complex" border="false" source="./media/adventure-works-dashboard.png" alt-text="Screenshot that shows the dashboard in Power BI." lightbox="./media/adventure-works-dashboard.png":::
-  The screenshot shows a Power BI dashboard that displays sales analytics. The top section shows four key metrics: sales, orders, customers, and products sold. Four bar charts visualize trends by month for sales, orders, customers, and products sold. The left sidebar provides filters for location, company, and product. The lower section presents a detailed table that shows categories, sales amounts, orders, customers, and products sold.
-:::image-end:::
+:::image type="content" source="./media/adventure-works-dashboard.png" alt-text="The screenshot shows a Power BI dashboard with sales metrics, trend charts, filters, and a detailed data table." lightbox="./media/adventure-works-dashboard.png":::
 
 Use [Power BI](/power-bi/enterprise/service-premium-gen2-what-is) to manage large models, paginated reports, and deployment pipelines. Take advantage of the built-in Azure Analysis Services endpoint. You can also have dedicated [capacity](/power-bi/admin/service-premium-what-is#capacities-and-skus) with a unique value proposition.
 
@@ -313,7 +307,6 @@ Other contributors:
 
 - [What is Power BI Premium?](/fabric/enterprise/powerbi/service-premium-what-is)
 - [What is Microsoft Entra ID?](/entra/fundamentals/whatis)
-- [Connect to Azure Data Lake Storage and Blob Storage](/azure/databricks/connect/storage/azure-storage)
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [What is Data Factory in Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)

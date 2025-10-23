@@ -554,19 +554,19 @@
 		</g>
 		<g id="shape2126-130" v:mID="2126" v:groupContext="shape" transform="translate(662.653,-428.119)">
 			<title>Sheet.2126</title>
-			<desc>Data Lakehouse workloads</desc>
+			<desc>Data lakehouse workloads</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="28.3501" cy="834.168" width="56.71" height="39.8224"/>
 			<rect x="0" y="814.256" width="56.7002" height="39.8224" class="st11"/>
 			<text x="18.81" y="826.07" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1" v:bulletSize="0.166667"/><v:tabList/>Data <tspan
-						x="8.04" dy="1.2em" class="st4">Lakehouse </tspan><tspan x="8.67" dy="1.2em" class="st4">workloads</tspan></text>		</g>
+						x="8.95" dy="1.2em" class="st4">lakehouse </tspan><tspan x="8.67" dy="1.2em" class="st4">workloads</tspan></text>		</g>
 		<g id="shape2127-135" v:mID="2127" v:groupContext="shape" transform="translate(281.661,-186.133)">
 			<title>Sheet.2127</title>
-			<desc>OneLake shortucts, other mirrored databases</desc>
+			<desc>OneLake shortcuts, other mirrored databases</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="73.6265" cy="842.696" width="147.26" height="22.7658"/>
 			<rect x="0" y="831.313" width="147.253" height="22.7658" class="st11"/>
-			<text x="20.19" y="839.7" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1" v:bulletSize="0.166667"/><v:tabList/>OneLake shortucts, other <tspan
+			<text x="20.19" y="839.7" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1" v:bulletSize="0.166667"/><v:tabList/>OneLake shortcuts, other <tspan
 						x="31.97" dy="1.2em" class="st4">mirrored databases</tspan></text>		</g>
 		<g id="shape2128-139" v:mID="2128" v:groupContext="shape" transform="translate(303.655,-394.618)">
 			<title>Sheet.2128</title>
@@ -1191,13 +1191,13 @@
 			</g>
 			<g id="shape2273-377" v:mID="2273" v:groupContext="shape" transform="translate(0.141731,0)">
 				<title>Sheet.2273</title>
-				<desc>CSV, logs, JSON, XML (loosely-typed)</desc>
+				<desc>CSV, logs, JSON, XML (loosely typed)</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="71.1496" cy="835.018" width="142.3" height="38.1213"/>
 				<rect x="0" y="815.957" width="142.299" height="38.1213" class="st11"/>
 				<text x="20.53" y="832.02" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>CSV<tspan
 							class="st4" v:langID="3081">, logs, </tspan>JSON<tspan class="st4" v:langID="3081">, </tspan>XML<v:newlineChar/><tspan
-							x="38.08" dy="1.2em" class="st47" v:langID="3081">(loosely</tspan><tspan class="st47" v:langID="3081">-</tspan><tspan
+							x="38.71" dy="1.2em" class="st47" v:langID="3081">(loosely</tspan><tspan class="st47"> </tspan><tspan
 							class="st47" v:langID="3081">typed)</tspan></text>			</g>
 			<g id="group2274-385" transform="translate(57.5225,-64.9327)" v:mID="2274" v:groupContext="group">
 				<title>Sheet.2274</title>
@@ -1260,11 +1260,11 @@
 			</g>
 			<g id="shape2280-394" v:mID="2280" v:groupContext="shape" transform="translate(0.168728,-30.1366)">
 				<title>Sheet.2280</title>
-				<desc>Semi-structured</desc>
+				<desc>Semistructured</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="70.7244" cy="844.916" width="141.45" height="18.3261"/>
 				<rect x="0" y="835.753" width="141.449" height="18.3261" class="st11"/>
-				<text x="28.36" y="848.52" class="st27" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Semi-structured</text>			</g>
+				<text x="30.76" y="848.52" class="st27" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Semistructured</text>			</g>
 		</g>
 		<g id="group2281-397" transform="translate(55.0731,-313.037)" v:mID="2281" v:groupContext="group">
 			<title>Sheet.2281</title>
@@ -4302,8 +4302,8 @@
 			<v:textRect cx="27.3261" cy="827.4" width="54.66" height="53.3581"/>
 			<rect x="0" y="800.721" width="54.6523" height="53.3581" class="st2"/>
 			<text x="4.51" y="812.4" class="st18" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Cold path<v:newlineChar/><tspan
-						x="11.66" dy="1.2em" class="st47">History </tspan><tspan x="5.82" dy="1.2em" class="st47">and trend </tspan><tspan
-						x="10.32" dy="1.2em" class="st47">analysis</tspan></text>		</g>
+						x="12.03" dy="1.2em" class="st19">History </tspan><tspan x="6.38" dy="1.2em" class="st19">and trend </tspan><tspan
+						x="10.14" dy="1.2em" class="st19">analysis</tspan></text>		</g>
 		<g id="group2542-895" transform="translate(472.252,-399.402)" v:mID="2542" v:groupContext="group">
 			<title>Lakehouse - Colour.1115</title>
 			<g id="shape2543-896" v:mID="2543" v:groupContext="shape">
@@ -4667,18 +4667,18 @@
 		</g>
 		<g id="shape2564-984" v:mID="2564" v:groupContext="shape" transform="translate(593.386,-528.85)">
 			<title>Sheet.2564</title>
-			<desc>KQL query set</desc>
+			<desc>KQL queryset</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="60.2362" cy="843.864" width="120.48" height="20.4294"/>
 			<rect x="0" y="833.649" width="120.472" height="20.4294" class="st11"/>
-			<text x="29.5" y="846.86" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>KQL query set</text>		</g>
+			<text x="30.87" y="846.86" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>KQL queryset</text>		</g>
 		<g id="shape2565-987" v:mID="2565" v:groupContext="shape" transform="translate(604.87,-232.419)">
 			<title>Sheet.2565</title>
-			<desc>Dataflows Gen2</desc>
+			<desc>Dataflow Gen2</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="44.9291" cy="843.864" width="89.86" height="20.4294"/>
 			<rect x="0" y="833.649" width="89.8583" height="20.4294" class="st11"/>
-			<text x="10.26" y="846.86" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Dataflows Gen2</text>		</g>
+			<text x="12.38" y="846.86" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Dataflow Gen2</text>		</g>
 		<g id="group2566-990" transform="translate(608.795,-321.82)" v:mID="2566" v:groupContext="group">
 			<title>SQL Endpoint - Colour.1176</title>
 			<g id="shape2567-991" v:mID="2567" v:groupContext="shape" transform="translate(2.23821E-13,-1.59072)">
