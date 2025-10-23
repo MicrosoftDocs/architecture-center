@@ -10,11 +10,11 @@ Hub-spoke is one of the network topologies recommended by the Cloud Adoption Fra
 
 ### Hub-spoke concepts
 
-Hub-spoke network topologies typically include the many of following architectural concepts:
+Hub-spoke network topologies typically include many of the following architectural concepts:
 
 - **Hub virtual network** - The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and provides a mechanism to connect one spoke to another in situations where cross virtual network traffic is needed.
 
-   A hub is a regional resource. Organizations that have their workloads in multiple regions, should have multiple hubs, one per region.
+   A hub is a regional resource. Organizations that have their workloads in multiple regions should have multiple hubs, one per region.
 
    The hub enables the following concepts:
 
@@ -24,7 +24,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
   - **(optional) Ingress control** - The management and regulation of inbound traffic to endpoints that exist in peered spoke virtual networks.
 
-  - **Remote access** - Remote access is how individual workloads in spoke networks are accessed from network location other than the spoke's own network. This could be for the workload's data or control plane.
+  - **Remote access** - Remote access is how individual workloads in spoke networks are accessed from a network location other than the spoke's own network. This could be for the workload's data or control plane.
 
   - **Remote spoke access for virtual machines** - The hub can be a convenient location to build out a cross-organization remote connectivity solution for RDP and SSH access to virtual machines distributed throughout spoke networks.
 
@@ -34,7 +34,7 @@ Hub-spoke network topologies typically include the many of following architectur
 
   In most scenarios, a spoke should only be peered to a single hub network and that hub network should be in the same region as the spoke.
 
-   These spoke networks follow the rules for [default outbound access](/azure/virtual-network/ip-services/default-outbound-access). A core purpose of this the hub-spoke network topology is to generally direct outbound Internet traffic through the control mechanisms offered by the hub.
+   These spoke networks follow the rules for [default outbound access](/azure/virtual-network/ip-services/default-outbound-access). A core purpose of the hub-spoke network topology is to generally direct outbound Internet traffic through the control mechanisms offered by the hub.
 
 - **Virtual network cross-connectivity** - Virtual network connectivity is the path in which one isolated virtual network can communicate with another through a control mechanism. The control mechanism enforces permissions and allowed direction of communications between networks.  A hub will provide an option to support select cross-network connections to flow through the centralized network.
 
@@ -326,7 +326,7 @@ Other contributors:
 
 ### Advanced scenarios
 
-Your architecture may differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
+Your architecture might differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
 
 - **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
 

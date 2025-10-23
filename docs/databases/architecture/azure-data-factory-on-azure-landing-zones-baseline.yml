@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Data Factory on Azure landing zones baseline architecture
-  description: Learn how to design and implement the medallion lakehouse architecture on Azure landing zones by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.
+  title: Azure Data Factory baseline architecture in an Azure landing zone
+  description: Learn how to design and implement the medallion lakehouse architecture in an Azure landing zone by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 08/02/2024
@@ -17,8 +17,8 @@ products:
   - azure-key-vault
   - azure-databricks
   - azure-sql-database
-name: Azure Data Factory on Azure landing zones baseline architecture
-summary: Learn how to design and implement the medallion lakehouse architecture on Azure landing zones by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.
+name: Azure Data Factory baseline architecture in an Azure landing zone
+summary: Learn how to design and implement the medallion lakehouse architecture in an Azure landing zone by using Azure Data Factory, Azure Databricks, SQL Server, and Power BI.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-baseline.png
 content: |
   [!INCLUDE[](azure-data-factory-on-azure-landing-zones-baseline-content.md)]

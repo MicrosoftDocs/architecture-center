@@ -25,7 +25,7 @@ This diagram is for the private-facing case:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
-For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For details, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
+For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For more information, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
 
 Application Gateway provides the front ends, which are dedicated to the private endpoints.
 
@@ -351,7 +351,6 @@ Other contributors:
 - [Blue-green deployment (Martin Fowler)](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 - [AKS documentation](/azure/aks)
 - [Monitor documentation](/azure/azure-monitor)
-- [AKS in an application landing zone with blue-green deployments](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS)
 - [Architecture pattern for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern)
 - [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)

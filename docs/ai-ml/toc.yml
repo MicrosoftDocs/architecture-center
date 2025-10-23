@@ -64,10 +64,6 @@ items:
         items:
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-      - name: Batch scoring
-        items:
-        - name: Batch scoring with Spark on Databricks
-          href: architecture/batch-scoring-databricks.yml
       - name: Regulatory
         items:
         - name: Secure research for regulated data

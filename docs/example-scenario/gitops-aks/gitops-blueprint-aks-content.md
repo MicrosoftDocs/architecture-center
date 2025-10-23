@@ -10,7 +10,7 @@ Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and
 
 :::image type="content" source="media/gitops-flux.png" alt-text="Diagram of GitOps with Flux v2, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 1
 
@@ -36,7 +36,7 @@ The data flow for this scenario is:
 
 :::image type="content" source="media/gitops-ci-cd-flux.png" alt-text="Diagram of implementing CI/CD by using GitOps with Flux, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 2
 
@@ -53,7 +53,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 :::image type="content" source="media/gitops-argo-cd.png" alt-text="Diagram of GitOps with Argo CD, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 3
 
@@ -79,7 +79,7 @@ Any repository that's compatible with Git, including Azure DevOps, can serve as 
 
 :::image type="content" source="media/gitops-ci-cd-argo-cd.png" alt-text="Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 4
 
@@ -125,7 +125,7 @@ You can combine policy management and enforcement tools with GitOps to enforce p
 
 GitOps provides consistency and standardization of the cluster state, and can help to enhance security. You can also use GitOps to ensure consistent state across multiple clusters. For example, GitOps can apply the same configuration across primary and disaster recovery (DR) clusters, or across a farm of clusters.
 
-If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (RBAC), admissions controllers, and other tools.
+If you want to enforce that only GitOps can change the cluster state, you can restrict direct access to the cluster. There are various ways to do this, including Azure role-based access control (Azure RBAC), admissions controllers, and other tools.
 
 ### Use GitOps to bootstrap initial configuration
 
@@ -194,7 +194,7 @@ GitOps teams often manage multiple environments for the same application. It's t
 
 ## Deploy a scenario
 
-The following list provides references for information about deploying the five scenarios:
+For more information about deploying the five scenarios, see the following resources:
 
 - **Scenario 1:** For guidance on using GitOps with Flux v2 to deploy applications to AKS, see [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli). For an example of how to use the Flux extension to bootstrap AKS cluster deployment, see the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests).
 - **Scenario 2:** For guidance on using GitOps with Flux v2 on AKS to deploy applications and to implement CI/CD, see: [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd).
