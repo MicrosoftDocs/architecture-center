@@ -188,7 +188,7 @@ items:
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
       - name: Choose an AI model for your workload
-        href: ai-ml/guide/choose-an-ai-model.md
+        href: ai-ml/guide/choose-ai-model.md
     - name: Choose a networking service
       items:
       - name: Load balancing options
