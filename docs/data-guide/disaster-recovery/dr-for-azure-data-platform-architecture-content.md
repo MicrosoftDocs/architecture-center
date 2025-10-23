@@ -47,10 +47,10 @@ The workflow is read left to right, following the flow of data:
       
 - **Process**
 
-    - Notebook: Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
+    - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
     - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
     - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-    - Run KQL queries on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
+    - [Run KQL queries](fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
       
 - **Serve**
     - Serve curated data via [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing), or mirrored database endpoints [using SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint).
@@ -66,9 +66,9 @@ The workflow is read left to right, following the flow of data:
 - **Data share**
     - [External data sharing](/en-us/fabric/governance/external-data-sharing-overview) in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing seamless cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. 
     - Disaster recovery DR ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
-      - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
-      - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
-      - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
+        - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
+        - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
+        - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
         
 - **Discover and govern**
     - Use [Microsoft Purview](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Microsoft Fabric governance tools for lineage, metadata, and access control.
@@ -412,7 +412,7 @@ RPO/RTO targets should guide whether Active/Active or Active/Passive architectur
 
 - **Third party data source**
     - AWS Kinesis
-        - Notes: For further details regarding disaster recovery for AWS Kinesis, refer to [Resilience in Amazon Kinesis Data Streams]([https://docs.snowflake.com/en/user-guide/replication-intro](https://docs.aws.amazon.com/streams/latest/dev/disaster-recovery-resiliency.html).
+        - Notes: For further details regarding disaster recovery for AWS Kinesis, refer to [Resilience in Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/disaster-recovery-resiliency.html).
 
 ## Stateful vs stateless components
 
