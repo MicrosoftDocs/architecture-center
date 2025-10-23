@@ -226,7 +226,13 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview) is a feature that allows developers to expose and interact with data using GraphQL query language. In this architecture, it allows users to develop data applications.
 
+- [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is an event-driven analytics solution designed to process,analyze, and act on streaming data. In this architecture, it processes high volume streaming data and provides real-time dashboards consisting of tiles with visualization for underlying queries.   
+
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Fabric OneLake to create dashboards and reports.
+
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is an unified platform-as-a-service for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enriches and enables multi-agent systems where Fabric Data Agents act as domain experts alongside other agents.
+
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2) is an enterprise-grade cloud service for managing the entire machine learning lifecycle—from data preparation and experimentation to model training, deployment, and monitoring. In this architecture, you can also enable users to run Azure ML models using batch endpoints. OneLake shortcuts allow Azure Machine Learning and Fabric to share the same underlying Azure Data Lake Gen2 storage, so both services read/write without duplicating data.
 
 - [Azure Cost Management](/azure/cost-management-billing/costs/overview-cost-management) is a feature that helps you track, analyze, and optimize your  Microsoft Azure Resource invoices. In this architecture, your cost analysis and invoice in Microsoft Cost Management display multiple meters associated with your Fabric capacity resource.
 
