@@ -88,7 +88,7 @@ Principal author:
 
 ## Next steps
 
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/fabric/data-factory/data-factory-overview)
 - [Provision the Azure-SSIS integration runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities)
