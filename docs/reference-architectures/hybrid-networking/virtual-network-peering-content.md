@@ -260,7 +260,7 @@ Another common pattern connects spokes in one region via direct virtual network 
 The image shows an East US hub and West US hub. Each hub has an NVA. A black line connects the hubs. Three black lines connect the East US hub to three separate spokes. Three black lines connect the West US hub to three separate spokes. In both hub networks, the spokes are all connected with each other with green lines.
 :::image-end:::
 
-The same designs apply to Virtual WAN. But direct connectivity between spoke virtual networks requires manaual configuration between the virtual networks instead of through the Virtual WAN resource. Virtual Network Manager doesn't support architectures that use Virtual WAN. Consider the following diagram.
+The same designs apply to Virtual WAN. But direct connectivity between spoke virtual networks requires manual configuration between the virtual networks instead of through the Virtual WAN resource. Virtual Network Manager doesn't support architectures that use Virtual WAN. Consider the following diagram.
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN and some virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings-virtual-wan.svg":::
 The image shows Virtual WAN with East US and West US virtual hubs. In both hubs, three black lines connect the Virtual WAN section to three separate spokes. The spokes in each hub are all connected with each other with green lines. No lines directly connect spokes from one hub to spokes in the other hub.
