@@ -36,21 +36,21 @@ This workflow corresponds to the preceding architecture.
 
 ### Components
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) eliminates network-based trust and provides system-assigned managed identities, which improves security.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer and application delivery controller. It's a fully managed and scalable service that provides WAF and reverse proxy functionality. In this architecture, Application Gateway provides secure external access to the replatformed applications with built-in WAF protection and Secure Sockets Layer (SSL) termination.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications. It eliminates the need to administer an operating system and server, which increases operational efficiency and business agility. In this architecture, App Service hosts the replatformed Java applications by using Red Hat JBoss EAP, which replaces the original WebSphere middleware from the AIX environment.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
+- [Azure Communication Services](/azure/communication-services/overview) is a cloud-based communication platform that sends emails via a command-line interface (CLI) utility. This service replaces the `mailx` command on AIX. In this architecture, Azure Communication Services provides email notification capabilities for the replatformed applications. It replaces the traditional AIX mailx functionality with a modern cloud-based communication solution.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides data reports that are published via a managed service.
+- [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) is an image management service that builds and stores images for the Oracle database and Statistical Analysis System (SAS) analysis nodes. There is one gallery in the primary region and one gallery in the disaster recovery region. In this architecture, Compute Gallery provides centralized image management for the Oracle database and SAS analysis VMs. This management ensures consistent deployments across primary and disaster recovery regions.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service in the cloud that provides data reports that are published via a managed service. In this architecture, Azure Files provides shared storage for analysis job results and data reports. These results and reports are accessible via secure SMBv3 protocol by using system-assigned managed identities.
 
-- An [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is used by the Oracle database and SAS analysis nodes.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is an event-driven, serverless compute platform that's used to efficiently develop code in the specified programming language. In this architecture, Azure Functions provides serverless compute capabilities for processing events and running analysis tasks, eliminating the need for dedicated server management while enabling automatic scaling based on demand.
 
-- [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region and one in the disaster recovery region.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service that eliminates network-based trust and provides system-assigned managed identities. In this architecture, Microsoft Entra ID provides secure authentication and authorization for all Azure services and enables the use of managed identities to eliminate the need for stored credentials.
 
-- [Communication Services](/azure/communication-services/overview) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
+- [Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a cloud computing service that provides on-demand, scalable VMs. In this architecture, Virtual Machines hosts the Oracle database and SAS analysis workloads on RHEL operating systems. It also provides the compute infrastructure for data processing and analysis tasks.
 
 ### Alternatives
 

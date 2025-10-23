@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Data Factory enterprise hardened architecture
-  description: Learn how to design an enterprise-hardened workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
+  description: Learn how to design an enterprise-hardened workload for Azure Data Factory in an Azure landing zone to build robust and efficient data pipelines.
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 07/31/2024
@@ -18,7 +18,7 @@ products:
   - azure-databricks
   - azure-sql-database
 name: Azure Data Factory enterprise hardened architecture
-summary: Learn how to design an enterprise-hardened workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
+summary: Learn how to design an enterprise-hardened workload for Azure Data Factory in an Azure landing zone to build robust and efficient data pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-hardened-network.png
 content: |
   [!INCLUDE[](azure-data-factory-enterprise-hardened-content.md)]

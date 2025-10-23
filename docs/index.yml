@@ -63,15 +63,15 @@ productDirectory:
           text: Choose AI services
         - url: ./guide/technology-choices/messaging.yml
           text: Choose a messaging service
-    - title: Implement Azure landing zones
+    - title: Implement an Azure landing zone
       imageSrc: /media/common/i_architecture.svg
       links:
         - url: /azure/architecture/landing-zones/landing-zone-deploy
-          text: Deploy Azure landing zones
+          text: Deploy a platform landing zone
         - url: /azure/architecture/landing-zones/bicep/landing-zone-bicep
-          text: Bicep-based landing zones
+          text: Bicep-based platform landing zone
         - url: /azure/architecture/landing-zones/terraform/landing-zone-terraform
-          text: Terraform-based landing zones
+          text: Terraform-based platform landing zone
         - url: /azure/architecture/landing-zones/subscription-vending
           text: Automate through subscription vending
         - url: /azure/architecture/landing-zones/landing-zone-deploy#application

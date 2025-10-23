@@ -1,4 +1,4 @@
-This baseline architecture is based on the [Basic web application architecture](./basic-web-app.yml) and extends it to provide detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure PaaS services such as Azure Key Vault and Azure SQL Database.
+This baseline architecture is based on the [Basic web application architecture](./basic-web-app.yml) and extends it to provide detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Azure Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure platform as a service (PaaS) solutions such as Azure Key Vault and Azure SQL Database.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../../_images/github.svg"::: The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
@@ -16,12 +16,12 @@ This baseline architecture is based on the [Basic web application architecture](
 
 Many components of this architecture are the same as the [basic web application architecture](./basic-web-app.yml#components). The following list highlights only the changes to the basic architecture.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic manager. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
-- [Web Application Firewall (WAF)](/azure/web-application-firewall/overview) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
-- [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
-- [Private Link](/azure/private-link/private-link-overview) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, it's the single public entry point that terminates Transport Layer Security (TLS), evaluates Web Application Firewall rules, and forwards approved requests over a private endpoint to App Service instances across availability zones.
+- [Web Application Firewall](/azure/web-application-firewall/overview) is a cloud-native feature that protects web apps from common exploits, such as SQL injection and cross-site scripting. In this architecture, it runs on Application Gateway to block malicious requests before they reach App Service, which improves security and helps maintain availability.
+- [Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. In this architecture, it stores the TLS certificate (X.509) that Application Gateway uses and holds application secrets that App Service accesses privately.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that enables you to create isolated and secure private virtual networks in Azure. In this architecture, the virtual network provides private endpoints, App Service integration, and dedicated subnets for Application Gateway. This setup isolates traffic and enables private endpoint connectivity required for secure communication between App Service and its dependent Azure services.
+- [Private Link](/azure/private-link/private-link-overview) is a networking service that enables secure, private access to Azure services over the Microsoft backbone network to eliminate exposure to the public internet. In this architecture, it delivers inbound private access to App Service and outbound private connectivity from App Service to services such as Key Vault, SQL Database, and Azure Storage.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address. In this architecture, private DNS zones map the App Service default domain and other PaaS service domains to their private endpoint addresses so that all traffic stays on the private network.
 
 ## Networking
 
@@ -36,7 +36,7 @@ Network security is at the core of the App Services baseline architecture (*see 
 ### Network flows
 
 :::image type="complex" source="../_images/baseline-app-service-network-architecture.svg" lightbox="../_images/baseline-app-service-network-architecture.svg" alt-text="Diagram that shows a baseline App Service network architecture.":::
-    The diagram resembles the Baseline Azure App Service architecture with two numbered network flows. The inbound flow shows a line from the user to the Azure Application Gateway with Web Application Firewall (WAF). The second number is for WAF. The third number shows private DNS zones are linked to the virtual network. The fourth number shows App Gateway using private endpoints to communicate with App Service. The first number in the flow from App Service to Azure PaaS services shows an arrow from App Service to a virtual interface. The second shows that private DNS zones are linked to the virtual network. The third shows arrows from the virtual interface communicating via private endpoints to Azure PaaS services.
+    The diagram resembles the Baseline Azure App Service architecture with two numbered network flows. The inbound flow shows a line from the user to the Azure Application Gateway with Web Application Firewall. The second number is for Web Application Firewall. The third number shows private DNS zones are linked to the virtual network. The fourth number shows App Gateway using private endpoints to communicate with App Service. The first number in the flow from App Service to Azure PaaS services shows an arrow from App Service to a virtual interface. The second shows that private DNS zones are linked to the virtual network. The third shows arrows from the virtual interface communicating via private endpoints to Azure PaaS services.
 :::image-end:::
 *Figure 2: Network architecture of the baseline Azure App Service application*
 
@@ -45,7 +45,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 #### Inbound flow
 
 1. The user issues a request to the Application Gateway public IP. 
-2. The WAF rules are evaluated. WAF rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requestor if a WAF rule is violated and processing stops. If no WAF rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
+2. The Web Application Firewall rules are evaluated. Web Application Firewall rules positively affect the system's reliability by protecting against various attacks, such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requestor if a Web Application Firewall rule is violated and processing stops. If no Web Application Firewall rules are violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
 3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 
@@ -59,7 +59,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 
 Application Gateway is a regional resource that meets the requirements of this baseline architecture. Application Gateway is a scalable, regional, layer 7 load balancer that supports features such as web application firewall and TLS offloading. Consider the following points when implementing Application Gateway for ingress to Azure App Services.
 
-- Deploy Application Gateway and configure a [WAF policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
+- Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
 - Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
@@ -72,7 +72,7 @@ This architecture uses [virtual network integration](/azure/app-service/overview
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
-In this architecture, Azure SQL Database, Azure Storage, and Key Vault all have public endpoints disabled. Azure service firewalls are used only to allow traffic from other authorized Azure services. You should configure other Azure services with private endpoints, such as Azure Cosmos DB and Azure Redis Cache. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
+In this architecture, Azure SQL Database, Azure Storage, and Key Vault all have public endpoints disabled. Azure service firewalls are used only to allow traffic from other authorized Azure services. You should configure other Azure services with private endpoints, such as Azure Cosmos DB and Azure Managed Redis. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
 
 The baseline architecture implements a private DNS zone for each service. The private DNS zone contains an A record that maps between the service's fully qualified domain name and the private endpoint private IP address. The zones are linked to the virtual network. Private DNS zone groups ensure that private link DNS records are automatically created and updated.
 
@@ -120,7 +120,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones may still be unaffected.
+The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-region-support). When one zone experiences downtime, the other zones might still be unaffected.
 
 The architecture also ensures enough instances of Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture. This way, availability zones help you achieve reliability by providing high availability and fault tolerance.
 
@@ -168,7 +168,7 @@ A production web app needs to encrypt data in transit using HTTPS. HTTPS protoco
 In the baseline architecture, data in transit is encrypted from the user to the web app in App Service. The following workflow describes how encryption works at a high level.
 
 :::image type="complex" source="../_images/baseline-app-service-encryption-flow.svg" lightbox="../_images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
-    The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault, storing the X.509 certificate. Number four represents the encrypted traffic from the application gateway to App Service.
+    The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with Web Application Firewall. Number three is Azure Key Vault, storing the X.509 certificate. Number four represents the encrypted traffic from the application gateway to App Service.
 :::image-end:::
 
 1. The user sends an HTTPS request to the web app.
@@ -180,7 +180,7 @@ Consider the following recommendations when configuring data-in-transit encrypti
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
-- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
+- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
 - [Enable end to end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the backend pool for the application gateway. When you configure the backend setting for the backend pool, use the HTTPS protocol over the backend port 443.
 
 ##### Data at rest
@@ -200,7 +200,7 @@ Web apps benefit from Azure Policy by enforcing architectural and security decis
 - App Service should have remote debugging turned off
 - App Service apps should use the latest TLS version
 - Microsoft Defender for App Service should be enabled
-- Web Application Firewall (WAF) should be enabled for Application Gateway
+- Web Application Firewall should be enabled for Application Gateway
 
 See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
 
@@ -370,4 +370,4 @@ Scaling database resources is a complex topic outside of the scope of this archi
 - [Guide to Private Link in Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 - [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up)
 - [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service)
-- [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+- [Scaling Application Gateway v2 and Web Application Firewall v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)

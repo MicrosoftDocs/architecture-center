@@ -117,19 +117,17 @@ IMS segment data files are imported into zBridge with a matching COBOL copybook 
 
 ### Components
 
-This architecture consists of the following Azure cloud services. The following sections describe these services and their roles.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud platform where you can quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In this architecture, Logic Apps enables mainframe users to interact with migrated Azure applications via the public internet or a private connection implemented via Azure ExpressRoute, with Microsoft Entra ID providing authentication.
 
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud platform where you can quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that's implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides automated and load balanced virtual machine (VM) scaling that simplifies application management and increases availability. In this architecture, Virtual Machine Scale Sets ensures that enough VMs are available to meet mission-critical online and batch processing needs for the IMSql workload.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables more secure communication between many types of Azure resources, like Azure virtual machines (VMs), and with the internet and on-premises networks. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides the benefits of Azure infrastructure, like scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables more secure communication between many types of Azure resources, like Azure VMs, and with the internet and on-premises networks. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides the benefits of Azure infrastructure, like scale, availability, and isolation. In this architecture, Virtual Network provides the secure network foundation for all the IMSql components to communicate effectively.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Microsoft 365. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises mainframe environments and the migrated IMS applications that run on Azure.
 
-- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) provides automated and load balanced VM scaling that simplifies application management and increases availability.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. In this architecture, Microsoft Entra ID provides single sign-on and multifactor authentication to help users sign in and access resources while helping to protect against cybersecurity attacks.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio. It's a managed, more secure, up-to-date SQL instance in the cloud.
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is part of the Azure SQL service portfolio and a managed, more secure, up-to-date SQL instance in the cloud. In this architecture, SQL Managed Instance provides the relational database platform for storing the converted hierarchical IMS DB data structures with high availability and integration with Azure services.
 
 ### Alternatives
 
@@ -225,10 +223,6 @@ Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Amethyst Solomon](https://www.linkedin.com/in/amethyst-solomon) | Senior Engineering Architect
-
-Other contributors:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

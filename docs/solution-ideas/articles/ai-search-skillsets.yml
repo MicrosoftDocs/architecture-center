@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use AI enrichment with image and text processing
+  title: Use AI Enrichment With Image and Text Processing
   description: Learn how to transform unstructured image and text data into full-text searchable content with Azure AI Search prebuilt skills and custom skills.
   author: gmndrg
   ms.author: gimondra
-  ms.date: 06/24/2024
-  ms.topic: conceptual
+  ms.date: 09/30/2025
+  ms.topic: solution-idea
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
@@ -14,6 +14,7 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
+  ai-usage: ai-assisted
 name: Use AI enrichment with image and text processing
 azureCategories:
   - ai-machine-learning
@@ -25,4 +26,4 @@ products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-search-skillsets.png
 content: |
-  [!include[](ai-search-skillsets-content.md)]
+  [!INCLUDE[](ai-search-skillsets-content.md)]

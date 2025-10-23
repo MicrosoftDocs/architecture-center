@@ -21,11 +21,17 @@ More specifically, these are the elements of the system in the diagram:
 ### Components
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is used to hold raw telemetry, which may originate from your applications, services, or third-party vendors. This data can be treated as transient if no further analysis is required. The telemetry is routed through Fabric Eventstream into Eventhouse, where it can be transformed and persisted for high-throughput analytics using Fabric-native capabilities.
+
 - [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) serves as a reliable event delivery system that listens to events published by Azure Blob Storage, such as blob creation or deletion. These events trigger downstream processing through Azure Functions, which subscribe to Event Grid notifications. This integration enables responsive, event-driven workflows that support telemetry ingestion and routing within the broader Fabric-based architecture.
+
 - [Azure Event Hubs](/azure/well-architected/service-guides/azure-databricks-security) is a streaming data ingestion service that you can use to ingest millions of events per second from any source. Event hubs represent the front door, often called an event *ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
+
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that's used to parse and transform data ingested via HTTP and blob endpoints. The telemetry data is routed to Eventstream and Eventhouse for scalable transformation and analytics.
+
 - [Fabric Eventstream](/fabric/real-time-intelligence/event-streams/overview) is a feature that provides you with various source connectors to fetch event data from the various sources. The drag and drop experience a way to create your event data processing, transforming, and routing logic without writing code.
+
 - [Fabric Eventhouse](/fabric/real-time-intelligence/eventhouse) is tailored to time-based, streaming events with structured, semistructured, and unstructured data. You can get data from multiple sources, in multiple pipelines and multiple data formats. This data is indexed and partitioned based on ingestion time.
+
 - [Fabric Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) is a no-code and low-latency event detection engine that triggers actions when specific patterns or conditions are detected in data sources. It monitors these data sources with subsecond latency, and initiates actions when thresholds are met or specific patterns are detected. These actions include sending emails or Teams notifications, launching Power Automate flows, or integrating with third-party systems.
 
 ### Alternatives
@@ -97,7 +103,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Dilmurod Makhamadaliev](https://www.linkedin.com/in/dilmurod-makhamadaliev) | Software Engineer
 - [Omeed Musavi](https://www.linkedin.com/in/omusavi) | Principal Software Engineer Lead
 - [Ayo Mustapha](https://www.linkedin.com/in/ayo-mustapha) | Principal Technical Program Manager

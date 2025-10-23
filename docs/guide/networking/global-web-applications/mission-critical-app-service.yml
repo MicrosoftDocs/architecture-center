@@ -8,12 +8,13 @@ metadata:
   ms.topic: conceptual
   ms.subservice: architecture-guide
   ms.custom: arb-web
+  ai-usage: ai-assisted
   azureCategories:
     - web
 products:
   - azure-app-service
   - azure-front-door
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-app-configuration
   - azure-monitor
 name: Mission-critical baseline with App Service
