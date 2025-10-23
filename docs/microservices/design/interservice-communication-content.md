@@ -34,7 +34,7 @@ There are tradeoffs to each pattern. Request/response is a well-understood parad
 
 - **Multiple subscribers**. Using a pub/sub model, multiple consumers can subscribe to receive events. See [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
 
-- **Failure isolation**. If the consumer fails, the sender can still send messages. The messages will be picked up when the consumer recovers. This ability is especially useful in a microservices architecture, because each service has its own lifecycle. A service could become unavailable or be replaced with a newer version at any given time. Asynchronous messaging can handle intermittent downtime. Synchronous APIs, on the other hand, require the downstream service to be available or the operation fails.
+- **Failure isolation**. If the consumer fails, the sender can still send messages. The messages are picked up when the consumer recovers. This ability is especially useful in a microservices architecture, because each service has its own lifecycle. A service could become unavailable or be replaced with a newer version at any given time. Asynchronous messaging can handle intermittent downtime. Synchronous APIs, on the other hand, require the downstream service to be available or the operation fails.
 
 - **Responsiveness**. An upstream service can reply faster if it does not wait on downstream services. This is especially useful in a microservices architecture. If there is a chain of service dependencies (service A calls B, which calls C, and so on), waiting on synchronous calls can add unacceptable amounts of latency.
 
@@ -44,7 +44,7 @@ There are tradeoffs to each pattern. Request/response is a well-understood parad
 
 However, there are also some challenges to using asynchronous messaging effectively.
 
-- **Coupling with the messaging infrastructure**. Using a particular messaging infrastructure might cause tight coupling with that infrastructure. It will be difficult to switch to another messaging infrastructure later.
+- **Coupling with the messaging infrastructure**. Using a particular messaging infrastructure might cause tight coupling with that infrastructure. It can be difficult to switch to another messaging infrastructure later.
 
 - **Latency**. End-to-end latency for an operation might become high if the message queues fill up.
 
@@ -93,13 +93,13 @@ Right now, the main options for a service mesh in Kubernetes are [Linkerd](https
 
 - Retry of failed requests. A service mesh understands HTTP error codes, and can automatically retry failed requests. You can configure that maximum number of retries, along with a timeout period in order to bound the maximum latency.
 
-- Circuit breaking. If an instance consistently fails requests, the service mesh will temporarily mark it as unavailable. After a backoff period, it will try the instance again. You can configure the circuit breaker based on various criteria, such as the number of consecutive failures,
+- Circuit breaking. If an instance consistently fails requests, the service mesh temporarily marks it as unavailable. After a backoff period, it tries the instance again. You can configure the circuit breaker based on various criteria, such as the number of consecutive failures,
 
 - Service mesh captures metrics about interservice calls, such as the request volume, latency, error and success rates, and response sizes. The service mesh also enables distributed tracing by adding correlation information for each hop in a request.
 
 - Mutual TLS Authentication for service-to-service calls.
 
-Do you need a service mesh? It depends. Without a service mesh, you'll need to consider each of the challenges mentioned at the beginning of this article. You can solve problems like retry, circuit breaker, and distributed tracing without a service mesh, but a service mesh moves these concerns out of the individual services and into a dedicated layer. On the other hand, a service mesh adds complexity to the setup and configuration of the cluster. There might be performance implications, because requests now get routed through the service mesh proxy, and because extra services are now running on every node in the cluster. You should do thorough performance and load testing before deploying a service mesh in production.
+Do you need a service mesh? It depends. Without a service mesh, you need to consider each of the challenges mentioned at the beginning of this article. You can solve problems like retry, circuit breaker, and distributed tracing without a service mesh, but a service mesh moves these concerns out of the individual services and into a dedicated layer. On the other hand, a service mesh adds complexity to the setup and configuration of the cluster. There might be performance implications, because requests now get routed through the service mesh proxy, and because extra services are now running on every node in the cluster. You should do thorough performance and load testing before deploying a service mesh in production.
 
 ## Distributed transactions
 
