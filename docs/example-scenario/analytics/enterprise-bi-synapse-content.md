@@ -127,7 +127,7 @@ In a production environment, use [Fabric notebooks](/fabric/data-engineering/how
 > [!NOTE]
 > Use the [native execution engine](/fabric/data-engineering/native-execution-engine-overview?tabs=sparksql) to run data engineering or ETL workloads.
 
-### Use Power BI on Fabric capacities to access, model, and visualize data
+### Use Power BI with Fabric capacities to access, model, and visualize data
 
 Fabric capacities in Power BI support multiple storage modes for connecting to Azure data sources:
 
