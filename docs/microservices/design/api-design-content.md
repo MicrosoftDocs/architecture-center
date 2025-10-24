@@ -56,7 +56,6 @@ Use a generic data access pattern when:
 - Clients have diverse data requirements that would result in many specialized REST endpoints
 - You need to support complex querying, filtering, and sorting operations across multiple data entities
 - Over-fetching is a significant performance concern, especially for mobile or bandwidth-constrained clients
-- Your domain model has rich relationships between entities that clients need to navigate flexibly
 
 Avoid generic data access APIs when:
 
@@ -64,6 +63,7 @@ Avoid generic data access APIs when:
 - You need fine-grained control over data access patterns and security policies
 - Your APIs primarily support simple CRUD operations or well-defined business workflows
 - Network performance and payload optimization are already adequate with REST
+- Security requirements necessitate explicit endpoint definitions to minimize attack surfaces
 - Your team lacks experience with query language implementation and optimization
 
 Here are some specific considerations to keep in mind.
