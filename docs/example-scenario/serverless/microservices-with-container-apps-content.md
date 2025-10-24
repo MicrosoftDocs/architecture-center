@@ -200,9 +200,7 @@ For more network topology options, including private endpoint support for ingres
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
-
-  **TODO: WAITING ON UPDATED LINK**
+- Review an example price estimate for this workload, use the [Azure pricing calculator](https://azure.com/e/4f044f65e46f40c7a9d7a4837a17e6d7). Configurations vary, so adjust this to match your scenario.
 
 - In this scenario, Azure Cosmos DB and Azure Managed Redis are the main cost drivers.
 
@@ -222,7 +220,15 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Integrate with Application Insights and Log Analytics to provide insight into your workload. Use the same log analytics workspace as the rest of your workload's components to keep all workload insights together.
 
-- An important change from the Kubernetes implementation is the shift from managing Kubernetes manifest files to managing application code and configuration within the container image.
+- An important change from the Kubernetes implementation is the shift from managing Kubernetes manifest files, such as defining `Deployment` kubernetes objects. Both the infrastructure, microservices, and their configuration are represented as Azure resources. Microservices are instantiated with their container image, network configuration, and more through your Bicep or Terraform IaC.
+
+  - TODO: If I have 2 or more services that need to be deployed, in Kubernetes I packaged all of that up as a Deployment object (or through even more layers of abstraction, such as a Helm chart) so that I could make sure the deployment worked completely together or failed together.  In ACA, it looks like each service is it's own bicep resource -- which means there is no "succeed together" or "fail together" approach.  Am I missing something?  How do ACA practitioners solve this?
+
+  - TODO: In Kubernetes, if I want a service to stop existing, in my next deployment I remove it and k8s will remove it from the cluster.  Using Bicep, how do I remove one service of the ones I have shipped into my environment? E.g. I have Service A, B, and C out there now.  I want to remove B but leave A and C.
+
+  - TODO: I'm sensing a race condition between the bicep and the data plane operation to get the new container into the container registry.  Clearly you need to get the container in first.  First time deployments via IaC seems really weird.  You have to stop doing infra deployments, do some ACR data plane operations, and then pick up where you left off with infra deployments?
+
+    I think I've even seen some repos put a "fake" container into the App during initial deployment to work around this.  That's not guidance, is it?
 
 ### Performance Efficiency
 
