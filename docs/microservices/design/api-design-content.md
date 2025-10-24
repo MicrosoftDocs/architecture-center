@@ -63,7 +63,7 @@ While REST APIs provide a structured approach to exposing resources, some scenar
 
 Use a generic data access pattern when:
 
-- Clients have diverse data requirements that would result in many specialized REST endpoints
+- Clients have diverse data requirements that would result in many specialized REST endpoints or specialized behavior
 - You need to support complex querying, filtering, and sorting operations across multiple data entities
 - Over-fetching is a significant performance concern, especially for mobile or bandwidth-constrained clients
 
