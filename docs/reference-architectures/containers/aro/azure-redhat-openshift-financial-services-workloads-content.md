@@ -74,8 +74,6 @@ Resilience is essential for Azure Red Hat OpenShift to maintain the uninterrupte
 
 - **Multi-region deployments:** Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redundancy and match each secondary location to the location where you deploy the OpenShift cluster.
 
-- **Availability zones**: Distribute control plane and worker nodes across all available availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
-
 - **DR:** Implement rigorous DR standards to safeguard customer data and ensure continuous business operations. To meet these standards effectively, follow the [DR considerations](https://cloud.redhat.com/experts/aro/disaster-recovery/).
 
 - **Backup:** To protect sensitive customer data and meet stringent compliance requirements, implement a robust backup and restore strategy for Azure Red Hat OpenShift.
