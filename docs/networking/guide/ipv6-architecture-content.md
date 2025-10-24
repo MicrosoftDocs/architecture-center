@@ -163,6 +163,6 @@ Other contributors:
 ## Related resources
 
 - [Transition to IPv6](ipv6-ip-planning.md)
-- [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Deploy AD DS in an Azure virtual network](../../example-scenario/identity/adds-extend-domain.yml)
