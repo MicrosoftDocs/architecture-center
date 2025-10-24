@@ -39,7 +39,7 @@ This architecture uses the following components.
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. In this architecture, App Service serves as the application-hosting platform within each scale unit. It provides the compute infrastructure for mission-critical web applications that have high availability and scalability requirements.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is an in-memory data structure store used as a database, cache, and message broker. In this architecture, Azure Cache for Redis caches requests within each scale unit to improve application performance. It can also serve as temporary storage for scale unit data that needs to be quickly repopulated if a scale unit is replaced.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an in-memory data structure store used as a database, cache, and message broker. In this architecture, Azure Cache for Redis caches requests within each scale unit to improve application performance. It can also serve as temporary storage for scale unit data that needs to be quickly repopulated if a scale unit is replaced.
 
 - [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the application within the scale unit. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
 

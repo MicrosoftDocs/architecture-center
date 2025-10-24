@@ -98,7 +98,7 @@ This solution uses the following components.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps and APIs. By using [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs. In this architecture, App Service with WebJobs provides a platform for running background batch processing tasks.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and Redis Enterprise, a commercial product from Redis Labs, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve the performance of reengineered batch applications.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and Redis Enterprise, a commercial product from Redis Labs, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve the performance of reengineered batch applications.
 
 #### Storage
 
@@ -162,7 +162,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
+- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with Azure role-based access control (Azure RBAC).
 - Database services in Azure support various security options like Data Encryption at Rest.
 - For more information on designing secure solutions, see [Azure security documentation](/azure/security).
 

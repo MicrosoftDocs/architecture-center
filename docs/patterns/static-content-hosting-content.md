@@ -28,7 +28,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content.
 
-- Consider using a valet key or token to control access to resources that shouldn't be available anonymously. See the [Valet Key pattern](./valet-key.yml) for more information.
+- Consider using a valet key or token to control access to resources that shouldn't be available anonymously. For more information, see [Valet Key pattern](./valet-key.yml).
 
 ## When to use this pattern
 

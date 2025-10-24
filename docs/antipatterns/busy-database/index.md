@@ -18,10 +18,10 @@ Offloading processing to a database server can cause it to spend a significant p
 
 Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to perform this processing close to the data, rather than transmitting the data to a client application for processing. However, overusing these features can hurt performance, for several reasons:
 
-- The database server may spend too much time processing, rather than accepting new client requests and fetching data.
+- The database server might spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
-- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
-- Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it may be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
+- Runtime costs might be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
+- Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it might be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
 
 This antipattern typically occurs because:
 
@@ -212,7 +212,7 @@ using (var command = new SqlCommand(...))
 
 - Do not relocate processing if doing so causes the database to transfer far more data over the network. See the [Extraneous Fetching antipattern][ExtraneousFetching].
 
-- If you move processing to an application tier, that tier may need to scale out to handle the additional work.
+- If you move processing to an application tier, that tier might need to scale out to handle the additional work.
 
 ## How to detect the problem
 

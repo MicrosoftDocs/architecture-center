@@ -239,7 +239,7 @@ For alerting purposes, the system should be able to raise an event if any of the
 
 ### Data sources, instrumentation, and data-collection requirements
 
-The raw data that's required to support SLA monitoring is similar to the raw data that's required for performance monitoring, together with some aspects of health and availability monitoring. (See those sections for more details.) You can capture this data by:
+The raw data that's required to support SLA monitoring is similar to the raw data that's required for performance monitoring, together with some aspects of health and availability monitoring. For more information, see those sections. You can capture this data by:
 
 - Performing endpoint monitoring.
 - Logging exceptions, faults, and warnings.

@@ -44,7 +44,7 @@ The process of tracking VM compliance contains these steps:
 
 ### Alternatives
 
-- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also may have to pay a licensing fee.
+- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also might have to pay a licensing fee.
 
 - You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or Virtual Machine Scale Set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
 

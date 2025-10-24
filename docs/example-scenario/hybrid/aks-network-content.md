@@ -37,7 +37,7 @@ The scenario consists of the following components and capabilities:
 - [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][2]
-- [Azure role-based access control (RBAC)][]
+- [Azure role-based access control (Azure RBAC)][]
 - [Azure Monitor][3]
 - [Microsoft Defender for Cloud][4]
 
@@ -355,7 +355,7 @@ Other contributors:
 [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
 [An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
 [2]: /azure/azure-arc
-[Azure role-based access control (RBAC)]: /azure/role-based-access-control/overview
+[Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/overview
 [3]: /azure/azure-monitor/overview
 [4]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [ingress controller]: /azure/aks/hybrid/create-ingress-controller

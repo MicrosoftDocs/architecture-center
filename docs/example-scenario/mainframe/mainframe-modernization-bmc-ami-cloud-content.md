@@ -50,7 +50,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that sends encrypted traffic between Azure Virtual Network and on-premises locations over the public internet. In this architecture, you can deploy VPN Gateway for scenarios where you can't use a dedicated private connection to transfer the mainframe data to Azure.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with on-premises directories. Microsoft Entra ID supports single sign-on and multifactor authentication, which enhances security and user experience. In this architecture, Microsoft Entra ID helps ensure secure authentication and access control for BMC AMI Cloud components, and you can manage and administer the permissions by using role-based access control (RBAC).
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with on-premises directories. Microsoft Entra ID supports single sign-on and multifactor authentication, which enhances security and user experience. In this architecture, Microsoft Entra ID helps ensure secure authentication and access control for BMC AMI Cloud components, and you can manage and administer the permissions by using Azure role-based access control (Azure RBAC).
 
 #### Databases and storage
 

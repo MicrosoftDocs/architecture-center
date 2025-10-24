@@ -65,7 +65,7 @@ The platform team owns and maintains these centralized resources. This architect
 
 ## Subscription setup
 
-In a landing zone context, your workload team must inform the platform team of their specific requirements.
+In an application landing zone context, your workload team must inform the platform team of their specific requirements.
 
 Your **workload team** must include detailed information about the networking space that your workload needs, so that the platform team can allocate necessary resources. Your team determines the requirements, and the platform team determines the IP addresses to assign within the virtual network and the management group to which the subscription is assigned.
 
@@ -151,7 +151,7 @@ Make sure that you [communicate the workload requirements](#subscription-setup) 
 
 In the spoke virtual network, the workload team creates and allocates the subnets. Placing controls to restrict traffic in and out of the subnets helps to provide segmentation. This architecture uses the same subnet topology as the [baseline architecture](baseline.yml#subnetting-considerations), which has dedicated subnets for Application Gateway, front-end VMs, the load balancer, back-end VMs, and private endpoints.
 
-When you deploy your workload in an Azure landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
+When you deploy your workload in an application landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
 With this approach, the platform team can optimize overall organizational spend by using centralized services, rather than deploying redundant security controls for each workload throughout the organization. In this architecture, Azure Firewall is an example of a central service. It's not cost-effective or practical for each workload team to manage their own firewall instance. We recommend a centralized approach to firewall management.
 
@@ -207,7 +207,7 @@ This architecture uses the same authentication extension as the [baseline archit
 > [!NOTE]
 > When operators log into a VM, they must use their corporate identities in their Microsoft Entra ID tenant and not share service principals across functions.
 
-Always start with the principle of least-privilege and granular access to a task instead of long-standing access. In the landing zone context, take advantage of just-in-time (JIT) support that the platform team manages.
+Always start with the principle of least-privilege and granular access to a task instead of long-standing access. Take advantage of just-in-time (JIT) support that the platform team manages.
 
 ## Patch compliance and OS upgrades
 
@@ -240,7 +240,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 > [!IMPORTANT]
 >
-> **For the platform team:** Where possible, grant role-based access control (RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
+> **For the platform team:** Where possible, grant Azure role-based access control (Azure RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
 
 ## Azure Policy
 

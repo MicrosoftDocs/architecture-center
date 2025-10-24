@@ -27,7 +27,7 @@ Common data lake use cases include:
 
 ## Advantages of a data lake
 
-- **Retains raw data for future use**: A data lake is designed to retain data in its raw format, ensuring long-term availability for future use. This capability is particularly valuable in a big data environment, where the potential insights from the data may not be known in advance. Data can also be archived as needed without losing its raw state.
+- **Retains raw data for future use**: A data lake is designed to retain data in its raw format, ensuring long-term availability for future use. This capability is particularly valuable in a big data environment, where the potential insights from the data might not be known in advance. Data can also be archived as needed without losing its raw state.
 - **Self-service exploration**: Analysts and data scientists can query data directly, encouraging experimentation and discovery.
 - **Flexible data support**: Unlike warehouses that require structured formats, lakes can natively handle structured, semi-structured, and unstructured data.
 - **Scalable and performant**: In distributed architectures, data lakes enable parallel ingestion and distributed execution at scale, frequently outperforming traditional ETL pipelines in high-volume workloads. The performance benefits stem from:
@@ -44,7 +44,7 @@ Additionally, mature solutions incorporate metadata management, security, and go
 
 ## When you should use a data lake
 
-We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses may not capture.
+We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses might not capture.
 
 ### Data lake as a source for data warehouses
 

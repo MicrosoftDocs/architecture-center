@@ -201,7 +201,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect – US Customer Success
 - [Veera Vemula](https://www.linkedin.com/in/veera-vemula-7a05279/) | Senior Cloud Solution Architect – US Customer Success
 
@@ -209,7 +208,6 @@ Other contributors:
 
 ## Next steps
 
-- [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Track experiments and models by using MLflow](/azure/machine-learning/how-to-use-mlflow-cli-runs)
 - [Azure Data Factory documentation](/azure/data-factory/introduction)

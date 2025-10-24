@@ -148,7 +148,7 @@ public class UnitOfWork : IUnitOfWork
 
 ### Event handling: Creation and publication
 
-Every time a `Contact` object is created, modified or (soft-) deleted, the service raises a corresponding event. The core of the solution provided is a combination of domain-driven design (DDD) and the mediator pattern proposed by [Jimmy Bogard](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern/). He suggests maintaining a list of events that happened because of modifications of the domain object and publishing these events before you save the actual object to the database.
+Every time a `Contact` object is created, modified or (soft-) deleted, the service raises a corresponding event. The core of the solution provided is a combination of domain-driven design (DDD) and the mediator pattern proposed by [Jimmy Bogard](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern/). Bogard suggests maintaining a list of events that happened because of modifications of the domain object and publishing these events before you save the actual object to the database.
 
 The list of changes is kept in the domain object itself so that no other component can modify the chain of events. The behavior of maintaining events (`IEvent` instances) in the domain object is defined via an interface `IEventEmitter<IEvent>` and implemented in an abstract `DomainEntity` class:
 

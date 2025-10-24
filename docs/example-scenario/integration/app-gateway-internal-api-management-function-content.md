@@ -3,7 +3,7 @@ APIs have become increasingly integral to how organizations and their customers 
 Azure Application Gateway serves as a security checkpoint for APIs. Instead of allowing users to connect directly over the internet, you route all traffic through an application gateway. This setup adds extra access controls to help protect your APIs. With this approach, you can use a single API Management instance to support both internal APIs within your organization and external APIs outside your organization, while keeping any publicly exposed APIs secured behind the gateway.
 
 > [!NOTE]
-> This architecture serves as the foundation of the guidance for [API Management in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework for Azure.
+> This architecture serves as the foundation of the guidance for [API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework for Azure.
 
 ## Architecture
 
@@ -135,7 +135,7 @@ Principal authors:
 
 ## Next steps
 
-- [API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+- [Cloud Adoption Framework guidance for adopting API Management in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 - [API Management terminology](/azure/api-management/api-management-terminology)
 - [Application Gateway documentation](/azure/application-gateway/overview)
 

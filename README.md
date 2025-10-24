@@ -2,7 +2,7 @@
 
 Microsoft patterns & practices
 
-<https://aka.ms/architecture>
+<https://azure.com/architecture>
 
 <!-- docutune:disable -->
 

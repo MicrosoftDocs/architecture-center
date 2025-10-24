@@ -106,7 +106,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-Azure Spring Apps has a Basic tier and a Standard tier. For details, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-cloud/). When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
+Azure Spring Apps has a Basic tier and a Standard tier. For more information, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-cloud/). When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
 
 GitHub offers a free service. But to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 

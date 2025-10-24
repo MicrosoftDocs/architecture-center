@@ -6,7 +6,7 @@ The Geode pattern involves deploying a collection of backend services into a set
 
 Many large-scale services have specific challenges around geo-availability and scale. Classic designs often *bring the data to the compute* by storing data in a remote SQL server that serves as the compute tier for that data, relying on scale-up for growth.
 
-The classic approach may present a number of challenges:
+The classic approach might present a number of challenges:
 
 - Network latency issues for users coming from the other side of the globe to connect to the hosting endpoint
 - Traffic management for demand bursts that can overwhelm the services in a single region
@@ -64,7 +64,7 @@ Use this pattern:
 
 This pattern might not be suitable for
 
-- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.yml) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.yml).
+- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there might be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.yml) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.yml).
 - Situations where there's no geographical distribution required. Instead, consider availability zones and paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.

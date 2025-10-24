@@ -14,7 +14,7 @@ metadata:
 products:
   - azure-app-service
   - azure-front-door
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-app-configuration
   - azure-monitor
 name: Mission-critical baseline with App Service

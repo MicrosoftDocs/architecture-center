@@ -3,7 +3,7 @@ title: Big Data Architectures
 description: Learn how big data architectures manage the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.
 author: vibhareddyv
 ms.author: vibhav
-ms.date: 03/07/2025
+ms.date: 09/12/2025
 ms.topic: conceptual
 ms.subservice: architecture-guide
 ms.custom:
@@ -50,10 +50,6 @@ Most big data architectures include some or all of the following components:
 
 - **Batch processing:** The datasets are large, so a big data solution often processes data files by using long-running batch jobs to filter, aggregate, and otherwise prepare data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. You can use the following options:
 
-  - Run U-SQL jobs in Azure Data Lake Analytics.
-
-  - Use Hive, Pig, or custom MapReduce jobs in an Azure HDInsight Hadoop cluster.
-  - Use Java, Scala, or Python programs in an HDInsight Spark cluster.
   - Use Python, Scala, or SQL language in Azure Databricks notebooks.
   - Use Python, Scala, or SQL language in Fabric notebooks.
 
@@ -61,21 +57,12 @@ Most big data architectures include some or all of the following components:
 
 - **Stream processing:** After the solution captures real-time messages, it must process them by filtering, aggregating, and preparing the data for analysis. The processed stream data is then written to an output sink.
 
-  - Azure Stream Analytics is a managed stream processing service that uses continuously running SQL queries that operate on unbounded streams.
-
-  - You can use open-source Apache streaming technologies, like Spark Streaming, in an HDInsight cluster or Azure Databricks.
+  - You can use open-source Apache streaming technologies, like Spark Streaming, streaming technologies in Azure Databricks.
   - Azure Functions is a serverless compute service that can run event-driven code, which is ideal for lightweight stream processing tasks.
   - Fabric supports real-time data processing by using event streams and Spark processing.
 
-- **Machine learning:** To analyze prepared data from batch or stream processing, you can use machine learning algorithms to build models that predict outcomes or classify data. These models can be trained on large datasets. You can use the resulting models to analyze new data and make predictions.
-
-  Use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to do these tasks. Machine Learning provides tools to build, train, and deploy models. Alternatively, you can use pre-built APIs from Azure AI services for common machine learning tasks, such as vision, speech, language, and decision-making tasks.
-
 - **Analytical data store:** Many big data solutions prepare data for analysis and then serve the processed data in a structured format that analytical tools can query. The analytical data store that serves these queries can be a Kimball-style relational data warehouse. Most traditional business intelligence (BI) solutions use this type of data warehouse. Alternatively, you can present the data through a low-latency NoSQL technology, such as HBase, or an interactive Hive database that provides a metadata abstraction over data files in the distributed data store.
 
-  - Azure Synapse Analytics is a managed service for large-scale, cloud-based data warehousing.
-
-  - HDInsight supports Interactive Hive, HBase, and Spark SQL. These tools can serve data for analysis.
   - Fabric provides various data stores, including SQL databases, data warehouses, lakehouses, and eventhouses. These tools can serve data for analysis.
   - Azure provides other analytical data stores, such as Azure Databricks, Azure Data Explorer, Azure SQL Database, and Azure Cosmos DB.
 
@@ -93,7 +80,7 @@ Most big data architectures include some or all of the following components:
 
 ## Lambda architecture
 
-When you work with large datasets, it can take a long time to run the type of queries that clients need. These queries can't be performed in real time. And they often require algorithms such as [MapReduce](https://en.wikipedia.org/wiki/MapReduce) that operate in parallel across the entire dataset. The query results are stored separately from the raw data and used for further querying.
+When you work with large datasets, it can take a long time to run the type of queries that clients need. These queries can't be performed in real time, and they often require distributed processing algorithms such as [MapReduce](https://en.wikipedia.org/wiki/MapReduce) that operate in parallel across the entire dataset. The query results are stored separately from the raw data and used for further querying.
 
 One drawback to this approach is that it introduces latency. If processing takes a few hours, a query might return results that are several hours old. Ideally, you should get some results in real time, potentially with a loss of accuracy, and combine these results with the results from batch analytics.
 
@@ -117,6 +104,10 @@ Eventually, the hot and cold paths converge at the analytics client application.
 
 The raw data that's stored at the batch layer is immutable. Incoming data is appended to the existing data, and the previous data isn't overwritten. Changes to the value of a particular datum are stored as a new time-stamped event record. Time-stamped event records allow for recomputation at any point in time across the history of the data collected. The ability to recompute the batch view from the original raw data is important because it enables the creation of new views as the system evolves.
 
+### Machine learning in Lambda architecture
+
+Lambda architectures support machine learning workloads by providing both historical data for model training and real-time data for inference. The batch layer enables training on comprehensive historical datasets using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or Fabric Data Science workloads. The speed layer facilitates real-time model inference and scoring. This dual approach allows for models trained on complete historical data while providing immediate predictions on incoming data streams.
+
 ## Kappa architecture
 
 A drawback to the Lambda architecture is its complexity. Processing logic appears in two different places, the cold and hot paths, via different frameworks. This process leads to duplicate computation logic and complex management of the architecture for both paths.
@@ -131,6 +122,10 @@ Similar to the Lambda architecture's batch layer, the event data is immutable an
 
 If you need to recompute the entire dataset (equivalent to what the batch layer does in the Lambda architecture), you can replay the stream. This process typically uses parallelism to complete the computation in a timely fashion.
 
+### Machine learning in Kappa architecture
+
+Kappa architectures enable unified machine learning workflows by processing all data through a single streaming pipeline. This approach simplifies model deployment and maintenance since the same processing logic applies to both historical and real-time data. You can use Azure Machine Learning or Fabric Data Science workloads to build models that process streaming data, enabling continuous learning and real-time adaptation. The architecture supports online learning algorithms that update models incrementally as new data arrives.
+
 ## Lakehouse architecture
 
 A data lake is a centralized data repository that stores structured data (database tables), semi-structured data (XML files), and unstructured data (images and audio files). This data is in its raw, original format and doesn't require predefined schema. A data lake can handle large volumes of data, so it's suitable for big data processing and analytics. Data lakes use low-cost storage solutions, which provide a cost-effective way to store large amounts of data.
@@ -144,9 +139,11 @@ The **Lakehouse architecture** combines the best elements of data lakes and data
 Common use cases for a lakehouse architecture include:
 
 - **Unified analytics:** Ideal for organizations that need a single platform for both historical and real-time data analysis
-
-- **Machine learning:** Supports advanced analytics and machine learning workloads by integrating data management capabilities
 - **Data governance:** Ensures compliance and data quality across large datasets
+
+### Machine learning in Lakehouse architecture
+
+Lakehouse architectures excel at supporting end-to-end machine learning workflows by providing unified access to both structured and unstructured data. Data scientists can use Fabric Data Science workloads to access raw data for exploratory analysis, feature engineering, and model training without complex data movement. The architecture supports the complete machine learning lifecycle, from data preparation and model development using Azure Machine Learning or Fabric notebooks, to model deployment and monitoring. The unified storage layer enables efficient collaboration between data engineers and data scientists while maintaining data lineage and governance.
 
 ## IoT
 
@@ -174,7 +171,7 @@ Common types of processing include:
 
 - Handling special types of nontelemetry messages from devices, such as notifications and alarms.
 
-- Machine learning.
+- Machine learning for predictive maintenance, anomaly detection, and intelligent decision-making.
 
 In the previous diagram, the gray boxes are components of an IoT system that aren't directly related to event streaming. They're included in the diagram for completeness.
 
@@ -184,14 +181,18 @@ In the previous diagram, the gray boxes are components of an IoT system that are
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
+### Machine learning in IoT architecture
+
+IoT architectures use machine learning for intelligent edge computing and cloud-based analytics. Edge devices can run lightweight models for real-time decision-making, while comprehensive models process aggregated data in the cloud using Azure Machine Learning or Fabric Data Science workloads. Common applications include predictive maintenance, anomaly detection, and automated response systems. The architecture supports both streaming analytics for immediate insights and batch processing for model training and refinement using historical IoT data.
+
 ## Next steps
 
 - [IoT Hub](/azure/iot-hub/)
-- [Event Hubs](/azure/event-hubs/)
-- [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
 - [Azure Data Explorer](/azure/data-explorer/)
-- [Fabric](/fabric/)
+- [Microsoft Fabric decision guide: Choos a Data store](/fabric/fundamentals/decision-guide-data-store)
 - [Azure Databricks](/azure/databricks/)
+- [Azure Machine Learning](/azure/machine-learning/)
+- [Fabric Data Science](/fabric/data-science/)
 
 ## Related resources
 

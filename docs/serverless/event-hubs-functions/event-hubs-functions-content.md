@@ -49,7 +49,7 @@ When your function is first enabled, there's only one instance of the function. 
 
     ![Event Hubs and Functions single instance](./images/event-hubs-functions.svg)
 
-- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 may be assigned to `Function_1` and partitions 6-10 to `Function_2`.
+- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 might be assigned to `Function_1` and partitions 6-10 to `Function_2`.
 
     ![Event Hubs and Functions with two instances](./images/event-hubs-functions-two-instances.svg)
 

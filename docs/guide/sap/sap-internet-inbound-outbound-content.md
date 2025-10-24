@@ -172,7 +172,7 @@ The architecture diagram shows the most common scenario: routing internet-bound 
 
 #### High availability for SAP Cloud Connector
 
-High availability is built into SAP Cloud Connector. Cloud Connector is installed on two VMs. The main instance is active, and the shadow instance is connected to it. They share configuration and are kept in sync natively. If the main instance isn't available, the secondary VM attempts to take over the main role and re-establish the TLS tunnel to SAP BTP. A high-availability Cloud Connector environment is shown in the architecture. You don't need any other Azure technologies, like a load balancer or cluster software, for the configuration. For details on configuration and operation, see the [SAP documentation](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/2f9250b0e6ac488286266461a82518e8.html).
+High availability is built into SAP Cloud Connector. Cloud Connector is installed on two VMs. The main instance is active, and the shadow instance is connected to it. They share configuration and are kept in sync natively. If the main instance isn't available, the secondary VM attempts to take over the main role and re-establish the TLS tunnel to SAP BTP. A high-availability Cloud Connector environment is shown in the architecture. You don't need any other Azure technologies, like a load balancer or cluster software, for the configuration. For more information about configuration and operation, see the [SAP documentation](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/2f9250b0e6ac488286266461a82518e8.html).
 
 #### SAP Analytics Cloud Agent
 
@@ -186,7 +186,7 @@ For some SAP BTP integration scenarios, the Private Link service approach is pre
 
 ### SAP RISE/ECS
 
-If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the managed service partner. The SAP environment is deployed by SAP. On SAP's architecture, the architecture shown here doesn't apply to your systems that run in RISE with SAP/ECS. For information about integrating this type of SAP landscape with Azure services and your network, see the [Azure documentation](/azure/virtual-machines/workloads/sap/sap-rise-integration).
+If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the managed service partner. The SAP environment is deployed by SAP. On SAP's architecture, the architecture shown here doesn't apply to your systems that run in RISE with SAP/ECS. For more information about integrating this type of SAP landscape with Azure services and your network, see [Azure documentation](/azure/virtual-machines/workloads/sap/sap-rise-integration).
 
 ### Other SAP communication requirements
 

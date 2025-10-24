@@ -4,7 +4,7 @@ Architects and developers struggle to define the correct size for a microservice
    The diagram has two key sections. One section labeled Shipping bounded content and contains the following terms: Scheduler, Package, Delivery, and Delivery history. Five arrows point from Scheduler to the following terms: Accounts, Third-party transportation, Drone management, Package, and Delivery. An arrow points from Delivery to Delivery history.
 :::image-end:::
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.md).
 
 ## From domain model to microservices
 
@@ -76,7 +76,7 @@ The following diagram shows the design at this point:
 At this point, you should have a clear understanding of the purpose and functionality of each microservice in your design. Now you can architect the system.
 
 > [!div class="nextstepaction"]
-> [Design a microservices architecture](../design/index.yml)
+> [Design a microservices architecture](../design/index.md)
 
 ## Related resources
 

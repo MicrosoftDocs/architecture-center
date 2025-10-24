@@ -4,13 +4,15 @@ This article describes how to use image processing, natural language processing,
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." source="../media/ai-search-skillsets.svg" lightbox="../media/ai-search-skillsets.svg" border="false":::
+:::image type="complex" border="false" source="../media/ai-search-skillsets.svg" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." lightbox="../media/ai-search-skillsets.svg":::
+   The image has three key sections: unstructured data, AI enrichment, and knowledge store. The unstructured data section includes Blob Storage, documents, and images. The AI enrichment section includes both built-in skills and custom skills. The knowledge store section includes Blob Storage and Table Storage. Numbered steps show the flow of data. In the steps, unstructured data is ingested, enriched, indexed, projected, and queried.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
 
 ### Dataflow
 
-The following dataflow corresponds to the preceding diagram. The dataflow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
+The following dataflow corresponds to the previous diagram. The dataflow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
 
 1. Unstructured data in Azure Blob Storage, such as documents and images, is ingested into AI Search.
 
@@ -34,7 +36,7 @@ The following dataflow corresponds to the preceding diagram. The dataflow descri
 
 - [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
+- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/ai-services/language-service/named-entity-recognition/overview) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a REST-based object storage solution optimized for large volumes of unstructured data. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, Blob Storage stores the original JFK Files dataset, including scanned documents and images, which are ingested into the AI enrichment pipeline.
 
@@ -52,17 +54,17 @@ You can use AI enrichment in AI Search to extract and enhance searchable, indexa
 
 The AI Search skills in this solution can be categorized into the following groups:
 
-- **Image processing**: This solution uses built-in [text extraction](/azure/search/cognitive-search-concept-image-scenarios) and [image analysis](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0) skills, including object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which you can search by using the query capabilities of AI Search. *Document cracking* is the process of extracting or creating text content from nontext sources.
+- **Image processing:** This solution uses built-in [text extraction](/azure/search/cognitive-search-concept-image-scenarios) and [image analysis](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0) skills, including object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which you can search by using the query capabilities of AI Search. *Document cracking* is the process of extracting or creating text content from nontext sources.
 
-- **Natural language processing**: This solution uses built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) that map unstructured text to searchable and filterable fields in an index.
+- **Natural language processing:** This solution uses built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) that map unstructured text to searchable and filterable fields in an index.
 
-- **Custom skills**: This solution uses custom skills that extend AI Search to apply specific enrichment transformations to content. You can [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [custom web API skill](/azure/search/cognitive-search-custom-skill-web-api).
+- **Custom skills:** This solution uses custom skills that extend AI Search to apply specific enrichment transformations to content. You can [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [custom web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
 ### Potential use cases
 
-The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://jfk-demo-2019.azurewebsites.net/#/) presents a particular AI Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios. Instead, this solution idea provides a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with nonpublic data.
+The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://jfk-demo-2019.azurewebsites.net/#/) presents a specific AI Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios. Instead, this solution idea provides a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with nonpublic data.
 
-You can also use this architecture to:
+You can also use this architecture to perform the following actions:
 
 - Increase the value and utility of unstructured text and image content in search apps and data science apps.
 
@@ -76,13 +78,13 @@ You can also use this architecture to:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributor.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
- * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+- [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

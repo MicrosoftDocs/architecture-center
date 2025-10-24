@@ -44,7 +44,7 @@ This pattern might not be useful if:
 
 - There's a natural leader or dedicated process that can always act as the leader. For example, it might be possible to implement a singleton process that coordinates the task instances. If this process fails or becomes unhealthy, the system can shut it down and restart it.
 - The coordination between tasks can be achieved using a more lightweight method. For example, if several task instances simply need coordinated access to a shared resource, a better solution is to use optimistic or pessimistic locking to control access.
-- A third-party solution, like [Apache Zookeeper](https://zookeeper.apache.org/) may be a more efficient solution.
+- A third-party solution, like [Apache Zookeeper](https://zookeeper.apache.org/) might be a more efficient solution.
 
 ## Workload design
 

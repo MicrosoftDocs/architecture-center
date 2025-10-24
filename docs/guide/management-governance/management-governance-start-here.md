@@ -88,7 +88,7 @@ The Azure Well-Architected Framework is a set of guiding tenets that you can use
 - [Regulatory compliance](/azure/architecture/framework/security/design-regulatory-compliance)
 - [Administrative account security](/azure/architecture/framework/security/design-admins)
 
-For additional guidance, see:
+For more information, see:
 
 - [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Governance best practices](/security/compass/governance)

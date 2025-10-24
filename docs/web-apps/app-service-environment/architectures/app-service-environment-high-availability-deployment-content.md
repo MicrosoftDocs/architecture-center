@@ -37,7 +37,7 @@ This section describes the nature of availability for services in this architect
 
 - [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jumpbox in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
 
 ## Considerations
 
@@ -77,26 +77,6 @@ var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionEndpoi
 services.AddHealthChecks()
     .AddUrlGroup(uriBuilder.Uri, timeout: TimeSpan.FromSeconds(15))
     .AddRedis(Configuration.GetValue<string>("ConnectionEndpoints:RedisConnectionEndpoint"));
-```
-
-The following code shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_ha.azcli) script configures the back-end pools and the health probe for the application gateway.
-
-```bash
-# Generates parameters file for Azure Application Gateway script
-cat <<EOF > appgwApps.parameters.json
-[
-  {
-    "name": "votapp",
-    "routingPriority": 100,
-    "hostName": "${APPGW_APP1_URL}",
-    "backendAddresses": [
-      {
-        "fqdn": "${INTERNAL_APP1_URL}"
-      }
-    ],
-    "probePath": "/health"
-  }
-]
 ```
 
 If any components, including the web front end, the API, or the cache, fail the health probe, Application Gateway routes the request to the other application in the back-end pool. This configuration ensures that the request always routes to the application in a completely available App Service Environment subnet.

@@ -88,6 +88,14 @@ Notebooks are a popular way to interact with lakehouse data. Fabric provides a w
 
 Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to simplify creating Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This mode allows you to get in-memory performance on your reports without moving your data out of the lakehouse.
 
+While direct lake mode in Power BI offers significant benefits in terms of performance and latency, there are some data scenarios which requires falling back to direct query mode to fulfil a query. Example scenarios when a fall back to direct query can occur:
+
+- Semantic model table stats exceed the associated [capacity guardrails](/fabric/fundamentals/direct-lake-overview#fabric-capacity-requirements).
+- Semantic model has RLS applied on it.
+- Semantic model references views instead of direct OneLake tables.
+  
+This can be addressed by complementary use of SQL analytics endpoint as the source for Power BI. When one uses *direct lake on SQL analytics endpoint*, it allows the semantic model queries to [fall back](/fabric/fundamentals/direct-lake-overview#directquery-fallback) on direct query mode where direct lake is not supported.
+
 ###### Custom APIs
 
 Fabric provides a rich API surface across its items. OneLake provides open access to all Fabric items through Azure Data Lake Storage APIs and SDKs. You can access your data in OneLake through any API, SDK, or tool that's compatible with Data Lake Storage by just using a OneLake URI instead. You can upload data to a lakehouse by using Azure Storage Explorer or read a delta table via a shortcut from Azure Databricks. OneLake also supports the [Azure Blob Filesystem (ABFS) driver](/azure/storage/blobs/data-lake-storage-abfs-driver) for more compatibility with Data Lake Storage and Azure Blob Storage. To consume streaming data in downstream apps, you can push eventstream data to a custom API endpoint. You can then consume this streaming output from Fabric by using Azure Event Hubs or the AMQP or Kafka protocol.
@@ -109,6 +117,8 @@ This solution uses the following components:
   - [Data engineering](/fabric/data-engineering/data-engineering-overview) is a workload in Microsoft Fabric that provides tools to collect, store, process, and analyze large datasets. It powers the transformation and preparation of data within the lakehouse by using Spark notebooks and pipelines.
   
   - [Data Science](/fabric/data-science/data-science-overview) is a workload in Fabric that provides tools to build machine learning models and generate insights. It supports experimentation, model tracking, and deployment within the lakehouse environment.
+    
+  - [Data Warehouse](/fabric/data-warehouse/data-warehousing) is an enterprise scale relational warehouse on a data lake foundation. Every Lakehouse in Fabric comes pre-wired with a SQL endpoint which provides the familiar SQL native warehouse semantics on top of a Lakehouse. See [Performance guidelines in Fabric Data Warehouse](/fabric/data-warehouse/guidelines-warehouse-performance) data ingestion, table management, data preparation, statistics, and querying best practices in warehouses and SQL analytics endpoints. Data warehouse is typically used as one of the ways to serve curated gold data out of the Lakehouse. It can be utilized for interactive analysis by data analysts or for generating reports for business users.
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview) is a service that provides stream ingestion and processing capabilities. In this architecture, it enables real-time analytics by capturing and analyzing data-in-motion through eventstreams and reflexes.
 
@@ -129,7 +139,6 @@ Fabric offers a comprehensive set of tools, but, depending on your specific need
 This architecture is applicable to the following scenarios:
 
 - Organizations that are starting fresh without legacy system constraints.
-- Organizations that anticipate data volumes between 0.5 TB and 1.5 TB.
 - Organizations that prefer a simple and streamlined pattern that balances cost, complexity, and performance considerations.
 - Organizations that need a simple, cost-effective, and high-performance data platform that addresses reporting, analytics, and machine learning requirements.
 - Organizations that want to integrate data from multiple sources for a unified view.

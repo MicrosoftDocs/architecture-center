@@ -62,10 +62,6 @@ Principal authors:
 - [Julien Corioland](https://www.linkedin.com/in/juliencorioland) | Principal Software Engineer 
 - [Adina Stoll](https://www.linkedin.com/in/adina-stoll) | Software Engineer 2
 
-Other contributor: 
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 
 ## Next steps

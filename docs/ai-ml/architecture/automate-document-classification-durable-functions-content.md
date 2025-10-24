@@ -52,6 +52,8 @@ This article describes an architecture that you can use to process various docum
 
 - Semantic Kernel is one of several options for creating embeddings. You can also use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/what-are-ai-services) to create embeddings.
 
+- The [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) could be used instead of Semantic Kernel to orchestrate the workflows.
+
 - To provide a natural language interface for users, you can use other language models within Azure AI Foundry. The platform supports various models from different providers, including Mistral, Meta, Cohere, and Hugging Face.
 
 ### Scenario details
@@ -122,7 +124,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
-Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
+Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
 
 ## Contributors
 

@@ -224,14 +224,14 @@ Other contributors:
 
 For more information about the solution, contact [partners@mongodb.com](mailto:partners@mongodb.com).
 
-For information about MongoDB, see these resources:
+For more information about MongoDB, see these resources:
 
 - [MongoDB](https://www.mongodb.com)
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 - [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
 - [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
 
-For information about Azure solution components, see these resources:
+For more information about Azure solution components, see these resources:
 
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Analytics use cases](https://azure.microsoft.com/services/synapse-analytics/#use-cases)

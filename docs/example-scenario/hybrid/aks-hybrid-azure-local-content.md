@@ -189,7 +189,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Nate Waters](https://www.linkedin.com/in/nate-waters/) | Product Marketing Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

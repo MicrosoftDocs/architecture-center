@@ -338,7 +338,7 @@ You can address some problems with a single agent if you give it sufficient acce
 
 ### Deterministic routing
 
-Some patterns require you to route flow between agents deterministically. Others rely on agents to choose their own routes. If your agents are defined in a no-code or low-code environment, you might not control those behaviors. If you define your agents in code by using SDKs like Semantic Kernel, you have more control.
+Some patterns require you to route flow between agents deterministically. Others rely on agents to choose their own routes. If your agents are defined in a no-code or low-code environment, you might not control those behaviors. If you define your agents in code by using SDKs like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) or Semantic Kernel, you have more control.
 
 ### Context window
 
@@ -418,17 +418,34 @@ Applications sometimes require you to combine multiple orchestration patterns to
 
 AI agent orchestration patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. Cloud design patterns focus on structural and behavioral concerns in distributed systems, but AI agent orchestration patterns specifically address the coordination of components with reasoning capabilities, learning behaviors, and nondeterministic outputs.
 
-## Implementations in Microsoft Semantic Kernel
+## SDK-based implementations
 
-Many of these patterns rely on a code-based implementation to address the orchestration logic. The Agent Framework within Semantic Kernel provides support for many of the following [Agent Orchestration patterns](/semantic-kernel/frameworks/agent/agent-orchestration/):
+Many of these patterns rely on a code-based implementation to address the orchestration logic. SDKs that support an agent framework often provides support for many of the agent orchestration patterns.
 
-- [Sequential orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
-- [Concurrent orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
-- [Group Chat orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
-- [Handoff orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
-- [Magentic orchestration](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
+### Microsoft Agent Framework
 
-For hands-on implementation, explore [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice. You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
+The Microsoft Agent Framework SDK has implementation guidance for [Agent Framework orchestration](/agent-framework/user-guide/workflows/overview).
+
+- [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
+- [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
+- [Handoff orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/handoff)
+- [Magentic orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/magentic)
+
+For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub that demonstrate some of these patterns in practice.
+
+### Semantic Kernel
+
+The Semantic Kernel SDK has implementation guidance for its [agent framework](/semantic-kernel/frameworks/agent/agent-orchestration/).
+
+- [Sequential orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
+- [Concurrent orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
+- [Group Chat orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
+- [Handoff orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
+- [Magentic orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
+
+For hands-on implementation, explore [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice.
+
+You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
 
 ## Implementations in Azure AI Foundry Agent Service
 

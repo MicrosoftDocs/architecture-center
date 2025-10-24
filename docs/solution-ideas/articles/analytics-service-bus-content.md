@@ -79,10 +79,6 @@ Principal author:
 
 - [Shlomo Sagir](https://il.linkedin.com/in/shlomo-sagir) | Senior Content Developer
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

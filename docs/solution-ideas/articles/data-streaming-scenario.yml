@@ -26,7 +26,7 @@ products:
   - azure-app-service
   - azure-api-management
   - azure-container-registry
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-cosmos-db
 thumbnailUrl: /azure/architecture/browse/thumbs/data-streaming-scenario.png
 content: |

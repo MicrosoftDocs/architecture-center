@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Basic web application
+  title: Basic Web Application
   description: Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 07/12/2024
+  ms.date: 10/10/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
@@ -21,4 +21,4 @@ products:
   - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/basic-app-service-architecture.png
 content: |
-   [!include[](basic-web-app-content.md)]
+   [!INCLUDE[](basic-web-app-content.md)]

@@ -114,7 +114,7 @@ For more information, see the following resources:
 
 ### Managed identities
 
-You can use managed identities from Microsoft Entra ID to enable your container app to access other resources that Microsoft Entra ID authenticates. When you use managed identities, your container app doesn't need to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for Azure role-based access control (RBAC).
+You can use managed identities from Microsoft Entra ID to enable your container app to access other resources that Microsoft Entra ID authenticates. When you use managed identities, your container app doesn't need to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for Azure role-based access control (Azure RBAC).
 
 When you use managed identities, keep your choice of isolation model in mind. For example, suppose that you share your container apps among all your tenants and deploy tenant-specific databases. You need to ensure that one tenant's application can't access a different tenant's database.
 

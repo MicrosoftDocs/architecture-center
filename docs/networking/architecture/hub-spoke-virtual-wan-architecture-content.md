@@ -148,7 +148,7 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 1. Configure all peering connections to **allow forwarded traffic**.
 
-For more information, see [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml).
+For more information, see [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml).
 
 #### Virtual network peering for a hub connection
 

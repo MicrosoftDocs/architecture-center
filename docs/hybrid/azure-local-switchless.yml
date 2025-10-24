@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Local storage switchless architecture
-  description: Learn how to design Azure Local infrastructure by using a storage switchless architecture.
+  title: Azure Local Storage Switchless Architecture
+  description: Learn how to design Azure Local infrastructure by using a storage switchless architecture, with a focus on reliability, security, and hybrid workload management.
   author: neilbird
   ms.author: nebird
-  ms.date: 08/14/2025
-  ms.topic: conceptual
+  ms.date: 10/13/2025
+  ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
     - hybrid

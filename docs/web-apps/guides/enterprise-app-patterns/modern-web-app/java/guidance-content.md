@@ -35,9 +35,9 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 - *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how to manage and share data across services. Decoupled services should manage their own data and minimize direct database access across service boundaries.
 
-- *Deploy Azure services.* Select and deploy the Azure services that you need to support the web app service that you intend to extract. For guidance, see the [Select the right Azure services](#select-the-right-azure-services) section of this article.
+- *Deploy Azure services.* Select and deploy the Azure services that you need to support the web app service that you intend to extract. For more information, see the [Select the right Azure services](#select-the-right-azure-services) section of this article.
 
-- *Decouple the web app service.* Define clear interfaces and APIs that the newly extracted web app services can use to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data but ensures consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, see the [Code guidance](#code-guidance) section.
+- *Decouple the web app service.* Define clear interfaces and APIs that the newly extracted web app services can use to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data but ensures consistency and integrity. For more information about specific implementation strategies and design patterns during this extraction process, see the [Code guidance](#code-guidance) section.
 
 - *Use independent storage for decoupled services.* To simplify versioning and deployment, ensure that each decoupled service has its own data stores. For example, the reference implementation separates the email service from the web app and eliminates the need for the service to access the database. Instead, the service communicates the email delivery status back to the web app via an Azure Service Bus message, and the web app saves a note to its database.
 

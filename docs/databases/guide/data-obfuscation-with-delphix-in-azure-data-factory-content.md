@@ -8,6 +8,9 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
+> [!NOTE]
+> This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines. Delphix CC Profiling and Delphix CC Masking templates are not yet available for Microsoft Fabric Data Factory. Contact your Perforce Delphix account representative about [Microsoft Fabric support](https://www.perforce.com/solutions/microsoft-compliance).
+
 ### Dataflow
 
 The following dataflow corresponds to the previous diagram:
@@ -89,7 +92,7 @@ This solution uses Data Factory data source connectors to create two ETL pipelin
 
 - Provide production-grade data to your development and analytics pipelines, such as Azure DevOps, Jenkins, and Harness, and other automation workflows. To do so, mask sensitive data in centralized Data Factory pipelines.
 
-- Mask data consistently across data sources to maintain referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
+- Mask data consistently across data sources to maintain referential integrity for integrated application testing. For example, the name George must always be masked to Elliot. Or a given social security number (SSN) must always be masked to the same SSN, whether George and George's SSN appear in Oracle, Salesforce, or SAP.
 
 #### Speed up AI and machine learning algorithm training by using compliant analytics
 

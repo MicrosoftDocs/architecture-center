@@ -22,10 +22,6 @@ items:
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance
       items:
-      - name: Network topology
-        items:
-        - name: Spoke-to-spoke networking
-          href: guide/spoke-to-spoke-networking.md
       - name: Network security
         items:
         - name: Use a split-brain DNS configuration to host a web app

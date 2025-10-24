@@ -19,7 +19,7 @@ The AKS cluster uses a user-defined managed identity to create additional resour
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
 - [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
-- [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
+- [Azure role-based access control (Azure RBAC) for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure network policies](/azure/aks/use-network-policies)
 - [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-enable-new-cluster)

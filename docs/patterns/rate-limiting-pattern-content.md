@@ -4,7 +4,7 @@ A rate limiting pattern is appropriate in many scenarios, but it is particularly
 
 ## Context and problem
 
-Performing large numbers of operations using a throttled service can result in increased traffic and throughput, as you'll need to both track rejected requests and then retry those operations. As the number of operations increases, a throttling limit may require multiple passes of resending data, resulting in a larger performance impact.
+Performing large numbers of operations using a throttled service can result in increased traffic and throughput, as you'll need to both track rejected requests and then retry those operations. As the number of operations increases, a throttling limit might require multiple passes of resending data, resulting in a larger performance impact.
 
 As an example, consider the following naive retry on error process for ingesting data into Azure Cosmos DB:
 
@@ -20,14 +20,14 @@ The ingestion job completed successfully, but only after sending 30,000 records 
 
 There are additional factors to consider in the above example:
 
-- Large numbers of errors can also result in additional work to log these errors and process the resulting log data. This naive approach will have handled 20,000 errors, and logging these errors may impose a processing, memory, or storage resource cost.
+- Large numbers of errors can also result in additional work to log these errors and process the resulting log data. This naive approach will have handled 20,000 errors, and logging these errors might impose a processing, memory, or storage resource cost.
 - Not knowing the throttling limits of the ingestion service, the naive approach has no way to set expectations for how long data processing will take. Rate limiting can allow you to calculate the time required for ingestion.
 
 ## Solution
 
 Rate limiting can reduce your traffic and potentially improve throughput by reducing the number of records sent to a service over a given period of time.
 
-A service may throttle based on different metrics over time, such as:
+A service can throttle based on different metrics over time, such as:
 
 - The number of operations (for example, 20 requests per second).
 - The amount of data (for example, 2 GiB per minute).
@@ -47,9 +47,9 @@ Azure provides several durable messaging services that you can use with this pat
 
 ![A durable messaging flow with three job processors calling into a throttled service.](./_images/rate-limiting-pattern-01.png)
 
-When you're sending records, the time period you use for releasing records may be more granular than the period the service throttles on. Systems often set throttles based on timespans you can easily comprehend and work with. However, for the computer running a service, these timeframes may be very long compared to how fast it can process information. For instance, a system might throttle per second or per minute, but commonly the code is processing on the order of nanoseconds or milliseconds.
+When you're sending records, the time period you use for releasing records might be more granular than the period the service throttles on. Systems often set throttles based on timespans you can easily comprehend and work with. However, for the computer running a service, these timeframes might be very long compared to how fast it can process information. For instance, a system might throttle per second or per minute, but commonly the code is processing on the order of nanoseconds or milliseconds.
 
-While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, and so on) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter may even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
+While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, and so on) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter might even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
 
 ![A chart showing rate limiting over time.](./_images/rate-limiting-pattern-02.png)
 
@@ -69,9 +69,9 @@ As an alternative to Azure Storage, you could also implement this kind of lease 
 
 Consider the following when deciding how to implement this pattern:
 
-- While the rate limiting pattern can reduce the number of throttling errors, your application will still need to properly handle any throttling errors that may occur.
+- While the rate limiting pattern can reduce the number of throttling errors, your application will still need to properly handle any throttling errors that might occur.
 - If your application has multiple workstreams that access the same throttled service, you'll need to integrate all of them into your rate limiting strategy. For instance, you might support bulk loading records into a database but also querying for records in that same database. You can manage capacity by ensuring all workstreams are gated through the same rate limiting mechanism. Alternatively, you might reserve separate pools of capacity for each workstream.
-- The throttled service may be used in multiple applications. In some—but not all—cases it is possible to coordinate that usage (as shown above). If you start seeing a larger than expected number of throttling errors, this may be a sign of contention between applications accessing a service. If so, you may need to consider temporarily reducing the throughput imposed by your rate limiting mechanism until the usage from other applications lowers.
+- The throttled service might be used in multiple applications. In some—but not all—cases it is possible to coordinate that usage (as shown above). If you start seeing a larger than expected number of throttling errors, this might be a sign of contention between applications accessing a service. If so, you might need to consider temporarily reducing the throughput imposed by your rate limiting mechanism until the usage from other applications lowers.
 
 ## When to use this pattern
 
@@ -99,7 +99,7 @@ The following example application allows users to submit records of various type
 1. Enrichment
 1. Insertion of the record into the database
 
-All components of the application (API, job processor A, and job processor B) are separate processes that may be scaled independently. The processes do not directly communicate with one another.
+All components of the application (API, job processor A, and job processor B) are separate processes that can be scaled independently. The processes do not directly communicate with one another.
 
 ![A multi-queue, multi-processor flow with partitioned storage for leases, writing to a database.](./_images/rate-limiting-pattern-04.png)
 

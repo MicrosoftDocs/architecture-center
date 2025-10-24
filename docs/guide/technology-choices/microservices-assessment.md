@@ -448,4 +448,4 @@ Principal authors:
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Use domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
-- [Design a microservices architecture](../../microservices/design/index.yml)
+- [Design a microservices architecture](../../microservices/design/index.md)

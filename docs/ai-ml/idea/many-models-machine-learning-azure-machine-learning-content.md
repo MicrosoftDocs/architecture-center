@@ -171,7 +171,6 @@ Principal author:
 ## Next steps
 
 - [Configure a Kubernetes cluster for Machine Learning](https://github.com/Azure/AML-Kubernetes#azure-arc-enabled-machine-learning)
-- [Many models solution accelerator GitHub repository](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [ParallelRunStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py)
 - [DataTransferStep class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep)
 - [Create datastores](/azure/machine-learning/how-to-datastore)

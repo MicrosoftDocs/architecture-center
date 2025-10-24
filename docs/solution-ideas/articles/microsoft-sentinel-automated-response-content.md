@@ -47,7 +47,7 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 1. Use the Tor Browser to sign in anonymously to My apps as the user that you selected for this solution. See [Anonymous IP address](/entra/id-protection/howto-identity-protection-simulate-risk#simulate-an-anonymous-ip-address) for instructions on using the Tor Browser to simulate anonymous IP addresses.
 1. Microsoft Entra authenticates the user.
 1. Microsoft Entra ID Protection detects that the user used a ToR browser to sign in anonymously. This type of sign-in is suspicious activity that puts the user at risk. Identity Protection sends an alert to Microsoft Sentinel.
-1. Configure Microsoft Sentinel to create an incident from the alert. See [Automatically create incidents from Microsoft security alerts](/azure/sentinel/create-incidents-from-alerts) for information on doing this. The Microsoft security analytics rule template to use is **Create incidents based on Microsoft Entra ID Protection alerts**.
+1. Configure Microsoft Sentinel to create an incident from the alert. For more information, see [Automatically create incidents from Microsoft security alerts](/azure/sentinel/create-incidents-from-alerts). The Microsoft security analytics rule template to use is **Create incidents based on Microsoft Entra ID Protection alerts**.
 1. When Microsoft Sentinel triggers an incident, the playbook responds with actions that block the user.
 
 ### Components

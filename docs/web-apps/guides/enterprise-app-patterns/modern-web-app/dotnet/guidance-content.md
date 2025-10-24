@@ -37,7 +37,7 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 - *Deploy Azure services.* Select and deploy the Azure services you need to support the web app service you intend to extract. For guidance, see [Select the right Azure services](#select-the-right-azure-services).
 
-- *Decouple web app services.* Define clear interfaces and APIs to enable the newly extracted web app services to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, see the [Code guidance](#code-guidance) section of this article.
+- *Decouple web app services.* Define clear interfaces and APIs to enable the newly extracted web app services to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data while ensuring consistency and integrity. For more information about implementation strategies and design patterns during this extraction process, see the [Code guidance](#code-guidance) section of this article.
 
 - *Use independent storage for decoupled services.* Each decoupled service should have its own isolated data store to facilitate independent versioning, deployment, and scalability and to maintain data integrity. For example, the reference implementation separates the ticket-rendering service from the web API and eliminates the need for the service to access the API's database. Instead, the service passes the URL where ticket images were generated back to the web API via an Azure Service Bus message, and the API persists the path to its database.
 
