@@ -59,7 +59,7 @@ While REST APIs provide a structured approach to exposing resources, some scenar
 - You're building a data platform or API that serves multiple client applications with varying needs
 - Your domain model has rich relationships between entities that clients need to navigate flexibly
 
-**Avoid generic data access APIs when:**
+Avoid generic data access APIs when:
 
 - Your microservices architecture emphasizes strict service boundaries and domain encapsulation
 - You need fine-grained control over data access patterns and security policies
