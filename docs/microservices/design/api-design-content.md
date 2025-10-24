@@ -176,48 +176,31 @@ Here's the Delivery service's implementation of the PUT method.
 [HttpPut("{id}")]
 [ProducesResponseType<Delivery>(StatusCodes.Status201Created)]
 [ProducesResponseType(StatusCodes.Status204NoContent)]
-[ProducesResponseType(StatusCodes.Status400BadRequest)]
-public async Task<IActionResult> Put(
-    [FromBody] Delivery delivery, 
-    [FromRoute] string id,
-    CancellationToken cancellationToken = default)
+public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 {
-    // Validate input
-    if (delivery?.Id != id)
+    logger.LogInformation("In Put action with delivery {Id}: {@DeliveryInfo}", id, delivery.ToLogInfo());
+    try
     {
-        return BadRequest("Delivery ID in body must match route parameter");
-    }
+        var internalDelivery = delivery.ToInternal();
 
-    _logger.LogInformation("Processing PUT request for delivery {DeliveryId}: {@DeliveryInfo}", 
-        id, delivery.ToLogInfo());
+        // Create the new delivery entity.
+        await deliveryRepository.CreateAsync(internalDelivery);
 
-    var internalDelivery = delivery.ToInternal();
+        // Create a delivery status event.
+        var deliveryStatusEvent = new DeliveryStatusEvent { DeliveryId = delivery.Id, Stage = DeliveryEventType.Created };
+        await deliveryStatusEventRepository.AddAsync(deliveryStatusEvent);
 
-    // Check if resource exists
-    var existingDelivery = await _deliveryRepository.GetByIdAsync(id, cancellationToken);
-    
-    if (existingDelivery is null)
-    {
-        // Create new delivery
-        await _deliveryRepository.CreateAsync(internalDelivery, cancellationToken);
-
-        // Create delivery status event
-        var deliveryStatusEvent = new DeliveryStatusEvent 
-        { 
-            DeliveryId = delivery.Id, 
-            Stage = DeliveryEventType.Created 
-        };
-        await _deliveryStatusEventRepository.AddAsync(deliveryStatusEvent, cancellationToken);
-        
         // Return HTTP 201 (Created)
-        return CreatedAtRoute("GetDelivery", new { id = delivery.Id }, delivery);
+        return CreatedAtRoute("GetDelivery", new { id= delivery.Id }, delivery);
     }
-    else
+    catch (DuplicateResourceException)
     {
-        // Update existing delivery
-        _logger.LogInformation("Updating existing delivery {DeliveryId}", id);
-        await _deliveryRepository.UpdateAsync(id, internalDelivery, cancellationToken);
-        
+        // This method is mainly used to create deliveries. If the delivery already exists then update it.
+        logger.LogInformation("Updating resource with delivery id: {DeliveryId}", id);
+
+        var internalDelivery = delivery.ToInternal();
+        await deliveryRepository.UpdateAsync(id, internalDelivery);
+
         // Return HTTP 204 (No Content)
         return NoContent();
     }
