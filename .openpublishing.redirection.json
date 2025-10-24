@@ -7493,7 +7493,7 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "docs/example-scenario/analytics/secure-data-lakehouse-synapse.yml",
+      "source_path": "docs/example-scenario/analytics/secure-data-lakehouse-synapse.yml",
       "redirect_url": "/fabric/onelake/security/get-started-security",
       "redirect_document_id": false
     },
