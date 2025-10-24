@@ -22,7 +22,12 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
 
-**Analyzing Azure Cosmos DB data in Microsoft Fabric** lets you run near real-time analytical queries on operational data without affecting the transactional workload. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can query it by using Fabric SQL analytics endpoints in a lakehouse or warehouse, Spark notebooks for data engineering, or Real-Time Analytics (KQL) for time-series exploration. These capabilities avoid impacting ingestion performance.
+**[Analyzing Azure Cosmos DB data in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** enables near real-time analytical queries on operational data without impacting transactional workloads.After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can keep the operational dataset synchronized and integrate it with the rest of your data in Fabric. This allows you to query current data using:
+* **Fabric SQL analytics endpoints** in a lakehouse or warehouse
+* **Spark notebooks** for data engineering
+* **Real-Time Analytics (KQL)** for time-series exploration
+  
+These capabilities eliminate the need for custom ETL and avoid affecting ingestion performance.
 
 **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric. It keeps the operational dataset synchronized so lakehouse, warehouse, and Real-Time Analytics queries can use current data without custom ETL.
 
