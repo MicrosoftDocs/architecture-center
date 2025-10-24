@@ -45,9 +45,19 @@ There are many resources for designing RESTful APIs. Here are some that you migh
 
 - [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines)
 
+Here are some specific considerations to keep in mind.
+
+- Watch out for APIs that leak internal implementation details or mirror an internal database schema. The API should model the domain. It's a contract between services. Ideally, you should only change the API when you add new functionality, not just because you refactored code or changed the database schema.
+
+- Different types of client, such as mobile application and desktop web browser, might require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, which expose an optimal interface for that client.
+
+- For operations with side effects, consider making them idempotent and implementing them as PUT methods. You enable safe retries and can improve resiliency. The article [Interservice communication](./interservice-communication.yml) discuss this issue in more detail.
+
+- HTTP methods can have asynchronous semantics, where the method returns a response immediately, but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code, which indicates the request was accepted for processing, but the processing isn't yet completed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml).
+
 ## Generic data access APIs: OData and GraphQL considerations
 
-While REST APIs provide a structured approach to exposing resources, some scenarios require more flexible data access patterns. Query-oriented APIs like OData and GraphQL offer alternatives that allow clients to specify exactly what data they need, potentially reducing over-fetching and improving performance.
+While REST APIs provide a structured approach to exposing resources, some scenarios require more flexible data access patterns. Query-oriented APIs like OData and GraphQL offer alternatives that allow clients to specify exactly what data they need, potentially reducing over-fetching and improving performance. Keep in mind these types of APIs prioritize read operations. Mutation operations (create, update, delete) can be more complex to implement, but there are frameworks to manage these operations effectively.
 
 ### When to consider generic data access APIs
 
@@ -65,16 +75,6 @@ Avoid generic data access APIs when:
 - Network performance and payload optimization are already adequate with REST
 - Security requirements necessitate explicit endpoint definitions to minimize attack surfaces
 - Your team lacks experience with query language implementation and optimization
-
-Here are some specific considerations to keep in mind.
-
-- Watch out for APIs that leak internal implementation details or mirror an internal database schema. The API should model the domain. It's a contract between services. Ideally, you should only change the API when you add new functionality, not just because you refactored code or changed the database schema.
-
-- Different types of client, such as mobile application and desktop web browser, might require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, which expose an optimal interface for that client.
-
-- For operations with side effects, consider making them idempotent and implementing them as PUT methods. You enable safe retries and can improve resiliency. The article [Interservice communication](./interservice-communication.yml) discuss this issue in more detail.
-
-- HTTP methods can have asynchronous semantics, where the method returns a response immediately, but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code, which indicates the request was accepted for processing, but the processing isn't yet completed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml).
 
 ## Mapping REST to Domain Driven Desin (DDD) patterns
 
