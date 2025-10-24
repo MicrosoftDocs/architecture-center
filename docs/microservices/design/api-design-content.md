@@ -51,7 +51,7 @@ While REST APIs provide a structured approach to exposing resources, some scenar
 
 ### When to consider generic data access APIs
 
-**Use OData or GraphQL when:**
+Use a generic data access pattern when:
 
 - Clients have diverse data requirements that would result in many specialized REST endpoints
 - You need to support complex querying, filtering, and sorting operations across multiple data entities
