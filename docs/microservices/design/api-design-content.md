@@ -56,7 +56,6 @@ While REST APIs provide a structured approach to exposing resources, some scenar
 - Clients have diverse data requirements that would result in many specialized REST endpoints
 - You need to support complex querying, filtering, and sorting operations across multiple data entities
 - Over-fetching is a significant performance concern, especially for mobile or bandwidth-constrained clients
-- You're building a data platform or API that serves multiple client applications with varying needs
 - Your domain model has rich relationships between entities that clients need to navigate flexibly
 
 Avoid generic data access APIs when:
