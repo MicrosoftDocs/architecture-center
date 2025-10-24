@@ -22,7 +22,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
 
-   **[Analyzing Azure Cosmos DB data in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** enables near real-time analytical queries on operational data without impacting transactional workloads. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can keep the operational dataset synchronized and integrate it with the rest of your data in Fabric. This allows you to query current data using:
+   **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** enables near real-time analytical queries on operational data without impacting transactional workloads. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can keep the operational dataset synchronized and integrate it with the rest of your data in Fabric. This allows you to query current data using:
 
    - Fabric SQL analytics endpoints in a lakehouse or warehouse
    - Spark notebooks for data engineering
