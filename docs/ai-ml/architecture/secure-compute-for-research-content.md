@@ -12,13 +12,13 @@ The following or dataflow corresponds to the above diagram:
 
 1. Data owners upload datasets into a public blob storage account. They use Microsoft-managed keys to encrypt the data.
 
-2. [Fabric Data Factory](/fabric/data-factory) uses a trigger that starts copying the uploaded dataset to a specific location, or import path, on another storage account that has security controls. You can only reach the storage account through a private endpoint or trusted workspace access. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
+2. Fabric Data Factory uses a trigger that starts copying the uploaded dataset to a specific location, or import path, on another storage account that has security controls. You can only reach the storage account through a private endpoint or trusted workspace access. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
 
 3. Researchers access the secure environment through a streaming application by using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
 
 4. The dataset in the secure storage account is presented to the data science virtual machines (VMs) that you provision in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and [Fabric](/fabric), which can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models or use Azure Synapse Analytics. At this point, you can create models that meet regulatory guidelines. De-identify all model data by removing personal information.
+5. The secure environment has Azure Machine Learning and Microsoft Fabric, which can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models or use Azure Synapse Analytics. At this point, you can create models that meet regulatory guidelines. De-identify all model data by removing personal information.
 
 6. Models or de-identified data are saved to a separate location on the secure storage, or export path. When you add new data to the export path, you trigger a logic app. In this architecture, the logic app is outside of the secure environment because no data is sent to the logic app. Its only function is to send notifications and start the manual approval process.
 
@@ -49,7 +49,7 @@ Here are the core components that move and process research data.
 
 - [**Fabric Data Factory**](/fabric/data-factory) part of Fabric which is a managed cloud service that orchestrates and operationalizes processes to move raw data between systems. In this architecture, it moves data between storage accounts of differing security levels, enforces separation of duties, and manages data flows throughout the secure environment.
 
-- [**Fabric**](/fabric/fundamentals/microsoft-fabric-overview) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Fabric is also a preferred service to run Apache Spark workloads. In this architecture, it enables advanced analytics and data integration for research datasets that can be accessed through secure, private endpoints.
+- [**Microsoft Fabric**](/fabric/fundamentals/microsoft-fabric-overview) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Fabric is also a preferred service to run Apache Spark workloads. In this architecture, it enables advanced analytics and data integration for research datasets that can be accessed through secure, private endpoints.
 
 - [**Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud. In this architecture, it acts as a jump box that you can use to gain access to the resources in the secure environment. It enables researchers to connect to data science VMs by using streaming applications and a full desktop, as needed. 
 
