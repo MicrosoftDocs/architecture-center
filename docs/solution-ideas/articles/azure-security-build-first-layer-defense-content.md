@@ -137,9 +137,9 @@ Principal author:
 
 Other contributors:
 
-- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
-- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux) | Cloud Solution Architect
+- [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan/) | Senior Customer Engineering Manager
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 ## Next steps
 
