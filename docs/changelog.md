@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 10/06/2025
+ms.date: 10/20/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -23,13 +23,43 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Build a CI/CD Pipeline for AKS Apps by Using Azure Pipelines](./guide/aks/aks-cicd-azure-pipelines.md)
+- [Choose an Analytical Data Store in Microsoft Fabric](./data-guide/technology-choices/fabric-analytical-data-stores.md)
 
 ### Updated articles
 
+- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#fd98c13018](https://github.com/MicrosoftDocs/architecture-center/commit/fd98c13018))
+- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml) ([#c2a02c20b5](https://github.com/MicrosoftDocs/architecture-center/commit/c2a02c20b5))
 - [SQL Server on Azure Virtual Machines With Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml) ([#942ff4bcde](https://github.com/MicrosoftDocs/architecture-center/commit/942ff4bcde))
-- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#0a69ca8afd](https://github.com/MicrosoftDocs/architecture-center/commit/0a69ca8afd))
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#461ec5c22c](https://github.com/MicrosoftDocs/architecture-center/commit/461ec5c22c))
+- [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#95cd197bcc](https://github.com/MicrosoftDocs/architecture-center/commit/95cd197bcc))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml) ([#7f72473005](https://github.com/MicrosoftDocs/architecture-center/commit/7f72473005))
+- [Machine learning operations](./ai-ml/guide/machine-learning-operations-v2.md) ([#7f72473005](https://github.com/MicrosoftDocs/architecture-center/commit/7f72473005))
+- [Databases architecture design](./databases/index.yml) ([#8b27a99705](https://github.com/MicrosoftDocs/architecture-center/commit/8b27a99705))
+- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#958e7153c0](https://github.com/MicrosoftDocs/architecture-center/commit/958e7153c0))
+- [Greenfield lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#63425739e5](https://github.com/MicrosoftDocs/architecture-center/commit/63425739e5))
+- [Azure App Configuration Considerations for Multitenancy](./guide/multitenant/service/app-configuration.md) ([#9ecc68fc6f](https://github.com/MicrosoftDocs/architecture-center/commit/9ecc68fc6f))
+- [Architecture Styles](./guide/architecture-styles/index.md) ([#f32add9408](https://github.com/MicrosoftDocs/architecture-center/commit/f32add9408))
+- [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#201780f215](https://github.com/MicrosoftDocs/architecture-center/commit/201780f215))
+- [Azure Local Storage Switchless Architecture](./hybrid/azure-local-switchless.yml) ([#201780f215](https://github.com/MicrosoftDocs/architecture-center/commit/201780f215))
+- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#52ac857898](https://github.com/MicrosoftDocs/architecture-center/commit/52ac857898))
+- [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml) ([#dbddbf19f5](https://github.com/MicrosoftDocs/architecture-center/commit/dbddbf19f5))
+- [Stream Processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml) ([#c6f3237c8c](https://github.com/MicrosoftDocs/architecture-center/commit/c6f3237c8c))
+- [Extraneous Fetching antipattern](./antipatterns/extraneous-fetching/index.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Web API Implementation](./best-practices/api-implementation.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Caching guidance](./best-practices/caching.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [CDN guidance](./best-practices/cdn.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Data considerations for microservices](./microservices/design/data-considerations.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Interservice communication in microservices](./microservices/design/interservice-communication.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Bulkhead pattern](./patterns/bulkhead.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Gateway Aggregation pattern](./patterns/gateway-aggregation.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Rate Limiting pattern](./patterns/rate-limiting-pattern.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Multi-Region App Service App Approaches for Disaster Recovery](./web-apps/guides/multi-region-app-service/multi-region-app-service.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Natural Language Processing Technology](./data-guide/technology-choices/natural-language-processing.md) ([#e85a727da0](https://github.com/MicrosoftDocs/architecture-center/commit/e85a727da0))
+- [Use AI Enrichment With Image and Text Processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#50db6c881f](https://github.com/MicrosoftDocs/architecture-center/commit/50db6c881f))
+- [Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#2b218fd4f3](https://github.com/MicrosoftDocs/architecture-center/commit/2b218fd4f3))
 - [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#78cf66ffc7](https://github.com/MicrosoftDocs/architecture-center/commit/78cf66ffc7))
-- [Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#4751f4b32a](https://github.com/MicrosoftDocs/architecture-center/commit/4751f4b32a))
 - [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#164a16ed9f](https://github.com/MicrosoftDocs/architecture-center/commit/164a16ed9f))
 - [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#b48a068ca2](https://github.com/MicrosoftDocs/architecture-center/commit/b48a068ca2))
 
@@ -109,7 +139,7 @@ The following new and updated articles have recently been published in the Azure
 - [Busy Front End antipattern](./antipatterns/busy-front-end/index.md) ([#08e36c8174](https://github.com/MicrosoftDocs/architecture-center/commit/08e36c8174))
 - [Failure mode analysis](./resiliency/failure-mode-analysis.md) ([#08e36c8174](https://github.com/MicrosoftDocs/architecture-center/commit/08e36c8174))
 - [Extract, transform, load (ETL)](./data-guide/relational-data/etl.yml) ([#227c825f73](https://github.com/MicrosoftDocs/architecture-center/commit/227c825f73))
-- [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
+- [Use AI Enrichment With Image and Text Processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [DevSecOps for Infrastructure as Code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [Highly available SharePoint farm](./solution-ideas/articles/highly-available-sharepoint-farm.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
@@ -206,9 +236,9 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
 - [Rehost mainframe applications to Azure with Raincode compilers](./reference-architectures/app-modernization/raincode-reference-architecture.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#974aefb04b](https://github.com/MicrosoftDocs/architecture-center/commit/974aefb04b))
-- [Azure Local baseline reference architecture](./hybrid/azure-local-baseline.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
-- [Azure Local storage switchless architecture](./hybrid/azure-local-switchless.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
+- [Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#974aefb04b](https://github.com/MicrosoftDocs/architecture-center/commit/974aefb04b))
+- [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
+- [Azure Local Storage Switchless Architecture](./hybrid/azure-local-switchless.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
 - [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md) ([#4eacd2c846](https://github.com/MicrosoftDocs/architecture-center/commit/4eacd2c846))
 - [Retry Storm Antipattern](./antipatterns/retry-storm/index.md) ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
 - [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml) ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
@@ -222,7 +252,6 @@ The following new and updated articles have recently been published in the Azure
 - [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md)
 - [Azure Private Link in a Hub-and-Spoke Network](./networking/guide/private-link-hub-spoke-network.md)
 - [Use API Management to Protect Access Tokens in Single-Page Applications](./web-apps/guides/security/secure-single-page-application-authorization.md)
-- [Patterns for Inter-Spoke Networking](./networking/guide/spoke-to-spoke-networking.md)
 - [Organize Azure Resources in Multitenant Solutions](./guide/multitenant/approaches/resource-organization.md)
 - [Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.md)
 - [Microservices Architecture Style](./guide/architecture-styles/microservices.md)
@@ -240,9 +269,9 @@ The following new and updated articles have recently been published in the Azure
 - [Compare Storage Services on Azure and AWS](./aws-professional/storage.md) ([#a14775daf1](https://github.com/MicrosoftDocs/architecture-center/commit/a14775daf1))
 - [BCDR for Azure Data Factory and Azure Synapse Analytics Pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml) ([#b3ba9f5c58](https://github.com/MicrosoftDocs/architecture-center/commit/b3ba9f5c58))
 - [Create an Active Directory Domain Service Resource Forest in Azure](./reference-architectures/identity/adds-forest.yml) ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
-- [Extend on-premises Active Directory Federation Services to Azure](./reference-architectures/identity/adfs.yml) ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
-- [Integrate on-premises Active Directory Domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml) ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
-- [Architecture styles](./guide/architecture-styles/index.md) ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
+- [Extend On-Premises Active Directory Federation Services to Azure](./reference-architectures/identity/adfs.yml) ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
+- [Integrate On-Premises Active Directory Domains With Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml) ([#4ec63f9846](https://github.com/MicrosoftDocs/architecture-center/commit/4ec63f9846))
+- [Architecture Styles](./guide/architecture-styles/index.md) ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml) ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Domain analysis for microservices](./microservices/model/domain-analysis.md) ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
 - [Identify microservice boundaries](./microservices/model/microservice-boundaries.yml) ([#1867dca0bd](https://github.com/MicrosoftDocs/architecture-center/commit/1867dca0bd))
