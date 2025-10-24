@@ -82,11 +82,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Principal author:
 
-- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams/) | Cloud Solution Architect - Digital and Application Innovation
 
 Other contributors:
 
-- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux) | Cloud Solution Architect
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 ## Next steps
 
