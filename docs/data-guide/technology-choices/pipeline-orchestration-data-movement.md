@@ -14,7 +14,7 @@ ms.subservice: architecture-guide
 
 Most big data solutions consist of repeated data processing operations, encapsulated in workflows. A pipeline orchestrator is a tool that helps to automate these workflows. An orchestrator can schedule jobs, execute workflows, and coordinate dependencies among tasks.
 
-In addition to traditional batch-based orchestration, Microsoft now supports real-time intelligence capabilities through Real-Time Intelligence service in Microsoft Fabric . This enables streaming data ingestion, transformation, and event-driven workflows, allowing organizations to act on data as it arrives. This is especially valuable for scenarios like IoT telemetry, fraud detection, and operational monitoring.
+In addition to traditional batch-based orchestration, your platform can also support real-time intelligence capabilities through Real-Time Intelligence service in Microsoft Fabric. This enables streaming data ingestion, transformation, and event-driven workflows, allowing you to act on data as it arrives. This is especially valuable for scenarios like IoT telemetry, fraud detection, and operational monitoring.
 
 ## What are your options for data pipeline orchestration?
 
