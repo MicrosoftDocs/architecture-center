@@ -1657,14 +1657,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Patterns for Inter-Spoke Networking]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking"/>
-        <updated>2025-07-17T18:27:21.000Z</updated>
-        <summary type="html"><![CDATA[Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Organize Azure Resources in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/resource-organization"/>
