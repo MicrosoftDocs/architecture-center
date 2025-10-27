@@ -756,7 +756,7 @@ Developers constructing client applications typically require information on how
 
 ### Document the REST operations for a web API
 
-The Azure API Management Service includes a developer portal that describes the REST operations exposed by a web API. When a product has been published it appears on this portal. Developers can use this portal to sign up for access; the administrator can then approve or deny the request. If the developer is approved, they are assigned a subscription key that is used to authenticate calls from the client applications that they develop. This key must be provided with each web API call otherwise it's rejected.
+The Azure API Management Service includes a developer portal that describes the REST operations exposed by a web API. When a product has been published it appears on this portal. Developers can use this portal to sign up for access; the administrator can then approve or deny the request. If the developer is approved, they're assigned a subscription key that they use to authenticate calls from the client applications that they develop. This key must be provided with each web API call.
 
 This portal also provides:
 
