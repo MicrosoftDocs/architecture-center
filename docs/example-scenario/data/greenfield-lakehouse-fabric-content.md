@@ -29,7 +29,7 @@ A lakehouse implementation typically uses the [medallion architecture](/azure/da
 ##### Step 1: Data ingestion via Data Factory
 
 
-The [Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. However, the feature in Fabric provides both pipelines and dataflows.
+The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Azure Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. But the feature in Fabric provides both pipelines and dataflows.
 
 - Data pipelines provide built-in rich data orchestration capabilities for composing flexible data workflows that meet your enterprise needs.
 
