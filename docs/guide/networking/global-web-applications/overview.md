@@ -16,7 +16,7 @@ ms.subservice: architecture-guide
 >
 > In most situations, you won't need the architecture described in this article.
 
-Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system becomes offline to the user.  When choosing a routing service, it's important to consider the reliability of the service itself.
+Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system goes offline for the user. When choosing a routing service, it's important to consider the reliability of the service itself.
 
 In the **[architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door is chosen because of its high uptime Service-level agreements (SLA) and a rich feature set:
 
@@ -125,7 +125,7 @@ When you're designing a mission-critical web architecture, there are many factor
 
 ### Domain names and DNS
 
-Your mission-critical application should use a custom domain name. You then control how traffic flows to your application, and reduce the dependencies on a single provider.
+Your mission-critical application should use a custom domain name to control how traffic flows and reduce dependencies on a single provider.
 
 It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, users can't reach your service.
 

@@ -264,7 +264,7 @@ It is usually complex to implement and manage many different pricing models at o
 When changing pricing models, consider the following factors:
 
 - **Contractual implications.** If tenants have signed contracts based on a specific pricing model, ensure you don't accidentally violate those agreements.
-- **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how you can discourage tenants from using older pricing models that you plan to retire.
+- **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how to discourage tenants from using older pricing models that you plan to retire.
 - **Timeline.** Give tenants plenty of notice for any changes, to allow them to prepare.
 - **Migration process.** Make it easy for tenants to migrate to the new model.
 - **Reduce pricing risks.** Evaluate each new pricing model to understand whether it's [risky](#risky-pricing-models). For example, be cautious when removing rate limits that are currently protecting critical resources from overuse. Throughout the change, monitor the performance and utilization of your services so that you can ensure continued satisfaction and profitability.

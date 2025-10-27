@@ -24,7 +24,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The web-tier is the first layer of the three-tier application, it contains the user interface and it also parses user interactions. The web-tier load balancer is spread over all three availability zones, and it distributes traffic to each of the three web-tier virtual machines.
 
-1. The web-tier virtual machines are spread across all three availability zones, and they communicates with the business tier via a dedicated internal load balancer.
+1. The web-tier virtual machines are spread across all three availability zones, and they communicate with the business tier by way of a dedicated internal load balancer.
 
 1. The business tier processes the user interactions and determines the next steps, and it sits between the web and data tiers. The business-tier internal load balancer distributes traffic to the business-tier virtual machines across the three availability zones. The business-tier load balancer is zone-redundant, like the web-tier load balancer.
 
