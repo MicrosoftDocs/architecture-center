@@ -68,7 +68,7 @@ You create an eventstream, add event data sources to the stream, optionally add 
 
 This section corresponds to step four in the diagram.
 
-When you use Real-Time Intelligence in Fabric, depending on your use cases, the two typical pathways for streaming data are [Data Activator reflexes](/fabric/data-activator/data-activator-get-started) and [eventhouses](/fabric/real-time-intelligence/eventhouse).
+When you use Real-Time Intelligence in Fabric, depending on your use cases, the two typical pathways for streaming data are [Data Activator reflex items](/fabric/data-activator/data-activator-get-started) and [eventhouses](/fabric/real-time-intelligence/eventhouse).
 
 A reflex is a Fabric item that allows you to react to the occurrence of a data condition as it occurs. That reaction can be an alert message via email or Microsoft Teams, or it can involve invoking a custom action by initiating a Power Automate flow. You can also initiate any Fabric item from your reflexes. Reflexes support many observability use cases. One example is reacting to streaming data as it arrives in eventstreams.
 
