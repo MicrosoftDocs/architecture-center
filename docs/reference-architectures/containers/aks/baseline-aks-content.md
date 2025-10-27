@@ -636,16 +636,16 @@ For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overvi
 
 ## Monitor and collect logs and metrics
 
-We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the performance of container workloads because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use container insights to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data.
+We recommend the Azure Monitor [Kubernetes monitoring services](/azure/azure-monitor/containers/kubernetes-monitoring-overview) to monitor the performance of container workloads because you can view events in real time. Azure Monitor captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use Azure Monitor to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data.
 
 ### Enable log collection from pods
 
 The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insights-logs-schema) is designed to capture container logs from Kubernetes pods in a streamlined approach. Log entries are consolidated into the `ContainerLogV2` table in an Azure Log Analytics workspace.
 
-In an AKS cluster, there are two primary methods for configuring pod log collection with Container Insights. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
+In an AKS cluster, there are two primary methods for configuring pod log collection. Both approaches allow you to customize settings such as filtering namespaces, adjusting collection intervals, enabling or disabling specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specifying which data streams to collect.
 
-- If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed via the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files.
-- Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Container Insights agent running on the cluster monitors for ConfigMap objects, and it uses predefined settings to determine which data to collect.
+- If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed via the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files. The reference implementation uses DCRs.
+- Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Azure Monitor Agent running on the cluster monitors for ConfigMap objects, and it uses predefined settings to determine which data to collect.
 
 When both methods are enabled, ConfigMap settings take precedence over DCRs. Avoid mixing ConfigMap and DCR configuration for container log collection, because this can lead to hard-to-troubleshoot logging issues.
 
@@ -653,7 +653,7 @@ When both methods are enabled, ConfigMap settings take precedence over DCRs. Avo
 
 Outages and malfunctions pose significant risks to workload applications, making it essential to proactively identify issues related to your infrastructure's health and performance. Monitoring, and acting on the information you see, can minimize disruptions and increase the reliability of your solution. To anticipate potential failure conditions in your cluster, enable [the recommended Prometheus alert rules for Kubernetes](/azure/azure-monitor/containers/kubernetes-metric-alerts).
 
-Most workloads hosted in pods emit Prometheus metrics. Container insights can integrate with Prometheus. You can view the application and workload metrics collected from containers, pods, nodes, and the cluster.
+Most workloads hosted in pods emit Prometheus metrics. Azure Monitor can integrate with Prometheus. You can view the application and workload metrics collected from containers, pods, nodes, and the cluster.
 
 Some non-Microsoft solutions integrate with Kubernetes, such as Datadog, Grafana, or New Relic. So if your organization already uses these solutions, you can take advantage of them.
 
@@ -674,15 +674,15 @@ For more information about our monitoring best practices for AKS, see [Monitor A
 
 ### Network metrics
 
-Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use AKS [network observability](/azure/aks/network-observability-overview) to expose network metrics at the node level by using Prometheus metrics. Most clusters should include network observability to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
+Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use AKS [node network metrics](/azure/aks/monitor-aks#node-network-metrics) to expose network metrics at the node level by using Prometheus metrics. Most clusters should include network observability to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
 
-The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
+The reference implementation uses Azure Monitor, which also collects some network-related metrics. The reference implementation disables directly collecting some network metrics from Azure Monitor, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-container-networking-services-overview) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Container Networking Services ()](/azure/aks/container-network-observability-guide) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
-The reference implementation configures the `ContainerLogV2` table to use the Basic plan as a starting point. Microsoft Defender for Containers and the alerts created for the reference implementation don't query this table, so the Basic plan is likely to be cost effective because it reduces ingestion costs.
+The reference implementation configures the `ContainerLogV2` table to use the Basic plan as a starting point. Microsoft Defender for Containers and the alerts created for the reference implementation don't query this table, so the Basic plan is likely to be cost effective because it reduces ingestion costs. <!-- TODO verify against RI that we still don't query the table in alerts -->
 
 As your log volume and query requirements evolve, select the most cost-effective table plan for your needs. If the solution becomes read-intensive, where queries frequently scan table data, the default Analytics plan might be more suitable. The Analytics plan eliminates query charges, which optimizes for scenarios where query activity outweighs ingestion costs. By monitoring usage patterns and adjusting table plans as needed, you can achieve a balance between cost and functionality for your monitoring solution.
 
@@ -699,7 +699,7 @@ Monitor the health of pods by setting [liveness and readiness probes](https://ku
 
 Part of day-2 operations for Kubernetes clusters is to perform routine platform and operating system updates. There are three layers of updates to address on every AKS cluster:
 
-- The Kubernetes version (for example, Kubernetes 1.30.3 to 1.30.7 or Kubernetes 1.30.7 to 1.31.1), which might come with Kubernetes API changes and deprecations. Version changes at this layer affect the whole cluster.
+- The Kubernetes version (for example, Kubernetes 1.32.3 to 1.32.7 or Kubernetes 1.32.7 to 1.33.1), which might come with Kubernetes API changes and deprecations. Version changes at this layer affect the whole cluster.
 - The virtual hard disk (VHD) image on each node, which combines operating system updates and AKS component updates. These updates are tested against the cluster's Kubernetes version. Version changes at this layer are applied at the node pool level and don't affect the Kubernetes version.
 - The operating system's own native update process, such as Windows Update or `apt`. The operating system vendor supplies these updates directly and they aren't tested against the cluster's Kubernetes version. Version changes at this layer affect a single node and don't affect the Kubernetes version.
 
@@ -709,35 +709,41 @@ For a comprehensive perspective about patching and upgrading, see [AKS patch and
 
 #### Immutable infrastructure
 
-Workloads that operate AKS clusters as immutable infrastructure don't automatically or manually update their clusters. Set the [node image upgrade](/azure/aks/auto-upgrade-node-os-image#channels-for-node-os-image-upgrades) to `none` and the [cluster automatic upgrade](/azure/aks/auto-upgrade-cluster#cluster-auto-upgrade-channels) to `none`. In this configuration, you're solely responsible for all upgrades at all layers. When an update that you want becomes available, you must test the update in a preproduction environment and evaluate its compatibility on a new cluster. After that, deploy a production replica stamp that includes the updated AKS version and node pool VHDs. When the new production cluster is ready, the old cluster is drained and eventually gets decommissioned.
+Workloads that operate AKS clusters as immutable infrastructure don't automatically or manually update their clusters. Set the [node image upgrade](/azure/aks/auto-upgrade-node-os-image#channels-for-node-os-image-upgrades) to `none` and the [cluster automatic upgrade](/azure/aks/auto-upgrade-cluster#cluster-auto-upgrade-channels) to `none`. In this configuration, you're solely responsible for all upgrades at all layers.
+
+When an update that you want becomes available, you must:
+
+1. Test the update in a preproduction environment and evaluate its compatibility on a new cluster.
+1. Deploy a production replica stamp that includes the updated AKS version and node pool VHDs.
+1. When the new production cluster is ready, drain the old cluster and eventually decommission it.
 
 Immutable infrastructure with regular deployments of new infrastructure is the only situation in which a production cluster shouldn't have an in-place upgrade strategy applied to it. All other clusters should have an in-place upgrade strategy.
 
 #### In-place upgrades
 
-Workloads that don't operate AKS clusters as immutable infrastructure, should regularly update their running clusters, to address all three layers. Align your update process to your workload's requirements. Use the following recommendations as a starting point for designing your routine update process.
+Workloads that don't operate AKS clusters as immutable infrastructure should regularly update their running clusters to address all three layers. Align your update process to your workload's requirements. Use the following recommendations as a starting point for designing your routine update process.
 
 - Schedule the [planned maintenance](/azure/aks/planned-maintenance) feature of AKS so you can control upgrades on your cluster. This feature enables you to perform the updates, an inherently risky operation, at a controlled time to reduce the effect of an unexpected failure.
 - Configure [pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) such that your application remains stable during rolling upgrades.  But don't configure the budgets to be so aggressive that they block node upgrades from happening, because most upgrades require a cordon and drain process on each node.
 - Confirm Azure resource quota and resource availability. In-place upgrades deploy new instances of nodes, known as *surge nodes*, before old nodes are removed. This means Azure quota and IP address space must be available for the new nodes. A [surge value](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade) of 33% is a good starting point for most workloads.
-- Test compatibility with tooling, such as service meshes or security agents that you added to your cluster. And test your workload components, such as ingress controllers, service meshes, and your workload pods. Do tests in a preproduction environment.
+- Test compatibility with tooling, such as service meshes or security agents that you added to your cluster. Also test your workload components, such as ingress controllers, service meshes, and your workload pods. Run tests in a preproduction environment.
 
 ##### In-place upgrades for nodes
 
 Use the `NodeImage` automatic upgrade channel for node OS image upgrades. This channel configures your cluster to update the VHD on each node with node-level updates. Microsoft tests the updates against your AKS version. For Windows nodes, the updates happen about once per month. For Linux nodes, these updates happen about once per week.
 
 - The upgrades never change your AKS or Kubernetes version, so Kubernetes API compatibility isn't a concern.
-- When you use `NodeImage` as the upgrade channel, it respects your planned maintenance window, which you should set for at least once per week. Set it no matter what node image operating system you use to help ensure timely application.
+- When you use `NodeImage` as the upgrade channel, it respects your planned maintenance window, which you should set for at least once per week. Set it no matter what node image operating system you use to help ensure timely application of updates.
 - These updates include operating system-level security, compatibility, and functional updates, operating system configuration settings, and AKS component updates.
 - Image releases and their included component version numbers are tracked by using the [AKS release tracker](/azure/aks/release-tracker).
 
-If the security requirements for your cluster demand a more aggressive patching cadence and your cluster can tolerate the potential interruptions, use the `SecurityPatch` upgrade channel instead. Microsoft also tests these updates. The updates only publish if there are security upgrades that Microsoft considers important enough to release before the next scheduled node image upgrade. When you use the `SecurityPatch` channel, you also get the updates that the `NodeImage` channel received. The `SecurityPatch` channel option still honors your maintenance windows, so be sure your maintenance window has more frequent gaps (such as daily or every other day) to support these unexpected security updates.
+If the security requirements for your cluster demand a more aggressive patching cadence and your cluster can tolerate the potential interruptions, use the `SecurityPatch` upgrade channel instead. Microsoft also tests these updates. The updates are only published if there are security upgrades that Microsoft considers important enough to release before the next scheduled node image upgrade. When you use the `SecurityPatch` channel, you also get the updates that the `NodeImage` channel received. The `SecurityPatch` channel option still honors your maintenance windows, so be sure your maintenance window has more frequent gaps (such as daily or every other day) to support these unexpected security updates.
 
 Most clusters that do in-place upgrades should avoid the `None` and `Unmanaged` node image upgrade channel options.
 
 ##### In-place updates to the cluster
 
-Kubernetes is a rapidly evolving platform, and regular updates bring important security fixes and new capabilities. It's important that you remain current with Kubernetes updates. You should stay within the [two most recent versions or N-2](/azure/aks/supported-kubernetes-versions). It's critical to upgrade to the latest version of Kubernetes because new versions are released frequently.
+Kubernetes is a rapidly evolving platform, and regular updates bring important security fixes and new capabilities. It's important that you remain current with Kubernetes updates. You should stay within the [two most recent versions (N-2)](/azure/aks/supported-kubernetes-versions). It's critical to upgrade to the latest version of Kubernetes because new versions are released frequently.
 
 Most clusters should be able to perform in-place AKS version updates with enough caution and rigor. The risk of performing an in-place AKS version upgrade can mostly be mitigated through sufficient preproduction testing, quota validation, and pod disruption budget configuration. But any in-place upgrade can result in unexpected behavior. If in-place upgrades are deemed too risky for your workload, we recommended you use a [blue-green deployment of AKS clusters](/azure/architecture/guide/aks/blue-green-deployment-for-aks) approach instead of following the remaining recommendations.
 
@@ -765,7 +771,7 @@ For cluster and workload operations (DevOps) considerations, see the [Operationa
 
 ### Cluster bootstrapping
 
-After you do provisioning, you have a working cluster, but you might still have some required steps before you can deploy workloads. The process of preparing your cluster is called bootstrapping. Bootstrapping can consist of deploying prerequisite images onto cluster nodes, creating namespaces, and doing other tasks that fulfill the requirements of your organization's use case.
+After you do provisioning, you have a working cluster, but you might still have some required steps before you can deploy workloads. The process of preparing your cluster is called *bootstrapping*. Bootstrapping often consist of deploying prerequisite images onto cluster nodes, creating namespaces, and doing other tasks that fulfill the requirements of your organization's use case.
 
 To speed up the transition from a newly provisioned cluster to a properly configured one, you must define your unique bootstrapping process and prepare relevant assets in advance. For example, if you use a service mesh like [Linkerd](https://linkerd.io/2.16/getting-started/) or [Consul Connect](https://developer.hashicorp.com/consul/docs/connect), you typically deploy the mesh before application workloads can be scheduled. Before you provision the cluster, you must validate that the service mesh's images exist in a previously created container registry. This validation helps prevent deployment delays or failures.
 
@@ -780,7 +786,7 @@ You can configure the bootstrapping process by using one of the following method
 
 One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there's effectively no gap between a provisioned cluster and a bootstrapped cluster. It sets up the environment with a solid management foundation going forward, and it also supports including that bootstrapping as resource templates to align with your IaC strategy.
 
-Finally, when using the extension, kubectl isn't required for any part of the bootstrapping process. You can reserve kubectl-based access for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, you can perform all normal configuration activities without the need to use kubectl.
+Finally, when using the GitOps Flux v2 cluster extension, kubectl isn't required for any part of the bootstrapping process. You can reserve kubectl-based access for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, you can perform all normal configuration activities without the need to use kubectl.
 
 ### Isolate workload responsibilities
 
@@ -792,7 +798,7 @@ Another task is to integrate the basic workload with Microsoft Entra ID.
 
 ### Use IaC
 
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. You can use [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview), or Terraform.
+Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. The reference implementation uses [Bicep](/azure/azure-resource-manager/bicep/overview), but you can choose to instead use Terraform or [Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview).
 
 Be sure to provision resources per the governing policies. For example, when you select VM sizes, stay within the cost constraints and availability zone options to match the requirements of your application. You can also use Azure Policy to enforce your organization's policies for these decisions.
 
@@ -847,7 +853,7 @@ While you can configure GitOps and Flux manually, we recommend the [GitOps with 
 
 ### Workload and cluster deployment strategies
 
-Deploy *any* change, such as architecture components, workload, and cluster configuration to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they're deployed to production.
+Deploy *any* change, such as architecture components, workload, and cluster configuration, to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they're deployed to production.
 
 Run tests and validations at each stage before moving on to the next. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
 
@@ -861,17 +867,17 @@ Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluste
 
 ### Provision
 
-- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool.
+- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool. <!-- TODO Verify still valid SKU recs -->
 
-- Don't have the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
+- Don't use the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
 
-- Add an uptime SLA for production workloads. But there are savings for clusters designed for dev/test or experimental workloads where availability isn't required to be guaranteed. For example, the SLO is sufficient. Also, if your workload supports it, consider using dedicated spot node pools that run [spot VMs](/azure/virtual-machines/windows/spot-vms).
+- Add an uptime SLA for production workloads. But there are savings for clusters designed for dev/test or experimental workloads where availability isn't required to be guaranteed. For example, your SLO might be sufficient. Also, if your workload supports it, consider using dedicated spot node pools that run [spot VMs](/azure/virtual-machines/windows/spot-vms).
 
     For nonproduction workloads that include Azure SQL Database or Azure App Service as part of the AKS workload architecture, evaluate if you're eligible to use [Azure Dev/Test subscriptions](https://azure.microsoft.com/pricing/dev-test/) to receive service discounts.
 
 - Provision a cluster with the minimum number of nodes, and enable the cluster autoscaler to monitor and make sizing decisions instead of starting with an oversized cluster to meet scaling needs.
 
-- Set pod requests and limits to let Kubernetes allocate node resources with higher density so that you use hardware to capacity.
+- Set pod requests and limits to let Kubernetes allocate node resources with higher density so that you use the full capacity of the nodes.
 
 - Consider that when you enable diagnostics on the cluster, it can increase the cost.
 
