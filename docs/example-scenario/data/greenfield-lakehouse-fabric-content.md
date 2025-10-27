@@ -3,7 +3,7 @@ This example workload illustrates a greenfield solution for creating a scalable 
 ## Architecture
 
 :::image type="complex" border="false" source="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg" alt-text="Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Fabric." lightbox="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg":::
-   Diagram that shows a greenfield lakehouse architecture on Fabric. External data sources include relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Azure Data Factory ingests data into the batch processing path, which uses the medallion architecture. OneLake and Microsoft Purview serve as foundational services. The real-time processing path uses an eventstream to ingest streaming data, which can be routed to an eventhouse, a reflex, and real-time dashboards. The eventstream points to the bronze lakehouse via a dotted blue arrow. Both batch and real-time paths output to the Consume/Serve section, which includes Microsoft 365, Power Automate, Custom API, Power BI, SQL endpoint, and Notebooks.
+   Diagram that shows a greenfield lakehouse architecture on Fabric. External data sources include relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Azure Data Factory ingests data into the batch processing path, which uses the medallion architecture. In the batch path, arrows labeled notebook and dataflow connect the bronze lakehouse to the silver lakehouse, and the silver lakehouse to the gold lakehouse, which indicates data transformation and refinement. OneLake and Microsoft Purview serve as foundational services. The real-time processing path uses an eventstream to ingest streaming data. A dotted blue arrow from the eventstream points to the bronze lakehouse. Both batch and real-time paths output to the Consume/Serve section, which includes Microsoft 365, Power Automate, Custom API, Power BI, SQL endpoint, and Notebooks.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/greenfield-lakehouse-fabric.vsdx) of this architecture.*
@@ -28,7 +28,6 @@ A lakehouse implementation typically uses the [medallion architecture](/azure/da
 
 ##### Step 1: Data ingestion via Data Factory
 
-
 The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Azure Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. But the feature in Fabric provides both pipelines and dataflows.
 
 - Data pipelines provide built-in rich data orchestration capabilities for composing flexible data workflows that meet your enterprise needs.
@@ -38,7 +37,6 @@ The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in 
 Depending on your requirements, you can use either or both of these capabilities to create a metadata-driven ingestion framework. You can onboard data from various source systems on a defined schedule or by using event triggers.
 
 ##### Step 2: Data transformation
-
 
 There are two approaches to data preparation and transformation. If you prefer a code-first experience, you can use Spark notebooks. If you prefer a low-code or no-code experience, you can use dataflows.
 
@@ -73,7 +71,6 @@ An eventhouse is a collection of one or more Kusto Query Language (KQL) database
 [Real-Time Intelligence dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) provide immediate insights from data streaming into your eventhouses. You can add various types of visuals to a dashboard, such as charts and graphs, and customize them to fit your needs. Real-Time Intelligence dashboards help identify trends and anomalies in high-velocity data that arrives in an eventhouse. They differ from Power BI dashboards, which work well for enterprise business intelligence (BI) reporting workloads.
 
 ##### Step 5: Data serving
-
 
 There are various low-code or pro-code options available for consuming data from Fabric lakehouses and eventhouses.
 
