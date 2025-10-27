@@ -66,7 +66,7 @@
 		.st51 {fill:url(#grad0-421);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st52 {fill:url(#grad0-425);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st53 {fill:url(#grad0-429);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st54 {fill:none;stroke:none;stroke-width:0.25}
+		.st54 {fill:#e2ecea;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st55 {fill:none;stroke:none;stroke-width:0.75}
 		.st56 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -795,7 +795,7 @@
 						<v:textRect cx="50.5086" cy="569.216" width="101.02" height="56.4658"/>
 						<rect x="0" y="540.983" width="101.017" height="56.4658" class="st27"/>
 						<text x="19.32" y="561.12" class="st33" v:langID="5129"><v:paragraph v:horizAlign="1"/><v:tabList/>Not<tspan
-									class="st29" v:langID="1033"> </tspan>structured<tspan x="4.44" dy="1.2em" class="st34"> </tspan><tspan
+									class="st29" v:langID="1033"> </tspan>structured<v:lf/><tspan x="4.44" dy="1.2em" class="st34"> </tspan><tspan
 									class="st34">.pdf, .docx, .jpeg, etc</tspan><tspan class="st34" v:langID="1033">.</tspan><tspan
 									class="st34"> </tspan><tspan class="st34">–</tspan><tspan class="st34"> </tspan><tspan x="4.57"
 									dy="1.2em" class="st34">knowledge mining</tspan><tspan class="st34" v:langID="1033">,</tspan><tspan
@@ -1233,14 +1233,14 @@
 		</g>
 		<g id="shape1136-298" v:mID="1136" v:groupContext="shape" transform="translate(333.142,-502.209)">
 			<title>Sheet.1136</title>
-			<desc>Real-Time Intelligence – Stream processing</desc>
+			<desc>Real-time dashboards – Stream processing</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="107.389" cy="583.036" width="214.78" height="28.8256"/>
 			<rect x="0" y="568.623" width="214.778" height="28.8256" class="st27"/>
-			<text x="12.57" y="586.04" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Real-Time Intelligence – Stream processing</text>		</g>
+			<text x="13.25" y="586.04" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Real-time dashboards – Stream processing</text>		</g>
 		<g id="shape1137-301" v:mID="1137" v:groupContext="shape" v:layerMember="0" transform="translate(435.419,-198.699)">
 			<title>Dynamic connector.1137</title>
 			<v:userDefs>
@@ -2394,7 +2394,7 @@
 			<v:textRect cx="56.2777" cy="588.954" width="112.56" height="16.9895"/>
 			<rect x="0" y="580.459" width="112.555" height="16.9895" class="st27"/>
 			<text x="37.07" y="591.95" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OneLake</text>		</g>
-		<g id="shape40-342" v:mID="40" v:groupContext="shape" transform="translate(477.48,-112.756)">
+		<g id="shape40-342" v:mID="40" v:groupContext="shape" transform="translate(477.48,-111.256)">
 			<title>Sheet.40</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
@@ -3008,16 +3008,16 @@
 						AElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="571.166" width="26.283" height="26.283" class="st27"/>
 		</g>
-		<g id="shape1154-346" v:mID="1154" v:groupContext="shape" transform="translate(433.142,-100.396)">
+		<g id="shape1154-346" v:mID="1154" v:groupContext="shape" transform="translate(433.142,-98.296)">
 			<title>Sheet.1154</title>
-			<desc>Purview</desc>
+			<desc>Microsoft Purview</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(47000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="56.2777" cy="588.954" width="112.56" height="16.9895"/>
 			<rect x="0" y="580.459" width="112.555" height="16.9895" class="st27"/>
-			<text x="39.08" y="591.95" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Purview</text>		</g>
+			<text x="16.72" y="591.95" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Purview</text>		</g>
 		<g id="shape1155-349" v:mID="1155" v:groupContext="shape" transform="translate(776.368,201.414) rotate(90)">
 			<title>Sheet.1155</title>
 			<v:userDefs>
@@ -4109,7 +4109,7 @@
 						OHLrGmXuk0IlgiAIgiAILYUIXEEQBEEQBEEQBKFdIAJXEARBEARBEARBaBeIwBUEQRAEQRAEQRDaBSJwBUEQBEEQBEEQhHaBCFxBEARB
 						EARBEAShXSACVxAEQRAEQRAEQWgXiMAVBEEQBEEQBEEQ2gUicAVBEARBEARBEIR2gQhcQRAEQRAEQRAEoV0gAlcQBEEQBEEQBEFoF4jA
 						FQRBEARBEARBENoFInAFQRAEQRAEQRCEdsH/BwWtSbBpWMbsAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="568.144" width="395.717" height="29.3052" class="st54"/>
+			<rect v:rectContext="foreign" x="0" y="568.144" width="395.717" height="29.3052" class="st27"/>
 		</g>
 		<g id="shape1217-486" v:mID="1217" v:groupContext="shape" v:layerMember="0" transform="translate(187.919,-245.285)">
 			<title>Dynamic connector.1217</title>
@@ -4621,5 +4621,83 @@
 						fGJTzqgLnIwAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="532.067" width="117.375" height="65.3813" class="st55"/>
 		</g>
+		<g id="shape1218-495" v:mID="1218" v:groupContext="shape" transform="translate(371.25,-551.013)">
+			<title>Sheet.1218</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(78000):26"/>
+			</v:userDefs>
+			<rect x="0" y="574.406" width="83.25" height="23.0429" class="st54"/>
+		</g>
+		<g id="shape1220-497" v:mID="1220" v:groupContext="shape" transform="translate(513,-551.013)">
+			<title>Sheet.1220</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(80000):26"/>
+			</v:userDefs>
+			<rect x="0" y="574.406" width="83.25" height="23.0429" class="st54"/>
+		</g>
+		<g id="shape1219-499" v:mID="1219" v:groupContext="shape" transform="translate(508.697,-548.361)">
+			<title>Sheet.1219</title>
+			<desc>Premium per user</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(79000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.9688" cy="583.276" width="93.94" height="28.3465"/>
+			<rect x="0" y="569.102" width="93.9375" height="28.3465" class="st27"/>
+			<text x="7.83" y="586.28" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Premium per user</text>		</g>
+		<g id="shape1221-502" v:mID="1221" v:groupContext="shape" transform="translate(367.031,-548.363)">
+			<title>Sheet.1221</title>
+			<desc>Premium capacity</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(81000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.9688" cy="583.276" width="93.94" height="28.3465"/>
+			<rect x="0" y="569.102" width="93.9375" height="28.3465" class="st27"/>
+			<text x="7.82" y="586.28" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Premium capacity</text>		</g>
+		<g id="shape1222-505" v:mID="1222" v:groupContext="shape" transform="translate(458.803,-551.013)">
+			<title>Sheet.1222</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(82000):26"/>
+			</v:userDefs>
+			<rect x="0" y="574.406" width="18.1969" height="23.0429" class="st54"/>
+		</g>
+		<g id="shape1223-507" v:mID="1223" v:groupContext="shape" transform="translate(446.539,-555.902)">
+			<title>Sheet.1223</title>
+			<desc>or</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(83000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="21.9803" cy="590.816" width="43.97" height="13.2655"/>
+			<rect x="0" y="584.183" width="43.9606" height="13.2655" class="st27"/>
+			<text x="17.31" y="593.82" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>or</text>		</g>
+		<g id="shape1225-510" v:mID="1225" v:groupContext="shape" transform="translate(237.375,-550.979)">
+			<title>Sheet.1225</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(84000):26"/>
+			</v:userDefs>
+			<rect x="0" y="574.406" width="93.9375" height="23.0429" class="st54"/>
+		</g>
+		<g id="shape1226-512" v:mID="1226" v:groupContext="shape" transform="translate(222.769,-548.361)">
+			<title>Sheet.1226</title>
+			<desc>Fabric capacity</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(85000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.9688" cy="583.276" width="93.94" height="28.3465"/>
+			<rect x="0" y="569.102" width="93.9375" height="28.3465" class="st27"/>
+			<text x="14.44" y="586.28" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Fabric capacity</text>		</g>
+		<g id="shape1227-515" v:mID="1227" v:groupContext="shape" transform="translate(301.5,-555.9)">
+			<title>Sheet.1227</title>
+			<desc>or</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(86000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="21.9803" cy="590.816" width="43.97" height="13.2655"/>
+			<rect x="0" y="584.183" width="43.9606" height="13.2655" class="st27"/>
+			<text x="17.31" y="593.82" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>or</text>		</g>
 	</g>
 </svg>
