@@ -30,7 +30,7 @@ A lakehouse implementation typically uses the [medallion architecture](/azure/da
 
 This section corresponds to step one in the diagram.
 
-The [Azure Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. However, the feature in Fabric provides both pipelines and dataflows.
+The [Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. However, the feature in Fabric provides both pipelines and dataflows.
 
 - Data pipelines enable you to apply built-in rich data orchestration capabilities to compose flexible data workflows that meet your enterprise needs.
 
@@ -110,11 +110,11 @@ Fabric provides a rich API surface across its items. OneLake provides open acces
 
 ###### Power Automate
 
-Power Automate is a low-code application platform that you can use to automate repetitive tasks and also manipulate your data. The reflex item in Fabric supports Power Automate flows as a destination. This [integration](/fabric/data-activator/data-activator-trigger-power-automate-flows) unlocks many use cases and allows you to trigger downstream actions by using a wide range of connectors, for both Microsoft and non-Microsoft systems.
+Power Automate is a low-code application platform that you can use to automate repetitive tasks and also manipulate your data. The reflex item in Fabric supports Power Automate flows as a destination. This [integration](/fabric/real-time-intelligence/data-activator/activator-trigger-power-automate-flows) unlocks many use cases and allows you to trigger downstream actions by using a wide range of connectors, for both Microsoft and non-Microsoft systems.
 
 ### Components
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables integration across all data tasks.
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a cloud-based data analytics platform that unifies data ingestion, transformation, analysis, and visualization for enterprises. In this architecture, Fabric serves as the foundation for building and managing the lakehouse, which enables integration across all data tasks.
 
   - [OneLake](/fabric/onelake/onelake-overview) is the central data hub in Fabric, designed as an open data lake. In this architecture, it stores structured and unstructured data in its native format and serves as the unified storage layer for all components in the lakehouse architecture.
 
@@ -192,7 +192,7 @@ Fabric provides [capacity reservations](/azure/cost-management-billing/reservati
 
 To maximize the utilization of your Fabric capacity, consider the following recommendations:
 
-- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size that you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept (POC) with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimate of CU usage for production. Fabric supports scaling. You can start with a conservative capacity size and scale up if you need more capacity.
+- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/fundamentals/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size that you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept (POC) with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimate of CU usage for production. Fabric supports scaling. You can start with a conservative capacity size and scale up if you need more capacity.
 
 - Monitor usage patterns. Regularly track and analyze your usage to identify peak and off-peak hours. This approach can help you understand when your resources are most utilized so that you can schedule noncritical tasks during off-peak times to avoid spikes in CU usage.
 
@@ -226,7 +226,7 @@ Fabric provides several features to optimize performance across its components. 
 
 Consider the following key performance efficiency capabilities in Fabric:
 
-- [Bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth) capabilities help ensure that CPU-intensive activities are completed quickly without requiring a higher SKU. You can schedule these activities at any time.
+- Both [bursting](/fabric/data-warehouse/burstable-capacity) and [smoothing](/fabric/data-warehouse/compute-capacity-smoothing-throttling) help ensure that CPU-intensive activities are completed quickly without requiring a higher SKU. You can schedule these activities at any time.
 
 - [Throttling](/fabric/enterprise/throttling) is used to delay or reject operations when capacity experiences sustained CPU demand that's above the SKU limit.
 
@@ -255,6 +255,6 @@ Principal authors:
 
 ## Related resources
 
-- [Data lakes](../../data-guide/scenarios/data-lake.md)
+- [What is a data lake?](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)
-- [Enterprise BI](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Azure Synapse Analytics to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-synapse.yml)
