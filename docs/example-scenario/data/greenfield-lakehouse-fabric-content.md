@@ -3,12 +3,12 @@ This example workload illustrates a greenfield solution for creating a scalable 
 ## Architecture
 
 :::image type="complex" border="false" source="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg" alt-text="Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Fabric." lightbox="media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg":::
-   Diagram that shows a greenfield lakehouse architecture on Fabric. Data sources are shown: relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Data Factory ingests data into the batch processing path, which uses the medallion architecture. OneLake and Purview are shown as foundational services. The real-time processing path uses Eventstream to ingest streaming data, which can be routed to Eventhouse, Reflex, and Real-Time dashboards. Both batch and real-time paths output to the Consume/Serve section, which includes Microsoft 365, Power Automate, Custom API, Power BI, SQL endpoint, and Notebooks.
+   Diagram that shows a greenfield lakehouse architecture on Fabric. External data sources include relational databases (strongly typed, structured), semistructured sources (CSV, logs, JSON, XML), unstructured files (.pdf, .docx, .jpeg), and streams (IoT devices, sensors, gadgets). Azure Data Factory ingests data into the batch processing path, which uses the medallion architecture. OneLake and Microsoft Purview serve as foundational services. The real-time processing path uses an eventstream to ingest streaming data, which can be routed to an eventhouse, a reflex, and real-time dashboards. The eventstream points to the bronze lakehouse via a dotted blue arrow. Both batch and real-time paths output to the Consume/Serve section, which includes Microsoft 365, Power Automate, Custom API, Power BI, SQL endpoint, and Notebooks.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/greenfield-lakehouse-fabric.vsdx) of this architecture.*
 
-### Dataflow
+### Data flow
 
 The following data flow corresponds to the previous diagram.
 
@@ -31,7 +31,7 @@ A lakehouse implementation typically uses the [medallion architecture](/azure/da
 
 The [Data Factory](/fabric/data-factory/data-factory-overview) feature in Fabric provides the capabilities of the Data Factory service, which is a widely used data integration service. The Data Factory service mainly provides orchestration capabilities via pipelines. However, the feature in Fabric provides both pipelines and dataflows.
 
-- Data pipelines enable you to apply built-in rich data orchestration capabilities to compose flexible data workflows that meet your enterprise needs.
+- Data pipelines provide built-in rich data orchestration capabilities for composing flexible data workflows that meet your enterprise needs.
 
 - Dataflows provide a graphical interface, similar to Power Query, that supports over 300 built-in data transformations, including AI-based operations. Use dataflows to write data to native data stores in Fabric, such as lakehouse, warehouse, Azure SQL, and Kusto databases.
 
@@ -44,7 +44,7 @@ There are two approaches to data preparation and transformation. If you prefer a
 
 Use [Fabric notebooks](/fabric/data-engineering/how-to-use-notebook) to develop Spark jobs. They provide a web-based interactive surface that data engineers use to write code. They also provide visualizations and enable the use of Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists can use notebooks to create, track, and deploy machine learning models.
 
-Every workspace in Fabric includes a Spark [starter pool](/fabric/data-engineering/configure-starter-pools), which is used for default Spark jobs. By using starter pools, you can expect rapid Apache Spark session initialization, typically within 5 to 10 seconds, without any manual setup. You also get the flexibility to customize Apache Spark pools according to your data engineering requirements. You can size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, you can use [environments](/fabric/data-engineering/create-and-use-environment). In an environment, you can configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
+Every workspace in Fabric includes a Spark [starter pool](/fabric/data-engineering/configure-starter-pools) for default Spark jobs. Starter pools provide rapid Spark session initialization, typically within 5 to 10 seconds, without manual setup. You can also customize Spark pools according to your data engineering requirements. Size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, use [environments](/fabric/data-engineering/create-and-use-environment) to configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
 
 Use [dataflows](/fabric/data-factory/create-first-dataflow-gen2) to extract data from various sources, transform it by using a wide range of operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides a reusable way to perform extract, transform, load (ETL) tasks by using visual cues in Power Query Online. The dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a data pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
 
@@ -163,7 +163,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Fabric automatically replicates resources across availability zones without requiring any configuration. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](/azure/reliability/reliability-fabric#supported-regions), Fabric can self-heal and rebalance automatically to take advantage of a healthy zone.
+Fabric automatically replicates resources across availability zones without requiring any configuration. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](/azure/reliability/reliability-fabric), Fabric can self-heal and rebalance automatically to take advantage of a healthy zone.
 
 ### Security
 
@@ -244,7 +244,7 @@ Principal authors:
 
 - [What is OneLake?](/fabric/onelake/onelake-overview)
 - [What is Data Factory?](/fabric/data-factory/data-factory-overview)
-- [What is data engineering?](/fabric/data-engineering/data-engineering-overview)
+- [What is Data Engineering?](/fabric/data-engineering/data-engineering-overview)
 - [What is Data Science?](/fabric/data-science/data-science-overview)
 - [What is Real-Time Intelligence?](/fabric/real-time-intelligence/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
