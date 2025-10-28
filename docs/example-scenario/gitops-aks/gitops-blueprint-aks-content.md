@@ -12,7 +12,7 @@ Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and
    Diagram that illustrates the GitOps workflow with Flux v2, GitHub, and AKS. On the left, a developer commits configuration changes to a GitHub repository. In the center, the Flux operator in the AKS cluster monitors the repository for changes. When Flux detects configuration drift, it pulls the latest configuration from GitHub. On the right, Flux reconciles the desired state from the repository with the actual state in the AKS cluster and applies updates as needed. The diagram shows the flow of configuration changes from the developer to GitHub, then to Flux, and finally to the AKS cluster, and emphasizes the pull-based, continuous reconciliation process.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Data flow for scenario 1
 
@@ -48,7 +48,7 @@ The following data flow corresponds to the previous diagram:
    Diagram that shows a CI/CD workflow with GitOps, Flux, GitHub, and AKS. On the left, a developer writes application code in an integrated development environment (IDE) and commits it to a GitHub repository. GitHub Actions builds a container image from the code and pushes it to Azure Container Registry. GitHub Actions updates a Kubernetes manifest file in the repository with the new image version. In the center, the Flux operator in the AKS cluster monitors the repository for changes. When Flux detects an updated manifest, it pulls the configuration and deploys the new application version to the AKS cluster. The diagram shows the flow of code and configuration from the developer to GitHub, through CI/CD automation, to Flux, and finally to the AKS cluster, and emphasizes the automated, pull-based deployment process.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Data flow for scenario 2
 
@@ -74,7 +74,7 @@ The following data flow corresponds to the previous diagram:
    Diagram that shows a GitOps workflow with Argo CD, GitHub, and AKS. On the left, a Kubernetes administrator edits configuration files and commits them to a GitHub repository. In the center, Argo CD in the AKS cluster monitors the repository for changes. When Argo CD detects updated configuration, it pulls the changes and reconciles the desired state with the actual state in the AKS cluster. The diagram highlights the flow of configuration from the administrator to GitHub, then to Argo CD, and finally to the AKS cluster, and emphasizes the pull-based, continuous reconciliation process and the role of Argo CD as a controller that manages application state.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Data flow for scenario 3
 
@@ -104,7 +104,7 @@ Any repository that's compatible with Git, including Azure DevOps, can serve as 
    Diagram of a CI/CD workflow that uses GitOps with Argo CD, GitHub, and AKS. On the left, a developer writes application code and commits it to a GitHub repository. GitHub Actions builds a container image, pushes it to Container Registry, and updates a Kubernetes manifest file in the repository with the new image version. In the center, Argo CD in the AKS cluster monitors the repository for changes, pulls the updated configuration, and deploys the new application version to the AKS cluster. The diagram shows the flow of code and configuration from the developer to GitHub, through CI/CD automation, to Argo CD, and finally to the AKS cluster, with emphasis on the automated, pull-based deployment process.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Data flow for scenario 4
 
