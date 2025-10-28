@@ -104,7 +104,7 @@ The [metadata-driven ingestion framework](/fabric/data-factory/tutorial-incremen
   
    - A stored procedure activity that saves the new watermark value to determine the starting point for the next pipeline run.
 
-   :::image type="content" source="./media/metadata-copy.png" alt-text="The image shows a flowchart of activities for retrieving, using, and updating watermark values." lightbox="./media/metadata-copy.png":::
+   :::image type="content" source="./media/metadata-copy.png" alt-text="The diagram shows a flowchart of activities for retrieving, using, and updating watermark values." lightbox="./media/metadata-copy.png":::
 
 The following image shows a completed pipeline. For more information, see [Incremental ingestion](/fabric/data-factory/tutorial-incremental-copy-data-warehouse-lakehouse).
 
