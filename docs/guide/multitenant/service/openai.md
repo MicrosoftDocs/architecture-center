@@ -34,7 +34,7 @@ The following table summarizes the deployment approaches that you can take when 
 | Performance isolation | High | High | Low to medium, depending on the token-per-minute (TPM) usage for each tenant. | High |
 | Deployment complexity | Low to medium, depending on the number of tenants. | Medium, you need to manage deployment names and quotas. | Low | Not applicable, managed by customer. |
 | Operational complexity | Low | Medium | High | Low for the provider. Medium to high for the tenant. |
-| Example scenario | Single tenant deployments that require network isolation from other tenants. | Tenants that have specific model life-cycle or fine-tuning requirements. | Large multitenant solutions that have a shared application tier. | Tenants that have specific compliance or fine-tuning requirements. |
+| Example scenario | Single tenant deployments that require network isolation from other tenants. | Tenants that have specific model life cycle or fine-tuning requirements. | Large multitenant solutions that have a shared application tier. | Tenants that have specific compliance or fine-tuning requirements. |
 
 ### Dedicated Azure OpenAI service
 
