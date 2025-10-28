@@ -424,13 +424,13 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 - Virtual Machine Scale Sets allocates a specified number of instances and distributes them evenly across availability zones and fault domains. This distribution is achieved through the *maximum spread* capability, which we recommend. Spreading VM instances across fault domains makes sure all VMs aren't updated at the same time.
 
-    Consider a scenario where there are three availability zones. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
+  Consider a scenario where there are three availability zones in your Azure region. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
 
 - Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
 
 - A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
-    All public IPs used in this architecture are zone redundant.
+  All public IPs used in this architecture are zone redundant.
 
 - Azure offers zone-resilient services for better reliability, such as Key Vault.
 

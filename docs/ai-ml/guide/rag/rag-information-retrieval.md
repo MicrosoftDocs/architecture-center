@@ -7,7 +7,6 @@ ms.date: 01/09/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Information retrieval
