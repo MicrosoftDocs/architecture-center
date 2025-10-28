@@ -3,7 +3,7 @@ title: Multitenancy and Azure OpenAI
 description: Learn how to deploy Azure OpenAI models and work with the features associated with each model when you have a multitenant system.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 04/11/2025
+ms.date: 10/28/2025
 ms.update-cycle: 180-days
 ms.topic: conceptual
 ms.subservice: architecture-guide
@@ -34,7 +34,7 @@ The following table summarizes the deployment approaches that you can take when 
 | Performance isolation | High | High | Low to medium, depending on the token-per-minute (TPM) usage for each tenant. | High |
 | Deployment complexity | Low to medium, depending on the number of tenants. | Medium, you need to manage deployment names and quotas. | Low | Not applicable, managed by customer. |
 | Operational complexity | Low | Medium | High | Low for the provider. Medium to high for the tenant. |
-| Example scenario | Single tenant deployments that require network isolation from other tenants. | Tenants that have specific model life-cycle or fine-tuning requirements. | Large multitenant solutions that have a shared application tier. | Tenants that have specific compliance or fine-tuning requirements. |
+| Example scenario | Single tenant deployments that require network isolation from other tenants. | Tenants that have specific model life cycle or fine-tuning requirements. | Large multitenant solutions that have a shared application tier. | Tenants that have specific compliance or fine-tuning requirements. |
 
 ### Dedicated Azure OpenAI service
 
@@ -124,6 +124,20 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 Azure OpenAI provides the following features that support multitenancy.
 
+### Responses API
+
+The [Responses API](/azure/ai-services/openai/how-to/responses) is a stateful API that unifies conversation management, tool invocation, file search, background task processing, and structured outputs in a single interface.
+
+When you use the Responses API, it can be difficult to isolate data between tenants. Tenant identifiers can't be attached to all of the tools and capabilities.
+
+However, if you choose to use the Responses API for a multitenant solution, you should consider tenant isolation in all stored data and operations that you control. The API stores conversation history by using response IDs, which link subsequent requests to previous context. You should ensure that response IDs are stored with tenant-scoped keys in your application. This approach ensures that a request can only reference response IDs that are associated with the same tenant.
+
+The Responses API supports function calling and built-in tools. For function calling, where your application code handles the function invocation, you should ensure that any function calls that you make are multitenant-aware. One approach is to include the tenant ID in the call to the downstream API or function. For built-in tools, such as Code Interpreter, and any remote MCP server calls, the model infrastructure executes these operations. You can't reliably inject tenant context into these built-in tool invocations, so you should use dedicated containers or separate tool configurations for each tenant when you use these features.
+
+When you use file search or retrieval-augmented generation (RAG) capabilities, you should ensure that file stores and vector indexes are scoped to the appropriate tenant. If you use shared indexes, apply tenant filters to all queries. If you deploy per-tenant indexes, map each request to the correct index based on the tenant identifier. For more information, see [Design a secure multitenant RAG inferencing solution](../../../ai-ml/guide/secure-multitenant-rag.md).
+
+The Responses API supports a background mode for long-running operations. You should store task identifiers with the tenant context, and validate the tenant when you poll for results. Ensure that task queues and result storage prevent one tenant from accessing another tenant's background tasks or outputs.
+
 ### Assistants API
 
 The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that makes it suitable for creating AI assistants. It includes the ability to call tools and APIs and to search files to ground the answers that the model generates. It enables the service to manage persistent conversational threads. The API can also generate and run code within a sandboxed environment. To support these capabilities, the Assistants API needs to store some data.
@@ -155,7 +169,7 @@ In a multitenant solution, batch deployments can be shared among all tenants or 
 - **Shared batch deployment:**
 
     A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If you combine requests from multiple tenants into a single batch job, ensure that you can correctly map responses back to the appropriate tenant.
-    
+
     Batch jobs are managed at the job level, so it's a good idea to separate them by tenant. This approach allows you to cancel or delete jobs for each tenant. Individual requests within a batch can't be canceled or deleted.
 
 By carefully managing batch deployments, you can balance cost efficiency and resource allocation while maintaining tenant isolation and operational flexibility.
