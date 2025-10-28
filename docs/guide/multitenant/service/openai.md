@@ -136,7 +136,7 @@ The Responses API supports function calling and built-in tools. For function cal
 
 When you use file search or retrieval-augmented generation (RAG) capabilities, you should ensure that file stores and vector indexes are scoped to the appropriate tenant. If you use shared indexes, apply tenant filters to all queries. If you deploy per-tenant indexes, map each request to the correct index based on the tenant identifier.
 
-The Responses API supports background mode for long-running operations. You should store task identifiers with tenant context and implement validation when you poll for results. Ensure that task queues and result storage prevent one tenant from accessing another tenant's background tasks or outputs.
+The Responses API supports a background mode for long-running operations. You should store task identifiers with the tenant context, and validate the tenant when you poll for results. Ensure that task queues and result storage prevent one tenant from accessing another tenant's background tasks or outputs.
 
 ### Assistants API
 
