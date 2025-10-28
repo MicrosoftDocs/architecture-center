@@ -477,8 +477,6 @@ items:
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
-      - name: Secure a data lakehouse
-        href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
