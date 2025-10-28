@@ -13,6 +13,7 @@ azureCategories:
 products:
   - ai-services
   - azure-cosmos-db
+  - azure-ai-foundry
 name: Build a document generation system by using AI
 summary: Learn how to build a simple system for generating document templates by using AI. It combines retrieval, summarization, and generation to support faster document drafting.
 thumbnailUrl: /azure/architecture/browse/thumbs/generate-documents.png

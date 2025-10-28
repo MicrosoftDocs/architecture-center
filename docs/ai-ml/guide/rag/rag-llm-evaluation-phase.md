@@ -7,7 +7,6 @@ ms.date: 01/29/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Large language model end-to-end evaluation
@@ -22,7 +21,7 @@ This article is part of a series. Read the [introduction](./rag-solution-design-
 
 ## Language model evaluation metrics
 
-There are several metrics that you should use to evaluate the language model's response, including groundedness, completeness, utilization, relevancy, and correctness. Because the overall goal of the RAG pattern is to provide relevant data as context to a language model when generating a response, ideally, each of the above metrics should score highly. However, depending on your workload, you may need to prioritize one over another.
+There are several metrics that you should use to evaluate the language model's response, including groundedness, completeness, utilization, relevancy, and correctness. Because the overall goal of the RAG pattern is to provide relevant data as context to a language model when generating a response, ideally, each of the above metrics should score highly. However, depending on your workload, you might need to prioritize one over another.
 
 > [!IMPORTANT]
 > Language model responses are nondeterministic, which means that the same prompt to a language model often returns different results. This concept is important to understand when you use a language model as part of your evaluation process. Consider using a target range instead of a single target when you evaluate language model use.
@@ -121,7 +120,7 @@ There are several ways to evaluate correctness, including:
 
 When correctness is low, do the following tasks:
 
-1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You may need to correct any issues in the source documents or content.
+1. Ensure that the chunks provided to the language model are factually correct and there's no data bias. You might need to correct any issues in the source documents or content.
 1. If the chunks are factually correct, evaluate your prompt.
 1. Evaluate if there are inherit inaccuracies in the model that needs to be overcome with additional factual grounding data or fine-tuning.
 
@@ -161,7 +160,7 @@ This metric combination is one where prioritizing one over the other could be ve
 
 ### Utilization and completeness
 
-Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario may indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
+Utilization and completeness metrics together help evaluate the effectiveness of the retrieval system. High utilization (0.9) with low completeness (0.3) indicates the system retrieves accurate but incomplete information. For instance, when asked about World War II causes, the system might perfectly retrieve information about the invasion of Poland but miss other crucial factors. This scenario might indicate that there are chunks with relevant information that weren't used as part of the context. To address this scenario, consider returning more chunks, evaluating your chunk ranking strategy, and evaluating your prompt.
 
 ### Groundedness and utilization and similarity
 
@@ -177,11 +176,11 @@ After your hyperparameters and results are persisted, you should consider making
 
 It's important to understand that designing and evaluating your RAG solution isn't a one-time operation. Your collection of documents changes over time. The questions that your customers ask change over time, and your understanding of the types of questions evolves as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
-## The RAG experiment accelerator
+## The RAG experiment accelerator repository
 
-These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a state-of-the-art experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The RAG experiment accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
+These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a custom, code-based experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The framework empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
 
-The RAG experiment accelerator uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
+The implementation in the repository uses a command-line interface, so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
 
 The framework also provides comprehensive support for language model configuration. This support helps you strike the perfect balance between model complexity and generation quality. This tool helps you streamline the experimentation process, save time, and significantly improve the performance of your RAG models.
 
@@ -208,10 +207,10 @@ The framework loads, chunks, and enriches text and images from MHTML files. It t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator)
 
 > [!div class="nextstepaction"]
-> [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
+> [RAG with Vision Application Framework GitHub repository](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
 
 ## Related resource
 

@@ -3,12 +3,11 @@ title: Design a Secure Multitenant RAG Inferencing Solution
 description: Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/31/2025
+ms.date: 10/03/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
 ms.custom:
-  - arb-aiml
   - arb-saas
 ---
 

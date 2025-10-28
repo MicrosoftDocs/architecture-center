@@ -219,7 +219,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 - The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 
-- Specific business requirements for your analytics use cases may also ask for the use of different services or features not considered in this design.
+- Specific business requirements for your analytics use cases might ask for the use of different services or features not considered in this design.
 
 - For comparisons of other alternatives, see:
 

@@ -7,7 +7,6 @@ ms.date: 12/9/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Design and develop a RAG solution
@@ -35,7 +34,7 @@ The other articles in this series cover the following considerations:
 The following workflow describes a high-level flow for a RAG application.
 
 1. The user issues a query in an intelligent application user interface.
-1. The intelligent application makes an API call to an orchestrator. You can implement the orchestrator with tools or platforms like Semantic Kernel, Azure AI Agent service, or LangChain.
+1. The intelligent application makes an API call to an orchestrator. You can implement the orchestrator with tools or platforms like the Microsoft Agent Framework, Semantic Kernel, Azure AI Agent service, or LangChain.
 1. The orchestrator determines which search to perform on Azure AI Search and issues the query.
 1. The orchestrator packages the top *N* results from the query. It packages the top results and the query as context within a prompt and sends the prompt to the language model. The orchestrator returns the response to the intelligent application for the user to read.
 

@@ -7,7 +7,6 @@ ms.date: 01/31/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -140,7 +139,6 @@ For more information, see the following resources:
 #### AI and Machine learning reference architectures for Azure
 
 - [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Batch scoring of Spark machine learning models on Azure Databricks](./architecture/batch-scoring-databricks.yml)
 - [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
@@ -251,7 +249,6 @@ For more information, see the following resources:
 
 - [Azure Databricks documentation](/azure/azure-databricks/)
 - [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 #### Apache Spark in Azure HDInsight
@@ -395,7 +392,6 @@ Machine Learning offers the following capabilities:
 
   - [Score model](/azure/machine-learning/component-reference/score-model)
   - [Deploy models for scoring in batch endpoints](/azure/machine-learning/how-to-use-batch-model-deployments)
-  - [Batch scoring of Spark models on Azure Databricks](/azure/architecture/ai-ml/architecture/batch-scoring-databricks)
 
 - **Feature engineering and featurization:** Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
 
@@ -478,7 +474,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
 - Organize your work. Your AI Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
-- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, and AutoGen.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
 - Discover and benchmark from over 1,600 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.
