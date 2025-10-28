@@ -18,7 +18,7 @@ Most big data solutions consist of repeated data processing operations, encapsul
 
 In Azure, the following services and tools will meet the core requirements for pipeline orchestration, control flow, and data movement:
 
-- [Azure Data Factory](/azure/data-factory)
+- [Azure Data Factory](/azure/data-factory/)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 - [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
@@ -76,11 +76,14 @@ The following tables summarize the key differences in capabilities.
 | Scale out | Yes | No | Yes (by adding worker nodes to cluster) | Yes |
 | Optimized for big data | Yes | No | Yes | Yes |
 
-In addition to traditional batch-based orchestration, your platform can also leverage real-time intelligence through [Microsoft Fabric’s Real-Time Intelligence](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) service. This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows, allowing organizations to respond instantly as data arrives. By eliminating latency, it supports high-value scenarios such as IoT telemetry processing, fraud detection, and operational monitoring—where immediate insights can drive timely actions and improved outcomes.
+
+## Alternative approach
+
+In addition to traditional batch-based orchestration, your platform can also use real-time intelligence through [Microsoft Fabric’s Real-Time Intelligence](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream) service. This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows, allowing organizations to respond instantly as data arrives. It supports high-value scenarios such as IoT telemetry processing, fraud detection, and operational monitoring.
 
 ## Contributors
 
-*This acle is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -88,10 +91,9 @@ Principal author:
 
 ## Next steps
 
-- [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
 - [Provision the Azure-SSIS integration runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
-- [Pipelines and activities in Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
 
 ## Related resources
 
