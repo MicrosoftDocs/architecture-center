@@ -72,7 +72,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight | Data Factory in Microsoft Fabric |
 | --- | --- | --- | --- | --- |
-| Scale up | Yes | No | No | Yes | Yes |
+| Scale up | Yes | No | No | Yes |
 | Scale out | Yes | No | Yes (by adding worker nodes to cluster) | Yes |
 | Optimized for big data | Yes | No | Yes | Yes |
 
