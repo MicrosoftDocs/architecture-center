@@ -325,9 +325,9 @@ This architecture primarily uses system-assigned managed identities for service-
 
 Connections define how an Azure AI Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
 
-If Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
+If Microsoft Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
 
-Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
+Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
 
 In this architecture, there are two API key based connections: Application Insights for AI Foundry telemetry and Grounding with Bing Search.
 

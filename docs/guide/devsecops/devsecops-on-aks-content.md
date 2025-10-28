@@ -24,7 +24,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 > [!NOTE]
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
-1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
 1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
@@ -247,7 +247,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 #### Best Practice – Enable centralized log monitoring and use SIEM products to monitor for real time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Sentinel enables this access seamlessly via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access seamlessly by way of [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
 
 #### Best Practice – Enable audit logging to monitor activity on your production clusters
 
