@@ -35,7 +35,7 @@ In a RAG solution, you embed the user query by using the same embedding model as
 
 ## The importance of the embedding model
 
-The embedding model that you choose can significantly affect the relevancy of your vector search results. You must consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [BERT model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about
+The embedding model that you choose can significantly affect the relevancy of your vector search results. You must consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [BERT model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about 30,000 words.
 
 The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still calculates a vector for it. To do this, many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
 
@@ -57,11 +57,11 @@ First, determine whether you have domain-specific content. For example, are your
 
 ### General or non-domain-specific content
 
-When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboardmodel rankings. Evaluate how the models work with your data, and start with the top-ranking models.
+When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard) model rankings. Evaluate how the models work with your data, and start with the top-ranking models.
 
 ### Domain-specific content
 
-For domain-specific content, determine whether you can use a domain-specific model. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoftanguage model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
+For domain-specific content, determine whether you can use a domain-specific model. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
 
 If you don't have a domain-specific model, or the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
