@@ -7,7 +7,6 @@ ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ai-usage: ai-assisted
 ---
 
