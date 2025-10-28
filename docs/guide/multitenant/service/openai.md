@@ -126,7 +126,7 @@ Azure OpenAI provides the following features that support multitenancy.
 
 ### Responses API
 
-The [Responses API](/azure/ai-services/openai/how-to/responses) is a stateful API that unifies conversation management, tool invocation, and structured outputs in a single interface. It combines the simplicity of the Chat Completions API with the advanced capabilities of the Assistants API. It provides persistent conversation state, function calling, file search capabilities, and background task processing.
+The [Responses API](/azure/ai-services/openai/how-to/responses) is a stateful API that unifies conversation management, tool invocation, file search, background task processing, and structured outputs in a single interface.
 
 When you use the Responses API, it can be difficult to isolate data between tenants. Tenant identifiers can't be attached to all of the tools and capabilities.
 
