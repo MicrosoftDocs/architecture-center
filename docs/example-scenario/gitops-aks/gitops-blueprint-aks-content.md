@@ -1,10 +1,10 @@
 GitOps is a set of principles for operating and managing a software system. This article describes techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster.
 
-*The [Flux](https://fluxcd.io), [Argo CD](https://argo-cd.readthedocs.io), [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper), [Kubernetes](https://kubernetes.io), and [git](https://www.git-scm.com) logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+*The [Flux](https://fluxcd.io), [Argo CD](https://argo-cd.readthedocs.io/en/stable), [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper), [Kubernetes](https://kubernetes.io), and [git](https://git-scm.com) logos are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
-Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io). They're both [graduated Cloud Native Computing Foundation (CNCF) projects](https://www.cncf.io/projects/) and are widely used. The following scenarios show ways to use them.
+Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io/en/stable). They're both [graduated Cloud Native Computing Foundation (CNCF) projects](https://www.cncf.io/projects/) and are widely used. The following scenarios show ways to use them.
 
 ### Scenario 1: GitOps with Flux and AKS
 
@@ -92,7 +92,7 @@ Argo CD doesn't have to automatically sync the desired target state to the AKS c
 
 Argo CD provides a browser-based user interface. You can use it to add application configurations, observe the synchronization state with respect to the cluster, and initiate synchronization against the cluster. You can also use the Argo CD command line to do these things. Both the user interface and command line interface provide features to view the history of configuration changes and to roll back to a previous version.
 
-By default, the Argo CD user interface and the API server aren't exposed. To access them, we recommend that you [create an ingress controller that has an internal IP address](/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address). Or you can [use an internal load balancer](/azure/aks/internal-lb) to expose them.
+By default, the Argo CD user interface and the API server aren't exposed. To access them, we recommend that you [create an ingress controller that has an internal IP address](/troubleshoot/azure/azure-kubernetes/load-bal-ingress-c/create-unmanaged-ingress-controller#create-an-ingress-controller-using-an-internal-ip-address). Or you can [use an internal load balancer](/azure/aks/internal-lb) to expose them.
 
 #### Alternatives for scenario 3
 
@@ -150,11 +150,11 @@ According to [GitOps principles](https://opengitops.dev/#principles), the desire
 
 1. **Continuously reconciled:** Software agents continuously observe actual system state and attempt to apply the desired state.
 
-In GitOps, [IaC](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components such as virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
+In GitOps, [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components such as virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
 Kubernetes describes everything from cluster state to application deployments declaratively with manifests. GitOps for Kubernetes places the cluster infrastructure desired state under version control. A component in the cluster, typically called an operator, continuously syncs the declarative state. This approach makes it possible to review and audit code changes that affect the cluster. It enhances security by supporting the principle of least privilege (PoLP).
 
-GitOps agents continuously reconcile the system state with the desired state that's stored in your code repository. Some GitOps agents can revert operations that are performed outside the cluster, such as manual creation of Kubernetes objects. For instance, [admission controllers](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction) enforce policies on objects during create, update, and delete operations. You can use them to ensure that deployments change only if the deployment code in the source repository changes.
+GitOps agents continuously reconcile the system state with the desired state that's stored in your code repository. Some GitOps agents can revert operations that are performed outside the cluster, such as manual creation of Kubernetes objects. For instance, [admission controllers](https://www.openpolicyagent.org/docs/kubernetes) enforce policies on objects during create, update, and delete operations. You can use them to ensure that deployments change only if the deployment code in the source repository changes.
 
 You can combine policy management and enforcement tools with GitOps to enforce policies and provide feedback for proposed policy changes. You can configure notifications for individual teams to keep them informed about the current GitOps status. For example, you can send notifications of deployment successes and reconciliation failures.
 
@@ -170,7 +170,7 @@ Sometimes AKS cluster deployment is required as part of the baseline configurati
 
 - AKS add-ons such as [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) and [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure)
 
-- Partner tools such as [Prisma Cloud Defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud)
+- Partner tools such as [Prisma Cloud Defender](https://docs.prismacloud.io)
 
 - Open-source tools such as [KEDA](https://keda.sh), [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/latest/), and [Cert-manager](https://cert-manager.io/docs)
 
