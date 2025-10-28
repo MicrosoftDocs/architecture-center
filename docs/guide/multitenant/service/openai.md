@@ -140,9 +140,6 @@ The Responses API supports a background mode for long-running operations. You sh
 
 ### Assistants API
 
-> [!WARNING]
-> Microsoft recommends using the [Responses API](#responses-api) instead of the Assistants API for new implementations. The Responses API provides a more streamlined and unified approach to building AI assistants with better support for modern agentic patterns.
-
 The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that makes it suitable for creating AI assistants. It includes the ability to call tools and APIs and to search files to ground the answers that the model generates. It enables the service to manage persistent conversational threads. The API can also generate and run code within a sandboxed environment. To support these capabilities, the Assistants API needs to store some data.
 
 When you use the Assistants API in a multitenant solution, you can choose to create assistants that are dedicated to a single tenant, or you can share an assistant among multiple tenants. It's important to consider tenant isolation in all stored data, especially for shared assistants. For example, you should ensure that conversational threads are stored separately for each tenant.
