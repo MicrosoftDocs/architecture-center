@@ -364,7 +364,7 @@ You can back up SAP HANA data in many ways. After you migrate to Azure, continue
 
 Use a centralized identity management system to control access to resources at all levels.
 
-- Provide access to Azure resources through [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview).
+- Provide access to Azure resources through [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
 - Grant access to Azure VMs through Lightweight Directory Access Protocol, Microsoft Entra ID, Kerberos, or another system.
 

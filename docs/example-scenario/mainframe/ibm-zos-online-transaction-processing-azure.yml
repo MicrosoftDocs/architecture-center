@@ -14,8 +14,7 @@ products:
   - azure-front-door
   - azure-traffic-manager
   - azure-kubernetes-service
-  - azure-spring-apps
-  - azure-cache-redis
+  - azure-managed-redis
 name: Migrate IBM z/OS OLTP workloads to Azure
 summary: Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost effective, responsive, scalable, and adaptable.
 thumbnailUrl: /azure/architecture/browse/thumbs/ibm-zos-online-transaction-processing-on-azure.png

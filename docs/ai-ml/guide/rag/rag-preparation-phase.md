@@ -7,7 +7,6 @@ ms.date: 12/15/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # RAG preparation phase

@@ -10,7 +10,6 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-    - arb-aiml
     - arb-telco
   ai-usage: ai-assisted
 azureCategories:

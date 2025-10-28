@@ -16,7 +16,7 @@ Azure provides three main messaging services that can be used with Azure Functio
 
 ## Streaming benefits and challenges
 
-Understanding the benefits and drawbacks of streams helps you appreciate how a service like [Event Hubs](/azure/event-hubs/event-hubs-about) operates. You also need this context when making impactful architectural decisions, troubleshooting issues, and optimizing for performance. Consider the following key concepts about solutions featuring both Event Hubs and Functions:
+Understanding the benefits and drawbacks of streams helps you appreciate how a service like [Event Hubs](/azure/event-hubs/event-hubs-about) operates. You also need this context when making significant architectural decisions, troubleshooting issues, and optimizing for performance. Consider the following key concepts about solutions featuring both Event Hubs and Functions:
 
 - **Streams are not queues:** Event Hubs, Kafka, and other similar offerings that are built on the partitioned consumer model don't intrinsically support some of the principal features in a message broker like [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Perhaps the biggest indicator of these differences is the fact that reads are **non-destructive**. This ensures that the data read by the Functions host remains available afterwards. Instead, messages are immutable and remain for other consumers to read, including potentially the same consumer reading it again. For this reason, solutions that implement patterns such as [competing consumers](/azure/architecture/patterns/competing-consumers) might be better served with a message broker such as Service Bus.
 
@@ -26,7 +26,7 @@ Understanding the benefits and drawbacks of streams helps you appreciate how a s
 
 - **No server-side filtering:** One of the reasons Event Hubs is capable of tremendous scale and throughput is due to the low overhead on the service itself. Features like server-side filtering, indexes, and cross-broker coordination aren't part of the architecture of Event Hubs. Functions are occasionally used to filter events by routing them to other event hubs based on the contents in the body or header. This approach is common in event streaming but comes with the caveat that the initial function reads and evaluates each event.
 
-- **Every reader must read all data:** Since server-side filtering is unavailable, a consumer sequentially reads all the data in a partition. This includes data that may not be relevant or could even be malformed. Several options and strategies can be used to compensate for these challenges, which are covered later in this section.
+- **Every reader must read all data:** Since server-side filtering is unavailable, a consumer sequentially reads all the data in a partition. This includes data that might not be relevant or could even be malformed. Several options and strategies can be used to compensate for these challenges, which are covered later in this section.
 
 These design decisions allow Event Hubs to support a significant influx of events and provide a resilient service for consumers to read from. Each consumer application is tasked with the responsibility of maintaining their own, client-side offsets or cursor to those events. The low overhead makes Event Hubs a cost-effective option for event streaming.
 
@@ -44,7 +44,7 @@ There are several different scenarios that could result in duplicate events bein
 
 - **Duplicate events published:** Many techniques can reduce the chances of the same event being published to a stream, but the consumer is still responsible for handling duplicates idempotently.
 
-- **Missing acknowledgments:** In some situations, an outgoing request to a service may be successful, however, an acknowledgment (ACK) from the service is never received. This perception might result in the belief that the outgoing call failed and initiate a series of retries or other outcomes from the function. In the end, duplicate events could be published, or a checkpoint is not created.
+- **Missing acknowledgments:** In some situations, an outgoing request to a service might be successful, however, an acknowledgment (ACK) from the service is never received. This perception might result in the belief that the outgoing call failed and initiate a series of retries or other outcomes from the function. In the end, duplicate events could be published, or a checkpoint is not created.
 
 ### Deduplication techniques
 
@@ -78,11 +78,11 @@ Several important factors that must be considered when using the retry policies 
 
 - **Avoid indefinite retries:** When the [max retry count](/azure/azure-functions/functions-host-json#retry) setting is set to a value of -1, the function retries indefinitely. In general, indefinite retries should be used sparingly with Functions and almost never with the Event Hub trigger binding.
 
-- **Choose the appropriate retry strategy:** A [fixed delay](/azure/azure-functions/functions-bindings-error-pages#fixed-delay-retry) strategy may be optimal for scenarios that receive back pressure from other Azure services. In these cases, the delay can help avoid throttling and other limitations encountered from those services. The [exponential back off](/azure/azure-functions/functions-bindings-error-pages#exponential-backoff-retry) strategy offers more flexibility for retry delay intervals and is commonly used when integrating with third-party services, REST endpoints, and other Azure services.
+- **Choose the appropriate retry strategy:** A [fixed delay](/azure/azure-functions/functions-bindings-error-pages#fixed-delay-retry) strategy might be optimal for scenarios that receive back pressure from other Azure services. In these cases, the delay can help avoid throttling and other limitations encountered from those services. The [exponential back off](/azure/azure-functions/functions-bindings-error-pages#exponential-backoff-retry) strategy offers more flexibility for retry delay intervals and is commonly used when integrating with third-party services, REST endpoints, and other Azure services.
 
 - **Keep intervals and retry counts low:** When possible, try to maintain a retry interval shorter than one minute. Also, keep the maximum number of retry attempts to a reasonably low number. These settings are especially pertinent when running in the Functions Consumption plan.
 
-- **Circuit breaker pattern:** A transient fault error from time to time is expected and a natural use case for retries. However, if a significant number of failures or issues are occurring during the processing of the function, it may make sense to stop the function, address the issues and restart later.
+- **Circuit breaker pattern:** A transient fault error from time to time is expected and a natural use case for retries. However, if a significant number of failures or issues are occurring during the processing of the function, it might make sense to stop the function, address the issues and restart later.
 
 An important takeaway for the retry policies in Functions is that it is a best effort feature for reprocessing events. It does not substitute the need for error handling, logging, and other important patterns that provide resiliency to your code.
 
@@ -90,11 +90,11 @@ An important takeaway for the retry policies in Functions is that it is a best e
 
 There are several noteworthy approaches that you can use to compensate for issues that arise due to failures or bad data in an event stream. Some fundamental strategies are:
 
-- **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach may require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function may be necessary until the issues are resolved.
+- **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach might require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function might be necessary until the issues are resolved.
 
 - **Drop messages:** If messages aren't important or are considered non-mission critical, consider moving on and not processing them. This approach doesn't work for scenarios that require strong consistency such as recording moves in a chess match or finance-based transactions. Error handling inside of a function is recommended for catching and dropping messages that can't be processed.
 
-- **Retry:** There are many situations that may warrant the reprocessing of an event. The most common scenario would be a transient error encountered when calling another service or dependency. Network errors, service limits and availability, and strong consistency are perhaps the most frequent use cases that justify reprocessing attempts.
+- **Retry:** There are many situations that might warrant the reprocessing of an event. The most common scenario would be a transient error encountered when calling another service or dependency. Network errors, service limits and availability, and strong consistency are perhaps the most frequent use cases that justify reprocessing attempts.
 
 - **Dead letter:** The idea here is to publish the event to a different event hub so that the existing flow is not interrupted. The perception is that it is moved off the hot path and can be dealt with later or by a different process. This solution is used frequently for handling poisoned messages or events. Each function configured with a different consumer group will still encounter bad or corrupt data in their stream and must handle it responsibly.
 
@@ -102,7 +102,7 @@ There are several noteworthy approaches that you can use to compensate for issue
 
 - **Use a schema registry:** A schema registry can be used as a proactive tool to help improve consistency and data quality. The [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) can support the transition of schemas along with versioning and different compatibility modes as schemas evolve. At its core, the schema serves as a contract between producers and consumers, which could reduce the possibility of invalid or corrupt data being published to the stream.
 
-In the end, there isn't a perfect solution and the consequences and tradeoffs of each of the strategies needs to be thoroughly examined. Based on the requirements, using several of these techniques together may be the best approach.
+In the end, there isn't a perfect solution and the consequences and tradeoffs of each of the strategies needs to be thoroughly examined. Based on the requirements, using several of these techniques together might be the best approach.
 
 ## Contributors
 

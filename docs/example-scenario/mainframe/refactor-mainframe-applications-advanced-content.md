@@ -90,7 +90,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Azure Storage provides various storage options to support the data requirements of refactored mainframe applications.
 
-  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disk storage are Ultra Disk Storage, Premium SSD, Azure Standard SSD, and Azure Standard HDD. In this architecture, Azure Disk Storage provides high-performance storage for the refactored applications by using either Premium SSD or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disk storage are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. In this architecture, Azure Disk Storage provides high-performance storage for the refactored applications by using either Premium SSD or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides fully managed file shares in the cloud that can be accessed via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount file shares concurrently. In this architecture, Azure Files provides shared file storage that can be accessed by multiple instances of the refactored applications.
 
@@ -168,7 +168,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for VM instances.
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. For more information about cost optimization for VM instances, see [Azure Well-Architected Framework](/azure/well-architected/).
 - The VMs in this architecture use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.

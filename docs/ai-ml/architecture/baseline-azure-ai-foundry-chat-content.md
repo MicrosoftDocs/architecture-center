@@ -243,7 +243,7 @@ To maximize reliability and minimize the blast radius of failures, strictly isol
 
 This separation provides two key benefits:
 
-- It contains failures or performance degradation to a single workload segment, which prevents cascading impacts across unrelated application features.
+- It contains failures or performance degradation to a single workload segment, which prevents cascading effects across unrelated application features.
 
 - It enables you to apply targeted operational processes, such as backup, restore, and failover. These processes are tuned to the specific availability and recovery requirements of the workload flow that uses those resources.
 
@@ -325,9 +325,9 @@ This architecture primarily uses system-assigned managed identities for service-
 
 Connections define how an Azure AI Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
 
-If Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
+If Microsoft Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
 
-Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
+Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
 
 In this architecture, there are two API key based connections: Application Insights for AI Foundry telemetry and Grounding with Bing Search.
 
@@ -335,9 +335,9 @@ If you use customer-managed keys (CMK) for encryption, you can host both the CMK
 
 ##### Azure AI Foundry portal employee access
 
-When you onboard employees to Azure AI Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and role-based access control (RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
+When you onboard employees to Azure AI Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
 
-The Azure AI Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
+The Azure AI Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This AI Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
 To mitigate the risk of unauthorized access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Azure AI Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
@@ -592,7 +592,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions.
 
-- **Plan for failback.** Azure AI Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the impact, and perform a full switchover when ready.
+- **Plan for failback.** Azure AI Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 
