@@ -142,13 +142,13 @@ GitOps is often used for Kubernetes cluster management and application delivery.
 
 According to [GitOps principles](https://opengitops.dev/#principles), the desired state of a GitOps-managed system must meet the following criteria:
 
-1. **Declarative:** A system that GitOps manages must have its desired state expressed declaratively. The declaration is typically stored in a Git repository.
+- **Declarative:** A system that GitOps manages must have its desired state expressed declaratively. The declaration is typically stored in a Git repository.
 
-1. **Versioned and immutable:** The desired state is stored in a way that enforces immutability and versioning, and retains a complete version history.
+- **Versioned and immutable:** The desired state is stored in a way that enforces immutability and versioning, and retains a complete version history.
 
-1. **Pulled automatically:** Software agents automatically pull the desired state declarations from the source.
+- **Pulled automatically:** Software agents automatically pull the desired state declarations from the source.
 
-1. **Continuously reconciled:** Software agents continuously observe actual system state and attempt to apply the desired state.
+- **Continuously reconciled:** Software agents continuously observe actual system state and attempt to apply the desired state.
 
 In GitOps, [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components such as virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
