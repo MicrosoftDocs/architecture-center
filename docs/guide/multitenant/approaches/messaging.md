@@ -4,7 +4,7 @@ description: This article describes approaches for messaging in a multitenant so
 author: paolosalvatori
 ms.author: paolos
 ms.date: 11/27/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

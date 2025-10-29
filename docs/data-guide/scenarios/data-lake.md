@@ -4,7 +4,7 @@ description: Learn about the advantages of using data lake storage repositories,
 author: PRASADA1207
 ms.author: prasada
 ms.date: 08/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

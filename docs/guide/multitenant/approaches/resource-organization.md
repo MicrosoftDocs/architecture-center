@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.date: 06/16/2025
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
    - arb-saas

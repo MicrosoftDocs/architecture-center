@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 10/14/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,7 +4,7 @@ description: Learn about the various chunking strategies like boundary based, cu
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/16/2025 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ---
