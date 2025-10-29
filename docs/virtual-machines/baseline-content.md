@@ -3,7 +3,7 @@ This article provides a foundational reference architecture for a workload deplo
 The example workload assumed by this architecture is an internet-facing multi-tier web application that is deployed on separate sets of virtual machines (VMs). VMs are provisioned as part of Azure Virtual Machine Scale Sets deployments. This architecture can be used for these scenarios:
 
 - **Private applications**. These applications include internal line-of-business applications or commercial off-the-shelf solutions.
-- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, applications highly impacted by latency, or other specialized use cases.
+- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, applications highly affected by latency, or other specialized use cases.
 
 The primary focus of this architecture isn't the application. Instead, this article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, and monitoring components.
 
@@ -143,7 +143,7 @@ For more information about the disk options with metrics such as capacity, IOPS,
 
 Consider disk characteristics and performance expectations when selecting a disk.
 
-- **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
+- **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it affects cost.
 
 - **Configuration changes**. You can change some disk performance and capacity configurations while a VM is running. However, many changes can require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
 
@@ -256,7 +256,7 @@ This image shows the monitoring stack for the baseline with components for colle
 
 ### Infrastructure-level monitoring
 
-This table links to logs and metrics collected by Azure Monitor. The available alerts help you proactively address issues before they impact users.
+This table links to logs and metrics collected by Azure Monitor. The available alerts help you proactively address issues before they affect users.
 
 | Azure resource | Metrics and logs | Alerts |
 | -------------- | ---------------- | ------ |
@@ -270,7 +270,7 @@ This table links to logs and metrics collected by Azure Monitor. The available a
 | Virtual Machines and Virtual Machine Scale Sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
 | Web Application Firewall | [Web Application Firewall metrics and logs description](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
 
-For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). The nature of the workload and the frequency and number of metrics and logs collected greatly impact the metric and log collection costs.
+For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). The nature of the workload and the frequency and number of metrics and logs collected greatly affect the metric and log collection costs.
 
 ##### Virtual machines
 
@@ -334,7 +334,7 @@ Be aware of the tradeoff on cost associated with overprovisioning.
 
 Health checks are included as part of automatic VM guest patching. These checks verify successful patch application and detect issues.
 
-If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively impact performance or security.
+If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively affect performance or security.
 
 For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
 
@@ -364,7 +364,7 @@ Because no application is deployed, resiliency in application code is beyond the
 
 #### Prioritize the reliability assurances per user flow
 
-In most designs, there are multiple user flows, each with its own set of business requirements. Not all of these flows require the highest level of assurances, so segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't impact others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
+In most designs, there are multiple user flows, each with its own set of business requirements. Not all of these flows require the highest level of assurances, so segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't affect others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
 
 In this architecture, application tiers implement the segmentation. Separate scale sets are provisioned for the front-end and back-end tiers. This separation enables independent scaling of each tier, allowing for implementation of design patterns based on their specific requirements, among other benefits.
 
@@ -410,11 +410,11 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 **Composite SLO: 99.34% | Downtime per year: 2d 9h 42m 18s**
 
-In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage impact the overall reliability.
+In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
 There are some challenges when calculating the composite SLO. It's important to note that different tiers of service might come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
-The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
+The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
 > Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
@@ -424,13 +424,13 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 - Virtual Machine Scale Sets allocates a specified number of instances and distributes them evenly across availability zones and fault domains. This distribution is achieved through the *maximum spread* capability, which we recommend. Spreading VM instances across fault domains makes sure all VMs aren't updated at the same time.
 
-    Consider a scenario where there are three availability zones. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are impacted. Having at least two instances in each zone provides a buffer during upgrades.
+  Consider a scenario where there are three availability zones in your Azure region. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
+- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
 
 - A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
-    All public IPs used in this architecture are zone redundant.
+  All public IPs used in this architecture are zone redundant.
 
 - Azure offers zone-resilient services for better reliability, such as Key Vault.
 

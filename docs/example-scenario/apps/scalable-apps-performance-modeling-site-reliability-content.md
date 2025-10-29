@@ -145,7 +145,7 @@ The measurement period for defining an SLO is very important. It must capture ac
 
 ### Establish a performance governance process
 
-The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that impacts the business.
+The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that affects the business.
 
 Here are the elements of performance governance:
 

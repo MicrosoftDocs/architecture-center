@@ -629,7 +629,7 @@ The web API should also provide a mechanism to return the results of the process
 You can implement a simple polling mechanism by providing a *polling* URI that acts as a virtual resource using the following approach:
 
 1. The client application sends the initial request to the web API.
-2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables) or [Microsoft Azure Cache](/azure/azure-cache-for-redis) and generates a unique key for this entry, possibly in the form of a globally unique identifier (GUID). Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging) as well.
+2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables) or [Azure Managed Redis](/azure/redis/overview) and generates a unique key for this entry, possibly in the form of a globally unique identifier (GUID). Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging) as well.
 3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
    - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
 4. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
