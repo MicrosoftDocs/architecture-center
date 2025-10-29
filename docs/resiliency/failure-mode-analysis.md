@@ -4,7 +4,7 @@ description: Get information about doing a failure mode analysis (FMA) for cloud
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

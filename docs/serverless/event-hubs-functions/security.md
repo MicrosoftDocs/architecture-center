@@ -3,7 +3,7 @@ title: Secure Azure Functions with Event Hubs
 description: Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
 ---

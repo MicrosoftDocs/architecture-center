@@ -4,7 +4,7 @@ description: Reference architecture for a workload that is accessed over a publi
 author: msimecek
 ms.author: msimecek
 ms.date: 09/24/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

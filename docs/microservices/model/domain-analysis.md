@@ -4,7 +4,7 @@ description: This article shows a domain-driven approach to designing microservi
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 02/25/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
