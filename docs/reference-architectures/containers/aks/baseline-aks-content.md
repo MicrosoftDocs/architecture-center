@@ -570,7 +570,7 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
 
 - **Dependent resources**: To achieve the resiliency benefit of using availability zones, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure can cause that service to fail.
 
-    For example, suppose your workload uses a database that isn't zone-resilient. If a failure happens, the AKS node might move to another zone, but the the database doesn't move with the node to that zone, so your workload is disrupted.
+    For example, suppose your workload uses a database that isn't zone-resilient. If a failure happens, the AKS node might move to another zone, but the database doesn't move with the node to that zone, so your workload is disrupted.
 
 For simplicity in this architecture, AKS is deployed to a single region with node pools that span availability zones one, two, and three. Other resources of the infrastructure, such as Azure Firewall and Application Gateway, are also deployed to the same region with multiple zone support. Geo-replication is enabled for Container Registry.
 
@@ -675,7 +675,7 @@ Basic, cluster-level networking metrics are available through native [platform a
 
 The reference implementation uses Azure Monitor, which also collects some network-related metrics. The reference implementation disables directly collecting some network metrics from Azure Monitor, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Container Networking Services ()](/azure/aks/container-network-observability-guide) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Container Networking Services](/azure/aks/container-network-observability-guide) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
