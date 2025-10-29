@@ -570,7 +570,7 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
 
 - **Dependent resources**: To achieve the resiliency benefit of using availability zones, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure can cause that service to fail.
 
-    For example, suppose your database isn't zone-resilient. If a failure happens, the node might move to another zone, but the the database doesn't move with the node to that zone, so your workload is disrupted.
+    For example, suppose your workload uses a database that isn't zone-resilient. If a failure happens, the AKS node might move to another zone, but the the database doesn't move with the node to that zone, so your workload is disrupted.
 
 For simplicity in this architecture, AKS is deployed to a single region with node pools that span availability zones one, two, and three. Other resources of the infrastructure, such as Azure Firewall and Application Gateway, are also deployed to the same region with multiple zone support. Geo-replication is enabled for Container Registry.
 
