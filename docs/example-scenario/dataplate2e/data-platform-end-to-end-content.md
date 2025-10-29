@@ -300,8 +300,6 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 ### Platform services
 
-To improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
-
 Microsoft Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) to help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are built around four levels of deployment: Tenant, Capacity, Workspace, and item. Each pattern offers different trade-offs in terms of scalability, isolation, cost, and operational complexity. 
 
 Following these recommendations, the services below should be considered as part of the design:
