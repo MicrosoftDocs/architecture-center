@@ -180,7 +180,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso would need to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the data platform Microsoft Fabric into the secondary region and redeploy the warehouse.
     - Notes
         - Cross-Region Restore:
-            - You cannot simply restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
+            - You cannot restore a warehouse from one region/workspace to another. Schema must be re-deployed and data must be re-ingested.
             - Microsoft Fabric allows capacity to be paused after restoring. During this paused state, only storage costs are incurred, making it a cost-effective strategy for maintaining a "live" snapshot.
              
 - **Microsoft Fabric – Pipelines**
