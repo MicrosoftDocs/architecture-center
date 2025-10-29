@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -1237,12 +1237,12 @@
 				<text x="17.69" y="390.72" class="st29" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Kubernetes Service (AKS)</text>			</g>
 			<g id="shape1020-437" v:mID="1020" v:groupContext="shape" transform="translate(68.7857,-62.1865)">
 				<title>Sheet.1020</title>
-				<desc>Continuous delivery</desc>
+				<desc>Continuous deployment</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="36.5625" cy="395.883" width="73.13" height="18.2332"/>
 				<rect x="0" y="386.767" width="73.125" height="18.2332" class="st28"/>
 				<text x="11.26" y="392.88" class="st29" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Continuous <tspan
-							x="19.41" dy="1.2em" class="st30">delivery</tspan></text>			</g>
+							x="10.06" dy="1.2em" class="st30">deployment</tspan></text>			</g>
 			<g id="shape1021-441" v:mID="1021" v:groupContext="shape" transform="translate(82.125,-105.258)">
 				<title>Sheet.1021</title>
 				<desc>Deploy</desc>
