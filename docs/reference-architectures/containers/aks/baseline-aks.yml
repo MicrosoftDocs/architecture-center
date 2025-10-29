@@ -4,7 +4,7 @@ metadata:
   description: Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 10/24/2025
+  ms.date: 10/28/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:

@@ -213,7 +213,7 @@ When you're planning the capacity for a user node pool, consider the following r
 
 - Deploy at least two nodes. That way, the workload has a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
-- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses DS4_v2 for the production workload. To lower costs, you can drop the size to DS3_v2, which is the minimum recommendation.  <!-- TODO Verify still valid SKU recs -->
+- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses DS4_v2 for the production workload. To lower costs, you can drop the size to DS3_v2, which is the minimum recommendation.
 
 - Assume that your workload consumes up to 80% of each node when planning capacity for your cluster. The remaining 20% is reserved for AKS services.
 
@@ -272,10 +272,9 @@ Be sure that you include the Microsoft Entra groups for cluster and namespace ac
 
 #### Use Azure RBAC for Kubernetes authorization
 
-<!-- TODO verify my edits here -->
-We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can even assign these roles at the management group, subscription, or resource group scopes. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
+We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can even assign roles at the management group, subscription, or resource group scopes. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
-We don't recommend using Kubernetes native RBAC, [`ClusterRoleBindings`, and `RoleBindings`](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding).
+We don't recommend using Kubernetes native RBAC with [`ClusterRoleBindings` and `RoleBindings`](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding).
 
 For more information, see [Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
 
@@ -334,7 +333,7 @@ The ingress controller is a critical component of the cluster. Consider the foll
 >
 > Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
 >
-> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. Use Application Gateway if you have an application that requires a web application firewall. Also, Application Gateway enables you to do TLS termination. <!-- TODO add AGfC -->
+> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. Use Application Gateway if you have an application that requires a web application firewall. Also, Application Gateway enables you to do TLS termination.
 
 ### Router settings
 
@@ -482,7 +481,7 @@ When setting policies, apply them based on the requirements of the workload. Con
 
 - Do you have requirements that aren't covered by the built-in policies? You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition-preview).
 
-- Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies. <!-- TODO check if there's a CAF link to add -->
+- Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies.
 
 - Do you assign Azure policies to specific scopes? Ensure the *production* policies are also validated against your *preproduction* environment. Otherwise, when deploying to your production environment, you might run into unexpected extra restrictions that you don't account for in preproduction.
 
@@ -630,8 +629,6 @@ Test your solution's reliability through forced failover testing with simulated 
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
-<!-- TODO up to here -->
-
 <a name='monitor-and-collect-metrics'></a>
 
 ## Monitor and collect logs and metrics
@@ -682,7 +679,7 @@ For workloads that are highly sensitive to Transmission Control Protocol (TCP) o
 
 ### Cost optimization for logging
 
-The reference implementation configures the `ContainerLogV2` table to use the Basic plan as a starting point. Microsoft Defender for Containers and the alerts created for the reference implementation don't query this table, so the Basic plan is likely to be cost effective because it reduces ingestion costs. <!-- TODO verify against RI that we still don't query the table in alerts -->
+The reference implementation configures the `ContainerLogV2` table to use the Basic plan as a starting point. Microsoft Defender for Containers and the alerts created for the reference implementation don't query this table, so the Basic plan is likely to be cost effective because it reduces ingestion costs.
 
 As your log volume and query requirements evolve, select the most cost-effective table plan for your needs. If the solution becomes read-intensive, where queries frequently scan table data, the default Analytics plan might be more suitable. The Analytics plan eliminates query charges, which optimizes for scenarios where query activity outweighs ingestion costs. By monitoring usage patterns and adjusting table plans as needed, you can achieve a balance between cost and functionality for your monitoring solution.
 
@@ -867,7 +864,7 @@ Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluste
 
 ### Provision
 
-- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool. <!-- TODO Verify still valid SKU recs -->
+- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool.
 
 - Don't use the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
 
