@@ -4,7 +4,7 @@ description: Learn about Azure API Management features for multitenant solutions
 author: johndowns
 ms.author: pnp
 ms.date: 08/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
  - arb-saas

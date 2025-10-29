@@ -4,7 +4,7 @@ description: Compare Azure data and AI services with those of AWS. Explore the d
 author: johnkoukgit
 ms.author: johnkoukaras
 ms.date: 11/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration

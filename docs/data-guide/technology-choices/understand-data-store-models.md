@@ -3,7 +3,7 @@ title: Understand Data Models
 description: Learn how to evaluate Azure data store models based on workload patterns, scale, consistency, and governance to guide service selection.
 author: claytonsiemens77
 ms.author: csiemens
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.date: 08/21/2025
 ---
