@@ -4,7 +4,7 @@ description: Learn about deployment options for both platform and application la
 author: jtracey93
 ms.author: jatracey
 ms.date: 02/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

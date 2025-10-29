@@ -4,7 +4,7 @@ description: Use Azure Private Link to access PaaS services from a hub-and-spoke
 author: ivapplyr
 ms.author: ivapplyr
 ms.date: 06/24/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 categories:
   - networking

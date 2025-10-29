@@ -3,7 +3,7 @@ title: Resilient design guidance for Event Hubs and Functions
 description: Learn how to develop resilient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
 ---
