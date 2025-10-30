@@ -240,4 +240,4 @@ Principal authors:
 
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
