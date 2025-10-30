@@ -4,7 +4,7 @@ description: Learn why it's important to use an identity as a service (IDaaS) pl
 author: johndowns
 ms.date: 10/05/2024
 ms.author: pnp
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

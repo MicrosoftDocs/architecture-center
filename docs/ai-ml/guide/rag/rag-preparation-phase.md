@@ -4,10 +4,9 @@ description: Learn about what to consider when you gather test documents and que
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 12/15/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # RAG preparation phase

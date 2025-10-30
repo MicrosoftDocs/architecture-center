@@ -179,7 +179,7 @@ File access auditing can be enabled locally and remotely:
 
 ### Scalability and performance
 
-Scalability and performance targets for Azure Files and Azure File Sync depend on various factors like SMB client behavior and network bandwidth. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. Testing your usage pattern helps determine if they meet your needs. For more information, see [Scalability and performance targets for Azure Files and Azure File Sync](/azure/storage/files/storage-files-scale-targets).
+Scalability and performance targets for Azure Files and Azure File Sync depend on various factors like SMB client behavior and network bandwidth. For example, the performance of I/O for a file might be affected by your SMB client's behavior and by your available network bandwidth. Testing your usage pattern helps determine if they meet your needs. For more information, see [Scalability and performance targets for Azure Files and Azure File Sync](/azure/storage/files/storage-files-scale-targets).
 
 ## Contributors
 

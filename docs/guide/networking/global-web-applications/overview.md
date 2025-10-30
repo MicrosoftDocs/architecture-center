@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 10/14/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -47,7 +47,7 @@ With this approach, we will introduce several components and provide guidance th
 
     Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods).
 
-    Traffic Manager can automatically switch your traffic to alternate paths if one route is not available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
+    Traffic Manager can automatically switch your traffic to alternate paths if one route isn't available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
 
     > [!IMPORTANT]
     >
@@ -71,7 +71,7 @@ While this mitigation strategy can make the application be available during plat
 
 - **Financial cost**: When you deploy multiple redundant paths to your application, you need to consider the cost of deploying and running the resources. We provide two example scenarios for different use cases, each of which has a different cost profile.
 
-- **Operational complexity**: Every time you add additional components to your solution, you increase your management overhead. Any change to one component might impact other components.
+- **Operational complexity**: Every time you add additional components to your solution, you increase your management overhead. Any change to one component might affect other components.
 
     Suppose you decide to use new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
 
