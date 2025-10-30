@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build real-time monitoring and observable systems for media 
+  title: Build Real-Time Monitoring and Observable Systems for Media 
   description: Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
   author: ThePedestrian
   ms.author: unathaniel
   ms.date: 06/07/2024
-  ms.topic: concept-article
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-integrations
   ai-usage: ai-assisted
