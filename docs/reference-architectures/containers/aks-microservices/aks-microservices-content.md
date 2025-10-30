@@ -243,7 +243,7 @@ When multiple teams develop and deploy microservices at the same time, AKS RBAC 
 
 #### Authentication and authorization
 
-Microservices can require the consuming services or users to authenticate and authorize access to the microservice by using certificates, credentials, and RBAC mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). Service meshes such as [Istio](/azure/aks/istio-about) also provide authorization and authentication mechanisms for microservices, which include OAuth token validation and token-based routing.
+Microservices can require the consuming services or users to authenticate and authorize access to the microservice by using certificates, credentials, and RBAC mechanisms. Microsoft Entra ID can be used to implement [OAuth 2.0 tokens for authorization](/entra/architecture/auth-oauth2). Service meshes such as [Istio service mesh](/azure/aks/istio-about) also provide authorization and authentication mechanisms for microservices, which include OAuth token validation and token-based routing.
 
 #### Secrets management and application credentials
 
