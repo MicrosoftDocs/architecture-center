@@ -218,7 +218,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy Machine Learning into the secondary region.
     - Notes
-        - While Microsoft manages the Machine Learning infrastructure; the customer manages [the associated resources](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
+        - While Microsoft manages the Machine Learning infrastructure, the customer manages [the associated resources](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
 - **Azure Synapse – Data Explorer Pools**
