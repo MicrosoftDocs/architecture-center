@@ -40,7 +40,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
   
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes platform that delivers managed clusters for deploying and scaling containerized applications. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes platform that delivers managed clusters for deploying and scaling containerized applications. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
 
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni) is a plug-in that enables containers to connect directly to an Azure virtual network. In this architecture, Azure CNI assigns IP addresses from the virtual network to pods. This configuration enables integration with Azure networking services and control over traffic flow.
 
@@ -68,7 +68,7 @@ The following workflow corresponds to the previous diagram:
 
 #### External storage and other components
 
-- [Azure Managed Redis](/azure/redis/overview) is an Azure-managed service that that provides a high-performance, in-memory data store for caching, session storage, and real-time data access. Beyond traditional caching, it includes support for advanced data types and features such as JSON document storage, full-text and vector search, and stream processing. These capabilities make it ideal for accelerating microservices and for powering modern AI scenarios such as retrieval-augmented generation (RAG), intelligent assistants, real-time recommendations, AI Agents, and anomaly detection. In this architecture, the delivery microservice uses Azure Managed Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
+- [Azure Managed Redis](/azure/redis/overview) is an Azure-managed service that provides a high-performance, in-memory data store for caching, session storage, and real-time data access. Beyond traditional caching, it includes support for advanced data types and features such as JSON document storage, full-text and vector search, and stream processing. These capabilities make it ideal for accelerating microservices and for powering modern AI scenarios such as retrieval-augmented generation (RAG), intelligent assistants, real-time recommendations, AI agents, and anomaly detection. In this architecture, the delivery microservice uses Azure Managed Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness during heavy traffic.
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it by using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
 
@@ -114,7 +114,7 @@ API [Gateway Routing](../../../patterns/gateway-routing.yml) is a general [micro
 
 - Aggregating multiple requests into a single request to reduce chatter between the client and the back end
 
-- Offloading functionality like Secure Sockets Layer (SSL) termination, authentication, IP address restrictions, and client rate-limiting or throttling from the back-end services.
+- Offloading functionality like Secure Sockets Layer (SSL) termination, authentication, IP address restrictions, and client rate-limiting or throttling from the back-end services
 
 Ingress controllers simplify traffic ingestion into AKS clusters, improve safety and performance, and save resources. This architecture uses the [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) for ingress control.
 
@@ -196,7 +196,6 @@ When you define resource quotas, all pods created in the namespace must provide 
 The following example shows a pod specification that sets resource quota requests and limits:
 
 ```yml
-
 requests:
   cpu: 100m
   memory: 350Mi
