@@ -1,4 +1,4 @@
-This reference architecture describes several configurations to consider when you run microservices on Azure Kubernetes Service (AKS). This article discusses network policy configuration, pod autoscaling, and distributed tracing across a microservice-based application. This reference architecture assumes Cilium as the node data plane with Azure CNI powered by Cilium for networking and network policy in AKS, providing improved service routing, built-in policy enforcement, and enhanced observability.
+This reference architecture describes several configurations to consider when you run microservices on Azure Kubernetes Service (AKS). This article discusses network policy configuration, pod autoscaling, and distributed tracing across a microservice-based application.
 
 This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which serves as a starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
 
@@ -42,7 +42,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
   - [AKS-managed Microsoft Entra ID for Azure role-based access control (Azure RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
 
-  - [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended networking solution that combines Azure's IP address management with Cilium's eBPF dataplane for enhanced performance, native policy enforcement, and improved observability. In this architecture, it assigns IP addresses from the virtual network to pods while providing built-in network policy capabilities and enhanced traffic visibility.
+  - [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended networking solution to connect directly to an Azure virtual network. In this architecture, it assigns IP addresses from the virtual network to pods while providing built-in network policy capabilities and traffic visibility.
 
   - [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) is a suite of managed networking capabilities for AKS that provides network observability and enhanced in-cluster security:
 
@@ -127,14 +127,12 @@ Multitenant workloads or a single cluster that supports development and testing 
 
 ### Networking and network policy
 
-- **Use Azure CNI powered by Cilium** by default. The eBPF data plane improves service routing performance and supports larger clusters, while Cilium natively enforces Kubernetes NetworkPolicy—no separate policy engine required—and provides richer traffic observability. For configuration guidance, see [Configure Azure CNI powered by Cilium in AKS](/azure/aks/azure-cni-powered-by-cilium).
+Use Azure CNI powered by Cilium. The eBPF data plane has suitable routing performance and supports any size cluster cluster. Cilium natively enforces Kubernetes NetworkPolicy and provides rich traffic observability. For configuration guidance, see [Configure Azure CNI powered by Cilium in AKS](/azure/aks/azure-cni-powered-by-cilium).
 
-- If you require Windows nodes, review Cilium's current **Linux-only** limitation and plan appropriately for mixed OS pools. For more information, see [Azure CNI powered by Cilium limitations](/azure/aks/azure-cni-powered-by-cilium#limitations).
+> [!IMPORTANT]
+> If you require Windows nodes in your microservices architecture, review Cilium's current **Linux-only** limitation and plan appropriately for mixed OS pools. For more information, see [Azure CNI powered by Cilium limitations](/azure/aks/azure-cni-powered-by-cilium#limitations).
 
-- For specific IP address management needs, Azure CNI powered by Cilium supports both **VNet-routed** and **overlay** pod IP models; prefer it over classic CNI unless constrained by legacy requirements. For more information, see [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium).
-
-> [!NOTE]
-> Microsoft's GA announcement highlights scalability and latency benefits from the Azure CNI + Cilium combination for high-scale clusters. For more information, see [Azure CNI with Cilium blog post](https://azure.microsoft.com/blog/azure-cni-with-cilium-most-scalable-and-performant-container-networking-in-the-cloud/).
+For specific IP address management needs, Azure CNI powered by Cilium supports both virtual network-routed and overlay pod IP models. For more information, see [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium).
 
 ### Zero Trust network policies
 
@@ -180,7 +178,7 @@ spec:
 
 For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies). For best practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices).
 
-When you enable [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), Kubernetes NetworkPolicy is enforced by Cilium—avoid installing a separate policy add-on for this reference implementation. For alternative deployments, Azure provides other network policy engines including Azure network policy manager and Calico, but we recommend Cilium as the default network policy engine.
+When you use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), Kubernetes NetworkPolicy is enforced by Cilium. For specialized requirements, Azure provides other network policy engines including Azure network policy manager and Calico, but we recommend Cilium as the default network policy engine.
 
 ### Resource quotas
 
@@ -326,7 +324,7 @@ Azure provides several integrated capabilities for end-to-end visibility:
 
 - [Azure Managed Grafana](/azure/managed-grafana/overview) visualizes metrics and dashboards for clusters and microservices.
 
-[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and Level-7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed service for Prometheus for metrics and Azure Managed Grafana for dashboards. The Cilium eBPF dataplane enhances flow-level visibility and troubleshooting; combined with ACNS and Azure Monitor, this supports end-to-end network observability. This integration enables detection of network bottlenecks, policy misconfigurations, and communication problems that traditional APM might miss.
+[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and Level-7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed service for Prometheus for metrics and Azure Managed Grafana for dashboards. The Cilium eBPF dataplane provides flow-level visibility and troubleshooting; combined with ACNS and Azure Monitor, this supports end-to-end network observability. This integration enables detection of network bottlenecks, policy misconfigurations, and communication problems that traditional APM might miss.
 
 > [!TIP]
 > Combine Advanced Container Networking Services network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
@@ -371,11 +369,9 @@ Consider the following points when you plan for security:
 
 - Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, runtime threat protection, and other security features.
 
-### Networking dataplane and policy engines
+#### Networking dataplane and policy engines
 
 Cilium on AKS is currently supported for Linux nodes and enforces NetworkPolicy in the data plane. Be aware of policy caveats such as `ipBlock` usage with node/pod IPs and that host-networked pods use a host identity (per-pod policies don't apply). Align AKS and Cilium versions with the supported version matrix. For more information, see [Azure CNI powered by Cilium limitations](/azure/aks/azure-cni-powered-by-cilium#limitations).
-
-If you have existing clusters, you can upgrade the dataplane and IPAM configuration, but validate policies and OS pools before migration. For more information, see [Upgrade Azure CNI](/azure/aks/upgrade-azure-cni).
 
 ### Cost Optimization
 
