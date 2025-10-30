@@ -4,7 +4,7 @@ description: Minimize private address space consumption when you build large net
 author: fguerri
 ms.author: fguerri
 ms.date: 04/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

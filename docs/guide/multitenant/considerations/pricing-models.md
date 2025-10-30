@@ -4,7 +4,7 @@ description: This article describes the considerations for planning pricing mode
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/07/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
