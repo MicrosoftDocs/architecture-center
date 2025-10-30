@@ -39,24 +39,18 @@ The services sharing the same environment benefit from:
 
 ### Components
 
-The drone delivery workload uses a series of Azure services in concert with one another.
+This workload uses a series of Azure services in concert with one another.
 
-#### Azure Container Apps
+- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that simplifies container orchestration and management. In this architecture, Container Apps serves as the primary hosting platform for all microservices.
 
-[Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that simplifies container orchestration and management. In this architecture, Container Apps serves as the primary hosting platform for all microservices.
+  The following features replace many of the capabilities of the previous AKS architecture:
 
-The following features replace many of the capabilities of the previous AKS architecture:
-
-- Built-in service discovery
-- Managed HTTP and HTTP/2 endpoints
-- Integrated load balancing
-- Logging and monitoring
-- Autoscaling based on HTTP traffic or events powered by Kubernetes-based Event Driven Autoscaling (KEDA)
-- Application upgrades and versioning
-
-#### External storage and other components
-
-- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service for securely storing and accessing secrets, such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
+  - Built-in service discovery
+  - Managed HTTP and HTTP/2 endpoints
+  - Integrated load balancing
+  - Logging and monitoring
+  - Autoscaling based on HTTP traffic or events powered by Kubernetes-based Event Driven Autoscaling (KEDA)
+  - Application upgrades and versioning
 
 - **[Azure Container Registry](/azure/container-registry/container-registry-intro)** is a managed registry service for storing and managing private container images. In this architecture, it's the source for all container images that are deployed to the Container Apps environment. This is the same registry that was used in the AKS implementation.
 
@@ -65,6 +59,8 @@ The following features replace many of the capabilities of the previous AKS arch
 - **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow microservice. The rest of the services were designed to be invoked via HTTP requests.
 
 - **[Azure Managed Redis](/azure/redis/overview)** is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
+
+- **[Azure Key Vault](/azure/key-vault/general/overview)** is a cloud service for securely storing and accessing secrets, such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
 
 - **[Azure Monitor](/azure/azure-monitor)** is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
 
@@ -219,15 +215,11 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - Integrate with Application Insights and Log Analytics to provide insight into your workload. Use the same log analytics workspace as the rest of your workload's components to keep all workload insights together.
 
-- An important change from the Kubernetes implementation is the shift from managing Kubernetes manifest files, such as defining `Deployment` kubernetes objects. Both the infrastructure, microservices, and their configuration are represented as Azure resources. Microservices are instantiated with their container image, network configuration, and more through your Bicep or Terraform IaC.
+- Use infrastructure-as-code, such as Bicep or Terraform to manage all infrastructure deployments, including the Azure Container Apps environment, container registry, and microservice state stores. Separate the microservice deployment pipelines from the infrastructure pipelines as they often do not share a similar lifecycle. This means your pipeline for Azure infrastructure should deploy all but the container app resources.
 
-  - TODO: If I have 2 or more services that need to be deployed, in Kubernetes I packaged all of that up as a Deployment object (or through even more layers of abstraction, such as a Helm chart) so that I could make sure the deployment worked completely together or failed together.  In ACA, it looks like each service is it's own bicep resource -- which means there is no "succeed together" or "fail together" approach.  Am I missing something?  How do ACA practitioners solve this?
+- Use an imperative approach to creating, updating, and removing container apps from the environment, especially if you'll be dynamically adjusting traffic shifting logic between revisions. Use a [GitHub action](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) or [Azure Pipelines task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureContainerAppsV1) in your deployment workflows. This imperative approach can be based on [yaml](/azure/container-apps/azure-resource-manager-api-spec?tabs=yaml#container-app-examples) app definitions. To minimize health check failures, always make sure your pipeline populates your container registry with the new container image prior to deploying the container app.
 
-  - TODO: In Kubernetes, if I want a service to stop existing, in my next deployment I remove it and k8s will remove it from the cluster.  Using Bicep, how do I remove one service of the ones I have shipped into my environment? E.g. I have Service A, B, and C out there now.  I want to remove B but leave A and C.
-
-  - TODO: I'm sensing a race condition between the bicep and the data plane operation to get the new container into the container registry.  Clearly you need to get the container in first.  First time deployments via IaC seems really weird.  You have to stop doing infra deployments, do some ACR data plane operations, and then pick up where you left off with infra deployments?
-
-    I think I've even seen some repos put a "fake" container into the App during initial deployment to work around this.  That's not guidance, is it?
+  An important change from the Kubernetes implementation is the shift from managing Kubernetes manifest files, such as defining `Deployment` Kubernetes objects. Kubernetes provides an atomic *succeeds together* or *fails together* approach to microservice deployment, through the this manifest object. In Azure Container Apps, each microservice is deployed independently. Your deployment pipelines become responsible for orchestrating any sequencing and rollback strategy necessary to have a safe deployment.
 
 ### Performance Efficiency
 
