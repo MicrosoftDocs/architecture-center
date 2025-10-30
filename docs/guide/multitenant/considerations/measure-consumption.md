@@ -4,7 +4,7 @@ description: This article describes the considerations for measuring the consump
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/12/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

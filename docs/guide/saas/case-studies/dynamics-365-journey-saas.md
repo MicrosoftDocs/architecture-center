@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.date: 10/11/2024
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -72,9 +72,9 @@ However, there are some situations where user counts don't give a good indicatio
 
 ### Identity, authentication, and authorization
 
-Business applications like Dynamics 365 manage high-value business data and automate mission-critical business activities. It's essential to ensure that only authorized users have access to data and the system's actions. By using Microsoft Entra ID, enterprises can manage access to Dynamics 365 with the same tools and platforms that they already use across their IT estate. Customers can take advantage of advanced security features like Conditional Access without more work on our part. The capabilities to secure their Dynamics system continue to evolve with the ongoing investment by Microsoft in the Entra platform.
+Business applications like Dynamics 365 manage high-value business data and automate mission-critical business activities. It's essential to ensure that only authorized users have access to data and the system's actions. By using Microsoft Entra ID, enterprises can manage access to Dynamics 365 with the same tools and platforms that they already use across their IT estate. Customers can take advantage of advanced security features like Conditional Access without more work on our part. The capabilities to secure their Dynamics system continue to evolve with the ongoing investment by Microsoft in the Microsoft Entra platform.
 
-Dynamics 365 assigns users to roles and assigns permissions for specific data and actions to those roles. This approach follows a common pattern for managing authorization beyond the user authentication provided by Entra. This approach also provides the capability for Dynamics 365 to enforce best-practice business requirements like the separation of duties.
+Dynamics 365 assigns users to roles and assigns permissions for specific data and actions to those roles. This approach follows a common pattern for managing authorization beyond the user authentication provided by Microsoft Entra. This approach also provides the capability for Dynamics 365 to enforce best-practice business requirements like the separation of duties.
 
 ### Tenancy model
 
@@ -122,14 +122,14 @@ Customization might not be a requirement for every product, but if a product doe
 
 As you consider your deployment model on Azure, a critical component to consider is your resiliency if there are issues in a dependent service&mdash;for example, a networking issue, a power problem, or the maintenance of a virtual machine. In the on-premises world, where the infrastructure serves a single customer tenant, many customers rely on high availability strategies for each infrastructure component. But when you consider resiliency at cloud scale, high availability is often necessary but not sufficient. With enough scale, failures happen.
 
-A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage impacts a datacenter or an entire availability zone.
+A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage affects a datacenter or an entire availability zone.
 
 To apply this mindset to your own solution, there are some important practices to follow.
 
 - Make sure that you invest in monitoring tools to quickly identify problems. With SaaS, your customers expect you to know about outages and to engage rapidly to restore service.
 - Use platform capabilities like availability zones and zone redundancy if they're appropriate for your service.
 - Design your applications for resiliency at every layer. For example, it's important to also consider other cloud best practices like using [retries](../../../patterns/retry.yml), [circuit breakers](../../../patterns/circuit-breaker.md), and [bulkheads](/azure/architecture/patterns/bulkhead), and adopting asynchronous communication practices. These practices can keep your service healthy even when other services you depend on are under stress.
-- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are impacted.
+- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are affected.
 - When you've implemented capabilities for resiliency, run tests. You never know if your plans and features are complete until you try to use them. It can be useful to exercise your failover processes as part of your normal maintenance activities, which can give you both an approach to maintenance without downtime and a validation of your failover mechanisms.
 
 The [reliability pillar of the Azure Well-Architected Framework](/azure/well-architected/reliability/) provides great guidance on these topics.
@@ -138,7 +138,7 @@ The [reliability pillar of the Azure Well-Architected Framework](/azure/well-arc
 
 Dynamics 365 has evolved into a sophisticated cloud-native architecture, but it's common for ISVs to make more limited *lift-and-shift* transitions from on-premises environments into the cloud. We discussed the model of [defining an MVP](#scoping-an-mvp) to get your SaaS service into customers' hands quickly, which begins the cycle of learning and continuous improvement. But there's a balance. *Lift and shift* should really be *Lift, shift, and adapt*.
 
-Earlier in this article, we discussed [designing for resiliency with availability zones and other cloud best practices](#how-we-designed-dynamics-365-for-resiliency). There are other areas where common on-premises design patterns lead to challenges or higher costs in the cloud, too. For example, in on-premises applications, it's common to store binary large objects in a relational database. For example, you might store a PDF document related to a sales order as part of the sales order in an SQL database. In the on-premises world, this approach simplifies consistency across backups and point-in-time restore functions. However, in the cloud, large objects stored in the database can be costly. Additionally, Azure Storage blobs simplify storing large binary objects, with straightforward logic required to preserve consistent backups.
+Earlier in this article, we discussed [designing for resiliency with availability zones and other cloud best practices](#how-we-designed-dynamics-365-for-resiliency). There are other areas where common on-premises design patterns lead to challenges or higher costs in the cloud, too. For example, in on-premises applications, it's common to store binary large objects in a relational database. For example, you might store a PDF document related to a sales order as part of the sales order in a SQL database. In the on-premises world, this approach simplifies consistency across backups and point-in-time restore functions. However, in the cloud, large objects stored in the database can be costly. Additionally, Azure Storage blobs simplify storing large binary objects, with straightforward logic required to preserve consistent backups.
 
 It's important to think about the things that you *need* to do as part of a cloud transformation. You should do those things that produce a stronger cloud product. But you should also use that as an opportunity to get to market quickly and begin the virtuous cycle of learning and continuous improvement.
 

@@ -4,7 +4,7 @@ description: Learn more about proven practices for running SAP S/4HANA effective
 author: bqtrinh
 ms.author: bentrin
 ms.date: 03/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

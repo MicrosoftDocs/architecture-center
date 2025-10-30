@@ -2,7 +2,7 @@ The Bulkhead pattern is a type of application design that is tolerant of failure
 
 ## Context and problem
 
-A cloud-based application might include multiple services, with each service having one or more consumers. Excessive load or failure in a service will impact all consumers of the service.
+A cloud-based application might include multiple services, with each service having one or more consumers. Excessive load or failure in a service will affect all consumers of the service.
 
 Moreover, a consumer might send requests to multiple services simultaneously, using resources for each request. When the consumer sends a request to a service that is misconfigured or not responding, the resources used by the client's request might not be freed in a timely manner. As requests to the service continue, those resources might be exhausted. For example, the client's connection pool might be exhausted. At that point, requests by the consumer to other services are affected. Eventually the consumer can no longer send requests to other services, not just the original unresponsive service.
 

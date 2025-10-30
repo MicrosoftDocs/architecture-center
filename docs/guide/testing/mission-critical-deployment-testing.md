@@ -4,7 +4,7 @@ description: Guide on performing automated continuous validation in production-l
 author: heoelri
 ms.author: msimecek
 ms.date: 01/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: mission-critical
 ---

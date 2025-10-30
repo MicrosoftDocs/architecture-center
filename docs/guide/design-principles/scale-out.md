@@ -4,7 +4,7 @@ description: Use these recommendations to design your applications for horizonta
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

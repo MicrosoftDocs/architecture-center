@@ -4,7 +4,7 @@ description: Learn about the features of Azure App Configuration that are useful
 author: johndowns
 ms.author: pnp
 ms.date: 09/05/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

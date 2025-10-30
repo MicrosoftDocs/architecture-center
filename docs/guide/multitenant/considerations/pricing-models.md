@@ -4,7 +4,7 @@ description: This article describes the considerations for planning pricing mode
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/07/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -223,7 +223,7 @@ For example, if you introduce a new video upload feature to your solution, which
 
 ## Usage limits
 
-*Usage limits* enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services, where a single tenant can impact the experience of other tenants by over-consuming resources.
+*Usage limits* enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services, where a single tenant can affect the experience of other tenants by over-consuming resources.
 
 > [!NOTE]
 > It's important to make your customers aware that you apply usage limits. If you implement usage limits without making your customers aware of the limit, then it will result in customer dissatisfaction. This means that it's important to identify and plan usage limits ahead of time. The goal should be to plan for the limit, and to then communicate the limits to customers before they become necessary.

@@ -18,7 +18,7 @@ The concepts in this article apply to:
 
 The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use a variety of databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
 
-This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrates the blocks shown in the diagram. The use cases are:
+This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrate the blocks shown in the diagram. The use cases are:
 
 - Product browsing.
 - Registration and login.
@@ -145,7 +145,7 @@ The measurement period for defining an SLO is very important. It must capture ac
 
 ### Establish a performance governance process
 
-The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that impacts the business.
+The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that affects the business.
 
 Here are the elements of performance governance:
 

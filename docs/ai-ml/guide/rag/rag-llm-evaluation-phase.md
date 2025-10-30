@@ -4,10 +4,9 @@ description: Learn about how to evaluate your RAG solution from end to end by ca
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/29/2025 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Large language model end-to-end evaluation

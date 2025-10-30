@@ -4,7 +4,7 @@ description: Understand Kubernetes nodes and node pools, how to handle Azure Kub
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - devx-track-azurecli
