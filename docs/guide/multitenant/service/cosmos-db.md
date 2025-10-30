@@ -4,7 +4,7 @@ description: Learn about features of Azure Cosmos DB that you can use with multi
 author: tarabhatiamsft
 ms.author: tarabhatia
 ms.date: 11/16/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

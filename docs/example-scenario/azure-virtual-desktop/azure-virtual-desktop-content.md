@@ -80,7 +80,7 @@ By using personal desktop solutions, sometimes called *persistent desktops*, use
 Pooled desktop solutions, also called *non-persistent desktops*, assign users to whichever session host is currently available, depending on the load-balancing algorithm. Because users don't always return to the same session host each time they connect, they have limited ability to customize the desktop environment and don't usually have administrator access.
 
 > [!NOTE]
-> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It does not imply that the operating system disk reverts to a golden image or discards changes on reboot.
+> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It doesn't imply that the operating system disk reverts to a golden image or discards changes on reboot.
 
 ## Windows servicing
 
@@ -161,7 +161,7 @@ Consider the following cost-related factors when you deploy Azure Virtual Deskto
 - **Plan multi-session support**: For workloads with identical compute requirements, generally pooled host pools, [Windows Enterprise multi-session](/azure/virtual-desktop/windows-multisession-faq) offers the ability to accept more users to sign in to a single VM at once; reducing costs and administrative overhead.
 - **Optimize licensing**: If you have Software Assurance, you can use [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to reduce the cost of your Azure compute infrastructure.
 - **Pre-purchase compute**: You can commit to one-year or three-year plans, [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), based on your VM usage to receive a discount to significantly reduce your resource cost. This can be combined with Azure Hybrid Benefit for additional savings.
-- **Scale in and out as needed**: If committing to Azure Reservations is not appropriate for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
+- **Scale in and out as needed**: If committing to Azure Reservations isn't appropriate for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
 - **Evaluate load-balancing options**: Configure your host pool load balancing algorithm to depth-first. Be aware however, this can configuration degrades the users experience; the default breadth-first optimized user experience. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
 ### Operational Excellence

@@ -4,7 +4,7 @@ description: Learn about a single deployable set of repeatable and maintainable 
 author: setuc
 ms.author: setuchokshi
 ms.date: 07/03/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ai-usage: ai-assisted

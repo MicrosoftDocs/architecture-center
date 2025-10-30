@@ -6,6 +6,7 @@ author: claytonsiemens77
 ms.reviewer: chkittel
 ms.date: 08/18/2025
 ms.subservice: architecture-guide
+ms.topic: concept-article
 ---
 
 # Download Azure icons to use in architecture diagrams and documentation

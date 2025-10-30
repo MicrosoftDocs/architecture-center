@@ -404,7 +404,7 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 - If you use OneDrive and known folder redirection, the requirement to save data inside the container might disappear.
 
     > [!NOTE]
-    > OneDrive backup is not considered in this article and scenario.
+    > OneDrive backup isn't considered in this article and scenario.
 
 - Unless there's another requirement, backup for the storage in the primary region should be enough. Backup of the disaster recovery environment isn't normally used.
 - For Azure Files share, use [Azure Backup](/azure/backup/azure-file-share-backup-overview).

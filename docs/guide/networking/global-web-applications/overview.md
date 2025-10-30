@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 10/14/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -47,7 +47,7 @@ With this approach, we will introduce several components and provide guidance th
 
     Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods).
 
-    Traffic Manager can automatically switch your traffic to alternate paths if one route is not available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
+    Traffic Manager can automatically switch your traffic to alternate paths if one route isn't available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
 
     > [!IMPORTANT]
     >

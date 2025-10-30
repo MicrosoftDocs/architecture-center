@@ -5,7 +5,7 @@ author: PlagueHO
 ms.author: dascottr
 ms.date: 10/28/2025
 ms.update-cycle: 180-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
