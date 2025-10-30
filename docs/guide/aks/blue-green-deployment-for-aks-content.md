@@ -308,7 +308,7 @@ For an implemented example of a blue-green deployment described in this guide, s
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
 > [!IMPORTANT]
-> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
+> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance are available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
 
 ### Region considerations
 
