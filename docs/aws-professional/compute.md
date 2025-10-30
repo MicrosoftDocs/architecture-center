@@ -4,7 +4,7 @@ description: Compare the compute services in Azure and AWS. Explore the differen
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 06/24/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection:
  - migration

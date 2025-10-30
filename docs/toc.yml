@@ -163,8 +163,8 @@ items:
       items:
       - name: Load balancing options
         href: guide/technology-choices/load-balancing-overview.md
-      - name: VNet peering and VPN gateways
-        href: reference-architectures/hybrid-networking/vnet-peering.yml
+      - name: Virtual network peering, VPN gateways, and spoke-to-spoke communication
+        href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
@@ -471,14 +471,12 @@ items:
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Use Azure Synapse Analytics to design an enterprise BI solution
+      - name: Use Microsoft Fabric to design an enterprise BI solution
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
-      - name: Secure a data lakehouse
-        href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics

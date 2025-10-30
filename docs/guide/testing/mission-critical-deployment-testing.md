@@ -4,7 +4,7 @@ description: Guide on performing automated continuous validation in production-l
 author: heoelri
 ms.author: msimecek
 ms.date: 01/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: mission-critical
 ---
@@ -68,7 +68,7 @@ The pipeline automatically runs a load test, with or without chaos experiments (
 ![Azure DevOps pipeline run with chaos and load testing.](./images/deployment-testing-pipeline-run.png)
 
 > [!NOTE]
-> Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. You notice higher numbers until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
+> Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. Expect higher response times and latency until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
 
 ![Chart showing increased response time during chaos experiment.](./images/deployment-testing-response-time.png)
 

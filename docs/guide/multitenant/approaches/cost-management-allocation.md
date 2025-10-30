@@ -4,7 +4,7 @@ description: Learn about cost management and allocation approaches for multitena
 author: johndowns
 ms.author: pnp
 ms.date: 08/19/2025 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-saas

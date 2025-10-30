@@ -4,7 +4,7 @@ description: Learn about Azure API Management features for multitenant solutions
 author: johndowns
 ms.author: pnp
 ms.date: 08/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
  - arb-saas
@@ -80,7 +80,7 @@ Alternatively, you can identify the tenant by using other methods. The following
 
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain more information about a tenant. To apply this approach, use the [send-request](/azure/api-management/send-request-policy) policy.
 
-   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that impacts back-end lookup.
+   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that affects back-end lookup.
 
 ### Named values
 

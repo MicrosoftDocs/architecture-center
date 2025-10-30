@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-bicep
 ms.author: pnp
 ms.date: 06/14/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.date: 10/11/2024
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -58,7 +58,7 @@ On-premises software revenue is typically recognized at the point that the sales
 
 In the on-premises world of licensed software, the primary focus was revenue. In the cloud, the focus was on usage and customer satisfaction. These metrics became the forward indicators of revenue and revenue growth. We spent effort on minimizing the time to successful deployment, providing visibility of purchased but unused licenses, and maintaining high satisfaction across user and business roles. From the start, our focus has been on creating products that customers love to use. We know from experience that when customers get value from using the product, revenue follows. By prioritizing customer experience and usage, we set the foundations for a successful business strategy.
 
-When you build SaaS, the cost of goods sold (COGS) matters a lot, especially as you scale and your costs grow, too. But it's better to prioritize satisfaction and usage first. If you provide a good customer experience, you can optimize the costs of delivering the service by making more efficient use of your resources and taking advantage of new platform capabilities. If the experience isn't good enough, usage is lower and you have fewer customers to satisfy. So when we review our progress, we focus on three key performance indicators, in order of importance:
+When you build SaaS, the cost of goods sold (COGS) matters a lot, especially as you scale and your costs grow, too. But it's better to prioritize satisfaction and usage first. If you provide a good customer experience, you can optimize the costs of delivering the service by making more efficient use of your resources and taking advantage of new platform capabilities. If the experience isn't good enough, expect usage to drop and have fewer customers to satisfy. So when we review our progress, we focus on three key performance indicators, in order of importance:
 
 - **Customer satisfaction**: Do our customers like the experience of using the product? What's their feedback?
 - **Usage**: How many users do we have? How many subscriptions do we have? Is our usage accelerating? What's the time between purchase and usage? How can we encourage customers to use all the subscriptions they purchase?
@@ -72,9 +72,9 @@ However, there are some situations where user counts don't give a good indicatio
 
 ### Identity, authentication, and authorization
 
-Business applications like Dynamics 365 manage high-value business data and automate mission-critical business activities. It's essential to ensure that only authorized users have access to data and the system's actions. By using Microsoft Entra ID, enterprises can manage access to Dynamics 365 with the same tools and platforms that they already use across their IT estate. Customers can take advantage of advanced security features like Conditional Access without more work on our part. The capabilities to secure their Dynamics system continue to evolve with the ongoing investment by Microsoft in the Entra platform.
+Business applications like Dynamics 365 manage high-value business data and automate mission-critical business activities. It's essential to ensure that only authorized users have access to data and the system's actions. By using Microsoft Entra ID, enterprises can manage access to Dynamics 365 with the same tools and platforms that they already use across their IT estate. Customers can take advantage of advanced security features like Conditional Access without more work on our part. The capabilities to secure their Dynamics system continue to evolve with the ongoing investment by Microsoft in the Microsoft Entra platform.
 
-Dynamics 365 assigns users to roles and assigns permissions for specific data and actions to those roles. This approach follows a common pattern for managing authorization beyond the user authentication provided by Entra. This approach also provides the capability for Dynamics 365 to enforce best-practice business requirements like the separation of duties.
+Dynamics 365 assigns users to roles and assigns permissions for specific data and actions to those roles. This approach follows a common pattern for managing authorization beyond the user authentication provided by Microsoft Entra. This approach also provides the capability for Dynamics 365 to enforce best-practice business requirements like the separation of duties.
 
 ### Tenancy model
 
@@ -122,14 +122,14 @@ Customization might not be a requirement for every product, but if a product doe
 
 As you consider your deployment model on Azure, a critical component to consider is your resiliency if there are issues in a dependent service&mdash;for example, a networking issue, a power problem, or the maintenance of a virtual machine. In the on-premises world, where the infrastructure serves a single customer tenant, many customers rely on high availability strategies for each infrastructure component. But when you consider resiliency at cloud scale, high availability is often necessary but not sufficient. With enough scale, failures happen.
 
-A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage impacts a datacenter or an entire availability zone.
+A core focus area for Dynamics 365 today is targeting redundancy across Azure availability zones to allow the mission-critical Dynamics services to seamlessly continue operating, even if an outage affects a datacenter or an entire availability zone.
 
 To apply this mindset to your own solution, there are some important practices to follow.
 
 - Make sure that you invest in monitoring tools to quickly identify problems. With SaaS, your customers expect you to know about outages and to engage rapidly to restore service.
 - Use platform capabilities like availability zones and zone redundancy if they're appropriate for your service.
 - Design your applications for resiliency at every layer. For example, it's important to also consider other cloud best practices like using [retries](../../../patterns/retry.yml), [circuit breakers](../../../patterns/circuit-breaker.md), and [bulkheads](/azure/architecture/patterns/bulkhead), and adopting asynchronous communication practices. These practices can keep your service healthy even when other services you depend on are under stress.
-- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are impacted.
+- Consider the availability of your control plane, especially because it has a role in the recovery of your solution when infrastructure assets are affected.
 - When you've implemented capabilities for resiliency, run tests. You never know if your plans and features are complete until you try to use them. It can be useful to exercise your failover processes as part of your normal maintenance activities, which can give you both an approach to maintenance without downtime and a validation of your failover mechanisms.
 
 The [reliability pillar of the Azure Well-Architected Framework](/azure/well-architected/reliability/) provides great guidance on these topics.
@@ -138,7 +138,7 @@ The [reliability pillar of the Azure Well-Architected Framework](/azure/well-arc
 
 Dynamics 365 has evolved into a sophisticated cloud-native architecture, but it's common for ISVs to make more limited *lift-and-shift* transitions from on-premises environments into the cloud. We discussed the model of [defining an MVP](#scoping-an-mvp) to get your SaaS service into customers' hands quickly, which begins the cycle of learning and continuous improvement. But there's a balance. *Lift and shift* should really be *Lift, shift, and adapt*.
 
-Earlier in this article, we discussed [designing for resiliency with availability zones and other cloud best practices](#how-we-designed-dynamics-365-for-resiliency). There are other areas where common on-premises design patterns lead to challenges or higher costs in the cloud, too. For example, in on-premises applications, it's common to store binary large objects in a relational database. For example, you might store a PDF document related to a sales order as part of the sales order in an SQL database. In the on-premises world, this approach simplifies consistency across backups and point-in-time restore functions. However, in the cloud, large objects stored in the database can be costly. Additionally, Azure Storage blobs simplify storing large binary objects, with straightforward logic required to preserve consistent backups.
+Earlier in this article, we discussed [designing for resiliency with availability zones and other cloud best practices](#how-we-designed-dynamics-365-for-resiliency). There are other areas where common on-premises design patterns lead to challenges or higher costs in the cloud, too. For example, in on-premises applications, it's common to store binary large objects in a relational database. For example, you might store a PDF document related to a sales order as part of the sales order in a SQL database. In the on-premises world, this approach simplifies consistency across backups and point-in-time restore functions. However, in the cloud, large objects stored in the database can be costly. Additionally, Azure Storage blobs simplify storing large binary objects, with straightforward logic required to preserve consistent backups.
 
 It's important to think about the things that you *need* to do as part of a cloud transformation. You should do those things that produce a stronger cloud product. But you should also use that as an opportunity to get to market quickly and begin the virtuous cycle of learning and continuous improvement.
 
@@ -169,7 +169,7 @@ We learned a lot by operating Dynamics 365 in the cloud for a large and growing 
 
 **Whole-stack view**: In the on-premises world, the application provider is generally responsible for the application component, and the customer owns the underlying infrastructure. In the cloud, you're responsible for the whole stack. If the service has a health issue, the customer looks to you to detect, communicate, and repair, whether the issue is in the application or in the cloud platform it runs on.
 
-**Automate**: If humans must perform manual steps in the operation of the service, they inevitably make mistakes. Every possible action should be automated and logged. If an action is required on enough service nodes, automation is the only option. A great example is the database administration for Dynamics 365. With our decision to keep each tenant’s data in a separate Azure SQL database, we needed to develop automation to handle all the tasks typically performed by a DBA, for example, index maintenance and query optimization. For more information on how we manage databases at scale, see [Running 1M databases on Azure SQL for a large SaaS provider](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/).
+**Automate**: If humans must perform manual steps in the operation of the service, they will inevitably make mistakes. Every possible action should be automated and logged. If an action is required on enough service nodes, automation is the only option. A great example is the database administration for Dynamics 365. With our decision to keep each tenant’s data in a separate Azure SQL database, we needed to develop automation to handle all the tasks typically performed by a DBA, for example, index maintenance and query optimization. For more information on how we manage databases at scale, see [Running 1M databases on Azure SQL for a large SaaS provider](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/).
 
 **Safe deployment**: Wherever possible, changes should follow a safe deployment process. First, changes are introduced to low-risk environments&mdash;for example, a cloud region with only smaller customers or less critical workloads. Next, they progress to a group of slightly larger, more complex customers, and so on, until all customers have been updated. At every step, there needs to be monitoring to evaluate whether the change is successful. If there's an issue, the process should stop the change rollout and mitigate issues, or roll it back where it has already been deployed. Safe deployment practices apply to both code and configuration changes. For more information, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 

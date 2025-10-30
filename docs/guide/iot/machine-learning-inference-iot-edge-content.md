@@ -25,7 +25,7 @@ The solution described in this article can help you in these ways:
 2. Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
 3. The loader module monitors the updates of the module twins via API. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model.
     - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
-    - You can use the **ExpiresOn** property to set the expiration date of resources. If your device is offline for a long time, you can extend the expiration time.
+    - You can use the **ExpiresOn** property to set the expiration date of resources. If your device is expected to be offline for a long time, you can extend the expiration time.
 4. The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
 5. The loader module loads the AI model from local storage via the LiteRT or ONNX API.
 6. The loader module starts a web API that receives the binary photo via POST request and returns the results in a JSON file.

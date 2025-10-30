@@ -4,7 +4,7 @@ description: This article describes the considerations for measuring the consump
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/12/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -51,7 +51,7 @@ In solutions that are primarily API-based, it might make sense to use a consumpt
 User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, might not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference. However, if you only need an approximate idea of each tenant's consumption, it might still be a reasonable choice.
 
 > [!WARNING]
-> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights is not designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
+> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights isn't designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
 
 ## Estimate consumption
 

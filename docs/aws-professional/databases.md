@@ -4,7 +4,7 @@ description: Compare database technology differences between Azure and AWS. Revi
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 06/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
