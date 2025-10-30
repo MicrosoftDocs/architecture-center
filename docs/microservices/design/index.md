@@ -4,7 +4,7 @@ description: Learn how to design and build a microservices architecture on Azure
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---

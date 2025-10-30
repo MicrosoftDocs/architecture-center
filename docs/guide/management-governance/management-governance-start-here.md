@@ -4,7 +4,7 @@ description: Get an overview of Azure management and governance technologies, gu
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/16/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,11 +4,10 @@ description: Learn about the considerations and recommendations for improved sec
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
 ms.custom:
-  - arb-aiml
   - arb-saas
 ---
 

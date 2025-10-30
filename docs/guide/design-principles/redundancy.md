@@ -4,7 +4,7 @@ description: Use these recommendations to avoid having single points of failure,
 author: ckittel
 ms.author: pnp
 ms.date: 07/30/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

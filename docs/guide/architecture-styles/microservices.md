@@ -4,7 +4,7 @@ description: Learn about microservices on Azure. This architectural style builds
 author: RobBagby
 ms.author: robbag
 ms.date: 06/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---
