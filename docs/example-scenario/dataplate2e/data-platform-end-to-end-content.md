@@ -84,7 +84,7 @@ This section explains how to bring data from Azure Databases and platforms like 
 
 6. Enable a conversational interface with Data from Lakehouse or Warehouse using [Fabric Data Agent](/fabric/data-science/concept-data-agent). The interface translates natural language queries into relevant queries.
 
-7. Use [Copilot](/fabric/fundamentals/copilot-fabric-overview) to tranform Natural Language questions into SQL, fix errors and get explanations for SQL queries and assist with Code completion. 
+7. Use [Copilot](/fabric/fundamentals/copilot-fabric-overview) to transform Natural Language questions into SQL, fix errors and get explanations for SQL queries and assist with Code completion. 
 
 #### Cloud based data platform for Dataverse
 
@@ -172,7 +172,7 @@ This section explains how to bring semi-structured and unstructured data in Micr
 
 6. You can build a [Fabric Data Agent](/fabric/data-science/concept-data-agent) a customizable, AI-powered conversational interface that translates natural language queries into actionable insights for your OneLake data. 
 
-7. With [Copilot](/fabric/fundamentals/copilot-fabric-overview), you can streamline data analysis and visualization taska. You can ask questions about lakehouse tables, Pandas and Spark Dataframes directly within notebooks. Copilot responds with natural lanaguage explanations. Business users can use the Copilot pane to ask a question about report content or summarize key insights in seconds or the Copilot section to discover information they have access to.
+7. With [Copilot](/fabric/fundamentals/copilot-fabric-overview), you can streamline data analysis and visualization tasks. You can ask questions about lakehouse tables, Pandas and Spark Dataframes directly within notebooks. Copilot responds with natural lanaguage explanations. Business users can use the Copilot pane to ask a question about report content or summarize key insights in seconds or the Copilot section to discover information they have access to.
 
 
 #### Streaming
@@ -195,7 +195,7 @@ This section explains how to bring high-volume time series, streaming data in Mi
 
 ##### Process
 
-1. Use [KQL Queryset](/fabric/real-time-intelligence/create-query-set) to run write, run, and manage Kusto Query Language (KQL) queries across various real-time data sources. It’s a central tool in the Real-Time Intelligence (RTI) experience, enabling users to explore, analyze, and visualize streaming or time-series data.
+1. Use [KQL Queryset](/fabric/real-time-intelligence/create-query-set) to write, run, and manage Kusto Query Language (KQL) queries across various real-time data sources. It’s a central tool in the Real-Time Intelligence (RTI) experience, enabling users to explore, analyze, and visualize streaming or time-series data.
 
 2. You can use [T-SQL in Microsoft Fabric’s Real-Time Intelligence (RTI)](/kusto/query/t-sql?view=microsoft-fabric&source=recommendations) experience to query streaming data stored in KQL databases. While KQL is the primary language for real-time analytics, Fabric also supports T-SQL for users familiar with SQL-based analytics.
 
@@ -223,7 +223,7 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Microsoft Purview](/azure/purview/overview) is a unified platform for data governance, security, and compliance. In this architecture, Purview governs your entire estate and lineage of data from data source down to the Power BI report.
 
-- [Fabric External data sharing](/fabric/governance/external-data-sharing-overview) is a feature that allows secure, cross-tenant collaboration by allowing users to share data from their Fabric environment with other users in other Fabric Tenant. In this architecture orgganizations can collaborate across tenant boundaries without data duplication.
+- [Fabric External data sharing](/fabric/governance/external-data-sharing-overview) is a feature that allows secure, cross-tenant collaboration by allowing users to share data from their Fabric environment with other users in other Fabric Tenant. In this architecture organizations can collaborate across tenant boundaries without data duplication.
 
 - [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview) is a feature that allows developers to expose and interact with data using GraphQL query language. In this architecture, it allows users to develop data applications.
 
@@ -231,7 +231,7 @@ The following Fabric and Azure services are used in the architecture:
 
 - [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence and data visualization platform that provides business intelligence and visualization. In this architecture, it connects to Fabric OneLake to create dashboards and reports.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is an unified platform-as-a-service for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enriches and enables multi-agent systems where Fabric Data Agents act as domain experts alongside other agents.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified platform-as-a-service for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enrich and enables multi-agent systems where Fabric Data Agents act as domain experts alongside other agents.
 
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2) is an enterprise-grade cloud service for managing the entire machine learning lifecycle—from data preparation and experimentation to model training, deployment, and monitoring. In this architecture, you can also enable users to run Azure ML models using batch endpoints. OneLake shortcuts allow Azure Machine Learning and Fabric to share the same underlying Azure Data Lake Gen2 storage, so both services read/write without duplicating data.
 
@@ -315,7 +315,7 @@ Following these recommendations, the services below should be considered as part
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
 - [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault used to securely access data stores that do not use integrated authentication such as on-premises sources or external sources. 
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. When you configure an [Azure key Vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from Azure Key Vault. These credentials are used to securely access data stores that do not support integrated authentication, such as on-premises or external sources. 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops) and [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance with your Fabric workload development and deployment pipelines for seamless version control, collaboration, and lifecycle management.
 - [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
