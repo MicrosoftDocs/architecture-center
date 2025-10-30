@@ -104,7 +104,7 @@ When you peer virtual networks in different subscriptions, you can associate the
 
 #### Azure landing zones
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, the hub's shared resources and network is managed by a centralized platform team, while spokes share a co-ownership model with the platform team and the workload team that is using the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, a centralized platform team manages the hub's shared resources and network, while spokes share a co-ownership model with the platform team and the workload team that uses the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
 
 ### Virtual network subnets
 
