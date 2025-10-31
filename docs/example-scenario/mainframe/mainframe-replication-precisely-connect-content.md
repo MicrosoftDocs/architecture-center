@@ -124,7 +124,7 @@ Principal author:
 
 - [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan) | Senior Engineering Architect
 
-Contributors:
+Other contributors:
 
 - [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Solution Engineer
 
