@@ -133,7 +133,7 @@ When you can identify the failure points that can affect your application, you c
 
 You can take one of the following actions:
 
-- Apply a graceful degradation of the app's services and features, as described in the [Well-Arcchitected Framework documentation](/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1).
+- Apply a graceful degradation of the app's services and features, as described in the [Well-Architected Framework documentation](/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1).
 - Create an eco-mode version of your application. Eco mode is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features. You can revert to this version during carbon emission spikes. You can also simply train your end users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.
 
 - If you choose to involve your users, you create an opportunity to drive a cultural change along with the technical one:
@@ -153,7 +153,7 @@ For additional security, you can use Azure Virtual Network service endpoints to 
 
 With this approach, you create a virtual network in Azure and then create private service endpoints for Azure services. Those services are then restricted to traffic from that virtual network. You can also reach them from your on-premises network via a gateway.
 
-Keep in mind that, in order to move data from on-premises into Azure Storage, you need to allow public IP addresses from on-premises or Azure ExpressRoute. For details, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services).
+Keep in mind that, in order to move data from on-premises into Azure Storage, you need to allow public IP addresses from on-premises or Azure ExpressRoute. For more information, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services).
 
 For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
 

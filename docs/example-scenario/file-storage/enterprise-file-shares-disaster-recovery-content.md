@@ -18,7 +18,7 @@ This architecture applies to businesses that want to provide file shares for cli
 - There are two Azure regions, a primary and a secondary.
 - The Azure subscription includes a virtual network and an Azure NetApp Files account for each region.
 - The  cross-region replication feature of Azure NetApp Files replicates the files and folders from the primary region to the secondary region. This technique doesn't need virtual machines.
-- Access to the file shares is managed by DFS Namespaces, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
+- DFS Namespaces manages access to the file shares, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
 - The Windows servers and Active Directory Domain servers can be hosted on Azure or on-premises.
 
 ### Components
@@ -49,7 +49,7 @@ Replicating to a second region increases availability by protecting against regi
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For details, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For more information, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
 

@@ -26,7 +26,7 @@ This section provides a brief summary of the tactical DDD patterns. If you're fa
 
 The purpose of an aggregate is to model transactional invariants. Things in the real world have complex webs of relationships. Customers create orders, orders contain products, products have suppliers, and so on. If the application modifies several related objects, how does it guarantee consistency? How do we keep track of invariants and enforce them?
 
-Traditional applications have often used database transactions to enforce consistency. In a distributed application, however, that's often not feasible. A single business transaction may span multiple data stores, or may be long running, or may involve third-party services. Ultimately it's up to the application, not the data layer, to enforce the invariants required for the domain. That's what aggregates are meant to model.
+Traditional applications have often used database transactions to enforce consistency. In a distributed application, however, that's often not feasible. A single business transaction might span multiple data stores, or might be long running, or might involve third-party services. Ultimately it's up to the application, not the data layer, to enforce the invariants required for the domain. That's what aggregates are meant to model.
 
 > [!NOTE]
 > An aggregate might consist of a single entity, without child entities. What makes it an aggregate is the transactional boundary.

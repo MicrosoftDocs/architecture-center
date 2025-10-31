@@ -4,7 +4,7 @@ description: Learn about the triage step in which you examine the health of Azur
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -64,7 +64,7 @@ In the dashboard, select **Node conditions** to see metrics about the health and
 
 ### Monitor managed service for Prometheus and Azure Managed Grafana
 
-You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://aka.ms/azureprometheus-mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
+You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://github.com/Azure/prometheus-collector/tree/main/mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
 
 The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
 

@@ -28,7 +28,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
   - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to orchestrate the calls to the backend services and provide connectivity through connectors, reducing the need for custom code.
   - [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. In this solution, API Management provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  Additionally, API Management provides a developer portal for clients to discover and interact with the APIs.
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Entra B2C](/azure/api-management/api-management-howto-aad-b2c).
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Microsoft Entra External ID](/azure/api-management/api-management-howto-entra-external-id).
 
 ## Scenario details
 
@@ -138,7 +138,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-- **Access**. To apply access policies to the resources in a group, you can use [Azure role-based access control (Azure RBAC)][rbac].
+- **Access**. To apply access policies to the resources in a group, you can use [Azure RBAC][rbac].
 
 - **Billing**. You can view rollup costs for the resource group.
 
@@ -150,7 +150,7 @@ Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follo
 
 ##### Staging
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
 
 ##### Workload isolation
 
@@ -248,7 +248,7 @@ You might also be interested in these articles from the Azure Architecture Cente
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [dns]: /azure/dns
 [integration-services]: https://azure.microsoft.com/product-categories/integration
 [logic-apps]: /azure/logic-apps/logic-apps-overview

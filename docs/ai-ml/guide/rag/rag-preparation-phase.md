@@ -4,10 +4,9 @@ description: Learn how to analyze and gather representative content including do
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/10/2025
-ms.topic: conceptual
+ms.topic: conceptual-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # RAG preparation phase

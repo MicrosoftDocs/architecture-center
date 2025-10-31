@@ -40,7 +40,7 @@ The workflow is read left to right, following the flow of data:
 - **Platform** - The foundation upon which the platform is built, that is, Contoso's Azure foundations as described above.
 
 > [!NOTE]
-> For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
+> For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" disaster recovery (DR) strategy based upon an operating cost-minimization approach.
 
@@ -236,7 +236,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Single Region Write with Periodic backup
     - DR uplift options:
-        - Single-region accounts may lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/cosmos-db/high-availability#availability).
+        - Single-region accounts might lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/cosmos-db/high-availability#availability).
         - It's [recommended](/azure/cosmos-db/high-availability#availability) that Azure Cosmos DB accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity.
     - Notes
         - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - *Periodic* and *Continuous.*
@@ -325,7 +325,7 @@ For a DR scenario that calls for redeployment:
 - Datastores will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
     - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test.
     - A redeployed datastore must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for accuracy and completeness.
-        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption or errors may result in an earlier backup being used in place of the latest version available.
+        - Depending on the nature of the backup process, the backup datasets might require validation before being applied. Backup process corruption or errors might result in an earlier backup being used in place of the latest version available.
     - Any delta between the component date/timestamp and the current date should be addressed by reexecuting or replaying the data ingestion processes from that point forward.
     - Once the component's dataset is up to date, it can be introduced into the broader system.
 

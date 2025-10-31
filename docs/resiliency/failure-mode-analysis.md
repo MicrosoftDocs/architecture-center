@@ -4,7 +4,7 @@ description: Get information about doing a failure mode analysis (FMA) for cloud
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -15,7 +15,7 @@ Failure mode analysis (FMA) is a process for building resiliency into a system, 
 Here is the general process to conduct an FMA:
 
 1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
+2. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure? Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
@@ -122,7 +122,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ### Reading or writing to a node fails.
 
-**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client may have other exception types.  For more information, see [Cassandra error handling done right](https://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
+**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client might have other exception types.  For more information, see [Cassandra error handling done right](https://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
 
 **Recovery:**
 
@@ -251,7 +251,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 To detect these errors, catch `System.Data.SqlClient.SqlException` and check the value of `SqlException.Number` for the SQL error code. For a list of relevant error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues][sql-db-errors].
 
-**Recovery**. These errors are considered transient, so retrying may resolve the issue. If you consistently hit these errors, consider scaling the database.
+**Recovery**. These errors are considered transient, so retrying might resolve the issue. If you consistently hit these errors, consider scaling the database.
 
 **Diagnostics**. - The [sys.event_log][sys.event_log] query returns successful database connections, connection failures, and deadlocks.
 

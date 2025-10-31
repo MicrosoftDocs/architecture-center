@@ -25,7 +25,7 @@ This diagram is for the private-facing case:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
-For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For details, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
+For this case, a single Azure DNS instance implements the switching of traffic between the blue and green clusters. This is done by using `A` and `CNAME` records. For more information, see section [T3: Switch traffic to the green cluster](#t3-switch-traffic-to-the-green-cluster).
 
 Application Gateway provides the front ends, which are dedicated to the private endpoints.
 
@@ -272,7 +272,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - Blue-green deployment can be fully automated, like a zero-touch deployment. Usually, an initial implementation has manual triggers to activate the stages. Along the way and with the proper maturity and monitoring features, it's possible to automate the triggers. This means that there's automated testing and specific metrics, SLA, and SLO to automate the triggers.
 - It's important to have dedicated host names for the blue and green clusters and also to have dedicated endpoint configurations on the gateways and load balancers that are in front of the clusters. This is critical to improving the reliability and validity of the deployment of the new cluster. This way, the validation of the deployment happens with the same architecture and configurations of a standard production cluster.
-- Consider a situation in which the AKS clusters are shared resources for multiple applications that are managed by different business units. In such cases it's common that the AKS platform itself is managed by a dedicated team that's responsible for the overall operation and lifecycle of the clusters, and that there are endpoints in the clusters for admin and ops purposes. We suggest that these endpoints have a dedicated ingress controller in the AKS clusters for proper separation of concerns and for reliability.
+- Consider a situation where the AKS clusters are shared resources for multiple applications that different business units manage. It's common that a dedicated team, responsible for the overall operation and lifecycle of the clusters, manages the AKS platform itself, and that there are endpoints in the clusters for admin and ops purposes. We suggest that these endpoints have a dedicated ingress controller in the AKS clusters for proper separation of concerns and for reliability.
 - Blue-green deployment is useful for implementing and testing business continuity and disaster recovery (BC/DR) solutions for AKS and related workloads. In particular, it provides the fundamental structures for managing multiple clusters, including cases in which the clusters are spread among multiple regions.
 - Success with blue-green deployment relies on applying all aspects of the implementation, like automation, monitoring, and validation, not only to the AKS platform, but also to the workloads and apps that are deployed on the platform. Doing this helps you get maximum benefit from blue-green deployment.
 - In the proposed solution there are two Application Gateways per each scenario public and private, so in total four. This decision is to apply blue green deployment at the Azure Application Gateway level it to avoid downtime caused by misconfiguration of the gateways. The main drawback of this decision is the cost, since there are four Application Gateway instances. They run in parallel only in the period of time in which there are relevant changes to the Application Gateway configs, such as WAF policies or a scaling configuration. For further cost optimization you can opt for a single Application Gateway per each scenario, this means two Application Gateway in total. This will require you to move the blue/green logic to the application gateway, instead of Azure Front Door. So instead of Azure Front Door being imperatively controlled, Application Gateway is.
@@ -281,7 +281,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- Blue-green deployment has a direct and positive effect on the availability of the AKS platform and workloads. In particular, it increases availability during the deployment of AKS platform changes. There's little downtime if user sessions are managed well.
+- Blue-green deployment has a direct and positive effect on the availability of the AKS platform and workloads. In particular, it increases availability during the deployment of AKS platform changes. There's little downtime if you manage user sessions well.
 - Blue-green deployment provides coverage for reliability during the deployment because, by default, there's the option to roll back to the previous version of the AKS cluster if something goes wrong in the new cluster version.
 
 ### Cost optimization
@@ -308,7 +308,7 @@ For an implemented example of a blue-green deployment described in this guide, s
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
 > [!IMPORTANT]
-> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
+> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance are available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
 
 ### Region considerations
 
