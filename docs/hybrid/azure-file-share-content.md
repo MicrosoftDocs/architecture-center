@@ -48,7 +48,7 @@ Premium file shares are deployed to FileStorage storage accounts and are stored 
 
 ### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files only allows the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 are unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
