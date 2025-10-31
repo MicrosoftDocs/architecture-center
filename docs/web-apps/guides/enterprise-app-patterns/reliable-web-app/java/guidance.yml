@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Reliable Web App Pattern for Java
-  description: Implement the reliable web app pattern for Java. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
+  description: Implement the reliable web app pattern in Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.
   author: nishanil
   ms.author: nanil
   ms.reviewer: ssumner
@@ -11,6 +11,7 @@ metadata:
   ms.custom:
     - arb-web
     - devx-track-dotnet
+    - sfi-ropc-nochange
   ms.collection:
     - migration
     - onprem-to-azure
@@ -21,7 +22,7 @@ products:
   - azure-app-service
   - azure-front-door
 name: Reliable Web App pattern for Java
-summary: Implement the reliable web app pattern for Java. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
+summary: Implement the reliable web app pattern in Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet-1.1.svg
 content: |
-   [!include[](guidance-content.md)]
+   [!INCLUDE[](guidance-content.md)]

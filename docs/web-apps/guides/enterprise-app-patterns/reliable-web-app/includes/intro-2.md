@@ -7,7 +7,7 @@ ms.topic: include
 
 ## How to implement the Reliable Web App pattern
 
-This article includes architecture, code, and configuration guidance for implementing the Reliable Web App pattern. Use the following links to go to the specific guidance that you need:
+This article provides architecture, code, and configuration guidance for implementing the Reliable Web App pattern. Use the following links to navigate to the specific guidance that you need:
 
 - **[Business context](#business-context):** Align this guidance with your business context and learn to define immediate and long-term goals that drive replatforming decisions.
 
