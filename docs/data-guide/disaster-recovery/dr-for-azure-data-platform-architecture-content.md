@@ -108,14 +108,6 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR uplift options: N/A, Covered as part of the Azure service.
 
-- **Recovery Services Vault**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Microsoft
-    - Contoso SKU selection: Default (geo-redundant storage (GRS))
-    - DR uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/reliability/cross-region-replication-azure).
-    - Notes
-        - While locally redundant storage (LRS) and zone-redundant storage (ZRS) are available, it requires configuration activities from the default setting.
-
 - **Azure DevOps**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
