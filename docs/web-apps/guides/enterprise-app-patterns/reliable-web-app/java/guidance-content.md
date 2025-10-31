@@ -83,15 +83,15 @@ For example, before migration, Contoso Fiber's CAMS web app is an on-premises, m
 
 - *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store based on the Redis software. For example, Contoso Fiber adds Azure Managed Redis for the following reasons:
 
-  - *Speed and volume:* It provides high-data throughput and low latency reads for commonly accessed, slow-changing data.
+  - *Speed and volume:* It provides high-data throughput and low latency reads for frequently accessed, slow-changing data.
 
   - *Diverse supportability:* It's a unified cache location that all instances of the web app can use.
 
   - *External data store:* The on-premises application servers use VM-local caching. This setup doesn't offload frequently accessed data and can't invalidate stale data.
 
-  - *Nonsticky sessions:* The cache lets the web app externalize session state and use nonsticky sessions. Most Java web apps that run on-premises rely on in-memory client-side caching. This approach doesn't scale well and increases the memory footprint on the host. With Azure Managed Redis, you use a fully managed, scalable cache service to improve the scalability and performance of your applications. If you already use a cache abstraction framework (such as Spring Cache), you need only minimal configuration changes to switch from an Ehcache provider to the Redis provider.
+  - *Nonsticky sessions:* The cache lets the web app externalize session state and use nonsticky sessions. Most Java web apps that run on-premises rely on in-memory client-side caching. This approach doesn't scale well and increases the memory footprint on the host. With Azure Managed Redis, you use a fully managed, scalable cache service to improve the scalability and performance of your applications. If you already use a cache abstraction framework, such as Spring Cache, you need only minimal configuration changes to switch from an Ehcache provider to the Redis provider.
 
-- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. For example, Contoso Fiber needs a layer-7 load balancer that can route traffic across multiple regions and a multi-region web app to meet the SLO of 99.9%. The company uses [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, depending on the web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to select the right load balancer. For example, Contoso Fiber needs a layer-7 load balancer that can route traffic across multiple regions and a multiregion web app to meet the SLO of 99.9%. The company uses [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
   - *Global load balancing:* It's a layer-7 load balancer that can route traffic across multiple regions.
 
@@ -137,7 +137,7 @@ For example, before migration, Contoso Fiber's CAMS web app is an on-premises, m
 
   - *Minimal effort:* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
-- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to VMs with enhanced security, without exposing RDP/SSH ports. For example, Contoso Fiber adopts a hub-and-spoke network topology and puts shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. The company uses Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to VMs with enhanced security, without exposing Remote Desktop Protocol/Secure Shell (RDP/SSH) ports. For example, Contoso Fiber adopts a hub-and-spoke network topology and puts shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to enhance network security. The company uses Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
@@ -175,7 +175,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
 - *Cache high-need data:* Apply the Cache-Aside pattern on high-need data to enhance its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after you apply the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation specifies to Spring which methods should have their results cached.
 
-- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Use data volatility and user needs to determine the optimal refresh rate. This practice ensures that the application uses the Cache-Aside pattern to provide both rapid access and current information. The default cache settings might not suit your web application. You can customize these settings in the `application.properties` file or the environment variables. For instance, you can modify the `spring.cache.redis.time-to-live` value (expressed in milliseconds) to control how long data should remain in the cache before it's removed.
+- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Use data volatility and user needs to determine the optimal refresh rate. This practice ensures that the application uses the Cache-Aside pattern to provide rapid access and current information. The default cache settings might not suit your web application. You can customize these settings in the `application.properties` file or the environment variables. For instance, you can modify the `spring.cache.redis.time-to-live` value (expressed in milliseconds) to control how long data should remain in the cache before it's removed.
 
 - *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
@@ -191,7 +191,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
   The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process. It uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This service enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
-  The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code grant](/entra/identity-platform/v2-oauth2-auth-code-flow) to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
+  The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code grant](/entra/identity-platform/v2-oauth2-auth-code-flow) to sign in a user who has a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
 
     ```xml
     <dependency>
@@ -245,7 +245,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
         ...
     ```
 
-  To [integrate with Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure5x#access-a-web-application), the reference implementation uses the [OAuth 2.0 authorization](/entra/identity-platform/v2-oauth2-auth-code-flow) code grant flow. This flow enables a user to sign in with a Microsoft account. The following code snippet shows how to configure the `SecurityFilterChain` to use Microsoft Entra ID for authentication and authorization.
+  To [integrate with Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure5x#access-a-web-application), the reference implementation uses the [OAuth 2.0 authorization](/entra/identity-platform/v2-oauth2-auth-code-flow) code grant flow. This flow enables a user to sign in by using a Microsoft account. The following code snippet shows how to configure the `SecurityFilterChain` to use Microsoft Entra ID for authentication and authorization.
 
     ```java
     @Configuration(proxyBeanMethods = false)
@@ -298,7 +298,7 @@ azd env set APP_ENVIRONMENT prod
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring. You do not need to change any code to use this telemetry. Spring Boot registers several core metrics in Application Insights, like Java virtual machine (JVM), CPU, and Tomcat. Application Insights automatically collects from logging frameworks like Log4j and Logback.
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring. You don't need to change any code to use this telemetry. Spring Boot registers several core metrics in Application Insights, like Java virtual machine (JVM), CPU, and Tomcat. Application Insights automatically collects from logging frameworks like Log4j and Logback.
 
   The reference implementation uses Application Insights, which is enabled via Terraform in the app service's `app_settings` configuration:
 

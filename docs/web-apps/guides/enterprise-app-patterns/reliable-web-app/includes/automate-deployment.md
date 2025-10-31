@@ -8,9 +8,9 @@ Use automation to deploy and update Azure resources and code across all environm
 
 - *Use IaC.* Deploy [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design) by using continuous integration and continuous delivery (CI/CD) pipelines. Azure provides prebuilt [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
 
-- *Use a continuous integration/continuous deployment (CI/CD) pipeline.* Use a CI/CD pipeline to deploy code from source control to your various environments, such as test, staging, and production. Use Azure Pipelines if you're working with Azure DevOps. Use GitHub Actions for GitHub projects.
+- *Use a continuous integration/continuous deployment (CI/CD) pipeline.* Use a CI/CD pipeline to deploy code from source control to your various environments, such as test, staging, and production. Use Azure Pipelines if you work with Azure DevOps. Use GitHub Actions for GitHub projects.
 
-- *Integrate unit testing.* Prioritize the execution and passing of all unit tests within your pipeline before any deployment to App Services. Incorporate code quality and coverage tools like SonarQube to achieve comprehensive testing coverage.
+- *Integrate unit testing.* Prioritize running and validating all unit tests within your pipeline before any deployment to App Services. Incorporate code quality and coverage tools like SonarQube to achieve comprehensive testing coverage.
 
 - *Adopt mocking frameworks.* For testing that involves external endpoints, use mocking frameworks. These frameworks enable you to create simulated endpoints. They eliminate the need to configure real external endpoints and ensure uniform testing conditions across environments.
 
