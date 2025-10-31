@@ -165,7 +165,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region might result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
           
-- **Microsoft Fabric – Onelake**
+- **Microsoft Fabric – OneLake**
    - Contoso SKU selection: Fabric Storage
     - DR impact
         - Azure datacenter failure: N/A
