@@ -2,10 +2,10 @@
 
 ## Why use the Reliable Web App pattern for Java?
 
-The Reliable Web App pattern is a set of principles and implementation techniques that define how to replatform web apps when you migrate them to the cloud. It emphasizes minimal code updates to ensure success in the cloud. This guidance uses a reference implementation as a consistent example throughout. It follows the replatforming journey of the fictional company Contoso Fiber to provide business context for your own migration. Before implementing the Reliable Web App pattern for Java, Contoso Fiber operates a monolithic, on-premises Customer Account Management System (CAMS) built with the Spring Boot framework.
+The Reliable Web App pattern is a set of principles and implementation techniques that define how to replatform web apps when you migrate them to the cloud. It emphasizes minimal code updates to ensure success in the cloud. This guidance uses a reference implementation as a consistent example throughout. It follows the replatforming journey of the fictional company Contoso Fiber to provide business context for your own migration. Before Contoso Fiber implements the Reliable Web App pattern for Java, it operates a monolithic, on-premises Customer Account Management System (CAMS) built with the Spring Boot framework.
 
 > [!TIP]
-> ![GitHub logo.](../../../../../_images/github.svg) The [reference implementation](https://github.com/azure/reliable-web-app-pattern-java) (sample) of the Reliable Web App pattern represents the final state of a completed implementation. This production-grade web app includes all the code, architecture, and configuration updates described in this article. You can deploy and explore the reference implementation to help guide your own adoption of the Reliable Web App pattern.
+> ![GitHub logo.](../../../../../_images/github.svg) The [reference implementation](https://github.com/azure/reliable-web-app-pattern-java) (sample) of the Reliable Web App pattern represents the final state of a completed implementation. This production-grade web app includes all the code, architecture, and configuration updates described in this article. Deploy and use the reference implementation to help guide your own implementation of the Reliable Web App pattern.
 
 [!INCLUDE [intro 2](../includes/intro-2.md)]
 
@@ -171,9 +171,9 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache:* To enable caching, add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. This package provides default configurations for Redis cache.
+- *Configure the application to use a cache.* To enable caching, add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. This package provides default configurations for Redis cache.
 
-- *Cache high-need data:* Apply the Cache-Aside pattern on high-need data to enhance its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after you apply the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation specifies to Spring which methods should have their results cached.
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to enhance its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after you apply the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation specifies to Spring which methods should have their results cached.
 
 - *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Use data volatility and user needs to determine the optimal refresh rate. This practice ensures that the application uses the Cache-Aside pattern to provide rapid access and current information. The default cache settings might not suit your web application. You can customize these settings in the `application.properties` file or the environment variables. For instance, you can modify the `spring.cache.redis.time-to-live` value (expressed in milliseconds) to control how long data should remain in the cache before it's removed.
 
