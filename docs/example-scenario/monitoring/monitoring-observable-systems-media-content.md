@@ -3,7 +3,7 @@ This architecture describes a solution that provides near real-time monitoring a
 ## Architecture
 
 :::image type="complex" source="media/monitor-media.png" alt-text="Diagram that shows an architecture that provides near real time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.png" border="false":::
-
+The diagram shows two data flows. On the left, users connect to client devices by using players that generate telemetry via HTTP triggers (step 1). The data flows into Azure where it's processed by a function to collect device telemetry (step 2). The data routes through Azure Event Hubs to Azure Blob Storage (step 2) and Azure Event Grid. Event Hubs also points to a transform and write function app. The processed data flows to the transform and write function app, then to Azure Data Explorer (step 3), and finally to Grafana (step 4). Event Hubs also connects to Metrics Advisor (step 5). The transform and write function app connts to Metrics Advisor via dashed line labeled webhook for alerts. In the second data flow, applications and services on the left connect via telemetry and connectors to Blob Storage or Event Hubs (step 1). This flow goes directly to Blob Storage. All Azure services reside within a blue dashed border that represents the Azure cloud environment.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring.vsdx) of this architecture.*
