@@ -9,7 +9,6 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
-  
 If you prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 
 ### Workflow
@@ -77,7 +76,6 @@ The following workflow corresponds to the previous diagram:
 - [Key Vault](/azure/key-vault/general/overview) is an Azure-managed service that securely stores and manages secrets, keys, and certificates. In this architecture, Key Vault stores credentials used by microservices to access Azure Cosmos DB and Azure Managed Redis.
 
 - [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) is an Azure-managed observability platform that collects metrics, logs, and telemetry across services. In this architecture, it enables monitoring of the application, alerting, dashboarding, and root cause analysis for failures across AKS and integrated services.
-  
   **Container network observability for Advanced Container Networking Services** uses Hubble for flow visibility and Retina for curated network telemetry. These tools integrate with managed observability back ends, such as Azure Monitor managed service for Prometheus and Azure Managed Grafana, for troubleshooting and service-level objective (SLO) reporting.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus serves as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
@@ -167,6 +165,7 @@ spec:
 ```
 
 For more information about Kubernetes network policies and more examples of potential default policies, see [Network policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies). For best practices for network policies in AKS, see [Use network policies in AKS](/azure/aks/network-policy-best-practices).
+
 Azure provides three network policy engines for [enforcing network policies](/azure/aks/use-network-policies):
 
 - [Cilium for AKS clusters](/azure/aks/azure-cni-powered-by-cilium) that use Azure CNI Powered by Cilium
@@ -402,7 +401,6 @@ Consider the following points when you plan for scalability:
   - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
 
   - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
-  
 - If there's a large number of outbound flows from the microservice, consider using [network address translation (NAT) gateways](/azure/aks/nat-gateway) to avoid source network address translation (SNAT) port exhaustion.
 
 - Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information, see [Add node pools with unique subnets](/azure/aks/create-node-pools#node-pools-with-unique-subnets). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
