@@ -23,6 +23,6 @@ products:
   - azure-front-door
 name: Reliable Web App pattern for Java
 summary: Implement the reliable web app pattern in Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.
-thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet-1.1.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-java.png
 content: |
    [!INCLUDE[](guidance-content.md)]
