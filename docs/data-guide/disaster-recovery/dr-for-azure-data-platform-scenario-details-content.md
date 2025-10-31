@@ -218,13 +218,6 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade).
 
-- **Azure AI services**
-    - Contoso SKU selection: Pay As You Go
-    - DR impact
-        - Azure datacenter failure: N/A
-        - Availability Zone failure: N/A
-        - Azure regional failure: N/A
-
 - **Azure Machine Learning**
     - Contoso SKU selection: General Purpose – D Series instances
     - DR impact
@@ -235,6 +228,17 @@ The following sections present a breakdown of Contoso activity necessary across 
         - While the Machine Learning infrastructure is managed by Microsoft; the [associated resources are managed by the customer](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
+- **Azure AI Foundry**
+    - Contoso SKU selection: Provvisioned Throughput Units(PTUs) or Pay-As-You-Go (PAYG)
+    - DR impact
+        - Azure datacenter failure: Contoso must validate service availability and redeploy AI Foundry resources if necessary.
+        - Availability Zone failure: Contoso should confirm availability and redeploy workloads to another zone within the same region.
+        - Azure regional failure: Contoso would need to redeploy AI Foundry resources into a secondary region to maintain continuity.
+    - Notes
+        - While the AI Foundry platform infrastructure is managed by Microsoft, associated resources such as storage accounts, compute clusters, and networking remain the customer’s responsibility for high availability and disaster recovery.
+        - Microsoft recommends planning for [multi-region deployment](/azure/ai-foundry/how-to/disaster-recovery) and using geo-redundant storage for critical assets to meet RTO/RPO objectives.
+        - Customers should also implement [backup strategies](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery) for custom models, datasets, and configuration artifacts, as these are not automatically replicated across regions.
+      
 - **Microsoft Fabric – Eventhouse**
     - Contoso SKU selection: Fabric Capacity
     - DR impact
@@ -270,16 +274,6 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - [Single-region accounts might lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
-
-- **Azure AI Search**
-    - Contoso SKU selection: Standard S1
-    - DR impact
-        - Azure datacenter failure: Contoso would need to validate availability and redeploy if necessary.
-        - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
-        - Azure regional failure: Contoso would need to redeploy AI Search into the secondary region.
-    - Notes
-        - There's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages).
-        - Implementing multiple AI Search replicas across [availability zones](/azure/search/search-performance-optimization#availability-zones) will address the datacenter outage risk.
 
 - **Azure Data Share**
     - Contoso SKU selection: N/A
