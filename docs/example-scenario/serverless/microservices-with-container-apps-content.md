@@ -106,7 +106,7 @@ The goal of the workload team was to migrate the existing workload to Container 
 
 The workload uses a hybrid approach to managing secrets. Managed identities are used in the services where the change required no code modifications. The Drone Scheduler and Delivery services use user-assigned managed identities with Azure Key Vault to access stored secrets. The remaining services required code changes to adopt managed identities, so those services use secrets provided by the Container Apps environment.
 
-A better approach is to update all code to support managed identities, using the app or job identity instead of environment-provided secrets.
+A better approach is to update all code to support managed identities, using the app or job identity instead of environment-provided secrets. To learn more about workload identities, see [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity).
 
 ### Avoid designs that require single revision mode
 
@@ -116,7 +116,7 @@ If the Service Bus message schema must change, you must drain the bus before dep
 
 ### Consider job-based work
 
-The workflow service is implemented as a long-running container app. However, it should run as a [Job in Azure Container Apps](/azure/container-apps/jobs). A job is a containerized application that runs to completion based on work to be done. Migrating this service to run as an Azure Container Apps job, based on work available in the queue, might be a reasonable approach to explore based on typical queue volume and how finite, parallelizable, and resource optimized the workflow service could be written.
+The workflow service is implemented as a long-running container app. However, it could also run as a [Job in Azure Container Apps](/azure/container-apps/jobs). A job is a containerized application that spins up on demand, runs to completion based on work to be done, then shuts down and frees resources. Jobs can be more economical than continously-running replicas. Therefore, migrating this service to run as an Azure Container Apps job, based on work available in the queue, might be a reasonable approach to explore depending on typical queue volume and how finite, parallelizable, and resource optimized the workflow service could be written. Experiment and verify to ascertain the best approach.
 
 ### Implement ingress control
 
