@@ -54,7 +54,7 @@
 
 - Automate manual operations as much as possible to prevent human error, especially when under pressure. We recommend that you:
 
-  - Adopt resource provisioning through Bicep, Azure Resource Manager templates, or PowerShell scripts.
+  - Adopt resource provisioning through Bicep, Azure Resource Manager templates,  Terraform, or PowerShell scripts.
 
   - Adopt versioning of source code and resource configuration.
 
@@ -119,7 +119,7 @@
 
 - **Relying on Microsoft to do it all**
 
-  Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used.
+  Within the Microsoft Azure services, there's a clear [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility), anchored by the cloud service tier used.
   
   ![Diagram that shows the shared responsibility model.](../images/shared-responsibility-model.png)  
 
