@@ -28,7 +28,7 @@ The services sharing the same environment benefit from:
 
 ### Dataflow
 
-1. **Ingestion service:** Receives client requests, buffers them, and sends them via Azure Service Bus to be handled by the workflow service. This is the only ingress point into the workload.
+1. **Ingestion service:** Receives client requests, buffers them, then publishes them to the Azure Service Bus. This is the only ingress point into the workload.
 1. **Workflow service:** Consumes messages from Azure Service Bus and dispatches them to underlying microservices.
 1. **Package service:** Manages packages. The service maintains its own state in Azure Cosmos DB.
 1. **Drone scheduler service:** Schedules drones and monitors drones in flight. The service maintains its own state in Azure Cosmos DB.
