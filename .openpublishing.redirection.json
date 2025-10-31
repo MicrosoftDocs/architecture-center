@@ -3926,7 +3926,7 @@
     {
       "source_path": "docs/example-scenario/analytics/enterprise-bi-synapse.yml",
       "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
