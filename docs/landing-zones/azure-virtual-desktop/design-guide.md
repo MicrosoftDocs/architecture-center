@@ -4,7 +4,7 @@ description: Learn about the design areas in the Azure landing zone architecture
 author: roarrioj
 ms.author: roarrioj
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

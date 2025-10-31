@@ -4,7 +4,7 @@ description: Understand networking options to help securely access the Kubernete
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

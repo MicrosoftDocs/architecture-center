@@ -4,7 +4,7 @@ description: Understand how to approach architecture when you're working in a st
 author: mootpointer
 ms.author: pnp
 ms.date: 8/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

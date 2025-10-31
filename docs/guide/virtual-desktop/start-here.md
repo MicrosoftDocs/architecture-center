@@ -4,7 +4,7 @@ description: Get an overview of Azure virtual desktop technologies, guidance off
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/29/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 ms.author: arsenv
 ms.date: 05/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: best-practice
 ms.custom:
   - fcp

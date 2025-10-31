@@ -4,10 +4,9 @@ description: Get started with AI. Use high-level architectural types, see Azure 
 author: anaharris-ms
 ms.author: pnp
 ms.date: 01/31/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # AI architecture design

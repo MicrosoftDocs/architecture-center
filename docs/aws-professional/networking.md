@@ -4,7 +4,8 @@ description: Compare the networking options of Azure and AWS. The comparisons co
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 01/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
+ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
  - aws-to-azure

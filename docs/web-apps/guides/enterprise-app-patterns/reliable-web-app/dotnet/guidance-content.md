@@ -104,7 +104,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Git pipeline support.* The source of truth for configuration data needed to be a Git repository. The pipeline needed to update the data in the central configuration store.
     - *Managed identity support.* It supports managed identities to simplify and help secure the connection to the configuration store.
 
-- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but a better security practice is to store secrets in a location that supports RBAC and audit controls. Although [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
+- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but a better security practice is to store secrets in a location that supports Azure role-based access control (Azure RBAC) and audit controls. Although [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
 
     - *Encryption.* It supports encryption at rest and in transit.
     - *Managed identity support.* The application services can use managed identities to access the secret store.
@@ -286,7 +286,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 - *Use platform features.* Minimize the need for custom authentication code by using platform capabilities to authenticate users and access data. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data while writing minimal or no code in your web app.
 
-- *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they have access to only necessary resources and actions.
+- *Enforce authorization in the application.* Use Azure RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they have access to only necessary resources and actions.
 
 [!INCLUDE [User authN and authZ bullet points](../includes/authn-authz-notes.md)]
 
