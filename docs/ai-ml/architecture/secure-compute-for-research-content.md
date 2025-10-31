@@ -12,13 +12,13 @@ The following or dataflow corresponds to the above diagram:
 
 1. Data owners upload datasets into a public blob storage account. They use Microsoft-managed keys to encrypt the data.
 
-2. [Azure Data Factory](/azure/data-factory) uses a trigger that starts copying the uploaded dataset to a specific location, or import path, on another storage account that has security controls. You can only reach the storage account through a private endpoint. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
+2. Fabric Data Factory uses a trigger that starts copying the uploaded dataset to a specific location, or import path, on another storage account that has security controls. You can only reach the storage account through a private endpoint or trusted workspace access. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
 
 3. Researchers access the secure environment through a streaming application by using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
 
 4. The dataset in the secure storage account is presented to the data science virtual machines (VMs) that you provision in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and [Azure Synapse Analytics](/azure/synapse-analytics), which can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models or use Azure Synapse Analytics. At this point, you can create models that meet regulatory guidelines. De-identify all model data by removing personal information.
+5. The secure environment has Azure Machine Learning and Microsoft Fabric, which can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models or use Azure Synapse Analytics. At this point, you can create models that meet regulatory guidelines. De-identify all model data by removing personal information.
 
 6. Models or de-identified data are saved to a separate location on the secure storage, or export path. When you add new data to the export path, you trigger a logic app. In this architecture, the logic app is outside of the secure environment because no data is sent to the logic app. Its only function is to send notifications and start the manual approval process.
 
@@ -47,9 +47,9 @@ Here are the core components that move and process research data.
 
 - [**Azure Blob Storage**](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for storing unstructured data in the cloud. In this architecture, it's the primary storage solution, and it has two instances. The public instance temporarily stores the data that the data owners upload. The public instance also stores de-identified data after it models the data in a separate container. The second instance is private. It receives the training and test datasets from Machine Learning that the training scripts use. Storage is mounted as a virtual drive onto each node of a Machine Learning compute cluster.
 
-- [**Data Factory**](/azure/data-factory/introduction) is a managed cloud service that orchestrates and operationalizes processes to move raw data between systems. In this architecture, it moves data between storage accounts of differing security levels, enforces separation of duties, and manages data flows throughout the secure environment.
+- [**Fabric Data Factory**](/fabric/data-factory) part of Fabric which is a managed cloud service that orchestrates and operationalizes processes to move raw data between systems. In this architecture, it moves data between storage accounts of differing security levels, enforces separation of duties, and manages data flows throughout the secure environment.
 
-- [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Azure Synapse Analytics is also a preferred service to run Apache Spark workloads. In this architecture, it enables advanced analytics and data integration for research datasets that can be accessed through secure, private endpoints.
+- [**Microsoft Fabric**](/fabric/fundamentals/microsoft-fabric-overview) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Fabric is also a preferred service to run Apache Spark workloads. In this architecture, it enables advanced analytics and data integration for research datasets that can be accessed through secure, private endpoints.
 
 - [**Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud. In this architecture, it acts as a jump box that you can use to gain access to the resources in the secure environment. It enables researchers to connect to data science VMs by using streaming applications and a full desktop, as needed. 
 
@@ -142,7 +142,7 @@ Access blob storage through Azure role-based access controls.
 
 Virtual Desktop supports Microsoft Entra authentication to data science VMs.
 
-Data Factory uses managed identity to access data from the blob storage. Data science VMs also use managed identity for remediation tasks.
+Fabric Data Factory uses workspace identity to access data from the blob storage. Data science VMs use managed identity for remediation tasks.
 
 #### Data security
 
@@ -182,13 +182,17 @@ Principal author:
 
 - [Clayton Barlow](https://www.linkedin.com/in/clayton-b-barlow) | Senior Azure Specialist
 
+Other contributors:
+
+- [Tincy Elias](https://www.linkedin.com/in/tincy-elias/) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [What is the data science VM for Linux and Windows?](/azure/machine-learning/data-science-virtual-machine/overview)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What are compute targets in Machine Learning?](/azure/machine-learning/service/concept-compute-target)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Introduction to Data Factory](/azure/data-factory/introduction)
+- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Virtual Desktop?](/azure/virtual-desktop/overview)
 - [Defender for Cloud documentation](/azure/security-center)
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
