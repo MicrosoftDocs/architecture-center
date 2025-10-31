@@ -27,7 +27,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that enables event-driven architectures. In this architecture, Event Grid serves as a reliable event delivery system that listens to events that Blob Storage publishes, such as blob creation or deletion. These events trigger downstream processing through Azure functions, which subscribe to Event Grid notifications. This integration enables responsive, event-driven workflows that support telemetry ingestion and routing within the broader Fabric-based architecture.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/azure-databricks-security) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. In this architecture, Event Hubs serves as the front door, often called an event *ingestor*, for the event pipeline. An event ingestor is a component or service located between event publishers and event consumers. It decouples the production of an eventstream from the consumption of the events.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service that can receive and process millions of events per second. In this architecture, Event Hubs serves as the front door, often called an event *ingestor*, for the event pipeline. An event ingestor is a component or service located between event publishers and event consumers. It decouples the production of an eventstream from the consumption of the events.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service that you can use to run event-triggered code without having to explicitly provision or manage infrastructure. In this architecture, Azure Functions parses and transforms data ingested via HTTP and blob endpoints. The telemetry data routes to eventstreams and eventhouses for scalable transformation and analytics.
 
@@ -66,7 +66,7 @@ Business-critical applications must remain active even during disruptive events 
 - **Active/standby:** Only one node serves as the active or primary node. The other node remains ready to take over if the primary node fails.
 - **Mixed:** Some components or services use the active/active configuration, while others use the active/standby configuration.
 
-Not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. For more information about strategies to implement, depending on how you trigger functions (HTTP versus publish/subscribe), see [Azure Functions geo-disaster recovery](/azure/azure-functions/functions-geo-disaster-recovery).
+Not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. For more information about strategies to implement, depending on how you trigger functions (HTTP versus publish/subscribe), see [Reliability in Azure Functions](/azure/reliability/reliability-functions).
 
 Fabric supports zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to configure it. For more information about cross-region replication for data stored in OneLake, see [Reliability in Fabric](/azure/reliability/reliability-fabric). You can opt in or out of this feature based on your requirements.
 
@@ -96,7 +96,7 @@ To mitigate these problems, use dedicated capacity workspaces on Fabric SKUs. Th
 
 - Supports horizontal scaling of eventstream pipelines to handle concurrent ingestion and transformation workloads
 
-For more information, see [Fabric Real-Time Intelligence documentation](/fabric/real-time-intelligence/overview).
+For more information, see [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview).
 
 ## Contributors
 
@@ -111,7 +111,6 @@ Other contributors:
 
 - [Dilmurod Makhamadaliev](https://www.linkedin.com/in/dilmurod-makhamadaliev) | Software Engineer
 - [Omeed Musavi](https://www.linkedin.com/in/omusavi) | Principal Software Engineer Lead
-- [Ayo Mustapha](https://www.linkedin.com/in/ayo-mustapha) | Principal Technical Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -121,7 +120,7 @@ Other contributors:
 - [Real-Time Intelligence tutorial: Introduction](/fabric/real-time-intelligence/tutorial-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Supplementary code samples](https://github.com/microsoft/fabricrealtimelab)
-- [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services)
+- [Monitor Azure Media Services](/azure/media-services/latest/monitoring/monitor-media-services)
 
 ## Related resource
 
