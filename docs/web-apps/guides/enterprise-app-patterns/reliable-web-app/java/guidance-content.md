@@ -33,7 +33,7 @@ When you move a web app to the cloud, choose Azure services that meet your busin
 
 For example, before migration, Contoso Fiber's CAMS web app is an on-premises, monolithic Java application. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business (LOB) support app and is employee-facing. Contoso Fiber employees use it to manage customer support cases. The app experiences common challenges with scalability and feature deployment. This starting point, along with business goals and SLOs, influences their service choices.
 
-- *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. For example, Contoso Fiber deploys a Spring Boot `jar` file on its on-premises server and wants to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, which makes it a suitable option. Azure Container Apps is also a suitable option for this application. For more information, see [What is Container Apps?](/azure/container-apps/overview) and [Java on Container Apps overview](/azure/container-apps/java-overview/).
+- *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. For example, Contoso Fiber deploys a Spring Boot `jar` file on its on-premises server and wants to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, which makes it a suitable option. Azure Container Apps is also a suitable option for this application. For more information, see [Container Apps overview](/azure/container-apps/overview) and [Java on Container Apps overview](/azure/container-apps/java-overview/).
 
   - *High SLA:* App Service provides a high SLA that meets production requirements.
 
@@ -43,7 +43,7 @@ For example, before migration, Contoso Fiber's CAMS web app is an on-premises, m
 
   - *Autoscaling:* The web app can rapidly scale up, scale down, scale in, and scale out based on user traffic.
 
-- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. For example, Contoso Fiber uses Microsoft Entra ID for the following reasons:
+- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/what-is-entra) as your identity and access management solution. For example, Contoso Fiber uses Microsoft Entra ID for the following reasons:
 
   - *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
 
@@ -189,7 +189,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
 - *Use an identity platform.* Use the [Microsoft identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports applications that use a single Microsoft Entra directory, multiple Microsoft Entra directories from different organizations, and Microsoft identities or social accounts.
 
-  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process. It uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This service enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
+  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide) streamlines this process. It uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This service enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
   The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code grant](/entra/identity-platform/v2-oauth2-auth-code-flow) to sign in a user who has a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
 
@@ -314,7 +314,7 @@ azd env set APP_ENVIRONMENT prod
 
   - [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
   - [Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
-  - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/java-in-process-agent)
+  - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/opentelemetry-enable)
   - [Use Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot)
 
 - *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.

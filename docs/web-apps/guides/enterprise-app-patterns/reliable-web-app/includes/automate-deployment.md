@@ -6,7 +6,7 @@ ms.topic: include
 ---
 Use automation to deploy and update Azure resources and code across all environments. Follow these recommendations:
 
-- *Use IaC.* Deploy [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design) by using continuous integration and continuous delivery (CI/CD) pipelines. Azure provides prebuilt [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
+- *Use IaC.* Deploy [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design) by using continuous integration and continuous delivery (CI/CD) pipelines. Azure provides prebuilt [Bicep, ARM (JSON), and Terraform templates](/azure/templates) for every Azure resource.
 
 - *Use a continuous integration/continuous deployment (CI/CD) pipeline.* Use a CI/CD pipeline to deploy code from source control to your various environments, such as test, staging, and production. Use Azure Pipelines if you work with Azure DevOps. Use GitHub Actions for GitHub projects.
 
