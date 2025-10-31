@@ -64,7 +64,11 @@ The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent.
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance provides near-complete compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns. In this architecture, you can integrate mainframe data with SQL Managed Instance through BMC AMI Cloud Analytics.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a fast and flexible cloud data warehouse that helps you scale, compute, and store data elastically and independently, with a massively parallel processing architecture. In this architecture, you can integrate mainframe data with Azure Synapse Analytics for advanced analytics and data warehousing through BMC AMI Cloud Analytics.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is Microsoft's end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and business intelligence into a single software-as-a-service (SaaS) experience.
+
+  Each Microsoft Fabric tenant is automatically provisioned with a single logical data lake, known as OneLake. Built on Azure Data Lake Storage (ADLS) Gen2, OneLake provides a unified storage layer capable of handling both structured and unstructured data formats. 
+
+  Using [shortcuts](/fabric/onelake/onelake-shortcuts), you can integrate mainframe data with the Fabric Lakehouse or Warehouse for advanced analytics and data warehousing through BMC AMI Cloud Analytics.
 
 - [Storage](/azure/storage/common/storage-introduction) is a comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Storage supports hybrid storage solutions and provides tools for data transfer, sharing, and backup. It also provides scalable backup and archival solutions for the migrated mainframe data. In this architecture, Storage serves as the primary destination for mainframe data transferred by BMC AMI Cloud agents.
 
@@ -74,7 +78,10 @@ Effective monitoring and analysis are essential for maintaining the health and p
 
 - [Azure Monitor](/azure/azure-monitor/) is a comprehensive monitoring service that provides a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes features such as Application Insights, Azure Monitor Logs, and Log Analytics. These features enable proactive monitoring and problem resolution. In this architecture, you can monitor and analyze the metrics during data migration from the mainframe to Storage by using Azure Monitor.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that connect to hundreds of data sources, which simplifies data preparation and drives unplanned analysis. In this architecture, Power BI can access the migrated data in Storage or Azure databases to create interactive reports that provide insights and dashboards.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that connect to hundreds of data sources, which simplifies data preparation and drives unplanned analysis. 
+
+  In this architecture, Power BI serves as the analytical layer, seamlessly connecting to the mainframe migrated data across storage and database systems. Through [ADLS Gen2](/fabric/onelake/create-adls-shortcut) or [Blob Storage](/fabric/onelake/create-blob-shortcut) shortcuts, Power BI leverages the [Direct Lake](fabric/fundamentals/direct-lake-overview) mode to build high-performance semantic models that deliver near real-time insights directly from the data lake. In parallel, data migrated to Azure databases can be consumed using DirectQuery or Import modes, providing flexibility to balance performance, scale, and freshness. Once these semantic models are established, interactive reports and dashboards can be developed using live connections, enabling consistent, governed access to data across the organization.
+
 
 ## Implementation alternatives
 
@@ -107,6 +114,7 @@ Principal author:
 Other contributors:
 - [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Senior Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architect Manager
+- [Raphael Sayegh](https://www.linkedin.com/in/raphael-sayegh/) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
