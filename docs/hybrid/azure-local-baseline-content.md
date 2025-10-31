@@ -103,7 +103,7 @@ Typical use cases for Azure Local include running HA workloads in on-premises or
 
 ## Cluster design choices
 
-It's important to understand the workload performance and resiliency requirements when you design an Azure Local instance. These requirements include recovery time objective (RTO) and recovery point objective (RPO) times, compute, memory, and storage requirements for all workloads that are deployed on the Azure Local instance. Several characteristics of the workload affect the decision-making process:
+Understand workload performance and reliability requirements. For resiliency, understand the expectations for the platform and workloads to continue operating during hardware or node failures. Also define recovery time objective (RTO) and recovery point objective (RPO) for your recovery strategy. Factor in compute, memory, and storage requirements for all workloads deployed on the Azure Local instance. Several characteristics of the workload affect the decision-making process:
 
 - Central processing unit (CPU) architecture capabilities, including hardware security technology features, the number of CPUs, the gigahertz (GHz) frequency (speed), and the number of cores for each CPU socket.
 

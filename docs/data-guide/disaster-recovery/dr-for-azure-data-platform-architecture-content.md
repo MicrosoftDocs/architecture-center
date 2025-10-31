@@ -190,7 +190,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
-    - DR uplift options: An event hub namespace can be created with [availability zones](/azure/event-hubs/event-hubs-geo-dr#availability-zones) enabled. Designing to handle a full region outage is addressed with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+    - DR uplift options: Enable [availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones) for zone-level resilience (continued operation during a single zone failure). For region-wide disruptions add the [geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal) capability to support failover and subsequent recovery procedures.
     - Notes
         - By design, Event Hubs geo-disaster recovery doesn't replicate data, therefore there are several [considerations to keep in mind](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#considerations) for failover and fallback.
 
@@ -199,7 +199,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
     - DR uplift options:
-        - IoT Hub Resiliency can be uplifted by a [cross regional HA implementation](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region).
+    - IoT Hub resilience (continuity during localized faults) can be increased by a [cross regional HA implementation](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region). Cross-region deployment plus failover processes address recoverability.
         - Microsoft provides the following [guidance for HA/DR options](/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option).
     - Notes
         - IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub.
