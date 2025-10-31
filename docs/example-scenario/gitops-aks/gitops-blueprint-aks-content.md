@@ -160,7 +160,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. If a cluster becomes unavailable, GitOps can create a new one quickly. It uses the Git repository as the single source of truth for Kubernetes configuration and application logic. It can create and apply the cluster configuration and application deployment as a scale unit and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern.
+If a cluster becomes unavailable, GitOps should be as part of creating a new cluster. It uses the Git repository as the single source of truth for Kubernetes configuration and application logic. It can create and apply the cluster configuration and application deployment as a scale unit and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern.
 
 ### Security
 

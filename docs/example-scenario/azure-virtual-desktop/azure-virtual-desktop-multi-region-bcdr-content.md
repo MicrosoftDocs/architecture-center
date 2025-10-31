@@ -8,7 +8,7 @@ There are several types of disasters and outages, and each can have a different 
 
 The goals of this guide are to:
 
-- Ensure maximum availability, resiliency, and geo-disaster recovery capability while minimizing data loss for important selected user data.
+- Ensure maximum resiliency and geo-disaster recovery capability while minimizing data loss for important selected user data.
 - Minimize recovery time.
 
 These objectives are also known as the recovery point objective (RPO) and the Recovery Time Objective (RTO).
