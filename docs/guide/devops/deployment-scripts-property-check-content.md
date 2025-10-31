@@ -53,7 +53,7 @@ The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
 
@@ -133,7 +133,7 @@ The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
 

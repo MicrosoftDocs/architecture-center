@@ -4,7 +4,7 @@ description: Explore the benefits, challenges, and best practices for event-driv
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/06/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
 ---

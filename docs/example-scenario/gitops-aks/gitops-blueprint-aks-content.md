@@ -10,7 +10,7 @@ Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and
 
 :::image type="content" source="media/gitops-flux.png" alt-text="Diagram of GitOps with Flux v2, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 1
 
@@ -36,7 +36,7 @@ The data flow for this scenario is:
 
 :::image type="content" source="media/gitops-ci-cd-flux.png" alt-text="Diagram of implementing CI/CD by using GitOps with Flux, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 2
 
@@ -53,7 +53,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 :::image type="content" source="media/gitops-argo-cd.png" alt-text="Diagram of GitOps with Argo CD, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 3
 
@@ -79,7 +79,7 @@ Any repository that's compatible with Git, including Azure DevOps, can serve as 
 
 :::image type="content" source="media/gitops-ci-cd-argo-cd.png" alt-text="Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
 #### Dataflow for scenario 4
 

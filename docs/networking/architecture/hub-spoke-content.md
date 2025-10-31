@@ -104,7 +104,7 @@ When you peer virtual networks in different subscriptions, you can associate the
 
 #### Azure landing zones
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, the hub's shared resources and network is managed by a centralized platform team, while spokes share a co-ownership model with the platform team and the workload team that is using the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, a centralized platform team manages the hub's shared resources and network, while spokes share a co-ownership model with the platform team and the workload team that uses the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
 
 ### Virtual network subnets
 
@@ -163,7 +163,7 @@ There are two main ways to allow spoke virtual networks to communicate with each
 - Communication by using virtual network peering or Virtual Network Manager direct connectivity between spokes. This approach doesn't cause a hop between the two spokes and is recommended for minimizing latency.
 - Private Link could be used to selectively expose individual resources to other virtual networks. For example, exposing an internal load balancer to a different virtual network, without needing to form or maintain peering or routing relationships.
 
-For more information on spoke-to-spoke networking patterns, see [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking).
+For more information about spoke-to-spoke networking patterns, see [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml).
 
 #### Communication through an NVA
 
@@ -286,7 +286,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 For workloads that communicate from on-premises to virtual machines in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to virtual machines in your virtual network from on-premises, bypassing the ExpressRoute virtual network gateway, increasing performance.
 
-For spoke-to-spoke communications that require low-latency, consider configuring [spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking).
+For spoke-to-spoke communications that require low-latency, consider configuring [spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns).
 
 Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, and TCP flows.
 
@@ -328,7 +328,7 @@ Other contributors:
 
 Your architecture might differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
 
-- **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
+- **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
 
 - **Replace Azure Firewall with a custom network virtual appliance (NVA)** - [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)
 
@@ -344,5 +344,5 @@ Explore the following related architectures:
 
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
-- [Spoke-to-spoke networking](../guide/spoke-to-spoke-networking.md)
+- [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

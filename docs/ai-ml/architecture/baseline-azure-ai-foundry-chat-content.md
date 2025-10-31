@@ -243,7 +243,7 @@ To maximize reliability and minimize the blast radius of failures, strictly isol
 
 This separation provides two key benefits:
 
-- It contains failures or performance degradation to a single workload segment, which prevents cascading impacts across unrelated application features.
+- It contains failures or performance degradation to a single workload segment, which prevents cascading effects across unrelated application features.
 
 - It enables you to apply targeted operational processes, such as backup, restore, and failover. These processes are tuned to the specific availability and recovery requirements of the workload flow that uses those resources.
 
@@ -325,9 +325,9 @@ This architecture primarily uses system-assigned managed identities for service-
 
 Connections define how an Azure AI Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
 
-If Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
+If Microsoft Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Azure AI Foundry account so the service can read and write the secrets it manages.
 
-Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
+Use this Key Vault only for Azure AI Foundry. Don't share it with other workload components. All non–Entra ID connections used across all projects in the account store their secrets in this single vault. Additional components in your workload do not need access to these secrets to consume AI Foundry capabilities and shouldn't be granted permission to read or write to this vault unless a clear operational requirement exists or tradeoff is desired.
 
 In this architecture, there are two API key based connections: Application Insights for AI Foundry telemetry and Grounding with Bing Search.
 
@@ -381,7 +381,7 @@ When the chat UI communicates with the agent deployed in Azure AI Foundry, the f
 1. When the agent accesses Azure PaaS services, such as service dependencies, custom knowledge stores, or custom tools, it sends HTTPS requests from the delegated subnet to the private endpoints of those services.
 1. When the agent accesses resources outside the virtual network, including internet-based APIs or external services, it's forced to route those HTTPS requests from the delegated subnet through Azure Firewall.
 
-Private endpoints serve as a critical security control in this architecture by supplementing identity-based security. Because this architecture uses private endpoints and UDRs in your virtual network, the [network security perimeter](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) capability of Azure AI Foundry projects is not supported.
+Private endpoints serve as a critical security control in this architecture by supplementing identity-based security. Because this architecture uses private endpoints and UDRs in your virtual network, the [network security perimeter](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) capability of Azure AI Foundry projects isn't supported.
 
 ##### Ingress to Azure AI Foundry
 
@@ -592,7 +592,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions.
 
-- **Plan for failback.** Azure AI Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the impact, and perform a full switchover when ready.
+- **Plan for failback.** Azure AI Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 

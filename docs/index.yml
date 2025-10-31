@@ -154,9 +154,9 @@ conceptualContent:
         - text: Analytics end-to-end with Azure Synapse 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        - text: Enterprise BI with Azure Synapse Analytics
+        - text: Enterprise BI with Microsoft Fabric
           itemType: architecture
-          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+          url: /azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric
         - text: Near real-time lakehouse data processing
           itemType: architecture
           url: /azure/architecture/example-scenario/data/real-time-lakehouse-data-processing

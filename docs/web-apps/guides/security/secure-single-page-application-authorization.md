@@ -4,7 +4,7 @@ description: Learn how to use Azure API Management to implement a JavaScript sin
 author: irarainey
 ms.author: irarainey
 ms.date: 07/08/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - devx-track-js

@@ -4,7 +4,7 @@ description: Compare big data storage technology options in Azure, including key
 author: nabilshams
 ms.author: nasiddi
 ms.date: 10/04/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

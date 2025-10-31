@@ -4,7 +4,7 @@ description: Learn about compute options, the hosting models for the computing r
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 11/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

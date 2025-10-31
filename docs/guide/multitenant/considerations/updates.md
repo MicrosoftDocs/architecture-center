@@ -4,7 +4,7 @@ description: Learn about update strategies for multitenant solutions, including 
 author: johndowns
 ms.author: pnp
 ms.date: 06/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

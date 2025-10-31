@@ -4,7 +4,7 @@ description: Compare Google Cloud and Microsoft Azure services. Not every Google
 author: ZacharyRiffle
 ms.author: zriffle
 ms.date: 07/11/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
@@ -38,7 +38,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 |NoSQL| [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> | [Azure Table storage](/azure/storage/tables)|A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that's highly available. Supporting flexible data schema and OData-based queries |
 || [Cloud Firestore](https://cloud.google.com/firestore/docs) |[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar |
 ||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing |
-| In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
+| In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Managed Redis](https://azure.microsoft.com/products/managed-redis/) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 
 ### Data warehouse
 
@@ -118,7 +118,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Azure AI Language](https://azure.microsoft.com/services/cognitive-services/text-analytics) | Azure AI Language is a managed service for developing natural language processing applications. Identify key terms and phrases, analyze sentiment, summarize text, and build conversational interfaces. |
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Azure AI services conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | A feature of AI Language that uses natural language understanding (NLU) so people can interact with your apps, bots, and IoT devices.|
 | [Speech-to-Text](https://cloud.google.com/speech-to-text) | [Azure AI services speech to text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Transcribe audio to text in more than 100 languages and variants. Customize models to enhance accuracy for domain-specific terminology. |
-| [AutoML Tables – Structured Data](https://cloud.google.com/automl-tables) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides a visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise is not required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
+| [AutoML Tables – Structured Data](https://cloud.google.com/automl-tables) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides a visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise isn't required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
 | [AutoML Vision](https://cloud.google.com/automl) | [Azure AI Custom Vision](https://azure.microsoft.com/products/ai-services/ai-custom-vision) | Customize and embed computer vision models for specific domains. Example use cases include customer experience, manufacturing, and marketing. No machine learning expertise is required. |
 | [AutoML Video Intelligence](https://cloud.google.com/video-intelligence) | [Azure Video Indexer](https://vi.microsoft.com) | Extract insights from your videos and enrich applications to enhance discovery and engagement. |
 | [Dialogflow](https://cloud.google.com/dialogflow) | [Azure AI Language Question Answering](/azure/ai-services/language-service/question-answering/overview) | Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through a graphical user interface or via REST APIs. |
