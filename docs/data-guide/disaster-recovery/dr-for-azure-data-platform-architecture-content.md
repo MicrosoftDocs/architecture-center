@@ -45,25 +45,27 @@ The workflow is read left to right, following the flow of data:
     - Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
         
 - **Store**
-    - All ingested data is stored in OneLake, Microsoft Fabric's unified data lake.
-    - OneLake supports open formats like Delta, Parquet, and CSV with built-in geo-redundancy and [BCDR option for OneLake](/fabric/onelake/onelake-disaster-recovery).
+    - All ingested data is stored in OneLake, Microsoft Fabric’s unified data lake, which serves as the foundation for all Fabric experiences. OneLake supports open formats such as Delta, Parquet, and CSV, and provides built-in geo-redundancy and [Business Continuity and Disaster Recovery (BCDR) options for OneLake](/fabric/onelake/onelake-disaster-recovery) to ensure durability and resilience. On top of OneLake, Fabric offers specialized services to organize data.
+        - Lakehouse: It ombines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
+        - Data warehouse: It is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It offers high performance for BI and reporting workloads.
+        - Eventhouse: It is designed for real-time event streaming and processing, enabling the ingestion and analysis of time-sensitive data for scenarios such as IoT telemetry and operational monitoring.
+        - Mirrored database: It provides near real-time replication of operational data from sources such as Azure SQL Database or Cosmos DB into OneLake, ensuring analytics are always up to date without complex ETL processes.
       
 - **Process**
-
-    - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
-    - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
-    - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-    - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
+    - Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you need low-code ETL, advanced data engineering, real-time analytics, or embedded business logic, Fabric provides integrated tools that work seamlessly with OneLake. These options ensure that data can be cleansed, enriched, and prepared for analytics or machine learning in a unified environment.
+        - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
+        - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
+        - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
+        - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
       
 - **Serve**
-    - Serve curated data via [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing), or mirrored database endpoints [using SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint).
-    - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) and share with business users.
-    - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in Real-Time Intelligence (RTI) hub in Microsoft Fabric for discovering instant insights from streaming data.
-    - Expose data through [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview) and query multiple data sources quickly and efficiently.
+    - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing raw storage or direct connections.
+    - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) to optimize performance and share governed datasets with business users for self-service analytics.
+    - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in Real-Time Intelligence (RTI) hub in Microsoft Fabricto visualize streaming data and enable instant insights for operational decision-making..
+    - Expose data programmatically via [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), allowing developers to query multiple curated sources efficiently through a single endpoint.
       
 - **Enrich**
-    - Use data science experiences for ML modeling, and Azure ML integration to enrich datasets.
-    - Empower data scientists to train and deploy models directly on Fabric’s unified data foundation with Azure ML, delivering real-time predictive insights seamlessly into analytics experiences for end users.
+    - Leverage Fabric’s integrated data science tools and Azure ML to build, train, and deploy machine learning models directly on its unified data foundation, enabling enriched datasets and real-time predictive insights within analytics experiences.
     - Engage with [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through conversational queries. Leverage Azure AI Foundry integration with the Data Agent to access enterprise data and enable data-driven decision-making.
       
 - **Data share**
@@ -123,6 +125,18 @@ The following tables present a breakdown of each Azure service and component use
         - DevOps Server as the on-premises offering will remain the customer's responsibility for disaster recovery.
         - If third party services (SonarCloud, Jfrog Artifactory, Jenkins build servers for example) are used, they'll remain the customer's responsibility for recovery from a disaster.
         - If IaaS VMs are used within the DevOps toolchain, they'll remain the customer's responsibility for recovery from a disaster.
+
+- **GitHub**
+    - Component recovery responsibility: GitHub (Microsoft)
+    - Workload/configuration recovery responsibility: GitHub (Microsoft
+    - Contoso SKU selection: GitHub Enterprise Cloud
+    - DR uplift options:
+        - Users can take [backups of repositoires](https://docs.github.com/en/enterprise-cloud@latest/repositories/archiving-a-github-repository/backing-up-a-repository) for disaster recovery purposes.
+        - Users can follow [disaster recovery for GitHub Codespaces](https://docs.github.com/en/enterprise-cloud@latest/codespaces/reference/disaster-recovery-for-github-codespaces) and prepare for the possbility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
+    - Notes
+        - GitHub Enterprise Server (self-hosted/on-premises) remains the customer’s responsibility for disaster recovery, including backup and restore of repositories and configuration.
+        - Any third-party integrations (e.g., CI/CD tools, artifact repositories) are the customer’s responsibility for recovery.
+        - If GitHub Actions runners are hosted on customer-managed infrastructure (VMs or containers), their recovery is also the customer’s responsibility.
 
 ### Stateless Foundational Components
 
