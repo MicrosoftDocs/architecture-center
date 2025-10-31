@@ -1,4 +1,4 @@
-This article provides guidance for implementing the Reliable Web App pattern. This pattern describes how to replatform web apps for cloud migration. It provides prescriptive architecture, code, and configuration guidance that's aligned with the principles of the [Azure Well-Architected Framework](/azure/well-architected/).
+[!INCLUDE [intro 1](../includes/intro-1.md)]
 
 ## Why use the Reliable Web App pattern for Java?
 
