@@ -16,7 +16,7 @@ keywords:
 
 # Improper Instantiation antipattern
 
-Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance, and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and may even be counter-productive.
+Sometimes new instances of a class are continually created, when it's meant to be created once and then shared. This behavior can hurt performance and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and might be counter-productive.
 
 ## Problem description
 
@@ -27,7 +27,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
 
-These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
+These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern isn't unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
 
 ```csharp
 public class NewHttpClientInstancePerRequestController : ApiController
@@ -45,9 +45,9 @@ public class NewHttpClientInstancePerRequestController : ApiController
 }
 ```
 
-In a web application, this technique is not scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server may exhaust the number of available sockets, resulting in `SocketException` errors.
+In a web application, this technique isn't scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server might exhaust the number of available sockets, resulting in `SocketException` errors.
 
-This problem is not restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue is not necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
+This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue isn't necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
 
 ```csharp
 public class NewServiceInstancePerRequestController : ApiController
@@ -98,7 +98,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 ## Considerations
 
-- The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class is not shareable (not thread-safe), then this antipattern does not apply.
+- The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class isn't shareable (not thread-safe), then this antipattern doesn't apply.
 
 - The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
 
@@ -106,7 +106,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - Be careful about setting properties on shared objects, as this can lead to race conditions. For example, setting `DefaultRequestHeaders` on the `HttpClient` class before each request can create a race condition. Set such properties once (for example, during startup), and create separate instances if you need to configure different settings.
 
-- Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
+- Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that isn't required might prevent other concurrent users from gaining access to the database.
 
 - In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
@@ -157,7 +157,7 @@ The next graph shows a similar test for a controller that creates the custom `Ex
 
 ![Throughput of the sample application creating a new instance of the ExpensiveToCreateService for each request][throughput-new-ExpensiveToCreateService-instance]
 
-This time, the controller does not generate any exceptions, but throughput still reaches a plateau, while the average response time increases by a factor of 20. (The graph uses a logarithmic scale for response time and throughput.) Telemetry showed that creating new instances of the `ExpensiveToCreateService` was the main cause of the problem.
+This time, the controller doesn't generate any exceptions, but throughput still reaches a plateau, while the average response time increases by a factor of 20. (The graph uses a logarithmic scale for response time and throughput.) Telemetry showed that creating new instances of the `ExpensiveToCreateService` was the main cause of the problem.
 
 ### Implement the solution and verify the result
 

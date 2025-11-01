@@ -141,7 +141,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Compared to the baseline architecture, this architecture:
 
-- Aligns with the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+- Aligns with the [mission-critical architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 - Follows the guidance from the mission-critical [reliability](/azure/well-architected/mission-critical/mission-critical-design-principles#reliability) design considerations.
 
@@ -177,7 +177,7 @@ Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [operational excellence](/azure/well-architected/mission-critical/mission-critical-design-principles#operational-excellence) design considerations.
 
-- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#unified-data-sink).
+- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
 
 - Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.
 

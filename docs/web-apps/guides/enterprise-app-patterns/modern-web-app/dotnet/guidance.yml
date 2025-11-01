@@ -6,7 +6,7 @@ metadata:
   ms.author: nanil
   ms.reviewer: ssumner
   ms.date: 10/15/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.category:
   - featured
@@ -18,7 +18,7 @@ azureCategories:
 products:
   - azure-app-service
   - azure-front-door
-  - azure-cache-redis
+  - azure-managed-redis
   - dotnet
 name: Modern Web App pattern for .NET
 summary: Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.

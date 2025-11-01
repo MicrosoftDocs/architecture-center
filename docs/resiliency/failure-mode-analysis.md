@@ -4,7 +4,7 @@ description: Get information about doing a failure mode analysis (FMA) for cloud
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -15,7 +15,7 @@ Failure mode analysis (FMA) is a process for building resiliency into a system, 
 Here is the general process to conduct an FMA:
 
 1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
+2. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure? Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
@@ -122,7 +122,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ### Reading or writing to a node fails.
 
-**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client may have other exception types.  For more information, see [Cassandra error handling done right](https://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
+**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client might have other exception types.  For more information, see [Cassandra error handling done right](https://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
 
 **Recovery:**
 
@@ -251,7 +251,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 To detect these errors, catch `System.Data.SqlClient.SqlException` and check the value of `SqlException.Number` for the SQL error code. For a list of relevant error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues][sql-db-errors].
 
-**Recovery**. These errors are considered transient, so retrying may resolve the issue. If you consistently hit these errors, consider scaling the database.
+**Recovery**. These errors are considered transient, so retrying might resolve the issue. If you consistently hit these errors, consider scaling the database.
 
 **Diagnostics**. - The [sys.event_log][sys.event_log] query returns successful database connections, connection failures, and deadlocks.
 
@@ -390,67 +390,14 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Recovery**. Enable the `Always On` setting in the web app. For more information, see [Run Background tasks with WebJobs][web-jobs].
 
-## Application design
-
-### Application can't handle a spike in incoming requests.
-
-**Detection**. Depends on the application. Typical symptoms:
-
-- The website starts returning HTTP 5xx error codes.
-- Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
-- HTTP queue length grows.
-
-**Recovery:**
-
-- Scale out to handle increased load.
-- Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
-
-  - Implement the [Throttling pattern][throttling-pattern] to avoid overwhelming backend systems.
-  - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at an appropriate pace.
-  - Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
-
-**Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
-
-:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [in GitHub](https://github.com/mspnp/samples/tree/main/Reliability/FailureModeAnalysisSample). It uses [Polly](https://www.pollydocs.org/) for these exceptions:
-
-- 429 - Throttling
-- 408 - Timeout
-- 401 - Unauthorized
-- 503 or 5xx - Service unavailable
-
-### One of the operations in a workflow or distributed transaction fails.
-
-**Detection**. After *N* retry attempts, it still fails.
-
-**Recovery:**
-
-- As a mitigation plan, implement the [Scheduler Agent Supervisor][scheduler-agent-supervisor] pattern to manage the entire workflow.
-- Don't retry on timeouts. There's a low success rate for this error.
-- Queue work, in order to retry later.
-
-**Diagnostics**. Log all operations (successful and failed), including compensating actions. Use correlation IDs, so that you can track all operations within the same transaction.
-
-### A call to a remote service fails.
-
-**Detection**. HTTP error code.
-
-**Recovery:**
-
-1. Retry on transient failures.
-2. If the call fails after *N* attempts, take a fallback action. (Application specific.)
-3. Implement the [Circuit Breaker pattern][circuit-breaker] to avoid cascading failures.
-
-**Diagnostics**. Log all remote call failures.
-
 ## Next steps
 
-See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resiliency) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
+See [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
 [api-management]: /azure/api-management
 [api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling
-[app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps
 [app-service-configure]: /azure/app-service-web/web-sites-configure
 [app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log
@@ -458,29 +405,24 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [auto-rest-client-retry]: https://github.com/Azure/autorest/tree/main/docs
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
-[azure-log-analytics]: /azure/log-analytics/log-analytics-overview
-[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true
+[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
-[circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
+[circuit-breaker]: /azure/architecture/patterns/circuit-breaker
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
-[new-relic]: https://newrelic.com
-[priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
-[queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
-[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
+[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
 [ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
-[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet&preserve-view=true
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
-[scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics
 [sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-db-errors]: /azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
@@ -490,7 +432,6 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [storage-metrics]: /azure/storage/common/monitor-storage
 [storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
-[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current&preserve-view=true
-[throttling-pattern]: /previous-versions/msp-n-p/dn589798(v=pandp.10)
+[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
 [web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

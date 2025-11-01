@@ -4,7 +4,7 @@ description: Learn about compute options, the hosting models for the computing r
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 11/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -122,5 +122,5 @@ Consider the following factors when you choose between an orchestrator approach 
 
 - [Design interservice communication for microservices](./interservice-communication.yml)
 - [Use domain analysis to model microservices](../model/domain-analysis.md)
-- [Design a microservices architecture](index.yml)
+- [Design a microservices architecture](index.md)
 - [Design APIs for microservices](../design/api-design.yml)

@@ -37,7 +37,7 @@ These constraints can apply to the following examples:
 
 ### Connect directly to Azure OpenAI
 
-If the client applications in these scenarios directly connect to Azure OpenAI without using a gateway, they must use key-based authentication to authenticate to Azure OpenAI. Key-based authentication introduces extra security concerns. You must securely store and rotate keys, and you can't give different clients role-based access control (RBAC) configurations for individual model deployments.
+If the client applications in these scenarios directly connect to Azure OpenAI without using a gateway, they must use key-based authentication to authenticate to Azure OpenAI. Key-based authentication introduces extra security concerns. You must securely store and rotate keys, and you can't give different clients Azure role-based access control (Azure RBAC) configurations for individual model deployments.
 
 ### Introduce a gateway
 
@@ -93,7 +93,7 @@ Azure OpenAI doesn't natively support client certification authentication. To su
 
 ### Introduce a gateway
 
-:::image type="content" source="_images/azure-openai-gateway-identity-solution-client-certificates.svg" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.svg" alt-text="Diagram that shows a gateway between clients and Azure OpenAI that uses a managed identity with RBAC." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-client-certificates.svg" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.svg" alt-text="Diagram that shows a gateway between clients and Azure OpenAI that uses a managed identity with Azure RBAC." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -208,7 +208,7 @@ When client applications connect directly to multiple Azure OpenAI instances, ea
 
 ### Introduce a gateway
 
-:::image type="content" source="_images/azure-openai-gateway-identity-solution-multiple-services.svg" lightbox="_images/azure-openai-gateway-identity-solution-multiple-services.svg" alt-text="Diagram of a gateway with a single key to a client application and managed identity authentication to Azure OpenAI with RBAC." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-multiple-services.svg" lightbox="_images/azure-openai-gateway-identity-solution-multiple-services.svg" alt-text="Diagram of a gateway with a single key to a client application and managed identity authentication to Azure OpenAI with Azure RBAC." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-authentication.vsdx) of this architecture.*
 
@@ -280,7 +280,7 @@ Principal authors:
 
 ## Next steps
 
-- [RBAC for Azure OpenAI](/azure/ai-services/openai/how-to/role-based-access-control)
+- [Azure RBAC for Azure OpenAI](/azure/ai-services/openai/how-to/role-based-access-control)
 - [Use managed identities in API Management](/azure/api-management/api-management-howto-use-managed-service-identity)
 - [Policies in API Management](/azure/api-management/api-management-howto-policies)
 - [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview)

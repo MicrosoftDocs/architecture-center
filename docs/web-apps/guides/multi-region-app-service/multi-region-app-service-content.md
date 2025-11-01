@@ -106,7 +106,7 @@ In an active-passive architecture, identical web apps are deployed in two separa
 **During a faulty region recovery (failback)**, Azure Front Door automatically directs traffic back to the primary region, and the architecture is back to active-passive as before.
 
    >[!NOTE]
-   >You may need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
+   >You might need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ### Recommendations
 
@@ -123,9 +123,9 @@ In an active-passive architecture, identical web apps are deployed in two separa
 
     - **Preferred:** The secondary App Service plan has the same pricing tier as the primary, with the same number of instances or fewer. This approach ensures parity in both feature and VM sizing for the two App Service plans. The RTO during a geo-failover only depends on the time to scale out the instances.
 
-    - **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity may require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+    - **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region might be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity might require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
 
-    - **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two may cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+    - **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region might be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two might cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
 
 - **Autoscale** should be configured in the secondary region in case traffic is redirected and there's a sudden influx of requests. It’s advisable to have similar autoscale rules in both active and passive regions.
 
@@ -135,7 +135,7 @@ In an active-passive architecture, identical web apps are deployed in two separa
 
 Follow these steps to create an active-passive approach for your web apps by using App Service: 
 
-1. Create two App Service plans in two different Azure regions. The secondary App Service plan may be provisioned using one of the approaches mentioned previously.
+1. Create two App Service plans in two different Azure regions. The secondary App Service plan might be provisioned using one of the approaches mentioned previously.
 
 1. Configure autoscaling rules for the secondary App Service plan so that it scales to the same instance count as the primary when the primary region becomes inactive.
 
@@ -221,7 +221,7 @@ The steps to create a passive-cold region for your web app in App Service are as
 
 1. Enable RA-GRS or RA-GZRS (read access for the secondary region).
 
-1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You may decide to set a schedule for your web app backups, such as hourly.
+1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You might decide to set a schedule for your web app backups, such as hourly.
 
 1. Verify that the web app backup files can be retrieved in the secondary region of your storage account.
 
@@ -231,7 +231,7 @@ The steps to create a passive-cold region for your web app in App Service are as
 
 1. Create an Azure storage account in the same region as your web app. Choose Standard performance tier and select redundancy as zone-redundant storage (ZRS) if it's available.
 
-1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You may decide to set a schedule for your web app backups, such as hourly.
+1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You might decide to set a schedule for your web app backups, such as hourly.
 
 1. Create a second Azure storage account in a different region. Choose Standard performance tier and select redundancy as locally redundant storage (LRS).
 

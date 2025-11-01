@@ -4,7 +4,7 @@ description: The pattern implementation for network secure ingress illustrates g
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/18/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: sfi-image-nochange
 ai-usage: ai-assisted
@@ -113,14 +113,14 @@ For more information about the Azure Front Door routing architecture, see [Routi
 ## Operational flow
 
 :::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram that shows the flow that an administrator would use to connect to a protected resource.":::
-The diagram has three parts. The first part shows Azure Blob Storage acting as a static website. Azure Front Door connects through Private Link to the storage account. The second part is a box that represents a virtual network. The virtual network has subnets and their contents. These subnets include a private endpoint subnet that contains a Private Link endpoint with an IP address of 10.0.2.5, a jumpbox subnet with a jumpbox virtual machine, and an Azure Bastion subnet with Azure Bastion in it. The third part is an administrative user who is using SSH to access the jumpbox VM in the virtual network via Azure Bastion. An arrow goes from the VM to the private Azure DNS zone. The last arrow goes from the VM to the Private link endpoint and then to the storage account.
+The diagram has three parts. The first part shows Azure Blob Storage acting as a static website. Azure Front Door connects through Private Link to the storage account. The second part is a box that represents a virtual network. The virtual network has subnets and their contents. These subnets include a private endpoint subnet that contains a Private Link endpoint with an IP address of 10.0.2.5, a jump box subnet with a jump box virtual machine, and an Azure Bastion subnet with Azure Bastion in it. The third part is an administrative user who is using SSH to access the jump box VM in the virtual network via Azure Bastion. An arrow goes from the VM to the private Azure DNS zone. The last arrow goes from the VM to the Private link endpoint and then to the storage account.
 :::image-end:::
 
 1. An administrator connects to the Azure Bastion instance that's deployed in the virtual network.
 
-2. Azure Bastion provides SSH connectivity to the jumpbox VM.
+2. Azure Bastion provides SSH connectivity to the jump box VM.
 
-3. The administrator on the jumpbox tries to access the storage account via the Azure CLI. The jumpbox queries DNS for the public Azure Blob Storage account endpoint: `storageaccountname.blob.core.windows.net`.
+3. The administrator on the jump box tries to access the storage account via the Azure CLI. The jump box queries DNS for the public Azure Blob Storage account endpoint: `storageaccountname.blob.core.windows.net`.
 
    Private DNS ultimately resolves to `storageaccountname.privatelink.blob.core.windows.net`. It returns the private IP address of the Private Link endpoint, which is 10.0.2.5 in this example.
 
@@ -170,7 +170,7 @@ Implementing network security boundaries adds complexity to operations and deplo
 - The use of [Web Application Firewall on Azure Front Door](/azure/frontdoor/web-application-firewall) to provide centralized protection for HTTP and HTTPS requests is an example of the gateway offloading pattern. The responsibility of examining requests for exploits is offloaded to Web Application Firewall in Azure Front Door. The benefit from an operational excellence perspective is that you need to manage the rules in only one place.
 
 > [!IMPORTANT]
-> The [network secure ingress sample](https://aka.ms/networksecureingresssample) allows you to deploy all of the resources required for you to connect to a jumpbox through Azure Bastion and connect to a network secure VM.
+> The [network secure ingress sample](https://github.com/Azure-Samples/frontdoor-bicep-network-secure-global-ingress) allows you to deploy all of the resources required for you to connect to a jump box through Azure Bastion and connect to a network secure VM.
 
 ### Performance efficiency
 
@@ -180,4 +180,4 @@ Global routing enables horizontal scaling through the deployment of more resourc
 
 ## Next steps
 
-- Deploy this implementation by following the steps outlined in the [network secured ingress sample](https://aka.ms/networksecureingresssample).
+- Deploy this implementation by following the steps outlined in the [network secured ingress sample](https://github.com/Azure-Samples/frontdoor-bicep-network-secure-global-ingress).

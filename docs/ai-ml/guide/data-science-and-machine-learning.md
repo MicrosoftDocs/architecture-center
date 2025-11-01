@@ -4,10 +4,9 @@ description: Compare options for building, deploying, and managing your machine 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Compare Microsoft machine learning products and technologies
@@ -213,7 +212,7 @@ Use AI for Windows apps when you want to use trained machine learning models wit
 
 ## SynapseML
 
-[SynapseML](https://aka.ms/spark/), formerly known as MMLSpark, is an open-source library that simplifies the creation of massively scalable machine learning pipelines. SynapseML provides APIs for various machine learning tasks, such as text analytics, vision, and anomaly detection. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML and MLlib libraries, so you can embed SynapseML models into existing Apache Spark workflows.
+[SynapseML](https://microsoft.github.io/SynapseML/), formerly known as MMLSpark, is an open-source library that simplifies the creation of massively scalable machine learning pipelines. SynapseML provides APIs for various machine learning tasks, such as text analytics, vision, and anomaly detection. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML and MLlib libraries, so you can embed SynapseML models into existing Apache Spark workflows.
 
 SynapseML adds many deep learning and data science tools to the Spark ecosystem, including integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [Local Interpretable Model-Agnostic Explanations](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Azure Cosmos DB](/azure/cosmos-db/spark-connector).
 

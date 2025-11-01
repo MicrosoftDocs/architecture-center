@@ -162,7 +162,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso would need to redeploy the Data Platform Storage Accounts and rehydrate them with data in the secondary region.
     - Notes
         - Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy.
-        - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region may result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
+        - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region might result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
 
 - **Azure Synapse - Pipelines**
@@ -218,7 +218,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy Machine Learning into the secondary region.
     - Notes
-        - While the Machine Learning infrastructure is managed by Microsoft; the [associated resources are managed by the customer](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
+        - While Microsoft manages the Machine Learning infrastructure, the customer manages [the associated resources](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
 - **Azure Synapse – Data Explorer Pools**
@@ -267,7 +267,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso should monitor, ensuring there are [enough provisioned request units (RUs)](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read and write activities.
     - Notes
-        - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
+        - [Single-region accounts might lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
 - **Azure AI Search**

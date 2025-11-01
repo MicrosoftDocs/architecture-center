@@ -5,9 +5,10 @@ metadata:
   author: ThePedestrian
   ms.author: unathaniel
   ms.date: 06/07/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: example-scenario
   ms.custom: arb-integrations
+  ai-usage: ai-assisted
 azureCategories:
   - media
   - ai-machine-learning
