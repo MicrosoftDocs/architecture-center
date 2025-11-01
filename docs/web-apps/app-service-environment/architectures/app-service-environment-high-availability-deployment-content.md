@@ -10,7 +10,7 @@ When you configure an App Service Environment for zone redundancy, the platform 
 ## Architecture
 
 :::image type="complex" source="../_images/app-service-environment-high-availability.svg" lightbox="../_images/app-service-environment-high-availability.svg" alt-text="Diagram that shows a reference architecture for high-availability deployment of an App Service Environment." border="false":::
-   The diagram presents a structured layout of a Microsoft Azure network architecture enclosed within a dotted blue boundary labeled virtual network. An icon that represents the internet resides outside the virtual network. It connects to Application Gateway, which resides in its own subnet. This gateway points to the central subnet that contains a zone-redundant App Service Environment internal load balancer. Within this subnet, three stacked components are labeled web app, private API, and function. The web app environment points to three subnets. One subnet contains Azure Managed Redis. Another contains a firewall with an arrow labeled outbound traffic pointing outward. The third subnet features several private endpoints connected to icons that represent Azure Service Bus, Azure Cosmos DB, SQL Server, and Azure Key Vault, which reside outside the virtual network. Private Domain Name System (DNS) zones outside the subnet connect to the private endpoints. A jump box virtual machine (VM) resides in its own subnet, connected via dashed lines to both the central subnet and an icon labeled GitHub Actions, which is positioned at the bottom of the diagram outside the virtual network. On the far right, an icon labeled Microsoft Entra ID stands alone.
+   The diagram presents a structured layout of a Microsoft Azure network architecture enclosed within a dotted blue boundary labeled virtual network. An icon that represents the internet resides outside the virtual network. It connects to Application Gateway, which resides in its own subnet. This gateway points to the central subnet that contains a zone-redundant App Service Environment internal load balancer. Within this subnet, three stacked components are labeled web app, private API, and function. The web app environment points to three subnets. One subnet contains Azure Managed Redis. Another contains a firewall with an arrow labeled outbound traffic pointing outward. The third subnet features several private endpoints connected to icons that represent Azure Service Bus, Azure Cosmos DB, SQL Server, and Azure Key Vault, which reside outside the virtual network. Private Domain Name System (DNS) zones outside the subnet connect to the private endpoints. A jumpbox virtual machine (VM) resides in its own subnet, connected via dashed lines to both the central subnet and an icon labeled GitHub Actions, which is positioned at the bottom of the diagram outside the virtual network. On the far right, an icon labeled Microsoft Entra ID stands alone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-high-availability.vsdx) of this architecture.*
@@ -37,7 +37,7 @@ This section describes the nature of availability for services in this architect
 
 - [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. App Service Environment resides in the virtual network, so a virtual machine (VM) serves a jump box in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jump box.
 
-- Azure Managed Redis is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
+- [Azure Managed Redis](/azure/redis/overview) is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones. This service provides higher resilience and availability.
 
 ## Considerations
 
@@ -113,7 +113,7 @@ The following differences can affect the cost:
 
 - Availability zone support doesn't incur extra charges. You pay only for the instances that you use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
 
-- Azure Managed Redis is a zone-redundant service. A zone-redundant cache runs on VMs deployed across multiple availability zones to provide higher resilience and availability. This configuration introduces extra charges associated with zone redundancy to support the data transfer between zones.
+- Azure Managed Redis is a zone-redundant service in regions with multiple Availability Zones. A zone-redundant cache runs on nodes deployed across multiple availability zones to provide higher resilience and availability. This configuration introduces extra charges associated with zone redundancy to support multiple nodes.
 
 The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. To evaluate your requirements and estimate costs, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
