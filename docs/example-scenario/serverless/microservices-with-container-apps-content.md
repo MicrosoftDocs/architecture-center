@@ -120,7 +120,7 @@ The workflow service is implemented as a long-running container app. However, it
 
 ### Implement ingress control
 
-The workload uses the built-in external ingress feature of Container Apps to expose the Ingestion service. This approach doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall. To achieve this, you should disable the built-in public ingress and add Application Gateway or Azure Front Door to front the Container Apps environment.
+The workload uses the built-in external ingress feature of Container Apps to expose the Ingestion service. This approach doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall. To achieve this, you should disable the built-in public ingress and add [Application Gateway](/azure/container-apps/waf-app-gateway) or Azure Front Door to front the Container Apps environment.
 
 > [!NOTE]
 > Gateways require meaningful health probes, which means the ingress service will effectively be kept alive, preventing the ability to dynamically scale to zero.
@@ -190,7 +190,7 @@ For more network topology options, including private endpoint support for ingres
 
 #### Additional security recommendations
 
-- This same workload was previously protected with the Kubernetes capabilities found in [Azure Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Defender for Containers in this architecture is limited to only performing [vulnerability assessments](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Azure Container Registry.
+- This same workload was previously protected with the Kubernetes capabilities found in [Azure Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Defender for Containers in this architecture is limited to only performing [vulnerability assessments](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Azure Container Registry. Defender for Containers does not provide runtime protection for Azure Container Apps. Evaluate supplementing with third-party security solutions if runtime protection is a requirement.
 
 - Don't run the workload in a shared Azure Container Apps environment. Segment it from other workloads or components that don't need access to these microservices.
 
