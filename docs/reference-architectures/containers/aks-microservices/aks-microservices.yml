@@ -20,7 +20,6 @@ products:
   - entra-id
   - azure-container-registry
   - azure-kubernetes-service
-  - azure-load-balancer
   - azure-managed-redis
   - azure-pipelines
   - azure-monitor
