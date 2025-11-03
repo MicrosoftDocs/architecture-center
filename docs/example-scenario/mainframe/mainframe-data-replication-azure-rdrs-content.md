@@ -73,7 +73,7 @@ The following architecture provides an overview of how data is replicated from D
 
 A. Db2 installed on an IBM Mainframe in the customer datacenter serves as the source of data for replication to the Azure cloud. RDRS provides the capability to retrieve log-based change data from Db2.
 
-B. RDRS defines the Db2 UDT process to read Db2 logs. The UDT runs in the IBM Workload Manager environment and is managed by the Db2 DBMS. The UDT reads log data and stores this data in memory for transmission.
+B. RDRS defines the Db2 UDT process to read Db2 logs. The UDT runs in the IBM Workload Manager environment and Db2 DBMS manages it. The UDT reads log data and stores this data in memory for transmission.
 
 C. The OPM serves as a replication server, equipped with utilities for automatic data mapping to generate metadata for sources and targets. It includes rule sets for extracting data from the source, transforms and processes the data for target systems, and writes it to the targets. You can install this component on LUW operating systems. The RDRS capture and apply agent receives data from the UDT process. After the apply agent configures transformations, it writes the data to the target Fabric SQL database.
 

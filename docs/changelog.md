@@ -212,7 +212,6 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Use Azure Synapse Analytics to Design an Enterprise BI Solution](./example-scenario/analytics/enterprise-bi-synapse.yml) ([#6b6e662d06](https://github.com/MicrosoftDocs/architecture-center/commit/6b6e662d06))
 - [Use Azure API Management in a Multitenant Solution](./guide/multitenant/service/api-management.md) ([#89f51781c9](https://github.com/MicrosoftDocs/architecture-center/commit/89f51781c9))
 - [Securely Managed Web Applications](./example-scenario/apps/fully-managed-secure-apps.yml) ([#3c46023f4e](https://github.com/MicrosoftDocs/architecture-center/commit/3c46023f4e))
 - [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#c8f307de2a](https://github.com/MicrosoftDocs/architecture-center/commit/c8f307de2a))

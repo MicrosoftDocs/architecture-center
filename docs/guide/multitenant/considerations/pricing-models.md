@@ -116,7 +116,7 @@ Although this model can be commercially beneficial, it does require mature engin
 
 **Benefits:** Feature-based pricing is often attractive to customers, since they can select a tier based on the feature set or service level they need. It also provides you with a clear path to upsell your customers with additional features or higher resiliency for those who require it.
 
-**Complexity and operational cost:** Feature-based pricing models can be complex to implement, since they require your solution to be aware of the features that are available at each price tier. Feature toggles can be an effective way to provide access to certain subsets of functionality, but this requires ongoing maintenance. Also, feature toggles increase the overhead to ensure high quality, because there will be more code paths to test. Enabling higher service availability targets in some tiers might require additional architectural complexity, to ensure the right set of infrastructure is used for each tier, and this process might increase the operational cost of the solution.
+**Complexity and operational cost:** Feature-based pricing models can be complex to implement, since they require your solution to be aware of the features that are available at each price tier. Feature toggles can be an effective way to provide access to certain subsets of functionality, but this requires ongoing maintenance. Also, feature toggles increase the overhead to ensure high quality, because there are more code paths to test. Enabling higher service availability targets in some tiers might require additional architectural complexity, to ensure the right set of infrastructure is used for each tier, and this process might increase the operational cost of the solution.
 
 **Risks:** Feature-based pricing models can become complicated and confusing, if there are too many tiers or options. Additionally, the overhead involved in dynamically toggling features can slow down the rate at which you deliver additional features.
 
@@ -142,7 +142,7 @@ You might choose to price your solution so that each tenant only pays the cost o
 
 The cost of goods sold model is a good fit for internally facing multitenant solutions. Each organizational unit corresponds to a tenant, and the costs of your Azure resources need to be spread between them. It might also be appropriate where revenue is derived from sales of other products and services that consume or augment the multitenant solution.
 
-**Benefits:** Because this model doesn't include any added margin for profit, the cost to tenants will be lower.
+**Benefits:** Because this model doesn't include any added margin for profit, the cost to tenants is lower.
 
 **Complexity and operational cost:** Similar to the consumption model, cost of goods sold pricing relies on [accurate measurements of usage](measure-consumption.md) and on splitting this usage by tenant. Tracking consumption can be challenging, especially in a solution with many distributed components. You need to keep detailed consumption records for billing and auditing as well as providing methods for customers to get access to their consumption data.
 
@@ -195,7 +195,7 @@ Equally, customers often expect non-production environments to be significantly 
 - For tenants using [flat-rate pricing](#flat-rate-pricing), non-production environments might be negotiated as part of the agreement.
 
 > [!NOTE]
-> Feature-based pricing is not usually a good option for non-production environments, unless the features offered are the same as what the production environment offers. This is because tenants will usually want to test and provide training on all the same features that are available to them in production.
+> Feature-based pricing isn't usually a good option for non-production environments, unless the features offered are the same as what the production environment offers. This is because tenants will usually want to test and provide training on all the same features that are available to them in production.
 
 ## Unprofitable pricing models
 
@@ -215,7 +215,7 @@ In the case that you inadvertently create an unprofitable pricing model, there a
 
 ### Risky pricing models
 
-When implementing a pricing model for a solution, you'll usually have to make assumptions about how it will be used. If these assumptions turn out to be incorrect or the usage patterns change over time, then your pricing model might become unprofitable. Pricing models that are at risk of becoming unprofitable are known as *risky pricing* models. For example, if you adopt a pricing model that expects users to self-limit the amount that they use your solution, then you might have implemented a risky pricing model.
+When implementing a pricing model for a solution, you usually have to make assumptions about how it is used. If these assumptions turn out to be incorrect or the usage patterns change over time, then your pricing model might become unprofitable. Pricing models that are at risk of becoming unprofitable are known as *risky pricing* models. For example, if you adopt a pricing model that expects users to self-limit the amount that they use your solution, then you might have implemented a risky pricing model.
 
 Most SaaS solutions will add new features regularly. This increases the ROV to users, which might also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable, if the use of new features drives usage, but the pricing model doesn't factor this in.
 
@@ -232,7 +232,7 @@ Usage limits are often used in combination with [feature and service-level prici
 
 ### Rate limits
 
-A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.yml). Rate limits prevent continuous overuse. They're often used to limit the number of calls to an API, over a defined time period. For example, an API can only be called 20 times per minute, and it will return an HTTP 429 error, if it is called more frequently than this.
+A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.yml). Rate limits prevent continuous overuse. They're often used to limit the number of calls to an API, over a defined time period. For example, an API can only be called 20 times per minute, and it will return an HTTP 429 error, if it's called more frequently than this.
 
 The following scenarios often include rate limits:
 
@@ -264,7 +264,7 @@ It is usually complex to implement and manage many different pricing models at o
 When changing pricing models, consider the following factors:
 
 - **Contractual implications.** If tenants have signed contracts based on a specific pricing model, ensure you don't accidentally violate those agreements.
-- **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how you'll discourage tenants from using older pricing models that you plan to retire.
+- **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how to discourage tenants from using older pricing models that you plan to retire.
 - **Timeline.** Give tenants plenty of notice for any changes, to allow them to prepare.
 - **Migration process.** Make it easy for tenants to migrate to the new model.
 - **Reduce pricing risks.** Evaluate each new pricing model to understand whether it's [risky](#risky-pricing-models). For example, be cautious when removing rate limits that are currently protecting critical resources from overuse. Throughout the change, monitor the performance and utilization of your services so that you can ensure continued satisfaction and profitability.
@@ -290,4 +290,4 @@ Other contributors:
 
 ## Next steps
 
-Consider how you'll [measure consumption](measure-consumption.md) by tenants in your solution.
+Consider how you [measure consumption](measure-consumption.md) by tenants in your solution.

@@ -244,5 +244,5 @@ For more information about Azure solution components, see these resources:
 
 ## Related resources
 
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 - [Databases architecture design](../../databases/index.yml)

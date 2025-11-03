@@ -21,7 +21,7 @@ keywords:
 
 Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
-When data is not cached, it can cause a number of undesirable behaviors, including:
+When data isn't cached, it can cause a number of undesirable behaviors, including:
 
 - Repeatedly fetching the same information from a resource that is expensive to access, in terms of I/O overhead or latency.
 - Repeatedly constructing the same objects or data structures for multiple requests.
@@ -52,7 +52,7 @@ public class PersonRepository : IPersonRepository
 This antipattern typically occurs because:
 
 - Not using a cache is simpler to implement, and it works fine under low loads. Caching makes the code more complicated.
-- The benefits and drawbacks of using a cache are not clearly understood.
+- The benefits and drawbacks of using a cache aren't clearly understood.
 - There is concern about the overhead of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency was not an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
 - Developers aren't aware that caching is a possibility in a given scenario. For example, developers might not think of using ETags when implementing a web API.
@@ -62,7 +62,7 @@ This antipattern typically occurs because:
 The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 
 - On read, the application tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
-- On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it is required.
+- On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it's required.
 
 This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside-pattern] pattern.
 

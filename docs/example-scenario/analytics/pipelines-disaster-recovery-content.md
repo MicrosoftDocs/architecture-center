@@ -26,7 +26,7 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency and recovery through region-paired automated failover and CI/CD-based user-managed recovery.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a unified platform for big data and data warehousing that's designed to help you analyze vast amounts of data quickly and efficiently.
 
