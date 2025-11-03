@@ -3924,6 +3924,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
