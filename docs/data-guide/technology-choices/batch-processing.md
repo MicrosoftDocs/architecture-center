@@ -4,7 +4,7 @@ description: Compare technology choices for big data batch processing in Azure, 
 author: pratimav0420
 ms.author: prvalava
 ms.date: 07/31/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

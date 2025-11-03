@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 10/14/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -16,7 +16,7 @@ ms.subservice: architecture-guide
 >
 > In most situations, you won't need the architecture described in this article.
 
-Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it's important to consider the reliability of the service itself.
+Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system goes offline for the user. When choosing a routing service, it's important to consider the reliability of the service itself.
 
 In the **[architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door is chosen because of its high uptime Service-level agreements (SLA) and a rich feature set:
 
@@ -29,7 +29,7 @@ For more information about Azure Front Door's capabilities, see [Accelerate and 
 
 Azure Front Door is designed to provide the utmost resiliency and availability for not only our external customers, but also for multiple properties across Microsoft. Azure Front Door capabilities are more than enough to meet most business requirements, however, with any distributed system, expect failure. No component or system is infallible. Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if another provider offers a 100% uptime SLA, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage.
 
-If the business requirements demand a higher composite SLO or zero downtime in case of an outage, you'll need to rely on multiple alternate traffic ingress paths. Many large organizations and high-profile web properties use this approach to ensure the highest possible availability and to optimize delivery performance. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+If the business requirements demand a higher composite SLO or zero downtime in case of an outage, you need to rely on multiple alternate traffic ingress paths. Many large organizations and high-profile web properties use this approach to ensure the highest possible availability and to optimize delivery performance. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
 One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Azure Front Door shouldn't be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
@@ -47,7 +47,7 @@ With this approach, we will introduce several components and provide guidance th
 
     Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods).
 
-    Traffic Manager can automatically switch your traffic to alternate paths if one route is not available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
+    Traffic Manager can automatically switch your traffic to alternate paths if one route isn't available, or you can also [manually switch traffic](#response-procedures) if you need to. For more information, see [Health monitoring](#health-monitoring).
 
     > [!IMPORTANT]
     >
@@ -125,7 +125,7 @@ When you're designing a mission-critical web architecture, there are many factor
 
 ### Domain names and DNS
 
-Your mission-critical application should use a custom domain name. You'll control over how traffic flows to your application, and you reduce the dependencies on a single provider.
+Your mission-critical application should use custom domain names to control how traffic flows to your application and reduce dependencies on a single provider.
 
 It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, users can't reach your service.
 
@@ -139,7 +139,7 @@ Adding additional links to a CNAME chain can affect DNS name resolution performa
 
 ### TLS certificates
 
-For a mission-critical application, it's recommended that you provision and use your own TLS certificates instead of the managed certificates provided by Azure Front Door. You'll reduce the number of potential problems with this complex architecture.
+For a mission-critical application, it's recommended that you provision and use your own TLS certificates instead of the managed certificates provided by Azure Front Door. You reduce the number of potential problems with this complex architecture.
 
 Here are some benefits:
 
@@ -149,7 +149,7 @@ Here are some benefits:
 
 - If each service gets their own managed TLS certificates independently, there might be issues. For example, users might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
 
-However, there will be additional operations related to renewing and updating your certificates before they expire.
+However, there are additional operations related to renewing and updating your certificates before they expire.
 
 ### Origin security
 

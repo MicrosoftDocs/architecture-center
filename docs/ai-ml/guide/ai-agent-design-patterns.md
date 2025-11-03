@@ -4,7 +4,7 @@ description: Learn about fundamental orchestration patterns for AI agent archite
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/08/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ---
