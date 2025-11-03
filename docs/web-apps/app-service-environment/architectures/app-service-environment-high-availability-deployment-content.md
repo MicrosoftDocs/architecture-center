@@ -3,13 +3,13 @@
 
 [Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a specific region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redundant architecture. These zones don't relate to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
 
-Azure services that support availability zones can be zonal, zone redundant, or both. You can deploy zonal services to a specific zone, and you can automatically deploy zone-redundant services across zones. For more information, see [Availability zone support](/azure/reliability/availability-zones-service-support). An App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
+Azure services that support availability zones can be zonal, zone redundant, or both. You can deploy zonal services to a specific zone, and you can automatically deploy zone-redundant services across zones. For more information, see [Availability zone support](/azure/reliability/availability-zones-service-support). App Service Environment supports [zone-redundant deployments](/azure/reliability/reliability-app-service-environment).
 
 When you configure an App Service Environment for zone redundancy, the platform automatically deploys instances of the Azure App Service plan in the maximum number of available zones in the selected region. At least two zones must be available in the region to enable zone redundancy. As a result, the minimum App Service plan instance count is always two. The platform determines the number of zones available for an App Service Environment.
 
 ## Architecture
 
-:::image type="complex" source="../_images/app-service-environment-high-availability.svg" lightbox="../_images/app-service-environment-high-availability.svg" alt-text="Diagram that shows a reference architecture for high-availability deployment of an App Service Environment." border="false":::
+:::image type="complex" source="../_images/app-service-environment-high-availability.svg" lightbox="../_images/app-service-environment-high-availability.svg" alt-text="Diagram that shows a reference architecture for high-availability deployment of App Service Environment." border="false":::
    The diagram presents a structured layout of a Microsoft Azure network architecture enclosed in a dotted blue boundary labeled virtual network. An icon that represents the internet resides outside the virtual network. It connects to Application Gateway, which resides in its own subnet. This gateway points to the central subnet that contains a zone-redundant App Service Environment internal load balancer. Within this subnet, three stacked components are labeled web app, private API, and function. The web app environment points to three subnets. One subnet contains Azure Managed Redis. Another subnet contains a firewall with an arrow that points outward labeled outbound traffic. The third subnet features several private endpoints connected to icons that represent Azure Service Bus, Azure Cosmos DB, SQL Server, and Azure Key Vault, which reside outside the virtual network. Private Domain Name System (DNS) zones outside the subnet connect to the private endpoints. A jump box virtual machine (VM) resides in its own subnet, connected via dashed lines to both the central subnet and an icon labeled GitHub Actions, which is positioned at the bottom of the diagram outside the virtual network. On the far right, an icon labeled Microsoft Entra ID stands alone.
 :::image-end:::
 
@@ -51,7 +51,7 @@ This reference implementation uses the same production-level CI/CD pipeline as t
 
 #### App Service Environment
 
-You can deploy an App Service Environment across availability zones to provide resiliency and reliability for business-critical workloads. This configuration is also known as *zone redundancy*.
+You can deploy App Service Environment across availability zones to provide resiliency and reliability for business-critical workloads. This configuration is also known as *zone redundancy*.
 
 When you implement zone redundancy, the platform automatically deploys the instances of the App Service plan across two or more zones in the selected region. As a result, the minimum App Service plan instance count is always two.
 
