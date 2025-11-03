@@ -4,7 +4,7 @@ ms.author: pnp
 ms.date: 10/15/2024
 ms.topic: include
 ---
-To successfully move a web app to the cloud, you need to update your web app code with the Retry, Circuit Breaker, and Cache-Aside patterns.
+To successfully move a web app to the cloud, you need to update your web app code by using the Retry, Circuit Breaker, and Cache-Aside patterns.
 
 :::image type="complex" border="false" source="../../../_images/reliable-web-app-design-patterns.svg" alt-text="Diagram that shows the roles of design patterns in the Reliable Web App pattern." lightbox="../../../_images/reliable-web-app-design-patterns.svg":::
    The diagram illustrates a web application making outbound calls to Azure services and a database. The Retry pattern handles transient failures by retrying failed operations on outbound service calls. The Circuit Breaker pattern prevents repeated attempts to call services that experience persistent failures. The Cache Aside pattern is represented by the web app loading data into a cache from the database on demand, which improves performance and reduces load on the data store.
@@ -12,9 +12,9 @@ To successfully move a web app to the cloud, you need to update your web app cod
 
 The following design patterns provide workload benefits that map to one or more of the Well-Architected Framework pillars:
 
-- *The Retry pattern* handles transient failures by retrying operations that might fail intermittently. Implement this pattern on all outbound calls to other Azure services.
+- *The Retry pattern* handles transient failures by retrying operations that might fail intermittently. Implement this pattern on outbound calls to other Azure services.
 
-- *The Circuit Breaker pattern* prevents an application from retrying operations that aren't transient. Implement this pattern in all outbound calls to other Azure services.
+- *The Circuit Breaker pattern* prevents an application from retrying operations that aren't transient. Implement this pattern on outbound calls to other Azure services.
 
 - *The Cache-Aside pattern* loads data on demand into a cache from a data store. Implement this pattern on requests to the database.
 
