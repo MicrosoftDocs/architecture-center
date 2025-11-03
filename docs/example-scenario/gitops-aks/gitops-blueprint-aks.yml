@@ -4,7 +4,7 @@ metadata:
   description: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 06/06/2024
+  ms.date: 10/03/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom:
@@ -19,4 +19,4 @@ name: GitOps for Azure Kubernetes Service
 summary: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
 thumbnailUrl: /azure/architecture/browse/thumbs/gitops-flux.png
 content: |
-  [!include[](gitops-blueprint-aks-content.md)]
+  [!INCLUDE[](gitops-blueprint-aks-content.md)]
