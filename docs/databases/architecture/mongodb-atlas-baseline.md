@@ -10,7 +10,7 @@ ms.custom: fcp
 keyword: Azure
 ---
 
-# Deploy MongoDB in an Azure application landing zone
+# Deploy MongoDB Atlas in an Azure application landing zone
 
 ## Overview
 
@@ -98,22 +98,14 @@ For more information about MongoDB Atlas and its [use cases](https://www.mongodb
 
 ### Security considerations
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
 Most databases store sensitive data. Implementing security only at the database level isn't enough to secure the architecture where you deploy these workloads. Defense in-depth is a comprehensive approach to security that implements multiple layers of defense mechanisms to protect data. Instead of relying on a single security measure at a specific level, such as focusing only on network security mechanisms, the defense in-depth strategy uses a combination of different layer security measures to create a robust security posture. You can architect the defense in-depth approach for MongoDB Atlas workloads by using hardened network security with private endpoints and VNet peering from the Azure infrastructure side. For detailed information about MongoDB Atlas security features, see [MongoDB Atlas Security](https://www.mongodb.com/docs/atlas/setup-cluster-security/).
 
-The Azure infrastructure hosting applications that connect to MongoDB Atlas must be secured against unauthorized access. In this landing zone accelerator, MongoDB Atlas connectivity is established through private endpoints, which provide the following security benefits:
+The Azure infrastructure hosting applications that connect to MongoDB Atlas must be secured against unauthorized access. In this design and the deployable solution, MongoDB Atlas connectivity is established through private endpoints, which provide the following security benefits:
 
 - **Private connectivity**: Traffic between Azure resources and MongoDB Atlas never traverses the public internet.
 - **Network isolation**: Private endpoints are deployed within your Azure VNet, providing network-level isolation
 
-When implementing VNet peering for MongoDB Atlas connectivity, consider the following security practices:
-
-- **Hub-and-spoke topology**: Implement a hub-and-spoke network topology with centralized security controls in the hub VNet.
-- **Least privilege access**: Configure VNet peering with minimal required permissions and disable unnecessary features like gateway transit when not needed.
-- **Network segmentation**: Implement proper network segmentation to isolate different workloads and environments.
-
-> We recommend evaluating whether additional Microsoft security services beyond those listed, e.g Azure Firewall, Defender for DDoS, Defender for Cloud, Microsoft Entra, and Azure Key Vault - are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
+Depending on your use case and requirements, evaluate whether additional Microsoft security services beyond those listed, like Azure Firewall, Defender for DDoS, Defender for Cloud, Microsoft Entra, and Azure Key Vault are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
 >
 > - [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview)
 > - [Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
@@ -128,7 +120,7 @@ Monitoring is a crucial part of workload operations. Design a comprehensive work
 
 The *Landing Zone for MongoDB Atlas on Azure* includes a monitoring component, as shown in the architecture diagrams, where an Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in the Application Insights dashboards. However, monitoring best practices can be further extended, and users are responsible for implementing these practices based on their specific requirements.
 
-Please reference the [How to Monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor) article for more information about:
+Refer to the [How to Monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor) article for more information about:
 
 - **Scan and order**
 - **Query targeting**
@@ -138,14 +130,13 @@ Please reference the [How to Monitor MongoDB](https://www.mongodb.com/resources/
 - **Performance Advisor**
 - **Billing Cost Explorer**
 
-Also, we recommend to configure **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, check out the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
+Consider configuring **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, review the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
 
 **Note:** Azure Monitor cannot read Atlas metrics directly. Use Atlas UI/API/webhooks or supported integrations to ingest them.
 
-#### Backup and Recovery
+## Backup and recovery
 
-- MongoDB Atlas automated backup policies ensure that data can be restored to any point in time, within retention limits.
-- Operational runbooks should include regular backup testing and validation.
+MongoDB Atlas automated backup policies ensure that data can be restored to any point in time, within retention limits. Refer to the [Cloud backups](https://www.mongodb.com/docs/atlas/backup-restore-cluster/?msockid=2137d3960740658d00a8c67106e864ed#cloud-backups) documentation for full details.
 
 ## Next Steps
 
