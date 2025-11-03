@@ -1,5 +1,5 @@
 > [!NOTE]
-> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 were [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
+> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 were [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement).
 
 [Availability zones](/azure/reliability/availability-zones-overview) are physically separated collections of datacenters in a specific region. You can deploy resources across zones to ensure that outages limited to a zone don't affect the availability of your applications. This architecture describes how to improve the resiliency of an App Service Environment deployment by deploying it in a zone-redundant architecture. These zones don't relate to proximity. They can map to different physical locations for different subscriptions. The architecture assumes a single-subscription deployment.
 
@@ -17,7 +17,7 @@ When you configure an App Service Environment for zone redundancy, the platform 
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
-The resources in the App Service Environment subnets in this reference implementation match the resources in the [standard App Service Environment deployment architecture](./ase-standard-deployment.yml). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Managed Redis to provide higher availability. The scope of this reference architecture is limited to a single region.
+The resources in the App Service Environment subnets in this reference implementation match the resources in the [standard App Service Environment deployment architecture](/azure/architecture/web-apps/app-service-environment/architectures/app-service-environment-standard-deployment). This reference implementation uses the zone-redundant capabilities of App Service Environment v3 and Azure Managed Redis to provide higher availability. The scope of this reference architecture is limited to a single region.
 
 ### Components
 
