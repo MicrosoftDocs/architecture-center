@@ -94,7 +94,7 @@ The following differences can affect the cost:
 
 - Availability zone support doesn't incur extra charges. You pay only for the instances that you use. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing).
 
-- Azure Managed Redis is a zone-redundant service in regions that have multiple availability zones. A zone-redundant cache runs on nodes deployed across multiple availability zones to provide higher resilience and availability. This configuration introduces extra charges associated with zone redundancy to support multiple nodes.
+- Azure Managed Redis becomes a zone-redundant service in regions that have multiple availability zones when high availability is enabled. A zone-redundant cache runs on nodes deployed across multiple availability zones within a region to provide higher resilience and availability.
 
 The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. To evaluate your requirements and estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
