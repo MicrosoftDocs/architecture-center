@@ -21,6 +21,9 @@ products:
   - azure-app-service
   - azure-front-door
 ---
+
+# Reliable Web App pattern for Java
+
 [!INCLUDE [intro 1](../includes/intro-1.md)]
 
 ## Why use the Reliable Web App pattern for Java?
@@ -374,8 +377,7 @@ azd env set APP_ENVIRONMENT prod
 
 The [reference implementation](https://github.com/azure/reliable-web-app-pattern-java) guides you through Contoso Fiber's simulated migration of an on-premises Java application to Azure. It also highlights required changes during the initial adoption phase.
 
-
-The following architecture represents the final state of Contoso Fiber's Reliable Web App pattern implementation based on [their goals](business-context).
+The following architecture represents the final state of Contoso Fiber's Reliable Web App pattern implementation based on [their goals](#business-context).
 
 :::image type="complex" border="false" source="../../../_images/reliable-web-app-java.svg" alt-text="Diagram that shows the architecture of the reference implementation." lightbox="../../../_images/reliable-web-app-java.svg":::
    Diagram that shows a reliable Java web application architecture on Azure that uses a hub-and-spoke network topology. Users access the app through Azure Front Door, which provides global load balancing, web application firewall, and DDoS protection. Azure Front Door routes traffic to App Service instances in a primary region and secondary region. Each App Service instance hosts a Java Spring Boot web app and is integrated with Application Insights for monitoring. Authentication and authorization are managed by Microsoft Entra ID. The app uses Azure Database for PostgreSQL flexible server for data storage, configured for high availability and read replicas, and Azure Managed Redis for distributed caching. Key Vault stores secrets, accessed via managed identities. Private Link secures connections between the app, database, and other PaaS resources. The architecture is deployed in a hub-and-spoke virtual network. The hub in the primary region contains Azure Firewall and Azure Bastion for network security and management, and the Key Vault private endpoint subnet. The spokes in the primary and secondary regions host the app and database. The subnets include the other private endpoints subnet, DevOps subnet, web app integration subnet, and web app private endpoint subnet. Diagnostic logs and metrics are sent to Azure Monitor and Log Analytics. A private DNS zones icon resides between the primary and secondary region. Arrows indicate data flow and relationships between components, illustrating a production-ready, scalable, and secure pattern for migrating a monolithic Java web app to Azure.
