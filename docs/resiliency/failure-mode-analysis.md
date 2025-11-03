@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Failure mode analysis for Azure applications
 
-Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
+Failure mode analysis (FMA) is a process for building reliability into a system by identifying possible failure points. The FMA should be part of the architecture and design phases, so that you can build both resiliency (the ability to withstand failures) and recoverability (the ability to restore functionality after failures) into the system from the beginning.
 
 Here is the general process to conduct an FMA:
 
