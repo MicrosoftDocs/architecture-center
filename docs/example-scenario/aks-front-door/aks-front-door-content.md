@@ -83,7 +83,7 @@ The following steps describe the message flow for a request that an external cli
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 
-- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
+- The deployment requires [Azure role-based access control (Azure RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
 
   - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
@@ -309,7 +309,7 @@ The source code for this scenario is available in [GitHub](https://github.com/Az
 
 ### Prerequisites
 
-- An active [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing). If you don't have one, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- An active [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing). If you don't have one, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 

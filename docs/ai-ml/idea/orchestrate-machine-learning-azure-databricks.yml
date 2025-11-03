@@ -8,7 +8,6 @@ metadata:
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: solution-idea
-  ms.custom: arb-aiml
   ai-usage: ai-assisted
 name: Use Azure Databricks to orchestrate machine learning operations
 azureCategories:

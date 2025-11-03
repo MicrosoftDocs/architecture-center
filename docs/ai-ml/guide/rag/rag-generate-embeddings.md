@@ -4,10 +4,9 @@ description: Learn how embeddings work, how to choose an embedding model, and ho
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 11/17/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # RAG generate embeddings phase

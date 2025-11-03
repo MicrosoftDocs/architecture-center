@@ -42,7 +42,7 @@ At time T1, the threshold specifying the soft limit of resource use is reached. 
 
 You should consider the following points when deciding how to implement this pattern:
 
-- Throttling an application, and the strategy to use, is an architectural decision that impacts the entire design of a system. Throttling should be considered early in the application design process because it isn't easy to add once a system has been implemented.
+- Throttling an application, and the strategy to use, is an architectural decision that affects the entire design of a system. Throttling should be considered early in the application design process because it isn't easy to add once a system has been implemented.
 
 - Throttling must be performed quickly. The system must be capable of detecting an increase in activity and react accordingly. The system must also be able to revert to its original state quickly after the load has eased. This requires that the appropriate performance data is continually captured and monitored.
 
@@ -96,7 +96,7 @@ In order to prevent the users from one tenant affecting the responsiveness and a
 
 ## Next steps
 
-The following guidance may also be relevant when implementing this pattern:
+The following guidance might also be relevant when implementing this pattern:
 
 - [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)). Throttling depends on gathering information about how heavily a service is being used. Describes how to generate and capture custom monitoring information.
 - [Service Metering Guidance](/previous-versions/msp-n-p/dn589796(v=pandp.10)). Describes how to meter the use of services in order to gain an understanding of how they're used. This information can be useful in determining how to throttle a service.
@@ -104,7 +104,7 @@ The following guidance may also be relevant when implementing this pattern:
 
 ## Related resources
 
-The following patterns may also be relevant when implementing this pattern:
+The following patterns might also be relevant when implementing this pattern:
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). Queue-based load leveling is a commonly used mechanism for implementing throttling. A queue can act as a buffer that helps to even out the rate at which requests sent by an application are delivered to a service.
 - [Priority Queue pattern](./priority-queue.yml). A system can use priority queuing as part of its throttling strategy to maintain performance for critical or higher value applications, while reducing the performance of less important applications.

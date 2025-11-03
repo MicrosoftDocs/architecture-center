@@ -4,7 +4,7 @@ description: Learn about microservices on Azure. This architectural style builds
 author: RobBagby
 ms.author: robbag
 ms.date: 06/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---
@@ -137,7 +137,7 @@ The following articles present a structured approach for designing, building, an
 1. [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml).
 1. [Identify microservice boundaries](../../microservices/model/microservice-boundaries.yml).
 
-**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.yml).
+**Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md).
 
 **Operate in production:** Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 

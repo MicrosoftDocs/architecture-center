@@ -4,10 +4,9 @@ description: Get started with AI. Use high-level architectural types, see Azure 
 author: anaharris-ms
 ms.author: pnp
 ms.date: 01/31/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -475,7 +474,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
 - Organize your work. Your AI Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
-- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, and AutoGen.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
 - Discover and benchmark from over 1,600 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.

@@ -5,14 +5,14 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/21/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: guide
 ---
 
 # Mission-critical global content delivery
 
-Content delivery networks (CDNs) offer a range of capabilities to optimize performance for users, including global layer 7 load balancing and optimized network routing. Caching is also a common way to reduce load on the backend services and provider further resiliency to a range of issues. CDNs, including Azure Front Door, provide caching at the network edge.
+Content delivery networks (CDNs) offer a range of capabilities to optimize performance for users, including global layer 7 load balancing and optimized network routing. Caching is also a common way to reduce load on the backend services and provide further resiliency to a range of issues. CDNs, including Azure Front Door, provide caching at the network edge.
 
 CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
@@ -30,11 +30,11 @@ This article describes an approach for using Azure Front Door with another CDN. 
 A third-party CDN can be integrated into your Azure solution to provide isolation from Microsoft's infrastructure. This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and the alternative CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
 > [!NOTE]
-> Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more details, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
+> Microsoft offers a CDN interconnect service to route your origin traffic to another CDN with zero data transfer fees. For more information, see [Routing preferences](/azure/virtual-network/ip-services/routing-preference-unmetered).
 
 The following diagram shows how traffic flows between the CDNs:
 
-:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
 
 - **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, Traffic Manager sends the request through the alternative CDN instead.
 
@@ -84,7 +84,7 @@ Using multiple CDNs comes with some tradeoffs.
 
 - By using a DNS traffic manager, you can randomize which CDN is chosen for a request. If you're not careful to implement consistent cache settings across CDNs (for example, [caching in Azure Front Door](/azure/frontdoor/front-door-caching)) you could you risk lower performance and higher costs for origin egress bandwidth.
 
-- A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
+- A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs to refill its cache from the origin. It can overload origin systems during that process.
 
 ## Contributors
 

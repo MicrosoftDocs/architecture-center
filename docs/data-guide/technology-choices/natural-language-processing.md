@@ -5,7 +5,7 @@ author: FreddyAyala
 ms.author: freddyayala
 ms.date: 02/10/2025
 ms.update-cycle: 180-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
@@ -62,7 +62,7 @@ Business scenarios that can benefit from custom natural language processing incl
 
 ## Apache Spark as a customized natural language processing framework
 
-Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations.
+Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Microsoft Fabric](/fabric/data-engineering/spark-compute), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations.
 
 Spark NLP is an efficient framework that can process large volumes of text for customized natural language processing workloads. This open-source library provides extensive functionality by using Python, Java, and Scala libraries. These libraries deliver the sophistication that you can find in prominent natural language processing libraries like spaCy and Natural Language Toolkit. Spark NLP includes advanced features like spell check, sentiment analysis, and document classification. These features help you consistently ensure optimal accuracy and scalability.
 
@@ -134,9 +134,6 @@ The following tables summarize the key differences in the capabilities of natura
 | Date matcher | Yes | Possible in CLU through DateTime recognizers |
 | Chunker | Yes | No |
 
-> [!NOTE]
-> Language Understanding (LUIS) will be retired on October 1, 2025. You should migrate existing LUIS applications to the conversational language understanding (CLU) feature of Azure AI Language, which enhances language understanding capabilities and provides new features.
-
 ### High-level natural language processing capabilities
 
 | Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
@@ -156,27 +153,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ## Set up Spark NLP in Azure
 
-To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
-
-```bash
-# Install Spark NLP from PyPI.
-pip install spark-natural language processing==<version>
-
-# Install Spark NLP from Anaconda or Conda.
-conda install -c johnsnowlabs spark-natural language processing
-
-# Load Spark NLP with Spark Shell.
-spark-shell --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with PySpark.
-pyspark --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with Spark Submit.
-spark-submit --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP as an external JAR after compiling and building Spark NLP by using SBT assembly.
-spark-shell --jars spark-natural language processing-assembly-3 <version>.jar
-```
+To install Spark NLP, follow the [Install Spark NLP](https://sparknlp.org/docs/en/install) instructions in the Spark NLP documentation.
 
 ## Develop natural language processing pipelines
 
@@ -218,6 +195,10 @@ Principal authors:
 
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
 - [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
+
+Other contributors:
+
+- [Tincy Elias](https://www.linkedin.com/in/tincy-elias/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
