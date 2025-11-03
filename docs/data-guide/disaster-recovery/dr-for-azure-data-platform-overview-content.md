@@ -26,7 +26,7 @@ The scope of this article series includes:
 - The processes described in this article will be executed by an Azure technical resource rather than a specialist Azure subject matter expert (SME). As such, the resources should have the following level of knowledge/skills:
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
     - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments.
-- This processes described in this article cover service failover operations, from the primary to the secondary region.
+- The processes described in this article cover service failover operations, from the primary to the secondary region.
 
 ## Out of scope
 
