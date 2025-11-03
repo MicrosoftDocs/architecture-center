@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-10-13T21:22:44.134Z</updated>
+    <updated>2025-10-20T17:38:43.816Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -15,6 +15,22 @@
         <updated>2025-10-02T16:33:33.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build a CI/CD pipeline for AKS apps by using Azure Pipelines, with integrated testing, staging, and production deployment.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Analytical Data Store in Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/fabric-analytical-data-stores</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/fabric-analytical-data-stores"/>
+        <updated>2025-10-14T14:46:49.000Z</updated>
+        <summary type="html"><![CDATA[Evaluate analytical data store options in Microsoft Fabric based on data volumes, types, compute engine, ingestion, transformation, and query patterns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Global routing redundancy for mission-critical web applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview"/>
+        <updated>2025-10-15T09:00:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop highly resilient global web applications.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
@@ -30,6 +46,70 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files"/>
         <updated>2025-10-02T20:44:46.000Z</updated>
         <summary type="html"><![CDATA[Learn how to implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI Operations for Organizations with MLOps Investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2025-10-17T13:55:05.000Z</updated>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include generative AI operations. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Databricks to Orchestrate MLOps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks"/>
+        <updated>2025-10-15T15:32:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use a gateway in front of multiple Azure OpenAI deployments or instances]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend"/>
+        <updated>2025-10-14T20:38:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2"/>
+        <updated>2025-10-14T20:38:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
+        <updated>2025-10-14T15:57:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the different Azure database solutions described in Azure Architecture Center.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
+        <updated>2025-10-14T15:21:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Greenfield lakehouse on Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric"/>
+        <updated>2025-10-14T14:26:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a greenfield solution for creating a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Configuration Considerations for Multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration"/>
+        <updated>2025-10-13T21:53:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful when working with multitenant systems, and use the provided links for guidance and examples.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -198,14 +278,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation"/>
         <updated>2025-10-06T21:49:03.000Z</updated>
         <summary type="html"><![CDATA[Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps for enterprise-grade tasks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Replicate and Sync Mainframe Data to Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
-        <updated>2025-10-02T17:23:53.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1305,9 +1377,9 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Use Azure Synapse Analytics to Design an Enterprise BI Solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-synapse</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-synapse"/>
+        <title type="html"><![CDATA[Use Microsoft Fabric to Design an Enterprise BI Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric"/>
         <updated>2025-08-29T18:43:19.000Z</updated>
         <summary type="html"><![CDATA[Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse Analytics and transforms the data for analysis.]]></summary>
         <category label="updated" term="updated"/>
@@ -1582,14 +1654,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization"/>
         <updated>2025-07-21T23:41:52.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Azure API Management to implement a JavaScript single-page application that doesn't store tokens in the browser session or local storage.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Patterns for Inter-Spoke Networking]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/spoke-to-spoke-networking"/>
-        <updated>2025-07-17T18:27:21.000Z</updated>
-        <summary type="html"><![CDATA[Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs. Explore hub-and-spoke architectures and routing patterns.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>

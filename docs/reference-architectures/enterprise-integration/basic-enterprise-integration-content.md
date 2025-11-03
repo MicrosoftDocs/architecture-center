@@ -138,7 +138,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-- **Access**. To apply access policies to the resources in a group, you can use [Azure role-based access control (Azure RBAC)][rbac].
+- **Access**. To apply access policies to the resources in a group, you can use [Azure RBAC][rbac].
 
 - **Billing**. You can view rollup costs for the resource group.
 
@@ -150,7 +150,7 @@ Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follo
 
 ##### Staging
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
 
 ##### Workload isolation
 
@@ -248,7 +248,7 @@ You might also be interested in these articles from the Azure Architecture Cente
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [dns]: /azure/dns
 [integration-services]: https://azure.microsoft.com/product-categories/integration
 [logic-apps]: /azure/logic-apps/logic-apps-overview

@@ -41,7 +41,7 @@ You should consider the following points when deciding how to implement this pat
 
 ### Impact on performance
 
-The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, &quot;please try again later&quot;). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
+The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and affect the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, &quot;please try again later&quot;). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
 
 An aggressive retry policy with minimal delay between attempts, and a large number of retries, could further degrade a busy service that's running close to or at capacity. This retry policy could also affect the responsiveness of the application if it's continually trying to perform a failing operation.
 
@@ -61,7 +61,7 @@ Consider how retrying an operation that's part of a transaction will affect the 
 
 ## General guidance
 
-- Ensure that all retry code is fully tested against a variety of failure conditions. Check that it doesn't severely impact the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
+- Ensure that all retry code is fully tested against a variety of failure conditions. Check that it doesn't severely affect the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
 
 - Implement retry logic only where the full context of a failing operation is understood. For example, if a task that contains a retry policy invokes another task that also contains a retry policy, this extra layer of retries can add long delays to the processing. It might be better to configure the lower-level task to fail fast and report the reason for the failure back to the task that invoked it. This higher-level task can then handle the failure based on its own policy.
 

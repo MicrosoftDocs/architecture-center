@@ -4,7 +4,7 @@ description: Learn how to back up and recover your AKS clusters and their worklo
 author: AdamSharif-MSFT
 ms.author: jotavar
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks

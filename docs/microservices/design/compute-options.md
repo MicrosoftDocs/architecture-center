@@ -4,7 +4,7 @@ description: Learn about compute options, the hosting models for the computing r
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 11/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -66,8 +66,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
-
-One of the key pillars of reliability is resiliency. The goal of resiliency is to return the workload to a fully functioning state after a failure occurs. 
 
 If you choose Azure Functions as your microservice computing platform, consider deploying the [Functions Premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or Azure App Service plan in a zone-redundant configuration. For more information, see [Reliability in Functions](/azure/reliability/reliability-functions?tabs=azure-portal). 
 

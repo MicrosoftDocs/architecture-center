@@ -19,7 +19,7 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Startup%20Stack%20Architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Startup%20Stack%20Architecture.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -4,7 +4,7 @@ description: Learn how to choose the right Azure data store for your workloads b
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 09/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 keyword: Azure
