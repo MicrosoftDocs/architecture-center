@@ -4,7 +4,7 @@ description: Understand storage options for a Kubernetes cluster, and compare Am
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
@@ -273,7 +273,6 @@ You can use [Azure disk storage](/azure/aks/azure-disk-csi) to create a Kubernet
 - [Premium SSD v2](/azure/aks/use-premium-v2-disks)
 - [Azure Ultra Disk Storage](/azure/aks/use-ultra-disks)
 - [Standard SSD](/azure/aks/azure-disk-csi)
-- Azure Standard HDD
 
 > [!TIP]
 > For most production and development workloads, use Premium SSD.

@@ -170,7 +170,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
     On Approval, the release pipeline continues with the third stage, deploying changes to the prod environment.
 
-For more information, read the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
+For more information, see the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
 
 ### Testing
 

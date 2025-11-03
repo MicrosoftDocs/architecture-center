@@ -4,7 +4,7 @@ description: Learn about data transfer options like the Azure Import/Export serv
 author: josearper
 ms.author: joaria
 ms.date: 10/04/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ---

@@ -4,13 +4,15 @@ This article describes how to use image processing, natural language processing,
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." source="../media/ai-search-skillsets.svg" lightbox="../media/ai-search-skillsets.svg" border="false":::
+:::image type="complex" border="false" source="../media/ai-search-skillsets.svg" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." lightbox="../media/ai-search-skillsets.svg":::
+   The image has three key sections: unstructured data, AI enrichment, and knowledge store. The unstructured data section includes Blob Storage, documents, and images. The AI enrichment section includes both built-in skills and custom skills. The knowledge store section includes Blob Storage and Table Storage. Numbered steps show the flow of data. In the steps, unstructured data is ingested, enriched, indexed, projected, and queried.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
 
 ### Dataflow
 
-The following dataflow corresponds to the preceding diagram. The dataflow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
+The following dataflow corresponds to the previous diagram. The dataflow describes how the unstructured JFK Files dataset passes through the AI Search skills pipeline to produce structured and indexable data.
 
 1. Unstructured data in Azure Blob Storage, such as documents and images, is ingested into AI Search.
 
@@ -30,33 +32,19 @@ The following dataflow corresponds to the preceding diagram. The dataflow descri
 
 ### Components
 
-This solution uses the following Azure components.
+- [AI Search](/azure/search/search-what-is-azure-search) is a search service that enables indexing, querying, and enrichment of content by using built-in and custom AI skills. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. In this architecture, it indexes the content and powers the search user experience. This architecture also uses the service's extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
 
-#### AI Search
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-[AI Search](/azure/search/search-what-is-azure-search) indexes the content and powers the user experience in this solution. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. And you can use the extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
+- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/ai-services/language-service/named-entity-recognition/overview) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
 
-#### Azure AI Vision
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a REST-based object storage solution optimized for large volumes of unstructured data. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, Blob Storage stores the original JFK Files dataset, including scanned documents and images, which are ingested into the AI enrichment pipeline.
 
-[Vision](https://azure.microsoft.com/products/ai-services/ai-vision) uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses the latest OCR recognition models and is optimized for large, text-heavy documents and noisy images.
+- [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL storage service for structured and semi-structured data. In this architecture, Table Storage supports the knowledge store, which enables downstream applications to access enriched and indexed data.
 
-#### Language
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that runs small pieces of event-triggered code without having to explicitly provision or manage infrastructure. In this architecture, a Functions method applies the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
 
-[Language](/azure/ai-services/language-service/overview) uses [text analytics](/azure/ai-services/language-service/overview#available-features) capabilities like [named entity recognition](/azure/synapse-analytics/machine-learning/overview-cognitive-services) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) to extract text information from unstructured documents.
-
-#### Azure Storage
-
-[Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is REST-based object storage for data that you can access from anywhere in the world through HTTPS. You can use Blob Storage to expose data publicly to the world or to store application data privately. Blob Storage is ideal for large amounts of unstructured data like text or graphics.
-
-[Table Storage](/azure/storage/tables/table-storage-overview) stores highly available, scalable, structured, and semi-structured NoSQL data in the cloud.
-
-#### Azure Functions
-
-[Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that you can use to run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses a Functions method to apply the Central Intelligence Agency (CIA) cryptonyms list to the JFK Files as a custom skill.
-
-#### Azure App Service
-
-This solution builds a standalone web app in [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) to test, demonstrate, and search the index and to explore connections in the enriched and indexed documents.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building and hosting web applications. In this architecture, it hosts a standalone web app that demonstrates the enriched search experience and allows users to explore connections within the indexed JFK documents.
 
 ## Scenario details
 
@@ -66,17 +54,17 @@ You can use AI enrichment in AI Search to extract and enhance searchable, indexa
 
 The AI Search skills in this solution can be categorized into the following groups:
 
-- **Image processing**: This solution uses built-in [text extraction](/azure/search/cognitive-search-concept-image-scenarios) and [image analysis](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0) skills, including object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which you can search by using the query capabilities of AI Search. *Document cracking* is the process of extracting or creating text content from nontext sources.
+- **Image processing:** This solution uses built-in [text extraction](/azure/search/cognitive-search-concept-image-scenarios) and [image analysis](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0) skills, including object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which you can search by using the query capabilities of AI Search. *Document cracking* is the process of extracting or creating text content from nontext sources.
 
-- **Natural language processing**: This solution uses built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) that map unstructured text to searchable and filterable fields in an index.
+- **Natural language processing:** This solution uses built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) that map unstructured text to searchable and filterable fields in an index.
 
-- **Custom skills**: This solution uses custom skills that extend AI Search to apply specific enrichment transformations to content. You can [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [custom web API skill](/azure/search/cognitive-search-custom-skill-web-api).
+- **Custom skills:** This solution uses custom skills that extend AI Search to apply specific enrichment transformations to content. You can [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [custom web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
 ### Potential use cases
 
-The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://jfk-demo-2019.azurewebsites.net/#/) presents a particular AI Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios. Instead, this solution idea provides a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with nonpublic data.
+The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://jfk-demo-2019.azurewebsites.net/#/) presents a specific AI Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios. Instead, this solution idea provides a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with nonpublic data.
 
-You can also use this architecture to:
+You can also use this architecture to perform the following actions:
 
 - Increase the value and utility of unstructured text and image content in search apps and data science apps.
 
@@ -90,13 +78,13 @@ You can also use this architecture to:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributor.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
- * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+- [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

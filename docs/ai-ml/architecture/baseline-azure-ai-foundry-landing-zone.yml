@@ -8,7 +8,6 @@ metadata:
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: reference-architecture
-  ms.custom: arb-aiml
   ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
@@ -21,6 +20,7 @@ products:
   - azure-app-service
   - azure-key-vault
   - azure-monitor
+  - azure-ai-foundry
 name: Baseline Azure AI Foundry chat reference architecture in an Azure landing zone
 summary: Learn about deploying the baseline Azure AI Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.
 thumbnailUrl: ../../browse/thumbs/baseline-azure-ai-foundry-landing-zone.png

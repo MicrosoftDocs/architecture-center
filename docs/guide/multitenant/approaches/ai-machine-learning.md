@@ -5,7 +5,7 @@ author: PlagueHO
 ms.author: dascottr
 ms.date: 07/28/2025
 ms.update-cycle: 180-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-saas
@@ -161,7 +161,7 @@ When you work in a multitenant solution, it's important to consider the [isolati
 
 When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how to manage different models and training data for each tenant, along with the versions of each model.
 
-The following diagram illustrates an example architecture that uses Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
+The following diagram illustrates an example architecture that uses Machine Learning. Alternatively, you can leverage Microsoft Fabric Data Science experience, which provides capabilities such as experiments, model management, and endpoint deployment. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
 
 :::image type="complex" border="false" source="media/ai-ml/approach-azure-machine-learning.svg" alt-text="Diagram that shows an architecture that uses Machine Learning." lightbox="media/ai-ml/approach-azure-machine-learning.svg":::
    The diagram shows a large box on the left labeled Azure Machine Learning workspace. Inside this box are three sections labeled Projects, Experiments, and Data plane. Three arrows extend from the Data plane section to three separate boxes labeled Tenant A model, Tenant B model, and Tenant C model. Each tenant model box connects via an arrow that points from a central box labeled Azure Machine Learning compute. An arrow points from a box labeled Shared API that contains an icon with interlinked green and blue chains to the Azure Machine Learning compute box. Three arrows extend from three groups of user icons labeled Tenant A users, Tenant B users, and Tenant C users and point to the Shared API box. Microsoft Azure logo appears in the bottom left corner.
@@ -169,7 +169,7 @@ The following diagram illustrates an example architecture that uses Machine Lear
 
 ### Integrated AI and machine learning solutions
 
-Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
+Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/fabric/data-science/).
 
 You can consider using these platforms for AI and machine learning when you need to scale your machine learning capabilities to a very large number of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
@@ -198,6 +198,7 @@ Other contributors:
 - [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Solution Architect
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

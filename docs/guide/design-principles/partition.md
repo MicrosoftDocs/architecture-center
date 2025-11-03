@@ -4,7 +4,7 @@ description: Use partitioning to address limits to the ability to scale up. Limi
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/30/2018
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -12,7 +12,7 @@ ms.subservice: architecture-guide
 
 ## Use partitioning to work around database, network, and compute limits
 
-In the cloud, all services have limits in their ability to scale up. Azure service limits are documented in [Azure subscription and service limits, quotas, and constraints][azure-limits]. Limits include number of cores, database size, query throughput, and network throughput. If your system grows sufficiently large, you may hit one or more of these limits. Use partitioning to work around these limits.
+In the cloud, all services have limits in their ability to scale up. Azure service limits are documented in [Azure subscription and service limits, quotas, and constraints][azure-limits]. Limits include number of cores, database size, query throughput, and network throughput. If your system grows sufficiently large, you might hit one or more of these limits. Use partitioning to work around these limits.
 
 There are many ways to partition a system, such as:
 
@@ -30,7 +30,7 @@ A database can be partitioned *horizontally*, *vertically*, or *functionally*.
 
 - In functional partitioning, data is partitioned according to how it is used by each bounded context in the system. For example, store invoice data in one partition and product inventory data in another. The schemas are independent.
 
-For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
+For more information, see [Data partitioning][data-partitioning-guidance].
 
 ## Recommendations
 
@@ -40,7 +40,7 @@ For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
 
 **Partition around Azure subscription and service limits**. Individual components and services have limits, but there are also limits for subscriptions and resource groups. For very large applications, you might need to partition around those limits.
 
-**Partition at different levels**. Consider a database server deployed on a VM. The VM has a VHD that is backed by Azure Storage. The storage account belongs to an Azure subscription. Notice that each step in the hierarchy has limits. The database server may have a connection pool limit. VMs have CPU and network limits. Storage has IOPS limits. The subscription has limits on the number of VM cores. Generally, it's easier to partition lower in the hierarchy. Only large applications should need to partition at the subscription level.
+**Partition at different levels**. Consider a database server deployed on a VM. The VM has a VHD that is backed by Azure Storage. The storage account belongs to an Azure subscription. Notice that each step in the hierarchy has limits. The database server might have a connection pool limit. VMs have CPU and network limits. Storage has IOPS limits. The subscription has limits on the number of VM cores. Generally, it's easier to partition lower in the hierarchy. Only large applications should need to partition at the subscription level.
 
 <!-- links -->
 

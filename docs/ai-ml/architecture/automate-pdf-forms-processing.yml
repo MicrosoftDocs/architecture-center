@@ -2,13 +2,12 @@
 metadata:
   title: Automate PDF forms processing
   description: Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.
-  author: gailzmicrosoft 
+  author: DocGailZhou
   ms.author: gazho
   ms.date: 01/10/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
-  ms.custom: arb-aiml
 azureCategories:
   - media
 products:

@@ -4,7 +4,7 @@ description: Get a quick overview of common feature-level considerations that ca
 author: r-kayongo
 ms.author: rkayongo
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
 ---
@@ -305,7 +305,7 @@ AKS provides the most flexibility of the three options considered in this articl
 
 You're responsible for securing identity-based access to the API. Kubernetes provides its own authentication and authorization management system. This system needs to be secured with access controls.
 
-To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
+To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
 | Kubernetes API access | Container Apps | AKS |
 |---|---|---|

@@ -4,7 +4,7 @@ description: "Understand the difference between infrastructure as a service (Iaa
 author: johndowns
 ms.author: pnp
 ms.date: 10/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -35,7 +35,7 @@ Your application might have specific requirements that make IaaS a more suitable
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |
 | MongoDB | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) |
-| Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| Redis | [Azure Managed Redis](/azure/redis/overview) |
 | SQL Server | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
 | File share | [Azure Files](/azure/storage/files/storage-files-introduction) |
 

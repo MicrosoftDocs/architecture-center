@@ -3229,6 +3229,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/hybrid-networking/vnet-peering.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml",
       "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
       "redirect_document_id": false
@@ -3919,6 +3924,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
@@ -4347,6 +4357,11 @@
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
       "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/guide/spoke-to-spoke-networking.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
@@ -4921,6 +4936,16 @@
     {
       "source_path": "docs/data-science-process/spark-overview.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro",
       "redirect_document_id": false
     },
     {
@@ -6145,6 +6170,11 @@
     {
       "source_path": "docs/example-scenario/iot/event-routing.yml",
       "redirect_url": "/azure/iot/iot-overview-message-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/batch-scoring-databricks.yml",
+      "redirect_url": "/azure/databricks/machine-learning/model-inference/",
       "redirect_document_id": false
     },
     {
@@ -7398,6 +7428,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/data-guide/technology-choices/data-store-overview.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/data-store-classification.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/multi-region-web-app-azure-table-failover.yml",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
@@ -7458,6 +7498,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/secure-data-lakehouse-synapse.yml",
+      "redirect_url": "/fabric/onelake/security/get-started-security",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
       "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
       "redirect_document_id": false
@@ -7504,9 +7549,14 @@
     },
     {
       "source_path": "docs/example-scenario/multi-saas/multitenant-saas.yml",
-      "redirect_url": "/azure/architecture/example-scenario/apps/saas-starter-web-app",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/example-scenario/apps/saas-starter-web-app.yml",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
+      "redirect_document_id": false
+    },  
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-data.yml",
       "redirect_url": "/azure/aks/pci-data",
@@ -7550,6 +7600,31 @@
     {
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-summary.yml",
       "redirect_url": "/azure/aks/pci-summary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-options.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-considerations.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/non-relational-data.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-overview.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
     }
   ]

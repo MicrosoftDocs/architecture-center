@@ -97,7 +97,7 @@ Even in a monorepo, these tasks can be scoped to individual microservices so tha
 
 ## Isolation of environments
 
-You will have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally, production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
+You have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally, production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation uses namespaces and policies, as described earlier.
 
 Our recommendation is to create a dedicated production cluster along with a separate cluster for your dev/test environments. Use logical isolation to separate environments within the dev/test cluster. Services deployed to the dev/test cluster should never have access to data stores that hold business data.
 
@@ -176,7 +176,7 @@ Here are some other best practices to consider for containers:
 
 - Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
 
-- During the development and test cycle, the CI/CD process will build many container images. Only some of those images are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
+- During the development and test cycle, the CI/CD process builds many container images. Only some of those images are candidates for release, and then only some of those release candidates get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 
 - Always deploy specific container version tags, not `latest`.
 
@@ -197,7 +197,7 @@ Consider using Helm to manage building and deploying services. Here are some of 
 
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
 
-A single microservice may involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
+A single microservice might involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
 
 For example, here's part of a YAML file that defines a deployment:
 
@@ -302,7 +302,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
 1. Push the Helm package to Azure Container Registry (or other Helm repository), using the `HelmDeploy` task.
 
 
-The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice. The release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There is a unique release pipeline for each microservice. The release pipeline is configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
 
 - Deploy the Helm chart to dev/QA/staging environments. The `helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
 - Wait for an approver to approve or reject the deployment.
