@@ -40,7 +40,7 @@ The following dataflow corresponds to the previous diagram:
 
 - **[AKS](/azure/well-architected/service-guides/azure-kubernetes-service)** is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure.
 
-- **[Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium)** is the recommended networking solution for AKS. It combines Azure's IP address management with Cilium's eBPF-based dataplane to provide improved service routing performance, native Kubernetes NetworkPolicy enforcement without requiring separate add-ons, and enhanced network observability. The eBPF dataplane enables advanced traffic management, reduced latency, and better scalability for microservices architectures.
+- [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended networking solution to connect directly to an Azure virtual network. In this architecture, it assigns IP addresses from the virtual network to pods while providing built-in network policy capabilities and traffic visibility.
 
 - **An ingress server** exposes HTTP(S) routes to services inside the cluster. This architecture uses a [managed NGINX-based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
 
@@ -66,7 +66,10 @@ Instead of the managed ingress gateway in AKS, you can use alternatives like App
 
 You can store container images in non-Microsoft container registries such as Docker Hub.
 
-For networking, while this architecture recommends [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) for its performance and built-in policy enforcement, you can use alternative networking solutions like Azure CNI Overlay or kubenet for specific scenarios. Note that Azure CNI powered by Cilium is currently Linux-only; for Windows node pools, you need to use standard Azure CNI. For more information, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
+For networking, while this architecture recommends [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) for its performance and built-in policy enforcement, you can use alternative networking solutions like Azure CNI Overlay for specific scenarios.
+
+> [!IMPORTANT]
+> If you require Windows nodes in your microservices architecture, review Cilium's current **Linux-only** limitation and plan appropriately for mixed OS pools. For more information, see [Azure CNI powered by Cilium limitations](/azure/aks/azure-cni-powered-by-cilium#limitations).
 
 For microservices that need to maintain state information, [Dapr](/azure/aks/dapr-overview) provides an abstraction layer for managing microservice state.
 
@@ -107,17 +110,15 @@ Avoid storing persistent data in local cluster storage because that method binds
 
 For production microservices deployments on AKS, use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the networking solution. This approach provides several benefits for microservices architectures:
 
-- **Improved performance and scalability**: The eBPF-based dataplane enhances service routing performance and supports larger clusters with lower latency compared to traditional networking solutions.
+- Performance and scalability: The eBPF-based dataplane enhances provides suitable service routing performance and supports larger clusters with lower latency compared to traditional networking solutions.
 
-- **Built-in network policy enforcement**: Cilium natively enforces Kubernetes NetworkPolicy resources without requiring a separate network policy engine like Azure Network Policy Manager or Calico. This native integration simplifies cluster configuration and reduces operational overhead.
+- Network policy enforcement: Cilium enforces Kubernetes NetworkPolicy resources without requiring a separate network policy engine like Azure Network Policy Manager or Calico. This integration simplifies cluster configuration and reduces operational overhead.
 
-- **Enhanced observability**: The eBPF dataplane provides deep visibility into network traffic, including DNS queries, pod-to-pod flows, and service-to-service communication. This visibility helps troubleshoot microservice interactions and identify performance bottlenecks.
+- Observability: The eBPF dataplane provides visibility into network traffic, including DNS queries, pod-to-pod flows, and service-to-service communication. This visibility helps troubleshoot microservice interactions and identify performance bottlenecks.
 
-- **Flexible IP address management**: Azure CNI powered by Cilium supports both VNet-routed and overlay pod IP assignment models, giving you flexibility based on your network architecture requirements.
+- Flexible IP address management: Azure CNI powered by Cilium supports both virtual network routed and overlay pod IP assignment models based on your workload's network architecture requirements.
 
-When you implement network policies for microservices, follow the Zero Trust principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
-
-**Limitations**: Azure CNI powered by Cilium currently supports Linux nodes only. If your microservices architecture requires Windows containers, plan for mixed OS node pools and consider alternative networking solutions for Windows nodes. For more information, see [Azure CNI powered by Cilium limitations](/azure/aks/azure-cni-powered-by-cilium#limitations).
+When you implement network policies for microservices, follow a zero trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
 
 #### API gateway
 
@@ -201,7 +202,7 @@ Consider the following points when you design probes for microservices.
 
   A better approach is to implement retry handling within your service so that your service can recover correctly from transient failures. As an alternative, retry handling, error tolerance, and circuit breakers can be implemented by the [Istio service mesh](/azure/aks/istio-about) to create resilient architecture that can handle microservice failures.
   
-For troubleshooting microservice health issues, use the network observability features provided by [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview?tabs=cilium). The eBPF dataplane can capture detailed network flow information between microservices, helping you identify connectivity issues, DNS resolution problems, or network policy misconfigurations that might affect service health.
+For troubleshooting microservice health issues, use the network observability features provided by [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview?tabs=cilium). The eBPF dataplane captures detailed network flow information between microservices, which helps you identify connectivity issues, DNS resolution problems, or network policy misconfigurations that might affect service health.
 
 #### Resource constraints
 
@@ -223,7 +224,7 @@ You might also need to rotate your certificates depending on the organization's 
 
 #### Network segmentation and policies
 
-Implement network segmentation between microservices using Kubernetes NetworkPolicy resources. When you use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), network policies are enforced natively in the eBPF dataplane without requiring additional policy engines.
+Implement network segmentation between microservices using Kubernetes NetworkPolicy resources. When you use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), network policies are enforced using the eBPF dataplane.
 
 Follow these best practices for network policies in microservices architectures:
 
@@ -233,9 +234,7 @@ Follow these best practices for network policies in microservices architectures:
 
 - **Control egress traffic**: Use network policies to restrict outbound traffic from microservices to only approved external services and endpoints.
 
-- **Monitor policy effectiveness**: Use the enhanced observability provided by Cilium's eBPF dataplane to monitor network policy enforcement and identify blocked traffic that might indicate misconfigurations or security issues.
-
-For more information and examples, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
+- **Monitor policy effectiveness**: Use the observability provided by Cilium's eBPF dataplane to monitor network policy enforcement and identify blocked traffic that might indicate misconfigurations or security issues.
 
 #### RBAC
 
