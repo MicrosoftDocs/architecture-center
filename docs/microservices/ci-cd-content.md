@@ -42,7 +42,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
     **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
 
-- **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team will run its own full cluster at production scales, just for testing.
+- **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team runs its own full cluster at production scales, just for testing.
 
 - **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
@@ -54,7 +54,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Monorepo vs. multi-repo
 
-Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
+Before creating a CI/CD workflow, you must know how the code base is structured and managed.
 
 - Do teams work in separate repositories or in a monorepo (single repository)?
 - What is your branching strategy?

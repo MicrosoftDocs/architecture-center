@@ -140,7 +140,7 @@ The following resources provide practical recommendations and information for sp
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
 [Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
-[Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+[Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/browse/?products=azure&terms=event%20grid

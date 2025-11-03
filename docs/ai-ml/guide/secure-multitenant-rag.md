@@ -45,7 +45,7 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-services/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search. In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
 
 > [!NOTE]
-> Azure OpenAI is managed by Microsoft. It integrates with the data store, but the model itself doesn't integrate with the data store. The model receives grounding data in the same way as it does when an orchestrator fetches the data.
+> This Azure OpenAI feature integrates with the data store, but the model itself doesn't integrate with the data store. The model receives grounding data in the same way as it does when an orchestrator fetches the data.
 
 :::image type="complex" source="./_images/multitenant-rag-single-tenant-direct-architecture.svg" lightbox="./_images/multitenant-rag-single-tenant-direct-architecture.svg" alt-text="Diagram that shows a RAG architecture that uses Azure OpenAI direct access to a single-tenant database instance." border="false":::
    In the diagram, a user connects to an intelligent application. The intelligent application connects to an identity provider. The intelligent application then connects to Azure OpenAI. Azure OpenAI connects to supported data stores such as Azure AI Search and Azure Blob Storage. AI Search then passes the data as part of the context to the language model.

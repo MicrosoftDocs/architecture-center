@@ -1,20 +1,21 @@
 This reference architecture describes several configurations to consider when you run microservices on Azure Kubernetes Service (AKS). This article discusses network policy configuration, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which serves as a starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you become familiar with the AKS baseline architecture before you proceed with the microservices content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which serves as a starting point for AKS infrastructure. The AKS baseline describes infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These features aren't covered in this article. We recommend that you familiarize yourself with the AKS baseline architecture before you proceed with the microservices content.
 
 ## Architecture
 
 :::image type="complex" border="false" source="images/aks-microservices-advanced-production-deployment.svg" alt-text="Network diagram that shows a hub-spoke network that has two peered virtual networks and the Azure resources that this architecture uses." lightbox="images/aks-microservices-advanced-production-deployment.svg":::
-   An arrow labeled peering connects the two main sections of the diagram: spoke and hub. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, an arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. Advanced Container Networking Services fetches node and pod level data and ingests it to Azure Monitor for end-to-end visibility. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, Azure Cosmos DB API for Mongo DB, Azure Service Bus, Azure Cache for Redis, Azure Monitor, Azure Cloud Services, and fully qualified domain names (FQDNs). These services and FQDNs are outside the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
+   An arrow labeled peering connects the two main sections of the diagram: spoke and hub. Requests pass from the public internet into a box labeled subnet that contains Azure Application Gateway with a web application firewall (WAF) in the spoke network. Another box labeled subnet in the spoke network section contains a user node pool and a system node pool inside of a smaller box that represents AKS. A dotted line passes from the Application Gateway with WAF subnet, through an ingress, and to an ingestion flow and a scheduler microservice. Dotted lines and arrows connect ingestion workflows with the scheduler, package, and delivery microservices. A dotted arrow points from the workflow to the Azure Firewall subnet in the hub network section. In the system node pool box, an arrow points from the Secrets Store CSI Driver to an Azure Key Vault icon located outside of the spoke network. Advanced Container Networking Services fetches node- and pod-level data and ingests it to Azure Monitor for end-to-end visibility. An icon that represents Azure Container Registry also connects to the AKS subnet. Arrows point from icons that represent a node-managed identity, Flux, and Kubelet to the Azure Firewall subnet in the hub network. A dotted line connects Azure Firewall to services, including Azure Cosmos DB, Azure Cosmos DB API for Mongo DB, Azure Service Bus, Azure Managed Redis, Azure Monitor, Azure Cloud Services, and fully qualified domain names (FQDNs). These services and FQDNs are outside the hub network. The hub network also contains a box that represents a subnet that contains Azure Bastion.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
-
 If you prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 
 ### Workflow
 
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The following workflow corresponds to the previous diagram:
+This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+
+The following workflow corresponds to the previous diagram:
 
 1. An HTTPS request is submitted to schedule a drone pickup. The request passes through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
 
@@ -22,34 +23,31 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 1. The back-end system assigns a drone and notifies the user. The workflow microservice does the following tasks:
 
-   - Consumes message information from the Service Bus message queue
+   - Consumes message information from the Service Bus message queue.
 
-   - Sends an HTTPS request to the delivery microservice, which passes data to Azure Cache for Redis external data storage
+   - Sends an HTTPS request to the delivery microservice, which passes data to Azure Managed Redis external data storage.
 
-   - Sends an HTTPS request to the drone scheduler microservice
+   - Sends an HTTPS request to the drone scheduler microservice.
 
-   - Sends an HTTPS request to the package microservice, which passes data to Azure Cosmos DB for MongoDB external data storage
+   - Sends an HTTPS request to the package microservice, which passes data to Azure Cosmos DB for MongoDB external data storage.
 
    - Advanced Container Networking Services policies (Cilium NetworkPolicy) govern service-to-service traffic inside the cluster, and the dataplane transparently enforces optional inter-node pod encryption (WireGuard). Advanced Container Networking Services isn't enabled by default. It fetches node-level and pod-level data and ingests it into Azure Monitor for end-to-end visibility.
 
 1. The architecture uses an HTTPS GET request to return delivery status. This request passes through Application Gateway into the delivery microservice.
 
-1. The delivery microservice reads data from Azure Cache for Redis.
+1. The delivery microservice reads data from Azure Managed Redis.
 
 ### Components
-
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) provides a managed Kubernetes cluster. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
-
-  - [AKS-managed Microsoft Entra ID for Azure role-based access control (Azure RBAC)](/azure/aks/enable-authentication-microsoft-entra-id) integrates Microsoft Entra ID with AKS to enforce identity-based access control. In this architecture, it ensures secure, centralized authentication and authorization for cluster users and workloads.
+  
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes platform that delivers managed clusters for deploying and scaling containerized applications. When you use AKS, Azure manages the Kubernetes API server. The cluster operator can access and manage the Kubernetes nodes or node pools. This architecture uses the following AKS infrastructure features:
 
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni) is a plug-in that enables containers to connect directly to an Azure virtual network. In this architecture, Azure CNI assigns IP addresses from the virtual network to pods. This configuration enables integration with Azure networking services and control over traffic flow.
 
   - [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) is a suite of managed networking capabilities for AKS that provides network observability and enhanced in-cluster security:
 
-    - **Container Network Observability** uses Extended Berkeley Packet Filter (eBPF)-based tooling, such as Hubble and Retina, to collect Domain Name System (DNS) queries, pod-to-pod and pod-to-service flows, packet drops, and other metrics. It works across Cilium and non-Cilium Linux data planes. It also integrates with Azure Monitor managed service for Prometheus and Azure Managed Grafana for visualization and alerting. In this architecture, Container Network Observability diagnoses policy misconfigurations, DNS latency or errors, and traffic imbalances across microservices.
+    - **Container Network Observability** uses Extended Berkeley Packet Filter (eBPF)-based tooling, such as Hubble and Retina, to collect Domain Name System (DNS) queries, pod-to-pod and pod-to-service flows, packet drops, and other metrics. It works across Cilium and non-Cilium Linux data planes. It also integrates with Azure Monitor managed service for Prometheus and Azure Managed Grafana for visualization and alerting. In this architecture, Container Networking Observability diagnoses policy misconfigurations, DNS latency or errors, and traffic imbalances across microservices.
 
-    - **Container Network Security** applies to clusters that use Azure CNI Powered by Cilium. It enforces Cilium NetworkPolicy resources, including fully qualified domain name (FQDN)-based egress filtering, to implement Zero Trust network segmentation and reduce operational overhead. In this architecture, in-cluster FQDN policies work with Azure Firewall or Azure NAT Gateway to enforce least-privilege egress while simplifying policy maintenance.
-
+    - **Container Networking Security** applies to clusters that use Azure CNI Powered by Cilium. It enforces Cilium NetworkPolicy resources, including fully qualified domain name (FQDN)-based egress filtering, to implement Zero Trust network segmentation and reduce operational overhead. In this architecture, in-cluster FQDN policies work with Azure Firewall or Azure NAT Gateway to enforce least-privilege egress while simplifying policy maintenance.
 
   - [Azure Policy add-on for AKS](/azure/aks/use-azure-policy) is a built-in extension that brings governance and compliance controls directly into your AKS clusters. It applies governance rules across AKS resources by using Azure Policy. In this architecture, it enforces compliance by validating configurations and restricting unauthorized deployments.
 
@@ -57,9 +55,9 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools) is an architectural practice that divides cluster nodes into two distinct types of node pools and isolates AKS infrastructure components from application workloads. In this architecture, security and resource efficiency are enhanced by dedicating node pools to specific operational roles.
 
-  - [Workload ID](/azure/aks/workload-identity-overview) a secure and scalable way for Kubernetes workloads to access Azure resources by using Microsoft Entra ID without needing secrets or credentials stored in the cluster. Workload ID enables AKS workloads to securely access Azure resources by using federated identity. In this architecture, it eliminates the need for secrets and improves security posture through identity-based access.
+  - [Workload ID](/azure/aks/workload-identity-overview) is a secure and scalable way for Kubernetes workloads to access Azure resources by using Microsoft Entra ID without needing secrets or credentials stored in the cluster. Workload ID enables AKS workloads to securely access Azure resources by using federated identity. In this architecture, it eliminates the need for secrets and improves security posture through identity-based access.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an Azure-managed service that provides layer 7 load balancing and web application firewall (WAF) capabilities. In this architecture, it exposes the ingestion microservice as a public endpoint and balances incoming web traffic to the application.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an Azure-managed service that provides layer-7 load balancing and web application firewall (WAF) capabilities. In this architecture, it exposes the ingestion microservice as a public endpoint and balances incoming web traffic to the application.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is an Azure-managed service that delivers intelligent, cloud-native network security and threat protection. In this architecture, it controls outbound communications from microservices to external resources, which allows only approved FQDNs as egress traffic.
 
@@ -69,27 +67,26 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 #### External storage and other components
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an Azure-managed service that adds a high-performance caching layer to applications. In this architecture, the delivery microservice uses Azure Cache for Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness under heavy traffic.
+- [Azure Managed Redis](/azure/redis/overview) is an Azure-managed service that provides a high-performance, in-memory data store for caching, session storage, and real-time data access. Beyond traditional caching, it includes support for advanced data types and features such as JSON document storage, full-text and vector search, and stream processing. These capabilities make it ideal for accelerating microservices and for powering modern AI scenarios such as retrieval-augmented generation (RAG), intelligent assistants, real-time recommendations, AI agents, and anomaly detection. In this architecture, the delivery microservice uses Azure Managed Redis as the state store and [side cache](/azure/architecture/patterns/cache-aside) to improve speed and responsiveness during heavy traffic.
 
-- [Azure Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it by using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
+- [Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it by using its Microsoft Entra managed identity. Other registries like Docker Hub can also be used.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure-managed, globally distributed NoSQL, relational, and vector database service. In this architecture, Azure Cosmos DB and [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) serve as external data stores for each microservice.
 
-- [Key Vault](/azure/key-vault/general/overview) is an Azure-managed service that securely stores and manages secrets, keys, and certificates. In this architecture, Key Vault stores credentials used by microservices to access Azure Cosmos DB and Azure Cache for Redis.
+- [Key Vault](/azure/key-vault/general/overview) is an Azure-managed service that securely stores and manages secrets, keys, and certificates. In this architecture, Key Vault stores credentials used by microservices to access Azure Cosmos DB and Azure Managed Redis.
 
 - [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) is an Azure-managed observability platform that collects metrics, logs, and telemetry across services. In this architecture, it enables monitoring of the application, alerting, dashboarding, and root cause analysis for failures across AKS and integrated services.
-
   **Container network observability for Advanced Container Networking Services** uses Hubble for flow visibility and Retina for curated network telemetry. These tools integrate with managed observability back ends, such as Azure Monitor managed service for Prometheus and Azure Managed Grafana, for troubleshooting and service-level objective (SLO) reporting.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus acts as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is an Azure-managed messaging service that supports reliable and asynchronous communication between distributed applications. In this architecture, Service Bus serves as the queueing layer between the ingestion and workflow microservices, which enables decoupled and scalable message exchange.
 
 #### Other operations support system components
 
 - [Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2) is an Azure-supported, open and extensible continuous delivery solution for Kubernetes that enables [GitOps in AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks). In this architecture, Flux automates deployments by syncing application manifest files from a Git repository, which ensures consistent and declarative delivery of microservices to the AKS cluster.
 
-- [Helm](https://helm.sh/) is a Kubernetes-native package manager that bundles Kubernetes objects into a single unit for publishing, deploying, versioning, and updating. In this architecture, Helm is used to package and deploy microservices to the AKS cluster.
+- [Helm](https://helm.sh) is a Kubernetes-native package manager that bundles Kubernetes objects into a single unit for publishing, deploying, versioning, and updating. In this architecture, Helm is used to package and deploy microservices to the AKS cluster.
 
-- [Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver) is an Azure-integrated driver that enables AKS clusters to mount secrets from Key Vault by using [CSI volumes](https://kubernetes-csi.github.io/docs/). In this architecture, secrets are mounted directly into microservice containers, which allows secure retrieval of credentials for Azure Cosmos DB and Azure Cache for Redis.
+- [Key Vault Secrets Store CSI Driver provider](/azure/aks/csi-secrets-store-driver) is an Azure-integrated driver that enables AKS clusters to mount secrets from Key Vault by using [CSI volumes](https://kubernetes-csi.github.io/docs/). In this architecture, secrets are mounted directly into microservice containers, which allows secure retrieval of credentials for Azure Cosmos DB and Azure Managed Redis.
 
 ### Alternatives
 
@@ -97,11 +94,11 @@ Instead of using an application routing add-on, you can use alternatives like [A
 
 You can use ArgoCD as the GitOps tool instead of Flux. Both [Flux](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) and [ArgoCD](/azure/azure-arc/kubernetes/tutorial-use-gitops-argocd) are available as cluster extensions.
 
-Instead of storing credentials for Azure Cosmos DB and Azure Cache for Redis in key vaults, we recommend that you use managed identities to authenticate because password-free authentication mechanisms are more secure. For more information, see [Use managed identities to connect to Azure Cosmos DB from an Azure VM](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos) and [Authenticate a managed identity by using Microsoft Entra ID to access Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Cache for Redis also supports [authentication by using managed identities](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+Instead of storing credentials for Azure Cosmos DB and Azure Managed Redis in key vaults, we recommend that you use managed identities to authenticate because password-free authentication mechanisms are more secure. For more information, see [Use managed identities to connect to Azure Cosmos DB from an Azure VM](/entra/identity/managed-identities-azure-resources/tutorial-vm-managed-identities-cosmos) and [Authenticate a managed identity by using Microsoft Entra ID to access Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure Managed Redis also supports [authentication by using managed identities](/azure/redis/entra-for-authentication).
 
 ## Scenario details
-
-In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location and see a continuously updated estimated time of arrival.
+  
+In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the back-end system assigns a drone and notifies the user with an estimated delivery time. The customer can track the drone's location and see a continuously updated estimated time of arrival while the delivery is in progress.
 
 ## Recommendations
 
@@ -183,9 +180,9 @@ We recommend that you use Cilium as the network policy engine.
 
 Administrators use resource quotas to reserve and limit resources across a development team or project. You can set resource quotas on a namespace and use them to set limits on the following resources:
 
-- Compute resources, such as CPU and memory, or GPUs
+- Compute resources, such as central processing units (CPUs), memory, and graphics processing units (GPUs)
 
-- Storage resources, including the number of volumes or amount of disk space for a given storage class
+- Storage resources, including the number of volumes or amount of disk space for a specific storage class
 
 - Object count, such as the maximum number of secrets, services, or jobs that can be created
 
@@ -295,9 +292,7 @@ In the Fabrikam drone delivery scenario, KEDA scales out the workflow microservi
 
 ### Health probes
 
-Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that start successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement.
-
-Kubernetes defines three types of health probes that a pod can expose:
+Kubernetes load balances traffic to pods that match a label selector for a service. Only pods that start successfully and are healthy receive traffic. If a container crashes, Kubernetes removes the pod and schedules a replacement. Kubernetes defines three types of health probes that a pod can expose:
 
 - The readiness probe tells Kubernetes whether the pod is ready to accept requests.
 
@@ -307,14 +302,13 @@ Kubernetes defines three types of health probes that a pod can expose:
 
 The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which alerts Kubernetes to restart the pod.
 
-Sometimes, a pod might not be ready to receive traffic, even though the pod starts successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
+Sometimes a pod might not be ready to receive traffic, even though the pod starts successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
 
 Microservices should expose endpoints in their code that facilitate health probes, with delay and timeout tailored specifically to the checks that they perform. The [HPA formula](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details) relies on the pod's ready phase, so it's crucial that health probes exist and are accurate.
 
 ### Monitoring
 
 Monitoring is essential in a microservices architecture to detect anomalies, diagnose problems, and understand service dependencies. [Application Insights](/azure/azure-monitor/app/app-insights-overview), part of Azure Monitor, provides application performance monitoring (APM) for applications written in .NET, Node.js, Java, and many other languages.
-
 Azure provides several integrated capabilities for end-to-end visibility:
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview) collects and alerts on infrastructure and workload metrics.
@@ -323,7 +317,7 @@ Azure provides several integrated capabilities for end-to-end visibility:
 
 - [Azure Managed Grafana](/azure/managed-grafana/overview) visualizes metrics and dashboards for clusters and microservices.
 
-[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and Level-7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed service for Prometheus for metrics and Azure Managed Grafana for dashboards. This integration enables detection of network bottlenecks, policy misconfigurations, and communication problems that traditional APM might miss.
+[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) observability complements these tools by providing deep, eBPF-based visibility into network behavior of AKS clusters. It captures DNS latency, pod-to-pod and service flows, network policy drops, and level-7 protocol metrics such as HTTP status codes and response times. This telemetry integrates with Azure Monitor managed service for Prometheus for metrics and Azure Managed Grafana for dashboards. This integration enables detection of network bottlenecks, policy misconfigurations, and communication problems that traditional APM might miss.
 
 > [!TIP]
 > Combine Advanced Container Networking Services network data with Azure Monitor telemetry for a complete view of application and infrastructure health. You can also integrate Application Insights with AKS [without code changes](/azure/azure-monitor/app/kubernetes-codeless) to correlate application performance with cluster and network insights.
@@ -350,21 +344,21 @@ Consider the following points when you plan for security:
 
 - In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information, see [Manage Kubernetes service accounts](/azure/aks/concepts-identity#kubernetes-service-accounts).
 
-- Not all Azure services support using Microsoft Entra ID for data plane authentication. To store credentials or application secrets for those services, for non-Microsoft services, or for API keys, use Key Vault. Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
+- Not all Azure services support Microsoft Entra ID for data plane authentication. To store credentials or application secrets for those services, for non-Microsoft services, or for API keys, use Key Vault. It provides centralized management, access control, encryption at rest, and auditing for all keys and secrets.
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
-[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and Zero Trust controls for AKS clusters. Use Cilium network policies on [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement Layer-3 and Layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
+[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and Zero Trust controls for AKS clusters. Use Cilium network policies on [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement layer-3 and layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
 
-  - FQDN-based egress filtering to restrict outbound traffic to approved domains
+- FQDN-based egress filtering to restrict outbound traffic to approved domains
 
-  - L7-aware policies for protocols such as HTTP and Google Remote Procedure Call (gRPC) to validate and control application-level communication
+- L7-aware policies for protocols such as HTTP and Google Remote Procedure Call (gRPC) to validate and control application-level communication
 
-  - WireGuard encryption to secure pod-to-pod traffic and protect sensitive data in transit
+- WireGuard encryption to secure pod-to-pod traffic and protect sensitive data in transit
 
   These features work alongside perimeter defenses such as network security groups (NSGs) and Azure Firewall to deliver a layered security approach that enforces traffic control from within the cluster.
 
-- If the microservice needs to communicate to resources, such as external URLs outside of the cluster, control the access through Azure Firewall. If the microservice doesn't need to make any outbound calls, use [network isolated clusters](/azure/aks/network-isolated).
+- If the microservice needs to communicate with resources, such as external URLs outside of the cluster, control the access through Azure Firewall. If the microservice doesn't need to make any outbound calls, use [network isolated clusters](/azure/aks/network-isolated).
 
 - Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to provide security posture management, vulnerability assessment for microservices, runtime threat protection, and other security features.
 
@@ -407,7 +401,6 @@ Consider the following points when you plan for scalability:
   - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
 
   - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
-
 - If there's a large number of outbound flows from the microservice, consider using [network address translation (NAT) gateways](/azure/aks/nat-gateway) to avoid source network address translation (SNAT) port exhaustion.
 
 - Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information, see [Add node pools with unique subnets](/azure/aks/create-node-pools#node-pools-with-unique-subnets). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.

@@ -472,7 +472,7 @@ items:
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Use Microsoft Fabric to design an enterprise BI solution
-        href: example-scenario/analytics/enterprise-bi-synapse.yml
+        href: example-scenario/analytics/enterprise-bi-microsoft-fabric.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
