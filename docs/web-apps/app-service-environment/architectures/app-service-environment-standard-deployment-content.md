@@ -236,7 +236,7 @@ Application Gateway has various [pricing options](https://azure.microsoft.com/pr
 
 #### Azure Managed Redis
 
-Azure Managed Redis has various [pricing options](https://azure.microsoft.com/en-us/pricing/details/managed-redis).
+Azure Managed Redis has various [pricing options](https://azure.microsoft.com/pricing/details/managed-redis).
 
 #### Other dependencies
 
