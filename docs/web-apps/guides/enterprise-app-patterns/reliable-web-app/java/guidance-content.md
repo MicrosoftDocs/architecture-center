@@ -13,7 +13,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 The first step in replatforming a web app is to define your business objectives. Set immediate goals such as service-level objectives (SLOs) and cost optimization targets, along with future goals for your web application. These objectives influence your choice of cloud services and the architecture of your application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite service-level agreement (SLA)](/azure/well-architected/reliability/metrics#understand-service-level-agreements) for all the services that affect the availability of your web app.
 
-For example, Contoso Fiber wants to expand its on-premises CAMS web app to reach other regions. To meet the increased demand on the web app, the company establishes the following goals:
+Contoso Fiber wants to expand its on-premises CAMS web app to reach other regions. To meet the increased demand on the web app, the company establishes the following goals:
 
 - Apply low-cost, high-value code changes.
 - Reach an SLO of 99.9%.
@@ -31,7 +31,7 @@ Contoso Fiber determines that its on-premises infrastructure isn't a cost-effect
 
 When you move a web app to the cloud, choose Azure services that meet your business requirements and align with the features of the on-premises web app. This alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks.
 
-For example, before migration, Contoso Fiber's CAMS web app is an on-premises, monolithic Java application. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business (LOB) support app for employees. They use it to manage customer support cases. The app experiences common challenges with scalability and feature deployment. This starting point, along with business goals and SLOs, influences their service choices.
+Before migration, Contoso Fiber's CAMS web app is an on-premises, monolithic Java application. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business (LOB) support app for employees. They use it to manage customer support cases. The app experiences common challenges with scalability and feature deployment. This starting point, along with business goals and SLOs, influences their service choices.
 
 The following list provides guidance to select the right Azure services for your web app and describes why Contoso Fiber selects specific services:
 
@@ -47,7 +47,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Autoscaling:* The web app can rapidly scale up, scale down, scale in, and scale out based on user traffic.
 
-- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/what-is-entra) as your identity and access management solution. For example, Contoso Fiber uses Microsoft Entra ID for the following reasons:
+- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/what-is-entra) as your identity and access management solution. Contoso Fiber uses Microsoft Entra ID for the following reasons:
 
   - *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
 
@@ -57,7 +57,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Authorization protocol support:* Microsoft Entra ID supports OAuth 2.0 for managed identities.
 
-- *Database:* Use a service that lets you keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-stores-getting-started) to guide your selection. For example, Contoso Fiber uses the Azure Database for PostgreSQL flexible server deployment model for the following reasons:
+- *Database:* Use a service that lets you keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-stores-getting-started) to guide your selection. Contoso Fiber uses the Azure Database for PostgreSQL flexible server deployment model for the following reasons:
 
   - *Reliability:* The flexible server deployment model supports zone-redundant high availability across multiple availability zones. This configuration maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
 
@@ -73,7 +73,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Resiliency:* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them in zone-redundant storage (ZRS) within the same region. Contoso Fiber can restore the database to any point in time within the backup retention period. The backup and restoration capability creates a better RPO compared to on-premises environments.
 
-- *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. For example, Contoso Fiber uses Application Insights for the following reasons:
+- *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Contoso Fiber uses Application Insights for the following reasons:
 
   - *Integration with Azure Monitor:* It provides the best integration with Azure Monitor.
 
@@ -85,7 +85,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Visibility gap:* The on-premises solution doesn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
-- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store based on the Redis software. For example, Contoso Fiber adds Azure Managed Redis for the following reasons:
+- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store based on the Redis software. Contoso Fiber adds Azure Managed Redis for the following reasons:
 
   - *Speed and volume:* It provides high-data throughput and low-latency reads for frequently accessed, slow-changing data.
 
@@ -95,7 +95,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Nonsticky sessions:* The cache lets the web app externalize session state and use nonsticky sessions. Most Java web apps that run on-premises rely on in-memory client-side caching. This approach doesn't scale well and increases the memory footprint on the host. Azure Managed Redis provides a managed, scalable cache service to improve the scalability and performance of applications. Contoso Fiber used Spring Cache as their cache abstraction framework and needed only minimal configuration changes to switch from an Ehcache provider to the Redis provider.
 
-- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, depending on the web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to select the right load balancer. For example, Contoso Fiber needs a layer-7 load balancer that can route traffic across multiple regions and a multiregion web app to meet the SLO of 99.9%. The company uses [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, depending on the web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to select the right load balancer. Contoso Fiber needs a layer-7 load balancer that can route traffic across multiple regions and a multiregion web app to meet the SLO of 99.9%. The company uses [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
   - *Global load balancing:* This layer-7 load balancer can route traffic across multiple regions.
 
@@ -115,7 +115,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Content delivery network:* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
 
-- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection from common web exploits and vulnerabilities. For example, Contoso Fiber uses Azure Web Application Firewall for the following reasons:
+- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection from common web exploits and vulnerabilities. Contoso Fiber uses Azure Web Application Firewall for the following reasons:
 
   - *Global protection:* It provides improved global web app protection while maintaining performance.
 
@@ -125,7 +125,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Ease of use:* Azure Web Application Firewall integrates with Azure Front Door.
 
-- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. For example, Contoso Fiber uses Key Vault for the following reasons:
+- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. Contoso Fiber uses Key Vault for the following reasons:
 
   - *Encryption:* It supports encryption at rest and in transit.
 
@@ -135,13 +135,13 @@ The following list provides guidance to select the right Azure services for your
 
   - *Integration:* Key Vault provides native integration with the Azure configuration store (Azure App Configuration) and web hosting platform (App Service).
 
-- *Endpoint security:* Use [Azure Private Link](/azure/private-link/private-link-overview) to access PaaS solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. For example, Contoso Fiber uses Private Link for the following reasons:
+- *Endpoint security:* Use [Azure Private Link](/azure/private-link/private-link-overview) to access PaaS solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Contoso Fiber uses Private Link for the following reasons:
 
   - *Enhanced-security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
 
   - *Minimal effort:* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
-- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to VMs with enhanced security, without exposing Remote Desktop Protocol/Secure Shell (RDP/SSH) ports. For example, Contoso Fiber adopts a hub-and-spoke network topology and puts shared network security services in the hub. Azure Firewall inspects outbound traffic from the spokes to enhance network security. The company uses Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to VMs with enhanced security, without exposing Remote Desktop Protocol/Secure Shell (RDP/SSH) ports. Contoso Fiber adopts a hub-and-spoke network topology and puts shared network security services in the hub. Azure Firewall inspects outbound traffic from the spokes to enhance network security. The company uses Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
