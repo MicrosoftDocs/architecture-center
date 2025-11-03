@@ -1,3 +1,26 @@
+---
+title: Reliable Web App Pattern for Java
+description: Implement the Reliable Web App pattern for Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.
+author: nishanil
+ms.author: nanil
+ms.reviewer: ssumner
+ms.date: 10/15/2024
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-web
+  - devx-track-dotnet
+  - sfi-ropc-nochange
+ms.collection:
+  - migration
+  - onprem-to-azure
+azureCategories:
+  - migration
+  - web
+products:
+  - azure-app-service
+  - azure-front-door
+---
 [!INCLUDE [intro 1](../includes/intro-1.md)]
 
 ## Why use the Reliable Web App pattern for Java?
