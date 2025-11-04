@@ -52,7 +52,8 @@ The workflow is read left to right, following the flow of data:
         - Mirrored database: It provides near real-time replication of operational data from sources such as Azure SQL Database or Cosmos DB into OneLake, ensuring analytics are always up to date without complex ETL processes.
       
 - **Process**
-    - Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you need low-code ETL, advanced data engineering, real-time analytics, or embedded business logic, Fabric provides integrated tools that work seamlessly with OneLake. These options ensure that data can be cleansed, enriched, and prepared for analytics or machine learning in a unified environment.
+
+  Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you use low-code ETLs, perform advanced data engineering, use real-time analytics, or require embedded business logic, Fabric provides tools that work with data in OneLake. You are responsible to ensure that data is cleansed, enriched, and prepared for analytics or machine learning.
         - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or Spark SQL.
         - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a dataflow (/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
         - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
