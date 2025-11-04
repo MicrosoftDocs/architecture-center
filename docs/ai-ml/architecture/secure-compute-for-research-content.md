@@ -201,7 +201,7 @@ Other contributor:
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What are compute targets in Machine Learning?](/azure/machine-learning/service/concept-compute-target)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
+- [What is Data Factory in Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Virtual Desktop?](/azure/virtual-desktop/overview)
 - [Defender for Cloud documentation](/azure/security-center)
 - [What is Microsoft Sentinel SIEM?](/azure/sentinel/overview)
