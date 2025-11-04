@@ -3,7 +3,7 @@ This article describes an architecture that replaces manual video analysis with 
 ## Architecture
 
 :::image type="complex" border="false" source="_images/analyze-video-content.svg" alt-text="Diagram that shows an architecture for automated video analysis by using video frames and custom code." lightbox="_images/analyze-video-content.svg":::
-   The image is a flow diagram divided into four labeled sections: Ingest, Transform, Enrich and serve, and Visualize. In the Ingest section, there's an icon that represents video files, with an arrow that points to a machine learning storage account icon. In the Transform section, arrows connect the storage account to a box that contains icons for Jupyter Notebook, Azure Machine Learning, and an inference cluster. An arrow labeled Run points from this box to a picture files icon, and then to a Data Lake Storage icon. An arrow points from Data Lake Storage to a box that contains Azure Logic Apps, arrows to and from Custom Vision API and Computer Vision API icons. An arrow labeled Parsing JSON points from Logic Apps to a Microsoft Fabric icon. In the Visualize section, an arrow points from Microsoft Fabric to a Power BI icon.
+   The image is a flow diagram divided into four labeled sections: Ingest, Transform, Enrich and serve, and Visualize. In the Ingest section, there's an icon that represents video files, with an arrow that points to a machine learning storage account icon. In the Transform section, arrows connect the storage account to a box that has icons for Jupyter Notebook, Azure Machine Learning, and an inference cluster. An arrow labeled Run points from this box to a picture files icon, and then to a Data Lake Storage icon. An arrow points from Data Lake Storage to a box that has Azure Logic Apps, and arrows point to and from Custom Vision API and Computer Vision API icons. An arrow labeled Parsing JSON points from Logic Apps to a Microsoft Fabric icon. In the Visualize section, an arrow points from Microsoft Fabric to a Power BI icon.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
@@ -14,9 +14,9 @@ This article describes an architecture that replaces manual video analysis with 
 
 1. A collection of MP4 video footage is uploaded to Azure Blob Storage. Ideally, the videos go into a raw container.
 
-1. A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
+1. A preconfigured pipeline in Azure Machine Learning detects that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
 
-1. FFmpeg, which is an open-source tool, breaks down the video and extracts frames. You can configure how many frames per second are extracted, the quality of the extraction, and the format of the image file. The format can be JPG or PNG.
+1. FFmpeg, which is an open-source tool, decodes the video and extracts individual frames as image files. You can set up how many frames per second are extracted, the quality of the extraction, and the format of the image file. The format can be JPG or PNG.
 
 1. The inference cluster sends the images to Azure Data Lake Storage.
 
@@ -24,7 +24,7 @@ This article describes an architecture that replaces manual video analysis with 
 
 1. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. It might also call a computer vision model that uses optical character recognition (OCR) to identify textual information in the images.
 
-1. Results arrive in JSON format. The logic app parses the results to create key-value pairs. You can store those pairs in Microsoft Fabric Data Warehouse, which is a fully managed analytical database that supports atomicity, consistency, isolation, durability (ACID) transactions. It uses the open Delta Parquet format and integrates natively with OneLake.
+1. Results arrive in JSON format. The logic app parses the results to create key-value pairs. You can store those pairs in Microsoft Fabric Data Warehouse, which is a fully managed analytical database that supports atomicity, consistency, isolation, and durability (ACID) transactions. It uses the open Delta Parquet format and integrates natively with OneLake.
 
 1. Power BI provides data visualization.
 
@@ -38,20 +38,23 @@ This article describes an architecture that replaces manual video analysis with 
 
 - [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed state-of-the-art computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, initiates analysis workflows, processes results, and coordinates the movement and transformation of data.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end‑to‑end unified analytics platform that streamlines integration of data workflows across data engineering, data integration, warehousing, real‑time analytics, and BI. In this architecture, after Logic Apps parses the JSON results, the data is stored and analyzed in [Fabric Data Warehouse](/fabric/data-warehouse/) for governed analytics before visualization in Power BI.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end‑to‑end unified analytics platform that streamlines integration of data workflows across data engineering, data integration, warehousing, real‑time analytics, and business intelligence (BI). In this architecture, after Logic Apps parses the JSON results, the data is stored and analyzed in [Fabric Data Warehouse](/fabric/data-warehouse) for governed analytics before visualization in Power BI.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
 ### Alternatives
 
-If there's no need to call a pretrained object detection custom model, we can use the following architecture that relies on Azure AI Vision Video Retrieval. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach serves a more straightforward path if your use case relies on detecting common objects or entities in a video.
+> [!IMPORTANT]
+> Azure AI Content Understanding is currently in preview. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
-:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using the Video Retrieval API." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
-  The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to the Video Retrieval API with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Video Retrieval API connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
+If there's no need to call a pretrained object detection custom model, you can use the following architecture that relies on Content Understanding. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach is more direct if your use case involves detecting common objects or entities in a video.
+
+:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using the Content Understanding API." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
+  The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to the Content Understanding API with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Content Understanding API connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
@@ -62,13 +65,13 @@ If there's no need to call a pretrained object detection custom model, we can us
 
 1. A preconfigured logic app monitors Blob Storage detects that new videos are being uploaded and starts a workflow.
 
-1. The logic app calls the Azure AI Vision Video Retrieval API to create an index.
+1. The logic app calls the Content Understanding API to create an index.
 
-1. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index.
+1. The logic app calls the Content Understanding API to add video documents to the index.
 
 1. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
 
-1. The logic app calls the Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+1. The logic app uses the Content Understanding API to perform natural language searches and detect objects, features, or attributes in images.
 
 1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric.
 
@@ -76,17 +79,19 @@ If there's no need to call a pretrained object detection custom model, we can us
 
 ### Alternative components
 
-- [SQL database in Fabric](/fabric/database/sql/overview) is a simple, autonomous, and secure SQL database service optimized for AI. It's used in this architecture to store information about the videos retrieved from the Azure Video Retrieval API.
+- [SQL database in Fabric](/fabric/database/sql/overview) is a managed SQL database service designed to support AI-driven workloads securely and efficiently. In this architecture, it stores information about the videos retrieved from the Content Understanding API.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, the [Video Retrieval API](/azure/ai-services/computer-vision/how-to/video-retrieval) is used to retrieve information directly from the video.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, Azure AI Vision can be used to extract information from images and videos by using pretrained models.
+
+- [Content Understanding API](/azure/ai-services/content-understanding/video/overview) is a service that enables direct analysis of video files for object, feature, and attribute detection, and supports natural language search over indexed video content. In this architecture, Content Understanding API lets you retrieve structured information from videos without manual frame extraction or custom code.
 
 ## Scenario details
 
 Many industries record video footage to detect the presence or absence of a specific object or entity or to classify objects or entities. Video monitoring and analyses are typically performed manually. These processes are often monotonous and prone to errors, especially for tasks that are difficult for the human eye. You can automate these processes by using AI and machine learning.
 
-A video recording can be separated into individual frames so that various technologies can analyze the images. An example of this technology is *computer vision*, which is the capability of a computer to identify objects and entities on an image.
+A video recording can be separated into individual frames so that different technologies can analyze the images. An example of this technology is *computer vision*, which is the capability of a computer to identify objects and entities in an image.
 
-With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. By using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to improve the model continuously, you can expect better results over time, and react to changes in the video data over time.
+With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. By using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to continuously improve the model, you can achieve better results and adapt to changes in video data over time.
 
 ### Potential use cases
 
@@ -94,9 +99,9 @@ This scenario is relevant for any business that analyzes videos. Consider the fo
 
 - **Agriculture:** Monitor and analyze crops and soil conditions over time. By using drones or unmanned aerial vehicles (UAVs), farmers can record video footage for analysis.
 
-- **Environmental sciences:** Analyze aquatic species to understand where they're located and how they evolve. Environmental researchers can navigate the shoreline to record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
+- **Environmental sciences:** Analyze aquatic species to learn where they're located and how they evolve. Environmental researchers can navigate the shoreline to record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
 
-- **Traffic control:** Classify vehicles into categories, such as SUV, car, truck, and motorcycle. Use that information to plan traffic control. Closed-circuit television (CCTV) in public locations can provide video footage. Most CCTV cameras record the date and time, which can be retrieved via OCR.
+- **Traffic control:** Classify vehicles into categories, like SUV, car, truck, and motorcycle. Use that information to plan traffic control. Closed-circuit television (CCTV) in public locations can provide video footage. Most CCTV cameras record the date and time, which can be retrieved via OCR.
 
 - **Quality assurance:** Monitor and analyze quality control in a manufacturing facility. By installing cameras on the production line, you can train a computer vision model to detect anomalies.
 
@@ -108,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-A reliable workload is both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
+A reliable workload is resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
 For the availability guarantees of the Azure services in this solution, see [Service-level agreements (SLAs) for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
@@ -132,15 +137,15 @@ Deployments need to be reliable and predictable. Consider the following guidelin
 
 - Automate deployments to reduce the chance of human error.
 
-- Implement a fast, routine deployment process to avoid slowing down the release of new features and bug fixes.
+- Implement a fast, repeatable deployment process to ensure timely release of new features and bug fixes.
 
-- Quickly roll back or roll forward if an update causes problems.
+- Roll back or roll forward quickly if an update causes problems.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Appropriate use of scaling and the implementation of PaaS offerings that have built-in scaling are the main ways to achieve performance efficiency.
+The appropriate use of scaling and the implementation of PaaS offerings that have built-in scaling are the main ways to achieve performance efficiency.
 
 ## Contributors
 
