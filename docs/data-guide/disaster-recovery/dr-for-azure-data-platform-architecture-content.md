@@ -53,24 +53,24 @@ The workflow is read left to right, following the flow of data:
       
 - **Process**
     - Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you need low-code ETL, advanced data engineering, real-time analytics, or embedded business logic, Fabric provides integrated tools that work seamlessly with OneLake. These options ensure that data can be cleansed, enriched, and prepared for analytics or machine learning in a unified environment.
-        - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
+        - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or Spark SQL.
         - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a dataflow (/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
         - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
         - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
       
 - **Serve**
-    - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing raw storage or direct connections.
+    - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing underlying data or direct connections to the data sources.
     - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) to optimize performance and share governed datasets with business users for self-service analytics.
     - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in Real-Time Intelligence (RTI) hub in Microsoft Fabricto visualize streaming data and enable instant insights for operational decision-making..
-    - Expose data programmatically via [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), allowing developers to query multiple curated sources efficiently through a single endpoint.
+    - Expose data programmatically via [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), allowing developers to query multiple curated data sources efficiently through a single endpoint.
       
 - **Enrich**
-    - Leverage Fabric’s integrated data science tools and Azure ML to build, train, and deploy machine learning models directly on its unified data foundation, enabling enriched datasets and real-time predictive insights within analytics experiences.
-    - Engage with [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through conversational queries. Leverage Azure AI Foundry integration with the Data Agent to access enterprise data and enable data-driven decision-making.
+    - Leverage Fabric’s integrated data science tools and Azure ML to build, train, and deploy machine learning models. These models run directly on Fabric’s unified data foundation. This approach enables enriched datasets and delivers real-time predictive insights within analytics experiences.
+    - Use [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the Data Agent provides access to enterprise data and enable data-driven decision-making.
       
 - **Data share**
     - [External data sharing](/fabric/governance/external-data-sharing-overview) in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. 
-    - Disaster recovery DR ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
+    - Disaster recovery for external data sharing ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
         - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
         - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
         - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
