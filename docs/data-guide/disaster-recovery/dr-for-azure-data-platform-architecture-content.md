@@ -6,7 +6,7 @@ Microsoft is responsible for maintaining the reliability, availability, and secu
 
 Customers are responsible for designing and implementing disaster recovery plans that meet their own business requirements for Recovery Time Objective (RTO) and Recovery Point Objective (RPO). This means customers must configure features such as cross-region failover, geo-redundant backups, and replication policies to achieve their desired recovery targets. They also need to select appropriate service tiers, enable features like failover groups or active geo-replication, and regularly test these configurations through disaster recovery drills.
 
-To address RTO and RPO concerns, customers should start by assessing the criticality of their workloads and defining acceptable downtime and data loss. They can then leverage Azure services such as Site Recovery for automated failover and Azure Backup for frequent backups. Designing for multi-region resilience, automating failover processes, and maintaining clear documentation are essential steps to ensure that recovery objectives are met. For more details, refer to the [Shared responsibility in the cloud](/azure/reliability/concept-shared-responsibility).
+To address RTO and RPO concerns, customers should start by assessing the criticality of their workloads and defining acceptable downtime and data loss. Designing for multi-region resilience, automating failover processes, and maintaining clear documentation are essential steps to ensure that recovery objectives are met. For more details, refer to the [Shared responsibility in the cloud](/azure/reliability/concept-shared-responsibility).
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
@@ -46,7 +46,7 @@ The workflow is read left to right, following the flow of data:
         
 - **Store**
     - All ingested data is stored in OneLake, Microsoft Fabric’s unified data lake, which serves as the foundation for all Fabric experiences. OneLake supports open formats such as Delta, Parquet, and CSV, and provides built-in geo-redundancy and [Business Continuity and Disaster Recovery (BCDR) options for OneLake](/fabric/onelake/onelake-disaster-recovery) to ensure durability and resilience. On top of OneLake, Fabric offers specialized services to organize data.
-        - Lakehouse: It ombines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
+        - Lakehouse: It combines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
         - Data warehouse: It is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It offers high performance for BI and reporting workloads.
         - Eventhouse: It is designed for real-time event streaming and processing, enabling the ingestion and analysis of time-sensitive data for scenarios such as IoT telemetry and operational monitoring.
         - Mirrored database: It provides near real-time replication of operational data from sources such as Azure SQL Database or Cosmos DB into OneLake, ensuring analytics are always up to date without complex ETL processes.
@@ -54,7 +54,7 @@ The workflow is read left to right, following the flow of data:
 - **Process**
     - Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you need low-code ETL, advanced data engineering, real-time analytics, or embedded business logic, Fabric provides integrated tools that work seamlessly with OneLake. These options ensure that data can be cleansed, enriched, and prepared for analytics or machine learning in a unified environment.
         - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or SQL.
-        - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a /fabric/data-factory/create-first-dataflow-gen2 pipeline for low-code ETL operations, ideal for ingesting and shaping data from multiple sources.
+        - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a dataflow (/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
         - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
         - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
       
