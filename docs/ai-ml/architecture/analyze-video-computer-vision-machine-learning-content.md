@@ -48,13 +48,10 @@ This article describes an architecture that replaces manual video analysis with 
 
 ### Alternatives
 
-> [!IMPORTANT]
-> Azure AI Content Understanding is currently in preview. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+If there's no need to call a pretrained object detection custom model, you can use the following architecture that relies on Microsoft Azure AI Video Indexer. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach is more direct if your use case involves detecting common objects or entities in a video.
 
-If there's no need to call a pretrained object detection custom model, you can use the following architecture that relies on Content Understanding. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach is more direct if your use case involves detecting common objects or entities in a video.
-
-:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using the Content Understanding API." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
-  The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to the Content Understanding API with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Content Understanding API connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
+:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using Video Indexer." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
+  The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to Video Indexer with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Video Indexer connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
@@ -65,13 +62,13 @@ If there's no need to call a pretrained object detection custom model, you can u
 
 1. A preconfigured logic app monitors Blob Storage detects that new videos are being uploaded and starts a workflow.
 
-1. The logic app calls the Content Understanding API to create an index.
+1. The logic app calls the Video Indexer API to create an index.
 
-1. The logic app calls the Content Understanding API to add video documents to the index.
+1. The logic app calls the Video Indexer API to add video documents to the index.
 
 1. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
 
-1. The logic app uses the Content Understanding API to perform natural language searches and detect objects, features, or attributes in images.
+1. The logic app uses the Video Indexer API to perform natural language searches and detect objects, features, or attributes in images.
 
 1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric.
 
@@ -79,11 +76,11 @@ If there's no need to call a pretrained object detection custom model, you can u
 
 ### Alternative components
 
-- [SQL database in Fabric](/fabric/database/sql/overview) is a managed SQL database service designed to support AI-driven workloads securely and efficiently. In this architecture, it stores information about the videos retrieved from the Content Understanding API.
+- [SQL database in Fabric](/fabric/database/sql/overview) is a managed SQL database service designed to support AI-driven workloads securely and efficiently. In this architecture, it stores information about the videos retrieved from the Video Indexer API.
 
 - [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, Azure AI Vision can be used to extract information from images and videos by using pretrained models.
 
-- [Content Understanding API](/azure/ai-services/content-understanding/video/overview) is a service that enables direct analysis of video files for object, feature, and attribute detection, and supports natural language search over indexed video content. In this architecture, Content Understanding API lets you retrieve structured information from videos without manual frame extraction or custom code.
+- [Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a service that enables direct analysis of video files for object, feature, and attribute detection, and supports natural language search over indexed video content. In this architecture, Video Indexer lets you retrieve structured information from videos without manual frame extraction or custom code.
 
 ## Scenario details
 
