@@ -4751,14 +4751,14 @@
 		</g>
 		<g id="shape1073-409" v:mID="1073" v:groupContext="shape" transform="translate(1355.06,-235.791)">
 			<title>Sheet.1073</title>
-			<desc>Lakehouse Shortcuts</desc>
+			<desc>OneLake Shortcuts</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(178000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="38.6233" cy="880.729" width="77.25" height="26.1672"/>
 			<rect x="0" y="867.645" width="77.2466" height="26.1672" class="st7"/>
-			<text x="12.97" y="877.43" class="st8" v:langID="2055"><v:paragraph v:horizAlign="1"/><v:tabList/>Lakehouse <tspan
+			<text x="17.49" y="877.43" class="st8" v:langID="2055"><v:paragraph v:horizAlign="1"/><v:tabList/>OneLake <tspan
 						x="15.74" dy="1.2em" class="st9" v:langID="1033">Shortcuts</tspan></text>		</g>
 		<g id="shape1074-413" v:mID="1074" v:groupContext="shape" v:layerMember="2" transform="translate(1679.06,-407.812)">
 			<title>Dynamic connector.1074</title>
