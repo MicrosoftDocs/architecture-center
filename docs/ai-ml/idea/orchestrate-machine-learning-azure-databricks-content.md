@@ -26,9 +26,9 @@ The following environments comprise the main workflow.
 
 In the development environment, you develop machine learning pipelines.
 
-1. **Perform exploratory data analysis (EDA):** Explore data in an interactive, iterative process. You might not deploy this work to staging or production. Use tools like [Databricks SQL](/azure/databricks/sql/get-started), the [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize) command, and [Databricks AutoML](/azure/databricks/applications/machine-learning/automl).
+1. **Do exploratory data analysis (EDA):** Explore data in an interactive, iterative process. You might not deploy this work to staging or production. Use tools like [Databricks SQL](/azure/databricks/sql/get-started), the [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize) command, and [Databricks AutoML](/azure/databricks/applications/machine-learning/automl).
 
-1. **Develop [model training](/azure/databricks/applications/machine-learning/train-model) and other machine learning pipelines.** Develop machine learning pipelines modular code, and orchestrate code via Databricks Notebooks or an MLflow Project. In this architecture, the model training pipeline reads data from the feature store and other lakehouse tables. The pipeline trains and tunes log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [feature store API](/azure/databricks/applications/machine-learning/feature-store/python-api) logs the final model. These logs include the model, its inputs, and the training code.
+1. **Develop [model training](/azure/databricks/applications/machine-learning/train-model) and other machine learning pipelines.** Develop machine learning pipelines modular code, and orchestrate code via Databricks Notebooks or an MLflow project. In this architecture, the model training pipeline reads data from the feature store and other lakehouse tables. The pipeline trains and tunes log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [feature store API](/azure/databricks/applications/machine-learning/feature-store/python-api) logs the final model. These logs include the model, its inputs, and the training code.
 
 1. **Commit code.** To promote the machine learning workflow toward production, commit the code for featurization, training, and other pipelines to source control. In the code base, place machine learning code and operational code in different folders so that team members can develop code at the same time. Machine learning code is code that's related to the model and data. Operational code is code that's related to Databricks jobs and infrastructure.
 
@@ -38,7 +38,7 @@ This core cycle of activities that you do when you write and test code are refer
 
 In the staging environment, continuous integration (CI) infrastructure tests changes to machine learning pipelines in an environment that mimics production.
 
-1. **Merge a request.** When you submit a merge request or pull request against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/) runs tests.
+1. **Merge a request.** When you submit a merge request or pull request against the staging (or *main*) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/) runs tests.
 
 1. **Run unit tests and CI tests.** Unit tests run in CI infrastructure, and integration tests run in end-to-end [workflows](/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
 
@@ -48,9 +48,9 @@ In the staging environment, continuous integration (CI) infrastructure tests cha
 
 Machine learning engineers manage the production environment, where machine learning pipelines directly serve end applications. The key pipelines in production refresh feature tables, train and deploy new models, run inference or serving, and monitor model performance.
 
-1. **Feature table refresh:** This pipeline reads data, computes features, and writes to [feature store](/azure/databricks/applications/machine-learning/feature-store) tables. You can configure this pipeline to either run continuously in streaming mode, run on a schedule, or run on a trigger.
+1. **Feature table refresh:** This pipeline reads data, computes features, and writes to [feature store](/azure/databricks/applications/machine-learning/feature-store) tables. You can set up this pipeline to either run continuously in streaming mode, run on a schedule, or run on a trigger.
 
-1. **Model training:** In production, you can configure the model training or retraining pipeline to either run on a trigger or a schedule to train a fresh model on the latest production data. Models automatically register to [Unity Catalog](/azure/databricks/machine-learning/manage-model-lifecycle/).
+1. **Model training:** In production, you can set up the model training or retraining pipeline to either run on a trigger or a schedule to train a fresh model on the latest production data. Models automatically register to [Unity Catalog](/azure/databricks/machine-learning/manage-model-lifecycle/).
 
 1. **Model evaluation and promotion:** When a new model version is registered, the CD pipeline starts, which runs tests to ensure that the model performs well in production. When the model passes tests, Unity Catalog tracks its progress via model stage transitions. Tests include compliance checks, A/B tests to compare the new model with the current production model, and infrastructure tests. Lakehouse tables record test results and metrics. You can optionally require manual sign-offs before models transition to production.
 
@@ -62,13 +62,13 @@ Machine learning engineers manage the production environment, where machine lear
 
 1. **Monitoring:** Continuous or periodic [workflows](/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. You can use the [Delta Live Tables](/training/modules/build-data-pipeline-with-delta-live-tables/) framework to automate monitoring for pipelines, and store the metrics in lakehouse tables. [Databricks SQL](/azure/databricks/sql), [Power BI](/power-bi), and other tools can read from those tables to create dashboards and alerts. To monitor application metrics, logs, and infrastructure, you can also integrate Azure Monitor with Azure Databricks.
 
-1. **Drift detection and model retraining:** This architecture supports both manual and automatic retraining. Schedule retraining jobs to keep models fresh. After a detected drift crosses a preconfigured threshold that you set in the monitoring step, the retraining pipelines analyze the drift and trigger retraining. You can configure pipelines to start automatically, or you can receive a notification and then run the pipelines manually.
+1. **Drift detection and model retraining:** This architecture supports both manual and automatic retraining. Schedule retraining jobs to keep models fresh. After a detected drift crosses a preconfigured threshold that you set in the monitoring step, the retraining pipelines analyze the drift and trigger retraining. You can set up pipelines to start automatically, or you can receive a notification and then run the pipelines manually.
 
 ### Components
 
 - A **[data lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html)** architecture unifies the elements of data lakes and data warehouses. This architecture uses a lakehouse to get data management and performance capabilities that you typically find in data warehouses but with the low-cost, flexible object stores that data lakes provide.
 
-  - **[Delta Lake](/azure/databricks/delta/)** is the recommended open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
+  - We recommend **[Delta Lake](/azure/databricks/delta/)** as the open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
 
 - **[MLflow](https://www.mlflow.org)** is an open-source project for managing the end-to-end machine learning life cycle. In this architecture, MLflow tracks experiments, manages model versions, and facilitates model deployment to various inference platforms. MLflow has the following components:
 
@@ -104,7 +104,7 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 - Integrate with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
 
-- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) or [Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning) as alternative services for machine learning capabilities.
+- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) as alternative service for machine learning capabilities. Fabric provides integrated workloads for data engineering (Lakehouse with Spark), data warehousing, and OneLake for unified storage.
 
 ## Scenario details
 
@@ -112,7 +112,7 @@ This solution provides a robust machine learning operations process that uses Az
 
 Machine learning operations reduce the risk of failures in machine learning and AI systems and improve the efficiency of collaboration and tooling. For an introduction to machine learning operations and an overview of this architecture, see [Architect machine learning operations on the lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
-Use this architecture to:
+Use this architecture to take the following actions:
 
 - **Connect your business stakeholders with machine learning and data science teams.** Use this architecture to incorporate notebooks and IDEs for development. Business stakeholders can view metrics and dashboards in Databricks SQL, all within the same lakehouse architecture.
 
@@ -126,15 +126,15 @@ Use this architecture to:
 
 ### Potential use cases
 
-This architecture applies to all types of machine learning, deep learning, and advanced analytics. Common machine learning and AI techniques in this architecture include:
+This architecture applies to all types of machine learning, deep learning, and advanced analytics. The following common machine learning and AI techniques are used in this architecture:
 
-- Classical machine learning, like linear models, tree-based models, and boosting.
+- Classical machine learning, like linear models, tree-based models, and boosting
 
-- Modern deep learning, like TensorFlow and PyTorch.
+- Modern deep learning, like TensorFlow and PyTorch
 
-- Custom analytics, like statistics, Bayesian methods, and graph analytics.
+- Custom analytics, like statistics, Bayesian methods, and graph analytics
 
-The architecture supports both small data (single machine) and large data (distributed computing and GPU-accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your scenario's data and problem dimensions.
+The architecture supports both small data (single machine) and large data (distributed computing and graphics processing unit (GPU)-accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your scenario's data and problem dimensions.
 
 The architecture applies to all types of industries and business use cases. Azure Databricks customers that use this architecture include small and large organizations in the following industries:
 
@@ -149,9 +149,9 @@ For examples, see [Databricks customers](https://databricks.com/customers).
 
 As more organizations use large language models for specialized tasks, adding foundation model fine-tuning to the machine learning operations process is important. You can use Azure Databricks to fine-tune foundation models with your data. This capability supports custom applications and a mature machine learning operations process. In the context of the machine learning operations architecture described in this article, fine-tuning aligns with several best practices:
 
-- **Modularized pipelines and codes:** Fine-tuning tasks can be encapsulated as modular components within the training pipeline. This structure enables isolated evaluation and simplifies refactoring.
+- **Modularized pipelines and codes:** Fine-tuning tasks can be encapsulated as modular components within the training pipeline. This structure lets isolated evaluation and simplifies refactoring.
 
-- **Experiment (fine-tuning run) tracking:** MLflow integration logs each fine-tuning run with specific parameters such as the number of epochs and learning rate, and with metrics such as loss and cross-entropy. This process improves reproducibility, auditability, and the ability to measure improvements.
+- **Experiment (fine-tuning run) tracking:** MLflow integration logs each fine-tuning run with specific parameters like the number of epochs and learning rate, and with metrics like loss and cross-entropy. This process improves reproducibility, auditability, and the ability to measure improvements.
 
 - **Model registry and deployment:** Fine-tuned models are automatically registered in Unity Catalog. This automation streamlines deployment and governance.
 
@@ -167,6 +167,10 @@ Principal authors:
 
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
+
+Other contributors:
+
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
