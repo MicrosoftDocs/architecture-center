@@ -50,7 +50,7 @@ This article describes an architecture that replaces manual video analysis with 
 
 If there's no need to call a pretrained object detection custom model, we can use the following architecture that relies on Azure AI Vision Video Retrieval. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach serves a more straightforward path if your use case relies on detecting common objects or entities in a video.
 
-:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for automated video analysis by using the Video Retrieval API." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+:::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using the Video Retrieval API." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
   The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to the Video Retrieval API with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Video Retrieval API connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
 :::image-end:::
 
