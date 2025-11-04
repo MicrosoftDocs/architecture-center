@@ -176,6 +176,78 @@ After your hyperparameters and results are persisted, you should consider making
 
 It's important to understand that designing and evaluating your RAG solution isn't a one-time operation. Your collection of documents changes over time. The questions that your customers ask change over time, and your understanding of the types of questions evolves as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
+## Responsible AI, content safety, and security evaluation
+
+As RAG systems become more deeply integrated into enterprise workflows, evaluation must extend beyond traditional metrics like groundedness and completeness. Responsible AI practices require assessing how retrieved and generated content aligns with safety, privacy, and ethical standards. This section outlines key dimensions of responsible evaluation to help ensure your RAG solution is effective while staying secure and trustworthy.
+
+### Content Safety Evaluation
+
+RAG systems may retrieve or generate harmful content from knowledge bases, which can pose psychological, social, or physical risks. Evaluation should include detection and mitigation of:
+
+- **Hate speech and bias** targeting individuals or groups based on race, ethnicity, nationality, gender, sexual orientation, religion, immigration status, ability, appearance, or body size.
+
+- **Violent content**, including depictions of weapons, physical harm, or intent to injure or kill.
+
+- **Self-harm references**, such as descriptions of suicide or bodily injury. 
+
+- **Sexual content**, including explicit anatomical references, erotic acts, sexual violence, pornography, or abuse.
+
+Use tools like [Azure AI Content Safety](/azure/ai-services/content-safety/overview) to flag and score retrieved content for harmful elements. Incorporate these scores into your evaluation pipeline to ensure safe outputs.
+
+### Intellectual property protection
+
+RAG systems must be evaluated for inadvertent retrieval or generation of copyrighted material. This includes:
+
+- **Textual works** such as song lyrics, articles, recipes, and proprietary documents.  
+
+- **Visual works** including logos, brand assets, artworks, fictional characters, and other protected imagery.
+
+Implement content filters and copyright detection models to identify and exclude protected material from retrieval sources and generated responses.
+
+### Security and adversarial threats
+
+RAG systems are vulnerable to indirect prompt injection attacks, where malicious instructions are embedded in retrieved documents. These attacks can result in:
+
+- **Unauthorized data exposure** from the knowledge base.
+
+- **Manipulated responses** due to poisoned documents,
+
+- **Bypassing of safety controls** via compromised retrieval sources.
+
+Security evaluation should include adversarial testing, document sanitization, and monitoring for anomalous retrieval patterns.
+
+### Privacy and data protection
+
+Evaluating privacy risks is essential when RAG systems interact with repositories containing sensitive or personal data. This includes:
+
+- **Direct identifiers**: names, Social Security numbers, passport numbers, national ID numbers.
+
+- **Contact information**: email addresses, phone numbers, physical addresses, IP addresses. 
+
+- **Financial data**: credit card numbers, bank account details, transaction records.
+
+- **Biometric data**: fingerprints, facial recognition, voice prints, retinal scans.
+ 
+- **Health information**: medical records, insurance details, treatment history (PHI/HIPAA).
+
+- **Employment data**: employee IDs, salary, performance reviews.
+
+- **Credentials**: usernames, passwords, API keys, access tokens.
+
+Use automated PII detection tools and enforce strict access controls to prevent privacy violations during retrieval and generation.
+
+### Key Considerations
+
+- **Source quality is critical**: Curated and vetted documents reduce the risk of harmful or inappropriate content.
+
+- **Retrieval can amplify risks**: Poor retrieval strategies may surface unsafe content more frequently than random chance. 
+
+- **Document poisoning is a unique threat**: Malicious actors can inject harmful content into knowledge bases.
+
+- **Context windows matter**: Mixing legitimate and malicious content complicates detection and evaluation.
+
+- **Continuous monitoring is required**: Regular audits of document repositories and retrieval patterns are essential to maintain safety and trust.
+
 ## The RAG experiment accelerator repository
 
 These articles walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG experiment accelerator is a custom, code-based experimentation framework. It was designed to optimize and enhance the development of RAG solutions. The framework empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.

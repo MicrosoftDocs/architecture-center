@@ -13,7 +13,7 @@ ms.subservice: architecture-guide
 
 In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md)
 
 An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created. Each representation has connections to other objects in the network. An embedding is important because it captures the semantic meaning of the object.
 
@@ -27,7 +27,7 @@ Embeddings are compared to one another by using the notions of similarity and di
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector that points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
-In a RAG solution, you often embed the user query by using the same embedding model as your chunks. Then, you search your database for relevant vectors to return the most semantically relevant chunks. The original text of the relevant chunks is passed to the language model as grounding data.
+In a RAG solution, you embed the user query by using the same embedding model as your chunks. Then, you search your database for relevant vectors to return the most semantically relevant chunks. The original text of the relevant chunks is passed to the language model as grounding data.
 
 > [!NOTE]
 > Vectors represent the semantic meaning of text in a way that allows for mathematical comparison. You must clean the chunks so that the mathematical proximity between vectors accurately reflects their semantic relevancy.
@@ -56,7 +56,7 @@ First, determine whether you have domain-specific content. For example, are your
 
 ### General or non-domain-specific content
 
-When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). Get up-to-date embedding model rankings. Evaluate how the models work with your data, and start with the top-ranking models.
+When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard) model rankings. Evaluate how the models work with your data, and start with the top-ranking models.
 
 ### Domain-specific content
 
@@ -67,11 +67,45 @@ If you don't have a domain-specific model, or the domain-specific model doesn't 
 > [!IMPORTANT]
 > For any model that you choose, you need to verify that the license suits your needs and the model provides the necessary language support.
 
-### Evaluate embedding models
+## Multimodal embeddings
+
+Embeddings aren't limited to text. You can also generate embeddings for other media types, such as images, audio, and video. The process for generating embeddings is similar across modalities: load the content, pass it through the embedding model, and store the resulting vector. However, the choice of model and preprocessing steps vary by media type.
+
+For example, you can use models like [CLIP](https://openai.com/research/clip) to generate image embeddings. These embeddings can be used in vector search to retrieve semantically similar images. For video, you must define a schema that extracts specific features, like object presence or narrative summary and use specialized models to generate embeddings for those features.
+
+> [!TIP]
+> Use a schema to define the features you want to extract from multimodal content. This helps ensure that your embeddings are optimized for your retrieval goals.
+
+## Dimensionality reduction
+
+Embedding vectors can be high-dimensional, which increases storage and compute costs. Dimensionality reduction techniques help make embeddings more manageable and interpretable.
+
+You can use algorithms such as [t-SNE](https://lvdmaaten.github.io/tsne/) or [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) to reduce the number of dimensions in your vectors. These toola are available in libraries like PyTorch and scikit-learn.
+
+Dimensionality reduction can improve semantic clarity and visualization. It also helps eliminate unused or noisy features in dense embeddings.
+
+> [!NOTE]
+> Dimensionality reduction is a post-processing step. You apply it after generating embeddings to optimize storage and retrieval performance.
+
+## Compare embeddings
+
+When you evaluate embeddings, you can use mathematical formulas to compare vectors. These formulas help you determine how similar or dissimilar two embeddings are.
+
+Common comparison methods include:
+
+- **Cosine similarity**: Measures the angle between two vectors. Useful for high-dimensional data.
+- **Euclidean distance**: Measures the straight-line distance between two vectors.
+- **Manhattan distance**: Measures the absolute difference between vector components.
+- **Dot product**: Measures the projection of one vector onto another.
+
+> [!TIP]
+> Choose your comparison method based on your use case. For example, use cosine similarity when you want to measure semantic closeness, and Euclidean distance when you want to measure literal proximity.
+
+## Evaluate embedding models
 
 To evaluate an embedding model, visualize the embeddings and evaluate the distance between the question and chunk vectors.
 
-#### Visualize embeddings
+### Visualize embeddings
 
 You can use libraries, such as t-SNE, to plot the vectors for your chunks and your question on an X-Y graph. You can then determine how far the chunks are from one another and from the question. The following graph shows chunk vectors plotted. The two arrows near one another represent two chunk vectors. The other arrow represents a question vector. You can use this visualization to understand how far the question is from the chunks.
 
@@ -79,9 +113,42 @@ You can use libraries, such as t-SNE, to plot the vectors for your chunks and yo
    Two arrows point to plot points near one another, and another arrow shows a plot point far away from the other two.
 :::image-end:::
 
-#### Calculate embedding distances
+### Calculate embedding distances
 
 You can use a programmatic method to evaluate how well your embedding model works with your questions and chunks. Calculate the distance between the question vectors and the chunk vectors. You can use the Euclidean distance or the Manhattan distance.
+
+## Evaluate embedding models with retrieval
+
+To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, perform vector search, and assess whether the correct items are retrieved.
+
+You can experiment with different models, comparison formulas, and dimensionality settings. Use evaluation metrics to determine which model provides the best results for your use case.
+
+> [!IMPORTANT]
+> Retrieval performance is the most practical way to evaluate embedding quality. Use real-world queries and content to test your models.
+
+## Fine-tune embedding models
+
+If a general or domain-specific model doesn't meet your needs, you can fine-tune it with your own data. Fine-tuning adjusts the model's weights to better represent your vocabulary and semantics.
+
+Fine-tuning can improve retrieval accuracy, especially for specialized domains like code search or legal documents. However, it requires careful evaluation and can sometimes degrade performance if the training data is poor.
+
+Modern techniques like one-bit reinforcement learning (RL) make fine-tuning more cost-effective.
+
+> [!TIP]
+> Before fine-tuning, evaluate whether prompt engineering or constrained decoding can solve your problem. Fine-tuning should be guided by evaluation metrics and retrieval performance.
+
+## Use the Hugging Face leaderboard
+
+The [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard) provides up-to-date rankings of embedding models. Use it to identify top-performing models for your use case.
+
+When reviewing models, consider:
+
+- **Tokens**: The size of the model's vocabulary.
+- **Memory**: The model's size and inference cost.
+- **Dimensions**: The size of the output vectors.
+
+> [!NOTE]
+> Larger models aren't always better. They may increase cost without improving performance. Use dimensionality reduction and retrieval evaluation to find the right balance.
 
 ## Embedding economics
 
