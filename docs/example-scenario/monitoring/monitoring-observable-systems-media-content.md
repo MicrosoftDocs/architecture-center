@@ -2,11 +2,11 @@ This architecture describes a solution that provides near real-time monitoring a
 
 ## Architecture
 
-:::image type="complex" source="media/monitor-media.svg" alt-text="Diagram that shows an architecture that provides near real time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.svg" border="false":::
-The diagram shows two data flows. On the left, users connect to client devices by using players that generate telemetry via HTTP triggers (step 1). The data flows into Azure where a function processes it to collect device telemetry (step 2). The data routes through Azure Event Hubs to Azure Blob Storage (step 2), to Azure Event Grid, and then to an ingest and transform eventstream. Or the data can go directly from Event Hubs to the eventstream. The processed data flows to an eventhouse (step 3), and finally to the Real-Time Intelligence hub (step 4). The eventhouse also connects to Data Activator (step 5). The ingest and transform eventstream connects to Data Activator via a dashed line. In the second data flow, applications and services on the left connect via telemetry and connectors to Blob Storage or Event Hubs (step 1). This flow follows the same path as the first flow from Blob Storage, to Event Grid, and then to the eventstream. The function, Event Hubs, Blob Storage, and Event Grid reside in a section that represents Azure. The eventstream, eventhouse, Data Activator, and the Real-Time Intelligence hub reside in a section that represents Fabric.
+:::image type="complex" source="media/monitor-media.svg" alt-text="Diagram that shows an architecture that provides near real time monitoring and observability of systems and user device telemetry data." lightbox="media/monitor-media.svg" border="false":::
+The diagram shows two data flows. On the left, users connect to client devices by using players that generate telemetry via HTTP triggers (step 1). The data flows into Azure where a function processes it to collect device telemetry (step 2). The data routes through Azure Event Hubs to Azure Blob Storage (step 2), to Azure Event Grid, and then to an ingest-and-transform eventstream. Or the data can go directly from Event Hubs to the eventstream. The processed data flows to an eventhouse (step 3), and finally to the Real-Time Intelligence hub (step 4). The eventhouse also connects to Data Activator (step 5). The ingest-and-transform eventstream connects to Data Activator via a dashed line. In the second data flow, applications and services on the left connect via telemetry and connectors to Blob Storage or Event Hubs (step 1). This flow follows the same path as the first flow from Blob Storage, to Event Grid, and then to the eventstream. The function, Event Hubs, Blob Storage, and Event Grid reside in a section that represents Azure. The eventstream, eventhouse, Data Activator, and the Real-Time Intelligence hub reside in a section that represents Fabric.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring-rti.vsdx) of this architecture.*
 
 ### Data flow
 
@@ -23,7 +23,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Components
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable object storage service for unstructured data. In this architecture, Blob Storage stores raw telemetry that originates from applications, services, or external vendors. You should treat this data as transient if no further analysis is required. The telemetry routes through a Fabric eventstream into an eventhouse. You can use Fabric-native capabilities to transform and persist the data for high-throughput analytics.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable object storage service for unstructured data. In this architecture, Blob Storage stores raw telemetry that originates from applications, services, or external vendors. Treat this data as transient if no further analysis is required. The telemetry routes through a Fabric eventstream into an eventhouse. You can use Fabric-native capabilities to transform and persist the data for high-throughput analytics.
 
 - [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that enables event-driven architectures. In this architecture, Event Grid serves as a reliable event delivery system that listens to events that Blob Storage publishes, such as blob creation or deletion. These events trigger downstream processing through Azure functions, which subscribe to Event Grid notifications. This integration enables responsive, event-driven workflows that support telemetry ingestion and routing within the broader Fabric-based architecture.
 
@@ -39,7 +39,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Alternatives
 
-[Azure Data Factory](/azure/data-factory/introduction) provides tools to build extract, transform, and load (ETL) workflows and to track and retry jobs from a graphical interface. Data Factory has a minimum lag of about 5 minutes from the time of ingestion to persistence. If your monitoring system can tolerate this lag, consider this alternative.
+[Azure Data Factory](/azure/data-factory/introduction) provides tools to build extract, transform, and load (ETL) workflows and to track and retry jobs from a graphical user interface (GUI). Data Factory has a minimum lag of about 5 minutes from the time of ingestion to persistence. If your monitoring system can tolerate this lag, consider this alternative.
 
 ## Scenario details
 
@@ -64,7 +64,7 @@ Business-critical applications must remain active even during disruptive events 
 - **Active/active:** Duplicate code and functions run. Either system can take over during a failure.
 
 - **Active/standby:** Only one node serves as the active or primary node. The other node remains ready to take over if the primary node fails.
-- **Mixed:** Some components or services use the active/active configuration, while others use the active/standby configuration.
+- **Mixed:** Some components or services use the active-active configuration, while others use the active-standby configuration.
 
 Not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. For more information about strategies to implement, depending on how you trigger functions (HTTP versus publish/subscribe), see [Reliability in Azure Functions](/azure/reliability/reliability-functions).
 
@@ -74,7 +74,7 @@ Fabric supports zone-redundant availability zones, where resources automatically
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The cost of this architecture depends on the number of incoming telemetry events, the storage of raw telemetry in Blob Storage and Fabric eventhouses, and either a dedicated or pay-as-you-go pricing model for Fabric capacity.
+The cost of this architecture depends on the number of incoming telemetry events, the storage of raw telemetry in Blob Storage and Fabric eventhouses, and either a dedicated pricing model or a pay-as-you-go pricing model for Fabric capacity.
 
 To estimate your total costs, use the [Azure pricing calculator](https://azure.com/e/e9fb45165e1c4ef0b46d880d818355cb).
 
@@ -87,7 +87,7 @@ Depending on the scale and frequency of incoming telemetry, streaming in Fabric 
 - **Cold start:** Serverless invocations require time to schedule and set up the environment before the function runs. This setup takes up to a few seconds.
 
 - **Frequency of requests:** For example, if 1,000 HTTP requests arrive but only a single-threaded server is available, the system can't process all requests concurrently. To handle them efficiently, you need to scale horizontally by deploying more servers.
-- **Eventstream initialization delay:** When new data sources activate, Fabric eventstream pipelines might introduce latency. This delay resembles cold starts and, while brief, can affect latency-sensitive scenarios.
+- **Eventstream initialization delay:** When new data sources activate, Fabric eventstream pipelines might introduce latency. This delay resembles a cold start. Although brief, it can affect latency-sensitive scenarios.
 - **High-frequency data bursts:** If thousands of telemetry events arrive at once, a single eventstream configuration might not process them concurrently. To maintain real-time responsiveness, you must scale out eventstream pipelines and optimize routing rules across multiple destinations.
 
 To mitigate these problems, use dedicated capacity workspaces on Fabric SKUs. This approach provides the following benefits:
@@ -116,7 +116,7 @@ Other contributors:
 
 ## Next steps
 
-- [Real-Time Intelligence documentation](/fabric/real-time-intelligence/)
+- [Real-Time Intelligence documentation](/fabric/real-time-intelligence)
 - [Real-Time Intelligence tutorial: Introduction](/fabric/real-time-intelligence/tutorial-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Supplementary code samples](https://github.com/microsoft/fabricrealtimelab)
