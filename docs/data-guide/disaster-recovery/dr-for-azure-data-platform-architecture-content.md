@@ -56,7 +56,7 @@ The workflow is read left to right, following the flow of data:
         - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or Spark SQL.
         - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a dataflow (/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
         - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-        - [Run KQL queries](/fabric/real-time-intelligence/kusto-query-set) on Eventhouse (Kusto DB) for real-time analytics and event-driven insights.
+        - [Event stream](/fabric/real-time-intelligence/event-streams/overview): Use Event streams to process real-time data as it flows into your Eventhouse. Event Streams allow you to apply transformations, filtering, and enrichment on incoming events before they are stored, ensuring that streaming data is immediately shaped for analytics or downstream applications. This approach is ideal for scenarios requiring instant insights, anomaly detection, or real-time dashboards.
       
 - **Serve**
     - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing underlying data or direct connections to the data sources.
