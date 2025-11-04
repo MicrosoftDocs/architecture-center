@@ -41,14 +41,14 @@ The workflow is read left to right, following the flow of data:
 - **Ingest**
     - Ingest structured, semi-structured, and unstructured data into [OneLake](/fabric/onelake/onelake-overview) using [Data Factory](/fabric/data-factory/data-factory-overview), [Event Streams](/fabric/real-time-intelligence/event-streams/overview), [Notebooks](/fabric/data-engineering/how-to-use-notebook), [Shortcuts](/fabric/onelake/onelake-shortcuts), or [Mirroring](/fabric/mirroring/overview).
     - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via [Real-Time Hub](/fabric/real-time-hub/).
-    - Mirror supported databases for near real-time replication or use Shortcuts to access external data without copying the data into OneLake.
-    - Real-time ingestion is supported via Event Streams, enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
+    - [Mirror supported databases](/fabric/mirroring/overview#types-of-mirroring) for near real-time replication or use Shortcuts to access external data without copying the data into OneLake.
+    - Real-time ingestion is supported via [Eventstreams](/fabric/real-time-intelligence/event-streams/overview), enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
         
 - **Store**
     - All ingested data is stored in OneLake, Microsoft Fabric’s unified data lake, which serves as the foundation for all Fabric experiences. OneLake supports open formats such as Delta, Parquet, and CSV, and provides built-in geo-redundancy and [Business Continuity and Disaster Recovery (BCDR) options for OneLake](/fabric/onelake/onelake-disaster-recovery) to ensure durability and resilience. On top of OneLake, Fabric offers specialized services to organize data.
-        - Lakehouse: It combines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
-        - Data warehouse: It is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It offers high performance for BI and reporting workloads.
-        - Eventhouse: It is designed for real-time event streaming and processing, enabling the ingestion and analysis of time-sensitive data for scenarios such as IoT telemetry and operational monitoring.
+        - [Lakehouse](/fabric/data-engineering/lakehouse-overview): It combines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
+        - [Data warehouse](/fabric/data-warehouse/data-warehousing): It is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It offers high performance for BI and reporting workloads.
+        - [Eventhouse](/fabric/real-time-intelligence/eventhouse): It is designed for real-time event streaming and processing, enabling the ingestion and analysis of time-sensitive data for scenarios such as IoT telemetry and operational monitoring.
         - Mirrored database: It provides near real-time replication of operational data from sources such as Azure SQL Database or Cosmos DB into OneLake, ensuring analytics are always up to date without complex ETL processes.
       
 - **Process**
@@ -56,7 +56,7 @@ The workflow is read left to right, following the flow of data:
         - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or Spark SQL.
         - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a dataflow (/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
         - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-        - [Event stream](/fabric/real-time-intelligence/event-streams/overview): Use Event streams to process real-time data as it flows into your Eventhouse. Event Streams allow you to apply transformations, filtering, and enrichment on incoming events before they are stored, ensuring that streaming data is immediately shaped for analytics or downstream applications. This approach is ideal for scenarios requiring instant insights, anomaly detection, or real-time dashboards.
+        - [Eventstreams](/fabric/real-time-intelligence/event-streams/overview): Use Eventstreams to process real-time data as it flows into your Eventhouse. Eventstreams allow you to apply transformations, filtering, and enrichment on incoming events before they are stored, ensuring that streaming data is immediately shaped for analytics or downstream applications. This approach is ideal for scenarios requiring instant insights, anomaly detection, or real-time dashboards.
       
 - **Serve**
     - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing underlying data or direct connections to the data sources.
