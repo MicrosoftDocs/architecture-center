@@ -6,7 +6,7 @@ This architecture describes a solution that provides near real-time monitoring a
 The diagram shows two data flows. On the left, users connect to client devices by using players that generate telemetry via HTTP triggers (step 1). The data flows into Azure where a function processes it to collect device telemetry (step 2). The data routes through Azure Event Hubs to Azure Blob Storage (step 2), to Azure Event Grid, and then to an ingest-and-transform eventstream. Or the data can go directly from Event Hubs to the eventstream. The processed data flows to an eventhouse (step 3), and finally to the Real-Time Intelligence hub (step 4). The eventhouse also connects to Data Activator (step 5). The ingest-and-transform eventstream connects to Data Activator via a dashed line. In the second data flow, applications and services on the left connect via telemetry and connectors to Blob Storage or Event Hubs (step 1). This flow follows the same path as the first flow from Blob Storage, to Event Grid, and then to the eventstream. The function, Event Hubs, Blob Storage, and Event Grid reside in a section that represents Azure. The eventstream, eventhouse, Data Activator, and the Real-Time Intelligence hub reside in a section that represents Fabric.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring-rti.vsdx) of this architecture.*
 
 ### Data flow
 
