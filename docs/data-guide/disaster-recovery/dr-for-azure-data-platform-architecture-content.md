@@ -66,6 +66,7 @@ The workflow is read left to right, following the flow of data:
       
 - **Enrich**
     - Leverage Fabric’s integrated data science tools and Azure ML to build, train, and deploy machine learning models. These models run directly on Fabric’s unified data foundation. This approach enables enriched datasets and delivers real-time predictive insights within analytics experiences.
+    - [Copilot in Power BI](/power-bi/create-reports/copilot-introduction) is designed for business users, analysts, and report creators who want to accelerate insights without writing complex queries or building visuals manually. It uses generative AI to help you create reports, summarize data, and generate visuals using natural language prompts. 
     - Use [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the Data Agent provides access to enterprise data and enable data-driven decision-making.
       
 - **Data share**
@@ -77,7 +78,7 @@ The workflow is read left to right, following the flow of data:
         
 - **Discover and govern** - Use [Microsoft Purview](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Microsoft Fabric governance tools for lineage, metadata, and access control.
       
-- **Platform** - Fabric provides an end-to-end, unified SaaS analytics platform unified SaaS experience with centralized data storage with OneLake and embedded AI capabilities.
+- **Platform** - Fabric provides an end-to-end, unified SaaS analytics platform unified SaaS experience with centralized data storage with OneLake and embedded AI capabilities. Identity and access control are managed by Microsoft Entra ID, with [Workspace Monitoring](/fabric/fundamentals/workspace-monitoring-overview) and Cost Management providing operational visibility and optimization. Development and deployment workflows are supported by Azure DevOps and GitHub for CI/CD, and Azure Policy ensures consistent governance across resources. Fabric also supports Bring Your Own Key through Azure Key Vault, enabling organizations to manage and control encryption keys for securing data at rest.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
