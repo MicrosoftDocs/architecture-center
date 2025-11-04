@@ -50,7 +50,7 @@ With Azure Blob Storage, a layered approach is used. The Azure Storage firewall 
 
 In Amazon S3, it's common to use [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) to give time-limited permission access. In Azure Blob storage, you can achieve a similar result by using a [shared access signature](/azure/storage/common/storage-sas-overview).
 
-## Regional redunandacy and replication for object storage
+## Regional redundancy and replication for object storage
 
 Organizations often want to protect their storage objects by using redundant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
 
