@@ -36,7 +36,7 @@ This article describes an architecture that replaces manual video analysis with 
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, secure, and cost-effective cloud storage solution for analytics workloads. In this architecture, it stores the extracted video frames for downstream image analysis and processing.
 
-- [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
 - [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
@@ -77,8 +77,6 @@ If you don't need to call a pretrained object detection custom model, use the fo
 ### Alternative components
 
 - [SQL database in Fabric](/fabric/database/sql/overview) is a managed SQL database service designed to support AI-driven workloads securely and efficiently. In this architecture, it stores information about the videos retrieved from the Video Indexer API.
-
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, Vision can extract information from images and videos by using pretrained models.
 
 - [Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a service that enables direct analysis of video files for object, feature, and attribute detection. It supports natural language search over indexed video content. In this architecture, Video Indexer lets you retrieve structured information from videos without manual frame extraction or custom code.
 
