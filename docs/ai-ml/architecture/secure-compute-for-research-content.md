@@ -20,7 +20,7 @@ The following data flow corresponds to the previous diagram:
 
 1. The secure storage account presents the dataset to the data science virtual machines (VMs) that you provision in a secure network environment for research work. Most data preparation occurs on those VMs.
 
-1. The secure environment includes Azure Machine Learning and Microsoft Fabric. They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models, or use Azure Synapse Analytics. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
+1. The secure environment includes Azure Machine Learning and Microsoft Fabric. They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models. You can also use Azure Synapse Analytics. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
 
 1. Models or de-identified data are saved to a separate location on the secure storage account, known as the *export path*. When you add new data to the export path, you trigger a logic app. In this architecture, the logic app runs outside the secure environment because it doesn't receive data. Its only function is to send notifications and start the manual approval process.
 
@@ -31,7 +31,7 @@ The following data flow corresponds to the previous diagram:
 
 1. If reviewers approve the de-identified data, the system sends it to Data Factory.
 
-1. Data Factory moves the data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+1. Data Factory moves the data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternatively, you can provision another storage account in a lower security environment.
 
 ### Components
 
@@ -41,7 +41,7 @@ This architecture consists of several Azure services that scale resources accord
 
 The following core components move and process research data:
 
-- [Azure data science VMs](/azure/machine-learning/data-science-virtual-machine/overview) are VMs that you configure with tools for data analytics and machine learning. In this architecture, they provide researchers with dedicated, secure compute resources for data preparation, analysis, and model training within the isolated environment. Data science VMs provides specific packages or tools, such as Matrix Laboratory (MATLAB) or Statistical Analysis System (SAS), that platform as a service (PaaS) environments can't support. For security and ease of use, choose Machine Learning and other PaaS options when supported.
+- [Azure data science VMs](/azure/machine-learning/data-science-virtual-machine/overview) are VMs that you configure with tools for data analytics and machine learning. In this architecture, they provide researchers with dedicated, secure compute resources for data preparation, analysis, and model training within the isolated environment. Data science VMs provide specific packages or tools, such as Matrix Laboratory (MATLAB) or Statistical Analysis System (SAS), that platform as a service (PaaS) environments can't support. For security and ease of use, choose Machine Learning and other PaaS options when supported.
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that trains, deploys, automates, and manages machine learning models. In this architecture, it facilitates model development and orchestration while maintaining security controls over data access and compute resources. It can also manage the allocation and use of machine learning compute resources. Machine Learning provides the preferred environment to run Jupyter notebooks during development.
 
@@ -68,11 +68,11 @@ The following core components move and process research data:
 
 The following components continuously monitor the posture of the workload and its environment. Use these components to discover risks and immediately mitigate them.
 
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that evaluates the overall security posture of the implementation and provides an attestation mechanism for regulatory compliance. In this architecture, it helps detect problems early, instead of during audits or assessments. Use features like the secure score and compliance score to track progress. These scores help verify compliance.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that evaluates the overall security posture of the implementation and provides an attestation mechanism for regulatory compliance. In this architecture, it helps detect problems early, instead of during audits or assessments. Use features like the secure score and compliance score to track progress. These scores help check compliance.
 
 - [Microsoft Sentinel](/azure/sentinel/overview) is a security information and event management (SIEM) solution and a security orchestration, automation, and response (SOAR) solution. In this architecture, it centralizes logs, detects threats, and automates security responses for the research environment. You can centrally view logs and alerts from various sources. Take advantage of advanced AI and security analytics to detect, investigate, prevent, and respond to threats. This capability provides valuable security insights to help ensure that traffic and activities associated with the workspace meet your expectations.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution that collects, analyzes, and responds to telemetry data from cloud and on-premises environments. In this architecture, it collects and visualizes metrics, activity logs, and diagnostics to support operational monitoring and incident detection. Management tools, such as tools in Defender for Cloud, also push log data to Azure Monitor.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring solution that collects, analyzes, and responds to telemetry data from cloud and on-premises environments. In this architecture, it collects and visualizes metrics, activity logs, and diagnostics to support operational monitoring and incident detection. Management tools, like tools in Defender for Cloud, also push log data to Azure Monitor.
 
 #### Governance components
 
@@ -82,7 +82,7 @@ The following components continuously monitor the posture of the workload and it
 
 - This solution uses Data Factory to move data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternatively, you can provision another storage account in a lower security environment.
 
-- This solution uses Virtual Desktop as a jump box to gain access to the resources in the secure environment by providing streaming applications and a full desktop. Alternatively, you can use Azure Bastion, but Virtual Desktop has advantages. These advantages include the ability to stream an app, to limit copy and paste capabilities and screen captures, and to support Microsoft Entra authentication. Also consider configuring a point-to-site virtual private network (VPN) for offline training locally. This VPN helps reduce the cost of multiple VMs for workstations.
+- This solution uses Virtual Desktop as a jump box to gain access to the resources in the secure environment by providing streaming applications and a full desktop. Alternatively, you can use Azure Bastion, but Virtual Desktop has advantages. These advantages include the ability to stream an app, to limit copy and paste capabilities and screen captures, and to support Microsoft Entra authentication. Also consider configuring a point-to-site virtual private network (VPN) to support local offline training. This VPN helps reduce the cost of multiple VMs for workstations.
 - To secure data at rest, this solution encrypts all Azure Storage accounts with Microsoft-managed keys by using strong cryptography. Alternatively, you can use customer-managed keys. You must store the keys in a managed key store.
 
 ## Scenario details
@@ -103,7 +103,7 @@ This architecture was originally created for higher education research instituti
 - Medical centers that collaborate with internal or external researchers
 - Banking and finance industries
 
-Follow the guidance in this article to maintain full control of your research data, maintain separation of duties, and meet strict regulatory compliance standards. This approach also facilitates collaboration among key roles in a research-oriented environment, such as data owners, researchers, and approvers.
+Follow the guidance in this article to maintain full control of your research data, maintain separation of duties, and meet strict regulatory compliance standards. This approach also facilitates collaboration among key roles in a research-oriented environment, like data owners, researchers, and approvers.
 
 ## Considerations
 
@@ -113,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Most research solutions consist of temporary workloads that don't need to remain available for extended periods. This architecture uses a single-region deployment with availability zones. If your business requirements demand higher availability, replicate this architecture in multiple regions. Add components, such as a global load balancer and distributor, to route traffic to those regions. As part of your recovery strategy, use Azure VM Image Builder to capture and create a copy of the customized base image.
+Most research solutions consist of temporary workloads that don't need to remain available for extended periods. This architecture uses a single-region deployment with availability zones. If your business requirements demand higher availability, replicate this architecture in multiple regions. Add components, like a global load balancer and distributor, to route traffic to those regions. As part of your recovery strategy, use Azure VM Image Builder to capture and create a copy of the customized base image.
 
 ### Security
 
@@ -123,17 +123,17 @@ The main objective of this architecture is to provide a secure and trusted resea
 
 #### Network security
 
-Provision Azure resources in a secure environment. These resources store, test, and train research datasets. The environment resides in an Azure virtual network that has network security group rules to restrict access. These rules apply to the following areas:
+Provision Azure resources in a secure environment. These resources store, test, and train research datasets. The environment resides in an Azure virtual network that has network security group (NSG) rules to restrict access. These rules apply to the following areas:
 
 - Inbound and outbound access to the public internet and within the virtual network.
 
-- Access to and from specific services and ports. For example, this architecture blocks all port ranges except the ones required for Azure services, such as Azure Monitor. For a full list of service tags and the corresponding services, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
+- Access to and from specific services and ports. For example, this architecture blocks all port ranges except the ones required for Azure services, like Azure Monitor. For a full list of service tags and the corresponding services, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
 
     Access from the virtual network that includes Virtual Desktop is restricted to approved access methods on specific ports, but all other traffic is denied. Compared to this environment, the other virtual network that includes Virtual Desktop is relatively open.
 
 The main Blob Storage instance in the secure environment isn't exposed to the public internet. You can access it only within the virtual network through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Storage firewalls. Use these controls to limit the networks that clients can use to connect to file shares in Azure Files.
 
-This architecture uses credential-based authentication for the main data store in the secure environment. In this setup, a key vault stores the connection information, such as the subscription ID and token authorization. Alternatively, you can create identity-based data access, where you use your Azure account to confirm whether you have access to Storage, without saving authentication credentials. For more information, see [Create data stores](/azure/machine-learning/how-to-datastore).
+This architecture uses credential-based authentication for the main data store in the secure environment. In this setup, a key vault stores the connection information, like the subscription ID and token authorization. Alternatively, you can create identity-based data access, where you use your Azure account to confirm whether you have access to Storage, without saving authentication credentials. For more information, see [Create data stores](/azure/machine-learning/how-to-datastore).
 
 The compute cluster can communicate only within the virtual network by using the Azure Private Link ecosystem and service or private endpoints. It doesn't use public IP addresses for communication. Enable the **No public IP** setting. For more information about this feature, see [Compute instance and cluster or serverless compute with no public IP address](/azure/machine-learning/how-to-secure-training-vnet#compute-instancecluster-or-serverless-compute-with-no-public-ip).
 
@@ -167,13 +167,13 @@ For example, in this architecture, Azure machine configuration applies to all in
 
 The data science VMs run customized base images. To build the base image, use technologies like VM Image Builder. You can create a repeatable image to deploy when needed.
 
-The base image might need updates, such as extra binaries. Upload those binaries to the public Blob Storage instance. They should flow through the secure environment, much like how data owners upload the datasets.
+The base image might need updates, like extra binaries. Upload those binaries to the public Blob Storage instance. They should flow through the secure environment, similar to how data owners upload the datasets.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-The cost of data science VMs depends on the choice of the underlying VM series. The workload is temporary, so use the Consumption plan for the logic app resource. To estimate costs based on the estimated sizing of resources that you need, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Shut down the environment when it's not in use to help optimize costs and improve security.
+The cost of data science VMs depends on the underlying VM series. The workload is temporary, so use the Consumption plan for the logic app resource. To estimate costs based on the estimated sizing of resources that you need, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Shut down the environment when it's not in use to help optimize costs and improve security.
 
 ### Performance Efficiency
 
