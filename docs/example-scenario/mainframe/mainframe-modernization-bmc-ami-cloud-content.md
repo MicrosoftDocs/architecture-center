@@ -26,7 +26,7 @@ The architecture of BMC AMI Cloud integration with Azure includes several compon
 
 1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents. It manages policies, activities, and storage, which helps ensure seamless data management.
 
-1. BMC AMI Cloud Analytics converts mainframe data that's stored in Blob Storage into formats that are suitable for AI, business intelligence, and machine learning applications. BMC AMI Cloud Analytics supports conversion to CSV and JSON, and enables direct integration with Azure Databases. This capability supports a wide range of analytical and operational use cases.
+1. BMC AMI Cloud Analytics converts mainframe data that's stored in Blob Storage into formats that are suitable for AI, business intelligence, and machine learning applications. BMC AMI Cloud Analytics supports conversion to CSV and JSON, and enables direct integration with Microsoft databases. This capability supports a wide range of analytical and operational use cases.
 
 ### Components
 
@@ -54,7 +54,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 #### Databases and storage
 
-The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
+The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Microsoft database services by using BMC AMI Cloud Analytics.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, relational database service that's based on the community edition of the open-source PostgreSQL database engine. You can use Azure Database for PostgreSQL to focus on application innovation instead of database management. You can also scale your workload quickly and easily. In this architecture, you can integrate mainframe data with Azure Database for PostgreSQL through BMC AMI Cloud Analytics.
 
@@ -112,6 +112,7 @@ Principal author:
 - [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan/) | Senior Engineering Architect
 
 Other contributors:
+
 - [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Senior Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architect Manager
 - [Raphael Sayegh](https://www.linkedin.com/in/raphael-sayegh/) | Cloud Solution Architect
@@ -125,7 +126,6 @@ Other contributors:
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure Database for MySQL?](/azure/mysql/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
