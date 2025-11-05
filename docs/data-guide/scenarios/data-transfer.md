@@ -133,20 +133,20 @@ The following tables summarize the key differences in capabilities.
 
 ### Graphical interfaces, data sync, and data pipelines
 
-| Capability | Azure Storage Explorer | Azure portal * | Data Factory | Data Box Gateway |
-| --- | --- | --- | --- | --- |
-| Optimized for big data | No | No | Yes | Yes |
-| Copy to relational database | No | No | Yes | No |
-| Copy from relational database | No | No | Yes | No |
-| Copy to Blob Storage | Yes | No | Yes | Yes |
-| Copy from Blob Storage | Yes | No | Yes | No |
-| Copy to Data Lake Storage | No | No | Yes | No |
-| Copy from Data Lake Storage | No | No | Yes | No |
-| Upload to Blob Storage | Yes | Yes | Yes | Yes |
-| Upload to Data Lake Storage | Yes | Yes | Yes | Yes |
-| Orchestrate data transfers | No | No | Yes | No |
-| Custom data transformations | No | No | Yes | No |
-| Pricing model | Free | Free | Pay per usage | Pay per unit |
+| Capability | Azure Storage Explorer | Azure portal * | Data Factory | Data Box Gateway | Dataflows |
+| --- | --- | --- | --- | --- | --- |
+| Optimized for big data | No | No | Yes | Yes | Yes |
+| Copy to relational database | No | No | Yes | No | Yes |
+| Copy from relational database | No | No | Yes | No | Yes |
+| Copy to Blob Storage | Yes | No | Yes | Yes | Yes |
+| Copy from Blob Storage | Yes | No | Yes | No | Yes |
+| Copy to Data Lake Storage | No | No | Yes | No | Yes |
+| Copy from Data Lake Storage | No | No | Yes | No | Yes |
+| Upload to Blob Storage | Yes | Yes | Yes | Yes | Yes |
+| Upload to Data Lake Storage | Yes | Yes | Yes | Yes | Yes |
+| Orchestrate data transfers | No | No | Yes | No | Yes |
+| Custom data transformations | No | No | Yes | No | Yes |
+| Pricing model | Free | Free | Pay per usage | Pay per unit | Pay per usage |
 
 *Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.*
 
