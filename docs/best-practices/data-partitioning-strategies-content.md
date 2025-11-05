@@ -32,7 +32,7 @@ Elastic Database provides two schemes for mapping data to shardlets and storing 
 
     *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this diagram*
 
-A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different non-contiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they will be addressed through different maps. The following diagram shows this approach:
+A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different non-contiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they are addressed through different maps. The following diagram shows this approach:
 
 ![Diagram that shows multiple shard maps.](./images/data-partitioning/multiple-shard-maps.svg)
 
@@ -64,11 +64,11 @@ The partitioning scheme can significantly affect the performance of your system.
 
 Azure Table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure Table storage. Each entity stored in a table must provide a two-part key that includes:
 
-- **The partition key**. This is a string value that determines the partition where Azure Table storage will place the entity. All entities with the same partition key are stored in the same partition.
+- **The partition key**. This is a string value that determines the partition where Azure Table storage places the entity. All entities with the same partition key are stored in the same partition.
 
 - **The row key**. This is a string value that identifies the entity within the partition. All entities within a partition are sorted lexically, in ascending order, by this key. The partition key/row key combination must be unique for each entity and cannot exceed 1 KB in length.
 
-If an entity is added to a table with a previously unused partition key, Azure Table storage creates a new partition for this entity. Other entities with the same partition key will be stored in the same partition.
+If an entity is added to a table with a previously unused partition key, Azure Table storage creates a new partition for this entity. Other entities with the same partition key are stored in the same partition.
 
 This mechanism effectively implements an automatic scale-out strategy. Each partition is stored on the same server in an Azure datacenter to help ensure that queries that retrieve data from a single partition run quickly.
 
@@ -143,9 +143,9 @@ Service Bus assigns a message to a fragment as follows:
 - If the message doesn't belong to a session, but the sender has specified a value for the *PartitionKey* property, then all messages with the same *PartitionKey* value are sent to the same fragment.
 
   > [!NOTE]
-  > If the *SessionId* and *PartitionKey* properties are both specified, then they must be set to the same value or the message will be rejected.
+  > If the *SessionId* and *PartitionKey* properties are both specified, then they must be set to the same value or the message is rejected.
 
-- If the *SessionId* and *PartitionKey* properties for a message aren't specified, but duplicate detection is enabled, the *MessageId* property will be used. All messages with the same *MessageId* will be directed to the same fragment.
+- If the *SessionId* and *PartitionKey* properties for a message aren't specified, but duplicate detection is enabled, the *MessageId* property is used. All messages with the same *MessageId* are directed to the same fragment.
 
 - If messages do not include a *SessionId, PartitionKey,* or *MessageId* property, then Service Bus assigns messages to fragments sequentially. If a fragment is unavailable, Service Bus will move on to the next. This means that a temporary fault in the messaging infrastructure doesn't cause the message-send operation to fail.
 
@@ -182,7 +182,7 @@ Consider the following points when deciding how to partition data with Azure Cos
 
 - **Each document must have an attribute that can be used to uniquely identify that document within the collection in which it's held**. This attribute is different from the shard key, which defines which collection holds the document. A collection can contain a large number of documents. In theory, it's limited only by the maximum length of the document ID. The document ID can be up to 255 characters.
 
-- **All operations against a document are performed within the context of a transaction. Transactions are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously will not see a partial document that is then removed.
+- **All operations against a document are performed within the context of a transaction. Transactions are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously won't see a partial document that is then removed.
 
 - **Database queries are also scoped to the collection level**. A single query can retrieve data from only one collection. If you need to retrieve data from multiple collections, you must query each collection individually and merge the results in your application code.
 

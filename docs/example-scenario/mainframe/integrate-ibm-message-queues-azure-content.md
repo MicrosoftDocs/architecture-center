@@ -80,7 +80,7 @@ For example, applications on-premises can communicate with a modern data platfor
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps are available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
+Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps is available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
 
 ### Cost Optimization
 
