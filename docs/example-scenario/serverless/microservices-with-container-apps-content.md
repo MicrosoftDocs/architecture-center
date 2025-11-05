@@ -81,7 +81,7 @@ The microservices application was deployed to an AKS cluster. However, the Fabri
 - Minimal code changes were required when moving the application from AKS to Azure Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information which are not relevant in the new environment.
 - Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
 - Expose the application through managed ingress: Built-in support for external, HTTPS-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
-- Pull container images from ACR (Azure Container Registry): Azure Container Apps doesn't require a specific base image or registry.
+- Pull container images from Azure Container Registry (ARC). Azure Container Apps is compatible with any Linux base image stored in any accessible repository.
 - The revision feature supports application lifecycle needs, running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
 - The Fabrikam team used a managed identity to authenticate with Azure Key Vault and Azure Container Registry.
 
@@ -157,7 +157,7 @@ Container Apps allows you to deploy, manage, maintain, and monitor the applicati
 
 - Use dynamic load balancing and scaling features of Container Apps to improve availability. Your environment's subnet should be overprovisioned so that it never falls short of [available IPs for future replicas or jobs](/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet).
 
-- Avoid storing state directly within the Azure Container Apps environment, because all state is lost when the replica is shutdown. Externalize state to a dedicated state store per microservice. In this architecture, state is distributed across three distinct stores.
+- Avoid storing state directly within the Azure Container Apps environment, because all state is lost when the replica is shutdown. Externalize state to a dedicated state store per microservice. In this architecture, state is distributed across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure Cosmos DB for MongoDB.
 
 - All resources, including Azure Container Apps, should be deployed using a multi-zone topology.  For more details on availability zone support, see [Availability zone support in Azure Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
 
@@ -195,7 +195,7 @@ For more network topology options, including private endpoint support for ingres
 
 - This same workload was previously protected with the Kubernetes capabilities found in [Azure Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Defender for Containers in this architecture is limited to only performing [vulnerability assessments](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Azure Container Registry. Defender for Containers does not provide runtime protection for Azure Container Apps. Evaluate supplementing with third-party security solutions if runtime protection is a requirement.
 
-- Don't run the workload in a shared Azure Container Apps environment. Segment it from other workloads or components that don't need access to these microservices.
+- Don't run the workload in a shared Azure Container Apps environment. Segment it from other workloads or components that don't need access to these microservices by creating separate Azure Container Apps environments. Apps and jobs running in an Azure Container Apps Environment can discover and reach any service running in the environment with internal ingress enabled.
 
 ### Cost Optimization
 
@@ -205,7 +205,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - In this scenario, Azure Cosmos DB and Azure Managed Redis are the main cost drivers.
 
-- For containers that typically use consume low CPU and memory amount, evaluate the consumption workload profile first. Estimating cost of the dynamic profile based on your usage will help gather a baseline cost data so you can also evaluate other profiles. For example, you could use a dedicated workload profile for components with highly predictable and stable usage that can share dedicated nodes. For cost optimization, maintain a multiple of three nodes per dedicated profile to ensure sufficient replica distribution across availability zones.
+- For containers that typically consume low CPU and memory amount, evaluate the consumption workload profile first. Estimating cost of the consumption profile based on your usage will help gather a baseline cost data so you can also evaluate other profiles. For example, you could use a dedicated workload profile for components with highly predictable and stable usage that can share dedicated nodes. For cost optimization, maintain a multiple of three nodes per dedicated profile to ensure sufficient compute hosts and replica distribution across availability zones.
 
 - Eliminate compute costs during periods of inactivity by ensuring components can scale to zero so you only pay when needed. This reduces expenses for apps with variable or infrequent usage. Health checks typically prevent complete scale to zero. In this architecture the workflow service could be re-implemented as a job to take advantage of scale-to-zero during idle periods. This couples well with workloads that can use a [consumption plan](/azure/container-apps/plans#consumption).
 
@@ -215,13 +215,13 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Use GitHub Actions integration for setting up automated CI/CD deployments.
+- Use GitHub Actions or Azure DevOps Pipelines integration for setting up automated CI/CD deployments.
 
 - Use multi-revision mode with traffic splitting for testing changes to your workload code and scale rules.
 
 - Integrate with Application Insights and Log Analytics to provide insight into your workload. Use the same Log Analytics workspace as the rest of your workload's components to keep all workload insights together.
 
-- Use infrastructure-as-code, such as Bicep or Terraform to manage all infrastructure deployments, including the Azure Container Apps environment, container registry, and microservice state stores. Separate the microservice deployment pipelines from the infrastructure pipelines as they often do not share a similar lifecycle. This means your pipeline for Azure infrastructure should deploy all but the container app resources.
+- Use infrastructure-as-code, such as Bicep or Terraform to manage all infrastructure deployments, including the Azure Container Apps environment, container registry, and microservice state stores. Separate the microservice deployment pipelines from the infrastructure pipelines as they often do not share a similar lifecycle. This means your declarative pipeline for Azure infrastructure should deploy all but the container app resources.
 
 - Use an imperative approach to creating, updating, and removing container apps from the environment, especially if you'll be dynamically adjusting traffic shifting logic between revisions. Use a [GitHub action](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) or [Azure Pipelines task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureContainerAppsV1) in your deployment workflows. This imperative approach can be based on [yaml](/azure/container-apps/azure-resource-manager-api-spec?tabs=yaml#container-app-examples) app definitions. To minimize health check failures, always make sure your pipeline populates your container registry with the new container image prior to deploying the container app.
 
@@ -241,7 +241,7 @@ Performance considerations in this solution:
 
 - Autoscaling is enabled. Prefer event-based scaling over metric-based scaling where possible. For example, the workflow service, if designed to support it, could scale based on Service Bus queue depth. The default autoscaler is based on HTTP requests. During a replatforming, it's important to start with the same scaling approach, and then evaluate scaling optimizations later.
 
-- Requests are dynamically load balanced.
+- Requests are dynamically load balanced to available replicas of a revision. 
 
 - Metrics, including CPU and memory utilization, bandwidth information and storage utilization, are available through Azure Monitor.
 
