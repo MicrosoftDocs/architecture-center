@@ -45,7 +45,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - With **PowerShell**, the [Start-AzureStorageBlobCopy PowerShell cmdlet](/powershell/module/az.storage/start-azstorageblobcopy) is an option for Windows administrators who are used to PowerShell.
 
-- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data between the HDInsight cluster’s default storage (Azure Blob Storage or Azure Data Lake Storage Gen2) and other Azure Blob or Data Lake Storage Gen2 accounts.
+- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data between an HDInsight cluster's default storage and other Azure Blob or Data Lake Storage Gen2 accounts.
 
 - [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. It allows data transfer between an HDInsight cluster and relational databases such as SQL, Oracle, MySQL, and so on. Sqoop is a collection of related tools, including import and export tools. Sqoop works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 
