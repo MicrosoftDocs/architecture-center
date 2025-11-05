@@ -161,7 +161,7 @@ Container Apps allows you to deploy, manage, maintain, and monitor the applicati
 
 - All resources, including Azure Container Apps, should be deployed using a multi-zone topology.  For more details on availability zone support, see [Availability zone support in Azure Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
 
-  Set the minimum replica count for non-transient applications to at least three. During typical operating conditions replicas are reliably distributed and balanced across availability zones in the region.
+  Set the minimum replica count for non-transient applications to at least one replica per availability zone. During typical operating conditions replicas are reliably distributed and balanced across availability zones in the region.
 
 ### Security
 
@@ -203,7 +203,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Review an example price estimate for this workload, use the [Azure pricing calculator](https://azure.com/e/4f044f65e46f40c7a9d7a4837a17e6d7). Configurations vary, so adjust this to match your scenario.
 
-- In this scenario, Azure Cosmos DB and Azure Managed Redis are the main cost drivers.
+- In this scenario, Azure Cosmos DB, Azure Managed Redis, and Service Bus (Premium) are the main cost drivers.
 
 - For containers that typically consume low CPU and memory amount, evaluate the consumption workload profile first. Estimating cost of the consumption profile based on your usage will help gather a baseline cost data so you can also evaluate other profiles. For example, you could use a dedicated workload profile for components with highly predictable and stable usage that can share dedicated nodes. For cost optimization, maintain a multiple of three nodes per dedicated profile to ensure sufficient compute hosts and replica distribution across availability zones.
 
