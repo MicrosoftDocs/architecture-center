@@ -45,9 +45,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - With **PowerShell**, the [Start-AzureStorageBlobCopy PowerShell cmdlet](/powershell/module/az.storage/start-azstorageblobcopy) is an option for Windows administrators who are used to PowerShell.
 
-- [AdlCopy](/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) enables you to copy data from Blob Storage into Azure Data Lake Storage. It can also be used to copy data between two Data Lake Storage accounts. However, it can't be used to copy data from Data Lake Storage to Blob Storage.
-
-- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data to and from an HDInsight cluster storage (WASB) into a Data Lake Storage account.
+- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data between the HDInsight cluster’s default storage (Azure Blob Storage or Azure Data Lake Storage Gen2) and other Azure Blob or Data Lake Storage Gen2 accounts.
 
 - [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. It allows data transfer between an HDInsight cluster and relational databases such as SQL, Oracle, MySQL, and so on. Sqoop is a collection of related tools, including import and export tools. Sqoop works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 
@@ -120,20 +118,18 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
-| --- | --- | --- | --- | --- | --- |
-| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server |
-| Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
-| Copy to relational database | No | No | No | No | Yes |
-| Copy from relational database | No | No | No | No | Yes |
-| Copy to Blob Storage | Yes | Yes | Yes | No | Yes |
-| Copy from Blob Storage | Yes | Yes | Yes | Yes | Yes |
-| Copy to Data Lake Storage | No | Yes | Yes | Yes |  Yes |
-| Copy from Data Lake Storage | No | No | Yes | Yes | Yes |
+| Capability | The Azure CLI | AzCopy | PowerShell | PolyBase |
+| --- | --- | --- | --- | --- |
+| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | SQL Server |
+| Optimized for big data | No | Yes | No | Yes <sup>1</sup> |
+| Copy to relational database | No | No | No | Yes |
+| Copy from relational database | No | No | No | Yes |
+| Copy to Blob Storage | Yes | Yes | Yes | Yes |
+| Copy from Blob Storage | Yes | Yes | Yes | Yes |
+| Copy to Data Lake Storage | No | Yes | Yes | Yes |
+| Copy from Data Lake Storage | No | No | Yes | Yes |
 
-[1] AdlCopy is optimized for transferring big data when used with a Data Lake Analytics account.
-
-[2] PolyBase [performance can be increased](/sql/relational-databases/polybase/polybase-guide#performance) by pushing computation to Hadoop and using [PolyBase scale-out groups](/sql/relational-databases/polybase/polybase-scale-out-groups) to enable parallel data transfer between SQL Server instances and Hadoop nodes.
+[1] PolyBase [performance can be increased](/sql/relational-databases/polybase/polybase-guide#performance) by pushing computation to Hadoop and using [PolyBase scale-out groups](/sql/relational-databases/polybase/polybase-scale-out-groups) to enable parallel data transfer between SQL Server instances and Hadoop nodes.
 
 ### Graphical interfaces, data sync, and data pipelines
 
