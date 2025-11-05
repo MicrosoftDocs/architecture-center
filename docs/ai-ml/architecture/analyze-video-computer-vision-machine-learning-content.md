@@ -12,9 +12,11 @@ This article describes an architecture that replaces manual video analysis with 
 
 ### Workflow
 
-1. A collection of MP4 video footage is uploaded to Azure Blob Storage. Ideally, the videos go into a raw container.
+The following workflow corresponds to the previous diagram:
 
-1. A preconfigured pipeline in Azure Machine Learning detects that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
+1. A collection of MP4 video footage is uploaded to Blob Storage, which serves as the initial storage location. The files are then processed in a machine learning storage account before frame extraction. Ideally, the videos go into a raw container.
+
+1. A preconfigured pipeline in Machine Learning detects that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
 
 1. FFmpeg, which is an open-source tool, decodes the video and extracts individual frames as image files. You can set up how many frames per second are extracted, the quality of the extraction, and the format of the image file. The format can be JPG or PNG.
 
@@ -58,7 +60,9 @@ If you don't need to call a pretrained object detection custom model, use the fo
 
 #### Alternative workflow
 
-1. A collection of MP4 video footage is uploaded to Blob Storage.
+The following workflow corresponds to the previous diagram:
+
+1. A collection of MP4 video footage is uploaded to Blob Storage, which is used for video upload before indexing and further processing in Data Lake Storage.
 
 1. A preconfigured logic app monitors Blob Storage, detects that new videos are being uploaded, and starts a workflow.
 
