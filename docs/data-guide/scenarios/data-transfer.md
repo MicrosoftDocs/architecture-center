@@ -170,7 +170,7 @@ Principal author:
 - [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 - [Get started with Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
-- [What is Data Factory in Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview)
+- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
 - [What is Azure Data Box Gateway?](/azure/databox-gateway/data-box-gateway-overview)
 
 ## Related resources
