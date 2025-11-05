@@ -32,7 +32,7 @@ In the development environment, you develop machine learning pipelines.
 
 1. **Commit code.** To promote the machine learning workflow toward production, commit the code for featurization, training, and other pipelines to source control. In the code base, place machine learning code and operational code in different folders so that team members can develop code at the same time. Machine learning code is code that's related to the model and data. Operational code is code that's related to Databricks jobs and infrastructure.
 
-This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To perform the innerloop process for the development phase, use Visual Studio Code in combination with the dev container CLI and the Databricks CLI. You can write the code and do unit testing locally. You should also submit, monitor, and analyze the model pipelines from the local development environment.
+This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To carry out the innerloop process for the development phase, use Visual Studio Code (VS Code) in combination with the dev container CLI and the Databricks CLI. You can write the code and do unit testing locally. You should also submit, monitor, and analyze the model pipelines from the local development environment.
 
 #### Staging
 
@@ -66,33 +66,33 @@ Machine learning engineers manage the production environment, where machine lear
 
 ### Components
 
-- A **[data lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html)** architecture unifies the elements of data lakes and data warehouses. This architecture uses a lakehouse to get data management and performance capabilities that you typically find in data warehouses but with the low-cost, flexible object stores that data lakes provide.
+- A [data lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. This architecture uses a lakehouse to get data management and performance capabilities that you typically find in data warehouses but with the low-cost, flexible object stores that data lakes provide.
 
-  - We recommend **[Delta Lake](/azure/databricks/delta/)** as the open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
+  - We recommend [Delta Lake](/azure/databricks/delta/) as the open-source data format for a lakehouse. In this architecture, Delta Lake stores all machine learning data in Data Lake Storage and provides a high-performance query engine.
 
-- **[MLflow](https://www.mlflow.org)** is an open-source project for managing the end-to-end machine learning life cycle. In this architecture, MLflow tracks experiments, manages model versions, and facilitates model deployment to various inference platforms. MLflow has the following components:
+- [MLflow](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning life cycle. In this architecture, MLflow tracks experiments, manages model versions, and facilitates model deployment to various inference platforms. MLflow has the following components:
 
-  - The **[tracking feature](/azure/databricks/applications/mlflow/tracking)** tracks experiments, so you can record and compare parameters, metrics, and model artifacts.
+  - The [tracking feature](/azure/databricks/applications/mlflow/tracking) tracks experiments, so you can record and compare parameters, metrics, and model artifacts.
 
-    - **[Databricks autologging](/azure/databricks/applications/mlflow/databricks-autologging)** extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments and automatically logs model parameters, metrics, files, and lineage information.
+    - [Databricks autologging](/azure/databricks/applications/mlflow/databricks-autologging) extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments and automatically logs model parameters, metrics, files, and lineage information.
 
-  - **[MLflow model](/azure/databricks/applications/mlflow/models)** is a format that you can use to store and deploy models from any machine learning library to various model-serving and inference platforms.
+  - [MLflow model](/azure/databricks/applications/mlflow/models) is a format that you can use to store and deploy models from any machine learning library to various model-serving and inference platforms.
 
-  - **[Unity Catalog](/azure/databricks/data-governance/unity-catalog/)** provides centralized access control, auditing, lineage, and data-discovery capabilities across Azure Databricks workspaces.
+  - [Unity Catalog](/azure/databricks/data-governance/unity-catalog/) provides centralized access control, auditing, lineage, and data-discovery capabilities across Azure Databricks workspaces.
 
-  - **[Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/)** hosts MLflow models as REST endpoints.
+  - [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving/) hosts MLflow models as REST endpoints.
 
-- **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is a managed platform for analytics and machine learning. In this architecture, Azure Databricks integrates with enterprise security, provides high availability, and connects MLflow and other machine learning components for end-to-end machine learning operations.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a managed platform for analytics and machine learning. In this architecture, Azure Databricks integrates with enterprise security, provides high availability, and connects MLflow and other machine learning components for end-to-end machine learning operations.
 
-  - **[Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime#mlruntime)** automates the creation of a cluster that's optimized for machine learning and preinstalls popular machine learning libraries like TensorFlow, PyTorch, and XGBoost. It also preinstalls Azure Databricks for Machine Learning tools, like AutoML and feature store clients.
+  - [Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime#mlruntime) automates the creation of a cluster that's optimized for machine learning and preinstalls popular machine learning libraries like TensorFlow, PyTorch, and XGBoost. It also preinstalls Azure Databricks for Machine Learning tools, like AutoML and feature store clients.
 
-  - A **[feature store](/azure/databricks/applications/machine-learning/feature-store)** is a centralized repository of features. Use the feature store to discover and share features and help prevent data skew between model training and inference.
+  - A [feature store](/azure/databricks/applications/machine-learning/feature-store) is a centralized repository of features. Use the feature store to discover and share features and help prevent data skew between model training and inference.
 
-  - **[Databricks SQL](/azure/databricks/sql)** integrates with various tools so that you can author queries and dashboards in your favorite environments without adjusting to a new platform.
+  - [Databricks SQL](/azure/databricks/sql) integrates with different tools so that you can author queries and dashboards in your preferred environments without adjusting to a new platform.
 
-  - **[Git folders](/azure/databricks/repos)** provides integration with your Git provider in the Azure Databricks workspace, which improves notebook or code collaboration and IDE integration.
+  - [Git folders](/azure/databricks/repos) provides integration with your Git provider in the Azure Databricks workspace, which improves notebook or code collaboration and IDE integration.
 
-  - **[Workflows](/azure/databricks/data-engineering)** and **[jobs](/azure/databricks/jobs)** provide a way to run non-interactive code in an Azure Databricks cluster. For machine learning, jobs provide automation for data preparation, featurization, training, inference, and monitoring.
+  - [Workflows](/azure/databricks/data-engineering) and [jobs](/azure/databricks/jobs) provide a way to run non-interactive code in an Azure Databricks cluster. For machine learning, jobs provide automation for data preparation, featurization, training, inference, and monitoring.
 
 ### Alternatives
 
@@ -134,7 +134,7 @@ This architecture applies to all types of machine learning, deep learning, and a
 
 - Custom analytics, like statistics, Bayesian methods, and graph analytics
 
-The architecture supports both small data (single machine) and large data (distributed computing and graphics processing unit (GPU)-accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your scenario's data and problem dimensions.
+The architecture supports both small data on a single machine and large data using distributed computing and graphics processing unit (GPU)-accelerated resources. At each stage of the architecture, you can choose compute resources and libraries to adapt to your scenario's data size and problem dimensions.
 
 The architecture applies to all types of industries and business use cases. Azure Databricks customers that use this architecture include small and large organizations in the following industries:
 
@@ -157,7 +157,7 @@ As more organizations use large language models for specialized tasks, adding fo
 
 - **Automation and CI/CD:** Fine-tuning jobs can be initiated via Databricks Workflows or CI/CD pipelines. This process supports continuous learning and model refresh cycles.
 
-This approach allows teams to maintain high machine learning operations maturity while using the flexibility and power of foundation models. For more information, see [Foundation model fine-tuning on Azure Databricks](/azure/databricks/large-language-models/foundation-model-training).
+This approach lets teams to maintain high machine learning operations maturity while using the flexibility and power of foundation models. For more information, see [Foundation model fine-tuning on Azure Databricks](/azure/databricks/large-language-models/foundation-model-training).
 
 ## Contributors
 
