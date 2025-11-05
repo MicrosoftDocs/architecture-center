@@ -1,9 +1,9 @@
-This article describes an architecture that replaces manual video analysis with an automated machine learning process that is often more accurate.
+This article describes an architecture that replaces manual video analysis with an automated machine learning process. The automated process often produces more accurate results.
 
 ## Architecture
 
 :::image type="complex" border="false" source="_images/analyze-video-content.svg" alt-text="Diagram that shows an architecture for automated video analysis by using video frames and custom code." lightbox="_images/analyze-video-content.svg":::
-   The image is a flow diagram divided into four labeled sections: Ingest, Transform, Enrich and serve, and Visualize. In the Ingest section, there's an icon that represents video files, with an arrow that points to a machine learning storage account icon. In the Transform section, arrows connect the storage account to a box that has icons for Jupyter Notebook, Azure Machine Learning, and an inference cluster. An arrow labeled Run points from this box to a picture files icon, and then to a Data Lake Storage icon. An arrow points from Data Lake Storage to a box that has Azure Logic Apps, and arrows point to and from Custom Vision API and Computer Vision API icons. An arrow labeled Parsing JSON points from Logic Apps to a Microsoft Fabric icon. In the Visualize section, an arrow points from Microsoft Fabric to a Power BI icon.
+   The image is a flow diagram divided into four labeled sections: Ingest, Transform, Enrich and serve, and Visualize. In the Ingest section, there's an icon that represents video files, with an arrow that points to a machine learning storage account icon. In the Transform section, arrows connect the storage account to a box that has icons for Jupyter Notebook, Azure Machine Learning, and an inference cluster. An arrow labeled Run points from this box to a picture files icon, and then to a Data Lake Storage icon. An arrow points from Data Lake Storage to a box that has Azure Logic Apps, and arrows point to and from Custom Vision API and Computer Vision API icons. An arrow labeled Parsing JSON points from Logic Apps to a Microsoft Fabric icon. In the Visualize section, an arrow points from Fabric to a Power BI icon.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
@@ -22,9 +22,9 @@ This article describes an architecture that replaces manual video analysis with 
 
 1. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 
-1. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. It might also call a computer vision model that uses optical character recognition (OCR) to identify textual information in the images.
+1. The logic app calls a pretrained Azure AI Custom Vision model to identify objects, features, or qualities in the images. It might also call a computer vision model that uses optical character recognition (OCR) to identify textual information in the images.
 
-1. Results arrive in JSON format. The logic app parses the results to create key-value pairs. You can store those pairs in Microsoft Fabric Data Warehouse, which is a fully managed analytical database that supports atomicity, consistency, isolation, and durability (ACID) transactions. It uses the open Delta Parquet format and integrates natively with OneLake.
+1. Results arrive in JSON format. The logic app parses the results to create key-value pairs. You can store those pairs in Fabric Data Warehouse, which is a managed analytical database that supports atomicity, consistency, isolation, and durability (ACID) transactions. It uses the open Delta Parquet format and integrates natively with OneLake.
 
 1. Power BI provides data visualization.
 
@@ -38,20 +38,20 @@ This article describes an architecture that replaces manual video analysis with 
 
 - [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed state-of-the-art computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, initiates analysis workflows, processes results, and coordinates the movement and transformation of data.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end‑to‑end unified analytics platform that streamlines integration of data workflows across data engineering, data integration, warehousing, real‑time analytics, and business intelligence (BI). In this architecture, after Logic Apps parses the JSON results, the data is stored and analyzed in [Fabric Data Warehouse](/fabric/data-warehouse) for governed analytics before visualization in Power BI.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end‑to‑end unified analytics platform that streamlines integration of data workflows across data engineering, data integration, warehousing, real‑time analytics, and business intelligence (BI). In this architecture, after Logic Apps parses the JSON results, the data is stored and analyzed in [Data Warehouse](/fabric/data-warehouse) for governed analytics before visualization in Power BI.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data. In this architecture, Power BI provides dashboards and reports that visualize the results of the automated video analysis to enable insights and decision-making.
 
 ### Alternatives
 
-If there's no need to call a pretrained object detection custom model, you can use the following architecture that relies on Microsoft Azure AI Video Indexer. Using this service omits the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach is more direct if your use case involves detecting common objects or entities in a video.
+If you don't need to call a pretrained object detection custom model, use the following architecture that relies on Microsoft Azure AI Video Indexer. This service removes the decomposition of video into frames and the use of custom code to parse through the ingestion process. This approach is more direct if your use case involves detecting common objects or entities in a video.
 
 :::image type="complex" border="false" source="_images/analyze-video-content-video-retrieval-api.svg" alt-text="Diagram that shows an architecture for automated video analysis by using Video Indexer." lightbox="_images/analyze-video-content-video-retrieval-api.svg":::
-  The diagram has four sections labeled Ingest, Index, Search or Detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to Video Indexer with arrows for creating an index and adding video to the index. In the Search or Detection with natural language section, Video Indexer connects to Logic Apps inside a box, with arrows labeled Get and Post between Logic Apps and the API. An arrow points from the Logic Apps section to Microsoft Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Microsoft Fabric to Power BI.
+  The diagram has four sections labeled Ingest, Index, Search and detection with natural language, and Visualize. In the Ingest section, a video files icon points to Data Lake Storage, followed by an arrow to Logic Apps. In the Index section, Logic Apps connects to Video Indexer with arrows for creating an index and adding video to the index. Video Indexer connects to Logic Apps, which resides in a subsection within the Search and detection with natural language section. Inside this subsection, arrows labeled Get and Post go from Logic Apps to the Video Indexer API. An arrow points from the Logic Apps subsection to Fabric via a parsing JSON arrow. In the Visualize section, an arrow points from Fabric to Power BI.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content-2.pptx) of this architecture.*
@@ -60,7 +60,7 @@ If there's no need to call a pretrained object detection custom model, you can u
 
 1. A collection of MP4 video footage is uploaded to Blob Storage.
 
-1. A preconfigured logic app monitors Blob Storage detects that new videos are being uploaded and starts a workflow.
+1. A preconfigured logic app monitors Blob Storage, detects that new videos are being uploaded, and starts a workflow.
 
 1. The logic app calls the Video Indexer API to create an index.
 
@@ -70,7 +70,7 @@ If there's no need to call a pretrained object detection custom model, you can u
 
 1. The logic app uses the Video Indexer API to perform natural language searches and detect objects, features, or attributes in images.
 
-1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric.
+1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL database in Fabric.
 
 1. Power BI provides data visualization.
 
@@ -78,9 +78,9 @@ If there's no need to call a pretrained object detection custom model, you can u
 
 - [SQL database in Fabric](/fabric/database/sql/overview) is a managed SQL database service designed to support AI-driven workloads securely and efficiently. In this architecture, it stores information about the videos retrieved from the Video Indexer API.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, Azure AI Vision can be used to extract information from images and videos by using pretrained models.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that provides advanced image and video analysis capabilities without requiring machine learning expertise. In this architecture, Vision can extract information from images and videos by using pretrained models.
 
-- [Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a service that enables direct analysis of video files for object, feature, and attribute detection, and supports natural language search over indexed video content. In this architecture, Video Indexer lets you retrieve structured information from videos without manual frame extraction or custom code.
+- [Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a service that enables direct analysis of video files for object, feature, and attribute detection. It supports natural language search over indexed video content. In this architecture, Video Indexer lets you retrieve structured information from videos without manual frame extraction or custom code.
 
 ## Scenario details
 
@@ -96,7 +96,7 @@ This scenario is relevant for any business that analyzes videos. Consider the fo
 
 - **Agriculture:** Monitor and analyze crops and soil conditions over time. By using drones or unmanned aerial vehicles (UAVs), farmers can record video footage for analysis.
 
-- **Environmental sciences:** Analyze aquatic species to learn where they're located and how they evolve. Environmental researchers can navigate the shoreline to record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
+- **Environmental sciences:** Analyze aquatic species to learn where they're located and how they evolve. Environmental researchers can navigate the shoreline and record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
 
 - **Traffic control:** Classify vehicles into categories, like SUV, car, truck, and motorcycle. Use that information to plan traffic control. Closed-circuit television (CCTV) in public locations can provide video footage. Most CCTV cameras record the date and time, which can be retrieved via OCR.
 
@@ -142,7 +142,7 @@ Deployments need to be reliable and predictable. Consider the following guidelin
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The appropriate use of scaling and the implementation of PaaS offerings that have built-in scaling are the main ways to achieve performance efficiency.
+The appropriate use of scaling and the implementation of platform as a service (PaaS) offerings that have built-in scaling are the main ways to achieve performance efficiency.
 
 ## Contributors
 
@@ -163,5 +163,5 @@ Other contributors:
 
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
+- [What is Power BI embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
 - [Business process automation solution](https://github.com/Azure/business-process-automation)
