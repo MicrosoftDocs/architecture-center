@@ -162,6 +162,11 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+Contributors:
+
+- Sriram Kolla | Principal Cloud Solution Architect
+- Prabhjot Kaur | Senior Solution Engineer
+
 ## Next steps
 
 - [What is Azure Import/Export service?](/azure/import-export/storage-import-export-service)
