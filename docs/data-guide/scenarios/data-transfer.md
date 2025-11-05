@@ -160,8 +160,8 @@ Principal author:
 
 Contributors:
 
-- Sriram Kolla | Principal Cloud Solution Architect
-- Prabhjot Kaur | Senior Solution Engineer
+- [Sriram Kolla](https://www.linkedin.com/in/sriram-kolla-2474296/) | Principal Cloud Solution Architect
+- [Prabhjot Kaur](https://www.linkedin.com/in/prabhkaur1/) | Senior Solution Engineer
 
 ## Next steps
 
