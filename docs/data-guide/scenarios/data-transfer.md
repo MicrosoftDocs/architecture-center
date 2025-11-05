@@ -63,7 +63,7 @@ Consider the following options if you're only transferring a few files or data o
 
 - **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring files and uploading new files. This option is a good one if you don't want to install tools or issue commands to quickly explore your files, or if you want to upload a handful of new ones.
 
-- [Fabric Dataflows](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview) are a cloud-based tool that help you prepare and transform data without writing code. They provide a low-code interface for ingesting data from hundreds of data sources, transforming your data using 300+ data transformations, and loading the resulting data into limited [destinations](https://learn.microsoft.com/en-us/fabric/data-factory/dataflow-gen2-data-destinations-and-managed-settings).
+- [Fabric Dataflows](/fabric/data-factory/dataflows-gen2-overview) are a cloud-based tool that help you prepare and transform data without writing code. They provide a low-code interface for ingesting data from hundreds of data sources, transforming your data using built-in data transformers, and loading the resulting data into [supported destinations](/fabric/data-factory/dataflow-gen2-data-destinations-and-managed-settings).
 
 ## Data sync and pipelines
 
@@ -137,7 +137,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Graphical interfaces, data sync, and data pipelines
 
-| Capability | Azure Storage Explorer | Azure portal * | Data Factory | Data Box Gateway
+| Capability | Azure Storage Explorer | Azure portal * | Data Factory | Data Box Gateway |
 | --- | --- | --- | --- | --- |
 | Optimized for big data | No | No | Yes | Yes |
 | Copy to relational database | No | No | Yes | No |
