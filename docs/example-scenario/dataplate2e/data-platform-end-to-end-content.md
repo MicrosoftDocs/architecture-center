@@ -183,9 +183,7 @@ This section explains how to bring high-volume time series, streaming data in Mi
 
 1. Real-Time Intelligence in Microsoft Fabric enables users to collect data for real-time data ingestion using [Eventstream](/fabric/real-time-intelligence/event-streams/overview?tabs=enhancedcapabilities) from a wide range of sources such as IoT devices, applications external event hubs, and Fabric events such as Fabric [Workspace Item events](/fabric/real-time-intelligence/event-streams/add-source-fabric-workspace), [Fabric OneLake events](/fabric/real-time-intelligence/event-streams/add-source-fabric-onelake), [Fabric Job events](/fabric/real-time-intelligence/event-streams/add-source-fabric-job). Eventstream in Microsoft Fabric enables you to fetch event data by connecting to various [data sources](/fabric/real-time-intelligence/event-streams/add-manage-eventstream-sources?pivots=enhanced-capabilities).
 
-2. Ingest data using [Copy Activity](/fabric/data-factory/copy-data-activity).
-
-3. If you need to reference a source KQL Database such as an existing Azure Data explorer (ADX) in Real-Time Intelligence, you can create a [database shortcut](/fabric/real-time-intelligence/database-shortcut?tabs=workspace) to access this data without duplicating or reingesting data.
+2. If you need to reference a source KQL Database such as an existing Azure Data explorer (ADX) in Real-Time Intelligence, you can create a [database shortcut](/fabric/real-time-intelligence/database-shortcut?tabs=workspace) to access this data without duplicating or reingesting data.
 
 ##### Store
 
