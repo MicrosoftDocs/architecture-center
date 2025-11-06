@@ -14,7 +14,7 @@ This solution can take advantage of full automation, continuous monitoring, and 
 
 ### Workflow
 
-The following workflow corresponds to the preceding diagram. Use source control and storage components to manage and organize code and data.
+The following workflow corresponds to the previous diagram. Use source control and storage components to manage and organize code and data.
 
 **Source control:** This project's code repository organizes the notebooks, modules, and pipelines. You can create development branches to test updates and new models. Develop code in Git-supported notebooks or integrated development environments (IDEs) that integrate with [Git folders](/azure/databricks/repos) so that you can sync with your Azure Databricks workspaces. Source control promotes machine learning pipelines from the development environment, to testing in the staging environment, and to deployment in the production environment.
 
