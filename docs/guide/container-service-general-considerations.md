@@ -4,7 +4,7 @@ description: Get a quick overview of common feature-level considerations that ca
 author: r-kayongo
 ms.author: rkayongo
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
 ---

@@ -5,7 +5,7 @@ author: josearper
 ms.author: joaria
 ms.custom: arb-data
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,7 +4,7 @@ description: Learn about tenancy models that you can use with Application Insigh
 author: rajnemani
 ms.author: ranema
 ms.date: 08/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
