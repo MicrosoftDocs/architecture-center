@@ -21,6 +21,7 @@ In Azure, the following services and tools will meet the core requirements for p
 - [Azure Data Factory](/azure/data-factory/)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
+- [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
 
 These services and tools can be used independently from one another, or used together to create a hybrid solution. For example, the Integration Runtime (IR) in Azure Data Factory V2 can natively execute SSIS packages in a managed Azure compute environment. While there is some overlap in functionality between these services, there are a few key differences.
 
@@ -36,42 +37,49 @@ To narrow the choices, start by answering these questions:
 
 - Is your source data stored in Blob storage on an HDFS filesystem? If so, choose an option that supports Hive queries.
 
+- Do you need advanced orchestration for complex ETL workflows across multiple data sources? If yes, choose Data Factory in Microsoft Fabric, as it provides a rich set of connectors, pipeline orchestration, and integration with both on-premises and cloud environments, making it ideal for enterprise-scale data movement and transformation.
+
 ## Capability matrix
 
 The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
-| --- | --- | --- | --- |
-| Managed | Yes | No | Yes |
-| Cloud-based | Yes | No (local) | Yes |
-| Prerequisite | Azure Subscription | SQL Server  | Azure Subscription, HDInsight cluster |
-| Management tools | Azure Portal, PowerShell, CLI, .NET SDK | SSMS, PowerShell | Bash shell, Oozie REST API, Oozie web UI |
-| Pricing | Pay per usage | Licensing / pay for features | No additional charge on top of running the HDInsight cluster |
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight | Data Factory in Microsoft Fabric |
+| --- | --- | --- | --- | --- |
+| Managed | Yes | No | Yes | Yes |
+| Cloud-based | Yes | No (local) | Yes | Yes |
+| Prerequisite | Azure Subscription | SQL Server  | Azure Subscription, HDInsight cluster | Microsoft Fabric-enabled workspace |
+| Management tools | Azure Portal, PowerShell, CLI, .NET SDK | SSMS, PowerShell | Bash shell, Oozie REST API, Oozie web UI | Copy job, Mirroring, Pipeline activities, Dataflow Gen2 |
+| Pricing | Pay per usage | Licensing / pay for features | No additional charge on top of running the HDInsight cluster | Included with Fabric capacity |
 
 ### Pipeline capabilities
 
-| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
-| --- | --- | --- | --- |
-| Copy data | Yes | Yes | Yes |
-| Custom transformations | Yes | Yes | Yes (MapReduce, Pig, and Hive jobs) |
-| Azure Machine Learning scoring | Yes | Yes (with scripting) | No |
-| HDInsight On-Demand | Yes | No | No |
-| Azure Batch | Yes | No | No |
-| Pig, Hive, MapReduce | Yes | No | Yes |
-| Spark | Yes | No | No |
-| Execute SSIS Package | Yes | Yes | No |
-| Control flow | Yes | Yes | Yes |
-| Access on-premises data | Yes | Yes | No |
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight | Data Factory in Microsoft Fabric |
+| --- | --- | --- | --- | --- |
+| Copy data | Yes | Yes | Yes | Yes |
+| Custom transformations | Yes | Yes | Yes (MapReduce, Pig, and Hive jobs) | Yes |
+| Azure Machine Learning scoring | Yes | Yes (with scripting) | No | Yes (via integration) |
+| HDInsight On-Demand | Yes | No | No | No |
+| Azure Batch | Yes | No | No | Yes |
+| Pig, Hive, MapReduce | Yes | No | Yes | Yes |
+| Spark | Yes | No | No | Yes |
+| Execute SSIS Package | Yes | Yes | No | Yes |
+| Control flow | Yes | Yes | Yes | Yes |
+| Access on-premises data | Yes | Yes | No | Yes |
 
 ### Scalability capabilities
 
-| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
-| --- | --- | --- | --- |
-| Scale up | Yes | No | No |
-| Scale out | Yes | No | Yes (by adding worker nodes to cluster) |
-| Optimized for big data | Yes | No | Yes |
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight | Data Factory in Microsoft Fabric |
+| --- | --- | --- | --- | --- |
+| Scale up | Yes | No | No | Yes |
+| Scale out | Yes | No | Yes (by adding worker nodes to cluster) | Yes |
+| Optimized for big data | Yes | No | Yes | Yes |
+
+
+## Alternative approach
+
+In addition to traditional batch-based orchestration, your platform can also use real-time intelligence through [Microsoft Fabric’s Real-Time Intelligence](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream) service. This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows, allowing organizations to respond instantly as data arrives. It supports high-value scenarios such as IoT telemetry processing, fraud detection, and operational monitoring.
 
 ## Contributors
 
@@ -83,10 +91,11 @@ Principal author:
 
 ## Next steps
 
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
 - [Provision the Azure-SSIS integration runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 
 ## Related resources
 
 - [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
+- [Medallion Architecture in Fabric Real-Time Intelligence](https://blog.fabric.microsoft.com/blog/21597)
