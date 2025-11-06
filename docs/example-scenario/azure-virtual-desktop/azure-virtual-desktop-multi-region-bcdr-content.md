@@ -2,13 +2,13 @@ Azure Virtual Desktop is a comprehensive desktop and app virtualization service 
 
 As you continue to enable remote work for your organization with Azure Virtual Desktop, it's important to understand its disaster recovery (DR) capabilities and best practices. These practices strengthen reliability across regions to help keep data safe and employees productive. This article provides you with considerations on business continuity and disaster recovery (BCDR) prerequisites, deployment steps, and best practices. You learn about options, strategies, and architecture guidance. The content in this document enables you to prepare a successful BCDR plan and can help you bring more resilience to your business during planned and unplanned downtime events.
 
-There are several types of disasters and outages, and each can have a different impact. Resiliency and recovery are discussed in depth for both local and region-wide events, including recovery of the service in a different remote Azure region. This type of recovery is called geo disaster recovery. It's critical to build your Azure Virtual Desktop architecture for resiliency and availability. You should provide maximum local resiliency to reduce the impact of failure events. This resiliency also reduces the requirements to execute recovery procedures. This article also provides information about high availability and best practices.
+There are several types of disasters and outages, and each can have a different impact. Resilience (continuing to operate during localized faults) and recoverability (restoring service after a broader disruption) are discussed for both local and region-wide events, including recovery of the service in a different remote Azure region. This type of recovery is called geo disaster recovery. Build the Azure Virtual Desktop architecture for local resilience and availability first to reduce the impact of failure events. Strong local resilience reduces how often full recovery procedures are required. This article also provides information about high availability and best practices.
 
 ## Goals and scope
 
 The goals of this guide are to:
 
-- Ensure maximum availability, resiliency, and geo-disaster recovery capability while minimizing data loss for important selected user data.
+- Ensure maximum resiliency and geo-disaster recovery capability while minimizing data loss for important selected user data.
 - Minimize recovery time.
 
 These objectives are also known as the recovery point objective (RPO) and the Recovery Time Objective (RTO).
@@ -181,7 +181,7 @@ In this guide, you use at least two separate storage accounts for each Virtual D
 - Azure NetApp Files requires more considerations:
   - Zone redundancy isn't yet available. If the resiliency requirement is more important than performance, use Azure Files share.
   - Azure NetApp Files can be [zonal](/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
-  - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) can be established at the volume level to provide zone resiliency but replication happens asynchronous and requires manual failover. This process requires a recovery point objective (RPO) and recovery time objective (RTO) that are greater than zero. Before using this feature, review the [requirements and considerations for cross-zone replication](/azure/azure-netapp-files/create-cross-zone-replication).
+  - [Cross-zone replication](/azure/azure-netapp-files/replication#cross-zone-replication) is a recoverability capability, not automatic zone-level resilience. Use it to restore service after a zonal outage rather than to continue serving traffic during one. Before using this feature, review the [requirements and considerations for cross-zone replication](/azure/azure-netapp-files/create-cross-zone-replication).
   - You can use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [standard networking](/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
   - Azure Virtual WAN is supported when used together with Azure NetApp Files [standard networking](/azure/azure-netapp-files/configure-network-features). For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
 - Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction). The following considerations apply:
@@ -404,7 +404,7 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 - If you use OneDrive and known folder redirection, the requirement to save data inside the container might disappear.
 
     > [!NOTE]
-    > OneDrive backup is not considered in this article and scenario.
+    > OneDrive backup isn't considered in this article and scenario.
 
 - Unless there's another requirement, backup for the storage in the primary region should be enough. Backup of the disaster recovery environment isn't normally used.
 - For Azure Files share, use [Azure Backup](/azure/backup/azure-file-share-backup-overview).

@@ -60,7 +60,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Reduced management overhead.* SQL Database provides a managed SQL database instance.
     - *Migration support.* It supports database migration from on-premises SQL Server.
     - *Consistency with on-premises configurations.* It supports the existing stored procedures, functions, and views.
-    - *Resiliency.* It supports backups and point-in-time restore.
+    - *Recoverability.* Supports backups and point-in-time restore so the database can be restored to a previous consistent state after a disruption.
     - *Expertise and minimal rework.* SQL Database enables Relecloud to take advantage of existing expertise and requires minimal work to adopt.
 
 - *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry for your application. Relecloud chose to use Application Insights for the following reasons:

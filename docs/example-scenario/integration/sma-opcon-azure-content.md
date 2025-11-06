@@ -266,7 +266,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-OpCon Cloud reduces infrastructure and maintenance costs, while providing you with the security and reliability of an always-on solution. It also provides fast recovery from unplanned system interruptions or disasters. OpCon has its own built-in resiliency capability. Or you can use Azure Site Recovery to maintain copies of the OpCon environment for use in disaster recovery situations. 
+OpCon Cloud reduces infrastructure and maintenance costs, while providing you with the security and reliability of an always-on solution. It also provides fast recovery from unplanned system interruptions or disasters. OpCon has its own built-in recovery capability. Or you can use Azure Site Recovery to maintain copies of the OpCon environment for use in disaster recovery situations. 
 
 For the Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS tier. This tier provides locally redundant storage to ensure that your data is replicated within a single physical location. It also provides high performance and low latency, so it suits workloads that require fast and reliable storage.
 

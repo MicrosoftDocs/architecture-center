@@ -24,9 +24,10 @@ azureCategories:
   - integration
 summary: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Microsoft Fabric and transforms the data for analysis.
 products:
+  - fabric
   - azure-blob-storage
   - entra-id
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
 content: |
-   [!INCLUDE[](enterprise-bi-synapse-content.md)]
+   [!INCLUDE[](enterprise-bi-microsoft-fabric-content.md)]
