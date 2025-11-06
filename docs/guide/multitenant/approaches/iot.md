@@ -4,7 +4,7 @@ description: Learn about architectural approaches for Azure IoT Hub-based multit
 author: MikeBazMSFT
 ms.author: micbaz
 ms.date: 12/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas

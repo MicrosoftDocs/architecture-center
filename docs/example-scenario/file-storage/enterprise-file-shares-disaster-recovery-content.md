@@ -18,7 +18,7 @@ This architecture applies to businesses that want to provide file shares for cli
 - There are two Azure regions, a primary and a secondary.
 - The Azure subscription includes a virtual network and an Azure NetApp Files account for each region.
 - The  cross-region replication feature of Azure NetApp Files replicates the files and folders from the primary region to the secondary region. This technique doesn't need virtual machines.
-- Access to the file shares is managed by DFS Namespaces, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
+- DFS Namespaces manages access to the file shares, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
 - The Windows servers and Active Directory Domain servers can be hosted on Azure or on-premises.
 
 ### Components
@@ -41,8 +41,8 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Replicating to a second region increases availability by protecting against regional service interruptions.
 
-- This solution has greater resiliency than a single-region deployment, and has failover capabilities.
-- The secondary volume is read-only. It can be verified at any given time, increasing resiliency.
+- This solution has more recovery options than a single-region deployment due to having failover capabilities.
+- The secondary volume is read-only. It can be verified at any given time, increasing reliability.
 - You can run a disaster recovery test in isolation without interfering with the production deployment. The test uses the space-efficient volume clone feature to get a read/write copy of a volume in seconds.
 
 ### Cost Optimization

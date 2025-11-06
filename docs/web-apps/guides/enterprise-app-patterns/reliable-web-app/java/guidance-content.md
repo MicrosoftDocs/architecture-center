@@ -62,7 +62,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
     - *Reduced management overhead.* It's a fully managed Azure service that reduces management obligations.
     - *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. Contoso can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
     - *Consistency with on-premises configurations.* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
-    - *Resiliency.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them in zone-redundant storage (ZRS) within the same region. Contoso can restore their database to any point in time that's within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Contoso Fiber could create on-premises.
+    - *Recoverability.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them in zone-redundant storage (ZRS) within the same region. Contoso can restore the database to any point in time within the backup retention period. This capability improves the recovery point objective (RPO) compared to the on-premises deployment.
 
 - *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Contoso Fiber chose to use Application Insights for the following reasons:
 

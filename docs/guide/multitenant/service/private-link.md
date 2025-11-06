@@ -4,7 +4,7 @@ description: This article describes the features of Azure Private Link that are 
 author: johndowns
 ms.author: pnp
 ms.date: 07/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas

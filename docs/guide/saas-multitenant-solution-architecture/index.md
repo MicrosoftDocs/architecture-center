@@ -4,7 +4,7 @@ description: This guide provides an overview of the architectural content for so
 author: PlagueHO 
 ms.author: dascottr 
 ms.date: 04/29/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas

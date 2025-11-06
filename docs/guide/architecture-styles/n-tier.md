@@ -4,7 +4,7 @@ description: Learn about the benefits, challenges, and best practices for N-tier
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
 ---

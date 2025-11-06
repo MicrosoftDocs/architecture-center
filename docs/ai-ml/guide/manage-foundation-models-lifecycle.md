@@ -4,10 +4,9 @@ description: Learn about how to manage both new model versions and retired model
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 05/13/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Design to support foundation model life cycles

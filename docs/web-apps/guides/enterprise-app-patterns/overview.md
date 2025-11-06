@@ -5,7 +5,7 @@ author: stephen-sumner
 ms.author: pnp
 ms.reviewer: ssumner
 ms.date: 10/15/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

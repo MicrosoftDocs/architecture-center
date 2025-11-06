@@ -4,7 +4,7 @@ description: Learn how big data architectures manage the ingestion, processing, 
 author: vibhareddyv
 ms.author: vibhav
 ms.date: 09/12/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-iot

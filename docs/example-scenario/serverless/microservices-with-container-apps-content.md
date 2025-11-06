@@ -4,7 +4,7 @@ The example takes the workload used in [Microservices architecture on Azure Kube
 
 > [!TIP]
 >
-> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of design choices described in this article. 
+> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of the design choices described in this article.
 
 ## Architecture
 
