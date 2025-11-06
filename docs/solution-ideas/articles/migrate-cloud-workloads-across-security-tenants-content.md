@@ -46,7 +46,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable and durable cloud storage solution for various data objects in the cloud. In this architecture, it stores configuration artifacts and data backups used during migration.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service for big data and data warehousing. In this architecture, it supports enterprise-scale data analysis across migrated workloads.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a software as a service (SaaS) analytics platform that unifies data integration, data engineering, data warehousing, real-time analytics, data science, and business intelligence. In this architecture, it provides an enterprise-scale analytics platform across migrated workloads by consolidating data pipelines, storage (OneLake), and analytical compute in the target tenant.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service for accelerating and managing the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that are recreated in the target tenant.
 
