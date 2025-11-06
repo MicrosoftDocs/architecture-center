@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -117,20 +117,11 @@
 		.st102 {marker-end:url(#mrkr4-684);stroke:#000000;stroke-dasharray:10.5,7.5,0,7.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st103 {stroke:#000000;stroke-dasharray:7,5,0,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st104 {marker-end:url(#mrkr4-586);stroke:#000000;stroke-dasharray:7,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-<<<<<<< HEAD
-		.st105 {fill:#ffffff;stroke:none;stroke-linecap:butt}
-		.st106 {fill:#107c10;stroke:#507e32;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
-		.st107 {fill:#ffffff;font-family:Segoe UI;font-size:1.16666em;font-weight:bold}
-		.st108 {fill:url(#grad0-988);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st109 {fill:#c3f1ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st110 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
-=======
 		.st105 {fill:#107c10;stroke:#507e32;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
 		.st106 {fill:#ffffff;font-family:Segoe UI;font-size:1.16666em;font-weight:bold}
 		.st107 {fill:url(#grad0-988);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st108 {fill:#c3f1ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st109 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 	]]>
 	</style>
 
@@ -1378,11 +1369,7 @@
 				</g>
 			</g>
 		</g>
-<<<<<<< HEAD
 		<g id="shape1235-260" v:mID="1235" v:groupContext="shape" transform="translate(329.4,-283.5)">
-=======
-		<g id="shape1235-260" v:mID="1235" v:groupContext="shape" transform="translate(329.4,-248.627)">
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 			<title>Sheet.1235</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(10000):26"/>
@@ -2325,7 +2312,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="49.2" cy="812.077" width="98.41" height="59.625"/>
 			<rect x="0" y="782.265" width="98.4" height="59.625" class="st49"/>
-			<text x="5.99" y="808.78" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph/><tspan
+			<text x="5.99" y="808.78" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<tspan
 						x="4" dy="1.2em" class="st9"> </tspan>API for MongoDB</text>		</g>
 		<g id="shape1001-537" v:mID="1001" v:groupContext="shape" transform="translate(711,-231.201)">
 			<title>Sheet.1001</title>
@@ -2705,11 +2692,7 @@
 				<text x="4" y="836.11" class="st5" v:langID="1033"><v:paragraph/><v:tabList/>Azure Kubernetes Service (AKS)</text>			</g>
 		</g>
 		<g id="shape1850-668" v:mID="1850" v:groupContext="shape" v:layerMember="0"
-<<<<<<< HEAD
 				transform="translate(1224.11,575.632) rotate(-88.5201) scale(1,-1)">
-=======
-				transform="translate(-458.49,590.777) rotate(-90)">
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 			<title>Arrow (Straight).1850</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -3696,11 +3679,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="126.73" cy="879.742" width="78.14" height="56.0037"/>
 			<path d="M0 841.89 L0 833.46 L126.73 833.46 L126.73 1019.66 L161.21 1019.66" class="st104"/>
-<<<<<<< HEAD
-			<rect v:rectContext="textBkgnd" x="93.0337" y="855.742" width="67.3929" height="48.0001" class="st105"/>
-=======
 			<rect v:rectContext="textBkgnd" x="93.0337" y="855.742" width="67.3929" height="48.0001" class="st89"/>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 			<text x="93.03" y="864.74" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>L4-L7 pod level<v:newlineChar/><v:paragraph
 						v:horizAlign="1"/><tspan x="98.76" dy="1.2em" class="st9">observability<v:newlineChar/><v:paragraph
 							v:horizAlign="1"/></tspan><tspan x="100.1" dy="1.2em" class="st9">and security</tspan><v:newlineChar/></text>		</g>
@@ -3717,13 +3696,8 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="17.625" cy="825.797" width="35.26" height="35.25"/>
-<<<<<<< HEAD
-			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st106"/>
-			<text x="13.6" y="830" class="st107" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
-=======
 			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st105"/>
 			<text x="13.6" y="830" class="st106" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 		<g id="shape1984-971" v:mID="1984" v:groupContext="shape" transform="translate(458.667,-631.333)">
 			<title>Priority 1.1984</title>
 			<desc>3</desc>
@@ -3737,13 +3711,8 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="17.625" cy="825.797" width="35.26" height="35.25"/>
-<<<<<<< HEAD
-			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st106"/>
-			<text x="13.6" y="830" class="st107" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
-=======
 			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st105"/>
 			<text x="13.6" y="830" class="st106" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 		<g id="shape1985-974" v:mID="1985" v:groupContext="shape" transform="translate(606.667,-463.333)">
 			<title>Priority 1.1985</title>
 			<desc>4</desc>
@@ -3757,13 +3726,8 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="17.625" cy="825.797" width="35.26" height="35.25"/>
-<<<<<<< HEAD
-			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st106"/>
-			<text x="13.6" y="830" class="st107" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
-=======
 			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st105"/>
 			<text x="13.6" y="830" class="st106" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 		<g id="shape1986-977" v:mID="1986" v:groupContext="shape" transform="translate(958.375,-545.748)">
 			<title>Priority 1.1986</title>
 			<desc>2</desc>
@@ -3777,13 +3741,8 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="17.625" cy="825.797" width="35.26" height="35.25"/>
-<<<<<<< HEAD
-			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st106"/>
-			<text x="13.6" y="830" class="st107" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
-=======
 			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st105"/>
 			<text x="13.6" y="830" class="st106" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 		<g id="shape1987-980" v:mID="1987" v:groupContext="shape" transform="translate(960.667,-448)">
 			<title>Priority 1.1987</title>
 			<desc>5</desc>
@@ -3797,13 +3756,8 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="17.625" cy="825.797" width="35.26" height="35.25"/>
-<<<<<<< HEAD
-			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st106"/>
-			<text x="13.6" y="830" class="st107" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
-=======
 			<ellipse cx="17.625" cy="824.265" rx="17.625" ry="17.625" class="st105"/>
 			<text x="13.6" y="830" class="st106" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 		<g id="group2046-983" transform="translate(558.375,-663)" v:mID="2046" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -3822,11 +3776,7 @@
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
 					<path d="M0.82 826.03 L27.79 826.03 L27.79 841.06 a0.901497 0.825216 0 0 1 -0.901497 0.825216 L1.72 841.89 a0.901497
-<<<<<<< HEAD
-								 0.825216 0 0 1 -0.901497 -0.825216 L0.82 826.03 Z" class="st108"/>
-=======
 								 0.825216 0 0 1 -0.901497 -0.825216 L0.82 826.03 Z" class="st107"/>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 				</g>
 				<g id="shape2049-989" v:mID="2049" v:groupContext="shape" transform="translate(-1.4988E-13,-19.0993)">
 					<title>Sheet.2049</title>
@@ -3878,11 +3828,7 @@
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
 					<path d="M5.61 832.35 A5.60803 5.1335 0 1 1 0 837.49 A5.61461 5.13953 0 0 1 5.61 832.35 ZM5.61 831.26 A6.804
-<<<<<<< HEAD
-								 6.22827 -180 1 0 12.41 837.49 A6.804 6.22827 -180 0 0 5.61 831.26 Z" class="st109"/>
-=======
 								 6.22827 -180 1 0 12.41 837.49 A6.804 6.22827 -180 0 0 5.61 831.26 Z" class="st108"/>
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 				</g>
 			</g>
 			<g id="shape2046-1001" v:mID="2046" v:groupContext="groupContent">
@@ -3892,14 +3838,13 @@
 							x="-4.71" dy="1.2em" class="st9">Container </tspan><tspan x="-8.59" dy="1.2em" class="st9">Networking </tspan><tspan
 							x="-1.27" dy="1.2em" class="st9">Services</tspan></text>			</g>
 		</g>
-<<<<<<< HEAD
 		<g id="shape3-1006" v:mID="3" v:groupContext="shape" transform="translate(487.059,-243.529)">
 			<title>Sheet.3</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(108000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="804.106" width="41.4265" height="37.7834" class="st49"/>
-			<image x="0" y="804.106" width="41.4265" height="37.7834" preserveAspectRatio="none" xlink:href="data:image/png;base64,
+			<rect v:rectContext="foreign" x="0" y="806.943" width="32.6912" height="34.9467" class="st49"/>
+			<image x="0" y="806.943" width="32.6912" height="34.9467" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 						iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAYAAACHjumMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7D
 						AcdvqGQAAD8jSURBVHhe7Z15nNvU1fffp3bEeGLxjJWJPdiMlRnbYDlWbEuJNHv2yb7v+0o2spMQloQQ9n0NO6VlD9CWUpYQ1pQEylIK
 						tMBDCzwtLbRQKIU+QOkLVO/nTjPvo57r0fUVmUSS7+/z+f55iM5PPox9l3P+z/9hYmJiYmJiYmJiYmJiYvKWgsFgP13Xn9B1/UmX85gg
@@ -4109,7 +4054,7 @@
 						daPQYqeqqtQLvm5DVdW32cIuE9NhUCwWWw4L0muIorge5s3ExHQI5PP5ArIsPwCL0ivIsvysz+djJ3aZmA6XQqFQRtf1r2FxeoCvBUHI
 						wnyZmJgOsZLJ5I4iBepq2OB6JiaHKBAIRHVd/wIWqYv5jOf5OpgnExPTYVKfPn3WFylUV5JIJFgjKSYmJ6lHjx49BEGY5gGmcBzng/kx
 						MTExMTExMTExMTExMTExMTExMTExMR1i/T+F/NJCHgRZKQAAAABJRU5ErkJggg=="/>
-			<rect v:rectContext="foreign" x="0" y="804.106" width="41.4265" height="37.7834" class="st49"/>
+			<rect v:rectContext="foreign" x="0" y="806.943" width="32.6912" height="34.9467" class="st49"/>
 		</g>
 		<g id="shape2057-1010" v:mID="2057" v:groupContext="shape" v:layerMember="0" transform="translate(442.588,-280.588)">
 			<title>Dynamic connector</title>
@@ -4119,18 +4064,16 @@
 			</v:userDefs>
 			<path d="M0 841.89 L0 862.14 L33.46 862.14" class="st104"/>
 		</g>
-		<g id="shape2059-1015" v:mID="2059" v:groupContext="shape" transform="translate(527.25,-257.25)">
+		<g id="shape2059-1015" v:mID="2059" v:groupContext="shape" transform="translate(514.5,-254.25)">
 			<title>Sheet.2059</title>
 			<desc>Azure CNI powered by cilium</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(110000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="47.8125" cy="834.015" width="95.63" height="15.75"/>
-			<rect x="0" y="826.14" width="95.625" height="15.75" class="st49"/>
-			<text x="4.84" y="831.01" class="st47" v:langID="16393"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure CNI powered <tspan
+			<v:textRect cx="47.8125" cy="833.64" width="95.63" height="16.5"/>
+			<rect x="0" y="825.39" width="95.625" height="16.5" class="st49"/>
+			<text x="4.84" y="830.64" class="st47" v:langID="16393"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure CNI powered <tspan
 						x="28.01" dy="1.2em" class="st9">by cilium</tspan></text>		</g>
-=======
->>>>>>> 080ee6c89b4fb3012d64080494d8a4eae343e506
 	</g>
 </svg>
