@@ -45,7 +45,7 @@ This architecture uses the following components.
 
 - [Microsoft Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Microsoft Fabric. In this architecture, Onelake serves as storage for ingesting data from Azure Event Hubs.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform which unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Microsoft Fabric (Lakehouse/Warehouse or SQL Database within Fabric) serves as the relational storage destination for analytics and BI layer.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytics platform which unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Microsoft Fabric (Lakehouse/Warehouse or SQL Database within Fabric) serves as the relational storage destination for analytics and BI layer.
 
 #### Analysis and reporting
 
