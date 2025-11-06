@@ -20,13 +20,13 @@ products:
   - azure-service-bus
 ---
 
-# Modern Web App Pattern for Java
+# Modern Web App pattern for Java
 
 This article describes how to implement the Modern Web App pattern. The Modern Web App pattern defines how to modernize cloud web apps and introduce a service-oriented architecture. The pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Azure Well-Architected Framework](/azure/well-architected/). This pattern builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
 ## Why use the Modern Web App pattern?
 
-The Modern Web App pattern helps you optimize high-demand areas of your web application. It provides detailed guidance for decoupling these areas to enable independent scaling for cost optimization. This approach lets you allocate dedicated resources to critical components, which enhances overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others. It also lets independent versioning of individual app components.
+The Modern Web App pattern helps you optimize high-demand areas of your web application. It provides detailed guidance for decoupling these areas to enable independent scaling for cost optimization. This approach lets you allocate dedicated resources to critical components, which enhances overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others. It also enables independent versioning of individual app components.
 
 ## How to implement the Modern Web App pattern
 
@@ -59,7 +59,7 @@ For a higher service-level objective (SLO), you can add a second region to your 
 
 To implement the Modern Web App pattern, you must decouple the existing web app architecture. Decoupling the architecture includes breaking down a monolithic application into smaller, independent services that are each responsible for a specific feature or function. This process includes evaluating the current web app, changing the architecture, and extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
-- *Identify service boundaries.* Apply domain-driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and is suitable for decoupling. Services that represent distinct business functions and have fewer dependencies are well-suited for deployment.
+- *Identify service boundaries.* Apply domain-driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and is suitable for decoupling. Services that represent distinct business functions and have fewer dependencies are also well-suited.
 
 - *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, an external dependency like an email service provider in a line-of-business (LOB) application might require more isolation from failure. Consider services that undergo frequent updates or changes. Decoupling these services enables independent deployment and reduces the risk of affecting other parts of the application.
 
@@ -79,7 +79,7 @@ To implement the Modern Web App pattern, you must decouple the existing web app 
 
 For each Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-- *Choose a message queue.* A message queue is an important component of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance about choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Service Bus. Start with Service Bus, and use one of the other two options if Service Bus doesn't meet your needs.
+- *Choose a message queue.* A message queue is an important component of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance for choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Service Bus. Start with Service Bus, and use one of the other two options if Service Bus doesn't meet your needs.
 
     | Service | Use case |
     |-------|--------|
@@ -190,7 +190,7 @@ Implement the [Competing Consumers pattern](/azure/architecture/patterns/competi
 
 To implement the Competing Consumers pattern, follow these recommendations:
 
-- *Handle concurrent messages.* When services receive messages from a queue, ensure that your system scales predictably by configuring the concurrency to match the system design. Load test results can help you determine the appropriate number of concurrent messages to handle. You can start from one concurrent message to measure how the system performs.
+- *Handle concurrent messages.* When services receive messages from a queue, ensure that your system scales predictably by configuring the concurrency to match the system design. Load test results can help you determine the appropriate number of concurrent messages to handle. You can start with a single message to measure how the system performs.
 
 - *Disable prefetching.* Disable prefetching of messages so that consumers only fetch messages when they're ready.
 
@@ -200,7 +200,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. When you have multiple parallel consumers, they might process messages out of order.
 
-- *Scale based on queue length.* Services that consume messages from a queue should autoscale based on queue length. Scale-based autoscaling efficient processing during spikes in incoming messages.
+- *Scale based on queue length.* Services that consume messages from a queue should autoscale based on queue length. Scale-based autoscaling enables efficient processing during spikes in incoming messages.
 
 - *Use a message-reply queue.* If your system requires notifications for post-message processing, set up a dedicated reply or response queue. This setup separates operational messaging from notification processes.
 
@@ -293,7 +293,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
 
 ### Implement the Retry pattern
 
-The [Retry pattern](/azure/architecture/patterns/retry) lets applications recover from transient faults. This pattern is central to the Reliable Web App pattern, so your web app should already be using the Retry pattern. Apply the Retry pattern to requests to the messaging systems and requests that the decoupled services that you extract from the web app issue. To implement the Retry pattern, follow these recommendations:
+The [Retry pattern](/azure/architecture/patterns/retry) lets applications recover from transient faults. This pattern is central to the Reliable Web App pattern, so your web app should already be using the Retry pattern. Apply the Retry pattern to requests to the messaging systems and requests that are issued by the decoupled services that you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
 - *Configure retry options.* Be sure to configure the client that's responsible for interactions with the message queue with appropriate retry settings. Specify parameters like the maximum number of retries, delay between retries, and maximum delay.
 
@@ -432,23 +432,23 @@ The Dockerfile keeps the image small by only including runtime dependencies. It'
 # Use the OpenJDK 17 base image on Ubuntu as the foundation.
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
-# Set a working directory
+# Set a working directory.
 WORKDIR /app
 
-# Define a volume for temporary files
+# Define a volume for temporary files.
 VOLUME /tmp
 
-# Copy the packaged JAR file into the container
+# Copy the packaged JAR file into the container.
 COPY target/email-processor.jar app.jar
 
-# Copy the Application Insights agent for monitoring
+# Copy the Application Insights agent for monitoring.
 COPY target/agent/applicationinsights-agent.jar applicationinsights-agent.jar
 
-# Create a nonroot user and switch to it
+# Create a nonroot user and switch to it.
 RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
-# Set the entrypoint to run the application with the Application Insights agent
+# Set the entrypoint to run the application with the Application Insights agent.
 ENTRYPOINT ["java", "-javaagent:applicationinsights-agent.jar", "-jar", "app.jar"]
 
 ```
@@ -465,5 +465,6 @@ The following diagram shows the architecture of the reference implementation.
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
 
-> [!div class="nextstepaction"]
-> [Modern Web App pattern for Java reference implementation](https://github.com/Azure/modern-web-app-pattern-java)
+## Next step
+
+- [Modern Web App pattern for Java reference implementation](https://github.com/Azure/modern-web-app-pattern-java)
