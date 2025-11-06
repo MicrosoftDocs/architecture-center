@@ -15,8 +15,8 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 3. For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
 4. The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
 5. The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
-6. The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs.
-7. The changed data is consumed by Azure Databricks and applied to Azure data platform services.
+6. The interim landing zone is Azure Event Hubs. Microsoft Fabric ingests this data via Data Pipelines into OneLake.
+7. The ingested data is processed by Azure Databricks or Microsoft Fabric (Spark) and stored in Fabric Lakehouse/Warehouse for analytics and BI.
 8. The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
 
 ### Components
@@ -43,13 +43,9 @@ This architecture uses the following components.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
-- [Microsoft Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Microsoft Fabric. It provides a logical storage layer that spans all Fabric workloads, enabling seamless data sharing and governance. OneLake supports open formats like Delta Parquet and integrates with external storage through shortcuts, making it the foundation for data warehousing, lakehouse, and real-time analytics in Fabric.
+- [Microsoft Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Microsoft Fabric. In this architecture, Onelake serves as storage for ingesting data from Azure Event Hubs.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It provides elastic scaling of compute and storage, supports open formats like Delta Parquet, and integrates seamlessly with Power BI for real-time insights. In this architecture, Microsoft Fabric serves as the data storage destination for large‑scale mainframe data analytics, providing enterprise‑scale relational storage with ACID compliance, horizontal scale out, open formats (Delta, Parquet), and tight integration with analytics services. Microsoft Fabric uses OneLake as its underlying storage foundation, ensuring all data across workloads is accessible in a unified, governed, and open format environment. The relational storage options available within Microsoft Fabric platform are as below:
-    - [Fabric Data Warehouse](/fabric/data-warehouse/data-warehousing) is an enterprise scale relational warehouse on a data lake foundation. Built on the Fabric open data format, a warehouse allows sharing and collaboration between data engineers and business users without compromising security or governance.
-    - [Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. It's a flexible and scalable solution that allows organizations to handle large volumes of data using various tools and frameworks to process and analyze that data. Each Lakehouse automatically gets a SQL Analytics Endpoint, which provides a read-only relational interface over Delta tables using T-SQL.
-    - [SQL database in Microsoft Fabric](/fabric/database/sql/overview) is a developer-friendly transactional database, based on Azure SQL Database, that allows you to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL Database Engine as Azure SQL Database.
-
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform which unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Microsoft Fabric (Lakehouse/Warehouse or SQL Database within Fabric) serves as the relational storage destination for analytics and BI layer.
 
 #### Analysis and reporting
 
@@ -63,7 +59,7 @@ This architecture uses the following components.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform based on Apache Spark that integrates with open-source libraries. It provides a collaborative workspace for running analytics workloads. You can use Python, Scala, R, and SQL languages to build extract, transform, load (ETL) pipelines and orchestrate jobs. In this architecture, Azure Databricks processes and transforms the replicated mainframe data for consumption by Azure data platform services.
 
-- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end AI powered analytics platform operating on a fully managed Apache Spark compute platform. It provides a collaborative workspace for running analytics workloads. Within Fabric, you can use Spark (PySpark, Scala, R) and T-SQL to build extract, transform, load (ETL) pipelines, orchestrate jobs, and prepare data for downstream analytics. In this architecture, Microsoft Fabric Spark ingests and transforms replicated mainframe data, making it analytics-ready for consumption by downstream Azure data platform and Microsoft Fabric services.
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end AI powered analytics platform operating on a fully managed Apache Spark compute platform. In this architecture, Microsoft Fabric Spark ingests and transforms replicated mainframe data, making it analytics-ready for consumption by downstream Azure data platform and Microsoft Fabric services.
 
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
 
@@ -73,7 +69,7 @@ This architecture uses the following components.
 
  You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
-Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Microsoft Fabric Data Warehouse, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
+Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It converts the data into consumable format which can be further processed for downstream consumption and storage into Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Microsoft Fabric Lakehouse/Warehouse. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
 
