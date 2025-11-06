@@ -21,21 +21,21 @@ In Azure, the following services and tools meet the core requirements for pipeli
 - [Azure Data Factory](/azure/data-factory/)
 - [Apache Oozie on Azure HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
-- [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview)
+- [Fabric Data Factory](/fabric/data-factory/data-factory-overview)
 
-You can use these services and tools independently or combine them to create a hybrid solution. For example, the Integration Runtime (IR) in Azure Data Factory V2 can natively run SSIS packages in a managed Azure compute environment. These services share some functionality, but they have a few key differences.
+You can use these services and tools independently or combine them to create a hybrid solution. For example, the integration runtime (IR) in Data Factory V2 can natively run SSIS packages in a managed Azure compute environment. These services share some functionality, but they have a few key differences.
 
 ## Key selection criteria
 
-To narrow the choices, consider the following factors:
+To narrow your options, consider the following factors:
 
-- Determine whether you need big data capabilities to move and transform your data. These capabilities typically use multi-gigabytes to terabytes of data. If you require these capabilities, choose a service designed for big data.
+- Determine whether you need big data capabilities to move and transform your data. These capabilities typically use multigigabytes (GBs) to terabytes (TBs) of data. If you require these capabilities, choose a service designed for big data.
 
-- Identify whether you need a managed service that can operate at scale. If you do, choose a cloud-based service that isn't limited by your local processing power.
+- Identify whether you need a managed service that can operate at scale. If you do, choose a cloud-based service that doesn't depend on your local processing power.
 
 - Check whether you have data sources located on-premises. If you do, choose a service that supports both cloud and on-premises data sources or destinations.
 
-- Verify whether you store source data in blob storage on a Hadoop Distributed File System (HDFS). If you do, choose an service that supports Hive queries.
+- Verify whether you store source data in blob storage on a Hadoop Distributed File System (HDFS). If you do, choose a service that supports Hive queries.
 
 - Determine whether you need advanced orchestration for complex extract, transform, and load (ETL) workflows across multiple data sources. If you do, choose Fabric Data Factory because it provides a set of connectors, pipeline orchestration, and integration with both on-premises and cloud environments. It's ideal for enterprise-scale data movement and transformation.
 
@@ -45,22 +45,22 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
+| Capability | Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
 | --- | --- | --- | --- | --- |
 | Managed | Yes | No | Yes | Yes |
 | Cloud-based | Yes | No (local) | Yes | Yes |
 | Prerequisite | Azure subscription | SQL Server  | Azure subscription, HDInsight cluster | Fabric-enabled workspace |
-| Management tools | Azure portal, PowerShell, CLI, .NET SDK | SSMS, PowerShell | Bash shell, Oozie REST API, Oozie web UI | Copy job, mirroring, pipeline activities, Dataflow Gen2 |
+| Management tools | Azure portal, PowerShell, CLI, .NET SDK | SQL Server Management Studio (SSMS), PowerShell | Bash shell, Oozie REST API, Oozie web user interface (UI) | Copy job, mirroring, pipeline activities, Dataflow Gen2 |
 | Pricing | Pay per usage | Licensing, extra features add cost | Included with HDInsight cluster | Included with Fabric capacity |
 
 ### Pipeline capabilities
 
-| Capability | Azure Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
+| Capability | Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
 | --- | --- | --- | --- | --- |
 | Copy data | Yes | Yes | Yes | Yes |
 | Custom transformations | Yes | Yes | Yes (MapReduce, Pig, and Hive jobs) | Yes |
 | Azure Machine Learning scoring | Yes | Yes (with scripting) | No | Yes (via integration) |
-| HDInsight On-Demand | Yes | No | No | No |
+| HDInsight on-demand | Yes | No | No | No |
 | Azure Batch | Yes | No | No | Yes |
 | Pig, Hive, and MapReduce | Yes | No | Yes | Yes |
 | Apache Spark | Yes | No | No | Yes |
@@ -70,7 +70,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | Azure Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
+| Capability | Data Factory | SSIS | Oozie on HDInsight | Fabric Data Factory |
 | --- | --- | --- | --- | --- |
 | Scale up | Yes | No | No | Yes |
 | Scale out | Yes | No | Yes (by adding worker nodes to cluster) | Yes |
@@ -78,7 +78,7 @@ The following tables summarize the key differences in capabilities.
 
 ## Alternative approach
 
-In addition to traditional batch-based orchestration, your platform can also use real-time intelligence through the [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream) feature. This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows so that you can respond instantly as data arrives. It supports high-value scenarios such as Internet of Things (IoT) telemetry processing, fraud detection, and operational monitoring.
+In addition to traditional batch-based orchestration, your platform can also use real-time intelligence through the [Fabric Real-Time Intelligence feature](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream). This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows so that you can respond instantly as data arrives. It supports high-value scenarios such as Internet of Things (IoT) telemetry processing, fraud detection, and operational monitoring.
 
 ## Contributors
 
@@ -93,7 +93,7 @@ Principal author:
 ## Next steps
 
 - [Pipelines and activities in Fabric Data Factory](/fabric/data-factory/data-factory-overview)
-- [Provision the Azure-SSIS integration runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+- [Provision the Azure-SSIS integration runtime in Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [Medallion architecture in Fabric Real-Time Intelligence](https://blog.fabric.microsoft.com/blog/21597)
 
