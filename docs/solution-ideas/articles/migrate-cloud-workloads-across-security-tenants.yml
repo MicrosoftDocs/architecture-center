@@ -9,16 +9,16 @@ metadata:
   ms.subservice: solution-idea
   ai-usage: ai-assisted
 azureCategories:
-  - "migration"
-  - "management-and-governance"
-  - "security"
+  - migration
+  - management-and-governance
+  - security
 products:
   - entra-id
-  - "azure-devops"
-  - "azure-resource-manager"
-  - "azure-backup"
+  - azure-devops
+  - azure-resource-manager
+  - azure-backup
 name: Migrate cloud workloads across security tenants
-summary: Learn how to define and implement a cross-tenant workload migration strategy.
+summary: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-across-security-tenants-thumb.png
 content: |
   [!INCLUDE[](migrate-cloud-workloads-across-security-tenants-content.md)]
