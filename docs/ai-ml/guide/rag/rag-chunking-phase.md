@@ -19,13 +19,13 @@ This article describes various chunking approaches and examines how the structur
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) before you continue.
 
-## Chunking economics
+## Understand chunking economics
 
 When you determine your overall chunking strategy, consider your budget, quality, and throughput requirements for document collection. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending on the approach. If your documents contain embedded or linked media, you must consider the economics of processing those elements. For chunking, this processing generally uses language models to generate descriptions of the media. Those descriptions are then chunked. An alternative approach for some media is to pass them as-is to a multi-modal model at inferencing time. But this approach doesn't affect the chunking economics.
 
 The following sections examine the economics of chunking images and the overall solution.
 
-### Image chunking economics
+### Understand image chunking economics
 
 There's a cost to using a language model that generates a description of an image that you chunk. For example, cloud-based services such as Azure OpenAI Service either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you determine which images are valuable to chunk and which images to ignore. From there, you need to understand the number and sizes of the images in your solution. You then weigh the value of chunking the image descriptions against the cost to generate those descriptions.
 
@@ -45,7 +45,7 @@ The following simple workflow integrates these cost optimization processes:
 
 1. Generate the description for your image. Cache the result.
 
-### Economics of the overall solution
+### Consider the economics of your overall solution
 
 Consider the following factors when you assess the cost of your overall solution:
 
@@ -57,7 +57,7 @@ Consider the following factors when you assess the cost of your overall solution
 
 - **Number of incremental documents:** The number and rate of new documents that you must process for ongoing maintenance of the system.
 
-## Loading and chunking
+## Understand loading and chunking
 
 During chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can combine the loading code with chunking, or separate loading into its own phase. The approach that you choose should be based on architectural constraints and your preferences. The following sections briefly explore both options and provide general recommendations.
 
@@ -93,7 +93,7 @@ In most cases, combining your loading and chunking code is a simpler implementat
 
 When you have document formats like HTML that contain tags with references to images, ensure that the reader or parser that the chunking code uses doesn't strip out the tags. The chunking code must be able to identify image references.
 
-### Recommendations
+### Consider the chunking recommendations
 
 Consider the following recommendations on whether to combine or separate your chunking logic.
 
@@ -101,7 +101,7 @@ Consider the following recommendations on whether to combine or separate your ch
 
 - Avoid converting documents to an intermediate format if you choose to separate the processes. This type of operation can result in data loss.
 
-## Chunking approaches
+## Review the chunking approaches
 
 This section provides an overview of common chunking approaches. You can use multiple approaches in implementation, such as combining the use of a language model to get a text representation of an image with many of the listed approaches.
 
@@ -241,7 +241,7 @@ Like structured documents, semi-structured documents that have complex layout st
 
 Some documents have a structure but aren't written in markup. For these documents, the structure must be inferred. A good example is the following EU regulation document.
 
-:::image type="complex" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram that shows an EU regulation as an example of a document with inferred structure." border="false":::
+:::image type="complex" border="true" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram that shows an EU regulation as an example of a document with inferred structure." :::
    The diagram shows an EU regulation. It shows that there's a structure that can be inferred. There are paragraphs numbered 1, 2, and 3. A, b, c, and d are bullet points for 1. I, ii, iii, iv, v, and vi are bullet points for item a.
 :::image-end:::
 

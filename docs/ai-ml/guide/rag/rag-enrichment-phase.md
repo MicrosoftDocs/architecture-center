@@ -18,14 +18,12 @@ This article discusses various ways to augment your chunks, including some commo
 > [!NOTE]
 > This article focuses only on vector-based RAG solutions. Strategies related to graph-based, agentic, tag-augmented generation (TAG), and other RAG solutions aren't in scope.
 
-This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md) before you continue.
-
-## Code sample of chunks
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
 The following image shows a code sample of chunks that are enriched with data.
 
 :::image type="complex" border="true" source="./_images/enriching-chunks.png" alt-text="Diagram that shows JSON records. lightbox="./_images/enriching-chunks.png":::  
-   A single field is being enriched." The diagram shows two rows of JSON. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into two JSON rows, each with six fields: Chunk, CleanedChunk, Title, Summary, keywords, and questions. Keywords and questions are arrays, and the other fields are name-value pairs.
+   A single field is being enriched. The diagram shows two rows of JSON. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into two JSON rows, each with six fields: Chunk, CleanedChunk, Title, Summary, keywords, and questions. Keywords and questions are arrays, and the other fields are name-value pairs.
 :::image-end:::
 
 ## Clean your data
@@ -57,7 +55,7 @@ Semantic searches against the vectorized chunks work well for some types of quer
 
 The following image shows the JSON of fully enriched content and describes how a search platform might use the metadata.
 
-:::image type="complex" border="true" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.png"::: alt-text="Diagram that shows the JSON of fully enriched content and how a search platform might use the metadata."
+:::image type="complex" border="true" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.png" alt-text="Diagram that shows the JSON of fully enriched content and how a search platform might use the metadata."::: 
    The diagram shows JSON for one chunk that has six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and Questions. The chunk has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and Questions. Each field points to a column in a table that shows its data type, usage, and query type. Following are the values for each: Chunk (String, Return, Full Text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full Text), Summary (String, Search/Return, Full Text/Vector), Keywords (Collection of Strings, Search/Filter, Full Text), and Questions (Vector: Float, Search, Vector).
 :::image-end:::
 
@@ -78,7 +76,7 @@ Following are some common metadata fields, along with the original chunk text, s
 - **Source.** The source of the chunk can be valuable as a return for queries. Returning the source allows the querier to cite the original source.
 - **Language.** The language of the chunk can be useful as a filter in queries.
 
-### Multimodal enrichment considerations
+### Consider multimodal enrichment recommendations
 
 When working with video, image, or audio media, consider the following recommendations.
 
