@@ -1995,12 +1995,12 @@
 				</g>
 				<g id="shape2567-673" v:mID="2567" v:groupContext="shape">
 					<title>Sheet.2567</title>
-					<desc>Azure App Configuration</desc>
+					<desc>Azure App configuration</desc>
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="41.625" cy="742.643" width="83.26" height="22.027"/>
 					<rect x="0" y="731.629" width="83.25" height="22.027" class="st12"/>
 					<text x="13.85" y="739.04" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure App <tspan
-								x="5.2" dy="1.2em" class="st11">Configuration</tspan></text>				</g>
+								x="6.15" dy="1.2em" class="st11">configuration</tspan></text>				</g>
 			</g>
 		</g>
 		<g id="group2578-677" transform="translate(145.031,-433.422)" v:mID="2578" v:groupContext="group">
@@ -2099,13 +2099,13 @@
 			</g>
 			<g id="shape2577-691" v:mID="2577" v:groupContext="shape">
 				<title>Sheet.2577</title>
-				<desc>Azure Database for PostgreSQL Flexible Server</desc>
+				<desc>Azure Database for PostgreSQL flexible server</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="45" cy="733.406" width="90" height="40.5"/>
 				<rect x="0" y="713.156" width="90" height="40.5" class="st43"/>
 				<text x="29.8" y="715.41" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
 							x="11.27" dy="1.2em" class="st11">Database for </tspan><tspan x="14.25" dy="1.2em" class="st11">PostgreSQL </tspan><tspan
-							x="7" dy="1.2em" class="st11">Flexible Server</tspan></text>			</g>
+							x="8.7" dy="1.2em" class="st11">flexible server</tspan></text>			</g>
 		</g>
 		<g id="group2590-697" transform="translate(299.513,-415.688)" v:mID="2590" v:groupContext="group">
 			<v:userDefs>
@@ -2345,12 +2345,12 @@
 				</g>
 				<g id="shape2897-768" v:mID="2897" v:groupContext="shape">
 					<title>Sheet.2897</title>
-					<desc>Azure App Configuration</desc>
+					<desc>Azure App configuration</desc>
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="41.625" cy="742.778" width="83.26" height="21.7565"/>
 					<rect x="0" y="731.9" width="83.25" height="21.7565" class="st12"/>
 					<text x="13.85" y="739.18" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure App <tspan
-								x="5.2" dy="1.2em" class="st11">Configuration</tspan></text>				</g>
+								x="6.15" dy="1.2em" class="st11">configuration</tspan></text>				</g>
 			</g>
 			<g id="group2898-772" transform="translate(12.5625,-277.796)" v:mID="2898" v:groupContext="group">
 				<title>Sheet.2898</title>
@@ -2446,13 +2446,13 @@
 				</g>
 				<g id="shape2905-785" v:mID="2905" v:groupContext="shape">
 					<title>Sheet.2905</title>
-					<desc>Azure Database for PostgreSQL Flexible Server</desc>
+					<desc>Azure Database for PostgreSQL flexible server</desc>
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="45" cy="733.655" width="90" height="40.0026"/>
 					<rect x="0" y="713.654" width="90" height="40.0026" class="st43"/>
 					<text x="29.8" y="715.66" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
 								x="11.27" dy="1.2em" class="st11">Database for </tspan><tspan x="14.25" dy="1.2em" class="st11">PostgreSQL </tspan><tspan
-								x="7" dy="1.2em" class="st11">Flexible Server</tspan></text>				</g>
+								x="8.7" dy="1.2em" class="st11">flexible server</tspan></text>				</g>
 			</g>
 		</g>
 		<g id="group2907-791" transform="translate(266.087,-174.827)" v:mID="2907" v:groupContext="group">
