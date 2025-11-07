@@ -14,12 +14,6 @@ ms.custom:
 ms.collection:
   - migration
   - onprem-to-azure
-azureCategories:
-  - migration
-  - web
-products:
-  - azure-app-service
-  - azure-front-door
 ---
 
 # Reliable Web App pattern for Java
