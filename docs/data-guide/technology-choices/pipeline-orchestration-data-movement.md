@@ -94,7 +94,7 @@ Principal author:
 
 - [Pipelines and activities in Fabric Data Factory](/fabric/data-factory/data-factory-overview)
 - [Provision the Azure-SSIS integration runtime in Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
-- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+- [Use Oozie to run a workflow on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [Medallion architecture in Fabric Real-Time Intelligence](https://blog.fabric.microsoft.com/blog/21597)
 
 ## Related resource
