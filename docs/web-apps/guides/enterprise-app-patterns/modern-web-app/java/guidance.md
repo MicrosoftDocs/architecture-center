@@ -1,6 +1,6 @@
 ---
 title: Modern Web App Pattern for Java
-description: Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and configuration guidance.
+description: Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and deployment guidance for scalable, decoupled cloud applications.
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
@@ -115,7 +115,7 @@ Each design pattern provides benefits that align with one or more of the pillars
 | [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ | [RE:06](/azure/well-architected/reliability/scaling) <br> [RE:07](/azure/well-architected/reliability/handle-transient-faults) <br> [CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) |
 | [Competing Consumers pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ | [RE:05](/azure/well-architected/reliability/regions-availability-zones) <br> [RE:07](/azure/well-architected/reliability/background-jobs) <br> [CO:05](/azure/well-architected/cost-optimization/get-best-rates) <br> [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) <br> [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 | [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) | Main web app and decoupled service | ✔ |  |  | ✔ | ✔ | [RE:07](/azure/well-architected/reliability/background-jobs) <br> [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy) <br> [OE:07](/azure/well-architected/operational-excellence/observability) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) |
-| [Retry Pattern](#implement-the-retry-pattern) | Main web app and decoupled service | ✔ |  |  |  |  | [RE:07](/azure/well-architected/reliability/self-preservation) |
+| [Retry pattern](#implement-the-retry-pattern) | Main web app and decoupled service | ✔ |  |  |  |  | [RE:07](/azure/well-architected/reliability/self-preservation) |
 
 ### Implement the Strangler Fig pattern
 
