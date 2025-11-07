@@ -41,7 +41,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
-|November 2025|Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure Pub/Sub.|
+|November 2025|Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure PubSub.|
 |August 2025|Added 10 new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences.|
 |March 2025|Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons.|
 |November 2024|Added 10 new icons such as Azure AI Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
