@@ -18,7 +18,7 @@ Most big data solutions consist of repeated data processing operations, encapsul
 
 In Azure, the following services and tools meet the core requirements for pipeline orchestration, control flow, and data movement:
 
-- [Azure Data Factory](/azure/data-factory/)
+- [Azure Data Factory](/azure/data-factory)
 - [Apache Oozie on Azure HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 - [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 - [Fabric Data Factory](/fabric/data-factory/data-factory-overview)
@@ -29,13 +29,13 @@ You can use these services and tools independently or combine them to create a h
 
 To narrow your options, consider the following factors:
 
-- Determine whether you need big data capabilities to move and transform your data. These capabilities typically use multigigabytes (GBs) to terabytes (TBs) of data. If you require these capabilities, choose a service designed for big data.
+- Determine whether you need big data capabilities to move and transform your data. These capabilities typically use multiple gigabytes (GBs) to terabytes (TBs) of data. If you require these capabilities, choose a service designed for big data.
 
 - Identify whether you need a managed service that can operate at scale. If you do, choose a cloud-based service that doesn't depend on your local processing power.
 
 - Check whether you have data sources located on-premises. If you do, choose a service that supports both cloud and on-premises data sources or destinations.
 
-- Verify whether you store source data in blob storage on a Hadoop Distributed File System (HDFS). If you do, choose a service that supports Hive queries.
+- Check whether you store source data in blob storage on a Hadoop Distributed File System (HDFS). If you do, choose a service that supports Hive queries.
 
 - Determine whether you need advanced orchestration for complex extract, transform, and load (ETL) workflows across multiple data sources. If you do, choose Fabric Data Factory because it provides a set of connectors, pipeline orchestration, and integration with both on-premises and cloud environments. It's ideal for enterprise-scale data movement and transformation.
 
