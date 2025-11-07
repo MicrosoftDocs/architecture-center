@@ -3,7 +3,7 @@ title: Secure Azure Functions with Event Hubs
 description: Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
 ---
@@ -16,7 +16,7 @@ When configuring access to resources in Azure, you should apply fine-grained con
 
 Authorizing access to Azure Event Hubs resources can be done using the following security constructs:
 
-- **Microsoft Entra ID:** Microsoft Entra ID provides role-based access control (RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
+- **Microsoft Entra ID:** Microsoft Entra ID provides Azure role-based access control (Azure RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
 
 - **Shared access signature:** A shared access signature (SAS) offers the ability to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
 

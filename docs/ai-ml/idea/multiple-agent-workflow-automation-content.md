@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior are defined in custom software with Semantic Kernel. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically. 
+This architecture shows a process automation system that uses multiple AI agents. The agents are deployed into Azure Container Apps and use Azure AI services. This architecture's agents and orchestration behavior are defined in custom software with Microsoft Agent Framework. The architecture hosts specialized multiple AI agents that coordinate and run organizational tasks automatically.
 
 This article highlights the infrastructure and DevOps aspects of how to manage multiple-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
 
@@ -9,7 +9,7 @@ The architecture describes how to build scalable automation pipelines in which m
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multiple-agent-workflow-automation.svg" alt-text="Diagram that shows a typical multiple-agent architecture." lightbox="./_images/multiple-agent-workflow-automation.svg":::
-   The image contains six sections that represent the six steps of the workflow. In step one, an arrow points from App Service website to Container Apps API agent orchestration. In step two, two arrows point from Container Apps API agent orchestration to the knowledge sources and tools section. In step three, an arrow points from Container Apps API agent orchestration to the Azure AI Foundry GPT-4o model. In step four, an arrow points from Container Apps API agent orchestration to Azure Cosmos DB. In step five, an arrow points from Docker to Container Registry. In step six, an arrow points from the GitHub source repository to Docker.
+   The diagram shows six numbered workflow steps across multiple Azure services. In step one, users access the App Service website to submit automation requests. In step two, the App Service website sends requests to the Container Apps API agent orchestration layer, which breaks down tasks and determines the required AI agents. Step three shows how the Container Apps API connects to the Azure AI Foundry GPT-4o model to coordinate specialized AI agents that collaborate on task operations. In step four, the Container Apps API stores and retrieves task data, plans, and historical information in Azure Cosmos DB for persistence and learning. In step five, the GitHub source repository triggers automated builds that create Docker container images. In step six, Docker builds are pushed to Azure Container Registry, which stores versioned images for both the App Service website and the Container Apps API components.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multiple-agent-workflow-automation.vsdx) of this architecture.*
@@ -34,9 +34,9 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
 
-- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Semantic Kernel.
+- [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Microsoft Agent Framework.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Semantic Kernel-based agents to invoke.
+- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service for the Microsoft Agent Framework-based agents to invoke.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run. The API reads data when users access their automation history via the App Service website.
 
@@ -44,21 +44,23 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-This custom, multiple-agent automation engine addresses the challenge of coordinating complex, cross-departmental business processes that have traditionally required significant manual oversight and coordination. Organizations often struggle with tasks that span multiple areas of expertise, demand consistent performance across teams, and require audit trails to support compliance.
+This custom, multiple-agent automation engine addresses the challenge of coordinating complex, cross-departmental business processes that traditionally required significant manual oversight and coordination. Organizations often struggle with tasks that span multiple areas of expertise, demand consistent performance across teams, and require audit trails to support compliance.
 
 This solution uses custom-coded, specialized AI agents that collaborate to break down complex organizational tasks into manageable components. Each agent contributes domain-specific knowledge and capabilities. This approach enables the system to manage sophisticated workflows that would otherwise require human coordination across multiple departments. The architecture scales through containerized deployment, preserves learning via persistent data storage, and supports continuous improvement through automated integration and delivery pipelines.
 
-Another application of this architecture is in code modernization and legacy system migration, where organizations face the dual challenge of technical complexity and business continuity requirements. Legacy systems often lack proper documentation, contain outdated programming languages, and embed critical business logic that must be preserved during migration. The multiple-agent approach works in this scenario by coordinating specialized expertise across technical translation, business analysis, quality assurance, and documentation generation.
+Other applications of this architecture are in code modernization and legacy system migration, where organizations face the dual challenge of technical complexity and business continuity requirements. Legacy systems often lack proper documentation, contain outdated programming languages, and embed critical business logic that must be preserved during migration. The multiple-agent approach works by coordinating specialized expertise across technical translation, business analysis, quality assurance, and documentation generation.
 
 ### Potential use cases
 
-### Code modernization and migration
+Consider the following potential use cases for multiple-agent workflow automation.
 
-**Legacy SQL query translation:** Coordinate multiple specialized agents to translate SQL queries across different database dialects while preserving business logic and performance characteristics. A SQL analysis agent identifies dialect-specific constructs, a translation agent converts syntax to the target platform, a validation agent tests query equivalence, and a documentation agent generates migration notes. This approach addresses the common challenge of maintaining functional equivalence when migrating from platforms like Oracle to Azure SQL Database or PostgreSQL.
+#### Code modernization and migration
 
-**Legacy application modernization:** Orchestrate agents specializing in code analysis, business logic extraction, architecture assessment, and modernization planning. Agents collaborate to analyze legacy codebases, extract embedded business rules, assess technical debt, generate modernization roadmaps, and create comprehensive documentation that captures institutional knowledge often lost during transitions.
+**Legacy SQL query translation:** Coordinate multiple specialized agents to translate SQL queries across different database dialects while you preserve business logic and performance characteristics. A SQL analysis agent identifies dialect-specific constructs. A translation agent converts syntax to the target platform. A validation agent tests query equivalence. A documentation agent generates migration notes. This approach addresses the common challenge of maintaining functional equivalence when you migrate from platforms like Oracle to Azure SQL Database or PostgreSQL.
 
-**Database schema migration:** Coordinate agents for schema analysis, data type mapping, constraint translation, and validation testing. The multiple-agent system ensures that complex database structures, relationships, and business rules are accurately translated while maintaining data integrity and performance requirements.
+**Legacy application modernization:** Orchestrate agents that specialize in code analysis, business logic extraction, architecture assessment, and modernization planning. Agents collaborate to analyze legacy codebases, extract embedded business rules, assess technical debt, generate modernization roadmaps, and create comprehensive documentation that captures institutional knowledge often lost during transitions.
+
+**Database schema migration:** Coordinate agents for schema analysis, data type mapping, constraint translation, and validation testing. The multiple-agent system ensures that complex database structures, relationships, and business rules are accurately translated while it maintains data integrity and performance requirements.
 
 #### Enterprise process automation
 
@@ -98,7 +100,7 @@ This architecture includes multiple components that you can substitute with othe
 
 ### Agent orchestration
 
-**Current approach:** This solution uses custom agent code, written with the Semantic Kernel SDK, to orchestrate agents and their interactions. Container Apps serves as the central orchestrator compute that runs the code. This code coordinates the multiple AI agents that operate on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
+**Current approach:** This solution uses custom agent code, written with the Microsoft Agent Framework SDK, to orchestrate agents and their interactions. Container Apps serves as the central orchestrator compute that runs the code. The code coordinates the multiple AI agents that operate on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
 
 **Alternative approach:** Use Azure AI Foundry Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
 
@@ -114,15 +116,15 @@ For organizations that have mixed requirements, a hybrid approach can be effecti
 
 ## Multi-agent orchestration patterns
 
-When you design multi-agent automation systems, consider how agents will coordinate to accomplish complex workflows. This architecture uses a custom orchestrator that manages agent interactions, but the coordination patterns that you choose significantly affect system performance and reliability. Sequential patterns suit dependent tasks like document approval workflows. Concurrent patterns suit independent operations like data collection from multiple sources. Group chat patterns enable collaborative problem-solving. Handoff patterns allow specialized agents to handle different workflow phases. For detailed guidance about how to implement these coordination strategies, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). This article provides architectural patterns and implementation considerations for various multi-agent scenarios.
+When you design multi-agent automation systems, consider how agents must coordinate to accomplish complex workflows. This architecture uses a custom orchestrator that manages agent interactions, but the coordination patterns that you choose significantly affect system performance and reliability. Sequential patterns suit dependent tasks like document approval workflows. Concurrent patterns suit independent operations like data collection from multiple sources. Group chat patterns enable collaborative problem-solving. Handoff patterns give specialized agents the ability to handle different workflow phases. For detailed guidance about how to implement these coordination strategies, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). This article provides architectural patterns and implementation considerations for various multi-agent scenarios.
 
 ## Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
+For more information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
 
-Pricing varies by region and usage, so it isn't possible to predict exact costs in advance. Most Azure resources in this infrastructure follow usage-based pricing models. However, Container Registry incurs a daily fixed cost for each registry.
+Pricing varies by region and usage, so it's not possible to predict exact costs in advance. Most Azure resources in this infrastructure follow usage-based pricing models. But Container Registry incurs a daily fixed cost for each registry.
 
 ## Deploy this scenario
 
@@ -130,7 +132,7 @@ To deploy an implementation of this architecture, follow the steps in the [GitHu
 
 ### Code modernization implementation
 
-For a specific implementation of this multi-agent workflows that perform SQL query modernization, see the [Modernize your code implementation](https://github.com/microsoft/Modernize-your-code-solution-accelerator). It demonstrates how multiple AI agents coordinate to translate SQL queries between different database dialects, generating documentation and validation reports throughout the process.
+For specific implementation of the multi-agent workflows that perform SQL query modernization, see [Modernize your code implementation](https://github.com/microsoft/Modernize-your-code-solution-accelerator). It demonstrates how multiple AI agents coordinate to translate SQL queries between different database dialects. It also generates documentation and validation reports throughout the process.
 
 ## Contributors
 
@@ -148,5 +150,5 @@ Other contributor:
 
 ## Next steps
 
-- [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) using Semantic Kernel
-- [Azure AI Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)
+- [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) that uses Microsoft Agent Framework
+- [Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)

@@ -4,7 +4,7 @@ The example takes the workload used in [Microservices architecture on Azure Kube
 
 > [!TIP]
 >
-> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of design choices described in this article. 
+> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of the design choices described in this article.
 
 ## Architecture
 
@@ -65,7 +65,7 @@ The following features replace many of the complexities of the previous AKS arch
 
 - **[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and workflow service.
 
-- **[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)** is an in-memory caching service based on the Redis cache. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
+- **[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)** is an in-memory caching service based on the Redis cache. In this architecture, it improves speed and performance for heavy traffic loads by providing fast data access and reducing latency for frequently accessed data in the drone delivery system.
 
 - **[Azure Monitor](/azure/azure-monitor)** is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You can use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.
 

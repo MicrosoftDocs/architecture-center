@@ -73,7 +73,7 @@ For information about guaranteed availability details of each service, see [SLAs
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-To help secure Service Bus, pair [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Microsoft Entra ID integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to a security principal, such as a user, a group, or an application service principal. The application service principal in this scenario is a managed identity.
+To help secure Service Bus, pair [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Microsoft Entra ID integration for Service Bus resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to a security principal, such as a user, a group, or an application service principal. The application service principal in this scenario is a managed identity.
 
 If you can't use Microsoft Entra ID, use [shared access signature (SAS) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature) to [grant users access and specific rights](/azure/service-bus-messaging/service-bus-sas) to Service Bus resources.
 
@@ -142,7 +142,7 @@ For more Service Bus recommendations, see [Best practices for performance improv
 ## Related resources
 
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview

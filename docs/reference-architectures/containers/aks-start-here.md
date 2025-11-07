@@ -5,7 +5,7 @@ author: francisnazareth
 ms.author: fnazaret
 ms.date: 06/26/2025
 ms.update-cycle: 730-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
 ---

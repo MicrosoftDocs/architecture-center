@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 ms.author: arsenv
 ms.date: 05/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: best-practice
 ms.custom:
   - fcp
@@ -90,7 +90,7 @@ Cassandra writes perform best when commit logs are on disks with high throughput
 
 Commit logs must be durable, so that a restarted node can reconstruct any data not yet in data files from the flushed commit logs. For better durability, store commit logs on premium managed disks and not on local storage, which can be lost if the VM is migrated to another host.
 
-Based on our tests, Cassandra on CentOS 7.x may have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
+Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
 
 For more information, see [Observations on ext4 and xfs file systems and compressed commit logs](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-commitlogs-xfs-ext4.md) (GitHub).
 
@@ -118,7 +118,7 @@ For more information, see [Comparing relative performance of various replication
 
 When Cassandra's Java code reads data files, it uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
 
-For this reason, when executing read performance tests against the same data, the second and subsequent reads will appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads will be faster even after clearing the OS page cache and restarting the Cassandra service.
+For this reason, when executing read performance tests against the same data, the second and subsequent reads then appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads are faster even after clearing the OS page cache and restarting the Cassandra service.
 
 For more information, see [Observations on Cassandra usage of Linux page caching](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-linux-page-caching.md) (GitHub).
 
@@ -138,7 +138,7 @@ For more information, see [Measuring impact of multi-dc cross-region replication
 
 ### Hinted-handoff configuration
 
-In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM may lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
+In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM might lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
 
 For more information, see [Observations on hinted handoff in cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-hinted-handoff-cross-region.md) (GitHub).
 
@@ -160,7 +160,7 @@ Other contributor:
 
 For more information about these performance results, see [Cassandra on Azure VMs Performance Experiments][repo].
 
-For information on general Cassandra settings, not specific to Azure, see:
+For more information about general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
 
@@ -170,7 +170,7 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 ## Related resources
 
-- [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
+- [N-tier architecture style](../../guide/architecture-styles/n-tier.md)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory

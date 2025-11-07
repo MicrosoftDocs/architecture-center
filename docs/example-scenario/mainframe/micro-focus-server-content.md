@@ -38,29 +38,27 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
 ### Components
 
-This solution uses the following Azure components:
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a scalable and highly available web front end that acts as a reverse-proxy service and provides a layer-7 internet load balancer and web application firewall (WAF). In this architecture, Application Gateway provides secure web services front-end access and CICS API access from the web.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a platform as a service that provides secure RDP and Secure Shell (SSH) access to your VMs by using Secure Sockets Layer (SSL), without exposing public IP addresses. In this architecture, Azure Bastion enables secure management access to Enterprise Server VMs without exposing them to the internet.
 
-- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a scalable and highly available web front end that acts as a reverse-proxy service and provides a Layer-7 internet load balancer and Web Application Firewall (WAF).
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) that provides on-demand, scalable computing resources in Azure. Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Virtual Machines hosts the Micro Focus Enterprise Server instances in a performance availability cluster configuration.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP and SSH access to your VMs by using SSL, without exposing public IP addresses.
+  The Azure VMs that host Enterprise Server use [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview), which are block-level storage volumes. Available managed disk types are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). In this architecture, premium SSDs or ultra disks provide high-performance storage for the Enterprise Server workloads.
 
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes incoming network traffic across backend resources or servers according to configured load-balancing rules and health probes.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. A virtual network is similar to a traditional network that you operate in your own datacenter, but it adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides secure network isolation and connectivity for all Enterprise Server components.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) offers on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+  A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) is a networking component that lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. In this architecture, you can add NICs to Azure VMs to give child VMs their own dedicated network interface devices and IP addresses.
 
-  The Azure VMs that host Enterprise Server use [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) block-level storage volumes. Available Managed Disk types are Ultra disks, Premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). This solution uses Premium SSDs or Ultra disks.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory data store that improves performance and scalability for applications that use back-end data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and scale-out repository (SOR), in-server memory for fast access and throughput. In this architecture, Azure Cache for Redis serves as the SOR data store for sharing synchronized user and system data across Enterprise Server instances in the performance availability cluster.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. An Azure Virtual Network is similar to a traditional network that you operate in your own datacenter, but adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-performance connectivity between on-premises Enterprise Server users and Azure resources.
 
-  A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. You can add NICs to an Azure VM to give child VMs their own dedicated network interface devices and IP addresses.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 network service that distributes incoming network traffic across back-end resources or servers according to configured load-balancing rules and health probes. In this architecture, Load Balancer distributes traffic among the Enterprise Server instances in the performance availability cluster.
 
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) improves performance and scalability for applications that use backend data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and SOR, in server memory for fast access and throughput.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that keeps applications and workloads running during outages by replicating VMs from a primary site to a secondary location. In this architecture, Site Recovery replicates Enterprise Server VMs to the secondary region for disaster recovery to ensure business continuity.
 
-- [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) lets you use full versions of SQL Server in the cloud without having to manage on-premises hardware. Enterprise Server requires the [SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) for deployments that have heterogeneous distributed transactions.
-
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) keeps applications and workloads running during outages by replicating VMs from a primary site to a secondary location.
+- [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is an IaaS offering that lets you use full versions of SQL Server in the cloud without having to manage on-premises hardware. Enterprise Server requires the [SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) for deployments that have heterogeneous distributed transactions. In this architecture, SQL Server on Azure VMs provides the database tier with Always On availability groups for high availability and disaster recovery.
 
 ## Scenario details
 
@@ -137,7 +135,7 @@ Principal author:
 ## Next steps
 
 - For more information, contact <legacy2azure@microsoft.com>.
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Related resources
 

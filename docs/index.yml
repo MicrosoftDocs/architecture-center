@@ -63,15 +63,15 @@ productDirectory:
           text: Choose AI services
         - url: ./guide/technology-choices/messaging.yml
           text: Choose a messaging service
-    - title: Implement Azure landing zones
+    - title: Implement an Azure landing zone
       imageSrc: /media/common/i_architecture.svg
       links:
         - url: /azure/architecture/landing-zones/landing-zone-deploy
-          text: Deploy Azure landing zones
+          text: Deploy a platform landing zone
         - url: /azure/architecture/landing-zones/bicep/landing-zone-bicep
-          text: Bicep-based landing zones
+          text: Bicep-based platform landing zone
         - url: /azure/architecture/landing-zones/terraform/landing-zone-terraform
-          text: Terraform-based landing zones
+          text: Terraform-based platform landing zone
         - url: /azure/architecture/landing-zones/subscription-vending
           text: Automate through subscription vending
         - url: /azure/architecture/landing-zones/landing-zone-deploy#application
@@ -154,9 +154,9 @@ conceptualContent:
         - text: Analytics end-to-end with Azure Synapse 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        - text: Enterprise BI with Azure Synapse Analytics
+        - text: Enterprise BI with Microsoft Fabric
           itemType: architecture
-          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+          url: /azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric
         - text: Near real-time lakehouse data processing
           itemType: architecture
           url: /azure/architecture/example-scenario/data/real-time-lakehouse-data-processing

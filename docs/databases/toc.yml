@@ -15,7 +15,9 @@ items:
         - name: Oracle Database with Azure NetApp Files
           href: ../example-scenario/file-storage/oracle-azure-netapp-files.yml
         - name: SAP deployment using an Oracle database
-          href: ../example-scenario/apps/sap-production.yml          
+          href: ../example-scenario/apps/sap-production.yml
+        - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
+          href: ../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
       - name: NoSQL
         items:
         - name: Minimal storage – change feed replication
@@ -28,9 +30,9 @@ items:
           href: architecture/dataops-mdw.yml
         - name: Greenfield lakehouse on Microsoft Fabric
           href: ../example-scenario/data/greenfield-lakehouse-fabric.yml
-      - name: Azure Data Factory on Azure landing zones
+      - name: Azure Data Factory reference architectures
         items:
-        - name: Azure Data Factory on Azure landing zones index
+        - name: Medallion lakehouse with Azure Data Factory
           href: architecture/azure-data-factory-on-azure-landing-zones-index.yml
         - name: Azure Data Factory baseline architecture
           href: architecture/azure-data-factory-on-azure-landing-zones-baseline.yml

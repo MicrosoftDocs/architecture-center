@@ -80,7 +80,7 @@ By using personal desktop solutions, sometimes called *persistent desktops*, use
 Pooled desktop solutions, also called *non-persistent desktops*, assign users to whichever session host is currently available, depending on the load-balancing algorithm. Because users don't always return to the same session host each time they connect, they have limited ability to customize the desktop environment and don't usually have administrator access.
 
 > [!NOTE]
-> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It does not imply that the operating system disk reverts to a golden image or discards changes on reboot.
+> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It doesn't imply that the operating system disk reverts to a golden image or discards changes on reboot.
 
 ## Windows servicing
 
@@ -100,15 +100,15 @@ The relationships between host pools, workspaces, and other key logical componen
 
 *The numbers in the following descriptions correspond to those in the preceding diagram.*
 
-- *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages will be available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
+- *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages are available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
 - *(2)* Application groups assigned to the same host pool must be members of the same workspace.
 - *(3)* A user account can be assigned to an application group either directly or via a Microsoft Entra group. It's possible to assign no users to an application group, but then it can't service any.
 - *(4)* It's possible to have an empty workspace, but it can't service users.
 - *(5)* It's possible to have an empty host pool, but it can't service users.
 - *(6)* It's possible for a host pool not to have any application groups assigned to it but it can't service users.
-- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts.
-    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
-    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
+- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions are also launched and run (not just assigned) by using Microsoft Entra accounts.
+    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions are launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
+    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions are launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
 
 | Resource | Purpose | Logical relationships |
 |--- |--- |--- |
@@ -161,7 +161,7 @@ Consider the following cost-related factors when you deploy Azure Virtual Deskto
 - **Plan multi-session support**: For workloads with identical compute requirements, generally pooled host pools, [Windows Enterprise multi-session](/azure/virtual-desktop/windows-multisession-faq) offers the ability to accept more users to sign in to a single VM at once; reducing costs and administrative overhead.
 - **Optimize licensing**: If you have Software Assurance, you can use [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to reduce the cost of your Azure compute infrastructure.
 - **Pre-purchase compute**: You can commit to one-year or three-year plans, [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), based on your VM usage to receive a discount to significantly reduce your resource cost. This can be combined with Azure Hybrid Benefit for additional savings.
-- **Scale in and out as needed**: If committing to Azure Reservations is not appropriate for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
+- **Scale in and out as needed**: If committing to Azure Reservations isn't appropriate for your current needs, consider [Autoscale scaling plans](/azure/virtual-desktop/autoscale-scenarios) for dynamic provisioning/deprovisioning of session hosts as the demand changes through the day/week.
 - **Evaluate load-balancing options**: Configure your host pool load balancing algorithm to depth-first. Be aware however, this can configuration degrades the users experience; the default breadth-first optimized user experience. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
 ### Operational Excellence

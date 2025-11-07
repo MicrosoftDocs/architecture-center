@@ -96,7 +96,7 @@ The diagram also shows in the layer labeled as **DEFENDER** which Microsoft Defe
 
 ### Access and manage Microsoft Defender XDR Security services
 
-The following diagram shows which portals are currently available and their relationships with each other. In the time of the update for this articles, some of those portals may be already deprecated.
+The following diagram shows which portals are currently available and their relationships with each other. In the time of the update for this articles, some of those portals might be already deprecated.
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
@@ -153,7 +153,7 @@ Other contributors:
 
 ## Related resources
 
-For more details about this reference architecture, see the other articles in this series:
+For more information about this reference architecture, see the other articles in this series:
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)

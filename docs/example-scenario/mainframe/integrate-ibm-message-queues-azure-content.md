@@ -25,17 +25,15 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 ### Components
 
-[Azure Logic Apps](/azure/logic-apps/logic-apps-overview) provides tools for data orchestration, data integration, and data transformation. It includes hundreds of
-[connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. Make sure to test throughput and performance before choosing a data storage connector.
+- [.NET](/dotnet/core/introduction) is a free, open-source development platform used for creating applications across different platforms and devices. In this architecture, .NET is used to create an application that pulls data through HIS to the data storage layer and can also access IBM WebSphere MQ servers directly through the Microsoft Client for MQ.
 
-[Logic Apps Scheduler](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) provides triggers for starting and running workflows based on the interval and frequency of recurrence that you specify.
+- [Host Integration Server (HIS)](/host-integration-server/what-is-his) is a Microsoft integration platform that can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. In this architecture, HIS runs on a VM and exchanges messages between IBM MQ and BizTalk Server. It serves as an MQ listener that polls the MQ server for messages at specified intervals in the IaaS approach.
 
-[Logic Apps MQ connector](/azure/connectors/connectors-create-api-mq) connects your Logic Apps workflows to an IBM MQ server on-premises or on Azure. Workflows receive and send messages stored in your MQ server. A Microsoft MQ client is also included for communicating with a remote MQ server across a TCP/IP network. You can use the client to connect to IBM WebSphere MQ 7.5, MQ
-8.0, and MQ 9.0, 9.1, and 9.2.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud service that provides tools for data orchestration, data integration, and data transformation with hundreds of [connectors](/connectors/connector-reference/) for accessing data on-premises or in the cloud. In this architecture, Logic Apps uses the MQ connector to exchange messages with IBM MQ in a cloud-native PaaS approach. The scheduler feature orchestrates workflows at recurring intervals.
 
-[Host Integration Server (HIS)](/host-integration-server/core/data-for-host-files) can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. A client and server adapter exchange messages between IBM MQ and BizTalk Server. HIS also serves as an MQ listener and can poll the MQ server for messages at intervals you specify.
+- [Logic Apps MQ connector](/azure/connectors/connectors-create-api-mq) is a connector that connects your Logic Apps workflows to an IBM MQ server on-premises or on Azure. In this architecture, the MQ connector enables workflows to receive and send messages stored in your MQ server and includes support for IBM WebSphere MQ versions 7.5, 8.0, and 9.0-9.2.
 
-[.NET](/dotnet/core/introduction) is a free, open-source development platform used in this example to create an app to pull the data through HIS to the data storage layer. It can also be used to access IBM WebSphere MQ Servers directly through the Microsoft Client for MQ.
+- [Logic Apps scheduler](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) is a feature that provides triggers for starting and running workflows based on the interval and frequency of recurrence that you specify. In this architecture, Logic Apps scheduler orchestrates the Azure workflow by sending and receiving messages at recurring intervals of one second.
 
 ### Alternatives
 
@@ -82,7 +80,7 @@ For example, applications on-premises can communicate with a modern data platfor
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps will be available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
+Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps is available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
 
 ### Cost Optimization
 

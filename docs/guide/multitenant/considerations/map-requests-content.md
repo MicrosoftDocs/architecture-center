@@ -1,4 +1,4 @@
-Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
+Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that might be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
 
 ![Diagram showing mapping a request from tenants to deployments.](media/map-requests/map-logical-physical.png)
 
@@ -74,7 +74,7 @@ Consider the following questions:
 
 ### Client certificates
 
-Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication, and for unattended devices or kiosks used by unauthenticated users. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate may contain the email address of the user, which can be used to look up the tenant.
+Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication, and for unattended devices or kiosks used by unauthenticated users. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate might contain the email address of the user, which can be used to look up the tenant.
 
 When planning to use client certificates for tenant mapping consider the following:
 
@@ -126,7 +126,7 @@ Consider the following questions:
 
 ## Tenant migration
 
-Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
+Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You might need to consider the following factors:
 
 - If your application uses domain names for mapping requests, then it might also require a DNS change at the time of the migration. The DNS change might take time to propagate to clients, depending on the time-to-live (TTL) of the DNS entries in your DNS service.
 - If your migration changes the addresses of any endpoints during the migration process, then consider temporarily redirecting requests for the tenant to a maintenance page that automatically refreshes.

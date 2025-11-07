@@ -6,7 +6,7 @@ When we talk about CI/CD, we're really talking about several related processes: 
 
 - **Continuous integration**. Code changes are frequently merged into the main branch. Automated build and test processes ensure that code in the main branch is always production-quality.
 
-- **Continuous delivery**. Any code changes that pass the CI process are automatically published to a production-like environment. Deployment into the live production environment may require manual approval, but is otherwise automated. The goal is that your code should always be *ready* to deploy into production.
+- **Continuous delivery**. Any code changes that pass the CI process are automatically published to a production-like environment. Deployment into the live production environment might require manual approval, but is otherwise automated. The goal is that your code should always be *ready* to deploy into production.
 
 - **Continuous deployment**. Code changes that pass the previous two steps are automatically deployed *into production*.
 
@@ -24,7 +24,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 ## Why a robust CI/CD pipeline matters
 
-In a traditional monolithic application, there is a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
+In a traditional monolithic application, there's a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
 
 Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update at any time, without waiting for changes in service "B" to be merged, tested, and deployed.
 
@@ -34,15 +34,15 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Challenges
 
-- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams may use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application. For example, what happens in a disaster recovery scenario, if you need to quickly deploy to a new cluster?
+- **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams might use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application. For example, what happens in a disaster recovery scenario, if you need to quickly deploy to a new cluster?
 
-    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge is not "hidden" within each team.
+    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge isn't "hidden" within each team.
 
 - **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
 
     **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
 
-- **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team will run its own full cluster at production scales, just for testing.
+- **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team runs its own full cluster at production scales, just for testing.
 
 - **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
@@ -54,7 +54,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 ## Monorepo vs. multi-repo
 
-Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
+Before creating a CI/CD workflow, you must know how the code base is structured and managed.
 
 - Do teams work in separate repositories or in a monorepo (single repository)?
 - What is your branching strategy?
@@ -77,7 +77,7 @@ In a rolling update, you deploy new instances of a service, and the new instance
 
 **Example.** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
 
-**Example.** Azure Service Fabric uses the rolling update strategy by default. This strategy is best suited for deploying a version of a service with new features without changing existing APIs. Service Fabric starts an upgrade deployment by updating the application type to a subset of the nodes or an update domain. It then rolls forward to the next update domain until all domains are upgraded. If an upgrade domain fails to update, the application type rolls back to the previous version across all domains. Be aware that an application type with multiple services (and if all services are updated as part of one upgrade deployment) is prone to failure. If one service fails to update, the entire application is rolled back to the previous version and the other services are not updated.
+**Example.** Azure Service Fabric uses the rolling update strategy by default. This strategy is best suited for deploying a version of a service with new features without changing existing APIs. Service Fabric starts an upgrade deployment by updating the application type to a subset of the nodes or an update domain. It then rolls forward to the next update domain until all domains are upgraded. If an upgrade domain fails to update, the application type rolls back to the previous version across all domains. Be aware that an application type with multiple services (and if all services are updated as part of one upgrade deployment) is prone to failure. If one service fails to update, the entire application is rolled back to the previous version and the other services aren't updated.
 
 One challenge of rolling updates is that during the update process, a mix of old and new versions are running and receiving traffic. During this period, any request could get routed to either of the two versions.
 
@@ -91,7 +91,7 @@ With a more traditional monolithic or N-tier application, blue-green deployment 
 
 **Example**. In Kubernetes, you don't need to provision a separate cluster to do blue-green deployments. Instead, you can take advantage of selectors. Create a new [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) resource with a new pod spec and a different set of labels. Create this deployment, without deleting the previous deployment or modifying the service that points to it. Once the new pods are running, you can update the service's selector to match the new deployment.
 
-One drawback of blue-green deployment is that during the update, you are running twice as many pods for the service (current and next). If the pods require a lot of CPU or memory resources, you may need to scale out the cluster temporarily to handle the resource consumption.
+One drawback of blue-green deployment is that during the update, you are running twice as many pods for the service (current and next). If the pods require a lot of CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
 
 ### Canary release
 

@@ -5,7 +5,7 @@ author: stephen-sumner
 ms.author: pnp
 ms.date: 02/04/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-web
@@ -276,6 +276,6 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity
 [function-plans]: /azure/azure-functions/functions-scale
 [microservices]: ../architecture-styles/microservices.md
-[n-tier]: ../architecture-styles/n-tier.yml
+[n-tier]: ../architecture-styles/n-tier.md
 [uptime-sla]: /azure/aks/uptime-sla
 [w-q-w]: ../architecture-styles/web-queue-worker.yml

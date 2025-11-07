@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/19/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: guide
 ---
@@ -33,7 +33,7 @@ Caching at the network edge isn't critical part of your application delivery. If
 
 This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles. In the unlikely event of an availability issue with Azure Front Door, Azure Traffic Manager redirects traffic through Application Gateway.
 
-:::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Diagram showing Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
+:::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.svg" alt-text="Diagram showing Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
 The solution includes the following components:
 

@@ -4,7 +4,7 @@ description: Learn about structured approaches to designing scalable, resilient,
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -60,7 +60,7 @@ You can use Azure to host and rehost applications that aren't designed for the c
 
 ## Align to organizational cloud adoption standards
 
-Your application is part of a workload that likely needs to meet organizational standards and governance. Organizations of any size and cloud maturity can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management, governance, and security initiatives. Part of that approach is to standardize a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). Azure landing zones provide organization-wide governance and gives workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect who designs applications, it's crucial that you understand the macro environment and expectations for workload operations, such as application landing zones.
+Your application is part of a workload that likely needs to meet organizational standards and governance. Organizations of any size and cloud maturity can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management, governance, and security initiatives. Part of that approach is to standardize a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). An Azure landing zone provides organization-wide governance and gives workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect who designs applications, it's crucial that you understand the macro environment and expectations for workload operations, such as application landing zones.
 
 Your organization's Azure adoption strategy shouldn't affect the architectural style that you choose, but it might constrain technology choices or security boundaries.
 
@@ -104,7 +104,7 @@ After you determine the type of architecture that you want to build and the desi
 
 - *Compute* refers to the hosting model for the computing resources, or application platform, that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md). See specialized guidance, like [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml), for specific application platforms.
 
-- *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Data store classification](../data-guide/technology-choices/data-store-classification.md) and [Review your storage options](./technology-choices/storage-options.md).
+- *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md) and [Review your storage options](./technology-choices/storage-options.md).
 
 - *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.yml).
 

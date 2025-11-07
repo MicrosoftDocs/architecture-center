@@ -4,7 +4,7 @@ description: Learn about online analytical processing solutions to organize larg
 author: amattas
 ms.author: amattas
 ms.date: 04/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ---
