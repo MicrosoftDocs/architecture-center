@@ -5,41 +5,33 @@ author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
 ms.date: 11/7/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.category:
-  - featured
 ms.custom:
   - arb-web
   - devx-track-dotnet
-azureCategories:
-  - migration
-  - web
-products:
-  - azure-app-service
-  - azure-service-bus
 ---
 
 # Modern Web App pattern for Java
 
 This article describes how to implement the Modern Web App pattern. The Modern Web App pattern defines how to modernize cloud web apps and introduce a service-oriented architecture. The pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Azure Well-Architected Framework](/azure/well-architected/). This pattern builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-## Benefits of using the Modern Web App pattern
+## Benefits of the Modern Web App pattern
 
 The Modern Web App pattern helps you optimize high-demand areas of your web application. It provides detailed guidance for decoupling these areas to enable independent scaling for cost optimization. This approach lets you allocate dedicated resources to critical components, which enhances overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others. It also enables independent versioning of individual app components.
 
-## How to implement the Modern Web App pattern
+## Implement the Modern Web App pattern
 
 This article includes guidance for implementing the Modern Web App pattern. Use the following links for the specific guidance that you need:
 
-- *[Architecture guidance](#architecture-guidance):* Learn how to modularize web app components and select appropriate platform as a service (PaaS) solutions.
+- [Architecture guidance](#architecture-guidance): Learn how to modularize web app components and select appropriate platform as a service (PaaS) solutions.
 
-- *[Code guidance](#code-guidance):* Implement the Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring design patterns to optimize the decoupled components.
+- [Code guidance](#code-guidance): Implement the Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring design patterns to optimize the decoupled components.
 
-- *[Configuration guidance](#configuration-guidance):* Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
+- [Configuration guidance](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's a *[reference implementation](https://github.com/Azure/modern-web-app-pattern-java)* (sample app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It's a production-grade web app that features all of the code, architecture, and configuration updates that are described in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) The [reference implementation](https://github.com/Azure/modern-web-app-pattern-java) (sample app) of the Modern Web App pattern represents the final state of the Modern Web App implementation. The production-grade web app features all the code, architecture, and configuration updates in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
 ## Architecture guidance
 
@@ -52,22 +44,22 @@ The Modern Web App pattern builds on the Reliable Web App pattern. It requires a
 For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or an active-passive configuration, depending on your business needs. Both regions require the same services, but one region includes a hub virtual network. Use a hub-and-spoke network topology to centralize and share resources, like a network firewall. Access the container repository through the hub virtual network. If you have virtual machines (VMs), add a bastion host to the hub virtual network to manage them with enhanced security. The following diagram shows this architecture.
 
 :::image type="complex" border="false" source="../../../_images/modern-web-app-architecture-plus-optional.svg" alt-text="Diagram that shows the Modern Web App pattern architecture with a second region." lightbox="../../../_images/modern-web-app-architecture-plus-optional.svg":::
-   Diagram that shows the Modern Web App pattern architecture with two Azure regions. Each region has a web application on Azure App Service, a message queue service like Service Bus, a decoupled service on a container platform, and independent storage solutions. A load balancer directs traffic across both regions, which supports active-active or active-passive configurations. One region includes a hub virtual network that centralizes shared resources, like a network firewall and a bastion host for secure virtual machine (VM) access. The container registry is accessible through the hub network. Spoke virtual networks in each region isolate application resources and connect to the hub for shared services. The architecture supports cross-region failover, centralized security controls, and independent scaling of services in each region.
+   Diagram that shows the Modern Web App pattern architecture with two Azure regions. Each region has a web application on App Service, a message queue service like Service Bus, a decoupled service on a container platform, and independent storage solutions. A load balancer directs traffic across both regions, which supports active-active or active-passive configurations. One region includes a hub virtual network that centralizes shared resources, like a network firewall and a bastion host for secure VM access. The container registry can be accessed through the hub network. Spoke virtual networks in each region isolate application resources and connect to the hub for shared services. The architecture supports cross-region failover, centralized security controls, and independent scaling of services in each region.
 :::image-end:::
 
 ### Decouple the architecture
 
-To implement the Modern Web App pattern, you must decouple the existing web app architecture. Decoupling the architecture includes breaking down a monolithic application into smaller, independent services that are each responsible for a specific feature or function. This process includes evaluating the current web app, changing the architecture, and extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
+To implement the Modern Web App pattern, you must decouple the existing web app architecture. This approach breaks down a monolithic application into smaller, independent services. Each service handles a specific feature or function. This process includes evaluating the current web app, changing the architecture, and extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
-- *Identify service boundaries.* Apply domain-driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and is suitable for decoupling. Services that represent distinct business functions and have fewer dependencies are also well-suited.
+- *Identify service boundaries.* Apply domain-driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and is suitable for decoupling. Prioritize services that represent distinct business functions and have fewer dependencies.
 
-- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, an external dependency like an email service provider in a line-of-business (LOB) application might require more isolation from failure. Consider services that undergo frequent updates or changes. Decoupling these services enables independent deployment and reduces the risk of affecting other parts of the application.
+- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, an external dependency like an email service provider in a line-of-business (LOB) application might require more isolation from failure. Consider services that undergo frequent updates or changes. Decouple these services to enable independent deployment and reduce the risk of affecting other parts of the application.
 
 - *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how to manage and share data across services. Decoupled services should manage their own data and minimize direct database access across service boundaries.
 
-- *Deploy Azure services.* Select and deploy the Azure services that you need to support the web app service that you intend to extract. For more information, see the [Select the right Azure services](#select-the-right-azure-services) section.
+- *Deploy Azure services.* Select and deploy the Azure services that you need to support the web app service that you intend to extract. For more information, see [Select the right Azure services](#select-the-right-azure-services).
 
-- *Decouple the web app service.* Define clear interfaces and APIs that the newly extracted web app services can use to interact with other parts of the system. Design a data-management strategy that lets each service manage its own data but ensures consistency and integrity. For more information about specific implementation strategies and design patterns during this extraction process, see the [Code guidance](#code-guidance) section.
+- *Decouple the web app service.* Define clear interfaces and APIs that the newly extracted web app services can use to interact with other parts of the system. Design a data-management strategy that lets each service manage its own data but ensures consistency and integrity. For more information about specific implementation strategies and design patterns during this extraction process, see [Code guidance](#code-guidance).
 
 - *Use independent storage for decoupled services.* To simplify versioning and deployment, ensure that each decoupled service has its own data stores. For example, the reference implementation separates the email service from the web app and eliminates the need for the service to access the database. Instead, the service communicates the email delivery status back to the web app via an Azure Service Bus message, and the web app saves a note to its database.
 
@@ -79,13 +71,13 @@ To implement the Modern Web App pattern, you must decouple the existing web app 
 
 For each Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-- *Choose a message queue.* A message queue is an important component of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance for choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Service Bus. Start with Service Bus, and use one of the other two options if Service Bus doesn't meet your needs.
+- *Choose a message queue.* A message queue is an important component of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). [Choose an Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Service Bus. Start with Service Bus, and use one of the other two options if Service Bus doesn't meet your needs.
 
     | Service | Use case |
     |-------|--------|
     | Service Bus | Choose Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications. |
-    | Event Grid | Choose Event Grid when you need to handle a large number of discrete events efficiently. Event Grid is scalable for event-driven applications in which many small, independent events, like resource state changes, need to be routed to subscribers in a low-latency publish-subscribe model. |
-    | Event Hubs | Choose Event Hubs for massive, high-throughput data ingestion, like telemetry, logs, or real-time analytics. Event Hubs is optimized for streaming scenarios in which bulk data needs to be ingested and processed continuously. |
+    | Event Grid | Choose Event Grid when you need to handle a large number of discrete events efficiently. Event Grid is scalable for event-driven applications that route many small, independent events, like resource state changes, to subscribers by using a low-latency publish-subscribe model. |
+    | Event Hubs | Choose Event Hubs for massive, high-throughput data ingestion, like telemetry, logs, or real-time analytics. Event Hubs is optimized for streaming scenarios that ingest and process bulk data continuously. |
 
 - *Implement a container service.* For the elements of your application that you want to containerize, you need an application platform that supports containers. For more information, see [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service). Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service (AKS), and Azure App Service. Start with Container Apps, and use one of the other two options if Container Apps doesn't meet your needs.
 
@@ -95,7 +87,7 @@ For each Azure service in your architecture, consult the relevant [Azure service
     | AKS | Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security. |
     | Web App for Containers | Choose Web App for Containers in App Service for the simplest PaaS experience. |
 
-- *Implement a container repository.* When you use a container-based compute service, you must have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. For more information, see [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro).
+- *Implement a container repository.* When you use a container-based compute service, you must have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. For more information, see [Introduction to Container Registry](/azure/container-registry/container-registry-intro).
 
 ## Code guidance
 
@@ -115,7 +107,7 @@ To successfully decouple and extract an independent service, you must update you
 
 1. *Retry pattern:* The Retry pattern handles transient failures by retrying operations that might fail intermittently. **(5a)** Implement this pattern in the main web app, on all outbound calls to other Azure services, like calls to the message queue and private endpoints. **(5b)** Also implement this pattern in the decoupled service to handle transient failures in calls to the private endpoints.
 
-Each design pattern provides benefits that align with one or more of the pillars of the Well-Architected Framework. See the following table for more information.
+Each design pattern provides benefits that align with one or more of the pillars of the Well-Architected Framework.
 
 | Design pattern | Implementation location | Reliability (RE) | Security (SE) | Cost Optimization (CO) | Operational Excellence (OE) | Performance Efficiency (PE) | Supporting Well-Architected Framework principles |
 |---|---|---|---|---|---|---|---|
@@ -135,7 +127,7 @@ Use the [Strangler Fig pattern](/azure/architecture/patterns/strangler-fig) to g
 
   For example, the reference implementation extracts the email delivery functionality into a standalone service. The service can be gradually introduced to handle a larger percentage of the requests to send emails that contain Contoso support guides. As the new service proves its reliability and performance, it can eventually take over the entire set of email responsibilities from the monolith, which completes the transition.
 
-- *Use a façade service (if necessary).* A façade service is useful when a single request needs to interact with multiple services, or when you want to hide the complexity of the underlying system from the client. But if the decoupled service doesn't have any public-facing APIs, a façade service might not be necessary.
+- *Use a façade service if necessary.* A façade service is useful when a single request needs to interact with multiple services or when you want to hide the complexity of the underlying system from the client. But if the decoupled service doesn't have any public-facing APIs, a façade service might not be necessary.
 
   In the monolithic web app code base, implement a façade service to route requests to the appropriate back end (monolith or microservice). Ensure that the new decoupled service can handle requests independently when it's accessed through the façade.
 
@@ -180,7 +172,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
 
 ### Implement the Competing Consumers pattern
 
-Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue. The pattern enhances load balancing and increases the system's capacity for handling simultaneous requests. The Competing Consumers pattern is effective when the following factors are true:
+Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue. The pattern enhances load balancing and increases the system's capacity for handling simultaneous requests. The Competing Consumers pattern is effective when the following factors apply:
 
 - The sequence of message processing isn't crucial.
 
@@ -196,7 +188,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Use reliable message processing modes.* Use a reliable processing mode, like peek-lock, that automatically retries messages that fail processing. This mode provides more reliability than deletion-first methods. If one worker fails to handle a message, another worker must be able to process it without errors, even if the message is processed multiple times.
 
-- *Implement error handling.* Route malformed or unprocessable messages to a separate dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move problematic messages to the separate queue. With Service Bus, messages are moved to the dead-leter queue after a specified number of delivery attempts or after explicit rejection by the application.
+- *Implement error handling.* Route malformed or unprocessable messages to a separate dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move problematic messages to the separate queue. Service Bus moves messages to the dead-letter queue after a specified number of delivery attempts or after explicit rejection by the application.
 
 - *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. When you have multiple parallel consumers, they might process messages out of order.
 
@@ -210,7 +202,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 The reference implementation uses the Competing Consumers pattern on a stateless service that runs in Container Apps to process email delivery requests from a Service Bus queue.
 
-The processor logs message processing details to help with troubleshooting and monitoring. It captures deserialization errors and provides insights that can be useful during debugging. The service scales at the container level to enable efficient handling of message spikes based on queue length:
+The processor logs message processing details to help with troubleshooting and monitoring. It captures deserialization errors and provides insights to support debugging. The service scales at the container level to enable efficient handling of message spikes based on queue length:
 
 ```java
 @Configuration
@@ -295,7 +287,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
 
 The [Retry pattern](/azure/architecture/patterns/retry) lets applications recover from transient faults. This pattern is central to the Reliable Web App pattern, so your web app should already be using the Retry pattern. Apply the Retry pattern to requests to the messaging systems and requests that are issued by the decoupled services that you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
-- *Configure retry options.* Be sure to configure the client that's responsible for interactions with the message queue with appropriate retry settings. Specify parameters like the maximum number of retries, delay between retries, and maximum delay.
+- *Configure retry options.* Apply appropriate retry settings to the client that's responsible for interactions with the message queue. Specify parameters like the maximum number of retries, delay between retries, and maximum delay.
 
 - *Use exponential backoff.* Implement the exponential backoff strategy for retry attempts. This strategy involves increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
 
@@ -364,7 +356,7 @@ resource "azurerm_role_assignment" "acr_contributor_user_role_assignement" {
 
 ### Configure independent autoscaling
 
-The Modern Web App pattern starts to break up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
+The Modern Web App pattern breaks up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scale the Azure services to support an independent web app service, rather than an entire web app, to optimize scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
 - *Use stateless services.* Ensure that your services are stateless. If your web app contains in-process session state, externalize it to a distributed cache like Azure Managed Redis or a database like SQL Server.
 
@@ -376,7 +368,7 @@ The Modern Web App pattern starts to break up the monolithic architecture and in
 
 - *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the request message queue. The scaler attempts to maintain one replica of the service for every *N* message in the queue (rounded up).
 
-For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container App based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas based on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which configures the scaler to add one replica for every 10 messages in the queue. The maximum replica count (`max_replicas`) is set to 10. The minimum replica count is implicitly 0 unless it's overridden. This configuration lets the service scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus. Here's the Terraform code:
+For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container Apps based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas based on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which configures the scaler to add one replica for every 10 messages in the queue. The maximum replica count (`max_replicas`) is set to 10. The minimum replica count is implicitly 0 unless it's overridden. This configuration lets the service scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus. Here's the Terraform code:
 
 ```terraform
     max_replicas = 10
@@ -403,9 +395,9 @@ Containerization encapsulates all dependencies needed by the app in a lightweigh
 
 - *Identify domain boundaries.* Start by identifying the domain boundaries in your monolithic application. This approach helps you determine which parts of the application you can extract into separate services.
 
-- *Create Docker images.* When you create Docker images for your Java services, use official OpenJDK base images. These images contain only the minimal set of packages that Java needs to run. Using these images minimizes both the package size and the attack surface area.
+- *Create Docker images.* When you create Docker images for your Java services, use official OpenJDK base images. These images contain only the minimal set of packages that Java needs to run. They minimize both the package size and the attack surface area.
 
-- *Use multistage Dockerfiles.* Use a multistage Dockerfile to separate build-time assets from the runtime container image. Using this type of file helps keep your production images small and secure. You can also use a preconfigured build server and copy the JAR file into the container image.
+- *Use multistage Dockerfiles.* Use a multistage Dockerfile to separate build-time assets from the runtime container image. This type of file helps keep your production images small and secure. You can also use a preconfigured build server and copy the JAR file into the container image.
 
 - *Run as a nonroot user.* Run your Java containers as a nonroot user (via user name or `UID $APP_UID`) to align with the principle of least privilege (PoLP). This approach limits the potential effects of a compromised container.
 
@@ -455,12 +447,12 @@ ENTRYPOINT ["java", "-javaagent:applicationinsights-agent.jar", "-jar", "app.jar
 
 ## Deploy the reference implementation
 
-Deploy the reference implementation of the [Modern Web App Pattern for Java](https://github.com/azure/modern-web-app-pattern-java). There are instructions for both development and production deployment in the repository. After you deploy the implementation, you can simulate and observe design patterns.
+Deploy the reference implementation of the [Modern Web App pattern for Java](https://github.com/azure/modern-web-app-pattern-java). The repository includes instructions for both development and production deployment. After you deploy the implementation, you can simulate and observe design patterns.
 
 The following diagram shows the architecture of the reference implementation.
 
 :::image type="complex" border="false" source="../../../_images/modern-web-app-java.svg" alt-text="Diagram that shows an architecture of the reference implementation." lightbox="../../../_images/modern-web-app-java.svg":::
-  In the diagram, a user accesses the web app through a browser, which routes requests to Azure Front Door for global load balancing and security. Azure Front Door forwards traffic to App Service, which hosts the main web application. The web app interacts with Azure SQL Database for persistent data storage and Azure Cache for Redis for distributed caching. The application sends asynchronous tasks, such as email delivery, to Service Bus queues. Decoupled microservices, deployed in Container Apps, consume messages from the queue and process tasks independently. The architecture includes monitoring and logging through Azure Application Insights and uses managed identities for secure service-to-service authentication.
+  In the diagram, a user accesses the web app through a browser, which routes requests to Azure Front Door for global load balancing and security. Azure Front Door forwards traffic to App Service, which hosts the main web application. The web app interacts with Azure SQL Database for persistent data storage and Azure Managed Redis for distributed caching. The application sends asynchronous tasks, such as email delivery, to Service Bus queues. Decoupled microservices, deployed in Container Apps, consume messages from the queue and process tasks independently. The architecture includes monitoring and logging through Application Insights and uses managed identities for secure service-to-service authentication.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-java.vsdx) of this architecture.*
