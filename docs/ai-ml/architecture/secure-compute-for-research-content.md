@@ -3,7 +3,7 @@ This article describes a secure research environment that provides researchers a
 ## Architecture
 
 :::image type="complex" source="_images/secure-compute-for-research.svg" lightbox="_images/secure-compute-for-research.svg" alt-text="Diagram that shows a secure research environment." border="false":::
-The diagram shows two resource groups. The resource group on the left contains a virtual network and a secure logical grouping of resources within the virtual network. The resource group on the right contains a virtual network. On the left, data owners upload datasets to a public Azure Blob Storage account (step 1). Fabric Data Factory copies this data to a private Blob Storage account (step 2). Researchers access the secure environment via Azure Virtual Desktop (step 3). Within the secure zone, the data science virtual machine (VM) cluster connects to private storage (step 4). Azure Machine Learning and Microsoft Fabric link to the storage (step 5). These services also connect to a firewall policy. An arrow extends from private Blob Storage to a logic app positioned outside, to a message, and then to an approver. This process indicates the approval workflow initiation (step 6). After approval, Fabric Data Factory moves approved data back to public storage for external access (steps 7 and 8). Private Blob Storage also connects to Azure Key Vault. Microsoft Entra ID, Microsoft Sentinel, Microsoft Defender for Cloud, Azure Policy, and Azure Monitor reside outside the main architecture.
+The diagram shows two resource groups. The resource group on the left contains a virtual network and a secure logical grouping of resources within the virtual network. The resource group on the right contains a virtual network. On the left, data owners upload datasets to a public Azure Blob Storage account (step 1). Fabric Data Factory copies this data to a private Blob Storage account (step 2). Researchers access the secure environment via Azure Virtual Desktop (step 3). Within the secure zone, the data science virtual machine (VM) cluster connects to private storage (step 4). Azure Machine Learning and Fabric Data Science link to the storage (step 5). These services also connect to a firewall policy. An arrow extends from private Blob Storage to a logic app positioned outside, to a message, and then to an approver. This process indicates the approval workflow initiation (step 6). After approval, Data Factory moves approved data back to public storage for external access (steps 7 and 8). Private Blob Storage also connects to Azure Key Vault. Microsoft Entra ID, Microsoft Sentinel, Microsoft Defender for Cloud, Azure Policy, and Azure Monitor reside outside the main architecture.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-compute-for-research.vsdx) of this architecture.*
@@ -14,13 +14,13 @@ The following data flow corresponds to the previous diagram:
 
 1. Data owners upload datasets into a public Azure Blob Storage account. They use Microsoft-managed keys to encrypt the data.
 
-1. Fabric Data Factory uses a trigger to copy the uploaded dataset to a specific location or import path on another storage account that has security controls. You can only reach the storage account through a private endpoint or trusted workspace access. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
+1. [Fabric Data Factory](/fabric/data-factory/data-factory-overview) uses a trigger to copy the uploaded dataset to a specific location or import path on another storage account that has security controls. You can only reach the storage account through a private endpoint or trusted workspace access. A service principal that has limited permissions can also access the account. Data Factory deletes the original copy, which makes the dataset immutable.
 
 1. Researchers access the secure environment through a streaming application by using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
 
-1. The secure storage account presents the dataset to the data science virtual machines (VMs) that you provision in a secure network environment for research work. Most data preparation occurs on those VMs.
+1. The secure storage account presents the dataset to the data science virtual machines (VMs) that you set up in a secure network environment for research work. Most data preparation occurs on those VMs.
 
-1. The secure environment includes Azure Machine Learning and Microsoft Fabric. They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models, or use Azure Synapse Analytics. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
+1. The secure environment includes Azure Machine Learning and [Fabric Data Science](https://learn.microsoft.com/en-us/fabric/data-science/data-science-overview). They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
 
 1. Models or de-identified data are saved to a separate location on the secure storage account, known as the *export path*. When you add new data to the export path, you trigger a logic app. In this architecture, the logic app runs outside the secure environment because it doesn't receive data. Its only function is to send notifications and start the manual approval process.
 
@@ -31,7 +31,7 @@ The following data flow corresponds to the previous diagram:
 
 1. If reviewers approve the de-identified data, the system sends it to Data Factory.
 
-1. Data Factory moves the data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+1. Data Factory moves the data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternately, you can set up another storage account in a lower security environment.
 
 ### Components
 
@@ -51,7 +51,7 @@ The following core components move and process research data:
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytical platform for big data and pipelines that provides data integration and extract, transform, load (ETL) capabilities. It serves as a preferred service to run Apache Spark workloads. In this architecture, Fabric enables advanced analytics and data integration for research datasets that you can access through secure, private endpoints.
 
-- [Fabric Data Factory](/fabric/data-factory/data-factory-overview) is a cloud-based data integration service within Fabric that orchestrates and operationalizes data movement and transformation workflows. In this architecture, it moves data between storage accounts that have different security levels, enforces separation of duties, and manages data flows throughout the secure environment.
+- [Data Factory](/fabric/data-factory/data-factory-overview) is a cloud-based data integration service within Fabric that orchestrates and operationalizes data movement and transformation workflows. In this architecture, it moves data between storage accounts that have different security levels, enforces separation of duties, and manages data flows throughout the secure environment.
 
 - [Virtual Desktop](/azure/well-architected/azure-virtual-desktop/overview) is a desktop and app virtualization service that runs in the cloud. In this architecture, it acts as a jump box that provides access to the resources in the secure environment. Researchers can use Virtual Desktop to connect to data science VMs through streaming applications and a full desktop as needed.
 
@@ -80,7 +80,7 @@ The following components continuously monitor the posture of the workload and it
 
 ### Alternatives
 
-- This solution uses Data Factory to move data to the public storage account in a separate container so that external researchers can access their exported data and models. Alternatively, you can provision another storage account in a lower security environment.
+- This solution uses Data Factory to move data to a public storage account in a separate container so that external researchers can access their exported data and models. Alternatively, you can use Data Factory to transfer data to a public storage account in a separate container or set up another storage account in a lower security environment for the same purpose.
 
 - This solution uses Virtual Desktop as a jump box to gain access to the resources in the secure environment by providing streaming applications and a full desktop. Alternatively, you can use Azure Bastion, but Virtual Desktop has advantages. These advantages include the ability to stream an app, to limit copy and paste capabilities and screen captures, and to support Microsoft Entra authentication. Also consider configuring a point-to-site virtual private network (VPN) for offline training locally. This VPN helps reduce the cost of multiple VMs for workstations.
 - To secure data at rest, this solution encrypts all Azure Storage accounts with Microsoft-managed keys by using strong cryptography. Alternatively, you can use customer-managed keys. You must store the keys in a managed key store.
@@ -123,7 +123,7 @@ The main objective of this architecture is to provide a secure and trusted resea
 
 #### Network security
 
-Provision Azure resources in a secure environment. These resources store, test, and train research datasets. The environment resides in an Azure virtual network that has network security group rules to restrict access. These rules apply to the following areas:
+Set up Azure resources in a secure environment. These resources store, test, and train research datasets. The environment resides in an Azure virtual network that has network security group rules to restrict access. These rules apply to the following areas:
 
 - Inbound and outbound access to the public internet and within the virtual network.
 
@@ -145,11 +145,9 @@ For Azure services that you can't configure effectively by using private endpoin
 
 #### Identity management
 
-- Access Blob Storage through Azure role-based access control (Azure RBAC).
+This architecture implements multiple layers of identity-based security controls. You can access Blob Storage through Azure role-based access control (Azure RBAC). Virtual Desktop supports Microsoft Entra authentication to data science VMs, which adds an extra security layer for researcher access.
 
-- Virtual Desktop supports Microsoft Entra authentication to data science VMs.
-
-- Fabric Data Factory uses workspace identity to access data from Blob Storage. Data science VMs use managed identity for remediation tasks.
+Data Factory uses [trusted workspace access](/fabric/security/security-trusted-workspace-access) to securely connect to data in Blob Storage accounts. This approach uses the workspace's managed identity to bypass firewall restrictions and access protected storage without requiring public network exposure. Data science VMs also use managed identity for remediation tasks to ensure secure operations across the Fabric environment.
 
 #### Data security
 
@@ -199,6 +197,7 @@ Other contributor:
 
 - [What is the data science VM for Linux and Windows?](/azure/machine-learning/data-science-virtual-machine/overview)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Introduction to Data Science](/fabric/data-science/data-science-overview)
 - [What are compute targets in Machine Learning?](/azure/machine-learning/service/concept-compute-target)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Data Factory in Fabric?](/fabric/data-factory/data-factory-overview)
