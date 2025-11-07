@@ -50,7 +50,7 @@ Your specific requirements might differ from the generic architecture shown here
 
 Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale-out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
-The API Management Consumption tier isn't recommended for this solution because it doesn't support the developer portal which is required for this architecture.  The Developer Tier is specifically for non-production environments and isn't recommended for production workloads.  A feature matrix detailing the differences between the tiers can be found [here](/azure/api-management/api-management-features).
+The API Management Consumption tier isn't recommended for this solution because it doesn't support the developer portal which is required for this architecture. The Developer Tier is specifically for non-production environments and isn't recommended for production workloads. To see the differences between the tiers, see the [Feature-based comparison of the Azure API Management tiers](/azure/api-management/api-management-features).
 
 Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net`, for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
