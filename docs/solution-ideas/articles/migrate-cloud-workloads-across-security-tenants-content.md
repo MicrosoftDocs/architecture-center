@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To address business transformations like acquisitions or divestitures, teams need to plan for the separation or joining of their cloud workloads from an existing Microsoft Entra tenant to a new tenant. This article describes how to define and implement a cross-tenant workload migration strategy.
+During business transformations like acquisitions or divestitures, organizations might migrate cloud workloads from an existing Microsoft Entra tenant to a new tenant. Teams must plan how to separate or join their cloud workloads. This article describes how to define and implement a cross-tenant workload migration strategy that maintains security boundaries and ensures business continuity.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ The following data flow corresponds to the previous diagram:
 
 1. Move the subscription to the new tenant.
 
-1. Either move the resources to the target resource group or migrate data to the pre-created resources in the target resource group. Alternatively, restore VMs from the backups. Your implementation plan should describe the provisioning method.
+1. Either move the resources to the target resource group or migrate data to the precreated resources in the target resource group. Alternatively, restore VMs from the backups. Your implementation plan should describe the provisioning method.
 
 1. Delete the sidecar subscription.
 
@@ -34,13 +34,13 @@ The following data flow corresponds to the previous diagram:
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external guests. In this architecture, Microsoft Entra ID manages organizational identity and access across tenants, which enables secure migration and resource isolation.
 
-- An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in Azure adoption. In this architecture, subscriptions organize and isolate resources, and are moved between tenants during migration.
+- An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for resources. Each Azure resource is associated with only one subscription. In this architecture, subscriptions organize and isolate resources, and you move them between tenants during migration.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications. In this architecture, it supports IaC and automates resource deployment in the target tenant.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help teams plan work, collaborate on code development, and build and deploy applications. In this architecture, it supports IaC and automates resource deployment in the target tenant.
 
 - [Azure Backup](/azure/backup/backup-overview) is a service that backs up and restores data in Azure. In this architecture, it ensures data protection and enables recovery during the migration process.
 
-- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities. In this architecture, it supports platform as a service (PaaS) compute workloads that are recreated in the target tenant by using DevOps processes.
+- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities. In this architecture, it supports platform as a service (PaaS) compute workloads that you recreate in the target tenant by using DevOps processes.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed and intelligent relational database service. You can use SQL Database to create a high-performance data storage layer for modern cloud applications. In this architecture, it serves as a data service that's backed up and restored during tenant migration because of limitations in direct movement.
 
@@ -48,9 +48,9 @@ The following data flow corresponds to the previous diagram:
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a software as a service (SaaS) analytics platform that unifies data integration, data engineering, data warehousing, real-time analytics, data science, and business intelligence. In this architecture, it provides an enterprise-scale analytics platform across migrated workloads by consolidating data pipelines, storage (OneLake), and analytical compute in the target tenant.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that accelerates and manages the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that are recreated in the target tenant.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that accelerates and manages the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you recreate in the target tenant.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering and is recreated in the target tenant.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you recreate it in the target tenant.
 
 - [Azure AI services](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, AI services enhance migrated applications with cognitive intelligence.
 
@@ -58,17 +58,17 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service that securely stores and accesses secrets. In this architecture, it's a resource that's recreated in the target tenant to maintain secure access.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service that securely stores and provides access to secrets. In this architecture, it's a resource that you recreate in the target tenant to maintain secure access.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides control over operating systems, storage, and applications without owning physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides control over operating systems, storage, and applications without the need to own physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
 
 - [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. In this architecture, they organize resources before and after migration to maintain structure and manageability.
 
 ## Scenario details
 
-To address business transformations like acquisitions or divesture, the transitioning workload team needs to plan for the separation and joining of their cloud workloads from an existing Microsoft Entra tenant to a new Microsoft Entra tenant. The workload team includes developers, architects, operations, and technical decision makers. This plan helps ensure that all data and application services are reliably migrated, secured, and isolated to their respective business boundaries.
+To address business transformations like acquisitions or divesture, the transitioning workload team must plan how to separate or join their cloud workloads from an existing Microsoft Entra tenant to a new Microsoft Entra tenant. The workload team includes developers, architects, operations, and technical decision-makers. This plan helps ensure that the team reliably migrates, secures, and isolates all data and application services to their respective business boundaries.
 
-If your workload exists in a single subscription, in many cases you can use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. But most divestiture organization workloads intertwine with retaining organization workloads before the split, so you must prepare for migration with a different approach.
+If your workload exists in a single subscription, you can often use the built-in subscription-move feature to transfer the entire subscription to a new Microsoft Entra tenant. But most divestiture organization workloads intertwine with retaining organization workloads before the split, so you must use a different approach to prepare for migration.
 
 In this scenario, a healthcare company that has multiple global business units wants to divest a business. To divest, they need to define and implement a cross-directory workload migration strategy.
 
@@ -78,11 +78,11 @@ To begin, the company classifies workload resources into three categories. One g
 
   PaaS compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
 
-- For PaaS and IaaS, or data service, resources that store data, they relocate Azure subscriptions from one Microsoft Entra tenant to another. They move these resources to the new tenant via a sidecar subscription. They must carefully evaluate the resources before they move them. For example, they can't move an Azure SQL database with Microsoft Entra authentication integration enabled in its existing state. They use backup and restore instead. This process removes all Azure role-based access control (Azure RBAC) assignments. After they move the resource to the new tenant, they need to restore those Azure RBAC assignments.
+- For PaaS and IaaS, or data service, resources that store data, they relocate Azure subscriptions from one Microsoft Entra tenant to another. The company moves these resources to the new tenant via a sidecar subscription. They must carefully evaluate the resources before they move them. For example, they can't move an Azure SQL database with Microsoft Entra authentication integration enabled in its existing state. The company uses backup and restore instead. This process removes all Azure role-based access control (Azure RBAC) assignments. After they move the resource to the new tenant, they need to restore those Azure RBAC assignments.
 
   PaaS and IaaS data include services like SQL Database, Azure Data Lake Storage, and Azure Cosmos DB.
 
-- For IaaS, or compute, resources that provide hosting for customized logic, they create backups and restore the resources in the target environment.
+- For IaaS, or compute, resources that provide hosting for customized logic, the company creates backups and restores the resources in the target environment.
 
   IaaS compute include resources like Virtual Machines hosting applications or databases.
 
