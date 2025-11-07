@@ -35,7 +35,7 @@ The following data flow corresponds to the previous diagram:
 
 ### Components
 
-This architecture consists of several Azure services that scale resources according to your needs. The following sections describe these services and their roles. For product documentation to get started with these services, see [Next steps](#next-steps).
+This architecture consists of several Azure services that scale resources according to your needs. The following sections describe these services and their roles.
 
 #### Core workload components
 
