@@ -27,7 +27,7 @@ The resources in the App Service Environment subnets in this reference implement
 
 - [Azure Application Gateway v2](/azure/well-architected/service-guides/azure-application-gateway) is a cloud-native web traffic load balancer that supports zone redundancy. In this architecture, it spans multiple availability zones in each region. As a result, a single application gateway provides high availability, as shown in the reference architecture. The reference architecture uses the Web Application Firewall SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities. This protection is based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Reliability in Application Gateway v2](/azure/reliability/reliability-application-gateway-v2). Application Gateway v2 serves as a zone-redundant web traffic load balancer.
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, managed network security service that includes built-in support for high availability. It can use multiple zones without extra configuration. In this architecture, Azure Firewall provides managed, high-availability network security to control and monitor outbound and inbound traffic for resources in the virtual network.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, managed network security service that includes built-in support for high availability. It can use multiple zones without extra configuration. In this architecture, Azure Firewall provides managed, high-availability network security to control and monitor outbound traffic for resources in the virtual network.
 
   You can also configure a specific availability zone when you deploy the firewall. For more information, see [Azure Firewall availability zone support](/azure/reliability/reliability-firewall#availability-zone-support). The reference architecture doesn't use this configuration.
 
@@ -96,7 +96,7 @@ The following differences can affect the cost:
 
 - Azure Managed Redis becomes a zone-redundant service in regions that have multiple availability zones when high availability is enabled. A zone-redundant cache runs on nodes deployed across multiple availability zones within a region to provide higher resilience and availability.
 
-The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. To evaluate your requirements and estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+The trade-off for a highly available, resilient, and highly secure system includes increased cost for some Azure services. To evaluate your requirements and estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Deploy this scenario
 
