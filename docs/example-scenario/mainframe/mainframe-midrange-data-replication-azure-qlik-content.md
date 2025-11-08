@@ -29,12 +29,9 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
    - **Relational database services:**
 
-     - SQL Server on Azure Virtual Machines
      - Azure SQL Database
-     - Azure SQL Managed Instance
      - Azure Database for PostgreSQL
      - Azure Database for MySQL
-     - Azure Cosmos DB
 
      There are many factors to consider when you choose a data storage service. Consider the type of workload, cross-database queries, two-phase commit requirements, the ability to access the file system, amount of data, required throughput, and latency.
 
@@ -54,17 +51,13 @@ When you design application architecture, it's crucial to prioritize networking 
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a dedicated, private connection between your on-premises infrastructure and Microsoft cloud services. In this architecture, it ensures secure, high-throughput connectivity to Azure and Microsoft 365 and bypasses the public internet for improved reliability and performance.
 
-#### Application
+#### Storage and databases
 
-Azure provides managed services that support more secure, scalable, and efficient application deployment. This architecture uses application tier services that can help you optimize your application architecture.
+Azure and Microsoft Fabric deliver managed services that enable secure, scalable, and efficient cloud storage, along with fully managed databases for flexible and intelligent data management. This architecture ensures scalable and more secure cloud storage as well as managed databases for modern data workloads.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, it transforms and analyzes large volumes of ingested data by using machine learning models and supports development in R, Python, Java, Scala, and Spark SQL.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on Azure Blob Storage for storing structured and unstructured data. In this architecture, it serves as the persistent storage layer for processed change log data from on-premises systems.
-
-#### Storage and databases
-
-This architecture addresses scalable and more secure cloud storage as well as managed databases for flexible and intelligent data management.
+- [OneLake](/fabric/onelake/onelake-overview) OneLake is a single, unified, logical data lake for your whole organization. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. In this architecture, it serves as the persistent storage layer for processed change log data from on-premises systems.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
 
@@ -81,14 +74,6 @@ This architecture addresses scalable and more secure cloud storage as well as ma
   - [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database optimized for scalability and performance. In this architecture, it supports modernized workloads with elastic compute and built-in intelligence.
 
   - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a full-featured SQL Server instance that runs on Azure infrastructure. In this architecture, it supports legacy workloads that require full control over the operating system and database engine.
-
-- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a suite of scalable and secure cloud services for storing data, applications, and workloads. In this architecture, it provides foundational storage capabilities and includes the following offerings:
-
-  - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service built on the Server Message Block (SMB) protocol. In this architecture, it stores migrated mainframe files and supports lift-and-shift scenarios for legacy workloads.
-
-  - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) is a messaging service for storing and retrieving messages between distributed application components. In this architecture, it enables asynchronous communication between microservices and back-end systems.
-
-  - [Azure Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for semi-structured data. In this architecture, it stores metadata and reference data from the mainframe system in a scalable format.
 
 #### Monitoring
 
@@ -135,6 +120,8 @@ Reliability helps ensure that your application can meet the commitments that you
 - Qlik Data Integration can be configured in a high-availability cluster.
 
 - The Azure database services support zone redundancy and can be designed to fail over to a secondary node during a maintenance window or if an outage occurs.
+  
+- Microsoft Fabric provides regional resiliency through availability zones and supports cross-region recovery to ensure business continuity.
 
 ### Security
 
@@ -144,7 +131,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Azure resources can be authenticated by using Microsoft Entra ID, and permissions are managed through role-based access control.
 
-- Azure database services support various security options, such as:
+- Azure database services and Microsoft Fabric support various security options, such as:
 
   - Data encryption at rest.
 
@@ -152,13 +139,13 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
   - Always-encrypted databases.
 
-- For more information, see [Azure security documentation](/azure/security).
+- For more information, see [Azure security documentation](/azure/security) and [Fabric security documentation](/fabric/security/security-overview)
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) and [Microsoft Fabric pricing Estimatator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator) to estimate costs for your implementation.
 
 ### Operational Excellence
 
@@ -166,11 +153,13 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can combine Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage problems proactively.
 
+Microsoft Fabric enables Operational Excellence by unifying governance, observability, and resilient engineering patterns across OneLake, Warehousing, Data Engineering, Real‑Time and other workloads.
+
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+Microsoft Fabric, Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
