@@ -4,7 +4,7 @@ description: Learn how to migrate stateless and stateful workloads from Amazon E
 author: ketan-chawda-msft
 ms.author: kechaw
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

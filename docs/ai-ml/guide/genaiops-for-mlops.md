@@ -4,10 +4,9 @@ description: Extend existing MLOps investments to include generative AI operatio
 author: supreetkaur16
 ms.author: supreetkaur
 ms.date: 09/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Generative AI operations for organizations with MLOps investments

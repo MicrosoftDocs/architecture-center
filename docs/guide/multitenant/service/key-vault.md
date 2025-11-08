@@ -4,7 +4,7 @@ description: Learn how to use Azure Key Vault in multitenant solutions, includin
 author: johndowns
 ms.author: pnp
 ms.date: 09/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

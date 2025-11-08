@@ -4,10 +4,9 @@ description: Compare options for building, deploying, and managing your machine 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Compare Microsoft machine learning products and technologies

@@ -5,14 +5,14 @@ author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
 ms.date: 02/21/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: guide
 ---
 
 # Mission-critical global content delivery
 
-Content delivery networks (CDNs) offer a range of capabilities to optimize performance for users, including global layer 7 load balancing and optimized network routing. Caching is also a common way to reduce load on the backend services and provider further resiliency to a range of issues. CDNs, including Azure Front Door, provide caching at the network edge.
+Content delivery networks (CDNs) offer a range of capabilities to optimize performance for users, including global layer 7 load balancing and optimized network routing. Caching is also a common way to reduce load on the backend services and provide further resiliency to a range of issues. CDNs, including Azure Front Door, provide caching at the network edge.
 
 CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
@@ -84,7 +84,7 @@ Using multiple CDNs comes with some tradeoffs.
 
 - By using a DNS traffic manager, you can randomize which CDN is chosen for a request. If you're not careful to implement consistent cache settings across CDNs (for example, [caching in Azure Front Door](/azure/frontdoor/front-door-caching)) you could you risk lower performance and higher costs for origin egress bandwidth.
 
-- A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
+- A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs to refill its cache from the origin. It can overload origin systems during that process.
 
 ## Contributors
 

@@ -4,7 +4,7 @@ description: Accelerate your Azure project by using a fully functional sandbox e
 author: doherty100
 ms.author: rdoherty
 ms.date: 08/24/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-devops
 ---
