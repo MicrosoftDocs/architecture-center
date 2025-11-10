@@ -26,7 +26,7 @@ In the single-region deployment, all core components, including the MongoDB Atla
 
 #### Architecture Diagram
 
-:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="Diagram showing MongoDB Atlas single-region architecture deployed in Azure with private endpoints, VNet integration, and monitoring components." lightbox="_images/mongodb-atlas-single-region.png":::
+:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="A diagram showing a single-region MongoDB Atlas deployment on Azure. It includes an Azure Virtual Network with subnets hosting applications and services secured by Network Security Groups and NAT Gateway. A private endpoint connects the VNet to a MongoDB Atlas cluster. Observability is represented by an Azure Function App scraping metrics from the MongoDB Atlas API and sending data to Azure Monitor and Application Insights dashboards." lightbox="_images/mongodb-atlas-single-region.png":::
 
 #### Workflow
 
@@ -45,7 +45,7 @@ For workloads with higher requirements for business continuity, the multi-region
 In this architecture, your workload compute is deployed in three regions. Each region connects to its own region's MongoDB Atlas resource.
 #### Architecture Diagram
 
-:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="Diagram illustrating MongoDB Atlas multi-region architecture with VNet peering across multiple Azure regions for high availability and disaster recovery." lightbox="_images/mongodb-atlas-multi-region.png":::
+:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="A diagram illustrating a multi-region MongoDB Atlas architecture on Azure. Three Azure regions are shown, each with its own Virtual Network hosting applications and services. Each region connects to its local MongoDB Atlas cluster via private endpoints. VNet peering links the regions for failover resilience. Observability is provided by Azure Function Apps querying MongoDB Atlas APIs, with metrics visualized in Application Insights dashboards." lightbox="_images/mongodb-atlas-multi-region.png":::
 
 #### Workflow
 
