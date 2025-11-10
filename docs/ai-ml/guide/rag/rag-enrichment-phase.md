@@ -22,7 +22,7 @@ This article is part of a series. Read the [introduction](./rag-solution-design-
 
 The following image shows a code sample of chunks that are enriched with data.
 
-:::image type="complex" border="true" source="./_images/enriching-chunks.png" alt-text="Diagram that shows JSON records. lightbox="./_images/enriching-chunks.png":::  
+:::image type="content" border="true" source="./_images/enriching-chunks.png" alt-text="Diagram that shows JSON records." lightbox="./_images/enriching-chunks.png":::
    A single field is being enriched. The diagram shows two rows of JSON. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into two JSON rows, each with six fields: Chunk, CleanedChunk, Title, Summary, keywords, and questions. Keywords and questions are arrays, and the other fields are name-value pairs.
 :::image-end:::
 

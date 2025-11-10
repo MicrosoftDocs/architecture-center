@@ -55,7 +55,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#cleaning-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
 > You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
@@ -87,7 +87,7 @@ The code that embeds the query preprocesses the query first. That preprocess sho
 
 [Full-text searches](/azure/search/search-lucene-query-architecture) match plain text that's stored in an index. It's common practice to extract keywords from a query and use those extracted keywords in a full-text search against one or more indexed columns. You can configure full-text searches to return matches if any terms or all terms match.
 
-Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augmenting-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
+Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augment-your-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
 
 The following sample code performs a full-text search against the title, content, and summary fields.
 

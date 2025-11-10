@@ -4,7 +4,7 @@ description: Learn how to analyze and gather representative content including do
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/10/2025
-ms.topic: conceptual-article
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ---
@@ -19,7 +19,7 @@ This article is part of a series. Read the [introduction](./rag-solution-design-
 
 The first step in this process is to clearly define the business requirements for the solution or use case. These requirements help you determine what kind of questions the solution should answer and what source data or documents help answer those questions. In later phases, the solution domain helps inform your embedding model strategy.
 
-## Content analysis
+## Analyze content
 
 The goal of content analysis is to gather enough information about your content collection to help you understand:
 
@@ -29,25 +29,25 @@ The goal of content analysis is to gather enough information about your content 
 
 - The security constraints. For example, you might require authentication and authorization to access the content depending on whether it's publicly accessible.
 
-- The structure and characteristics of the content. For example, the length of documents might vary, videos might have different durations and resolutions, audio files might contain speech or background music, or content might have topic breaks, contextually relevant images, or tabular data.
+- The structure and characteristics of the content. For example, the length of documents might vary, videos might have different durations and resolutions, audio files might contain speech or background music, or content might have subject breaks, contextually relevant images, or tabular data.
 
 The following sections describe how this information helps you choose your loading and chunking strategies.
 
 ### Understand content classifications
 
-You need to understand the different content classifications to help determine the number of test items that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance. It should also tell you about subclassifications, such as health insurance documents, car insurance documents, product demonstration videos, or customer service audio recordings. You also want to know whether the subclassifications have different structures, formats, or content characteristics.
+It's important to understand the different content classifications to help determine the number of test items that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance. It should also tell you about subclassifications, such as health insurance documents, car insurance documents, product demonstration videos, or customer service audio recordings. You also want to know whether the subclassifications have different structures, formats, or content characteristics.
 
 The goal is to understand all of the different content variants that you have. Then you can determine the number and breakdown of test content that you need. You don't want to over or under represent a specific content classification in your experimentation.
 
 ### Content types and formats
 
-When you understand the different file formats in your collection, it helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of the formats. If you also have video presentations and audio recordings of the same content, include them in your testing as well. Understanding your content types also helps you understand your technical requirements for loading and processing your content. The technical requirements include specific libraries that can process the file formats, transcription services for audio and video content, and computer vision models for image analysis.
+When you understand the different file formats in your collection, it helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of the formats. If you also have video presentations and audio recordings of the same content, include them in your testing as well. When you know your content types, you can better understand your technical requirements for loading and processing your content. The technical requirements include specific libraries that can process the file formats, transcription services for audio and video content, and computer vision models for image analysis.
 
 ### Security constraints
 
-Understanding security constraints is crucial for determining your loading and processing strategies. For example, you need to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it or implement a process to securely replicate the content to an accessible location for your processing code.
+You need to understand your security constraints to determine your loading and processing strategies. For example, it's crucial to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it or implement a process to securely replicate the content to an accessible location for your processing code.
 
-Documents sometimes reference or embeds images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary document itself. If the media requires authentication or network line of sight, you must make sure that your code can access the media or that you have a process in place to access and replicate the content. Also, consider privacy and compliance requirements when processing audio and video content that might contain personal data or sensitive conversations.
+Documents sometimes reference or embed images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary document itself. If the media requires authentication or network line of sight, you must make sure that your code can access the media or that you have a process in place to access and replicate the content. Also, consider privacy and compliance requirements when processing audio and video content that might contain personal data or sensitive conversations.
 
 If your workload requires that different users only have access to distinct content or content segments, ensure that you understand how to retain those access permissions in your chunking solution.
 
@@ -141,7 +141,7 @@ When you know the characteristics of your multimedia content, whether it contain
 
 #### Determine your table, chart, and other media-processing requirements
 
-When you understand what information is encapsulated in tables, charts, and other media, it helps you decide how you want to process it. The following questions can help you understand your table, chart, and other media-processing requirements.
+When you understand the information encapsulated in tables, charts, and other media, it helps you decide how you want to process it. The following questions can help you understand your table, chart, and other media-processing requirements.
 
 - Does the document have charts that include numbers?
 
@@ -189,7 +189,7 @@ To successfully gather test content, you should be *qualitatively confident* tha
 
 ## Gather test queries
 
-In this step, you gather test queries that you use to evaluate your chunks, your search solution, and your prompt engineering. Do this step while you gather the representative content. You should gather the queries and determine how the representative content addresses those queries at the same time. By having both the sample queries and the parts of the sample content that address those queries, you can evaluate every stage of the RAG solution while you experiment with different strategies and approaches.
+In this step, you gather test queries that you use to evaluate your chunks, your search solution, and your prompt engineering. Do this step while you gather the representative content. Gather the queries and determine how the representative content addresses those queries at the same time. By having both the sample queries and the parts of the sample content that address those queries, you can evaluate every stage of the RAG solution while you experiment with different strategies and approaches.
 
 ### Gather test query output
 
