@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Databricks to Orchestrate MLOps
-  description: Learn about an approach for machine learning operations that uses Azure Databricks to run model training and batch scoring.
+  description: Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
   author: prabdeb
   ms.author: prdeb
   ms.date: 09/25/2025
@@ -12,7 +12,7 @@ metadata:
 name: Use Azure Databricks to orchestrate MLOps
 azureCategories:
   - ai-machine-learning
-summary: Learn about an approach for machine learning operations that uses Azure Databricks to run model training and batch scoring.
+summary: Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
 products:
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-machine-learning-azure-databricks.png
