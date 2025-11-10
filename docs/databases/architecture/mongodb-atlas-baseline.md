@@ -24,7 +24,7 @@ This architecture provides a foundation for scalable, resilient, and secure appl
 
 In the single-region deployment, all core components, including the MongoDB Atlas cluster, Azure Virtual Network, monitoring, and supporting application infrastructure, are provisioned within a single Azure region. This setup is ideal for applications with regional data residency requirements or when resilience to regional failure is not a primary concern.
 
-#### Architecture Diagram
+#### Architecture diagram
 
 :::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="A diagram showing a single-region MongoDB Atlas deployment on Azure. It includes an Azure Virtual Network with subnets hosting applications and services secured by Network Security Groups and NAT Gateway. A private endpoint connects the VNet to a MongoDB Atlas cluster. Observability is represented by an Azure Function App scraping metrics from the MongoDB Atlas API and sending data to Azure Monitor and Application Insights dashboards." lightbox="_images/mongodb-atlas-single-region.png":::
 
@@ -43,7 +43,8 @@ Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/arch
 For workloads with higher requirements for business continuity, the multi-region architecture distributes MongoDB Atlas cluster nodes and supporting infrastructure across multiple Azure regions in an active-passive topology. The design uses virtual network peering and multiple private endpoints to provide redundant connectivity, even in the event of a regional outage.
 
 In this architecture, your workload compute is deployed in three regions. Each region connects to its own region's MongoDB Atlas resource.
-#### Architecture Diagram
+
+#### Architecture diagram
 
 :::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="A diagram illustrating a multi-region MongoDB Atlas architecture on Azure. Three Azure regions are shown, each with its own Virtual Network hosting applications and services. Each region connects to its local MongoDB Atlas cluster via private endpoints. VNet peering links the regions for failover resilience. Observability is provided by Azure Function Apps querying MongoDB Atlas APIs, with metrics visualized in Application Insights dashboards." lightbox="_images/mongodb-atlas-multi-region.png":::
 
@@ -67,18 +68,6 @@ The architecture brings together several core components to deliver security, sc
 - **Network Security Groups (NSGs)**: Enforce network segmentation and secure outbound connectivity.
 - **Observability**: [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility.
 - **Infrastructure Automation**: Terraform modules and GitHub Actions enable infrastructure as code, automation, and repeatable deployments.
-
-### Alternatives
-
-When considering the deployment of MongoDB Atlas in Azure, several alternative database services and deployment patterns may be evaluated based on organizational requirements, technical constraints, and existing skill sets:
-
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a managed, globally distributed NoSQL database service that supports multiple APIs, including MongoDB API compatibility. While Cosmos DB offers high availability and low latency, it may not provide complete parity with all MongoDB Atlas features. Workloads requiring a fully Azure-native solution with API-level compatibility might consider Cosmos DB but should review functional differences and potential migration impacts.
-
-- **Self-Managed MongoDB on Azure Virtual Machines**: Workloads may choose to deploy and manage MongoDB clusters directly on Azure infrastructure using virtual machines. While this approach offers maximum control, it increases operational overhead and places responsibility for maintenance, scaling, backups, and security on the database operator.
-
-- **Other cloud-hosted MongoDB providers**: You might evaluate other MongoDB hosting solutions or multi-cloud strategies to meet specific regulatory, operational, or business requirements.
-
-Each alternative has its own trade-offs in terms of cost, operational complexity, skill requirements, and feature set. Carefully assess your scenario, data architecture, and operational goals before selecting a solution.
 
 ### Security considerations
 
