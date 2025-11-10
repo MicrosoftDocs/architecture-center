@@ -33,7 +33,7 @@ In the single-region deployment, all core components, including the MongoDB Atla
 The following steps describe the end-to-end workflow for the single-region scenario. Each step corresponds to a numbered element in the architecture diagram:
 
 1. **Application or service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
-2. **MongoDB Atlas Cluster**: The MongoDB Atlas clusers are visible through a private endpoint connection and can connect to the applications or services deployed in the secured Virtual Network.
+2. **MongoDB Atlas Cluster**: The MongoDB Atlas clusters are visible through a private endpoint connection and the applications or services deployed in the secured Virtual Network can connect to them over private networking.
 3. **Observability**: Because MongoDB Altas clusters do not have native Azure Monitor integrations, you need to periodically scape the metrics API and send that data to Azure Monitor yourself. We recommend a customer build a custom Azure Function App that periodically queries the MongoDB Atlas API to gather and store database health and performance metrics. That data can then be visualized in Application Insights dashboards and queried in Azure Monitor.
 
 Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/architecture/current/deployment-paradigms/single-region/) for more detailed information on single region architecture.
