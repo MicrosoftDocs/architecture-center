@@ -50,7 +50,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
-- [API design](./microservices/design/api-design.yml) ([#8440f3852c](https://github.com/MicrosoftDocs/architecture-center/commit/8440f3852c))
+- [API design](./microservices/design/api-design.md) ([#8440f3852c](https://github.com/MicrosoftDocs/architecture-center/commit/8440f3852c))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#aa3d8316fd](https://github.com/MicrosoftDocs/architecture-center/commit/aa3d8316fd))
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml) ([#393206c28f](https://github.com/MicrosoftDocs/architecture-center/commit/393206c28f))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#0fcbbd784c](https://github.com/MicrosoftDocs/architecture-center/commit/0fcbbd784c))

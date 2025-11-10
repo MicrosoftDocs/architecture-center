@@ -56,7 +56,7 @@ items:
             - name: Interservice communication
               href: microservices/design/interservice-communication.yml
             - name: API design
-              href: microservices/design/api-design.yml
+              href: microservices/design/api-design.md
             - name: API gateways
               href: microservices/design/gateway.yml
             - name: Data considerations

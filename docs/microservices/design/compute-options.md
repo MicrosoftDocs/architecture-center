@@ -121,4 +121,4 @@ Consider the following factors when you choose between an orchestrator approach 
 - [Design interservice communication for microservices](./interservice-communication.yml)
 - [Use domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.md)
-- [Design APIs for microservices](../design/api-design.yml)
+- [Design APIs for microservices](../design/api-design.md)
