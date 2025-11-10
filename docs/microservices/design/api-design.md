@@ -14,7 +14,7 @@ ms.custom: arb-web
 A microservices architecture requires good API design because all data exchange between services occurs either through messages or API calls. Efficient APIs help prevent [chatty input/output (I/O)](../../antipatterns/chatty-io/index.md). Independent teams design services, so you must define API semantics and versioning schemes clearly to avoid breaking other services when you update a service.
 
 :::image type="complex" border="false" source="../images/api-design.png" alt-text="API design for microservices." lightbox="../images/api-design.png":::
-
+The diagram shows a flow between a client and three back-end services through a central scheduler service. An arrow labeled HTTP POST points from the client to the scheduler service, with a response code 202 (Accepted) next to the arrow. From the scheduler service, three arrows point to separate services on the right. The top arrow points to user accounts service, labeled HTTP GET, with a response code 200 (OK). The middle arrow points to package service, labeled HTTP PUT, with a response code 201 (Created). The bottom arrow points to delivery service, also labeled HTTP PUT, with a response code 201 (Created).
 :::image-end:::
 
 You must distinguish between the two types of API:
@@ -38,7 +38,7 @@ Consider the following factors when you decide how to implement an API:
 
 - **Efficiency:** Consider efficiency in terms of speed, memory, and payload size. Typically a gRPC-based interface is faster than REST over HTTP.
 
-- **Interface definition language (IDL):** Use An IDL to define the methods, parameters, and return values of an API. An IDL can generate client code, serialization code, and API documentation. API testing tools consume IDLs. Frameworks such as gRPC, Avro, and Thrift define their own IDL specifications. REST over HTTP doesn't have a standard IDL format, but a common choice is OpenAPI (formerly Swagger). You can also create an HTTP REST API without using a formal definition language, but you lose the benefits of code generation and testing.
+- **Interface definition language (IDL):** Use An IDL to define the methods, parameters, and return values of an API. An IDL can generate client code, serialization code, and API documentation. API testing tools consume IDLs. Frameworks like gRPC, Avro, and Thrift define their own IDL specifications. REST over HTTP doesn't have a standard IDL format, but a common choice is OpenAPI (formerly Swagger). You can also create an HTTP REST API without using a formal definition language, but you lose the benefits of code generation and testing.
 
 - **Serialization:** Choose how to serialize objects serialized over the wire. Options include text-based formats like JSON and binary formats like protocol buffer. Binary formats are faster than text-based formats. But JSON provides broader interoperability because most languages and frameworks support JSON serialization. Some serialization formats require a fixed schema or a compiled schema definition file. In that case, you must incorporate this step into your build process. For more information, see [Message encoding best practices](/azure/architecture/best-practices/message-encode).
 
@@ -93,7 +93,7 @@ Avoid generic data access APIs in the following situations:
 
 ## Map REST to DDD patterns
 
-Patterns like entity, aggregate, and value object define constraints for objects in a domain model. Many domain-driven design (DDD) discussionsd describe these patterns by using object-oriented (OO) language concepts like constructors or property getters and setters. For example, *value objects* are supposed to be immutable. In an OO programming language, you enforce this constraint by assigning the values in the constructor and making the properties read-only:
+Patterns like entity, aggregate, and value object define constraints for objects in a domain model. Many domain-driven design (DDD) discussions describe these patterns by using object-oriented (OO) language concepts like constructors or property getters and setters. For example, *value objects* are supposed to be immutable. In an OO programming language, you enforce this constraint by assigning the values in the constructor and making the properties read-only:
 
 ```ts
 export class Location {
@@ -118,7 +118,7 @@ These coding practices play an important role in building a traditional monolith
 The Repository pattern provides another example. This pattern ensures that other parts of the application don't make direct reads or writes to the data store.
 
 :::image type="complex" border="false" source="../images/repository.png" alt-text="Diagram of a drone repository." lightbox="../images/repository.png":::
-
+The diagram shows the data flow between a drone entity, a drone repository, and a data store. An arrow labeled GetDrone() points from the drone entity toward the drone repository, which indicates a request to retrieve drone data. Another arrow points back from the drone repository to the drone entity, which shows the return of the requested data. Two other arrows connect the drone repository to the data store. Two arrows indicate bidirectional communication between the data store and the drone repository.
 :::image-end:::
 
 In a microservices architecture, services don't share the same code base or a data store. Instead, they communicate through APIs. For example, a scheduler service might request information about a drone from a drone service. The drone service defines its internal drone model through code. But the scheduler can't access these details directly. Instead, the scheduler receives a *representation* of the drone entity—like a JSON object in an HTTP response.
@@ -126,7 +126,7 @@ In a microservices architecture, services don't share the same code base or a da
 This example applies well to the aircraft and aerospace industries.
 
 :::image type="complex" border="false" source="../images/ddd-rest.png" alt-text="Diagram of the Drone service." lightbox="../images/ddd-rest.png":::
-
+The diagram shows the interaction between a scheduler service and a drone service, which communicates with a data store. On the left, a scheduler service sends an HTTP GET request to the drone service with the endpoint /api/drone. An arrow points back to the scheduler service, labeled with a response that contains JSON { … }. The drone service contains an HTTP request handler and a repository. The HTTP request handler receives the GET request. The repository connects to the data store. Two arrows indicate bidirectional communication between the repository and the data store. Inside the drone service, two arrows indicate bidirectional communication between the HTTP request handler and the repository. The arrow from the repository to the HTTP request handler is labeled drone (entity), which represents the domain object returned by the repository.
 :::image-end:::
 
 The scheduler service can't modify the drone service's internal models or write to the drone service's data store. So the code that implements the drone service has a smaller exposed surface area compared to code in a traditional monolith. If the drone service defines a Location class, the scope of that class is limited—no other service directly consumes the class.
@@ -166,7 +166,7 @@ Make API changes backward compatible whenever possible. For example, avoid remov
 Support versioning in your API contract. If you introduce a breaking API change, introduce a new API version. Continue to support the previous version, and let clients select which version to call. One way to do versioning is to expose both versions in the same service. Another option is to run two versions of the service side-by-side and route requests to one or the other version based on HTTP routing rules.
 
 :::image type="complex" source="../images/versioning.png" alt-text="Diagram showing two options for supporting versioning.":::
-   The diagram has two parts. "Service supports two versions" shows the v1 Client and the v2 Client both pointing to one Service. "Side-by-side deployment" shows the v1 Client pointing to a v1 Service, and the v2 Client pointing to a v2 Service.
+The diagram has two parts. "Service supports two versions" shows the v1 Client and the v2 Client both pointing to one Service. "Side-by-side deployment" shows the v1 Client pointing to a v1 Service, and the v2 Client pointing to a v2 Service.
 :::image-end:::
 
 Multiple versions add cost in terms of developer time, testing, and operational overhead. Deprecate old versions as quickly as possible. For internal APIs, the team that owns the API can work with other teams to help them migrate to the new version. Cross-team governance process is useful here. External (public) APIs can be harder to deprecate an API version, especially if external or native client applications consume the API.
@@ -177,19 +177,19 @@ For more information, see [Versioning a RESTful web API](../../best-practices/ap
 
 ## Idempotent operations
 
-An operation is *idempotent* if it can be called multiple times without producing more side-effects after the first call. Idempotency can be a useful resiliency strategy, because it allows an upstream service to safely invoke an operation multiple times. For a discussion of this point, see [Distributed transactions](./interservice-communication.yml#distributed-transactions).
+An operation is *idempotent* if it can be called multiple times without producing more side effects after the first call. Idempotency serves as a useful resiliency strategy, because it allows an upstream service to safely invoke an operation multiple times. For more information, see [Distributed transactions](./interservice-communication.yml#distributed-transactions).
 
-The HTTP specification states that GET, PUT, and DELETE methods must be idempotent. POST methods aren't guaranteed to be idempotent. If a POST method creates a new resource, there's generally no guarantee that this operation is idempotent. The specification defines idempotent this way:
+The HTTP specification states that GET, PUT, and DELETE methods must be idempotent. POST methods aren't guaranteed to be idempotent. If a POST method creates a new resource, there's generally no guarantee that this operation is idempotent. The specification defines idempotent in the following way:
 
-> A request method is considered "idempotent" if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. ([RFC 7231](https://tools.ietf.org/html/rfc7231#section-4))
+> A request method is considered *idempotent* if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. ([RFC 7231](https://tools.ietf.org/html/rfc7231#section-4))
 
-It's important to understand the difference between PUT and POST semantics when creating a new entity. In both cases, the client sends a representation of an entity in the request body. But the meaning of the URI is different.
+Understand the difference between PUT and POST semantics when you create a new entity. In both cases, the client sends a representation of an entity in the request body. But the meaning of the uniform resource identifier (URI) is different.
 
-- For a POST method, the URI represents a parent resource of the new entity, such as a collection. For example, to create a new delivery, the URI might be `/api/deliveries`. The server creates the entity and assigns it a new URI, such as `/api/deliveries/39660`. This URI is returned in the Location header of the response. Each time the client sends a request, the server creates a new entity with a new URI.
+- For a POST method, the URI represents a parent resource of the new entity, like a collection. For example, to create a new delivery, the URI might be `/api/deliveries`. The server creates the entity and assigns it a new URI, like `/api/deliveries/39660`. This URI is returned in the Location header of the response. Each time the client sends a request, the server creates a new entity that has a new URI.
 
-- For a PUT method, the URI identifies the entity. If there already exists an entity with that URI, the server replaces the existing entity with the version in the request. If no entity exists with that URI, the server creates one. For example, suppose the client sends a PUT request to `api/deliveries/39660`. Assuming there's no delivery with that URI, the server creates a new one. Now if the client sends the same request again, the server replaces the existing entity.
+- For a PUT method, the URI identifies the entity. If an existing entity has that URI, the server replaces the existing entity with the version in the request. If no entity uses that URI, the server creates one. For example, suppose the client sends a PUT request to `api/deliveries/39660`. If no delivery resource uses that URI, the server creates a new one. If the client sends the same request again, the server replaces the existing entity.
 
-Here's the Delivery service's implementation of the PUT method.
+The delivery service uses the following code to implement the PUT method:
 
 ```csharp
 [HttpPut("{id}")]
@@ -214,7 +214,7 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
     }
     catch (DuplicateResourceException)
     {
-        // This method is mainly used to create deliveries. If the delivery already exists then update it.
+        // This method is mainly used to create deliveries. If the delivery already exists, then update it.
         logger.LogInformation("Updating resource with delivery id: {DeliveryId}", id);
 
         var internalDelivery = delivery.ToInternal();
@@ -230,7 +230,7 @@ Most requests create a new entity, so the method optimistically calls `CreateAsy
 
 ## Next steps
 
-Learn about using an API gateway at the boundary between client applications and microservices.
+Learn how to use an API gateway at the boundary between client applications and microservices.
 
 > [!div class="nextstepaction"]
 > [API gateways](./gateway.yml)
