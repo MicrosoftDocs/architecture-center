@@ -36,7 +36,7 @@ The following data flow corresponds to the previous diagram:
 
 - An [Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for resources. Each Azure resource is associated with only one subscription. In this architecture, subscriptions organize and isolate resources, and you move them between tenants during migration.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) provides developer services that can help teams plan work, collaborate on code development, and build and deploy applications. In this architecture, it supports IaC and automates resource deployment in the target tenant.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a cloud platform that provides developer tools to help teams plan, collaborate on code, and build and deploy applications. In this architecture, it supports IaC and automates resource deployment in the target tenant.
 
 - [Azure Backup](/azure/backup/backup-overview) is a service that backs up and restores data in Azure. In this architecture, it ensures data protection and enables recovery during the migration process.
 
