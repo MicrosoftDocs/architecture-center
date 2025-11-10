@@ -73,10 +73,7 @@ The architecture brings together several core components to deliver security, sc
 
 Most databases store sensitive data. Implementing security only at the database level isn't enough to secure the workloads. Defense in-depth is a comprehensive approach to security that implements multiple layers of defense mechanisms to protect data. Instead of relying on a single security measure at a specific level, such as focusing only on network security mechanisms, the defense in-depth strategy uses a combination of different layer security measures to create a robust security posture. You can architect the defense in-depth approach for MongoDB Atlas workloads by using hardened network security with private endpoints and virtual network peering from the Azure infrastructure side. For detailed information about MongoDB Atlas security features, see [MongoDB Atlas Security](https://www.mongodb.com/docs/atlas/setup-cluster-security/).
 
-The Azure infrastructure hosting applications that connect to MongoDB Atlas must be secured against unauthorized access. In this architecture, MongoDB Atlas connectivity is established through private endpoints, which provide the following security benefits:
-
-- **Private connectivity**: Traffic between Azure resources and MongoDB Atlas never traverses the public internet.
-- **Network isolation**: Private endpoints are deployed within your Azure VNet, providing network-level isolation
+The Azure infrastructure hosting applications that connect to MongoDB Atlas must be secured against unauthorized access. In this architecture, MongoDB Atlas connectivity is established through private endpoints, which ensures all traffic between the workload and databases only traverses private networking.
 
 Depending on your use case and requirements, evaluate whether additional Microsoft security services beyond those listed, like Azure Firewall, Azure DDoS Protection, Defender for Cloud, and Azure Key Vault are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
 >
