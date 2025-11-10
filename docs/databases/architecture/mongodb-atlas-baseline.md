@@ -64,7 +64,7 @@ The architecture brings together several core components to deliver security, sc
 
 - **[MongoDB Atlas (Managed Service)](/azure/partner-solutions/mongo-db/overview)**: Provides managed database clusters with automated backups, high availability, and optional multi-region deployment. Atlas role-based access control (RBAC) ensures fine-grained data security.
 - **Azure Virtual Networks and [Private Endpoints](/azure/private-link/private-endpoint-overview)**: Ensure all communications between Azure resources and MongoDB Atlas are private and encrypted, never traversing the public internet.
-- **Network Security Groups (NSGs) and [NAT Gateways](/azure/nat-gateway/nat-overview)**: Enforce network segmentation and secure outbound connectivity.
+- **Network Security Groups (NSGs)**: Enforce network segmentation and secure outbound connectivity.
 - **Observability**: [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility.
 - **Infrastructure Automation**: Terraform modules and GitHub Actions enable infrastructure as code, automation, and repeatable deployments.
 
