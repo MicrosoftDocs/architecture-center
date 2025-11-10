@@ -18,7 +18,7 @@ items:
           href: idea/next-order-forecasting.yml
       - name: MLOps
         items:
-        - name: Use Azure Databricks to orchestrate machine learning operations (MLOps)
+        - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml
