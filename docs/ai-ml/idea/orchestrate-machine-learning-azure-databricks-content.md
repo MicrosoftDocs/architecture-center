@@ -6,7 +6,7 @@ This solution can take advantage of full automation, continuous monitoring, and 
 
 ## Architecture
 
-:::image type="complex" source="_images/orchestrate-machine-learning-azure-databricks.svg" alt-text="Diagram that shows a solution for using Azure Databricks for machine learning operations." lightbox="_images/orchestrate-machine-learning-azure-databricks.svg" border="false":::
+:::image type="complex" source="_images/orchestrate-machine-learning-azure-databricks.svg" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="_images/orchestrate-machine-learning-azure-databricks.svg" border="false":::
   This diagram shows the 12 steps of the workflow. The lakehouse production data section includes the data table, feature table, and lakehouse table for model metrics. The source control section includes development, staging, and release environments and uses Azure DevOps and GitHub. In the main development environment, step 1 is exploratory data analysis (EDA) that reads data from the data table. Step 2 is model training that reads data from the data table and feature table. Step 3 commits code to the development environment in source control. Step 4 merges a request to the staging environment. The source control staging environment initiates step 5, which runs unit and continuous integration tests in the main staging environment and reads data from the feature table and data table. After this testing, code changes merge to the source control staging environment. Step 6 builds a release branch in the release environment and an arrow from the release environment to the main production environment indicates Deploy machine learning Databricks jobs. In the main production environment, step 7 is feature table refresh, which reads data from the data table and writes to the feature table. Step 8 is model training, which uses data from drift detection and model retraining and pushes the model to Unity Catalog. Step 9 is model evaluation and promotion, which loads the model from Unity Catalog for evaluation and then sends the model to staging and production in Unity Catalog. Step 10 is model deployment, which loads the model for inferencing and reads data from the feature table. Step 11 is monitoring, which reads data from the feature table and lakehouse table model metrics and writes data to the lakehouse table and Azure Monitor. Step 12 is model retraining, which points to step 8 with an arrow labeled Trigger model retraining.
 :::image-end:::
 
@@ -82,7 +82,7 @@ Machine learning engineers manage the production environment, where machine lear
 
   - [Mosaic AI Model Serving](/azure/databricks/machine-learning/model-serving) is a service that hosts MLflow models as REST endpoints. In this architecture, it enables deployed machine learning models to serve predictions through APIs.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a managed platform for analytics and machine learning. In this architecture, Azure Databricks integrates with enterprise security, provides high availability, and connects MLflow and other machine learning components for end-to-end machine learning operations.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a managed platform for analytics and machine learning. In this architecture, Azure Databricks integrates with enterprise security, provides high availability, and connects MLflow and other machine learning components for end-to-end MLOps.
 
   - [Databricks Runtime for Machine Learning](/azure/databricks/machine-learning/databricks-runtime-ml) is a preconfigured environment that automates the creation of a cluster that's optimized for machine learning and preinstalls popular machine learning libraries like TensorFlow, PyTorch, and XGBoost. It also preinstalls Azure Databricks for Machine Learning tools, like AutoML and feature store clients. In this architecture, it provides ready-to-use clusters with popular machine learning libraries and tools.
 
@@ -108,9 +108,9 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 ## Scenario details
 
-This solution provides a robust machine learning operations process that uses Azure Databricks. You can replace all elements in the architecture, so you can integrate other Azure services and partner services as needed. This architecture and description are adapted from the e-book *[The Big Book of MLOps: Second Edition](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops)*. The e-book explores this architecture in more detail.
+This solution provides a robust MLOps process that uses Azure Databricks. You can replace all elements in the architecture, so you can integrate other Azure services and partner services as needed. This architecture and description are adapted from the e-book *[The Big Book of MLOps: Second Edition](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops)*. The e-book explores this architecture in more detail.
 
-Machine learning operations reduce the risk of failures in machine learning and AI systems and improve the efficiency of collaboration and tooling. For an introduction to machine learning operations and an overview of this architecture, see [Architect machine learning operations on the lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
+MLOps helps reduce the risk of failures in machine learning and AI systems and improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architect MLOps on the lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
 Use this architecture to take the following actions:
 
@@ -118,10 +118,10 @@ Use this architecture to take the following actions:
 
 - **Focus your machine learning infrastructure around data.** This architecture treats machine learning data just like other data. Machine learning data includes data from feature engineering, training, inference, and monitoring. This architecture reuses tooling for production pipelines, dashboarding, and other general data processing for machine learning data processing.
 
-- **Implement machine learning operations in modules and pipelines.** As with any software application, use the modularized pipelines and code in this architecture to test individual components and decrease the cost of future refactoring.
+- **Implement MLOps in modules and pipelines.** As with any software application, use the modularized pipelines and code in this architecture to test individual components and decrease the cost of future refactoring.
 
 
-- **Automate your machine learning operations processes as needed.** In this architecture, you can automate steps to improve productivity and reduce the risk of human error, but you don't need to automate each step. Azure Databricks permits user interface (UI) and manual processes, as well as APIs for automation.
+- **Automate your MLOps processes as needed.** In this architecture, you can automate steps to improve productivity and reduce the risk of human error, but you don't need to automate each step. Azure Databricks permits user interface (UI) and manual processes, as well as APIs for automation.
 
 ### Potential use cases
 
@@ -144,9 +144,9 @@ The architecture applies to all types of industries and business use cases. Azur
 
 For more information, see [Databricks customers](https://databricks.com/customers).
 
-### Foundation model fine-tuning in machine learning operations workflows
+### Foundation model fine-tuning in MLOps workflows
 
-As more organizations use large language models for specialized tasks, they must add foundation model fine-tuning to the machine learning operations process. You can use Azure Databricks to fine-tune foundation models with your data. This capability supports custom applications and a mature machine learning operations process. In the context of the machine learning operations architecture in this article, fine-tuning aligns with several best practices:
+As more organizations use large language models for specialized tasks, they must add foundation model fine-tuning to the MLOps process. You can use Azure Databricks to fine-tune foundation models with your data. This capability supports custom applications and a mature MLOps process. In the context of the MLOps architecture in this article, fine-tuning aligns with several best practices:
 
 - **Modularized pipelines and codes:** Fine-tuning tasks can be encapsulated as modular components within the training pipeline. This structure enables isolated evaluation and simplifies refactoring.
 
@@ -156,7 +156,7 @@ As more organizations use large language models for specialized tasks, they must
 
 - **Automation and CI/CD:** Fine-tuning jobs can be initiated via Databricks workflows or CI/CD pipelines. This process supports continuous learning and model refresh cycles.
 
-This approach lets teams maintain high machine learning operations maturity while using the flexibility and power of foundation models. For more information, see [Foundation model fine-tuning](/azure/databricks/large-language-models/foundation-model-training).
+This approach lets teams maintain high MLOps maturity while using the flexibility and power of foundation models. For more information, see [Foundation model fine-tuning](/azure/databricks/large-language-models/foundation-model-training).
 
 ## Contributors
 
@@ -181,5 +181,5 @@ Other contributors:
 
 ## Related resources
 
-- [Machine learning operations maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
-- [Machine learning operations v2](../../ai-ml/guide/machine-learning-operations-v2.md)
+- [MLOps maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
+- [MLOps v2](../../ai-ml/guide/machine-learning-operations-v2.md)
