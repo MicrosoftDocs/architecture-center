@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure-data-explorer
   - azure-functions
-  - azure-metrics-advisor
+  - fabric
   - azure-blob-storage
   - azure-event-hubs
 name: Build real-time monitoring and observable systems for media 
