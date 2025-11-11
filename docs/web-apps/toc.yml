@@ -51,7 +51,7 @@ items:
             - name: .NET
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
             - name: Java
-              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
+              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.md
           - name: Modern Web App pattern
             items:
             - name: .NET

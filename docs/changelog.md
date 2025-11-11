@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 11/03/2025
+ms.date: 11/10/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,7 +22,22 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml) ([#080ee6c89b](https://github.com/MicrosoftDocs/architecture-center/commit/080ee6c89b))
+- [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#9523c80384](https://github.com/MicrosoftDocs/architecture-center/commit/9523c80384))
+- [Azure Icons](./icons/index.md) ([#e780b39549](https://github.com/MicrosoftDocs/architecture-center/commit/e780b39549))
+- [Choose a Data Pipeline Orchestration Technology](./data-guide/technology-choices/pipeline-orchestration-data-movement.md) ([#d5bb3ca2d3](https://github.com/MicrosoftDocs/architecture-center/commit/d5bb3ca2d3))
+- [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml) ([#42e20acc18](https://github.com/MicrosoftDocs/architecture-center/commit/42e20acc18))
+- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#06fd492d4b](https://github.com/MicrosoftDocs/architecture-center/commit/06fd492d4b))
+- [Background jobs guidance](./best-practices/background-jobs.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Caching guidance](./best-practices/caching.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [CDN guidance](./best-practices/cdn.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Transient fault handling](./best-practices/transient-faults.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-outbox-cosmos.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 
 ## October 2025
 
@@ -147,7 +162,7 @@ The following new and updated articles have recently been published in the Azure
 - [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#e29a661cae](https://github.com/MicrosoftDocs/architecture-center/commit/e29a661cae))
-- [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
@@ -246,7 +261,7 @@ The following new and updated articles have recently been published in the Azure
 - [Compare AWS and Azure database technology](./aws-professional/databases.md) ([#1777f1607c](https://github.com/MicrosoftDocs/architecture-center/commit/1777f1607c))
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#f11cac6fb0](https://github.com/MicrosoftDocs/architecture-center/commit/f11cac6fb0))
 - [Design for Self-Healing](./guide/design-principles/self-healing.md) ([#823d678ff1](https://github.com/MicrosoftDocs/architecture-center/commit/823d678ff1))
-- [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
+- [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
 - [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
 - [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
 - [Measure Azure App Sustainability by Using the SCI Score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))

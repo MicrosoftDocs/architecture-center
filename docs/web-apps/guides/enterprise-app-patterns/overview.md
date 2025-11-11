@@ -29,7 +29,7 @@ This pattern assumes that your organization has an established [landing zone](/a
 >[Reliable Web App pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for Java](./reliable-web-app/java/guidance.yml)
+>[Reliable Web App pattern for Java](reliable-web-app/java/guidance.md)
 
 ## Modern Web App pattern
 

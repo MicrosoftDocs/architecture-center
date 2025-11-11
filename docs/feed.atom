@@ -2,18 +2,138 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-11-03T17:50:20.492Z</updated>
+    <updated>2025-11-10T18:26:21.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
+        <title type="html"><![CDATA[Build Real-Time Monitoring and Observable Systems for Media]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media"/>
+        <updated>2025-11-07T22:18:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build scalable real-time monitoring architecture for media streaming by using Azure Event Hubs, Fabric eventstreams, and Data Activator.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Icons]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//icons</id>
+        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
+        <updated>2025-11-07T20:09:04.000Z</updated>
+        <summary type="html"><![CDATA[Download official Azure icons, Azure logo files, and Azure architecture icons to create clear, professional cloud diagrams.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Data Pipeline Orchestration Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement"/>
+        <updated>2025-11-07T22:13:29.000Z</updated>
+        <summary type="html"><![CDATA[Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design a Secure Research Environment for Regulated Data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
+        <updated>2025-11-07T22:11:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resilient design guidance for Event Hubs and Functions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/resilient-design</id>
+        <link href="https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/resilient-design"/>
+        <updated>2025-11-07T22:04:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop resilient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Caching guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/caching</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CDN guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/cdn</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/cdn"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data partitioning guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data partitioning strategies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure AI Search, Azure storage queues, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring and diagnostics guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/monitoring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/monitoring"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Transient fault handling]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/transient-faults</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/transient-faults"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[DR for Azure Data Platform - Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
-        <updated>2025-11-03T17:27:11.000Z</updated>
+        <updated>2025-11-05T18:05:18.000Z</updated>
         <summary type="html"><![CDATA[Second article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Transactional Outbox pattern with Azure Cosmos DB]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/transactional-outbox-cosmos</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/transactional-outbox-cosmos"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate a web app by using Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/apim-api-scenario</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/apim-api-scenario"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
+        <updated>2025-11-05T18:05:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -881,11 +1001,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build real-time monitoring and observable systems for media]]></title>
+        <title type="html"><![CDATA[Build Real-Time Monitoring and Observable Systems for Media]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media"/>
         <updated>2025-09-16T19:04:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data.]]></summary>
+        <summary type="html"><![CDATA[Learn how to build scalable real-time monitoring architecture for media streaming by using Azure Event Hubs, Fabric eventstreams, and Data Activator.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1609,11 +1729,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build real-time monitoring and observable systems for media]]></title>
+        <title type="html"><![CDATA[Build Real-Time Monitoring and Observable Systems for Media]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/monitoring/monitoring-observable-systems-media"/>
         <updated>2025-08-21T18:12:08.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data.]]></summary>
+        <summary type="html"><![CDATA[Learn how to build scalable real-time monitoring architecture for media streaming by using Azure Event Hubs, Fabric eventstreams, and Data Activator.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
