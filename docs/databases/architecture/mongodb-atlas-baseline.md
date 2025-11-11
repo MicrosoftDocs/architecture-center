@@ -77,7 +77,7 @@ The Azure infrastructure hosting applications that connect to MongoDB Atlas must
 
 Use Azure Key Vault to store keys and secrets, like the client secret used for the monitoring function in this architecture.
 
-Depending on your use case and requirements, evaluate whether additional Microsoft security services beyond those listed, like Azure Firewall, Azure DDoS Protection, Defender for Cloud, and Azure Key Vault are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
+Depending on your use case and requirements, evaluate whether additional Microsoft security services beyond those listed, like Azure Firewall, Azure DDoS Protection, and Defender for Cloud are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
 >
 > - [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview)
 > - [Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
@@ -102,7 +102,7 @@ Refer to the [How to Monitor MongoDB](https://www.mongodb.com/resources/products
 
 Configure **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, review the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
 
-> ![NOTE]
+> [!NOTE]
 > Azure Monitor cannot read Atlas metrics directly. Use Atlas [webhooks](https://www.mongodb.com/docs/atlas/cli/current/command/atlas-integrations-create-WEBHOOK/) or supported [integrations](https://www.mongodb.com/docs/atlas/tutorial/third-party-service-integrations/#view-third-party-integrations) to ingest them.
 
 ## Backup and recovery
