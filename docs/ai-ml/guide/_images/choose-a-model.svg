@@ -366,16 +366,16 @@
     <text transform="translate(141.87295 372.46345)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Yes</tspan></text>
     <text transform="translate(70.60923 156.95158)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">task fit</tspan></text>
     <text transform="translate(284.98998 522.66368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Restart search.</tspan></text>
-    <text transform="translate(668.07774 227.52764)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Explore benchmarks</tspan></text>
-    <text transform="translate(682.69688 302.35878)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use evaluators</tspan></text>
-    <text transform="translate(672.56602 381.52765)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Try on playground</tspan></text>
-    <text transform="translate(148.23269 420.94319)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use fine-tuning</tspan></text>
+    <text transform="translate(668.07774 227.52764)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Explore benchmarks.</tspan></text>
+    <text transform="translate(682.69688 302.35878)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use evaluators.</tspan></text>
+    <text transform="translate(672.56602 381.52765)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Try on playground.</tspan></text>
+    <text transform="translate(148.23269 420.94319)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Use fine-tuning.</tspan></text>
     <text transform="translate(892.8173 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Can it work </tspan><tspan x="0" y="14.3999">with others?</tspan></text>
-    <text transform="translate(858.35422 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Extend it</tspan></text>
+    <text transform="translate(858.35422 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Extend it.</tspan></text>
     <text transform="translate(1001.77677 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Is the model </tspan><tspan x="0" y="14.3999">swappable?</tspan></text>
-    <text transform="translate(963.5189 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Replace it</tspan></text>
+    <text transform="translate(963.5189 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Replace it.</tspan></text>
     <text transform="translate(1111.06132 280.86368)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Is the model </tspan><tspan x="0" y="14.3999">fine-tunable?</tspan></text>
-    <text transform="translate(1065.79557 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Customize it</tspan></text>
+    <text transform="translate(1065.79557 381.53818)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Customize it.</tspan></text>
     <text transform="translate(273.36494 461.82542)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for your </tspan><tspan x="-16.70508" y="14.3999">budget. Use new criteria.</tspan></text>
     <text transform="translate(458.3278 515.0435)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for requirements. </tspan><tspan x="27.2666" y="14.3999">Retry new criteria.</tspan></text>
     <text transform="translate(40.03246 515.0435)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">No match for requirements. </tspan><tspan x="27.2666" y="14.3999">Retry new criteria.</tspan></text>
@@ -397,7 +397,7 @@
     <text transform="translate(687.77268 333.52554)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Custom </tspan><tspan x="0" y="14.3999">safety</tspan></text>
     <text transform="translate(687.77268 255.89017)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Cost</tspan><tspan x="0" y="14.3999">quality</tspan></text>
     <text transform="translate(254.68743 287.46544)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Managed </tspan><tspan x="-2.29102" y="14.3999">compute?</tspan></text>
-    <text transform="translate(254.68743 360.56717)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Managed </tspan><tspan x="-22.63477" y="14.3999">compute with </tspan></text>
+    <text transform="translate(254.68743 360.56717)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Managed </tspan><tspan x="-22.63477" y="14.3999">compute with? </tspan></text>
     <text transform="translate(237.0396 157.66369)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">cost</tspan></text>
     <text transform="translate(234.35445 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Start from the </tspan><tspan x="-11.17969" y="14.3999">model catalog.</tspan></text>
     <text transform="translate(376.21516 157.66369)" fill="#2f2f2f" font-size="12"><tspan x="0" y="0" font-family="SegoeUI, &apos;Segoe UI&apos;">Filter by </tspan><tspan x="45.62109" y="0" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-weight="700">availability</tspan></text>
@@ -410,7 +410,7 @@
       </g>
       <text transform="translate(201.90881 36.98196)" fill="#4e4f4f" font-family="SegoeUI-Semibold, &apos;Segoe UI&apos;" font-size="12" font-weight="600" letter-spacing="-.01001em"><tspan x="0" y="0">1</tspan></text>
     </g>
-    <text transform="translate(356.26231 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Navigate the decision tree </tspan><tspan x="-6.14062" y="14.3999">until you get several choices. </tspan></text>
+    <text transform="translate(356.26231 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Navigate the decision tree </tspan><tspan x="-6.14062" y="14.3999">until you have several choices. </tspan></text>
     <g>
       <g>
         <circle cx="339.62288" cy="32.73097" r="8.25" fill="#fff"/>
@@ -419,7 +419,7 @@
       </g>
       <text transform="translate(336.29182 36.98196)" fill="#4e4f4f" font-family="SegoeUI-Semibold, &apos;Segoe UI&apos;" font-size="12" font-weight="600" letter-spacing="-.01001em"><tspan x="0" y="0">2</tspan></text>
     </g>
-    <text transform="translate(577.12644 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Compare the choices </tspan><tspan x="21.59473" y="14.3999">and choose one.</tspan></text>
+    <text transform="translate(577.12644 48.90722)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Compare the choices </tspan><tspan x="21.59473" y="14.3999">and decide.</tspan></text>
     <text transform="translate(840.8812 27.86368)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="12" font-weight="700"><tspan x="0" y="0">Model catalog</tspan></text>
     <text transform="translate(834.64408 45.26366)" fill="#2f2f2f" font-family="SegoeUI, &apos;Segoe UI&apos;" font-size="12"><tspan x="0" y="0">Filter to a few models. </tspan><tspan x="-8.73633" y="14.3999">Compare to choose.</tspan></text>
     <text transform="translate(843.64976 107.06368)" fill="#2f2f2f" font-family="SegoeUI-Bold, &apos;Segoe UI&apos;" font-size="12" font-weight="700"><tspan x="0" y="0">Model choice</tspan></text>
