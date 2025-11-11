@@ -270,7 +270,7 @@ Principal author:
 
 ## Next steps
 
-- Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
+- For more information, contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure].
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
 ## Related resources

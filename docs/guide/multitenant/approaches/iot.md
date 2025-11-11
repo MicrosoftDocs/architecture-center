@@ -4,7 +4,7 @@ description: Learn about architectural approaches for Azure IoT Hub-based multit
 author: MikeBazMSFT
 ms.author: micbaz
 ms.date: 12/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
@@ -32,7 +32,7 @@ It's important to plan your solution's scale. Scale is often considered across t
 * **Quantity of devices**: All Azure device management services - [Azure IoT Central](/azure/iot-central/core/concepts-quotas-limits), [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps#quotas-and-limits), and [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide-quotas-throttling) - have limitations on the number of devices supported in a single instance.
 
    > [!TIP]
-   > Refer to the [high scale documentation](https://aka.ms/ScalingIoT), if you plan to deploy a very large number of devices.
+   > Refer to the [high scale documentation](/azure/architecture/guide/iot/scale-iot-solution-azure), if you plan to deploy a very large number of devices.
 
 * **Device throughput**: Different devices, even in the same solution, might have different throughput requirements. "Throughput" in this context refers to both the number of messages over a period of time and the size of the messages. For example, in a:
 
@@ -51,7 +51,7 @@ Fully shared solutions can have [noisy neighbors](/azure/architecture/antipatter
 
 In fully multitenant solutions, these effects can cascade. When customers share IoT Hub or IoT Central applications, then all customers on the shared infrastructure receive errors. Because IoT Hub and IoT Central are commonly the entry points for data to the cloud, other downstream systems that depend on this data are likely to fail as well. Often, the most common reason for these errors is when a message quota limit is exceeded. In this situation, the fastest and simplest fix for IoT Hub solutions is to upgrade the IoT Hub SKU, increase the number of IoT Hub units, or both. For IoT Central solutions, the solution automatically scales as necessary, up to the [documented number of messages supported](/azure/iot-central/core/concepts-quotas-limits).
 
-You can isolate and distribute tenants across the IoT control, management, and communications planes by using DPS [custom allocation policies](/azure/iot-dps/tutorial-custom-allocation-policies). Further, when you follow the guidance for [high-scale IoT solutions](https://aka.ms/ScalingIoT), you can manage other allocation distributions at the DPS load-balancer level.
+You can isolate and distribute tenants across the IoT control, management, and communications planes by using DPS [custom allocation policies](/azure/iot-dps/tutorial-custom-allocation-policies). Further, when you follow the guidance for [high-scale IoT solutions](/azure/architecture/guide/iot/scale-iot-solution-azure), you can manage other allocation distributions at the DPS load-balancer level.
 
 #### Data storage, query, usage, and retention
 
@@ -218,7 +218,7 @@ Separate the databases for each tenant, for the following benefits:
 
 #### Device management, communications, and administration
 
-Azure IoT Hub Device Provisioning Service, IoT Hub, and IoT Central applications can often be deployed as horizontally partitioned components. In this approach, you need another service to redirect devices to the appropriate DPS instance for that particular tenant's management, control, and telemetry plane. To learn more, see the [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT) whitepaper.
+Azure IoT Hub Device Provisioning Service, IoT Hub, and IoT Central applications can often be deployed as horizontally partitioned components. In this approach, you need another service to redirect devices to the appropriate DPS instance for that particular tenant's management, control, and telemetry plane. To learn more, see [Scaling out an Azure IoT solution to support millions of devices](/azure/architecture/guide/iot/scale-iot-solution-azure).
 
 This approach is often taken to enable the end customers to manage and control their own fleets of devices that are more directly and fully isolated.
 
@@ -264,7 +264,7 @@ The *single-tenant automated* approach is similar to the [*simple SaaS*](#simple
 
 ### Increase the scale of SaaS
 
-When you expand the scale of a solution to large deployments, there are specific challenges that arise based on service limits, geographic concerns, and other factors. For more information on large-scale IoT deployment architectures, see [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT).
+When you expand the scale of a solution to large deployments, there are specific challenges that arise based on service limits, geographic concerns, and other factors. For more information on large-scale IoT deployment architectures, see [Scaling out an Azure IoT solution to support millions of devices](/azure/architecture/guide/iot/scale-iot-solution-azure).
 
 ## Contributors
 

@@ -64,7 +64,7 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
    Read the article and update its content to reflect the most appropriate architectural approaches. Make sure the content aligns with the Azure Well-Architected Framework and Cloud Adoption Framework for Azure where applicable. Change the content to disclose or identify previously undisclosed solution shortcomings.
 
-   **This task is the most critical task in the freshness pass list.** Your author must bring their subject matter expertise so that the article provides the best customer experience and impact.
+   **This task is the most critical task in the freshness pass list.** Your author must bring their subject matter expertise so that the article provides the best customer experience.
 
    Have the author ask themselves: "If I had to talk to a customer about this topic today, is this the guidance I would suggest?" If not, then they must continue to update the article until they answer yes. They need to be proud of this data and believe that customers will get tremendous value and satisfaction out of it.
 

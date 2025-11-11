@@ -4,7 +4,7 @@ description: "Understand the difference between infrastructure as a service (Iaa
 author: johndowns
 ms.author: pnp
 ms.date: 10/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

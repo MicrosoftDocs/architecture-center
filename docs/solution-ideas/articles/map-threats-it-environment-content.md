@@ -2,7 +2,7 @@
 
 This article outlines how to diagram your organization's core IT environment and create a threat map. These diagrams are valuable tools for planning and building a robust defensive security layer. Understanding your IT environment and its architecture is crucial for identifying the security services needed to provide adequate protection.
 
-Computer systems hold information that is not only valuable to the organizations that generate it but also to malicious actors. These actors, whether individuals or groups, engage in harmful activities aimed at compromising or damaging the computers, devices, systems, and networks of companies. Their goal is often to steal or corrupt sensitive data using threats like malware or brute force attacks.
+Computer systems hold information that isn't only valuable to the organizations that generate it but also to malicious actors. These actors, whether individuals or groups, engage in harmful activities aimed at compromising or damaging the computers, devices, systems, and networks of companies. Their goal is often to steal or corrupt sensitive data using threats like malware or brute force attacks.
 
 In this article, we explore a method for mapping threats to your IT environment, enabling you to plan the implementation of Microsoft security services as part of your security strategy. 
 
@@ -132,7 +132,7 @@ This document refers to some services, technologies, and terminologies. You can 
 
 ## Related resources
 
-For more details about this reference architecture, see the other articles in this series:
+For more information about this reference architecture, see the other articles in this series:
 
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)

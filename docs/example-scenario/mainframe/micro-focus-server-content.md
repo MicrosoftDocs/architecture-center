@@ -135,7 +135,7 @@ Principal author:
 ## Next steps
 
 - For more information, contact <legacy2azure@microsoft.com>.
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Related resources
 

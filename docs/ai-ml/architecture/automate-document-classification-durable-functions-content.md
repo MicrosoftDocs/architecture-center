@@ -90,8 +90,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-A reliable workload has both resiliency and availability. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability measures whether your users can access your workload when they need to.
-
 To ensure reliability and availability to Azure OpenAI endpoints, consider using a generative API gateway for [multiple Azure OpenAI deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend). The back-end load balancer supports round-robin, weighted, and priority-based load balancing. This feature gives you flexibility to define an Azure OpenAI load distribution strategy that meets your specific requirements.
 
 For more information about reliability in solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
@@ -124,7 +122,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
-Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-services/openai/how-to/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
+Azure OpenAI [PTUs](/azure/ai-services/openai/concepts/provisioned-throughput) provide guaranteed performance and availability, along with [global deployments](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-provisioned). These deployments use the Azure global infrastructure to dynamically route customer traffic to the datacenter that has the best availability for the customer's inference requests.
 
 ## Contributors
 
