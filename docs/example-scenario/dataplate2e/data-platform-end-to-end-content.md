@@ -360,13 +360,13 @@ The Operational Excellence pillar focuses on processes and practices that keep w
 
 - Send [Teams](/fabric/data-factory/teams-activity) messages in group chats or channels to notify Pipeline status. For email notifications, use [Office 365 Outlook](/fabric/data-factory/outlook-activity).
 
-- Apply Governance Policies via Purview
+- Apply governance policies via Microsoft Purview.
 
 - Schedule regular Well-Architected reviews and optimization sprints.
 
 - See what new features are coming in Fabric and when to expect them: [Microsoft Fabric Roadmap](https://roadmap.fabric.microsoft.com).
 
-Similar architecture can also be implemented for preproduction environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment.
+- Similar architecture should also be implemented for preproduction environments where you can develop and test your platform. Consider the specific requirements for your platform and the capabilities of each service for a cost-effective pre-production environment.
 
 
 ## Contributors
