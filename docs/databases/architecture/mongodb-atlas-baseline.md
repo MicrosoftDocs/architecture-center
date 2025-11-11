@@ -75,14 +75,14 @@ Most databases store sensitive data. Implementing security only at the database 
 
 The Azure infrastructure hosting applications that connect to MongoDB Atlas must be secured against unauthorized access. In this architecture, MongoDB Atlas connectivity is established through private endpoints, which ensures all traffic between the workload and databases only traverses private networking.
 
+Use Azure Key Vault to store keys and secrets, like the client secret used for the monitoring function in this architecture.
+
 Depending on your use case and requirements, evaluate whether additional Microsoft security services beyond those listed, like Azure Firewall, Azure DDoS Protection, Defender for Cloud, and Azure Key Vault are appropriate for your environment. Depending on your architecture and threat model, you may also want to consider among other options:
 >
 > - [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview)
 > - [Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
 > - [Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview)
 > - [Microsoft Entra Global Secure Access (GSA)](/entra/global-secure-access/overview-what-is-global-secure-access)
-
-**Note**: Azure Key Vault or Atlas secrets management can be integrated to secure application credentials.
 
 ## Monitoring considerations
 
