@@ -4,7 +4,7 @@ description: Learn about big data architectures on Azure with batch processing, 
 author: gurkamaldeep
 ms.author: grakhra
 ms.date: 12/12/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-data

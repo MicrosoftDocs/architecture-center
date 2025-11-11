@@ -4,7 +4,7 @@ description: Learn the differences between Azure and AWS accounts and subscripti
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 01/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
@@ -39,7 +39,7 @@ In Azure, when you create an Azure account, a Microsoft Entra tenant is created.
 
 In Azure, the equivalent of an AWS account is the Azure subscription. Azure subscriptions are logical units of Azure services that are linked to an Azure account in a Microsoft Entra tenant. Each subscription is linked to a billing account and provides the boundary within which resources are created, managed, and billed. Subscriptions are important to understanding cost allocation and adhering to budget limits. They help you ensure that every service used is tracked and billed correctly. Azure subscriptions, like AWS accounts, also act as boundaries for resource quotas and limits. Some resource quotas are adjustable, but others aren't.
 
-Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has Identity and Access Management (IAM) roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services in different subscriptions by using role-based access control (RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
+Cross-account resource access in AWS enables resources from one AWS account to be accessed or managed by another AWS account. AWS also has Identity and Access Management (IAM) roles and resource-based policies for accessing resources across accounts. In Azure, you can grant access to users and services in different subscriptions by using Azure role-based access control (Azure RBAC), which is applied at different scopes (management group, subscription, resource group, or individual resources).  
 
 ## AWS OUs vs. Azure management groups
 

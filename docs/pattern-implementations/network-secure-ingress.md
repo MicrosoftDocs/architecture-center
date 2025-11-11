@@ -4,7 +4,7 @@ description: The pattern implementation for network secure ingress illustrates g
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/18/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: sfi-image-nochange
 ai-usage: ai-assisted

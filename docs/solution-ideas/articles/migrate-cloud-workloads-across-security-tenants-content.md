@@ -78,7 +78,7 @@ To begin, the company classifies workload resources into three categories. One g
 
   PaaS compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
 
-- For PaaS and IaaS, or data service, resources that store data, relocate Azure subscriptions from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, an Azure SQL database with Microsoft Entra authentication integration enabled can't be moved in its existing state. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
+- For PaaS and IaaS, or data service, resources that store data, relocate Azure subscriptions from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, an Azure SQL database with Microsoft Entra authentication integration enabled can't be moved in its existing state. Use backup and restore instead. This process removes all Azure role-based access control (Azure RBAC) assignments. After the resource is moved to the new tenant, you need to restore those Azure RBAC assignments.
 
   PaaS and IaaS data include services like Azure SQL Database, Azure Data Lake Storage, and Azure Cosmos DB.
 

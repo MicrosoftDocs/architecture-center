@@ -19,7 +19,7 @@ The AKS cluster uses a user-defined managed identity to create additional resour
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
 - [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
-- [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
+- [Azure role-based access control (Azure RBAC) for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure network policies](/azure/aks/use-network-policies)
 - [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
@@ -35,7 +35,7 @@ A VM is deployed in the virtual network that's hosting the AKS cluster. When you
 
 An Azure Bastion host provides improved-security SSH connectivity to the jump box VM over Secure Sockets Layer (SSL). Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
 
-AKS does not provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
+AKS doesn't provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
 For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic using [destination network address translation (DNAT) rules, network rules, and application rules](/azure/firewall/rule-processing). The firewall also protects workloads with [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes route outbound traffic from the AKS cluster to the Azure Firewall.
 
@@ -88,9 +88,9 @@ You can use a third-party firewall from Azure Marketplace instead of [Azure Fire
 
 AKS clusters are deployed on a virtual network, which can be managed or custom. Regardless, the cluster has outbound dependencies on services outside of the virtual network. For management and operational purposes, AKS cluster nodes need to access specific ports and fully qualified domain names (FQDNs) associated with these outbound dependencies. This includes accessing your own cluster's Kubernetes API server, downloading and installing cluster components, and pulling container images from Microsoft Container Registry. These outbound dependencies are defined with FQDNs and lack static addresses, making it impossible to lock down outbound traffic using Network Security Groups. Therefore, AKS clusters have unrestricted outbound (egress) Internet access by default to allow nodes and services to access external resources as needed.
 
-However, in a production environment, it is usually desirable to protect the Kubernetes cluster from data exfiltration and other undesired network traffic. All network traffic, both incoming and outgoing, should be controlled based on security rules. To achieve this, egress traffic needs to be restricted while still allowing access to necessary ports and addresses for routine cluster maintenance tasks, outbound dependencies, and workload requirements.
+However, in a production environment, it's usually desirable to protect the Kubernetes cluster from data exfiltration and other undesired network traffic. All network traffic, both incoming and outgoing, should be controlled based on security rules. To achieve this, egress traffic needs to be restricted while still allowing access to necessary ports and addresses for routine cluster maintenance tasks, outbound dependencies, and workload requirements.
 
-A simple solution is to use a firewall device that can control outbound traffic based on domain names. A firewall creates a barrier between a trusted network and the Internet. Use [Azure Firewall](/azure/firewall/overview) to restrict outbound traffic based on the destination's FQDN, protocol, and port, providing fine-grained egress traffic control. It also enables allow-listing to FQDNs associated with an AKS cluster's outbound dependencies, which is not possible with Network Security Groups. Additionally, threat intelligence-based filtering on Azure Firewall deployed to a shared perimeter network can control ingress traffic and enhance security. This filtering can generate alerts and deny traffic to and from known malicious IP addresses and domains.
+A simple solution is to use a firewall device that can control outbound traffic based on domain names. A firewall creates a barrier between a trusted network and the Internet. Use [Azure Firewall](/azure/firewall/overview) to restrict outbound traffic based on the destination's FQDN, protocol, and port, providing fine-grained egress traffic control. It also enables allow-listing to FQDNs associated with an AKS cluster's outbound dependencies, which isn't possible with Network Security Groups. Additionally, threat intelligence-based filtering on Azure Firewall deployed to a shared perimeter network can control ingress traffic and enhance security. This filtering can generate alerts and deny traffic to and from known malicious IP addresses and domains.
 
 You can create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network.
 

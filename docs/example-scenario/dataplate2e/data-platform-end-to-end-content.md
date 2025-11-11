@@ -1,4 +1,4 @@
-This solution integrates various components of Microsoft Fabric to ingest, store, process, enrich, and deliver data and insights from diverse sources—including structured, semi-structured, unstructured, and streaming data.
+The solution described in this article combines a range of Microsoft services that ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
 
 ## Architecture
 
@@ -84,7 +84,7 @@ This section explains how to bring data from Azure Databases and platforms like 
 
 6. Enable a conversational interface with Data from Lakehouse or Warehouse using [Fabric Data Agent](/fabric/data-science/concept-data-agent). The interface translates natural language queries into relevant queries.
 
-7. Use [Copilot](/fabric/fundamentals/copilot-fabric-overview) to transform Natural Language questions into SQL, fix errors and get explanations for SQL queries and assist with Code completion. 
+7. Use [Copilot](/fabric/fundamentals/copilot-fabric-overview) to transform Natural Language questions into SQL, fix errors and get explanations for SQL queries and assist with Code completion.
 
 #### Cloud based data platform for Dataverse
 
