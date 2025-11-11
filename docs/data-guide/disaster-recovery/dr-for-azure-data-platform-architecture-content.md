@@ -162,12 +162,6 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Single Zone - Public
     - DR uplift options: N/A, DNS is highly available by design.
 
-- **Network Watcher**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Microsoft
-    - Contoso SKU selection: N/A
-    - DR uplift options: N/A, Covered as part of the Azure service.
-
 - **Virtual Networks, including Subnets, user-defined route (UDR) & network security groups (NSG)**
     - Component recovery responsibility: Contoso
     - Workload/configuration recovery responsibility: Contoso
@@ -203,16 +197,6 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
     - DR uplift options: A VPN gateway can be deployed into an [Availability Zone](/azure/reliability/availability-zones-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
-
-- **Azure Load Balancer**
-    - Component recovery responsibility: Contoso
-    - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Standard
-    - DR uplift options:
-        - A load balancer can be configured for [Zone redundancy within a region with availability zones](/azure/load-balancer/load-balancer-standard-availability-zones). If so, the data path survives as long as one zone within the region remains healthy.
-        - Depending on the primary region, a [cross-region load balancer](/azure/load-balancer/cross-region-overview#build-cross-region-solution-on-existing-azure-load-balancer) can be deployed for a highly available, cross regional deployment.
-    - Notes
-        - [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer. This service supports the distribution of traffic for public-facing applications across the global Azure regions. This solution provides protection from a regional outage within a high availability design.
 
 ### Stateful data platform-specific services
 
