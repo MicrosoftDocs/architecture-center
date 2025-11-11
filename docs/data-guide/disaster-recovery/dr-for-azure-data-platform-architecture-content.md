@@ -391,13 +391,13 @@ The following tables present a breakdown of each Azure service and component use
       
 ### Stateless data platform-specific services
 
-  - **Azure AI Foundry**
+- **Azure AI Foundry**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR uplift options: N/A, Synapse reliability is part of its SaaS offering.
     - Notes
-        - Refer to [Customer-enabled disaster recovery](/azure/ai-foundry/how-to/disaster-recovery) for guidance on business continuity and disaster recovery with Azure AI Foundry.
+        - Refer to [Customer-enabled disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery) for guidance on business continuity and disaster recovery with Azure AI Foundry agent service.
 
 - **Microsoft Fabric: Real-Time Intelligence**
     - Component recovery responsibility: Microsoft
