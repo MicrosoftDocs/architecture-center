@@ -4,7 +4,7 @@ description: Collection of insightful interviews featuring Microsoft partners wh
 author: arsenvlad
 ms.author: arsenv
 ms.date: 11/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
