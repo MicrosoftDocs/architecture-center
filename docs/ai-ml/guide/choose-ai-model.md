@@ -17,7 +17,7 @@ In the rapidly evolving landscape of AI development, selecting the right model i
 
 ## Key criteria for model selection
 
-:::image type="complex" source="_images/choose-a-model.svg" lightbox="_images/choose-a-model.svg" alt-text="A decision tree flowchart for selecting AI models that shows a systematic filtering process.":::
+:::image type="complex" source="_images/choose-a-model.svg" alt-text="A decision tree flowchart for selecting AI models that shows a systematic filtering process." lightbox="_images/choose-a-model.svg":::
   The diagram illustrates a decision tree for selecting AI models. It shows a step-by-step filtering process based on key criteria like task fit, cost, context window size, security, region availability, deployment strategy, domain specificity, performance, and tunability. Each branch narrows the options and helps users systematically identify the most suitable AI model for their workload requirements.
 :::image-end:::
 
