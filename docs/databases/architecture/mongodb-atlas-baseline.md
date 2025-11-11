@@ -100,7 +100,7 @@ Refer to the [How to Monitor MongoDB](https://www.mongodb.com/resources/products
 - [Query Profiler](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#6-query-profiler)
 - [Billing Cost Explorer](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#7-billing-cost-explorer)
 
-Configure **Project Alerts** to notify on metric drift from your baseline (e.g., rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, review the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
+Configure alerts to notify on metric drift from your baseline (for example, rising query targeting, any scan-and-order, or normalized CPU sustained >70% or <40%). For more information, review the [Monitoring and Alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/) article.
 
 > [!NOTE]
 > Azure Monitor cannot read Atlas metrics directly. Use Atlas [webhooks](https://www.mongodb.com/docs/atlas/cli/current/command/atlas-integrations-create-WEBHOOK/) or supported [integrations](https://www.mongodb.com/docs/atlas/tutorial/third-party-service-integrations/#view-third-party-integrations) to ingest them.
