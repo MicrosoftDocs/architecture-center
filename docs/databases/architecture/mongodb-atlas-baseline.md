@@ -1,9 +1,9 @@
 --- 
 title: Deploy MongoDB Atlas in Azure
 description: Deploy MongoDB Atlas in Azure to support a workload.
-author: claytonsiemens77
-ms.author: pnp
-ms.date: 10/14/2025
+author: cloud-architect-dev
+ms.author: devenwagle
+ms.date: 11/12/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
