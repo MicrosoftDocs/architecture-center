@@ -68,7 +68,7 @@ The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You c
 
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is Microsoft's end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience. In this architecture, Fabric enables advanced analytics and BI by integrating mainframe data transformed in Azure into a unified data platform.
 
-  Each Fabric tenant is automatically provisioned with a single logical data lake, known as OneLake. Built on Azure Data Lake Storage Gen2, OneLake provides a unified storage layer capable of handling both structured and unstructured data formats.
+  Each Fabric tenant is automatically provisioned with a single logical data lake, known as OneLake. OneLake is a unified data lake built on Azure Data Lake Storage Gen2 that supports both structured and unstructured data.
 
   Using [shortcuts](/fabric/onelake/onelake-shortcuts), you can integrate mainframe data with the Fabric Lakehouse or Fabric Warehouse for advanced analytics and data warehousing through BMC AMI Cloud Analytics.
 
@@ -82,7 +82,7 @@ Effective monitoring and analysis are essential for maintaining the health and p
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that connect to hundreds of data sources, which simplifies data preparation and drives unplanned analysis.
 
-  In this architecture, Power BI serves as the analytical layer. It connects to mainframe-migrated data distributed across storage and database systems. Through [Data Lake Storage Gen2](/fabric/onelake/create-adls-shortcut) or [Blob Storage](/fabric/onelake/create-blob-shortcut) shortcuts, Power BI leverages the [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode to build high-performance semantic models that deliver near real-time insights directly from the data lake. In parallel, data migrated to Azure databases can be consumed by using DirectQuery or Import modes. This dual-query approach provides flexibility to balance performance, scale, and freshness. After these semantic models are established, interactive reports and dashboards can be developed by using live connections, which enables consistent, governed access to data across the organization.
+  In this architecture, Power BI serves as the analytical layer. It connects to mainframe-migrated data distributed across storage and database systems. Through [Data Lake Storage Gen2](/fabric/onelake/create-adls-shortcut) or [Blob Storage](/fabric/onelake/create-blob-shortcut) shortcuts, Power BI uses [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode to build high-performance semantic models that deliver near real-time insights directly from the data lake. In parallel, data migrated to Azure databases can be consumed by using DirectQuery or Import modes. This dual-query approach provides flexibility to balance performance, scale, and freshness. After these semantic models are established, interactive reports and dashboards can be developed by using live connections, which enables consistent, governed access to data across the organization.
 
 ## Implementation alternatives
 
@@ -127,10 +127,10 @@ Other contributors:
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Introduction to Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
-- [What is Azure Database for MySQL?](/azure/mysql/overview)
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/flexible-server/service-overview)
+- [What is Azure Database for MySQL?](/azure/mysql/flexible-server/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - For more information, contact the [Mainframe Data Modernization team](mailto:mainframedatamod@microsoft.com)
 
 ## Related resources
