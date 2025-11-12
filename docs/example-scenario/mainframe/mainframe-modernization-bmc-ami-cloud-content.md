@@ -32,7 +32,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-Every component of BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process.
+Every component of BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process:
 
 - BMC AMI Cloud agent is a Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Blob Storage over TCP/IP. The BMC AMI Cloud agent uses the zIIP engine, which significantly reduces general CPU consumption. This optimization enhances mainframe performance and reduces cost. You can use multiple agents to increase scalability and resilience. In this architecture, BMC AMI Cloud agent serves as the primary data transfer mechanism that securely moves mainframe data to Storage.
 
@@ -52,7 +52,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that sends encrypted traffic between Azure Virtual Network and on-premises locations over the public internet. In this architecture, you can deploy VPN Gateway for scenarios where you can't use a dedicated private connection to transfer the mainframe data to Azure.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that synchronizes with on-premises directories. It supports single sign-on (SSO) and multifactor authentication to enhance both security and user experience. In this architecture, Microsoft Entra ID helps ensure secure authentication and access control for BMC AMI Cloud components. You can manage and administer permissions by using Azure role-based access control (Azure RBAC).
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that synchronizes with on-premises directories. It supports single sign-on (SSO) and multifactor authentication to enhance both security and user experience. In this architecture, Microsoft Entra ID helps ensure secure authentication and access control for BMC AMI Cloud components. You can manage and administer the permissions by using Azure role-based access control (Azure RBAC).
 
 #### Databases and storage
 
