@@ -42,7 +42,6 @@ The tables that follow identify the detailed characteristics for that level of p
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs<li>Data engineers: Working with data scientists<li>Software engineers: siloed, receive model remotely from the other team members</ul> | <ul><li>Data pipeline gathers data automatically<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Manual release<li>Scoring script is version controlled with tests<li>Release managed by Software engineering team</ul> | <ul><li>Basic integration tests exist for the model<li>Heavily reliant on data scientist expertise to implement model<li>Application code has unit tests</ul> |
 
-
 ## Level 3: Automated Model Deployment
 
 | People | Model Creation | Model Release | Application Integration |
