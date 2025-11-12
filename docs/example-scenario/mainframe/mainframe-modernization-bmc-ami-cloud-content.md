@@ -15,7 +15,7 @@ BMC AMI Cloud provides a solution that transfers mainframe data directly to Azur
 ## Architecture
 
 :::image type="complex" border="false" source="media/bmc-ami-cloud-mainframe-midrange-data-archive-azure.svg" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." lightbox="media/bmc-ami-cloud-mainframe-midrange-data-archive-azure.svg":::
-   The diagram shows the integration of BMC AMI Cloud with Azure. Mainframe systems transfer encrypted and compressed data via BMC AMI Cloud agents to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). The architecture includes BMC AMI Cloud Management Server for policy and agent management, a life cycle management engine for automated data retention, and a command-line interface (CLI) for data operations. Data in Blob Storage is transformed by BMC AMI Cloud Analytics into open formats for use with Azure databases, Microsoft Fabric, and analytics tools like Power BI. Connectivity options include Azure ExpressRoute and Azure VPN Gateway. Microsoft Entra ID provides identity and access management. The diagram highlights secure data transfer, transformation, storage, and analytics integration between mainframe and Azure services.
+   The diagram shows the integration of BMC AMI Cloud with Azure. Mainframe systems transfer encrypted and compressed data via BMC AMI Cloud agents to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). The architecture includes BMC AMI Cloud Management Server for policy and agent management, a life cycle management engine for automated data retention, and a command-line interface (CLI) for data operations. Data in Blob Storage is transformed by BMC AMI Cloud Analytics into open formats for use with Microsoft databases, Microsoft Fabric, and analytics tools like Power BI. Connectivity options include Azure ExpressRoute and Azure VPN Gateway. Microsoft Entra ID provides identity and access management. The diagram highlights secure data transfer, transformation, storage, and analytics integration between mainframe and Azure services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/bmc-ami-cloud-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
@@ -26,7 +26,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The BMC AMI Cloud agent starts a z/OS task that sends encrypted and compressed mainframe data to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). This process helps ensure secure and efficient data transfer without the need for intermediate storage, which reduces latency and potential points of failure.
 
-1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents and manages policies, activities, and storage to help ensure seamless data management.
+1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents. It manages policies, activities, and storage to help ensure seamless data management.
 
 1. BMC AMI Cloud Analytics transforms mainframe data stored in Blob Storage into formats optimized for AI, business intelligence (BI), and machine learning applications. It supports conversion to CSV and JSON and allows direct integration with Microsoft databases. This capability supports a wide range of analytical and operational use cases.
 
@@ -56,7 +56,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 #### Databases and storage
 
-The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
+The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Microsoft database services by using BMC AMI Cloud Analytics.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, relational database service that's based on the community edition of the open-source PostgreSQL database engine. You can use Azure Database for PostgreSQL to focus on application innovation instead of database management. You can also scale your workload efficiently and with minimal operational overhead. In this architecture, you can integrate mainframe data with Azure Database for PostgreSQL through BMC AMI Cloud Analytics.
 
@@ -66,7 +66,7 @@ The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You c
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Managed Instance provides near-complete compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns. In this architecture, you can integrate mainframe data with SQL Managed Instance through BMC AMI Cloud Analytics.
 
-- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is Microsoft's end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience. In this architecture, Fabric enables advanced analytics and BI by integrating mainframe data transformed in Azure into a unified data platform.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience. In this architecture, Fabric enables advanced analytics and BI by integrating mainframe data transformed in Azure into a unified data platform.
 
   Each Fabric tenant is automatically provisioned with a single logical data lake, known as OneLake. OneLake is a unified data lake built on Azure Data Lake Storage Gen2 that supports both structured and unstructured data.
 
