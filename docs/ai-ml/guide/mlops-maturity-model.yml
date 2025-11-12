@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Machine Learning operations maturity model
-  description: A detailed explanation of the MLOps maturity model stages which lists defining characteristics of each stage.
+  title: MLOps Maturity Model
+  description: Learn about MLOps maturity levels, from manual processes to automated MLOps with continuous improvement and optimization.
   author: delynchoong
   ms.author: delynchoong
   ms.date: 10/28/2025

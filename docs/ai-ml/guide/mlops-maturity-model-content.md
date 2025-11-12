@@ -1,62 +1,62 @@
-The purpose of this maturity model is to help clarify the Machine Learning Operations (MLOps) principles and practices. The maturity model shows the continuous improvement in the creation and operation of a production level machine learning application environment. You can use it as a metric for establishing the progressive requirements needed to measure the maturity of a machine learning production environment and its associated processes.
+The machine learning operations (MLOps) maturity model defines principles and practices to help you build and operate production machine learning environments. This model provides a framework to measure your organization's MLOps capabilities and identify areas for improvement. Use it to assess your current state and plan incremental progress toward a mature MLOps environment.
 
 ## Maturity model
 
-The MLOps maturity model helps clarify the Development Operations (DevOps) principles and practices necessary to run a successful MLOps environment. It's intended to identify gaps in an existing organization's attempt to implement such an environment. It's also a way to show you how to grow your MLOps capability in increments rather than overwhelm you with the requirements of a fully mature environment. Use it as a guide to:
+The MLOps maturity model helps clarify the development operations (DevOps) principles and practices required to run a successful MLOps environment. It identifies gaps in your organization's current implementation and shows you how to grow your MLOps capability in increments instead of overwhelming you with the requirements of a fully mature environment. Use the MLOps maturity model as a guide to do the following tasks:
 
 - Estimate the scope of the work for new engagements.
 
 - Establish realistic success criteria.
 
-- Identify deliverables you'll hand over at the conclusion of the engagement.
+- Identify deliverables to hand over at the end of the engagement.
 
-As with most maturity models, the MLOps maturity model qualitatively assesses people/culture, processes/structures, and objects/technology. As the maturity level increases, the probability increases that incidents or errors will lead to improvements in the quality of the development and production processes.
+Like most maturity models, the MLOps maturity model qualitatively assesses people and culture, processes and structures, and objects and technology. As the maturity level increases, the likelihood that incidents or errors lead to improvements in development and production processes also increases.
 
-The MLOps maturity model encompasses five levels of technical capability:
+The MLOps maturity model encompasses five levels of technical capability.
 
 | Level | Description | Highlights | Technology |
 | ----- | ----------- | ---------- | ---------- |
-| 0 | [No MLOps](#level-0-no-mlops) | <ul><li>Difficult to manage full machine learning model lifecycle<li>The teams are disparate and releases are painful<li>Most systems exist as "black boxes," little feedback during/post deployment</ul> | <ul><li>Manual builds and deployments<li>Manual testing of model and application<li>No centralized tracking of model performance<li>Training of model is manual<li> Basic Azure Machine Learning workspace usage </ul> |
-| 1 | [DevOps but no MLOps](#level-1-devops-no-mlops) | <ul><li>Releases are less painful than No MLOps, but rely on Data Team for every new model<li>Still limited feedback on how well a model performs in production<li>Difficult to trace/reproduce results</ul> | <ul><li>Automated builds<li>Automated tests for application code<li>Version control for code</ul> |
-| 2 | [Automated Training](#level-2-automated-training) | <ul><li>Training environment is fully managed and traceable<li>Easy to reproduce model<li>Releases are manual, but low friction</ul> | <ul><li>Automated model training<li>Centralized tracking of model training performance<li>Model management<li>Azure ML scheduled or event-driven jobs for recurring training<li>Adopt Managed Feature Store<li>Emit Event Grid lifecycle events for pipeline orchestration<li>Managed environments using Azure ML Environment definitions</ul> |
-| 3 | [Automated Model Deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic<li>Full traceability from deployment back to original data<li>Entire environment managed: train > test > production </ul>| <ul><li>Integrated A/B testing of model performance for deployment<li>Automated tests for all code<li>Centralized tracking of model training performance<li>Promote artifacts across workspaces using Azure ML Registries</ul> |
-| 4 | [Full MLOps Automated Operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system automated and easily monitored<li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models<li>Approaching a zero-downtime system </ul>| <ul><li>Automated model training and testing<li>Verbose, centralized metrics from deployed model<li>Trigger automatic retraining from drift or regression signals using Event Grid<li>Monitor feature materialization health and freshness<li>Policy-based automated model promotion using Azure ML Registries</ul> |
+| 0 | [No MLOps](#level-0-no-mlops) | <ul><li>Full machine learning model life cycle is difficult to manage.<li>Teams are disparate and releases are challenging.<li>Most systems exist as *black boxes* with little feedback during and after deployment.</ul> | <ul><li>Builds and deployments are manual.<li>Model and application testing is manual.<li>Model performance tracking isn't centralized.<li>Model training is manual.<li>Basic Azure Machine Learning workspace usage.</ul> |
+| 1 | [DevOps but no MLOps](#level-1-devops-no-mlops) | <ul><li>Releases are less challenging than Level 0, but rely on data teams for every new model.<li>Feedback about model performance in production is still limited.<li>Results are difficult to trace and reproduce.</ul> | <ul><li>Builds are automated.<li>Application code has automated tests.<li>Code is version controlled.</ul> |
+| 2 | [Automated training](#level-2-automated-training) | <ul><li>Training environment is fully managed and traceable.<li>Model is easy to reproduce.<li>Releases are manual but low friction.</ul> | <ul><li>Model training is automated.<li>Model training performance tracking is centralized.<li>Model management is in place.<li>Azure Machine Learning scheduled or event-driven jobs handle recurring training.<li>Managed feature store is adopted.<li>Azure Event Grid life cycle events are emitted for pipeline orchestration.<li>Environments are managed by using Machine Learning environment definitions.</ul> |
+| 3 | [Automated model deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic.<li>Full traceability exists from deployment back to original data.<li>Entire environment is managed, including training, testing, and production.</ul> | <ul><li>A/B testing of model performance is integrated for deployment.<li>All code has automated tests.<li>Model training performance tracking is centralized.<li>Artifacts are promoted across workspaces by using Machine Learning registries.</ul> |
+| 4 | [Full MLOps automated operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system is automated and easily monitored.<li>Production systems provide information about how to improve and sometimes automatically improve with new models.<li>System is approaching zero downtime.</ul> | <ul><li>Model training and testing are automated.<li>Deployed model emits verbose, centralized metrics.<li>Drift or regression signals trigger automatic retraining by using Event Grid.<li>Feature materialization health and freshness are monitored.<li>Model promotion is policy-based and automated by using Machine Learning registries.</ul> |
 
-The tables that follow identify the detailed characteristics for that level of process maturity.
+The following tables describe detailed characteristics for each level of maturity.
 
 ## Level 0: No MLOps
 
-| People | Model Creation | Model Release | Application Integration |
+| People | Model creation | Model release | Application integration |
 | ------ | -------------- | ------------- | ----------------------- |
-| <ul><li>Data scientists: siloed, not in regular communications with the larger team<li>Data engineers (*if exists*): siloed, not in regular communications with the larger team<li>Software engineers: siloed, receive model remotely from the other team members</ul> | <ul><li>Data gathered manually<li>Compute is likely not managed<li>Experiments aren't predictably tracked<li>End result might be a single model file manually handed off with inputs/outputs</ul> | <ul><li>Manual process<li>Scoring script might be manually created well after experiments, not version controlled<li>Release handled by data scientist or data engineer alone</ul> | <ul><li>Heavily reliant on data scientist expertise to implement<li>Manual releases each time</ul> |
+| <ul><li>Data scientists work in isolation without regular communication with the larger team.<li>Data engineers (*if they exist*) work in isolation without regular communication with the larger team.<li>Software engineers work in isolation and receive models remotely from other team members.</ul> | <ul><li>Data is gathered manually.<li>Compute is likely not managed.<li>Experiments aren't tracked consistently.<li>End result is typically a single model file with inputs and outputs, handed off manually.</ul> | <ul><li>Process is manual.<li>Scoring script is created manually after experiments and isn't version controlled.<li>A single data scientist or data engineer handles release.</ul> | <ul><li>Implementation depends heavily on data scientist expertise.<li>Every release is manual.</ul> |
 
 ## Level 1: DevOps no MLOps
 
-| People | Model Creation | Model Release | Application Integration |
+| People | Model creation | Model release | Application integration |
 | ------ | -------------- | ------------- | ----------------------- |
-| <ul><li>Data scientists: siloed, not in regular communications with the larger team<li>Data engineers (if exists): siloed, not in regular communication with the larger team<li>Software engineers: siloed, receive model remotely from the other team members</ul> | <ul><li>Data pipeline gathers data automatically<li>Compute is or isn't managed<li>Experiments aren't predictably tracked<li>End result might be a single model file manually handed off with inputs/outputs</ul> | <ul><li>Manual process<li>Scoring script might be manually created well after experiments, likely version controlled<li>Is handed off to software engineers</ul> | <ul><li>Basic integration tests exist for the model<li>Heavily reliant on data scientist expertise to implement model<li>Releases automated<li>Application code has unit tests</ul> |
+| <ul><li>Data scientists work in isolation without regular communication with the larger team.<li>Data engineers (*if they exist*) work in isolation without regular communication with the larger team.<li>Software engineers work in isolation and receive models remotely from other team members.</ul> | <ul><li>Data pipeline automatically gathers data.<li>Compute might or might not be managed.<li>Experiments aren't tracked consistently.<li>End result is typically a single model file with inputs and outputs, handed off manually.</ul> | <ul><li>Process is manual.<li>Scoring script is created manually after experiments but is likely version controlled.<li>Model is handed off to software engineers.</ul> | <ul><li>Basic integration tests exist for the model.<li>Implementation depends heavily on data scientist expertise.<li>Application releases are automated.<li>Application code has unit tests.</ul> |
 
-## Level 2: Automated Training
+## Level 2: Automated training
 
-| People | Model Creation | Model Release | Application Integration |
+| People | Model creation | Model release | Application integration |
 | ------ | -------------- | ------------- | ----------------------- |
-| <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs<li>Data engineers: Working with data scientists<li>Software engineers: siloed, receive model remotely from the other team members</ul> | <ul><li>Data pipeline gathers data automatically<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Manual release<li>Scoring script is version controlled with tests<li>Release managed by Software engineering team</ul> | <ul><li>Basic integration tests exist for the model<li>Heavily reliant on data scientist expertise to implement model<li>Application code has unit tests</ul> |
+| <ul><li>Data scientists work directly with data engineers to convert experimentation code into repeatable scripts and jobs.<li>Data engineers work with data scientists on model development.<li>Software engineers work in isolation and receive models remotely from other team members.</ul> | <ul><li>Data pipeline automatically gathers data.<li>Compute is managed.<li>Experiment results are tracked.<li>Training code and models are both version controlled.</ul> | <ul><li>Release process is manual.<li>Scoring script is version controlled and has tests.<li>Software engineering team manages releases.</ul> | <ul><li>Basic integration tests exist for the model.<li>Implementation depends heavily on data scientist expertise.<li>Application code has unit tests.</ul> |
 
-## Level 3: Automated Model Deployment
+## Level 3: Automated model deployment
 
-| People | Model Creation | Model Release | Application Integration |
+| People | Model creation | Model release | Application integration |
 | ------ | -------------- | ------------- | ----------------------- |
-| <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code</ul> | <ul><li>Data pipeline gathers data automatically<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic release<li>Scoring script is version controlled with tests<li>Release managed by continuous delivery (CI/CD) pipeline</ul> | <ul><li>Unit and integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
+| <ul><li>Data scientists work directly with data engineers to convert experimentation code into repeatable scripts and jobs.<li>Data engineers work with data scientists and software engineers to manage inputs and outputs.<li>Software engineers work with data engineers to automate model integration into application code.</ul> | <ul><li>Data pipeline automatically gathers data.<li>Compute is managed.<li>Experiment results are tracked.<li>Training code and models are both version controlled.</ul> | <ul><li>Release process is automatic.<li>Scoring script is version controlled and has tests.<li>CI/CD pipeline manages releases.</ul> | <ul><li>Each model release includes unit and integration tests.<li>Implementation is less dependent on data scientist expertise.<li>Application code has unit and integration tests.</ul> |
 
-## Level 4: Full MLOps Automated Retraining
+## Level 4: Full MLOps automated retraining
 
-| People | Model Creation | Model Release | Application Integration |
+| People | Model creation | Model release | Application integration |
 | ------ | -------------- | ------------- | ----------------------- |
-| <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs. Working with software engineers to identify markers for data engineers<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code. Implementing post-deployment metrics gathering</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release managed by continuous integration and CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
+| <ul><li>Data scientists work directly with data engineers to convert experimentation code into repeatable scripts and jobs. They also work with software engineers to identify data markers.<li>Data engineers work with data scientists and software engineers to manage inputs and outputs.<li>Software engineers work with data engineers to automate model integration and implement post-deployment metrics gathering.</ul> | <ul><li>Data pipeline automatically gathers data.<li>Production metrics automatically trigger retraining.<li>Compute is managed.<li>Experiment results are tracked.<li>Training code and models are both version controlled.</ul> | <ul><li>Release process is automatic.<li>Scoring script is version controlled and has tests.<li>CI/CD pipeline manages releases.</ul> | <ul><li>Each model release includes unit and integration tests.<li>Implementation is less dependent on data scientist expertise.<li>Application code has unit and integration tests.</ul> |
 
 ## MLOps and GenAIOps
 
-This article focuses on predictive, tabular, and classical ML lifecycle capabilities. Generative AI operations (prompt lifecycle, retrieval augmentation, output safety, token cost governance) add extra layers and should be treated as an overlay rather than replacing these levels. Reference this [GenAIOps article](/azure/architecture/ai-ml/guide/genaiops-for-mlops) for those concerns; do not conflate prompt iteration mechanics with the reproducible training-deployment loop described here.
+This article focuses on predictive, tabular, and classical machine learning life cycle capabilities. Generative AI operations (GenAIOps) add extra layers, and you should treat them like an overlay rather than a replacement for these levels. GenAIOps include prompt life cycle, retrieval augmentation, output safety, and token cost governance. For more information, see [GenAIOps for organizations that have MLOps investments](/azure/architecture/ai-ml/guide/genaiops-for-mlops). Don't confuse prompt iteration mechanics with the reproducible training-deployment loop described in this article.
 
 ## Contributors
 
@@ -64,15 +64,16 @@ This article focuses on predictive, tabular, and classical ML lifecycle capabili
 
 - [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
 
-## Next step
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-> [!div class="nextstepaction"]
-> [MLOps and GenAIOps for AI workloads](/azure/well-architected/ai/mlops-genaiops)
+## Next steps
+
+- [MLOps and GenAIOps for AI workloads](/azure/well-architected/ai/mlops-genaiops)
+- [Learning path: Introduction to MLOps](/training/paths/introduction-machine-learn-operations)
+- [MLOps model management, deployment, and monitoring by using Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [Machine learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 
 ## Related resources
 
-- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
-- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
-- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
+- [MLOps](../../ai-ml/guide/machine-learning-operations-v2.md)
