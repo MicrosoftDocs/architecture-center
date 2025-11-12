@@ -1,6 +1,6 @@
 ---
 title: Develop a RAG Solution - Preparation Phase
-description: Learn how to analyze and gather representative content including documents, images, videos, and audio files. Develop test queries to validate your RAG solution's content processing and retrieval strategies.
+description: Learn how to analyze and gather representative content such as documents, images, videos, and audio files and develop test queries to validate your RAG solution.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/10/2025

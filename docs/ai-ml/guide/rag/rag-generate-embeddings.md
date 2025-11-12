@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG generate embeddings phase
 
-In the previous steps of your Retrieval-Augmented Generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
+In the previous steps of your retrieval-augmented generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -23,7 +23,7 @@ The representation of one object has connections to representations of other obj
 
 Embeddings are compared to one another by using the notions of similarity and distance. The following grid shows a comparison of embeddings.
 
-:::image type="complex" border="true" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
+:::image type="complex" border="false" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram that shows a comparison of vectors.":::
    Diagram that shows a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right quadrant of the grid, close to one another. There are two vectors that point at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It's currently sunny in Phoenix" with a vector that points at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 
@@ -34,13 +34,13 @@ In a RAG solution, you embed the user query by using the same embedding model as
 
 ## Understand the importance of your embedding model
 
-The embedding model that you choose can significantly affect the relevancy of your vector search results. You must carefully consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [BERT model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about 30,000 words.
+The embedding model that you choose can significantly affect the relevancy of your vector search results. You must carefully consider the vocabulary of the embedding model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of the [bidirectional encoder representations from transformers (BERT) model](https://huggingface.co/docs/transformers/en/model_doc/bert) is about 30,000 words.
 
-The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still calculates a vector for it. To do this, many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
+The vocabulary of an embedding model is important because it handles words that aren't in its vocabulary in a unique manner. If a word isn't in the model's vocabulary, it still calculates a vector for it. Many models break down the words into subwords. They treat the subwords as distinct tokens, or they aggregate the vectors for the subwords to create a single embedding.
 
 For example, the word *histamine* might not be in an embedding model's vocabulary. The word *histamine* has a semantic meaning as a chemical that your body releases, which causes allergy symptoms. The embedding model doesn't contain *histamine*. So, it might separate the word into subwords that are in its vocabulary, such as *his*, *ta*, and *mine*.
 
-:::image type="content" border="true" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histomine broken down into the following subwords: his, ta, and mine.":::
+:::image type="content" border="false" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram that shows the word histamine broken down into the following subwords: his, ta, and mine.":::
 
 The semantic meanings of these subwords are far from the meaning of *histamine*. The individual or combined vector values of the subwords result in poorer vector match compared to if the word *histamine* were in the model's vocabulary.
 
@@ -48,8 +48,8 @@ The semantic meanings of these subwords are far from the meaning of *histamine*.
 
 Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
-:::image type="complex" border="true" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
-   The first decision is "Domain-specific?" If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
+:::image type="complex" border="false" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
+   The first decision is "Domain-specific?" If no, the flow terminates at "Test top-ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine-tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 
 First, determine whether you have domain-specific content. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to check whether you can find the entities and keywords in your content on the internet. If you can, a general embedding model likely can, too.
@@ -58,7 +58,7 @@ First, determine whether you have domain-specific content. For example, are your
 
 When you choose a general embedding model, start with the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard) model rankings. Evaluate how the models work with your data, and start with the top-ranking models.
 
-### Use domain-specific content
+### Domain-specific content
 
 For domain-specific content, determine whether you can use a domain-specific model. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
 
@@ -69,18 +69,18 @@ If you don't have a domain-specific model, or the domain-specific model doesn't 
 
 ## Generate multimodal embeddings
 
-Embeddings aren't limited to text. You can also generate embeddings for other media types, such as images, audio, and video. The process for generating embeddings is similar across modalities: load the content, pass it through the embedding model, and store the resulting vector. But the choice of model and preprocessing steps vary by media type.
+Embeddings aren't limited to text. You can generate embeddings for text and other media types, such as images, audio, and video. The process for generating embeddings is similar across modalities. Load the content, pass it through the embedding model, and store the resulting vector. But the choice of model and preprocessing steps vary by media type.
 
-For example, you can use models like [CLIP](https://openai.com/research/clip) to generate image embeddings. You can then use the embeddings in vector search to retrieve semantically similar images. For video, you must define a schema that extracts specific features, like object presence or narrative summary and use specialized models to generate embeddings for those features.
+For example, you can use models like [Contrastive Language–Image Pre-training (CLIP)](https://openai.com/research/clip) to generate image embeddings. You can then use the embeddings in vector search to retrieve semantically similar images. For video, you must define a schema that extracts specific features, like object presence or narrative summary and use specialized models to generate embeddings for those features.
 
 > [!TIP]
-> Use a schema to define the features you want to extract from multimodal content. This helps ensure that your embeddings are optimized for your retrieval goals.
+> Use a schema to define the features that you want to extract from multimodal content. This approach optimizes your embeddings for your retrieval goals.
 
 ## Use dimensionality reduction
 
-Embedding vectors can be high-dimensional, which increases storage and compute costs. Dimensionality reduction techniques help make embeddings more manageable, cost-effective, and interpretable.
+Embedding vectors can be high dimensional, which increases storage and compute costs. Dimensionality reduction techniques help make embeddings more manageable, cost effective, and interpretable.
 
-You can use algorithms such as [t-SNE](https://lvdmaaten.github.io/tsne/) or [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) to reduce the number of dimensions in your vectors. These tools are available in libraries like PyTorch and scikit-learn.
+You can use algorithms such as [t-distributed stochastic neighbor embedding (t-SNE)](https://lvdmaaten.github.io/tsne/) or [principal component analysis (PCA)](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) to reduce the number of dimensions in your vectors. These tools are available in libraries like PyTorch and scikit-learn.
 
 Dimensionality reduction can improve semantic clarity and visualization. It also helps eliminate unused or noisy features in dense embeddings.
 
@@ -99,7 +99,7 @@ Common comparison methods include:
 - **Dot product**: Measures the projection of one vector onto another.
 
 > [!TIP]
-> Choose your comparison method based on your use case. For example, use cosine similarity when you want to measure semantic closeness, and Euclidean distance when you want to measure literal proximity.
+> Choose your comparison method based on your use case. For example, use cosine similarity when you want to measure semantic closeness, and use Euclidean distance when you want to measure literal proximity.
 
 ## Evaluate embedding models
 
@@ -117,7 +117,7 @@ You can use libraries, such as t-SNE, to plot the vectors for your chunks and yo
 
 You can use a programmatic method to evaluate how well your embedding model works with your questions and chunks. Calculate the distance between the question vectors and the chunk vectors. You can use the Euclidean distance or the Manhattan distance.
 
-## Evaluate embedding models with retrieval
+## Evaluate embedding models by using retrieval performance
 
 To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, perform vector search, and assess whether the correct items are retrieved.
 
@@ -132,29 +132,29 @@ If a general or domain-specific model doesn't meet your needs, you can fine-tune
 
 Fine-tuning can improve retrieval accuracy, especially for specialized domains like code search or legal documents. But it requires careful evaluation and can sometimes degrade performance if the training data is poor.
 
-Modern techniques like one-bit reinforcement learning (RL) make your fine-tuning more cost-effective.
+Modern techniques like one-bit reinforcement learning (RL) make your fine-tuning more cost effective.
 
 > [!TIP]
-> Before fine-tuning, evaluate whether prompt engineering, or constrained decoding can solve your problem. Evaluation metrics and retrieval performance should guide your fine-tuning.
+> Before you fine-tune your model, evaluate whether prompt engineering or constrained decoding can solve your problem. Use evaluation metrics and retrieval performance to guide your fine-tuning.
 
 ## Use the Hugging Face leaderboard
 
 The [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard) provides up-to-date rankings of embedding models. Use it to identify top-performing models for your use case.
 
-When reviewing models, consider:
+When you review models, consider:
 
-- **Tokens**: The size of the model's vocabulary.
-- **Memory**: The model's size and inference cost.
-- **Dimensions**: The size of the output vectors.
+- **Tokens:** The size of the model's vocabulary.
+- **Memory:** The model's size and inference cost.
+- **Dimensions:** The size of the output vectors.
 
 > [!NOTE]
 > Larger models aren't always better. They might increase cost without improving performance. Use dimensionality reduction and retrieval evaluation to find the right balance.
 
 ## Understand embedding economics
 
-When you choose an embedding model, you must navigate a trade-off between performance and cost. Large embedding models usually have better performance on benchmarking datasets. But, the increased performance adds cost. Large vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Small embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
+When you choose an embedding model, you must find a trade-off between performance and cost. Large embedding models usually have better performance on benchmarking datasets. But, the increased performance adds cost. Large vectors require more space in a vector database. They also require more computational resources and time to compare embeddings. Small embedding models usually have lower performance on the same benchmarks. They require less space in your vector database and less compute and time to compare embeddings.
 
-When you design your system, you should consider the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are often academic datasets and might not directly apply to your business data and use cases. Depending on the requirements, you can favor performance over cost or accept a trade-off of good-enough performance for lower cost.
+When you design your system, consider the cost of embedding in terms of storage, compute, and performance requirements. You must validate the performance of the models through experimentation. The publicly available benchmarks are often academic datasets and might not directly apply to your business data and use cases. Depending on the requirements, you can favor performance over cost or accept a trade-off of good-enough performance for lower cost.
 
 ## Next step
 
@@ -163,5 +163,5 @@ When you design your system, you should consider the cost of embedding in terms 
 
 ## Related resources
 
-- [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
-- [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings)
+- [Understand embeddings in Azure OpenAI](/azure/ai-foundry/openai/concepts/understand-embeddings)
+- [Tutorial: Explore Azure OpenAI embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings)
