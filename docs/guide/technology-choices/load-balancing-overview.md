@@ -3,10 +3,9 @@ title: Load Balancing Options
 description: Learn about Azure load balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/10/2025
+ms.date: 11/12/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: copilot-scenario-highlight
 ---
 
 # Load balancing options
