@@ -333,7 +333,7 @@ The following tables present a breakdown of each Azure service and component use
         - Enable DR Capacity in Fabric for cross-region replication of SQL database data via OneLake.
         - Manual geo-backup or geo-replication for active/active setups across regions. 
     - Notes
-        - For further details regarding disaster recovery for SQL Database, refer to [recovering SQL database in Microsoft Fabric](/fabric/security/experience-specific-guidance#sql-database).
+        - For further details regarding disaster recovery for SQL Database, refer to [Experience-specific disaster recovery guidance - SQL Database](/fabric/security/experience-specific-guidance#sql-database).
 
 - **Microsoft Fabric: Data Engineering**
     - Component recovery responsibility: Microsoft
@@ -354,7 +354,7 @@ The following tables present a breakdown of each Azure service and component use
         - Manual geo-backup or geo-replication for active/active setups across regions.
         - Enable DR Capacity in Fabric for cross-region replication of Warehouse data via OneLake.
     - Notes
-        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
+        - For further details regarding disaster recovery for the data warehouse, refer to [Experience-specific disaster recovery guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
         - For customers who need cross-regional disaster recovery and fully automated business continuity, we recommend keeping two Fabric Warehouse setups in two different regions and maintaining code and data parity by doing regular deployments and data ingestion to both sites.
 
 - **Microsoft Fabric: SQL Analytics Endpoint**
@@ -383,8 +383,10 @@ The following tables present a breakdown of each Azure service and component use
 - **Azure AI Foundry**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Computed Optimized, Small (4 cores)
-    - DR uplift options: N/A, Synapse reliability is part of its SaaS offering.
+    - Contoso SKU selection: Enterprise
+    - DR uplift options:
+        - Deploy multi-region Azure AI Foundry workspaces to ensure redundancy for model hosting and orchestration.
+        - Enable geo-redundant storage for datasets, model artifacts, and prompt flows using Azure Storage with GRS or RA-GRS.
     - Notes
         - Refer to [Customer-enabled disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery) for guidance on business continuity and disaster recovery with Azure AI Foundry agent service.
 
@@ -392,11 +394,11 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
-    - DR uplift options: N/A, Synapse reliability is part of its SaaS offering.
+    - DR uplift options:
+        - Geo-replication for active/active setups across regions.
     - Notes
-        - Azure Synapse Analytics [automatically takes snapshots](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days.
-        - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired datacenter. The recovery point objective (RPO) for a geo-restore is 24 hours.
-        - If Self-Hosted Data Pipelines are used, they remain the customers responsibility recovery from a disaster.
+        - For customers requiring cross-regional disaster recovery and automated business continuity, maintain two Real-Time Intelligence in different regions. Ensure parity by replicating data, Eventstream configurations, KQL queries, and ingestion pipelines regularly.
+        - For further details regarding disaster recovery for Data Engineering in Fabric, refer to [Experience-specific disaster recovery guidance - RTI](/fabric/security/experience-specific-guidance#real-time-intelligence).
 
 - **Microsoft Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
