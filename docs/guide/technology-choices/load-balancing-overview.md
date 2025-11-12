@@ -28,7 +28,7 @@ The following main load balancing services and service with load balancing capab
 
 - [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
-- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application layer (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application layer (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer-7 capabilities for your application such as Secure Sockets Layer (SSL) offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
@@ -118,7 +118,7 @@ When your workload includes several services that require load balancing, assess
 
 - **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.md#scalability).
 
-- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. These AKS workloads are refered to as AKS backends. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md). 
+- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. These AKS workloads are referred to as AKS backends. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
 
 - **Infrastructure as a service (IaaS)** is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
