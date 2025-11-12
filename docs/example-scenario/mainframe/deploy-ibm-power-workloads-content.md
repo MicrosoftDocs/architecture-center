@@ -137,7 +137,7 @@ To scale compute performance, you can add capacity to LPARs that run in Skytap o
 
 Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html#:~:text=Change%20the%20volume%27s%20service%20level%201%20Open%20the,service%20level%20that%20you%20want.%204%20Click%20Change.). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
-To get started, see the [Azure NetApp Files performance calculator](https://bluexp.netapp.com/azure-netapp-files).
+To get started, see the [Azure NetApp Files performance calculator](https://aka.ms/anfcalc).
 
 ## Contributors
 
