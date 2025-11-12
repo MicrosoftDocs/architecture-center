@@ -88,9 +88,9 @@ Depending on your use case and requirements, evaluate whether additional Microso
 
 Monitoring is a crucial part of workload operations. Design a comprehensive workload [monitoring solution](/azure/well-architected/operational-excellence/observability).
 
-This architecture includes a monitoring component, as shown in the architecture diagrams, where an Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in the Application Insights dashboards. However, monitoring best practices can be further extended, and users are responsible for implementing these practices based on their specific requirements.
+This architecture includes a monitoring component, as shown in the architecture diagrams, where an Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in the Application Insights dashboards. If you use this solution to capture metrics, you can use the included code as a starting point for your use case. Then, you can determine the right metrics to capture and the frequency to run the function to meet your requirements.
 
-Refer to the [How to Monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor) article for more information about:
+Beyond this solution, you can further extend your monitoring solution to gain deeper insights into your cluster's performance and health. Refer to the [How to Monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor) article for more information about:
 
 - [Scan and order](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#1-scan-and-order)
 - [Query targeting](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#2-query-targeting)
@@ -104,6 +104,8 @@ Configure alerts to notify on metric drift from your baseline (for example, risi
 
 > [!NOTE]
 > Azure Monitor cannot read Atlas metrics directly. Use Atlas [webhooks](https://www.mongodb.com/docs/atlas/cli/current/command/atlas-integrations-create-WEBHOOK/) or supported [integrations](https://www.mongodb.com/docs/atlas/tutorial/third-party-service-integrations/#view-third-party-integrations) to ingest them.
+
+MongoDB Atlas collects and stores activity logs that you can download for auditing and for activity tracking. These logs can help you with performance tracking and troubleshooting. Refer to the [Guidance for Atlas logging](https://www.mongodb.com/docs/atlas/architecture/current/logging/#std-label-arch-center-logging) article for detailed guidance on using Atlas logs.
 
 ## Backup and recovery
 
