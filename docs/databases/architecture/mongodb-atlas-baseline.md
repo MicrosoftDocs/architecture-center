@@ -40,7 +40,7 @@ Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/arch
 
 ### Multi-Region Architecture
 
-For workloads with higher requirements for business continuity, the multi-region architecture distributes MongoDB Atlas cluster nodes and supporting infrastructure across multiple Azure regions in an active-passive topology. The design uses virtual network peering and multiple private endpoints to provide redundant connectivity, even in the event of a regional outage.
+For workloads with higher requirements for business continuity, the multi-region architecture distributes MongoDB Atlas cluster nodes and supporting infrastructure across multiple Azure regions in an active-passive topology. In this configuration, all nodes are members of a single cluster that you deploy, defining the node count and regions to deploy into. The design uses virtual network peering and multiple private endpoints to provide redundant connectivity, even in the event of a regional outage.
 
 In this architecture, your workload compute is deployed in three regions. Each region connects to its own region's MongoDB Atlas resource.
 
@@ -63,7 +63,7 @@ Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/arch
 
 The architecture brings together several core components to deliver security, scalability, and operational excellence:
 
-- **[MongoDB Atlas (Managed Service)](/azure/partner-solutions/mongo-db/overview)**: Provides managed database clusters with automated backups, high availability, and optional multi-region deployment. Atlas role-based access control (RBAC) ensures fine-grained data security.
+- **[MongoDB Atlas (Managed Service)](/azure/partner-solutions/mongo-db/overview)**: Provides managed database clusters with automated backups, high availability, and optional multi-region deployment. Atlas role-based access control (RBAC) ensures fine-grained data security. Clusters are automatically deployed across availability zones in regions that support availability zones.
 - **Azure Virtual Networks and [Private Endpoints](/azure/private-link/private-endpoint-overview)**: Ensure all communications between Azure resources and MongoDB Atlas are private and encrypted, never traversing the public internet.
 - **Network Security Groups (NSGs)**: Enforce network segmentation and secure outbound connectivity.
 - **Observability**: [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility.
