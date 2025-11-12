@@ -67,7 +67,7 @@ For more information, see [Reliability in App Service](/azure/reliability/reliab
 
 #### Resiliency
 
-The applications that run in the App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in the App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web front end known as `votingApp`. This health probe checks the health status of the web API and the Redis cache. The code in [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs) implements this probe.
+The applications that run in the App Service Environment form the [back-end pool](/azure/application-gateway/application-gateway-components#backend-pools) for Application Gateway. When a request to the application comes from the public internet, the gateway forwards the request to the application that runs in the App Service Environment. This reference architecture implements [health checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web front end known as `votingApp`. This health probe checks the health status of the web API and the Redis cache.
 
 ```csharp
 var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionEndpoints:VotingDataAPIBaseUri"))
