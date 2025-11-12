@@ -5,7 +5,7 @@ author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/14/2025
 ms.topic: concept-article
-ms.subservice: guide
+ms.subservice: architecture-guide
 ms.custom: arb-data
 ---
 
