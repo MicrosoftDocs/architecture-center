@@ -4,20 +4,20 @@ description: Learn strategies to help you select the best model for your AI work
 author: claytonsiemens77
 ms.author: csiemens
 ms.date: 07/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ---
 # Choose the right AI model for your workload
 
-In the rapidly evolving landscape of AI development, selecting the right model is both a foundational and strategic decision. Thousands of models are available for deployment, with more being developed and released regularly. This article focuses on strategies that you can use to streamline the decision-making process.
+In the rapidly evolving landscape of AI development, selecting the right model is both a foundational and strategic decision. Thousands of models are available for deployment, with more being developed and released regularly. This article focuses on strategies that you can use to improve the decision-making process.
 
 > [!NOTE]
 > If your chosen model meets your workload requirements, you can continue to use it. General-purpose models like GPT-5 can handle a wide range of tasks effectively. Continuing to use a proven model can save valuable development time compared to running a lengthy evaluation process.
 
 ## Key criteria for model selection
 
-:::image type="complex" source="_images/choose-a-model.svg" alt-text="A decision tree flowchart for selecting AI models that shows a systematic filtering process." lightbox="_images/choose-a-model.svg":::
+:::image type="complex" source="_images/choose-a-model.svg" alt-text="A decision tree flowchart for selecting AI models that shows a systematic filtering process." lightbox="_images/choose-a-model.svg" border="false":::
   The diagram illustrates a decision tree for selecting AI models. It shows a step-by-step filtering process based on key criteria like task fit, cost, context window size, security, region availability, deployment strategy, domain specificity, performance, and tunability. Each branch narrows the options and helps users systematically identify the most suitable AI model for their workload requirements.
 :::image-end:::
 
@@ -27,41 +27,41 @@ Several criteria can influence your model selection. Depending on your workload'
 
 Determine the purpose of the model, like chat, reasoning, embedding, retrieval-augmented generation (RAG), or multimodal processing.
 
-When selecting an AI model, choose a model that has capabilities that align with the specific task that you need it to perform. Different models are optimized for different functions. Some models excel at natural language processing, like text classification and summarization. Convolutional neural networks (CNNs) are ideal for visual data, including image classification and object detection. Recurrent neural networks (RNNs) and transformers support audio analysis and speech recognition. Multimodal models handle tasks that combine text, image, or audio inputs. For example, generative pretrained transformer (GPT) models are well-suited for text generation and understanding. Define the task clearly. Whether the task involves sentiment analysis, code generation, or real-time conversation, this step helps refine the available options and identify a model that provides strong performance, accuracy, and efficiency for your use case.
+When you select an AI model, choose a model that has capabilities that align with the specific task that you need it to perform. Different models are optimized for different functions. Some models excel at natural language processing, like text classification and summarization. Convolutional neural networks (CNNs) are ideal for visual data, including image classification and object detection. Recurrent neural networks (RNNs) and transformers support audio analysis and speech recognition. Multimodal models handle tasks that combine text, image, or audio inputs. For example, GPT models are well-suited for text generation and understanding. To narrow your options and choose a model that delivers the best performance, accuracy, and efficiency for your use case, clearly define your task. Tasks include sentiment analysis, code generation, or real-time conversation.
 
-#### Single model versus multiple model considerations
+#### Single model vs. multiple model considerations
 
-When considering task fit, your workload application design matters. Using a single model to fulfill all of the task requirements is better suited for a simpler approach. Alternatively, you can structure the task into multiple steps that each use a model suited to its specific purpose. Using multiple models is common in AI agent-based workload design, especially when you use [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). For example, you might combine language understanding, reasoning, and retrieval. This modular approach enables greater flexibility, scalability, and adaptability, especially in dynamic environments where tasks evolve or require diverse capabilities.
+When you consider task fit, factor in your workload application design. A single model that fulfills all task requirements works best for a simpler approach. Alternatively, you can structure the task into multiple steps that each use a model suited to its specific purpose. Multiple models are common in AI agent-based workload design, especially when you use [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). For example, you might combine language understanding, reasoning, and retrieval. This modular approach enables greater flexibility, scalability, and adaptability, especially in dynamic environments where tasks evolve or require diverse capabilities.
 
-Each model that's included in your workload must be evaluated and selected individually, and we recommend that you follow these considerations for each model.
+Individually evaluate and select each model that you include in your workload. Apply the following considerations for each model.
 
 ### Cost constraints
 
 Determine your budgetary limits for inference and deployment.
 
-Cost considerations must be considered when you select an AI model, especially when balancing performance with budget constraints. High-performing models often require significant compute resources, which can increase infrastructure and operational costs, especially at scale. For workloads that have limited funding, open-source or pretrained models from cloud providers can be a cost-effective option that still meets performance requirements. Alternatively, workloads that have larger budgets might prefer proprietary models or custom training to promote higher precision and domain-specific capabilities. Align your model choice around a model that maximizes return on investment (ROI).
+Consider cost considerations when you select an AI model, especially when you balance performance with budget constraints. High-performing models often require significant compute resources, which can increase infrastructure and operational costs, especially at scale. For workloads that have limited funding, open-source or pretrained models from cloud providers can be a cost-effective option that still meets performance requirements. Alternatively, workloads that have larger budgets might prefer proprietary models or custom training to promote higher precision and domain-specific capabilities. Align your model choice around a model that maximizes return on investment (ROI).
 
 ### Context window size
 
 Determine the size of the context window required for your task.
 
-When you select an AI model, the context window size should align with the complexity and length of the input data that you expect to work with. Generally speaking, larger, full-featured models have larger context windows. These models also require more compute resources and are typically slower in returning responses than smaller, specialized models. A larger context window lets the model consider more information at one time, like longer documents, extended conversations, or complex codebases, without losing track of earlier content. This capability is especially important for tasks that require coherent responses, understanding nuanced context, or referencing earlier parts of a conversation or document. Conversely, models that have smaller context windows might be faster or more cost-effective and are best suited for shorter, more focused tasks.
+When you select an AI model, the context window size should align with the complexity and length of the input data that you expect to work with. Generally speaking, larger, full-featured models have larger context windows. These models also require more compute resources and are typically slower in returning responses than smaller, specialized models. A larger context window lets the model consider more information at one time, like longer documents, extended conversations, or complex codebases, without losing track of earlier content. This capability is especially important for tasks that require coherent responses, understanding nuanced context, or referencing earlier parts of a conversation or document. Conversely, models that have smaller context windows might be faster or more cost effective and are best suited for shorter, more focused tasks.
 
 ### Security and compliance
 
 Check whether the model meets your organization's security and compliance standards and requirements.
 
-Selecting a model that aligns with your organization's security standards and regulatory obligations is essential to mitigate risk and maintain trust. Organizations that operate in regulated industries, like healthcare, finance, or government, must ensure that their models comply with standards like General Data Protection Regulation (GDPR), Health Insurance Portability and Accountability Act (HIPAA), or California Consumer Privacy Act (CCPA). This requirement means choosing models that provide robust data protection, secure deployment options, and transparency in decision-making processes. Open-source models might provide greater interpretability and control, while proprietary models might provide stronger built-in safeguards and support for compliance certifications.
+Select a model that aligns with your organization's security standards and regulatory obligations to mitigate risk and maintain trust. Organizations that operate in regulated industries, like healthcare, finance, or government, must ensure that their models comply with standards like General Data Protection Regulation (GDPR), Health Insurance Portability and Accountability Act (HIPAA), or California Consumer Privacy Act (CCPA). They must choose models that provide robust data protection, secure deployment options, and transparency in decision-making processes. Open-source models might provide greater interpretability and control, while proprietary models might provide stronger built-in safeguards and support for compliance certifications.
 
 ### Region availability
 
-Check whether the model can be deployed in the same region as your other workload resources.
+Check whether you can deploy the model in the same region as your other workload resources.
 
-Limited regional availability can significantly influence AI model selection, especially when considering latency, data residency, and compliance requirements. Some models are hosted only in specific geographic regions, which might affect performance for users in other locations because of increased response times. Workloads subject to regional data protection laws, like GDPR in Europe or CCPA in California, must ensure that the selected model complies with local regulations for data storage and processing.
+Limited regional availability can significantly influence AI model selection, especially when you consider latency, data residency, and compliance requirements. Some models are hosted only in specific geographic regions, which might affect performance for users in other locations because of increased response times. Workloads subject to regional data protection laws, like GDPR in Europe or CCPA in California, must ensure that the selected model complies with local regulations for data storage and processing.
 
 ### Deployment strategy
 
-Check whether the model can be hosted on serverless or managed infrastructure, your own infrastructure, or directly on a device.
+Check whether you can host the model on serverless or managed infrastructure, your own infrastructure, or directly on a device.
 
 Models must be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers, or it can be local to your workload, like running in process within your code. Some models available through a serverless platform from the provider, sometimes known as *models as a service (MaaS)*, are either too large or not licensed for deployment in your own compute. Your provider's hosting doesn't support some specialized models, so you can only run them in your own inferencing environment.
 
@@ -69,9 +69,9 @@ Your workload requirements constrain what the compute platform options are for e
 
 ### Domain specificity
 
-Check whether the model pretrained on data is relevant to your industry, like finance or healthcare.
+Check whether the model is pretrained on data that's relevant to your industry, like finance or healthcare.
 
-An AI model that's pretrained on data relevant to your industry, like healthcare, finance, or legal, can provide significant advantages in accuracy, efficiency, and contextual understanding. These models have been trained on domain-specific terminology, regulatory nuances, and typical workflows. This training reduces the need for extensive retraining and fine-tuning. As a result, they can deliver more precise predictions, generate more relevant content, and support faster deployment in real-world applications. Using industry-specific pretraining also helps ensure compliance and improves trustworthiness, especially in fields where precision and reliability are crucial.
+An AI model that's pretrained on data relevant to your industry, like healthcare, finance, or legal, can provide significant advantages in accuracy, efficiency, and contextual understanding. These models are trained on domain-specific terminology, regulatory nuances, and typical workflows. This training reduces the need for extensive retraining and fine-tuning. As a result, they can deliver more precise predictions, generate more relevant content, and support faster deployment in real-world applications. Industry-specific pretraining also helps ensure compliance and improves trustworthiness, especially in fields that prioritize precision and reliability.
 
 ### Performance
 
@@ -86,9 +86,9 @@ You generally want to select a model that meets your quality standards while res
 
 ### Model tunability
 
-Determine how much customization that you need to perform.
+Determine how much customization you need.
 
-Some AI models provide many hyperparameters that you can tune to meet your application needs. Examples include deep neural networks and gradient boosting machines. These models provide fine-grained control over parameters like learning rate and architecture, which makes them ideal for high-stakes tasks where accuracy is crucial. Alternatively, simpler models like linear regression or decision trees are easier to deploy and interpret, which makes them suitable for smaller datasets, real-time use cases, or teams that have limited machine learning experience. Tunability also affects generalization. Overly complex models risk overfitting, while simpler models might underfit but provide more stable performance. Resource constraints are another consideration because highly tunable models often require more training time, memory, and automated tuning tools.
+Some AI models provide many hyperparameters that you can tune to meet your application needs. Examples include deep neural networks and gradient boosting machines. These models provide fine-grained control over parameters like learning rate and architecture, which makes them ideal for high-stakes tasks where accuracy is crucial. Alternatively, simpler models like linear regression or decision trees are easier to deploy and interpret, which makes them suitable for smaller datasets, real-time use cases, or teams that have limited machine learning experience. Tunability also affects generalization. Overly complex models risk overfitting, while simpler models might underfit but provide more stable performance. Also consider resource constraints because highly tunable models often require more training time, memory, and automated tuning tools.
 
 ### Other factors
 
@@ -102,7 +102,7 @@ The previous criteria are often closely aligned with your workload's functional 
 
 ## Noncriteria for model selection
 
-Avoid considering the following factors that are unlikely to align with your workload's functional or nonfunctional requirements:
+Don't include the following factors in your decision-making because they rarely align with your workload's functional or nonfunctional requirements:
 
 - Cultural popularity
 - The publisher, like OpenAI, Meta, Microsoft, xAI, and others
@@ -115,7 +115,7 @@ To help you apply the selection criteria efficiently, use a catalog like the cat
 
 To perform a side-by-side AI model evaluation, start by defining a clear set of criteria based on your application's specific needs, like accuracy, speed, cost, context retention, and output quality. Then run candidate models on the same representative dataset or set of tasks to ensure consistent input and evaluation conditions. Compare the outputs both qualitatively and quantitatively by using metrics like relevance, coherence, latency, and user satisfaction. It's also helpful to involve stakeholders or users in the evaluation process to gather feedback on which model best aligns with real-world expectations. This structured approach helps you make an informed decision about which model is the best fit for your use case.
 
-You can also use tools like Hugging Face's benchmark collections to assess models for language support, reasoning, and safety. Consulting multiple benchmarking sources helps you learn how specific models perform across a wide range of real-world scenarios, which reduces the risk of bias from any single model host.
+You can also use tools like Hugging Face benchmark collections to assess models for language support, reasoning, and safety. Consult multiple benchmarking sources to learn how specific models perform across a wide range of real-world scenarios. This approach reduces the risk of bias from any single model host.
 
 Your model host might provide built-in evaluation tools on their platform, and we recommend that you take advantage of them. For more information, see [Evaluate generative AI models by using Azure AI Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
 
@@ -125,7 +125,7 @@ In many cases, you need to do some fine-tuning to train your model on your datas
 
 ## Plan for model changes
 
-Selecting a model isn't a one-time activity. In your proof of concept (POC) or prototype phase, you might choose a frontier model to expedite the build-out. When you move to production, a more specialized model or even a small language model might be a better fit. As your workload evolves, the model that you initially chose might not perform as expected, or your planned features might not align well with that model. To keep up with market advances, you might also need to regularly replace your model with newer releases. For more information about model life cycle considerations, see [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle) article.
+Selecting a model isn't a one-time activity. In your proof of concept (POC) or prototype phase, you might choose a frontier model to expedite the build-out. When you move to production, a more specialized model or even a small language model might be a better fit. As your workload evolves, the model that you initially chose might not perform as expected, or your planned features might not align well with that model. To keep up with market advances, you might also need to regularly replace your model with newer releases. For more information about model life cycle considerations, see [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle).
 
 To future-proof your architecture, consider the following derisking approaches:
 
@@ -138,4 +138,4 @@ To future-proof your architecture, consider the following derisking approaches:
 ## Next steps
 
 - [Explore Azure AI Foundry models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [Foundry models and capabilities](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)
+- [Azure AI Foundry models and capabilities that Azure sells directly](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)
