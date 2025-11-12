@@ -28,6 +28,8 @@ The following main load balancing services and service with load balancing capab
 
 - [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application layer (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family.
+
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer-7 capabilities for your application such as Secure Sockets Layer (SSL) offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
 - [Load Balancer](/azure/load-balancer/load-balancer-overview) is a Layer-4 service that handles inbound and outbound traffic across all User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. It's designed for high performance and ultra-low latency. It's built to handle millions of requests per second while ensuring that your solution is highly available. Load Balancer is zone redundant, which ensures high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
@@ -35,7 +37,7 @@ The following main load balancing services and service with load balancing capab
 - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a Domain Name System (DNS)-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door. DNS caching and systems that ignore DNS time-to-live (TTL) values often cause this delay.
 
 > [!NOTE]
-> Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service (AKS), contain load balancing constructs. These constructs operate mostly within the scope of their own cluster boundary. They route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
+> Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service (AKS), contain load balancing constructs. These constructs operate mostly within the scope of their own cluster boundary. They route traffic to available application instances based on readiness and health probes. This article doesn't cover all of these load balancing options.
 
 ## Service categorizations
 
@@ -59,6 +61,7 @@ The following table summarizes the Azure load balancing services.
 | :--- | :--- | :---  |
 | API Management      | Regional or global | HTTP(S) APIs only   |
 | Application Gateway | Regional           | HTTP(S), TCP, & TLS |
+| Application Gateway for Containers | Regional           | HTTP(S) |
 | Azure Front Door    | Global             | HTTP(S)             |
 | Load Balancer       | Regional or global | Non-HTTP(S)         |
 | Traffic Manager     | Global             | Non-HTTP(S)         |
@@ -115,7 +118,7 @@ When your workload includes several services that require load balancing, assess
 
 - **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.md#scalability).
 
-- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
+- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. These AKS workloads are refered to as AKS backends. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md). 
 
 - **Infrastructure as a service (IaaS)** is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
@@ -123,7 +126,11 @@ When your workload includes several services that require load balancing, assess
 
 - **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, if your workload already uses API Management for its gateway capabilities, you can consider its optional load balancing feature to direct traffic across API back ends that aren't already load balanced through another mechanism. If your workload doesn't use API Management, don't use it solely for load balancing.
 
-- **Performance acceleration** refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks or optimized point-of-presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [content delivery networks](/azure/frontdoor/front-door-caching) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration). You can gain the benefits of both features with or without Application Gateway in the architecture.
+- **Content delivery netwrok (CDN)** refers to a feature that accelerates webpage loading times through its geographically distributed network of servers. CDN enables performance acceleration or optimized point-of-presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [content delivery networks](/azure/frontdoor/front-door-caching) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration). You can gain the benefits of both features with or without Application Gateway in the architecture.
+
+- **Passthrough load balancer** is a load balancer where a client directly establishes a connection with a backend server that is selected by the load balancer's distribution algorithm.
+
+- **Terminating load balancer** is where a client establishes a connection with the load balancer (proxy) and a separate connection is initiated from load balancer to the backend server.
 
 ### Other considerations
 
