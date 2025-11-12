@@ -16,13 +16,13 @@ The MLOps maturity model encompasses five levels of technical capability:
 
 | Level | Description | Highlights | Technology |
 | ----- | ----------- | ---------- | ---------- |
-| 0 | [No MLOps](#level-0-no-mlops) | <ul><li>Difficult to manage full machine learning model lifecycle<li>The teams are disparate and releases are painful<li>Most systems exist as "black boxes," little feedback during/post deployment</ul> | <ul><li>Manual builds and deployments<li>Manual testing of model and application<li>No centralized tracking of model performance<li>Training of model is manual</ul> |
-| 1 | [DevOps but no MLOps](#level-1-devops-no-mlops) | <ul><li>Releases are less painful than No MLOps, but rely on Data Team for every new model<li>Still limited feedback on how well a model performs in production<li>Difficult to trace/reproduce results</ul> | <ul><li>Automated builds<li>Automated tests for application code</ul> |
-| 2 | [Automated Training](#level-2-automated-training) | <ul><li>Training environment is fully managed and traceable<li>Easy to reproduce model<li>Releases are manual, but low friction</ul> | <ul><li>Automated model training<li>Centralized tracking of model training performance<li>Model management</ul> |
-| 3 | [Automated Model Deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic<li>Full traceability from deployment back to original data<li>Entire environment managed: train > test > production </ul>| <ul><li>Integrated A/B testing of model performance for deployment<li>Automated tests for all code<li>Centralized tracking of model training performance</ul> |
-| 4 | [Full MLOps Automated Operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system automated and easily monitored<li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models<li>Approaching a zero-downtime system </ul>| <ul><li>Automated model training and testing<li>Verbose, centralized metrics from deployed model</ul> |
+| 0 | [No MLOps](#level-0-no-mlops) | <ul><li>Difficult to manage full machine learning model lifecycle<li>The teams are disparate and releases are painful<li>Most systems exist as "black boxes," little feedback during/post deployment</ul> | <ul><li>Manual builds and deployments<li>Manual testing of model and application<li>No centralized tracking of model performance<li>Training of model is manual<li> Basic Azure Machine Learning workspace usage </ul> |
+| 1 | [DevOps but no MLOps](#level-1-devops-no-mlops) | <ul><li>Releases are less painful than No MLOps, but rely on Data Team for every new model<li>Still limited feedback on how well a model performs in production<li>Difficult to trace/reproduce results</ul> | <ul><li>Automated builds<li>Automated tests for application code<li>Version control for code</ul> |
+| 2 | [Automated Training](#level-2-automated-training) | <ul><li>Training environment is fully managed and traceable<li>Easy to reproduce model<li>Releases are manual, but low friction</ul> | <ul><li>Automated model training<li>Centralized tracking of model training performance<li>Model management<li>Azure ML scheduled or event-driven jobs for recurring training<li>Adopt Managed Feature Store<li>Emit Event Grid lifecycle events for pipeline orchestration<li>Managed environments using Azure ML Environment definitions</ul> |
+| 3 | [Automated Model Deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic<li>Full traceability from deployment back to original data<li>Entire environment managed: train > test > production </ul>| <ul><li>Integrated A/B testing of model performance for deployment<li>Automated tests for all code<li>Centralized tracking of model training performance<li>Promote artifacts across workspaces using Azure ML Registries</ul> |
+| 4 | [Full MLOps Automated Operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system automated and easily monitored<li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models<li>Approaching a zero-downtime system </ul>| <ul><li>Automated model training and testing<li>Verbose, centralized metrics from deployed model<li>Trigger automatic retraining from drift or regression signals using Event Grid<li>Monitor feature materialization health and freshness<li>Policy-based automated model promotion using Azure ML Registries</ul> |
 
-The tables that follow identify the detailed characteristics for that level of process maturity. The model will continue to evolve.
+The tables that follow identify the detailed characteristics for that level of process maturity.
 
 ## Level 0: No MLOps
 
@@ -53,6 +53,16 @@ The tables that follow identify the detailed characteristics for that level of p
 | People | Model Creation | Model Release | Application Integration |
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs. Working with software engineers to identify markers for data engineers<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code. Implementing post-deployment metrics gathering</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release managed by continuous integration and CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
+
+## MLOps and GenAIOps
+
+This article focuses on predictive, tabular, and classical ML lifecycle capabilities. Generative AI operations (prompt lifecycle, retrieval augmentation, output safety, token cost governance) add extra layers and should be treated as an overlay rather than replacing these levels. Reference this [GenAIOps article](/azure/architecture/ai-ml/guide/genaiops-for-mlops) for those concerns; do not conflate prompt iteration mechanics with the reproducible training-deployment loop described here.
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+- [Delyn Choong](https://www.linkedin.com/in/delynchoong/) | Senior Cloud Solutions Architect – Data & AI
 
 ## Next step
 
