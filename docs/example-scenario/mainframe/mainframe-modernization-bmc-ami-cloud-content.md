@@ -26,7 +26,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The BMC AMI Cloud agent starts a z/OS task that sends encrypted and compressed mainframe data to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). This process helps ensure secure and efficient data transfer without the need for intermediate storage, which reduces latency and potential points of failure.
 
-1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents and manages policies, activities, and storage to ensure seamless data management.
+1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents and manages policies, activities, and storage to help ensure seamless data management.
 
 1. BMC AMI Cloud Analytics transforms mainframe data stored in Blob Storage into formats optimized for AI, business intelligence (BI), and machine learning applications. It supports conversion to CSV and JSON and allows direct integration with Microsoft databases. This capability supports a wide range of analytical and operational use cases.
 
@@ -56,7 +56,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 #### Databases and storage
 
-The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Microsoft database services by using BMC AMI Cloud Analytics.
+The mainframe data is migrated to Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed, relational database service that's based on the community edition of the open-source PostgreSQL database engine. You can use Azure Database for PostgreSQL to focus on application innovation instead of database management. You can also scale your workload efficiently and with minimal operational overhead. In this architecture, you can integrate mainframe data with Azure Database for PostgreSQL through BMC AMI Cloud Analytics.
 
