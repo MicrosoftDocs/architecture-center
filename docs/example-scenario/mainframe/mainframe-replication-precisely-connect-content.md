@@ -11,13 +11,14 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 ### Workflow
 
 1. A Connect agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
-2. For mainframe systems, a publisher component on the mainframe manages data migration.
-3. For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
-4. The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
-5. The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
-6. The Azure Event Hubs ingests real-time data changes from Precisely Connect for immediate processing.
-7. The ingested data is processed using Azure Databricks or Microsoft Fabric (Spark) and further stored in Azure targets or Fabric Lakehouse/Warehouse for downstream analytics and BI.
-8. The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
+
+1. For mainframe systems, a publisher component on the mainframe manages data migration.
+1. For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
+1. The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
+1. The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
+1. The Azure Event Hubs ingests real-time data changes from Precisely Connect for immediate processing.
+1. The ingested data is processed using Azure Databricks or Microsoft Fabric (Spark) and further stored in Azure targets or Fabric Lakehouse/Warehouse for downstream analytics and BI.
+1. The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
 
 ### Components
 
@@ -53,7 +54,7 @@ This architecture uses the following components.
 
 #### Monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics. In this architecture, Azure Monitor provides monitoring and observability for the data replication process and Azure resources.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics. In this architecture, Azure Monitor provides monitoring and observability for the data replication process and Azure resources.
 
 #### Data integrators
 
@@ -67,7 +68,7 @@ This architecture uses the following components.
 
 ## Scenario details
 
- You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
+You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
 Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It converts the data into consumable format which is ingested by Azure Event Hubs for immediate processing. The ingested data is further processed using Azure Databricks or Microsoft Fabric for downstream consumption and storage into Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Microsoft Fabric Lakehouse/Warehouse. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
