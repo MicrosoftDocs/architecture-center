@@ -15,8 +15,8 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 3. For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
 4. The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
 5. The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
-6. The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs.
-7. The changed data is consumed by Azure Databricks and applied to Azure data platform services.
+6. The Azure Event Hubs ingests real-time data changes from Precisely Connect for immediate processing.
+7. The ingested data is processed using Azure Databricks or Microsoft Fabric (Spark) and further stored in Azure targets or Fabric Lakehouse/Warehouse for downstream analytics and BI.
 8. The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
 
 ### Components
@@ -43,11 +43,13 @@ This architecture uses the following components.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together data integration, data warehousing, and data analytics. It helps you scale, compute, and store data elastically and independently, with a massively parallel processing architecture. In this architecture, Azure Synapse Analytics serves as the data warehouse destination for large-scale mainframe data analytics.
+- [Microsoft Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Microsoft Fabric. In this architecture, Onelake serves as storage for ingesting data from Azure Event Hubs.
+
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytics platform which unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Microsoft Fabric (Lakehouse/Warehouse or SQL Database within Fabric) serves as the relational storage destination for analytics and BI layer.
 
 #### Analysis and reporting
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive unplanned analysis. In this architecture, Power BI provides business intelligence capabilities for analyzing replicated mainframe data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a group of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive unplanned analysis. In this architecture, Power BI provides business intelligence capabilities for analyzing replicated mainframe data. Power BI is natively integrated with Microsoft Fabric for unified analytics.
 
 #### Monitoring
 
@@ -57,6 +59,8 @@ This architecture uses the following components.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform based on Apache Spark that integrates with open-source libraries. It provides a collaborative workspace for running analytics workloads. You can use Python, Scala, R, and SQL languages to build extract, transform, load (ETL) pipelines and orchestrate jobs. In this architecture, Azure Databricks processes and transforms the replicated mainframe data for consumption by Azure data platform services.
 
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end AI powered analytics platform operating on a fully managed Apache Spark compute platform. In this architecture, Microsoft Fabric Spark ingests and transforms replicated mainframe data, making it analytics-ready for consumption by downstream Azure data platform and Microsoft Fabric services.
+
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
 
 - [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) is a data integration platform that can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Connect can also improve the performance of ETL jobs. In this architecture, Precisely Connect serves as the primary data replication engine that captures and migrates mainframe data to Azure in real time.
@@ -65,7 +69,7 @@ This architecture uses the following components.
 
  You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
-Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
+Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It converts the data into consumable format which is ingested by Azure Event Hubs for immediate processing. The ingested data is further processed using Azure Databricks or Microsoft Fabric for downstream consumption and storage into Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Microsoft Fabric Lakehouse/Warehouse. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
 
@@ -115,6 +119,10 @@ For more information, see [Autoscaling best practices in Azure](../../best-pract
 Principal author:
 
 - [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan) | Senior Engineering Architect
+
+Other contributors:
+
+- [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Solution Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
