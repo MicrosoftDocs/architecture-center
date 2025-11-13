@@ -22,7 +22,7 @@ You must distinguish between the two types of APIs:
 - Public APIs that client applications call
 - Back-end APIs for interservice communication
 
-These two types have different requirements. A public API must work with client applications, like browser applications or native mobile applications. Most public APIs use REST over HTTP. But back-end APIs must account for network performance. Depending on the granularity of your services, interservice communication can result in too much network traffic. Services can quickly become I/O bound, so considerations like serialization speed and payload size become more important. Some popular alternatives to REST over HTTP include gRPC Remote Procedure Call (gRPC), Apache Avro, and Apache Thrift. These protocols support binary serialization and improve efficiency compared to HTTP.
+These two types have different requirements. A public API must be compatible with client applications, like browser applications or native mobile applications. Most public APIs use REST over HTTP. But back-end APIs must account for network performance. Depending on the granularity of your services, interservice communication can result in too much network traffic. Services can quickly become I/O bound, so considerations like serialization speed and payload size become more important. Some popular alternatives to REST over HTTP include gRPC Remote Procedure Call (gRPC), Apache Avro, and Apache Thrift. These protocols support binary serialization and improve efficiency compared to HTTP.
 
 ## Considerations
 
@@ -30,7 +30,7 @@ Consider the following factors when you decide how to implement an API:
 
 - **REST versus Remote Procedure Call (RPC):** Consider the trade-offs between a REST-style interface versus an RPC-style interface.
 
-  - REST models resources, which provides a natural way to express the domain model. It defines a uniform interface based on HTTP verbs, which encourages evolvability. It includes well-defined semantics for idempotency, side effects, and response codes. REST also enforces stateless communication, which improves scalability.
+  - REST models resources, which provides an intuitive way to express the domain model. It defines a uniform interface based on HTTP verbs, which encourages evolvability. It includes well-defined semantics for idempotency, side effects, and response codes. REST also enforces stateless communication, which improves scalability.
 
   - RPC focuses on operations or commands. RPC interfaces resemble local method calls, so they can lead to overly chatty APIs. But RPC doesn't require chatty communication. To avoid that outcome, you must carefully design the interface.
 
@@ -66,11 +66,11 @@ Consider the following factors:
 
 - For operations that cause side effects, consider making them idempotent and implementing them as `PUT` methods. This approach enables safe retries and improves resiliency. For more information, see [Interservice communication](./interservice-communication.yml).
 
-- HTTP methods can have asynchronous semantics, where the method returns a response immediately, but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code. This code indicates that the request was accepted for processing but not yet processed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml).
+- HTTP methods can have asynchronous semantics, where the method returns a response immediately but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code. This code indicates that the request was accepted for processing but not yet processed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml).
 
 ## Generic data access APIs: OData and GraphQL considerations
 
-REST APIs provide a structured approach to expose resources, but some scenarios require more flexible data access patterns. Query-oriented APIs like OData and GraphQL provide alternatives that allow clients to specify exactly what data they need. This approach can potentially reduce over-fetching and improve performance. These types of APIs prioritize read operations. Mutation operations, like create, update, and delete, can be more complex to implement, but various frameworks can manage these operations effectively.
+REST APIs provide a structured approach to expose resources, but some scenarios require more flexible data access patterns. Query-oriented APIs like OData and GraphQL provide alternatives that let clients specify exactly what data they need. This approach can potentially reduce over-fetching and improve performance. These types of APIs prioritize read operations. Mutation operations, like create, update, and delete, can be more complex to implement, but various frameworks can manage these operations effectively.
 
 ### When to consider generic data access APIs
 
@@ -126,7 +126,7 @@ In a microservices architecture, services don't share the same code base or a da
 This example applies well to the aircraft and aerospace industries.
 
 :::image type="complex" border="false" source="../images/ddd-rest.png" alt-text="Diagram of the Drone service." lightbox="../images/ddd-rest.png":::
-The diagram shows the interaction between a scheduler service and a drone service, which communicates with a data store. On the left, a scheduler service sends an HTTP GET request to the drone service with the endpoint /api/drone. An arrow points back to the scheduler service, labeled with a response that contains JSON { … }. The drone service contains an HTTP request handler and a repository. The HTTP request handler receives the GET request. The repository connects to the data store. Two arrows indicate bidirectional communication between the repository and the data store. Inside the drone service, two arrows indicate bidirectional communication between the HTTP request handler and the repository. The arrow from the repository to the HTTP request handler is labeled drone (entity), which represents the domain object returned by the repository.
+The diagram shows the interaction between a scheduler service and a drone service, which communicates with a data store. On the left, a scheduler service sends an HTTP GET request to the drone service with the endpoint /api/drone. An arrow points back to the scheduler service, labeled with a response that contains JSON followed by three periods. The drone service contains an HTTP request handler and a repository. The HTTP request handler receives the GET request. The repository connects to the data store. Two arrows indicate bidirectional communication between the repository and the data store. Inside the drone service, two arrows indicate bidirectional communication between the HTTP request handler and the repository. The arrow from the repository to the HTTP request handler is labeled drone (entity), which represents the domain object returned by the repository.
 :::image-end:::
 
 The scheduler service can't modify the drone service's internal models or write to the drone service's data store. So the code that implements the drone service has a smaller exposed surface area compared to code in a traditional monolith. If the drone service defines a `Location` class, the scope of that class is limited—no other service directly consumes the class.
@@ -137,7 +137,7 @@ The following examples show how REST concepts align with common DDD constructs:
 
 - Aggregates map naturally to resources in REST. For example, a delivery API might expose a delivery aggregate as a resource.
 
-- Aggregates define consistency boundaries. Operations on aggregates shouldn't leave an aggregate in an inconsistent state. Avoid creating APIs that allow a client to manipulate the internal state of an aggregate. Instead, favor coarse-grained APIs that expose aggregates as resources.
+- Aggregates define consistency boundaries. Operations on aggregates shouldn't leave an aggregate in an inconsistent state. Avoid creating APIs that let a client manipulate the internal state of an aggregate. Instead, favor coarse-grained APIs that expose aggregates as resources.
 
 - Entities have unique identities. In REST, resources have unique identifiers in the form of URLs. Create resource URLs that correspond to an entity's domain identity. The mapping from URL to domain identity might be opaque to clients.
 
@@ -161,7 +161,7 @@ When you design APIs, think about how they express the domain model, not only th
 
 An API serves as a contract between a service and clients or consumers of that service. API changes can break external clients or microservices that depend on the API. Minimize the number of API changes that you make. Changes in the underlying implementation often don't require changes to the API. But at some point, you likely want to add new features or new capabilities that require changing an existing API.
 
-Make API changes backward compatible whenever possible. For example, avoid removing a field from a model. That change can break clients that expect the field to exist. Adding a field doesn't break compatibility because clients should ignore fields that they don't recognize in a response. But the service must handle requests from older clients that omit the new field.
+Make API changes backward compatible when possible. For example, avoid removing a field from a model. That change can break clients that expect the field to exist. Adding a field doesn't break compatibility because clients should ignore fields that they don't recognize in a response. But the service must handle requests from older clients that omit the new field.
 
 Support versioning in your API contract. If you introduce a breaking API change, introduce a new API version. Continue to support the previous version, and let clients select which version to call. One way to do versioning is to expose both versions in the same service. Another option is to run two versions of the service side-by-side and route requests to one or the other version based on HTTP routing rules.
 
@@ -226,7 +226,7 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 }
 ```
 
-Most requests create a new entity, so the method optimistically calls `CreateAsync` on the repository object and then handles duplicate-resource exceptions by updating the resource instead.
+Most requests create a new entity, so the method expects the creation to succeed and calls `CreateAsync` on the repository object. Then the method handles duplicate-resource exceptions by updating the resource instead.
 
 ## Related resources
 
