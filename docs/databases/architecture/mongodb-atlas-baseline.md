@@ -124,6 +124,6 @@ MongoDB Atlas collects and stores activity logs that you can download for auditi
 
 MongoDB Atlas automated backup policies ensure that data can be restored to any point in time, within retention limits. Refer to the [Cloud backups](https://www.mongodb.com/docs/atlas/backup-restore-cluster/?msockid=2137d3960740658d00a8c67106e864ed#cloud-backups) documentation for full details.
 
-## Next Steps
+## Next steps
 
 To deploy this architecture, follow the step-by-step instructions and Terraform automation in the [MongoDB Atlas reference implementation GitHub repository](https://github.com/Azure/mongodb-atlas-landing-zone-accelerator).
