@@ -85,6 +85,10 @@ Depending on your use case and requirements, evaluate whether additional Microso
 > - [Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview)
 > - [Microsoft Entra Global Secure Access (GSA)](/entra/global-secure-access/overview-what-is-global-secure-access)
 
+### Egress control
+
+In this architecture, there is minimal egress control for outbound traffic originating from the workload's virtual network. Traffic is controlled through Network Security Groups on the subnets. The MongoDB Atlas cluster has no egress control enabled. Depending on your workloads's security policies, you might need to implement additional egress control to restrict outbound traffic to only approved destinations. For Azure components, direct outbound traffic through your egress firewall. For the MongoDB Altas cluster, consult [Guidance for Atlas Network Security](https://www.mongodb.com/docs/atlas/architecture/current/network-security/) for outbound network control options.
+
 ## Monitoring considerations
 
 Monitoring is a crucial part of workload operations. Design a comprehensive workload [monitoring solution](/azure/well-architected/operational-excellence/observability).
