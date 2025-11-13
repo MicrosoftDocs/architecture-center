@@ -3,7 +3,7 @@ title: Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase
 description: Learn about how to evaluate your RAG solution from end to end by calculating and evaluating key large language model and similarity metrics.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/29/2025 
+ms.date: 10/10/2025 
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -90,7 +90,7 @@ You can use the following methods to calculate the relevance of responses:
 
 - [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance).
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/).
-- [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge).
+- [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html).
 
 > [!NOTE]
 > You can use Azure [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations, or use the guidance in this article to calculate relevance yourself.
@@ -224,7 +224,7 @@ Evaluating privacy risks is essential when RAG systems interact with repositorie
 
 - **Direct identifiers:** Names, Social Security numbers, passport numbers, and national ID numbers.
 
-- **Contact information:** Email addresses, phone numbers, physical addresses, and IP addresses. 
+- **Contact information:** Email addresses, phone numbers, physical addresses, and IP addresses.
 
 - **Financial data:** Credit card numbers, bank account details, and transaction records.
 

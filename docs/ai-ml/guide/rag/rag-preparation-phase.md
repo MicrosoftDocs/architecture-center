@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG preparation phase
 
-The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents and multimedia content, perform content analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, content analysis helps you determine which test documents, media files, and test queries you should gather. The questions that you ask must be answerable by content in the documents and multimedia, and the content must answer the relevant questions.
+The first phase of retrieval-augmented generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents and multimedia content, perform content analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, content analysis helps you determine which test documents, media files, and test queries you should gather. The questions that you ask must be answerable by content in the documents and multimedia, and the content must answer the relevant questions.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -23,29 +23,29 @@ The first step in this process is to clearly define the business requirements fo
 
 The goal of content analysis is to gather enough information about your content collection to help you understand:
 
-- The different classifications of content. For example, you might have product specifications, quarterly reports, car insurance contracts, health insurance contracts, training videos, or instructional audio recordings.
+- **The different classifications of content.** For example, you might have product specifications, quarterly reports, car insurance contracts, health insurance contracts, training videos, or instructional audio recordings.
 
-- The different types of content and formats. For example, you might have PDFs, Markdown files, HTML files, DOCX files, MP4 videos, MP3 audio files, JPEG images, or PowerPoint presentations.
+- **The different types of content and formats.** For example, you might have PDFs, Markdown files, HTML files, DOCX files, MP4 videos, MP3 audio files, JPEG images, or PowerPoint presentations.
 
-- The security constraints. For example, you might require authentication and authorization to access the content depending on whether it's publicly accessible.
+- **The security constraints.** For example, you might require authentication and authorization to access the content depending on whether it's publicly available.
 
-- The structure and characteristics of the content. For example, the length of documents might vary, videos might have different durations and resolutions, audio files might contain speech or background music, or content might have subject breaks, contextually relevant images, or tabular data.
+- **The structure and characteristics of the content.** For example, the length of documents might vary, videos might have different durations and resolutions, audio files might contain speech or background music, or content might have subject breaks, contextually relevant images, or tabular data.
 
 The following sections describe how this information helps you choose your loading and chunking strategies.
 
 ### Understand content classifications
 
-It's important to understand the different content classifications to help determine the number of test items that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance. It should also tell you about subclassifications, such as health insurance documents, car insurance documents, product demonstration videos, or customer service audio recordings. You also want to know whether the subclassifications have different structures, formats, or content characteristics.
+It's important to understand the different content classifications to help determine the number of test items that you need. This part of the analysis should identify high-level classifications, such as insurance or finance. It should also identify subclassifications, such as health insurance documents, car insurance documents, product demonstration videos, or customer service audio recordings. Determine whether these subclassifications have different structures, formats, or content characteristics.
 
-The goal is to understand all of the different content variants that you have. Then you can determine the number and breakdown of test content that you need. You don't want to over or under represent a specific content classification in your experimentation.
+The goal is to understand all of the different content variants that you have. You don't want to overrepresent or underrepresent a specific content classification in your experimentation.
 
 ### Content types and formats
 
-When you understand the different file formats in your collection, it helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of the formats. If you also have video presentations and audio recordings of the same content, include them in your testing as well. When you know your content types, you can better understand your technical requirements for loading and processing your content. The technical requirements include specific libraries that can process the file formats, transcription services for audio and video content, and computer vision models for image analysis.
+When you understand the different file formats in your collection, it helps you determine the number and breakdown of test content. For example, if you have PDF and Open XML document types for quarterly reports, you need test content for each of the formats. If you also have video presentations and audio recordings of the same content, include them in your testing. When you know your content types, you can better understand your technical requirements for loading and processing your content. The technical requirements include specific libraries that can process the file formats, transcription services for audio and video content, and computer vision models for image analysis.
 
 ### Security constraints
 
-You need to understand your security constraints to determine your loading and processing strategies. For example, it's crucial to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it or implement a process to securely replicate the content to an accessible location for your processing code.
+You need to understand your security constraints to determine your loading and processing strategies. For example, it's crucial to identify whether some or all of your content requires authentication, authorization, or network visibility. If the content is within a secure perimeter, ensure that your code can access it, or implement a process to securely replicate the content to a location where your processing code can access it.
 
 Documents sometimes reference or embed images, videos, or audio that are important to the context. That media might also be subject to similar access controls as the primary document itself. If the media requires authentication or network line of sight, you must make sure that your code can access the media or that you have a process in place to access and replicate the content. Also, consider privacy and compliance requirements when processing audio and video content that might contain personal data or sensitive conversations.
 
@@ -53,7 +53,7 @@ If your workload requires that different users only have access to distinct cont
 
 ### Content structure and characteristics
 
-You need to understand the structure and characteristics of your content, including layout, format, duration, and the types of information contained within. When you understand the structure and characteristics of your content, it helps you make the following determinations:
+You need to understand the structure and characteristics of your content, including layout, format, duration, and the types of information contained within. This understanding helps you make the following determinations:
 
 - Whether the content requires preprocessing to clean up noise, extract media, transcribe audio, extract frames from video, reformat content, or annotate items to ignore
 
@@ -107,7 +107,7 @@ The following questions about the structure of the document can help you decide 
 
 #### Determine your image preprocessing requirements
 
-When you know the attributes of your images, like whether they have sufficient resolution to process, and whether the image contains all the required information, it helps you understand your image processing requirements. The following questions can help you determine the requirements.
+To determine your image preprocessing requirements, understand attributes of your images, like whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions can help you determine the requirements.
 
 - What resolution are the images?
 
@@ -121,19 +121,19 @@ When you know the attributes of your images, like whether they have sufficient r
 
 #### Determine your video and audio preprocessing requirements
 
-When you know the characteristics of your multimedia content, whether it contains valuable information, and how to extract that information effectively, it helps you understand your video and audio processing requirements. The following questions can help you determine the requirements.
+To determine your video and audio processing requirements, understand your multimedia content, whether it contains valuable information, and how to extract that information effectively. The following questions can help you determine the requirements.
 
 - What are the quality characteristics of the media files? These characteristics include video resolution and framerate, audio quality and sample rate, and file compression and codec types.
 
 - What type of content do the media files contain? Content types include spoken presentations, lectures, interviews, music, sound effects, and screen recordings.
 
-- Do the video files contain visual information that's important to understanding? Examples of the information include presentation slides, demonstrations, charts, graphs, visualizations, text overlays, and captions.
+- Do the video files contain visual information that's important for understanding? Examples of the information include presentation slides, demonstrations, charts, graphs, visualizations, text overlays, and captions.
 
 - Are there transcripts or closed captions available for the audio and video content?
 
 - What languages are spoken in the audio and video content?
 
-- Do the media files have metadata or chapters that could help with segmentation?
+- Do the media files have metadata or chapters that can help with segmentation?
 
 - Is there background noise or music that might interfere with transcription?
 
@@ -141,7 +141,7 @@ When you know the characteristics of your multimedia content, whether it contain
 
 #### Determine your table, chart, and other media-processing requirements
 
-When you understand the information encapsulated in tables, charts, and other media, it helps you decide how you want to process it. The following questions can help you understand your table, chart, and other media-processing requirements.
+To determine how to process the information encapsulated in tables, charts, and other media, understand its characteristics. The following questions can help you understand your table, chart, and other media-processing requirements.
 
 - Does the document have charts that include numbers?
 
@@ -159,19 +159,19 @@ When you understand the information encapsulated in tables, charts, and other me
 
 ## Gather representative test content
 
-In this step, gather content that best represents the content that you use in your solution. The content must address the defined use case and answer the questions that you gathered in the question-gathering parallel phase. It includes documents, images, videos, audio files, and any other media types that are part of your content collection.
+In this step, gather content that best represents the content that you use in your solution. The content must address the defined use case and answer the questions that you gathered in the question-gathering parallel phase. The content includes documents, images, videos, audio files, and any other media types that are part of your content collection.
 
 ### Considerations
 
 Consider the following areas when you evaluate potential representative test content:
 
-- **Pertinence:** The content must meet the business requirements of the conversational application. For example, if you build a chat bot that helps customers perform banking operations, the content must meet that requirement. It includes documents about opening or closing bank accounts, instructional videos about banking procedures, or audio recordings of customer service interactions. The content must be able to address the test questions that you gather in the parallel step. If the content doesn't have information that's relevant to the questions, your solution can't produce a valid response.
+- **Pertinence:** The content must meet the business requirements of the conversational application. For example, if you build a chat bot that helps customers perform banking operations, the content must meet that requirement. The content should include documents about opening or closing bank accounts, instructional videos about banking procedures, or audio recordings of customer service interactions. The content must be able to address the test questions that you gather in the parallel step. If the content doesn't have information that's relevant to the questions, your solution can't produce a valid response.
 
 - **Representation:** The content should represent the different types of content that your solution uses. For example, a car insurance document contains different information than a health or life insurance document, and a video demonstration might convey information differently than a written procedure. Suppose that the use case requires the solution to support all three of these insurance types across multiple media formats, but you only have car insurance documents. Your solution might perform poorly for health and life insurance operations or might not use the rich information available in multimedia content. You should have at least two pieces of content for each variation and format.
 
 - **Physical content quality:** The content needs to be in usable shape. Scanned images might not let you extract usable information, poor-quality audio recordings might not transcribe accurately, and low-resolution videos might not provide clear visual information.
 
-- **Content quality:** The content must be high-quality. Documents shouldn't contain misspellings or grammatical errors, audio should be clear and audible, and videos should have sufficient resolution and lighting. Language models and other AI services don't perform well if you provide them with poor-quality content.
+- **Content quality:** The content must be high quality. Documents shouldn't contain misspellings or grammatical errors, audio should be clear and audible, and videos should have sufficient resolution and lighting. Language models and other AI services don't perform well if you provide them with poor-quality content.
 
 To successfully gather test content, you should be *qualitatively confident* that the test content fully and accurately represents your specific domain across all media types.
 
@@ -181,7 +181,7 @@ To successfully gather test content, you should be *qualitatively confident* tha
 
 - Consider selectively augmenting your content with synthetic data. This process helps you ensure that your content covers all kinds of scenarios, including predicted future scenarios. If you must use synthetic data, do your best to make it resemble real content as much as possible, including realistic audio quality, video characteristics, and visual elements.
 
-- Make sure that the content can address the questions that you gather. It includes ensuring that video content has clear visuals, audio content has clear speech, and multimedia content provides information that complements or supplements text-based content.
+- Make sure that the content can address the questions that you gather. Ensure that video content has clear visuals, audio content has clear speech, and multimedia content provides information that complements or supplements text-based content.
 
 - Have at least two pieces of content for each content variant and format. For example, if you have instructional videos, include videos with different presenters, environments, or spoken language.
 
@@ -240,7 +240,7 @@ It's important to gather queries that the documents don't address and the querie
 
 Like with text, you should gather a diverse set of questions that involve using multimedia content to generate highly relevant answers. If you have images with graphs, tables, or screenshots, make sure that you have questions that cover all of the use cases. If you have videos with demonstrations, presentations, or visual information, include questions that require understanding the visual content. For audio content with spoken information, interviews, or presentations, ensure you have questions that test the system's ability to extract and reason about the spoken content.
 
-If you determine in the content analysis step that the text before or after the multimedia is required to answer some questions, make sure that you have those questions in your test queries. Additionally, consider questions that require combining information from multiple media types, such as a question that requires understanding both a written document and a related instructional video.
+If you determine in the content analysis step that the text before or after the multimedia is required to answer some questions, make sure that you have those questions in your test queries. Also consider questions that require combining information from multiple media types, such as questions that require understanding both written documents and related instructional videos.
 
 ### Gather test queries guidance
 

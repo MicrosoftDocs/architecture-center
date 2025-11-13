@@ -3,7 +3,7 @@ title: Develop a RAG Solution—Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/09/2025
+ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -349,7 +349,6 @@ The pipeline has the following steps:
 1. Each decomposed query performs three substeps. After all the decomposed queries go through the substeps, the output includes the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context includes the aggregation of the top *N* results from all the decomposed queries that go through the substeps. The substeps include the following tasks:
 
     1. The optional query rewriter rewrites the decomposed query.
-    
     1. The search index processes the rewritten query or the original query. It runs the query by using search types, such as vector, full text, hybrid, or manual multiple. The search index can also use advanced query capabilities, such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
 1. The original query, along with the accumulated context, goes through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.

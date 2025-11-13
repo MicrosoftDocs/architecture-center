@@ -3,7 +3,7 @@ title: Develop a RAG Solution - Generate Embeddings Phase
 description: Learn how embeddings work, how to choose an embedding model, and how your embedding model can affect your vector search results.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 11/17/2024
+ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
