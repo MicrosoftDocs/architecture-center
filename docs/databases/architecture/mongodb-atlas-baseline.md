@@ -26,7 +26,9 @@ In the single-region deployment, all core components, including the MongoDB Atla
 
 #### Architecture diagram
 
-:::image type="content" source="_images/mongodb-atlas-single-region.png" alt-text="A diagram showing a single-region MongoDB Atlas deployment on Azure. It includes an Azure Virtual Network with subnets hosting applications and services secured by Network Security Groups and NAT Gateway. A private endpoint connects the VNet to a MongoDB Atlas cluster. Observability is represented by an Azure Function App scraping metrics from the MongoDB Atlas API and sending data to Azure Monitor and Application Insights dashboards." lightbox="_images/mongodb-atlas-single-region.png":::
+:::image type="complex" source="_images/mongodb-atlas-single-region.png" alt-text="A diagram showing a single-region MongoDB Atlas deployment on Azure." lightbox="_images/mongodb-atlas-single-region.png":::
+   A top monitoring rectangle shows App Insights left of Azure Service Log Analytics; both connect downward by a line to AMPLS, then a long vertical line descends into the main workload services area. That area has three vertical subnet strips: left strip labeled snet-private containing a box titled Example Compute Services with App Services left of Container Apps and a Network Security Group icon to its left; middle strip labeled snet-private-endpoints showing (top to bottom) Monitoring Private Endpoint, Key Vault Private Endpoint, Blob Storage Private Endpoint with dashed horizontal lines from the top endpoint to Azure Functions and from the middle endpoint to Azure Key Vault; right strip labeled snet-function-app containing Azure Functions above a Network Security Group. A separate virtual network column on the far right contains an Azure Key Vault icon aligned with the middle dashed connector. number 1 sits beside a Private Endpoint at the bottom of the left strip; a dashed vertical chain links it to a Private Link Service, then a Load Balancer, then a dashed horizontal line spanning three storage nodes labeled Primary node, Secondary node, Secondary node inside a lower green Managed MongoDB Atlas Resources box; number 2 is near the load balancer and number 3 overlays the Network Security Group in the right strip.
+:::image-end:::
 
 #### Workflow
 
@@ -46,7 +48,9 @@ In this architecture, your workload compute is deployed in three regions. Each r
 
 #### Architecture diagram
 
-:::image type="content" source="_images/mongodb-atlas-multi-region.png" alt-text="A diagram illustrating a multi-region MongoDB Atlas architecture on Azure. Three Azure regions are shown, each with its own Virtual Network hosting applications and services. Each region connects to its local MongoDB Atlas cluster via private endpoints. VNet peering links the regions for failover resilience. Observability is provided by Azure Function Apps querying MongoDB Atlas APIs, with metrics visualized in Application Insights dashboards." lightbox="_images/mongodb-atlas-multi-region.png":::
+:::image type="complex" source="_images/mongodb-atlas-multi-region.png" alt-text="A diagram illustrating a multi-region MongoDB Atlas architecture on Azure." lightbox="_images/mongodb-atlas-multi-region.png":::
+   Across the upper third a monitoring box contains App Insights to the left of Azure Service Log Analytics, both connected downward via a line and AMPLS to Region 1. The central band shows three adjacent workload service areas: Region 1, Region 2, Region 3. Region 1 is subdivided into three vertical subnet strips labeled snet-private, snet-private-endpoints, and snet-function-app, with a virtual network column on the far right that contains Azure Key Vault. Inside the left strip a box titled Example Compute Services lists App Services left of Container Apps. A Network Security Group appears at the far left and again in the rightmost strip. Number 1 is beside a Private Endpoint at the bottom of Region 1, whose dashed vertical connection descends to a Private Link Service, then a Load Balancer, then horizontally to a Primary node and a Secondary node inside the lower green Managed MongoDB Atlas Resources Region 1 area; number 2 is near that Atlas area. Regions 2 and 3 each repeat a workload services rectangle with App Services left of Container Apps, a Private Endpoint at the bottom connected by dashed lines to separate Private Link Service and Load Balancer elements leading to Secondary nodes only in their respective Managed MongoDB Atlas Resources areas. Virtual network peering is indicated by horizontal connectors across the top between Region 1 and Region 2 and between Region 2 and Region 3. Number 3 is on Azure Functions within Region 1's right strip, and number 4 is on Azure Key Vault in the virtual network column between Regions 1 and 2.
+:::image-end:::
 
 #### Workflow
 
@@ -118,4 +122,4 @@ MongoDB Atlas automated backup policies ensure that data can be restored to any 
 
 ## Next Steps
 
-To deploy this architecture, follow the step-by-step instructions and Terraform automation in the [MongoDB Atlas reference implementation repository](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone).
+To deploy this architecture, follow the step-by-step instructions and Terraform automation in the [MongoDB Atlas reference implementation GitHub repository](https://github.com/mongodb-partners/Azure-MongoDB-Atlas-Landing-Zone).
