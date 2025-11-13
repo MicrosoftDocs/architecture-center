@@ -1,6 +1,6 @@
 This article describes how to use Precisely Connect to migrate mainframe and midrange systems to Azure. Precisely Connect provides real-time data replication from legacy systems to Azure by using change data capture (CDC) technology.
 
-This solution lets you maintain data consistency between on-premises mainframe environments and Azure cloud services while minimizing impact on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets such as Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
+This solution provides data consistency between on-premises mainframe environments and Azure cloud services while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets such as Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
 
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -46,13 +46,13 @@ This architecture uses the following components.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a platform as a service (PaaS) database engine that's part of the Azure SQL family. It's built for the cloud and provides all the benefits of a managed and evergreen PaaS. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand. In this architecture, SQL Database serves as a target database for receiving replicated mainframe data via Open Database Connectivity (ODBC) or native database connections.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a cloud database service that provides all the benefits of a managed and evergreen PaaS. SQL Managed Instance is almost completely compatible with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance can serve as a target for mainframe data that requires SQL Server compatibility.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a cloud database service that provides all the benefits of a managed and evergreen PaaS. SQL Managed Instance has near-complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance can serve as a target for mainframe data that requires SQL Server compatibility.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
-- [Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Fabric. In this architecture, Onelake serves as storage for ingesting data from Azure Event Hubs.
+- [Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Fabric. In this architecture, Onelake serves as storage for ingesting data from Event Hubs.
 
-- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytics platform which unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Fabric (lakehouses, warehouses, or SQL Database within Fabric) serves as the relational storage destination for analytics and the BI layer.
+- [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytics platform that unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Fabric (lakehouses, warehouses, or SQL Database within Fabric) serves as the relational storage destination for analytics and the BI layer.
 
 #### Analysis and reporting
 
@@ -74,7 +74,7 @@ This architecture uses the following components.
 
 ## Scenario details
 
-You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, you must repliate data between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using CDC or by using batch ingestion.
+You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, you must replicate data between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using CDC or by using batch ingestion.
 
 Precisely Connect supports various mainframe and midrange data sources, including the following sources:
 
@@ -85,13 +85,14 @@ Precisely Connect supports various mainframe and midrange data sources, includin
 - IBM Virtual Storage Access Method (VSAM)
 - Files and copybooks
 
-It converts the data into consumable format that Event Hubs ingests for immediate processing. Azure Databricks or Fabric processes the ingested data for downstream consumption and storage into Azure targets. These targets include SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Fabric lakehouses or warehouses. Precisely Connect also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
+Precisely Connect converts the data into consumable format that Event Hubs ingests for immediate processing. Azure Databricks or Fabric processes the ingested data for downstream consumption and storage into Azure targets. These targets include SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Fabric lakehouses or warehouses. Precisely Connect also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
 
 This solution applies to the following scenarios:
 
 - Data replication from mainframe and midrange data sources to the Azure data platform
+
 - In a hybrid cloud architecture, data sync between mainframe or midrange systems and the Azure data platform
 - Near real-time analytics on Azure, based on operational data from mainframe or midrange systems
 - Migration of data from mainframe or midrange systems to Azure without affecting applications
@@ -104,7 +105,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Use [Azure Monitor](https://azure.microsoft.com/services/monitor) and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor your data migration. Set up alerts for proactive management. For more information, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+Use [Azure Monitor](https://azure.microsoft.com/products/monitor) and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor your data migration. Set up alerts for proactive management.
 
 ### Cost Optimization
 
@@ -113,7 +114,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 - Data replication to Azure and processing in Azure services can save money compared to maintaining data in a mainframe system.
 
 - The cost management tool in the Azure portal provides a cost analysis view that can help you analyze spending.
-- You can use Azure Databricks to resize your cluster with autoscaling to optimize costs. This approach can save money compared to using a fixed configuration.
+- You can use Azure Databricks to resize your cluster via autoscaling to optimize costs. This approach can save money compared to a fixed configuration.
 - Azure Advisor provides recommendations to optimize performance and cost management.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
@@ -146,11 +147,11 @@ Other contributor:
 
 ## Next steps
 
-- [CDC with Connect](https://www.precisely.com/resource-center/productsheets/change-data-capture-with-connect)
+- [CDC with Precisely Connect](https://www.precisely.com/resource-center/productsheets/change-data-capture-with-connect)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [Contact the Mainframe Data Modernization Engineering team at Microsoft](mailto:mainframedatamod@microsoft.com)
+- Contact the [Mainframe Data Modernization Engineering team at Microsoft](mailto:mainframedatamod@microsoft.com).
 
 ## Related resources
 
