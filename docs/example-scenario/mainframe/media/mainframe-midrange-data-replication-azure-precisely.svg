@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -870,7 +870,7 @@
 		</g>
 		<g id="shape1166-203" v:mID="1166" v:groupContext="shape" transform="translate(989.125,-505.547)">
 			<title>Sheet.1166</title>
-			<desc>Controller Daemon</desc>
+			<desc>Controller daemon</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(44000):26"/>
 			</v:userDefs>
@@ -878,7 +878,7 @@
 			<v:textRect cx="30.375" cy="628.843" width="60.75" height="66.0938"/>
 			<rect x="0" y="595.796" width="60.75" height="66.0938" class="st3"/>
 			<text x="6.18" y="625.54" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Controller <tspan
-						x="9.77" dy="1.2em" class="st15">Daemon</tspan></text>		</g>
+						x="10.39" dy="1.2em" class="st15">daemon</tspan></text>		</g>
 		<g id="shape1167-207" v:mID="1167" v:groupContext="shape" v:layerMember="2" transform="translate(1010.5,-505.547)">
 			<title>Dynamic connector.1167</title>
 			<v:userDefs>
@@ -1391,14 +1391,14 @@
 				<text x="6.2" y="639.18" class="st58" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Publisher</text>			</g>
 			<g id="shape1215-352" v:mID="1215" v:groupContext="shape" transform="translate(3.19744E-14,-10.5414)">
 				<title>Sheet.1215</title>
-				<desc>CDC Store</desc>
+				<desc>CDC store</desc>
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(239000):26"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="37.1454" cy="648.806" width="74.3" height="26.1672"/>
 				<rect x="0" y="635.723" width="74.2908" height="26.1672" class="st32"/>
-				<text x="11.63" y="652.11" class="st61" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>CDC Store</text>			</g>
+				<text x="12.26" y="652.11" class="st61" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>CDC store</text>			</g>
 			<g id="shape1217-355" v:mID="1217" v:groupContext="shape" transform="translate(105.48,-86.085)">
 				<title>numbered label.1273</title>
 				<desc>2</desc>
@@ -1924,8 +1924,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="580.508" width="146.1" height="81.382" class="st11"/>
 			<image x="0" y="580.508" width="146.1" height="81.382" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAABn4AAANuCAYAAAA4qHfNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2H
-						AY/l8WUAAJXfSURBVHhe7N0HlGRbWS/wGQQkgwQRRAREEcGEWcCHAbNPUK6YBcFR59lO1/529dwxYInyVEREBDGCEQUfBpIkARFBgghI
+						iVBORw0KGgoAAAANSUhEUgAABn4AAANuCAYAAAA4qHfNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAAJXfSURBVHhe7N0HlGRbWS/wGQQkgwQRRAREEcGEWcCHAbNPUK6YBcFR59lO1/529dwxYInyVEREBDGCEQUfBpIkARFBgghI
 						zpLjBS6XnN764Aw2e87c6ao6p7qq+/db67/eW8xM7XOqq6qv+1977yNHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2427,8 +2427,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="625.336" width="36.5539" height="36.5539" class="st32"/>
 			<image x="0" y="625.336" width="36.5539" height="36.5539" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2H
-						AY/l8WUAANbCSURBVHhe7P2He1zVuS+Of+/3d27aOSEkgHuRu7olF1mWXOReAUMglCRgwLjbKlZvM5JmpJFmRjOj3rsrGNNbQkgIkAIJ
+						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAANbCSURBVHhe7P2He1zVuS+Of+/3d27aOSEkgHuRu7olF1mWXOReAUMglCRgwLjbKlZvM5JmpJFmRjOj3rsrGNNbQkgIkAIJ
 						Sc5JwB1IAMk2Ntw/YL2/533ftfZee8+I5H6fe3LB0X6ez7PlktznnvhT3rLW/n/+n7Fn7Bl7vnLPN2741o2T4qcnLbpnxfblOzdm3hPa
 						2XvoFfc7rjNt1/zDA1A/PAC5P6165/7Qo70JGxdss//nx56xZ+z5Cjw3Tr0lKmbjom3pOzdn3hXa3ftA36FTBW+FLtaOHIG6kcPgRQwP
 						gW94EPwjQ+AfHiTyB4YHIDjSD6FhRB843vJdnJMWnWH/7x97xp6x5//yc+PUcVHRGxdvW7pzS+amqu3B+/vyTh16q/mia/g4uIePQ/XI
@@ -3143,8 +3143,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="624.837" width="41.6079" height="37.0528" class="st32"/>
 			<image x="0" y="624.837" width="41.6079" height="37.0528" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAgAAAAIBCAYAAAA/JAdfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2H
-						AY/l8WUAAGNGSURBVHhe7b170H3tXd7FjKkzSH3fMAxWiVREjGCJRB2CpRJSLUVtwQ6j1CFWYiVIsWK0VkGrIoeWFk+Y1haEQgOWgzJD
+						iVBORw0KGgoAAAANSUhEUgAAAgAAAAIBCAYAAAA/JAdfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAAGNGSURBVHhe7b170H3tXd7FjKkzSH3fMAxWiVREjGCJRB2CpRJSLUVtwQ6j1CFWYiVIsWK0VkGrIoeWFk+Y1haEQgOWgzJD
 						RYHWVtMWSkMLhBRyPgcbsUpjeA/89zhr76znt/d1Xfd9f9d9WHutva5r5vMvmZe55/589lp7P7+P+ijP87yN7CUvfuqlr/q8j37N9/+B
 						X/v6P/fNf/cbP/D9L3wYyg8wv9iT/7Ef/2eE/+n+eevrnv7QdD6+6cv/rj/xBS/7Na/EM+R5nuftZB/71As+7mu+5KO/6Sf/6FPv/cD3
 						CUmvgUNgt0xBMMXAb/wNL3gFni3P8zxvg5vFf5K+AiW9BvcWAgeLgenJwPQUCc+a53met5FNj26nT24kfQVKeg0cArtmeiIwBSaeO8/z
@@ -3480,8 +3480,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="620.282" width="41.6079" height="41.6079" class="st32"/>
 			<image x="0" y="620.282" width="41.6079" height="41.6079" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2H
-						AY/l8WUAAFz2SURBVHhe7Z0HdBTV28azPT0BEkJCIAkdsYG9oWIBKwoIIqCIgICKoiJ2Rem9t9B77yIgVvzovYcSQkiA0EHQvxB4vjO7
+						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAAFz2SURBVHhe7Z0HdBTV28azPT0BEkJCIAkdsYG9oWIBKwoIIqCIgICKoiJ2Rem9t9B77yIgVvzovYcSQkiA0EHQvxB4vjO7
 						O8nsO/femdlskMA857yHcyzJsjvPb973uffOBgWZMmXKlClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXK
 						lClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXKlClTpkyZMmXKlKnAyWJzRlvDStSwFU+p74i//WNH2Xt7OJMfHOAsV3Ok
 						s8Lj45zlHx3hSHqghz3xrk/tpaq1skYn1rI4w+LpzzFlylQRkDU4qrI9tlJrZ8ojE0Juf2V/6L1vIfTelgi9rxVC72+N0PvfRugDbRD6
@@ -3806,8 +3806,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="625.336" width="36.5539" height="36.5539" class="st32"/>
 			<image x="0" y="625.336" width="36.5539" height="36.5539" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2H
-						AY/l8WUAANbCSURBVHhe7P2He1zVuS+Of+/3d27aOSEkgHuRu7olF1mWXOReAUMglCRgwLjbKlZvM5JmpJFmRjOj3rsrGNNbQkgIkAIJ
+						iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAANbCSURBVHhe7P2He1zVuS+Of+/3d27aOSEkgHuRu7olF1mWXOReAUMglCRgwLjbKlZvM5JmpJFmRjOj3rsrGNNbQkgIkAIJ
 						Sc5JwB1IAMk2Ntw/YL2/533ftfZee8+I5H6fe3LB0X6ez7PlktznnvhT3rLW/n/+n7Fn7Bl7vnLPN2741o2T4qcnLbpnxfblOzdm3hPa
 						2XvoFfc7rjNt1/zDA1A/PAC5P6165/7Qo70JGxdss//nx56xZ+z5Cjw3Tr0lKmbjom3pOzdn3hXa3ftA36FTBW+FLtaOHIG6kcPgRQwP
 						gW94EPwjQ+AfHiTyB4YHIDjSD6FhRB843vJdnJMWnWH/7x97xp6x5//yc+PUcVHRGxdvW7pzS+amqu3B+/vyTh16q/mia/g4uIePQ/XI
