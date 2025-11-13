@@ -34,7 +34,7 @@ The following steps describe the end-to-end workflow for the single-region scena
 
 1. **Application or service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
 2. **MongoDB Atlas Cluster**: The MongoDB Atlas clusters are visible through a private endpoint connection and the applications or services deployed in the secured Virtual Network can connect to them over private networking.
-3. **Observability**: Because MongoDB Altas clusters do not have native Azure Monitor integrations, you need to periodically scape the metrics API and send that data to Azure Monitor yourself. We recommend a customer build a custom Azure Function App that periodically queries the MongoDB Atlas API to gather and store database health and performance metrics. That data can then be visualized in Application Insights dashboards and queried in Azure Monitor.
+3. **Observability**: Because MongoDB Altas clusters don't have native Azure Monitor integrations, you need to periodically scrape the metrics API and send that data to Azure Monitor yourself. You can build a custom Azure Function App that periodically queries the MongoDB Atlas API to gather and store database health and performance metrics. That data can then be visualized in Application Insights dashboards and queried in Azure Monitor. The API doesn't currently support Microsoft Entra authentication, so you need to use a pre-shared key. This key is stored in Azure Key Vault.
 
 Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/architecture/current/deployment-paradigms/single-region/) for more detailed information on single region architecture.
 
@@ -54,7 +54,7 @@ The following steps outline the multi-region scenario, with numbering matching t
 
 1. **Application or service**: Applications or services, are deployed in the subnet with the NSG and the NAT so that they are secured and have visibility to the MongoDB Atlas clusters. These can include web apps, backend services, analytics jobs, or integration tools.
 2. **MongoDB Atlas cluster**: The MongoDB Atlas clusters are visible through a private endpoint connection and the applications or services deployed in the secured Virtual Network can connect to them over private networking.
-3. **Observability**: An Azure Function App periodically queries the MongoDB Atlas API to gather database health and performance metrics, which are visualized in Application Insights dashboards. In this design, if the entire primary region is offline, the Function app would need to be redeployed into the new primary region. If only the primary node fails over, monitoring wouldn't be affected.
+3. **Observability**: An Azure Function App periodically queries the MongoDB Atlas API using a pre-shared key stored in Azure Key Vault to gather database health and performance metrics. The metrics are visualized in Application Insights dashboards. In this design, if the entire primary region is offline, the Function app would need to be redeployed into the new primary region. If only the primary node fails over, monitoring wouldn't be affected.
 4. **Resiliency**: VNet Peering is enabled so that in case of a regional outage, all remaining regions have visibility to the rest of the MongoDB Atlas clusters. MongoDB Atlas manages connection string routing, so failover is transparent to the application.
 
 Please read [this MongoDB Atlas article](https://www.mongodb.com/docs/atlas/architecture/current/deployment-paradigms/multi-region/#5-node--3-region-architecture--2-2-1-) for more detailed information on 5-Node, 3-Region Architecture (2+2+1).
@@ -67,6 +67,7 @@ The architecture brings together several core components to deliver security, sc
 - **Azure Virtual Networks and [Private Endpoints](/azure/private-link/private-endpoint-overview)**: Ensure all communications between Azure resources and MongoDB Atlas are private and encrypted, never traversing the public internet.
 - **Network Security Groups (NSGs)**: Enforce network segmentation and secure outbound connectivity.
 - **Observability**: [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Function Apps](/azure/azure-functions/functions-overview) provide centralized monitoring and operational visibility. 
+- **Azure Key Vault:** Stores the pre-shared key for MongoDB Atlas API authentication and any application secrets you might need for your use case.
 - **Infrastructure automation**: Terraform modules and GitHub Actions enable infrastructure as code, automation, and repeatable deployments.
 
 ## Security considerations
