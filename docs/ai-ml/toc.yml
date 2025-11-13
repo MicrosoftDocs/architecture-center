@@ -99,7 +99,7 @@ items:
         - name: Generative AI operations with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
-          href: guide/mlops-maturity-model.yml
+          href: guide/mlops-maturity-model.md
       - name: Proxy generative AI models
         items:
         - name: Use a gateway in front of generative models
