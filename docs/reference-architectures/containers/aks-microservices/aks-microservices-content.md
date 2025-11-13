@@ -1,9 +1,9 @@
-This architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. The article primarily highlights the infrastructure and DevOps aspects of how to manage microservices on AKS. For production deployments, this architecture recommends using Azure CNI powered by Cilium as the networking solution, which provides improved performance, built-in network policy enforcement, and enhanced observability through its Extended Berkeley Packet Filter (eBPF)-based dataplane. For more information about how to design microservices, see [Microservices architecture design](../../../guide/architecture-styles/microservices.md).
+This architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that you can use as the starting point for most deployments. This article assumes that you have a basic understanding of Kubernetes. The article primarily highlights the infrastructure and developer operations (DevOps) aspects of how to manage microservices on AKS. For production deployments, this architecture recommends that you use Azure CNI powered by Cilium as the networking solution. It provides improved performance, built-in network policy enforcement, and enhanced observability through its Extended Berkeley Packet Filter (eBPF)-based data plane. For more information about how to design microservices, see [Microservices architecture design](../../../guide/architecture-styles/microservices.md).
 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/microservices-architecture.svg" alt-text="Diagram that shows the microservices on AKS reference architecture." lightbox="./images/microservices-architecture.svg":::
-   The diagram shows the microservices on the AKS reference architecture. It depicts an application composed of multiple microservices deployed to AKS. The Cilium logo between the AKS cluster and the virtual network represents Azure CNI powered by Cilium, which provides the networking layer with eBPF-based dataplane for improved performance and network policy enforcement. The request flow uses the publisher-subscriber, competing consumers, and gateway routing cloud design patterns. The flow starts with the client application sending a JSON payload over HTTPS to the load balancer's public fully qualified domain name to schedule a drone pickup. The load balancer routes the request to the ingestion microservice, which processes and queues delivery requests in an Azure Service Bus queue. The workflow microservice then consumes messages from the Service Bus queue and sends HTTPS requests to multiple microservices. These services include the drone scheduler, delivery, and package microservices. The delivery microservice stores data in Azure Managed Redis, and the package microservice stores data in MongoDB. An HTTPS GET request returns the delivery status. It passes through the load balancer to the delivery microservice, which reads data from Azure Managed Redis.
+   The diagram shows the microservices on the AKS reference architecture. It depicts an application composed of multiple microservices deployed to AKS. The Cilium logo between the AKS cluster and the virtual network represents Azure CNI powered by Cilium, which provides the networking layer with eBPF-based data plane for improved performance and network policy enforcement. The request flow uses the publisher-subscriber, competing consumers, and gateway routing cloud design patterns. The flow starts with the client application sending a JSON payload over HTTPS to the load balancer's public fully qualified domain name to schedule a drone pickup. The load balancer routes the request to the ingestion microservice, which processes and queues delivery requests in an Azure Service Bus queue. The workflow microservice then consumes messages from the Service Bus queue and sends HTTPS requests to multiple microservices. These services include the drone scheduler, delivery, and package microservices. The delivery microservice stores data in Azure Managed Redis, and the package microservice stores data in MongoDB. An HTTPS GET request returns the delivery status. It passes through the load balancer to the delivery microservice, which reads data from Azure Managed Redis.
 :::image-end:::
 
 *Helm is a trademark of the Cloud Native Computing Foundation (CNCF). No endorsement is implied by the use of this mark.*
@@ -12,11 +12,11 @@ This architecture shows a microservices application deployed to Azure Kubernetes
 
 If you want to see an example of a more advanced microservice that's built on the [AKS baseline architecture](https://github.com/mspnp/aks-baseline), see the [advanced AKS microservices architecture](./aks-microservices-advanced.yml).
 
-### Workflow
+### Data flow
 
-This request flow implements the [publisher-subscriber](/azure/architecture/patterns/publisher-subscriber), [competing consumers](/azure/architecture/patterns/competing-consumers), and [gateway routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram:
 
 1. The client application sends a JSON payload over HTTPS to the public fully qualified domain name of the load balancer (managed ingress controller) to schedule a drone pickup.
 
@@ -24,7 +24,7 @@ The following dataflow corresponds to the previous diagram:
 
    - The ingestion microservice processes the request and queues delivery requests in an Azure Service Bus queue.
 
-1. The workflow microservice:
+1. The workflow microservice takes the following actions:
 
    - Consumes message information from the Service Bus message queue.
 
@@ -38,29 +38,29 @@ The following dataflow corresponds to the previous diagram:
 
 ### Components
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that hosts and orchestrates the microservices containers. In this architecture, AKS provides the runtime platform for deploying, scaling, and managing the drone delivery application's microservices.
 
 - [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended networking solution to connect directly to an Azure virtual network. In this architecture, it assigns IP addresses from the virtual network to pods while providing built-in network policy capabilities and traffic visibility.
 
-- An ingress server exposes HTTP(S) routes to services inside the cluster. This architecture uses a [managed NGINX-based ingress controller](/azure/aks/app-routing) through an application routing add-on. The ingress controller implements the [API gateway](#api-gateway) pattern for microservices.
+- An ingress server exposes HTTP(S) routes to services inside the cluster. In this architecture, a [managed NGINX-based ingress controller](/azure/aks/app-routing) is used through an application routing add-on. The ingress controller implements the [API Gateway](#api-gateway) pattern for microservices.
 
-- External data stores, like [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. This architecture uses [Azure Cosmos DB](/azure/cosmos-db/), [Azure Managed Redis](/azure/redis/overview), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) as data stores or places to store state.
+- External data stores, like [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) or [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db), are used by stateless microservices to write their data and other state information. In this architecture, [Azure Cosmos DB](/azure/cosmos-db/), [Azure Managed Redis](/azure/redis/overview), [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) serve as data stores or places to store state.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is required for the AKS cluster. It provides a [managed identity](/azure/aks/use-managed-identity) that's used to access Azure Container Registry and to access and provision Azure resources like load balancers and managed disks. Workloads deployed on an AKS cluster also each require an identity in Microsoft Entra to access Microsoft Entra-protected resources, like Azure Key Vault and Microsoft Graph. In this reference architecture, [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) integrates with Kubernetes and provides workloads with identities. You can also use managed identities or application credentials for each workload.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service and is required for the AKS cluster. It provides a [managed identity](/azure/aks/use-managed-identity) that's used to access Azure Container Registry and to access and provision Azure resources like load balancers and managed disks. Workloads deployed on an AKS cluster also each require an identity in Microsoft Entra to access Microsoft Entra-protected resources, like Azure Key Vault and Microsoft Graph. In this architecture, [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) integrates with Kubernetes and provides workloads with identities. You can also use managed identities or application credentials for each workload.
 
-- Container Registry can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. Microservice container images are built and pushed to Container Registry.  
+- [Container Registry](/azure/container-registry/container-registry-tasks-overview) is a managed service that can be used to store private container images, which are deployed to the cluster. AKS can authenticate with Container Registry by using its Microsoft Entra identity. Microservice container images are built and pushed to Container Registry. In this architecture, Container Registry stores the private container images for the microservices that get deployed to the AKS cluster.
 
-- Azure Pipelines is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly encouraged in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure Pipelines.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is part of the Azure DevOps suite and runs automated builds, tests, and deployments. A [continuous integration and continuous deployment (CI/CD)](/azure/architecture/microservices/ci-cd) approach is highly recommended in microservice environments. Various teams can independently build and deploy microservices to AKS by using Azure Pipelines. In this architecture, Azure Pipelines builds and deploys the drone delivery microservices to AKS.
 
-- Helm is a package manager for Kubernetes that provides a mechanism to bundle and standardize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
+- [Helm](https://helm.sh/) is a package manager for Kubernetes that provides a mechanism to bundle and standardize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated. In this architecture, Helm packages the drone delivery microservices for deployment to AKS.
 
-- Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for Azure services. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring platform that collects and stores metrics and logs, application telemetry, and platform metrics for Azure services. In this architecture, Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
 
-- Application Insights monitors microservices and containers. It can be used to provide observability to microservices, which includes traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be shown on a single application map.  
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a performance monitoring tool that monitors microservices and containers. It can be used to provide observability to microservices, which includes traffic flow, end-to-end latency, and error percentage. The health of the microservices and the relationships between them can be shown on a single application map. In this architecture, Application Insights monitors the health and performance of the drone delivery microservices and shows their relationships on an application map.  
 
 ### Alternatives
 
-[Azure Container Apps](/azure/container-apps/) provides a managed serverless Kubernetes experience. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
+[Azure Container Apps](/azure/container-apps/) is a fully managed serverless platform that delivers a Kubernetes-based experience without requiring infrastructure management. It serves as a simpler alternative to AKS for hosting microservices when you don't need direct access to Kubernetes or its APIs and don't require control over the cluster infrastructure.
 
 Instead of the managed ingress gateway in AKS, you can use alternatives like Application Gateway for Containers, Istio ingress gateway, or non-Microsoft solutions. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
@@ -110,15 +110,15 @@ Avoid storing persistent data in local cluster storage because that method binds
 
 For production microservices deployments on AKS, use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the networking solution. This approach provides several benefits for microservices architectures:
 
-- **Performance and scalability:** The eBPF-based dataplane enhances provides suitable service routing performance and supports larger clusters with lower latency compared to traditional networking solutions.
+- **Performance and scalability:** The eBPF-based data plane enhances provides suitable service routing performance and supports larger clusters with lower latency compared to traditional networking solutions.
 
 - **Network policy enforcement:** Cilium enforces Kubernetes NetworkPolicy resources without requiring a separate network policy engine like Azure Network Policy Manager or Calico. This integration simplifies cluster configuration and reduces operational overhead.
 
-- **Observability:** The eBPF dataplane provides visibility into network traffic, including Domain Name System (DNS) queries, pod-to-pod flows, and service-to-service communication. This visibility helps troubleshoot microservice interactions and identify performance bottlenecks.
+- **Observability:** The eBPF data plane provides visibility into network traffic, including Domain Name System (DNS) queries, pod-to-pod flows, and service-to-service communication. This visibility helps troubleshoot microservice interactions and identify performance bottlenecks.
 
 - **Flexible IP address management:** Azure CNI powered by Cilium supports both virtual network routed and overlay pod IP address assignment models based on your workload's network architecture requirements.
 
-When you implement network policies for microservices, follow a zero trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
+When you implement network policies for microservices, follow a Zero Trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
 
 #### API gateway
 
@@ -128,7 +128,7 @@ API gateways are a general [microservices design pattern](https://microservices.
 
 - [Choose an API gateway technology](/azure/architecture/microservices/design/gateway#choose-an-api-gateway-technology)
 
-In Kubernetes, an ingress controller primarily handles the functionality of an API gateway. The ingress and ingress controller work in conjunction to:
+In Kubernetes, an ingress controller primarily handles the functionality of an API gateway. The ingress and ingress controller work in conjunction to take the following actions:
 
 - Route client requests to the correct back-end microservices. This routing provides a single endpoint for clients and helps to decouple clients from services.
 
@@ -202,7 +202,7 @@ Consider the following points when you design probes for microservices.
 
   A better approach is to implement retry handling within your service so that your service can recover correctly from transient failures. As an alternative, retry handling, error tolerance, and circuit breakers can be implemented by the [Istio service mesh](/azure/aks/istio-about) to create resilient architecture that can handle microservice failures.
   
-For troubleshooting microservice health problems, use the network observability features provided by [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview?tabs=cilium). The eBPF dataplane captures detailed network flow information between microservices, which helps you identify connectivity problems, DNS resolution problems, or network policy misconfigurations that might affect service health.
+For troubleshooting microservice health problems, use the network observability features provided by [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview?tabs=cilium). The eBPF data plane captures detailed network flow information between microservices, which helps you identify connectivity problems, DNS resolution problems, or network policy misconfigurations that might affect service health.
 
 #### Resource constraints
 
@@ -224,7 +224,7 @@ You might also need to rotate your certificates depending on the organization's 
 
 #### Network segmentation and policies
 
-Implement network segmentation between microservices using Kubernetes NetworkPolicy resources. When you use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), network policies are enforced using the eBPF dataplane.
+Implement network segmentation between microservices using Kubernetes NetworkPolicy resources. When you use [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium), network policies are enforced using the eBPF data plane.
 
 Follow these best practices for network policies in microservices architectures:
 
@@ -234,7 +234,7 @@ Follow these best practices for network policies in microservices architectures:
 
 - **Control egress traffic.** Use network policies to restrict outbound traffic from microservices to only approved external services and endpoints.
 
-- **Monitor policy effectiveness.** Use the observability provided by Cilium's eBPF dataplane to monitor network policy enforcement and identify blocked traffic that might indicate misconfigurations or security problems.
+- **Monitor policy effectiveness.** Use the observability provided by Cilium's eBPF data plane to monitor network policy enforcement and identify blocked traffic that might indicate misconfigurations or security problems.
 
 #### RBAC
 
@@ -277,7 +277,7 @@ The following recommended practices can help secure your pods and containers.
 
 - **Monitor vulnerabilities.** Continuously monitor images and running containers for known vulnerabilities by using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a non-Microsoft solution.
 
-- **Automate image patching.** Use [Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Container Registry, to automate image patching. A container image is built up from layers. The base layers include the OS image and application framework images, like ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and other project maintainers maintain them. When these images are patched upstream, it's important to update, test, and redeploy your own images so that you don't leave any known security vulnerabilities. Azure Container Registry tasks can help to automate this process.
+- **Automate image patching.** Use [Container Registry tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Container Registry, to automate image patching. A container image is built up from layers. The base layers include the OS image and application framework images, like ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and other project maintainers maintain them. When these images are patched upstream, it's important to update, test, and redeploy your own images so that you don't leave any known security vulnerabilities. Container Registry tasks can help to automate this process.
 
 - **Store images in a trusted private registry.** Use a trusted private registry like Container Registry or Docker Trusted Registry to store images. Use a validating admission webhook in Kubernetes to help ensure that pods can only retrieve images from the trusted registry.
 
@@ -368,7 +368,7 @@ Other contributors:
 - [Container monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers)
 - [Microsoft Sentinel](/azure/sentinel/) or an existing SIEM solution
 - [Defender for Cloud](/azure/security-center/container-security) or a non-Microsoft solution available through Azure Marketplace
-- [Automate container image builds and maintenance with Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
+- [Automate container image builds and maintenance with Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
 
 ## Related resources
 
