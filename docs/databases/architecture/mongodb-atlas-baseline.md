@@ -27,8 +27,8 @@ In the single-region deployment, all core components, including the MongoDB Atla
 
 #### Architecture
 
-:::image type="complex" source="_images/mongodb-atlas-single-region.svg" alt-text="A diagram that shows a single-region MongoDB Atlas deployment on Azure." lightbox="_images/mongodb-atlas-single-region.svg":::
-   The diagram shows a single-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Azure Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to the workload services below. The main workload area has three subnets: snet-private with compute services (App Services and Container Apps), snet-private-endpoints with monitoring and storage private endpoints, and snet-function-app with Azure Functions. A separate virtual network includes Azure Key Vault. The MongoDB Atlas cluster at the bottom includes one primary node and two secondary nodes that are connected through a private endpoint, Private Link service, and load balancer. Numbers 1, 2, and 3 indicate the private endpoint connection, load balancer, and network security group respectively.
+:::image type="complex" source="_images/mongodb-atlas-single-region.svg" alt-text="A diagram that shows a single-region MongoDB Atlas deployment on Azure." lightbox="_images/mongodb-atlas-single-region.svg" border="false":::
+   The diagram shows a single-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to the workload services below. The main workload area has three subnets: snet-private with compute services (App Service and Container Apps), snet-private-endpoints with monitoring and storage private endpoints, and snet-function-app with Azure Functions. A separate virtual network includes Azure Key Vault. The MongoDB Atlas cluster at the bottom includes one primary node and two secondary nodes that are connected through a private endpoint, Private Link service, and load balancer. Numbers 1, 2, and 3 indicate the private endpoint connection, load balancer, and network security group respectively.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mongodb-atlas-single-region.vsdx) of this architecture*
@@ -39,7 +39,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Applications or services are deployed in a subnet protected by a network security group (NSG) and configured with network address translation (NAT) so that they're secured and can connect to the MongoDB Atlas clusters. These deployments can include web apps, back-end services, analytics jobs, or integration tools.
 
-1. The MongoDB Atlas clusters are accessible through a private endpoint connection and the applications or services deployed in the secured Virtual Network can connect to them over private networking.
+1. The MongoDB Atlas clusters can be accessed through a private endpoint connection and the applications or services deployed in the secured virtual network can connect to them over private networking.
 
 1. Because MongoDB Atlas clusters don't have Azure Monitor-native integrations, you must periodically scrape the metrics API and send that data to Azure Monitor. You can build a custom Azure Functions app that periodically queries the MongoDB Atlas API to gather and store database health and performance metrics. That data can then be visualized in Application Insights dashboards and queried in Azure Monitor. The API doesn't currently support Microsoft Entra authentication, so you must use a preshared key. This key is stored in Azure Key Vault.
 
@@ -53,8 +53,8 @@ In this architecture, your workload compute is deployed in three regions. Each r
 
 #### Architecture
 
-:::image type="complex" source="_images/mongodb-atlas-multi-region.svg" alt-text="A diagram that illustrates a multi-region MongoDB Atlas architecture on Azure." lightbox="_images/mongodb-atlas-multi-region.svg":::
-   The diagram shows a three-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Azure Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to Region 1. The architecture spans three regions connected by virtual network peering. Region 1 includes the primary MongoDB Atlas node with compute services (App Services and Container Apps), private endpoints, Azure Functions, and Key Vault in a separate virtual network. Regions 2 and 3 each contain secondary MongoDB Atlas nodes with their own compute services and private endpoint connections. Each region's MongoDB Atlas resources include Private Link service and a load balancer. The MongoDB Atlas cluster consists of one primary node in Region 1 and secondary nodes in Regions 2 and 3. Numbers 1-4 indicate the private endpoint connections, MongoDB Atlas resources, Azure Functions, and Key Vault respectively.
+:::image type="complex" source="_images/mongodb-atlas-multi-region.svg" alt-text="A diagram that illustrates a multi-region MongoDB Atlas architecture on Azure." lightbox="_images/mongodb-atlas-multi-region.svg" border="false":::
+   The diagram shows a three-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to Region 1. The architecture spans three regions connected by virtual network peering. Region 1 includes the primary MongoDB Atlas node with compute services (App Service and Container Apps), private endpoints, Azure Functions, and Key Vault in a separate virtual network. Regions 2 and 3 each contain secondary MongoDB Atlas nodes with their own compute services and private endpoint connections. Each region's MongoDB Atlas resources include Private Link service and a load balancer. The MongoDB Atlas cluster consists of one primary node in Region 1 and secondary nodes in Regions 2 and 3. Numbers 1-4 indicate the private endpoint connections, MongoDB Atlas resources, Azure Functions, and Key Vault respectively.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mongodb-atlas-multi-region.vsdx) of this architecture*
@@ -65,7 +65,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Applications or services are deployed in a subnet protected by an NSG and configured with NAT so that they're secured and can connect to the MongoDB Atlas clusters. These deployments can include web apps, back-end services, analytics jobs, or integration tools.
 
-1. The MongoDB Atlas clusters are accessible through a private endpoint connection, and the applications or services deployed in the secured Virtual Network can connect to them over private networking.
+1. The MongoDB Atlas clusters can be accessed through a private endpoint connection, and the applications or services deployed in the secured virtual network can connect to them over private networking.
 
 1. An Azure Functions app periodically queries the MongoDB Atlas API by using a preshared key stored in Key Vault to gather database health and performance metrics. The metrics are visualized in Application Insights dashboards. In this design, if the entire primary region is offline, the Azure Functions app needs to be redeployed into the new primary region. If only the primary node fails over, monitoring isn't affected.
 
@@ -75,7 +75,7 @@ For more information, see [5-Node, 3-Region Architecture (2+2+1)](https://www.mo
 
 ## Components
 
-- [MongoDB Atlas (managed service)](/azure/partner-solutions/mongo-db/overview) is a fully managed cloud database service that provides managed database clusters with automated backups, high availability, and optional multi-region deployment. In this architecture, MongoDB Atlas serves as the primary data store for applications. MongoDB Atlas role-based access control (RBAC) ensures fine-grained data security. Clusters are automatically deployed across availability zones in regions that support availability zones.
+- [MongoDB Atlas (managed service)](/azure/partner-solutions/mongo-db/overview) is a managed cloud database service that provides managed database clusters with automated backups, high availability, and optional multi-region deployment. In this architecture, MongoDB Atlas serves as the primary data store for applications. MongoDB Atlas role-based access control (RBAC) ensures fine-grained data security. Clusters are automatically deployed across availability zones in regions that support availability zones.
 
 - [Virtual Network](/azure/well-architected/service-guides/virtual-network) is a fundamental Azure building block for private networks that enable secure communication between Azure resources. In this architecture, Virtual Network provides isolated network environments that host application compute resources and establish private connectivity to MongoDB Atlas.
 
@@ -83,7 +83,7 @@ For more information, see [5-Node, 3-Region Architecture (2+2+1)](https://www.mo
 
 - [NSGs](/azure/virtual-network/network-security-groups-overview) are the Azure-native network firewall that controls inbound and outbound traffic to network interfaces. In this architecture, NSGs enforce network segmentation and secure outbound connectivity.
 
-- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible application performance management service for developers and development operations (DevOps) professionals. In this architecture, Application Insights provides centralized monitoring and operational visibility for the workload.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible application performance management service for developers and development operations (DevOps) professionals. In this architecture, Application Insights provides centralized monitoring and operational visibility for the workload.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. In this architecture, Azure Functions periodically queries the MongoDB Atlas API to gather database health and performance metrics.
 
@@ -93,7 +93,7 @@ For more information, see [5-Node, 3-Region Architecture (2+2+1)](https://www.mo
 
 ## Security considerations
 
-Most databases store sensitive data. Implementing security only at the database level isn't enough to secure the workloads. Defense in-depth is a comprehensive approach to security that implements multiple layers of defense mechanisms to protect data. Instead of relying on a single security measure at a specific level, like an approach that focuses only on network security mechanisms, the defense in-depth strategy uses a combination of different layer security measures to create a robust security posture. You can architect the defense in-depth approach for MongoDB Atlas workloads by using hardened network security with private endpoints and virtual network peering from the Azure infrastructure side. For more information, see [MongoDB Atlas security](https://www.mongodb.com/docs/atlas/setup-cluster-security/).
+Most databases store sensitive data. Implementing security only at the database level isn't enough to secure the workloads. Defense in-depth is an approach to security that implements multiple layers of defense mechanisms to protect data. Instead of relying on a single security measure at a specific level, like an approach that focuses only on network security mechanisms, the defense in-depth strategy uses a combination of different layer security measures to create a robust security posture. You can architect the defense in-depth approach for MongoDB Atlas workloads by using hardened network security with private endpoints and virtual network peering from the Azure infrastructure side. For more information, see [MongoDB Atlas security](https://www.mongodb.com/docs/atlas/setup-cluster-security/).
 
 The Azure infrastructure that hosts applications that connect to MongoDB Atlas must be secured against unauthorized access. In this architecture, MongoDB Atlas connectivity is established through private endpoints. This approach ensures that all traffic between the workload and databases only traverses private networking.
 
@@ -104,7 +104,7 @@ Depending on your use case and requirements, evaluate whether other Microsoft se
 - [Azure Web Application Firewall](/azure/web-application-firewall/overview)
 - [Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
 - [Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview)
-- [Microsoft Entra Global Secure Access (GSA)](/entra/global-secure-access/overview-what-is-global-secure-access)
+- [Global Secure Access](/entra/global-secure-access/overview-what-is-global-secure-access)
 
 ### Egress control
 
@@ -114,7 +114,7 @@ In this architecture, there's minimal egress control for outbound traffic that o
 
 Monitoring is a crucial part of workload operations. Design a comprehensive [workload monitoring solution](/azure/well-architected/operational-excellence/observability).
 
-This architecture includes a monitoring component, as shown in the architecture diagrams, where Azure Functions app periodically queries the MongoDB Atlas API to gather database health and performance metrics. These metrics are visualized in Application Insights dashboards. If you use this solution to capture metrics, you can use the included code as a starting point for your use case. Then you can determine the right metrics to capture and the frequency to run the function to meet your requirements.
+This architecture includes a monitoring component, as shown in the architecture diagrams, where an Azure Functions app periodically queries the MongoDB Atlas API to gather database health and performance metrics. These metrics are visualized in Application Insights dashboards. If you use this solution to capture metrics, you can use the included code as a starting point for your use case. Then you can determine the right metrics to capture and the frequency to run the function to meet your requirements.
 
 Beyond this solution, you can further extend your monitoring solution to gain deeper insights into your cluster's performance and health. For more information about how to [monitor MongoDB](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor), see the following monitoring and optimization features:
 
