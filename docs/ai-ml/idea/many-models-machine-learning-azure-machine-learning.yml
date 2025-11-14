@@ -4,7 +4,7 @@ metadata:
   description: Learn how to manage and deploy a many-models architecture by using Azure Machine Learning and compute clusters to scale machine learning models.
   author: james-tn
   ms.author: janguy
-  ms.date: 01/28/2025
+  ms.date: 11/14/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
