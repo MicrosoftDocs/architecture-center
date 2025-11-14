@@ -1,6 +1,6 @@
 Organizations can modernize their mainframe systems to take advantage of the benefits of cloud computing. The integration of mainframe data with cloud platforms enhances scalability, performance, and cost efficiency.
 
-BMC AMI Cloud provides a solution that transfers mainframe data directly to Azure Blob Storage. This service streamlines the migration and modernization journey for organizations.
+BMC Automated Mainframe Intelligence (AMI) Cloud provides a solution that transfers mainframe data directly to Azure Blob Storage. This service automates key steps in the migration and modernization journey.
 
 *Apache®, [Kafka](https://kafka.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -100,7 +100,7 @@ This architecture is suitable for various use cases:
   
 - **Data protection:** Back up and archive mainframe data to Blob Storage to help ensure data availability and durability.
   
-- **Direct data integration:** Enable mainframe applications to write and read data directly to and from Blob Storage to streamline workflows and reduce latency.
+- **Direct data integration:** Enable mainframe applications to write and read data directly to and from Blob Storage to optimize workflows and reduce latency.
   
 - **Cybersecurity:** Protect mainframe data against cyberattacks by creating an immutable third copy in Azure to enhance data security and compliance.
 
