@@ -59,7 +59,7 @@ The following dataflow corresponds to the previous diagram:
    
    b. Data conversion is accomplished by developing custom programs by using the host file component of Host Integration Server or by using the built-in connector for IBM host files in Azure Logic Apps.
 
-      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric, and Azure Databricks.
+      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric and Azure Databricks.
 
    c. Relational database data is migrated.
 
@@ -260,4 +260,4 @@ See the following articles:
 
 ## Related resources
 
-- [Analytics end to end with Fabric](/fabric/fundamentals/end-to-end-tutorials)
+- [Analytics end to end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
