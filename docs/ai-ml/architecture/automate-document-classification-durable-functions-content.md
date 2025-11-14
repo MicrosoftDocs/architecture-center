@@ -96,7 +96,24 @@ Reliability helps ensure that your application can meet the commitments that you
 
 To ensure reliability and high availability when invoking models from Azure AI Foundry Projects (using OpenAI models hosted in Azure), consider using a generative API gateway like [Azure API Management](/azure/api-management/genai-gateway-capabilities) to manage requests across multiple model deployments or Foundry endpoints. Azure’s back-end gateway supports round-robin, weighted, and priority-based routing across deployments, giving you full control of how traffic is distributed. This allows your Azure AI Foundry Project to implement resilient failover strategies and intelligent load distribution tuned to your performance, regional availability, or cost requirements.
 
-For learning, use the Global Standard model deployment type. Before production, estimate throughput and data residency needs. If you require reserved throughput, choose a [Data Zone Provisioned](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-provisioned) or Global Provisioned deployment type. Use Data Zone Provisioned for explicit residency requirements.
+For learning and early proof-of-concept work, use a [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployment. Global Standard is pay-as-you-go, provides the highest default quota, and uses Azure’s global infrastructure to route each request to the most available region. This reduces the chance of running into regional quota or capacity constraints while you experiment and matches Microsoft’s guidance to use Global Standard as the default starting point
+
+For **production** workloads, choose the [deployment type](/azure/ai-foundry/foundry-models/concepts/deployment-types) based on **data-processing location** and **throughput/capacity** requirements:
+
+- **Data-processing location**
+  - **Global Standard / Global Provisioned**  
+    Use when you want the highest availability and are comfortable with inferencing occurring in any Azure AI Foundry region, while data at rest remains in your selected geography.
+  - **Data Zone Standard / Data Zone Provisioned**  
+    Use when you must keep inferencing within a Microsoft-defined data zone (e.g., US-only, EU-only) to meet data residency requirements.
+
+- **Throughput & cost model**
+  - **Standard (Global Standard, Data Zone Standard, Regional Standard)**  
+    Best for low-to-medium, bursty, or exploratory workloads. Pay-as-you-go with no reserved capacity, ideal until traffic patterns are well understood.
+  - **Provisioned (Global Provisioned, Data Zone Provisioned, Regional Provisioned)**  
+    Best for predictable, higher-volume workloads that need reserved throughput, consistent latency, and the option to use reservations for cost optimization.
+
+**Practical recommendation:**  
+Most teams begin with **Global Standard** (or **Data Zone Standard** where residency matters) during development, then transition critical paths to **Provisioned** SKUs once they understand steady-state throughput and latency requirements.
 
 For more information about reliability in solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 

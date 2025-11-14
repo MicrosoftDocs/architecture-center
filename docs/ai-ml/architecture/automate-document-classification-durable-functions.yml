@@ -4,7 +4,7 @@ metadata:
   description: Learn how to use the durable functions feature of Azure Functions as an automated document processing pipeline to classify documents by type.
   author: kwkraus
   ms.author: kkraus
-  ms.date: 11/6/2025
+  ms.date: 11/14/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
