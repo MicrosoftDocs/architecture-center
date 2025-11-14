@@ -20,7 +20,6 @@ products:
   - azure-blob-storage
   - azure-expressroute
   - azure-monitor
-  - azure-synapse-analytics
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/bmc-ami-cloud-mainframe-midrange-data-archive-azure.png
 content: |
