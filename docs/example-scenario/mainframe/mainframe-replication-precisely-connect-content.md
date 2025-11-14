@@ -7,7 +7,7 @@ This solution provides data consistency between on-premises mainframe environmen
 ## Architecture
 
 :::image type="complex" source="media/mainframe-midrange-data-replication-azure-precisely.svg" alt-text="Diagram that shows an architecture for migrating mainframe and midrange systems to Azure." lightbox="media/mainframe-midrange-data-replication-azure-precisely.svg" border="false":::
-
+On the left, the on-premises section includes mainframe and midrange data sources such as Virtual Storage Access Method (VSAM), Db2, Information Management System (IMS), and files. These sources connect to a section labeled logs and then to a section that includes capture logs, publisher, and CDC store. A listener and a controller daemon point to this section via dashed arrows. This section and an Azure controller daemon point to the replicater or distributor engine in Azure. The replicator or distributer engine section includes a dispatcher, cache, and nodes. A component in this section points to the on-premises controller daemon via a dashed arrow. The replicator or distributor engine points to Event Hubs, to Azure Databricks and Fabric, and then to Azure services. The Azure services section includes Azure Data Lake Storage, OneLake, Azure SQL, Azure Database for PostgreSQL, Azure Database for MySQL, Fabric, and Power BI. The on-premises environment has a data gateway and connects to Azure via Azure ExpressRoute.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-precisely.vsdx) of this architecture.*
