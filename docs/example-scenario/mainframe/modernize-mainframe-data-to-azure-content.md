@@ -65,7 +65,7 @@ The following dataflow corresponds to the previous diagram:
 
       IBM mainframe and midrange systems store data in relational databases like:
 
-      - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos).
+      - [Db2 for z/OS](https://www.ibm.com/products/db2-for-zos).
       - [Db2 for Linux UNIX and Windows](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html).
       - [Db2 for IBM i](https://www.ibm.com/support/pages/db2-ibm-i).
      
