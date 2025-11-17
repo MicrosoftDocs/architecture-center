@@ -7,13 +7,6 @@ ms.date: 10/28/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
-ms.category:
- - developer-tools
- - hybrid
-ms.custom:
- - fcp
- - cse
- - e2e-hybrid
 ---
 
 # MLOps maturity model
