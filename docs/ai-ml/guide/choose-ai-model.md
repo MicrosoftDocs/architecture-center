@@ -94,7 +94,7 @@ Some AI models provide many hyperparameters that you can tune to meet your appli
 
 The previous criteria are often closely aligned with your workload's functional and nonfunctional requirements. But other factors are sometimes relevant to your decision-making process. These factors are typically the lowest priority for most workloads, but your workload might assign greater importance to them in specific situations. The following factors can also influence model selection decisions:
 
-- License
+- License type
 - Multilingual capabilities
 - Support plan (community or paid)
 - Sustainability and environmental impact reporting
