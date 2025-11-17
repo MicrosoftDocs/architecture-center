@@ -121,7 +121,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - The Azure database services support zone redundancy and can be designed to fail over to a secondary node during a maintenance window or if an outage occurs.
   
-- Microsoft Fabric provides regional resiliency through availability zones and supports cross-region recovery to ensure business continuity.
+- Microsoft Fabric provides regional resiliency through availability zones and supports cross-region recovery.
 
 ### Security
 
@@ -145,7 +145,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) and [Microsoft Fabric pricing Estimatator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator) to estimate costs for your implementation.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) and [Microsoft Fabric pricing Estimatator](https://www.microsoft.com/microsoft-fabric/capacity-estimator) to estimate costs for your implementation.
 
 ### Operational Excellence
 
