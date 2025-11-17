@@ -89,7 +89,7 @@ The following new and updated articles have recently been published in the Azure
 - [Caching guidance](./best-practices/caching.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [CDN guidance](./best-practices/cdn.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
-- [Data considerations for microservices](./microservices/design/data-considerations.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
+- [Data considerations for microservices](./microservices/design/data-considerations.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Interservice communication in microservices](./microservices/design/interservice-communication.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Bulkhead pattern](./patterns/bulkhead.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Gateway Aggregation pattern](./patterns/gateway-aggregation.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))

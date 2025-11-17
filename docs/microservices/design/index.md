@@ -23,7 +23,7 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [API gateways](./gateway.yml): Implement API gateways to manage cross-cutting concerns like authentication, rate limiting, and request routing. Understand how gateways simplify client interactions and provide centralized policy enforcement across your microservices ecosystem.
 
-- [Data considerations](./data-considerations.yml): Address data management challenges in microservices architectures, including data consistency patterns, distributed transactions, and choosing appropriate data stores. Learn strategies for maintaining data integrity across service boundaries.
+- [Data considerations](./data-considerations.md): Address data management challenges in microservices architectures, including data consistency patterns, distributed transactions, and choosing appropriate data stores. Learn strategies for maintaining data integrity across service boundaries.
 
 - [Container orchestration](./orchestration.yml): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
 
@@ -68,6 +68,6 @@ This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-
 - [Design interservice communication for microservices](./interservice-communication.yml)
 - [Design APIs for microservices](./api-design.yml)
 - [Use API gateways in microservices](./gateway.yml)
-- [Data considerations for microservices](./data-considerations.yml)
+- [Data considerations for microservices](./data-considerations.md)
 - [Container orchestration for microservices](./orchestration.yml)
 - [Design patterns for microservices](./patterns.yml)
