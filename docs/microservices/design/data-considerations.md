@@ -1,6 +1,6 @@
 ---
 title: Data Considerations for Microservices
-description: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
+description: Learn about managing data in a microservices architecture. Data integrity and data consistency pose critical challenges for microservices.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/26/2022
@@ -10,12 +10,12 @@ ms.subservice: architecture-guide
 
 # Data considerations for microservices
 
-This article describes considerations for managing data in a microservices architecture. Each microservice manages its own data, so data integrity and data consistency pose critical challenges. Two services shouldn't share a data store. Each service manages its own private data store, and other services can't access it directly.
+This article describes considerations for managing data in a microservices architecture. Each microservice manages its own data, so data integrity and data consistency pose critical challenges. 
 
-This rule prevents unintentional coupling between services, which happens when services share the same underlying data schemas. If the data schema changes, the change must be coordinated across every service that relies on that database. Isolating each service's data store limits the scope of change and preserves the agility of independent deployments. Each microservice might also have unique data models, queries, or read and write patterns. A shared data store limits each team's ability to optimize data storage for their particular service.
+Two services shouldn't share a data store. Each service manages its own private data store, and other services can't access it directly. This rule prevents unintentional coupling between services, which happens when services share the same underlying data schemas. If the data schema changes, the change must be coordinated across every service that relies on that database. Isolating each service's data store limits the scope of change and preserves the agility of independent deployments. Each microservice might also have unique data models, queries, or read and write patterns. A shared data store limits each team's ability to optimize data storage for their particular service.
 
-:::image type="complex" source="../../guide/architecture-styles/images/cqrs-microservices-wrong.png" border="false" lightbox="../../guide/architecture-styles/images/cqrs-microservices-wrong.png" alt-text="Diagram that shows a wrong approach to CQRS.":::
-
+:::image type="complex" source="../images/cqrs-microservices-wrong.png" border="false" lightbox="../images/cqrs-microservices-wrong.png" alt-text="Diagram that shows a wrong approach to Command Query Responsibility Segregation (CQRS).":::
+The diagram shows service A and a database in a section on the left. An arrow labeled write points from service A to the database. Service B resides outside this section on the right. An arrow labeled read points to the database. A red X goes across this arrow.
 :::image-end:::
 
 This approach naturally leads to [polyglot persistence](https://martinfowler.com/bliki/PolyglotPersistence.html), which means using multiple data storage technologies within a single application. One service might require the schema-on-read capabilities of a document database. Another service might need the referential integrity that a relational database management system (RDBMS) provides. Each team can choose the best option for its service.
@@ -57,8 +57,8 @@ To recap, this application defines several microservices for scheduling deliveri
 
 The various backend services care about different portions of the information in the request, and also have different read and write profiles.
 
-:::image type="complex" source="../images/data-considerations.png" border="false" lightbox="../images/data-considerations.png" alt-text="Diagram that shows data considerations.":::
-
+:::image type="complex" source="../images/data-considerations.svg" border="false" lightbox="../images/data-considerations.svg" alt-text="Diagram that shows data considerations.":::
+The diagram shows a flow inside a main section. The flow starts with gateway, then ingestion, then scheduler. Scheduler points to account, external transport, package, drone, and delivery. Delivery points to delivery history and Azure Managed Redis. Delivery history points to a file and a database. Package points to a database. Azure Managed Redis, delivery history, the databases, and the folder reside outside the main section.
 :::image-end:::
 
 ### Delivery service
