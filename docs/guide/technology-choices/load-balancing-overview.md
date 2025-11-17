@@ -85,7 +85,7 @@ Consider the following factors when you select a load balancing solution:
 The following flow chart helps you choose a load balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to help guide you through this decision, similar to the flow chart described here. For more information, see [Work with Azure Load Balancer using Microsoft Copilot in Azure](/azure/copilot/work-load-balancer).
+> You can use Azure Copilot to help guide you through this decision, similar to the flow chart described here. For more information, see [Work with Azure Load Balancer using Microsoft Azure Copilot](/azure/copilot/work-load-balancer).
 
 Every application has unique requirements not captured in simple decision trees. Treat this flow chart or Copilot recommendation as a starting point. Then perform a more detailed evaluation.
 
