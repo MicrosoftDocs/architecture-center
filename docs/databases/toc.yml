@@ -42,6 +42,8 @@ items:
           href: architecture/azure-data-factory-mission-critical.yml
       - name: NoSQL
         items:
+        - name: Deploy MongoDB Atlas on Azure
+          href: architecture/mongodb-atlas-baseline.md
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Data movement

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modernize Mainframe Workloads by using BMC AMI Cloud
+  title: Modernize Mainframe Workloads by Using BMC AMI Cloud
   description: Learn how to use BMC AMI Cloud to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
   author: raman-wk
   ms.author: sesankar
   ms.date: 12/11/2024
-  ms.topic: concept-article
+  ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted
   ms.category:
@@ -19,9 +19,8 @@ summary: Learn how to use BMC AMI Cloud to send mainframe data directly to Azure
 products:
   - azure-blob-storage
   - azure-expressroute
-  - azure-vpn-gateway
-  - azure-synapse-analytics
   - azure-monitor
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/bmc-ami-cloud-mainframe-midrange-data-archive-azure.png
 content: |
    [!INCLUDE[](mainframe-modernization-bmc-ami-cloud-content.md)]
