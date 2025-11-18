@@ -1,6 +1,6 @@
 This article describes how to use Precisely Connect to migrate mainframe and midrange systems to Azure. Precisely Connect provides real-time data replication from legacy systems to Azure by using change data capture (CDC) technology.
 
-This solution provides data consistency between on-premises mainframe environments and Azure cloud services while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets such as Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
+This solution provides data consistency between on-premises mainframe environments and Azure cloud services while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets like Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
 
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -50,7 +50,7 @@ This architecture uses the following components.
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data. In this architecture, Storage provides scalable storage for replicated mainframe data and temporary caching.
 
-- [Onelake](/fabric/onelake/onelake-overview) is the unified, single data lake for Fabric. In this architecture, Onelake serves as storage for ingesting data from Event Hubs.
+- [OneLake](/fabric/onelake/onelake-overview) is the unified, single data lake for Fabric. In this architecture, OneLake serves as storage for ingesting data from Event Hubs.
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an analytics platform that unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. In this architecture, Fabric (lakehouses, warehouses, or SQL Database within Fabric) serves as the relational storage destination for analytics and the BI layer.
 
@@ -68,7 +68,7 @@ This architecture uses the following components.
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end AI powered analytics platform that operates on a managed Spark compute platform. In this architecture, Fabric Spark ingests and transforms replicated mainframe data to make it analytics-ready for consumption by downstream Azure data platform and Fabric services.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data ingestion service that can process millions of events per second. You can ingest data from multiple sources and use it for real-time analytics. You can scale Event Hubs based on the volume of data. In this architecture, Event Hubs ingests real-time data changes from Precisely Connect for immediate processing and analytics.
 
 - [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) is a data integration platform that can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Precisely Connect can also improve the performance of ETL jobs. In this architecture, Precisely Connect serves as the primary data replication engine that captures and migrates mainframe data to Azure in real time.
 
@@ -79,7 +79,7 @@ You can use various strategies to migrate mainframe and midrange systems to Azur
 Precisely Connect supports various mainframe and midrange data sources, including the following sources:
 
 - Db2 z/OS
-- Db2 Linux, UNIX, and Windows (LUW)
+- Db2 for Linux, UNIX, and Windows (LUW)
 - Db2 for i
 - IBM Information Management System (IMS)
 - IBM Virtual Storage Access Method (VSAM)
@@ -88,8 +88,6 @@ Precisely Connect supports various mainframe and midrange data sources, includin
 Precisely Connect converts the data into consumable format that Event Hubs ingests for immediate processing. Azure Databricks or Fabric processes the ingested data for downstream consumption and storage into Azure targets. These targets include SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Fabric lakehouses or warehouses. Precisely Connect also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
-
-This solution applies to the following scenarios:
 
 - Data replication from mainframe and midrange data sources to the Azure data platform
 
