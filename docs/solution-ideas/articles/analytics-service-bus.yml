@@ -14,11 +14,6 @@ azureCategories:
 products:
   - azure-service-bus
   - microsoft-fabric
-  - eventstream
-  - eventhouse
-  - lakehouse
-  - data-agent
-  - activator
 name: Real-Time Analytics with Azure Service Bus and Microsoft Fabric
 summary: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/fabric-rti-service-bus.png
