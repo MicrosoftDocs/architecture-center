@@ -34,7 +34,7 @@ This architecture uses the following components.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to the Azure cloud platform over a private connection from a connectivity provider. In this architecture, ExpressRoute provides a secure, high-bandwidth connection for replicating mainframe data to Azure.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway service that enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway can be used as an alternative to ExpressRoute for connecting mainframe systems to Azure when a private connection isn't available.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway service that enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, you can use VPN Gateway as an alternative to ExpressRoute to connect mainframe systems to Azure when a private connection isn't available.
 
 - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can synchronize with on-premises Active Directory. In this architecture, Microsoft Entra ID manages authentication and access control for Precisely Connect components that access Azure resources.
 
