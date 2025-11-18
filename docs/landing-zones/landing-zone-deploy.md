@@ -51,7 +51,7 @@ Partner programs such as [Azure Migrate and Modernize](/azure/cloud-adoption-fra
 
 #### Enterprise policy as code for policy management
 
-[Enterprise policy as code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the [standard platform options](#standard-deployment-options) to manage the policies in an Azure landing zone environment. For more information about the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
+[Enterprise policy as code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/) is an alternative method to deploy, manage, and operate Azure Policy across your organization's Azure estate. You can use EPAC instead of the [standard platform options](#standard-deployment-options) to manage the policies in an Azure landing zone environment. For more information about the integration approach, see [Integrate EPAC with Azure landing zone](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz-overview/).
 
 EPAC is best suited for more advanced DevOps and IaC customers. However, organizations of any scale can use EPAC after they assess it. For more information, see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac).
 
