@@ -8,9 +8,7 @@ Imagine a customer browsing a retail app. As they interact—clicking on product
 
 ## Architecture
 
-:::image type="content" source="../media/fabric-real-time-intelligence-service-bus.png" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Azure Service Bus." lightbox="../media/fabric-real-time-intelligence-service-bus.png" border="false":::
-
-*Download a [Visio file](../media/MicrosoftFabricRTIServiceBus.vsdx) of this architecture.*
+:::image type="content" source="../media/fabric-rti-service-bus.png" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Azure Service Bus." lightbox="../media/fabric-rti-service-bus.png" border="false":::
 
 ## Architecture Components 
 
