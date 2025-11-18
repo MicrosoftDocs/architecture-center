@@ -352,7 +352,6 @@ Principal author:
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)
 - [Best practices for storage and backups in AKS](/azure/aks/operator-best-practices-storage)
 - [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
-- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
 - [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
 - [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)

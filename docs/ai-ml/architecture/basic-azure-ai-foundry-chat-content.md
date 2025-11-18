@@ -4,7 +4,7 @@ This article provides a basic architecture to help you learn how to run chat app
 > This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Microsoft Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml), which adds production design decisions.
 
 > [!IMPORTANT]
-> :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Foundry agents.
+> :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/microsoft-foundry-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Foundry agents.
 
 ## Architecture
 
@@ -184,7 +184,7 @@ Architects should design AI and machine learning workloads, such as this one, wi
 
 ## Deploy this scenario
 
-[Deploy a reference implementation](https://github.com/Azure-Samples/openai-end-to-end-basic/) that applies these recommendations and considerations.
+[Deploy a reference implementation](https://github.com/Azure-Samples/microsoft-foundry-basic) that applies these recommendations and considerations.
 
 ## Next step
 
