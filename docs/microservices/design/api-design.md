@@ -139,7 +139,7 @@ The following examples show how REST concepts align with common DDD constructs:
 
 - Aggregates define consistency boundaries. Operations on aggregates shouldn't leave an aggregate in an inconsistent state. Avoid creating APIs that let a client manipulate the internal state of an aggregate. Instead, favor coarse-grained APIs that expose aggregates as resources.
 
-- Entities have unique identities. In REST, resources have unique identifiers in the form of URLs. Create resource URLs that correspond to an entity's domain identity. The mapping from URL to domain identity might be opaque to clients.
+- Entities have unique identities. In REST, resources have unique identifiers in the form of URLs. Create resource URLs that correspond to an entity's domain identity. The mapping from URL to domain identity may be opaque to clients.
 
 - Child entities of an aggregate can be reached from the root entity. If you follow [hypermedia as the engine of application state (HATEOAS)](https://en.wikipedia.org/wiki/HATEOAS) principles, child entities can be reached via links in the representation of the parent entity.
 
@@ -228,9 +228,15 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 
 Most requests create a new entity, so the method expects the creation to succeed and calls `CreateAsync` on the repository object. Then the method handles duplicate-resource exceptions by updating the resource instead.
 
+## Next step
+	
+	Learn about using an API gateway at the boundary between client applications and microservices.
+	
+	> [!div class="nextstepaction"]
+	> [API gateways](./gateway.yml)
+
 ## Related resources
 
-- [API gateways](./gateway.yml)
 - [RESTful web API design](../../best-practices/api-design.md)
 - [API implementation](../../best-practices/api-implementation.md)
 - [Design a microservices architecture](index.md)
