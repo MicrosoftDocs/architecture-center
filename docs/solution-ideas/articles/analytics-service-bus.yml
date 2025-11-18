@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
-  description: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
-  author: shsagir
-  ms.author: shsagir
-  ms.date: 02/17/2025
-  ms.topic: concept-article
+  title: Real-Time Analytics with Azure Service Bus and Microsoft Fabric - A Retail-Focused Architecture
+  description: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions.
+  author: laurenbaird
+  ms.author: laurenbaird
+  ms.date: 09/05/2025
+  ms.topic: conceptual
   ms.subservice: solution-idea
   ms.custom:
   - arb-data
@@ -13,12 +13,14 @@ azureCategories:
   - analytics
 products:
   - azure-service-bus
-  - azure-data-explorer
-  - azure-app-service
-  - azure-sql-database
-  - azure-cosmos-db
-name: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
-summary: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
-thumbnailUrl: /azure/architecture/browse/thumbs/analytics-service-bus.png
+  - microsoft-fabric
+  - eventstream
+  - eventhouse
+  - lakehouse
+  - data-agent
+  - activator
+name: Real-Time Analytics with Azure Service Bus and Microsoft Fabric
+summary: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions.
+thumbnailUrl: /azure/architecture/browse/thumbs/fabric-rti-service-bus.png
 content: |
-  [!INCLUDE[](analytics-service-bus-content.md)]
+  [!INCLUDE[](fabric-rti-service-bus.md)]
