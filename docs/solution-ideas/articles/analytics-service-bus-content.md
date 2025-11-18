@@ -1,91 +1,150 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use Azure Data Explorer and Azure Service Bus to enhance an existing message broker architecture with near real-time analytics. It's intended for IT administrators, cloud architects, and operations and monitoring teams.
+This architecture showcases how to build a scalable, secure, and intelligent real-time analytics solution using Azure Service Bus and Microsoft Fabric Real-Time Intelligence (RTI). Designed for cloud architects, data engineers, and retail solution strategists, it enables actionable insights from high-velocity data streams - ideal for scenarios like personalized product recommendations, dynamic pricing, and inventory optimization. 
+
+### Scenario: Personalized Recommendations
+
+Imagine a customer browsing a retail app. As they interact—clicking on products, adding items to their cart, or scanning loyalty cards in-store—these events are streamed in real time. The system analyzes this behavior instantly to recommend complementary products, apply targeted discounts, or alert staff to restock shelves. 
 
 ## Architecture
 
-:::image type="content" source="../media/analytics-service-bus.png" alt-text="Diagram that shows an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
+:::image type="content" source="../media/fabric-real-time-intelligence-service-bus.png" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Azure Service Bus." lightbox="../media/fabric-real-time-intelligence-service-bus.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
+*Download a [Visio file](../media/MicrosoftFabricRTIServiceBus.vsdx) of this architecture.*
 
-*The Grafana logo is a trademark of Raintank, Inc., dba Grafana Labs. No endorsement is implied by the use of this mark.*
+## Architecture Components 
 
-The diagram shows two data paths. The main path, which is represented by solid lines and boxes 1 through 5, is the ingestion of data from various sources into a service bus, where it's processed by a stream analytics job and stored in a SQL database. The second path, which is represented by dotted lines and boxes, shows the data flowing from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed via Kusto Query Language (KQL).
+### Data Ingestion
+**1. Azure Service Bus (Integration in Preview)**
+The Service Bus receives discrete, transactional events such as inventory updates, purchase transactions, loyalty program updates and customer feedback submissions.  
+_Example: A customer redeems loyalty points at checkout—this triggers a Service Bus message updating their profile and inventory._
 
-Service Bus is used to implement a [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.yml) pattern for a transactional application.
+**2. High velocity data ingestion**
+High velocity data that is continuous can be ingested directly into the Eventstream with a sub-second latency. 
+_Example: A user browses 20 products in 30 seconds – clickstream data flows into Eventstream for immediate analysis._
 
-Azure Data Explorer is used to run analytics in near real-time and expose data via either APIs or direct queries to, for example, Power BI, Azure Managed Grafana, or Azure Data Explorer dashboards.
+**3. Microsoft Fabric Eventstream**
+The Eventstream allows you to bring real-time events into Fabric, transform them, and then route them to various destinations without writing any code. 
+_Example: Automatically enrich clickstream data with product metadata before routing to analytics._
 
-### Dataflow
+### Storage and Querying
+**4. Eventhouse**
+Real-time event data is stored here and queried using the Kusto Query Language (KQL).  
+_Example: Query all purchases of “wireless headphones” in the last 5 minutes across Melbourne stores._
 
-The data source in the architecture is an existing Online Transaction Processing (OLTP) application. Service Bus is used to asynchronously scale out the application.
+**5. Lakehouse (optional)**
+Data is made available for other use cases such as synching to external systems or SQL endpoint compatibility via the Lakehouse. 
+_Example: Run monthly sales trend analysis using SQL on historical data._
 
-1. The OLTP application (the data source), hosted in Azure App Service, sends data to Service Bus.
+### Action Systems
+**6. KQL Queryset**
+KQL Analytics supports data discovery through time-series analysis, text parsing, geospatial queries, vector similarity search, anomaly detection, outlier detection, pattern discovery, creation of statistical models and more.   
+_Example: Detect anomalies in checkout behavior – for example, sudden cart abandonment spikes_
 
-1. Data flows from Service Bus in two directions:
+**7. Real-time Dashboards and Power BI**
+Visualize insights and actions in near real time.   
+_Example: Store managers view live dashboards showing top-selling items and customer sentiment._ 
 
-   1. In the existing OLTP application flow, it triggers a function app to store data in Azure SQL Database, Azure Cosmos DB, or a similar operational database.
+**8.Data Activator**
+Monitors live streams and triggers actions based on patterns. Data Activator can monitor at various stages including from the Eventstream as part of ingestion or from the reporting layer. Actions include Teams notifications, email, Fabric items (such as running a pipeline or notebook), or Power Automate flows. 
+_Example: If a product’s stock drops below threshold, trigger a restock workflow._
 
-   1. In the near real-time analytics flow, it triggers an orchestration flow.
+### AI Capabilities
+**9. AI Data Agent**
+Data Agents expose the data connected to Eventhouse for conversational experience against real time data. Copilot Studio can be used to expose this chat experience directly in Teams, or AI Foundry can be used for app-based chat experiences.  
+_Example: Provide natural language interface for store managers to ask "What are the top selling items in the last 5 minutes?"_
 
-1. The orchestration flow sends data to Azure Data Explorer for near real-time analytics. The flow can use either:
+### Security and Governance
+Security and governance are foundational to this architecture: 
+* **Microsoft Purview Integration**
+  Apply data classification, lineage tracking, and access policies across Fabric workloads. 
+* **Role-Based Access Control (RBAC)**
+  Ensure only authorized users can access sensitive data streams and dashboards. 
+* **Data Encryption**
+  All data in transit and at rest is encrypted using Azure-native mechanisms. 
+* **Audit Logging**
+  Monitor access and transformations for compliance and operational transparency. 
+* **Event-Level Filtering**
+  Use Activator to suppress or redirect sensitive events based on business rules. 
+* **Conditional Access and Private Networking**
 
-   - A function app that uses SDKs to send data in micro batches or that uses managed streaming ingestion support provided by Azure Data Explorer when it's [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
-   - A polling service, like an application that's hosted on Azure Kubernetes Service (AKS) or an Azure VM, that sends data to Azure Data Explorer in micro batches. This option doesn't require configuring Azure Data Explorer streaming ingestion.
+## Common Challenges Resolved
+**1. Latency and Scalability Bottlenecks**
+RTI enables subsecond latency for streaming analytics, allowing organizations to ingest and process billions of events per day without manual scaling.  It supports automatic scaling and low-latency ingestion from diverse sources like IoT devices, telemetry systems, and customer interactions. 
 
-1. Azure Data Explorer processes the data, by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy), and makes it available through an API, SDK, or connector for interactive analytics or reporting. Optionally, Azure Data Explorer can also ingest or reference data from other data sources, like SQL Database or Azure Data Lake Storage.
+**2. Fragmented Data Streams**
+RTI unifies internal and external streaming sources into a central Real-Time hub, eliminating silos and enabling holistic operational visibility. 
 
-1. Applications, custom services, or reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana can query the data in Azure Data Explorer in near real-time.
+**3.Delayed Decision-Making**
+Real-time dashboards and alerting mechanisms (for example, via Power BI, Teams, or automated workflows) empower instant responses to anomalies, Service Level Agreement (SLA) breaches, or operational triggers.  
 
-### Components
+**4. Observability and Monitoring Gaps**
+RTI supports open telemetry standards, enabling cost-effective observability. 
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. In this architecture, App Service hosts the source OLTP application which generates the data to be ingested into Azure Service Bus.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at source and triggers the orchestration flow.
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups. In this architecture, the SQL Database is an operational database which stores data output from the Function app.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, just like SQL Database, can also be used as an operational database to store data output from the Functions app.
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions is used to send data to an operational database via an orchestration flow or directly to Azure Data Explorer.
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a highly available, highly secure, and fully managed Kubernetes service for application and microservices workloads. AKS hosts a polling service, which sends data to Azure Data Explorer in micro batches.
-- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed, and highly scalable data analytics service for real-time analysis of large volumes of data that streams from applications, websites, IoT devices, and more. Azure Data Explorer is used to run analytics in near real-time and expose data via either APIs or direct queries.
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), built on Azure Blob Storage, provides massively scalable data lake functionality. In this architecture, Azure Data Explorer pulls data from Data Lake Storage and combines it with data ingested from App Service for analytics.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) can help you turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from App Service.
-- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana can be used as a visualization tool to create analytics dashboards on the data received from App Service.
+## Example use cases 
+### E-commerce 
+* Monitor performance metrics and user behavior across platforms. 
+* Detect anomalies in transactions, page load times, and conversion funnels. 
+* Enable proactive issue resolution and personalized experiences. 
 
-## Scenario details
+### Education 
+* Stream data from campus transport systems, security cameras, and access control points. 
+* Monitor student safety, optimize shuttle routes, and respond to incidents in real time. 
 
-Real-time analytics is the process of analyzing data as soon as it's generated to get insights into the current state of the system. Organizations are increasingly adopting real-time analytics to gain a competitive edge. Near real-time analytics is a variant of real-time analytics that provides insights within seconds or minutes of data generation.
+### Financial Services 
+* Handle high-throughput transaction events from ATMs, mobile apps, and payment gateways. 
+* Use anomaly detection models to minimise fraud, improve compliance, and enhance trust. 
 
-These processes enable organizations to gain insights faster, make better decisions, and respond to changing conditions more effectively. Near real-time analytics can be applied to various domains, like e-commerce, healthcare, manufacturing, and finance. For example, an e-commerce company can use near real-time analytics to monitor customer behavior, optimize pricing, and personalize recommendations.
+### Healthcare 
+* Transmit telemetry data from IoT-enabled medical devices to backend systems. 
+* Analyze data streams for anomalies and trigger alerts for proactive care. 
+* Improve patient outcomes through real-time monitoring and intervention. 
 
-Many organizations implement near real-time analytics in existing solutions. This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
+### Hospitality 
+* Stream booking, occupancy, and housekeeping data to optimize room allocation and cleaning schedules. 
+* Enhance guest experience through real-time service coordination. 
 
-OLTP stands for Online Transaction Processing. It's a type of data processing that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are frequently financial in nature, like bank transactions or credit card purchases.
+### Manufacturing 
+* Stream telemetry from factory floor equipment to detect anomalies in vibration, temperature, and pressure. 
+* Enable predictive maintenance to reduce downtime and improve worker safety. 
+* Apply AI-powered video/image analysis to live camera feeds for defect detection and quality assurance. 
+* Monitor production metrics and defect reports to detect bottlenecks and optimize throughput. 
 
-### Potential use cases
+### Quality & Safety Compliance 
+* Detect unsafe worker behavior, Personal Protective Equipment (PPE) violations, and hazardous conditions via environmental sensors and video feeds. 
+* Trigger real-time alerts and automate incident reporting for regulatory compliance. 
 
-Here are some use cases that illustrate the benefits of near real-time analytics:
+### Site Reliability & Software Engineering 
+* Stream deployment telemetry and error logs to detect regressions and failed rollouts. 
+* Unify application, infrastructure, and user telemetry into real-time dashboards. 
+* Monitor system health, detect bottlenecks, and correlate incidents. 
+* Expose real-time data streams via Fabric Eventstreams and KQL for dynamic user experiences and operational insights. 
 
-- Healthcare providers can track patient outcomes, detect anomalies, and improve quality of care.
-- Manufacturing companies can optimize production, reduce waste, and prevent downtime.
-- Financial institutions can monitor transactions, detect fraud, manage risk, and ensure compliance with regulations.
-- Commerce companies can monitor campaigns and gain insights to support promotion.
-- Companies can monitor, optimize, analyze, and forecast supply chains.
+### Social Media Monitoring 
+* Ingest and analyze real-time social media streams to detect sentiment shifts, trending topics, and brand mentions. 
+* Trigger alerts for PR crises, customer complaints, or viral content. 
+* Support dynamic engagement strategies and campaign optimization. 
+ 
+### Transportation 
+* Stream GPS and sensor data from vehicles, planes, and ships. 
+* Optimize routes, traffic, weather schedules, and fuel efficiency. 
+* Enhance customer experience through real-time updates and coordination. 
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Shlomo Sagir](https://il.linkedin.com/in/shlomo-sagir) | Senior Content Developer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+### Utilities & Energy 
+* Collect smart meter data to identify outages, consumption anomalies, and peak load patterns. 
+* Enable dynamic pricing and predictive infrastructure maintenance. 
 
 ## Next steps
 
 - [Azure Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
-- [Azure Data Explorer data ingestion samples](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-ingest/tests/sample.py)
+- [Microsoft Fabric Real-Time Intelligence End-to-End Sample](/fabric/real-time-intelligence/sample-end-to-end) 
+- [Explore Real-Time Analytics in Microsoft Fabric](/training/paths/explore-real-time-analytics-microsoft-fabric/)
 
 ## Related resources
 
-- [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
+- [Microsoft Fabric Real-Time Intelligence](/fabric/real-time-intelligence/)
+- [Microsoft Fabric Real-Time Hub - Azure Service Bus](/fabric/real-time-hub/add-source-azure-service-bus)
+- [Microsoft Fabric Eventstream - Azure Service Bus](/fabric/real-time-intelligence/event-streams/add-source-azure-service-bus)
+- [Alerting and acting on data from the Real-Time Hub](/blog/alerting-and-acting-on-data-from-the-real-time-hub)
+- [How to create a data agent](/fabric/data-science/how-to-create-data-agent)
