@@ -109,7 +109,7 @@ Don't include the following factors in your decision-making because they rarely 
 
 ### Refine your model selection
 
-To help you apply the selection criteria efficiently, use a catalog like the catalogs in [Hugging Face](https://huggingface.co/models), [Azure AI Foundry](https://ai.azure.com/explore/models), and [GitHub models](https://github.com/marketplace?type=models). These services provide filters that align with many of the previous decision criteria, like tasks, to help you reduce the number of models to choose from.
+To help you apply the selection criteria efficiently, use a catalog like the catalogs in [Hugging Face](https://huggingface.co/models), [Foundry Models](https://ai.azure.com/explore/models), and [GitHub models](https://github.com/marketplace?type=models). These services provide filters that align with many of the previous decision criteria, like tasks, to help you reduce the number of models to choose from.
 
 ## Evaluation and benchmarking
 
@@ -117,7 +117,7 @@ To perform a side-by-side AI model evaluation, start by defining a clear set of 
 
 You can also use tools like Hugging Face benchmark collections to assess models for language support, reasoning, and safety. Consult multiple benchmarking sources to learn how specific models perform across a wide range of real-world scenarios. This approach reduces the risk of bias from any single model host.
 
-Your model host might provide built-in evaluation tools on their platform, and we recommend that you take advantage of them. For more information, see [Evaluate generative AI models by using Azure AI Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
+Your model host might provide built-in evaluation tools on their platform, and we recommend that you take advantage of them. For more information, see [Evaluate generative AI models by using Microsoft Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
 
 ## Fine-tuning and distillation
 
@@ -137,5 +137,5 @@ To future-proof your architecture, consider the following derisking approaches:
 
 ## Next steps
 
-- [Explore Azure AI Foundry models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [Azure AI Foundry models and capabilities that Azure sells directly](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)
+- [Explore Foundry models](/azure/ai-foundry/concepts/foundry-models-overview)
+- [Foundry models and capabilities that Azure sells directly](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)
