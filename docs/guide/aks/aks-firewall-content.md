@@ -294,7 +294,6 @@ Principal author:
 
 ### Azure Kubernetes Service
 
-- [Create a private Azure Kubernetes Service cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)

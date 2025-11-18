@@ -192,6 +192,5 @@ Principal authors:
 ## Related resources
 
 - [SaaS and multitenant solution architecture](../../guide/saas-multitenant-solution-architecture/index.md)
-- [Basic AI Foundry chat architecture](../architecture/basic-azure-ai-foundry-chat.yml)
-- [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml)

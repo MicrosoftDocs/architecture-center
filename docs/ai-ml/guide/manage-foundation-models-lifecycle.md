@@ -30,7 +30,7 @@ The scope of the model update in your generative AI solution can vary drasticall
 | Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies | Moving from GPT-4 to GPT-4o |
 | General model change | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases | Moving from GPT-4 to DeepSeek |
 | Specialized model change | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications | Moving from GPT-4 to Prizedata |
-| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | Moving from LLaMa-1 hosted as a managed online endpoint in Azure AI Foundry to self-hosting LLaMa-1 on a virtual machine |
+| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | Moving from LLaMa-1 hosted as a managed online endpoint in Microsoft Foundry to self-hosting LLaMa-1 on a virtual machine |
 
 As illustrated in the table, the benefits of moving to a new model are typically a combination of the following factors:
 
@@ -93,7 +93,7 @@ For each of these areas, consider downtime caused by updates and how you handle 
 
 1. **The orchestration logic:** Some model updates, especially when you take advantage of new features, require you to make changes to your orchestration or agent logic.
 
-   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result that you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's typical to implement orchestration logic in [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) or by using code-based solutions like the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
+   For example, if you update your model to GPT-4 to take advantage of [function calling](/azure/ai-services/openai/how-to/function-calling), you have to change your orchestration logic. Your old model returned a result that you could return to the caller. With function calling, the call to the model returns a function that your orchestration logic must call. In Azure, it's typical to implement orchestration logic in [Foundry Agent Service](/azure/ai-foundry/agents/overview) or by using code-based solutions like the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain) hosted in Azure.
 
 1. **The grounding data:** Some model updates and larger scoped changes might require you to make changes to your grounding or fine-tuning data or how you retrieve that data.
 
@@ -148,7 +148,7 @@ Because of the layers of indirection involved, your architecture must be designe
 
 #### Router
 
-The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Azure AI Foundry](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
+The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Microsoft Foundry](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
 
 :::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" border="false" alt-text="Diagram of a chat scenario that uses a router to route between deployments." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
 A diagram shows a user connecting to an intelligent application, which connects to a router (labeled 1). The router connects to two deployments in an Orchestrator (labeled 2). Each deployment contains a configuration, prompt (labeled 3), and orchestration logic (labeled 4). Each deployment connects to a specific model (labeled 5). Deployment 1 connects to model-x-v1, while Deployment 2 connects to model-x-v1.1. The orchestrator also connects to an API or agent, which connects to a knowledge database.
@@ -206,7 +206,7 @@ An example of an end-of-life announcement is the [NC A100 v4 series of compute a
 
 - Test and evaluate new versions and new models by using automated pipelines. You should compare the results to the results of your baseline to ensure that you get the results that you require.
 
-- Be intentional about updating models. Avoid using platform features that automatically upgrade production models to new versions without the opportunity to test. You need to be aware of how every model update affects your workload. If you use the [Azure AI Foundry Models API](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and don't provide an upgrade policy. This setup requires a manual upgrade if a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off automatic upgrades.
+- Be intentional about updating models. Avoid using platform features that automatically upgrade production models to new versions without the opportunity to test. You need to be aware of how every model update affects your workload. If you use the [Foundry Models API](/azure/ai-foundry/model-inference/concepts/model-versions#how-model-versions-work), set your deployments with a specific version and don't provide an upgrade policy. This setup requires a manual upgrade if a new version is released. For Azure OpenAI, set deployments to [No Auto Upgrade](/azure/ai-services/openai/concepts/model-versions#how-model-versions-work) to turn off automatic upgrades.
 
 - Ensure that your observability and logging solution collects enough metadata to correlate observed behavior with the specific prompt, configuration, model, and data retrieval solution involved. This correlation enables you to identify unexpected regressions in system performance.
 
@@ -230,6 +230,6 @@ Your architecture should support updates to new or different models and any nece
 
 ## Related resources
 
-- [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
 - [GenAIOps for MLOps practitioners](genaiops-for-mlops.md)

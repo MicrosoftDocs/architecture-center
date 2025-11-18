@@ -1579,7 +1579,7 @@
 		</g>
 		<g id="group4218-450" transform="translate(340.989,-362.6)" v:mID="4218" v:groupContext="group">
 			<title>Sheet.4218</title>
-			<desc>Azure AI Foundry</desc>
+			<desc>Microsoft Foundry</desc>
 			<g id="group4219-451" v:mID="4219" v:groupContext="group">
 				<title>Sheet.4219</title>
 				<g id="shape4220-452" v:mID="4220" v:groupContext="shape" transform="translate(10.3883,-13.1917)">
@@ -1628,7 +1628,7 @@
 			<g id="shape4218-469" v:mID="4218" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="12.4253" cy="532.678" width="32.44" height="13.3435"/>
-				<text x="0.52" y="530.58" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI <tspan
+				<text x="0.52" y="530.58" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 							x="0.65" dy="1.2em" class="st22">Foundry</tspan></text>			</g>
 		</g>
 		<g id="shape4233-472" v:mID="4233" v:groupContext="shape" transform="translate(115.587,-332.944)">
@@ -2399,7 +2399,7 @@
 			<text x="6.07" y="523.62" class="st103" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>- or -</text>		</g>
 		<g id="group4492-763" transform="translate(24.4265,-177.6)" v:mID="4492" v:groupContext="group">
 			<title>Users.4492</title>
-			<desc>Azure AI Foundry portal access</desc>
+			<desc>Foundry portal access</desc>
 			<g id="shape4493-764" v:mID="4493" v:groupContext="shape">
 				<title>Sheet.4493</title>
 				<v:userDefs>
@@ -2427,7 +2427,7 @@
 			<g id="shape4492-772" v:mID="4492" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="15.84" cy="538.264" width="72" height="19.2035"/>
-				<text x="-12.13" y="535.86" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry <tspan
+				<text x="-12.13" y="535.86" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry <tspan
 							x="-5.26" dy="1.2em" class="st22">portal access</tspan></text>			</g>
 		</g>
 		<g id="group4502-775" transform="translate(42.9265,-180.1)" v:mID="4502" v:groupContext="group">
