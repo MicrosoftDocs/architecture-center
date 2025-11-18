@@ -1,4 +1,4 @@
-This scenario shows an existing workload originally designed for Kubernetes that's replatformed to run in Azure Container Apps. Container Apps is well suited for brownfield workloads where teams want to simplify infrastructure and container orchestration.
+This scenario shows an existing workload originally designed for Kubernetes, which is replatformed to run in Azure Container Apps. Container Apps is well suited for brownfield workloads where teams want to simplify infrastructure and container orchestration.
 
 The example workload is a containerized microservices application. It reuses the same workload defined in [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml). The architecture rehosts it in Container Apps as its application platform.
 
@@ -13,7 +13,7 @@ The example workload is a containerized microservices application. It reuses the
 ## Architecture
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps-runtime-diagram.png" alt-text="Diagram that shows the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps-runtime-diagram.png":::
-   The diagram shows an Container Apps environment as a large rectangle containing five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure Cosmos DB for MongoDB API. Drone Scheduler service goes to Cosmos DB. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows.
+   The diagram shows a Container Apps environment as a large rectangle containing five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure Cosmos DB for MongoDB API. Drone Scheduler service goes to Cosmos DB. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows.
 :::image-end:::
 
 The following diagram illustrates the runtime architecture for the solution.
@@ -64,11 +64,11 @@ The workload uses a set of Azure services in concert with one another.
 
 - **[Monitor](/azure/azure-monitor)** is an Azure comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-  **[Azure Application Insights](/azure/well-architected/service-guides/application-insights)** is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance.
+  **[Azure Application Insights](/azure/well-architected/service-guides/application-insights)** is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights software development kit (SDK) to monitor application performance.
 
 ### Alternatives
 
-An alternative scenario of this example that uses Kubernetes is described in [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
+[Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) describes an alternative scenario of this example that uses Kubernetes.
 
 ## Scenario details
 
@@ -94,7 +94,7 @@ Deploy a brownfield microservice-based application into a platform as a service 
 - The ability to avoid over provisioning.
 
 > [!NOTE]
-> Not all workloads yeild such cost savings.
+> Not all workloads yield such cost savings.
 
 Other common uses of Container Apps include:
 
@@ -117,24 +117,24 @@ A better approach is to update all code to support managed identities, by using 
 
 ### Avoid designs that require single revision mode
 
-The workflow service container app runs in single revision mode. In single revision mode, the app has one revision backed by zero or more replicas. A replica is composed of the application container and any required sidecars. This example doesn't use sidecars, so each replica is a single container. The workflow service wasn't designed for forward compatibility with message schemas. It's important to ensure that two different versions of the service don't run concurrently.
+The workflow service container app runs in single revision mode. In single revision mode, the app has one revision backed by zero or more replicas. A replica is composed of the application container and any required sidecars. This example doesn't use sidecars, so each replica is a single container. The workflow service wasn't designed for forward compatibility with message schemas. It's important that two different versions of the service don't run concurrently.
 
 If the Service Bus message schema must change, you must drain the bus before deploying the new workflow service version. A better approach is to update the service code for forward compatibility and use multi-revision mode to reduce downtime associated with draining queues.
 
 ### Consider job-based work
 
-The workflow service is implemented as a long-running container app. But it can also run as a [job in Container Apps](/azure/container-apps/jobs). A job is a containerized application that spins up on demand, runs to completion based on work to be done, then shuts down and frees resources. Jobs can be more economical than continuously running replicas. So, migrating the service to run as an Container Apps job, based on work available in the queue, might be a reasonable approach to explore. It depends on typical queue volume and how finite, parallelizable, and resource optimized the workflow service is written. Experiment and verify to determine the best approach.
+The workflow service is implemented as a long-running container app. But it can also run as a [job in Container Apps](/azure/container-apps/jobs). A job is a containerized application that spins up on demand, runs to completion based on work to be done, then shuts down and frees resources. Jobs can be more economical than continuously running replicas. So, migrating the service to run as a Container Apps job, based on work available in the queue, might be a reasonable approach to explore. It depends on typical queue volume and how finite, parallelizable, and resource optimized the workflow service is written. Experiment and verify to determine the best approach.
 
 ### Implement ingress control
 
 The workload uses the built-in external ingress feature of Container Apps to expose the Ingestion service. The ingress control approach doesn't offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. You need to front all web-facing workloads with a web application firewall. To achieve it with the Container Apps environment, you should disable the built-in public ingress and add [Application Gateway](/azure/container-apps/waf-app-gateway) or [Azure Front Door](/azure/container-apps/how-to-integrate-with-azure-front-door).
 
 > [!NOTE]
-> Gateways require meaningful health probes, which means the ingress service is effectively kept alive, preventing the ability to dynamically scale to zero.
+> Gateways require meaningful health probes, which means the ingress service is effectively kept alive, preventing it to dynamically scale to zero.
 
 ### Modernize with Dapr
 
-You can further modernize the workload by integrating with [Distributed Application Runtime (Dapr)](https://dapr.io/). It adds abstraction between workload code and state stores, messaging systems, and service discovery mechanisms. For more information, see [Deploy Microservices with Container Apps and Dapr](./microservices-with-container-apps-dapr.yml). If your workload in Kubernetes already used Dapr or common KEDA scalers, migrating to Container Apps is often straight forward and can retain that capability.
+You can further modernize the workload by integrating with [Distributed Application Runtime (Dapr)](https://dapr.io/). It adds abstraction between workload code and state stores, messaging systems, and service discovery mechanisms. For more information, see [Deploy microservices with Container Apps and Dapr](./microservices-with-container-apps-dapr.yml). If your workload in Kubernetes already used Dapr or common KEDA scalers, migrating to Container Apps is often straight forward and can retain that capability.
 
 ### Migrate to user authentication and authorization
 
@@ -142,13 +142,13 @@ The workload doesn't delegate authorization to a gateway. The ingestion service 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+The following considerations implement the pillars of the Microsoft Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
 Reliability helps ensure that your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Container Apps helps you deploy, manage, maintain, and monitor the applications in the workload. You can improve reliability by following core recommendations. Some are implemented during migration from Kubernetes.
+Container Apps helps you deploy, manage, maintain, and monitor the applications in the workload. You can improve reliability by following core recommendations. Some recommendations are implemented during migration from Kubernetes.
 
 - Revisions help you deploy application updates with zero downtime. You can use revisions to manage the deployment of application updates and split traffic between the revisions to support blue/green deployments and A/B testing.
 
@@ -200,9 +200,9 @@ For more information on network topology options, including private endpoint sup
 
 #### More security recommendations
 
-- This same workload was previously protected with the Kubernetes capabilities found in [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Defender for Containers in the architecture is limited to only performing [vulnerability assessments](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Container Registry. Defender for Containers doesn't provide runtime protection for Container Apps. Evaluate supplementing with non-Microsoft security solutions if runtime protection is a requirement.
+- The same workload was previously protected with the Kubernetes capabilities found in [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Defender for Containers in the architecture is limited to only performing [vulnerability assessments](/azure/defender-for-cloud/agentless-vulnerability-assessment-azure#how-vulnerability-assessment-for-images-and-containers-works) of the containers in your Container Registry. Defender for Containers doesn't provide runtime protection for Container Apps. Evaluate supplementing with non-Microsoft security solutions if runtime protection is a requirement.
 
-- Don't run the workload in a shared Container Apps environment. Segment it from other workloads or components that don't need access to these microservices. Create separate Container Apps environments. Apps and jobs running in an Container Apps Environment can discover and reach any service running in the environment with internal ingress enabled.
+- Don't run the workload in a shared Container Apps environment. Segment it from other workloads or components that don't need access to these microservices. Create separate Container Apps environments. Apps and jobs running in a Container Apps Environment can discover and reach any service running in the environment with internal ingress enabled.
 
 ### Cost Optimization
 
@@ -244,7 +244,7 @@ Performance considerations in this solution:
 
 - Each microservice is independent and shares no state with other microservices, allowing independent scaling.
 
-- Use Container Apps jobs for finite process execution to implement transient runtimes and reduce resource consumption for idle services. Evaluate the performance impact of spinning jobs up and down versus keeping components warm and ready.
+- Use Container Apps jobs for finite process execution to implement transient runtimes and reduce resource consumption for idle services. Evaluate the performance implications of spinning jobs up and down versus keeping components warm and ready.
 
 - Autoscaling is enabled. Prefer event-based scaling over metric-based scaling where possible. For example, the workflow service, if designed to support it, could scale based on Service Bus queue depth. The default autoscaler is based on HTTP requests. During a replatforming, it's important to start with the same scaling approach, and then evaluate scaling optimizations later.
 
