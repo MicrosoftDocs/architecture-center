@@ -230,10 +230,10 @@ Most requests create a new entity, so the method expects the creation to succeed
 
 ## Next step
 	
-	Learn about using an API gateway at the boundary between client applications and microservices.
+Learn about using an API gateway at the boundary between client applications and microservices.
 	
-	> [!div class="nextstepaction"]
-	> [API gateways](./gateway.yml)
+> [!div class="nextstepaction"]
+> [API gateways](./gateway.yml)
 
 ## Related resources
 
