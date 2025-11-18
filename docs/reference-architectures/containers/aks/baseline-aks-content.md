@@ -203,7 +203,7 @@ In addition to the workload, the cluster might contain several other images, suc
 
 In AKS, each node pool usually maps to a virtual machine scale set. Nodes are VMs in each node pool.
 
-Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three DS2_v2 nodes. That size is sufficient to meet the expected load of the system pods. The operating system disk is 512 GB.
+Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system disk is 512 GB.
 
 When you're planning the capacity for a user node pool, consider the following recommendations:
 
@@ -213,7 +213,7 @@ When you're planning the capacity for a user node pool, consider the following r
 
 - Deploy at least two nodes. That way, the workload has a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
-- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses DS4_v2 for the production workload. To lower costs, you can drop the size to DS3_v2, which is the minimum recommendation.
+- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload. To lower costs, you can drop the size or use a different VM series.
 
 - Assume that your workload consumes up to 80% of each node when planning capacity for your cluster. The remaining 20% is reserved for AKS services.
 
@@ -470,6 +470,8 @@ To manage your AKS clusters, you can use Azure Policy to:
 
 - Prevent or restrict the deployment of AKS clusters in a resource group or subscription. Apply standards for your organization. For example, you can follow a naming convention or specify a tag.
 - Secure your AKS cluster through Azure Policy for Kubernetes.
+
+A common example of where a policy can be useful is around governance and validation of container images. Container images can be a source of vulnerabilities, and some organizations require that untrusted container images are validated by using a container image scanning tool, and then approved, before they can be used in a production cluster. You can enforce this process by using Azure Policy, and block untrusted container images from being deployed to the cluster. For more information, see the [Quarantine pattern](../../../patterns/quarantine.yml).
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
 
@@ -864,7 +866,7 @@ Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluste
 
 ### Provision
 
-- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) series is a typical VM type for the system node pool.
+- Understand where your costs come from. There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What affects the cost are the VM instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [Ddv5](/azure/virtual-machines/sizes/general-purpose/ddv5-series) series is a typical VM type for the system node pool, and the reference implementation uses the Standard_D2d_v5 SKU.
 
 - Don't use the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
 

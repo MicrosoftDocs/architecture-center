@@ -71,7 +71,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Monitoring.* It collects information about how users are using the app and enables you to easily track custom events.
     - *Visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
-- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Cache for Redis for the following reasons:
+- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Managed Redis for the following reasons:
 
     - *Reduced management overhead.* It's a fully managed service.
     - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
@@ -374,6 +374,7 @@ The reference implementation guides developers through a simulated migration fro
 Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution for meeting these goals. They decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end state of Relecloud's Reliable Web App pattern implementation.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
+
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build real-time monitoring and observable systems for media 
-  description: Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
+  title: Build Real-Time Monitoring and Observable Systems for Media 
+  description: Learn how to build scalable real-time monitoring architecture for media streaming by using Azure Event Hubs, Fabric eventstreams, and Data Activator.
   author: ThePedestrian
   ms.author: unathaniel
   ms.date: 06/07/2024
-  ms.topic: concept-article
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-integrations
   ai-usage: ai-assisted
@@ -16,11 +16,11 @@ azureCategories:
 products:
   - azure-data-explorer
   - azure-functions
-  - azure-metrics-advisor
+  - fabric
   - azure-blob-storage
   - azure-event-hubs
 name: Build real-time monitoring and observable systems for media 
-summary:  Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
+summary: Learn how to build scalable real-time monitoring architecture for media streaming by using Azure Event Hubs, Fabric eventstreams, and Data Activator.
 thumbnailUrl: /azure/architecture/browse/thumbs/monitoring-media-thumb.png
 content: |
-  [!include[](monitoring-observable-systems-media-content.md)]
+  [!INCLUDE[](monitoring-observable-systems-media-content.md)]

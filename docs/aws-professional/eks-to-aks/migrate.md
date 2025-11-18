@@ -152,7 +152,6 @@ Other contributors:
 
 ## Next steps
 
-- [Migration guide: Azure samples](https://github.com/Azure-Samples/eks-aks-migration-guide)
 - [Back up and restore workload clusters by using Velero in AKS hybrid](/azure/aks/hybrid/backup-workload-cluster)
 - [Migrate to AKS](/azure/aks/aks-migration)
 

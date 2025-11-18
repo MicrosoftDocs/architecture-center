@@ -51,13 +51,13 @@ items:
             - name: .NET
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
             - name: Java
-              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
+              href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.md
           - name: Modern Web App pattern
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
             - name: Java
-              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
+              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.md
       - name: Disaster recovery for web apps
         items:
         - name: Multi-region App Service apps for disaster recovery

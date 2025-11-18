@@ -6,7 +6,7 @@ author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/12/2022
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 pnp.series.title: Cloud Design Patterns
 ---
 
@@ -66,11 +66,11 @@ The solution to configure edge workloads during run-time can be based on an exte
 
 This variation has a configuration controller that's external to the workload. The role of the cloud configuration controller component is to push edits from the cloud datastore to the workload through the edge configuration controller. The edge also contains a datastore so that the system functions even when disconnected from the cloud.
 
-With IoT Edge, the edge configuration controller can be implemented as a module, and the configurations can be applied with [module twins](/azure/iot-hub/iot-hub-devguide-module-twins). The module twin has a size limit; if the configuration exceeds the limit, the solution can be [extended with Azure Blob Storage](https://github.com/Azure-Samples/azure-iot-hub-large-twin-example) or by chunking larger payloads over [direct methods](/azure/iot-edge/how-to-edgeagent-direct-method).
+With IoT Edge, the edge configuration controller can be implemented as a module, and the configurations can be applied with [module twins](/azure/iot-hub/iot-hub-devguide-module-twins). The module twin has a size limit; if the configuration exceeds the limit, the solution can be extended with Azure Blob Storage or by chunking larger payloads over [direct methods](/azure/iot-edge/how-to-edgeagent-direct-method).
 
 The benefits of this variation are:
 
-- The workload itself doesn’t have to be aware of the configuration system. This capability is a requirement if the source code of the workload is not editable—for example, when using a module from the [Azure IoT Edge Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
+- The workload itself doesn’t have to be aware of the configuration system. This capability is a requirement if the source code of the workload isn't editable—for example, when using a module from the [Azure IoT Edge Marketplace](https://marketplace.microsoft.com/marketplace/apps?subcategories=iot-edge-modules&category=internet-of-things).
 - It's possible to change the configuration of multiple workloads at the same time by coordinating the changes via the cloud configuration controller.
 - Additional validation can be implemented as part of the push pipeline—for example, to validate existence of endpoints at the edge before pushing the configuration to the workload.
 
@@ -99,7 +99,7 @@ An [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) database st
 
 After an edge device indicates via reported properties that a configuration was applied, the configuration state service notes the event in the database instance.
 
-When a new configuration is created in the configuration management service, it is stored in Azure Cosmos DB and the desired properties of the edge module are changed in the IoT hub where the device resides. The configuration is then transmitted by IoT Hub to the edge device. The edge module is expected to apply the configuration and report via the module twin the state of the configuration. The configuration state service then listens to twin change events, and upon detecting that a module reports a configuration state change, records the corresponding change in the Azure Cosmos DB database.
+When a new configuration is created in the configuration management service, it's stored in Azure Cosmos DB and the desired properties of the edge module are changed in the IoT hub where the device resides. The configuration is then transmitted by IoT Hub to the edge device. The edge module is expected to apply the configuration and report via the module twin the state of the configuration. The configuration state service then listens to twin change events, and upon detecting that a module reports a configuration state change, records the corresponding change in the Azure Cosmos DB database.
 
 The edge component can use either the external configuration controller or internal configuration provider. In either implementation, the configuration is either transmitted in the module twin desired properties, or in case large configurations need to be transmitted, the module twin desired properties contain a URL to [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or to another service that can be used to retrieve the configuration. The module then signals in the module twin reported properties whether the new configuration was applied successfully and what configuration is currently applied.
 
