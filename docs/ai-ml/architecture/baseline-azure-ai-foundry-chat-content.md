@@ -18,7 +18,7 @@ The chat UI follows the [baseline Azure App service web application](../../web-a
 This architecture uses the [Foundry Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints, which ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/azure-ai-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
+> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
 
 ## Architecture
 
@@ -636,7 +636,7 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 
 ## Deploy this scenario
 
-To deploy and run this reference implementation, follow the deployment guide in the [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/azure-ai-foundry-baseline).
+To deploy and run this reference implementation, follow the deployment guide in the [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline).
 
 ## Contributors
 
