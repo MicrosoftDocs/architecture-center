@@ -331,11 +331,11 @@ You're charged only for the number of configured load-balancing and outbound rul
 
 #### Azure Pipelines
 
-This reference architecture only uses Azure Pipelines. Azure provides the pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur more costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+This reference architecture uses Azure Pipelines for CI/CD tasks. Azure provides the pipeline as an individual service. You're allowed a free Microsoft-hosted job with 1,800 minutes for each month for CI/CD and one self-hosted job with unlimited minutes for each month. Extra jobs incur more costs. For more information, see [Azure DevOps services pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
 #### Azure Monitor
 
-For Azure Monitor Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
+For Log Analytics, you're charged for data ingestion and retention. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
 
 ### Operational Excellence
 
@@ -355,8 +355,7 @@ Principal author:
 
 Other contributors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
-- [Alessandro Vossa](https://www.linkedin.com/in/alessandrovozza) | Senior Technical Specialist
+- [Alessandro Vozza](https://www.linkedin.com/in/alessandrovozza) | Senior Technical Specialist
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -372,6 +371,6 @@ Other contributors:
 
 ## Related resources
 
-- To work through a more advanced microservices example, see [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
+- [Advanced AKS microservices architecture](./aks-microservices-advanced.yml).
 - [CI/CD for microservices architectures](../../../microservices/ci-cd.yml)
 - [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)
