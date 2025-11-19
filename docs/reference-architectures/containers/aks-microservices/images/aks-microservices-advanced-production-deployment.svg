@@ -2484,13 +2484,13 @@
 				<text x="4" y="836.11" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Azure Kubernetes Service (AKS)</text>			</g>
 		</g>
 		<g id="shape1850-623" v:mID="1850" v:groupContext="shape" v:layerMember="0"
-				transform="translate(1224.11,575.632) rotate(-88.5201) scale(1,-1)">
+				transform="translate(-458.822,604.334) rotate(-90.1983)">
 			<title>Arrow (Straight).1850</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(75000):26"/>
 			</v:userDefs>
-			<path d="M7.68 841.89 L8.04 841.89 L34.85 841.89" class="st82"/>
+			<path d="M7.68 841.89 L8.04 841.89 L81.28 841.89" class="st82"/>
 		</g>
 		<g id="shape1851-629" v:mID="1851" v:groupContext="shape" v:layerMember="0" transform="translate(544.5,-696.375)">
 			<title>Side to top.1851</title>
@@ -2969,7 +2969,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="group1965-806" transform="translate(369.454,-325.131)" v:mID="1965" v:groupContext="group">
+		<g id="group1965-806" transform="translate(368.454,-325.131)" v:mID="1965" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(87000):26"/>
 			</v:userDefs>
