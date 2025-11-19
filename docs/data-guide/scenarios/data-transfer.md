@@ -9,7 +9,7 @@ ms.subservice: architecture-guide
 ms.custom: arb-data
 ---
 
-<!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
+<!-- cSpell:ignore SATA HDDs SDDs DistCp WASB Sqoop -->
 
 # Choose a data transfer technology
 
@@ -41,13 +41,13 @@ Consider the following options when you need scripted and programmatic data tran
 
 - The [Azure CLI](/azure/hdinsight/hdinsight-upload-data#utilities) is a cross-platform tool that lets you manage Azure services and upload data to Azure Storage.
 
-- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility for [Windows](/azure/storage/common/storage-use-azcopy) and [Linux](/azure/storage/common/storage-use-azcopy-linux) that lets you copy data to and from Blob Storage, Azure Files storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from Amazon Web Services (AWS) to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
+- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility for Windows and Linux that lets you copy data to and from Blob Storage, Azure Files storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from Amazon Web Services (AWS) to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
 
 - [PowerShell](/powershell/module/az.storage/start-azstorageblobcopy) is a scripting environment where the `Start-AzureStorageBlobCopy` cmdlet provides an option for Windows admins who are familiar with PowerShell.
 
-- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is a utility used to copy data between an Azure HDInsight cluster's default storage and other Blob Storage or Azure Data Lake Storage Gen2 accounts.
+- [DistCp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is a utility used to copy data between an Azure HDInsight cluster's default storage and other Blob Storage or Azure Data Lake Storage Gen2 accounts.
 
-- [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. Sqoop transfers data between an HDInsight cluster and relational databases like SQL, Oracle, and MySQL. It's a collection of related tools, including import and export tools, and works with HDInsight clusters by using either Blob Storage or Azure Data Lake Storage attached storage.
+- [Apache Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. Sqoop transfers data between an HDInsight cluster and relational databases like SQL, Oracle, and MySQL. It's a collection of related tools, including import and export tools, and works with HDInsight clusters by using either Blob Storage or Azure Data Lake Storage attached storage.
 
 - [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside a database through the T-SQL language. In SQL Server 2016, it lets you run queries on external data in Hadoop or import and export data from Blob Storage.
 
@@ -65,9 +65,9 @@ Consider the following options if you only need to transfer a few files or data 
 
 ## Data sync and pipelines
 
-- [Azure Data Factory](/azure/data-factory) is a managed service designed for regularly transferring files across Azure services, on-premises systems, or a combination of both. By using Data Factory, you can create and schedule data-driven workflows known as *pipelines* that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services like Spark and Azure Machine Learning. You can create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
+- [Azure Data Factory](/azure/data-factory/introduction) is a managed service designed for regularly transferring files across Azure services, on-premises systems, or a combination of both. By using Data Factory, you can create and schedule data-driven workflows known as *pipelines* that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services like Spark and Azure Machine Learning. You can create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
 
-- [Data Factory in Microsoft Fabric](/fabric/data-factory/) is a data integration platform that enables you to orchestrate and automate data movement and transformation across cloud and hybrid environments. It lets you build and schedule data-driven workflows (pipelines) that ingest data from various sources, including cloud storage, databases, and on-premises systems. These pipelines support diverse activities like data movement, transformation, and control flow, and can use compute engines like Spark and SQL within Fabric workloads. With integration into [OneLake](/fabric/onelake/onelake-overview), Fabric ensures unified data access, governance, and collaboration across the entire data estate.
+- [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview) is a data integration platform that enables you to orchestrate and automate data movement and transformation across cloud and hybrid environments. It lets you build and schedule data-driven workflows (pipelines) that ingest data from various sources, including cloud storage, databases, and on-premises systems. These pipelines support diverse activities like data movement, transformation, and control flow, and can use compute engines like Spark and SQL within Fabric workloads. With integration into [OneLake](/fabric/onelake/onelake-overview), Fabric ensures unified data access, governance, and collaboration across the entire data estate.
 
   The [integration runtime](/azure/data-factory/concepts-integration-runtime) in Data Factory, the [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) in Fabric, and the [virtual network data gateway](/data-integration/vnet/overview) provide secure connectivity and data integration capabilities across cloud, on-premises, and virtual network environments.
 
@@ -165,12 +165,9 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 - [What is the Azure CLI?](/cli/azure/what-is-azure-cli)
-- [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10)
-- [What is Azure Data Factory?](/azure/data-factory/introduction)
-- [What is Data Factory in Microsoft Fabric?](/fabric/data-factory/data-factory-overview)
 
 ## Related resources
 
