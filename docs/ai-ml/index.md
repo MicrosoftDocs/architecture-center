@@ -542,7 +542,6 @@ Learn more about Microsoft AI, and stay up to date with related news:
 - [Azure AI](https://azure.microsoft.com/solutions/ai/)
 - [Microsoft AI news](https://news.microsoft.com/source/topics/ai/)
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
-- [Azure Architecture Center](../index.yml)
 
 ## Next step
 
