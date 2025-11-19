@@ -96,7 +96,7 @@ If your capacity pool size requirements are consistent but performance requireme
 
 #### Automatically tier cold data
 
-Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
+Azure NetApp Files has a Standard storage service level with [cool access](/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
 
 You can also provision and deprovision various types of capacity pools throughout the month to provide just-in-time performance and reduce costs during periods when you don't need high performance.
 
@@ -121,7 +121,7 @@ Service levels include:
 - Premium: 64MiB/s per 1 TiB
 - Ultra: 128MiB/s per 1 TiB
 
-If you need more performance than the capacity permits, consider setting the [manual Quality of Service (QoS)](https://learn.microsoft.com/azure/azure-netapp-files/manage-manual-qos-capacity-pool) type on the capacity pool to maximize the allowed throughput on the volume.
+If you need more performance than the capacity permits, consider setting the [manual Quality of Service (QoS)](/azure/azure-netapp-files/manage-manual-qos-capacity-pool) type on the capacity pool to maximize the allowed throughput on the volume.
 
 Use Azure NetApp Files to control costs based on required performance for your application workload.
 

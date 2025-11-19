@@ -248,7 +248,6 @@ For more information and other deployment options, see the Azure Resource Manage
 [guidance-vpn-gateway-security]: /azure/expressroute/expressroute-howto-coexist-resource-manager#security-considerations
 [nsg]: /azure/virtual-network/security-overview
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
-[ra-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [rbac-custom-roles]: /azure/role-based-access-control/custom-roles
 [rbac]: /azure/role-based-access-control/role-assignments-portal
 [routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)

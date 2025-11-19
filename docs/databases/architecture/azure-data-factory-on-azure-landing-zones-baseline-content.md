@@ -345,8 +345,6 @@ Understand that data solution performance typically degrades over time. Establis
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
 
-To deploy a SHIR on an Azure VM, use the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
-
 ## Next steps
 
 - [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/)
