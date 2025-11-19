@@ -545,7 +545,6 @@ Other contributors:
 ## Next steps
 
 - [AKS cluster best practices](/azure/aks/best-practices)
-- [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
 - [Training: Introduction to Kubernetes](/learn/modules/intro-to-kubernetes/)
 - [Training: Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)

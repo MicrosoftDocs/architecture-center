@@ -24,7 +24,7 @@ As a workload owner, you delegate shared resource management to platform teams s
 |&#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) |&#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-agent-developer-access)<br>&#9642; [Monitor resources](#monitor-resources)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time)|&#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost Optimization](#cost-optimization)<br>&#9642; [Operational Excellence](#operational-excellence)<br>&#9642; [Performance Efficiency](#performance-efficiency) |
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Microsoft Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
+> :::image type="icon" source="../../_images/github.svg"::: The [Microsoft Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline-landing-zone) demonstrates the best practices described in this article. Review and try these deployment resources before you choose and implement your design decisions.
 
 ## Architecture
 
@@ -522,7 +522,7 @@ The [performance efficiency considerations in the baseline architecture](./basel
 Deploy a landing zone implementation of this reference architecture.
 
 > [!div class="nextstepaction"]
-> [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone)
+> [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline-landing-zone)
 
 ## Contributors
 
