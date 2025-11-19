@@ -179,18 +179,18 @@ Entra ID provides security features to authenticate applications and authorize a
 
 On cloud applications, you must secure the credentials required to authenticate to cloud services. Ideally, the credentials should never appear on developer workstations or in source control. Key Vault securely stores credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed identities for Azure resources** provides Azure services with an automatically managed identity in Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
 
-[RBAC](/azure/role-based-access-control/overview) manages access to Azure resources by defining the following conditions:
+[Azure RBAC](/azure/role-based-access-control/overview) manages access to Azure resources by defining the following conditions:
 
 - Which entity has access, such as user, managed identity, or security principal
 
 - What type of access it has, such as owner, contributor, reader, or admin
 - The scope of access, such as resource, resource group, subscription, or management group
 
-You can help secure access to App Service Environment applications by tightly controlling the role required and the type of access for each app. This approach allows multiple apps to deploy on the same App Service Environment from different development teams. For example, one team might handle the front end, and one team might handle the back end. RBAC can limit each team's access to the apps that they work on. To create roles suitable for your organization, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+You can help secure access to App Service Environment applications by tightly controlling the role required and the type of access for each app. This approach allows multiple apps to deploy on the same App Service Environment from different development teams. For example, one team might handle the front end, and one team might handle the back end. Azure RBAC can limit each team's access to the apps that they work on. To create roles suitable for your organization, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 #### Key Vault
 
-Some services support managed identities and use RBAC to set up permissions for the app. For example, see the built-in [Service Bus roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [RBAC in Cosmos DB](/azure/cosmos-db/role-based-access-control). You must have *User Access Administrator* access to the subscription to grant these permissions. The *Contributor* role can deploy these services. To allow a wider team of developers to run the deployment scripts, you can use the native access control that each service provides.
+Some services support managed identities and use Azure RBAC to set up permissions for the app. For example, see the built-in [Service Bus roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Cosmos DB](/azure/cosmos-db/role-based-access-control). You must have *User Access Administrator* access to the subscription to grant these permissions. The *Contributor* role can deploy these services. To allow a wider team of developers to run the deployment scripts, you can use the native access control that each service provides.
 
 - For Service Bus, use [shared access signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 
