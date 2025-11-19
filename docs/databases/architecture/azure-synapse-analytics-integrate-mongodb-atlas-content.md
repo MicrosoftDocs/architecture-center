@@ -32,7 +32,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web apps, mobile apps, and REST APIs. In this architecture, it hosts ASP.NET web apps that subscribe to MongoDB Atlas change streams, detect data changes, and write updated documents to Data Lake Storage. The Event Grid version also publishes events to Event Grid to trigger downstream pipelines. The code for the [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid) and the [Storage version](https://github.com/Azure/SynapseRTSStorage) is available on GitHub.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web apps, mobile apps, and REST APIs. In this architecture, it hosts ASP.NET web apps that subscribe to MongoDB Atlas change streams, detect data changes, and write updated documents to Data Lake Storage. The Event Grid version also publishes events to Event Grid to trigger downstream pipelines.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics) is an integrated analytics service that combines big data and data warehousing. In this architecture, it serves as the central platform for ingesting, processing, and analyzing both batch and real-time data from MongoDB Atlas.
 
@@ -73,7 +73,7 @@ The source connector provides a convenient way to run Azure Synapse Analytics on
 
 You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
-- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow). A [Storage-CopyPipeline_mdb_synapse_ded_pool_RTS sample pipeline](https://github.com/Azure/RealTimeSync_Synapse-MongoDB/blob/main/Storage-CopyPipeline_mdb_synapse_ded_pool_RTS.zip) is available as part of this solution. You can export the pipeline from GitHub for this one-time load purpose.
+- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow).
 
 - To produce insights at a particular frequency, for instance, for a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data.
 
@@ -196,10 +196,6 @@ When there's a high volume of changes, running thousands of pipelines in Azure S
 - Modify the Event Grid App Service code. Program it to add a micro-batch of around 100 changes to the blob storage before it adds the new topic to the event with the metadata that includes the filename. With this modification, you trigger only one pipeline for one blob with the 100 changes. You can adjust the micro-batch size to suit your scenario. Use small micro-batches at a high frequency to provide updates that are close to real time. Or use larger micro-batches at a lower frequency for delayed updates and reduced overhead.
 
 For more information on improving the performance and scalability of Azure Synapse Analytics pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
-
-## Deploy this scenario
-
-For information about implementing this solution, see [Real-Time Sync Solution for MongoDB Atlas Integration with Synapse](https://github.com/Azure/RealTimeSync_Synapse-MongoDB).
 
 ## Contributors
 

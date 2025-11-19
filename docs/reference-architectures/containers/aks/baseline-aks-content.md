@@ -924,7 +924,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Related resources
 
-- [AKS roadmap on GitHub](https://github.com/Azure/AKS/projects/1)
+- [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
 - [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
 - [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
 - [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)

@@ -179,7 +179,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
 
-- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL rather than Synapse](https://learn.microsoft.com/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
+- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL rather than Synapse](/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
 
@@ -344,8 +344,6 @@ Understand that data solution performance typically degrades over time. Establis
 ## Deploy this scenario
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
-
-To deploy a SHIR on an Azure VM, use the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
 
 ## Next steps
 
