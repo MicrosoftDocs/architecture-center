@@ -353,7 +353,7 @@ Consider the following points when you plan for security:
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see [Use the Key Vault provider for Secrets Store CSI Driver in an AKS cluster](/azure/aks/csi-secrets-store-driver). We recommend that you maintain separate key vaults for each microservice.
 
-[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and Zero Trust controls for AKS clusters. Use Cilium network policies on [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement layer-3 and layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
+[Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview) provides in-cluster network segmentation and Zero Trust controls for AKS clusters. Use Cilium network policies on [Azure CNI powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) to implement layer-3 and layer-4 segmentation within the cluster. Advanced Container Networking Services security extends this foundation by adding advanced capabilities:
 
 - FQDN-based egress filtering to restrict outbound traffic to approved domains.
 
