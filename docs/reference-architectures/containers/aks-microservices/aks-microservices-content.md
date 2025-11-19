@@ -138,11 +138,11 @@ In Kubernetes, an ingress controller primarily handles the functionality of an A
 
 There are ingress controllers for reverse proxies, which include NGINX, HAProxy, Traefik, and Azure Application Gateway. AKS provides multiple managed ingress options. You can choose from a [managed NGINX-based ingress controller](/azure/aks/app-routing) through the application routing add-on or Application Gateway for Containers. Or you can choose an Istio ingress gateway as the ingress controller. For more information, see [Ingress in AKS](/azure/aks/concepts-network-ingress).
 
-The ingress resources Kubernetes objects have been replaced by the more advanced and versatile Kubernetes Gateway API. Ingress controller and Gateway API are both Kubernetes objects used for traffic management routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes.
+Kubernetes has replaced ingress resources with the more advanced and versatile Gateway API. Ingress controllers and the Gateway API are Kubernetes objects that manage traffic routing and load balancing. Designed to be generic, expressive, extensible, and role oriented, the Gateway API is a modern set of APIs for defining level-4 and level-7 routing rules in Kubernetes.
 
 The ingress controller operates as the edge router or reverse proxy. A reverse proxy server is a potential bottleneck or single point of failure, so we recommend that you deploy at least two replicas to help ensure high availability.
 
-#### When to choose ingress controllers or Gateway API
+#### When to choose ingress controllers or the Gateway API
 
 Ingress resources are suitable for the following use cases:
 
@@ -154,13 +154,13 @@ Use the Gateway API when the following factors apply:
 
 - When you deal with complex routing configurations, traffic splitting, and advanced traffic management strategies. Kubernetes Gateway API Route resources provide the flexibility required in these cases.
 
-- If networking requirements need custom solutions or the integration of non-Microsoft plugins. The Kubernetes Gateway API's approach, based on custom resource definitions, can provide enhanced extensibility.
+- If networking requirements need custom solutions or the integration of non-Microsoft plug-ins. The Kubernetes Gateway API's approach, based on custom resource definitions, can provide enhanced extensibility.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-#### Partitioning microservices
+#### Partition microservices
 
 Use namespaces to organize services within the cluster. Every object in a Kubernetes cluster belongs to a namespace. It's a good practice to use namespaces to organize the resources in the cluster.
 
@@ -170,7 +170,7 @@ Namespaces help prevent naming collisions. When multiple teams deploy microservi
 
 - Apply policies at the namespace level, which include role-based access control (RBAC) and security policies.
 
-When multiple teams develop and deploy microservices, you can use namespaces as a convenient mechanism to control areas that each team can deploy to. For example, development team A can be given access only to namespace A, and development team B can be given access only to namespace B through Kubernetes [RBAC policies](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole).
+When multiple teams develop and deploy microservices, namespaces provide a convenient mechanism to control areas that each team can deploy to. For example, Kubernetes [RBAC policies](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) grant development team A access only to namespace A, and grant development team B access only to namespace B.
 
 For a microservices architecture, consider organizing the microservices into bounded contexts and creating namespaces for each bounded context. For example, all microservices related to the *Order Fulfillment* bounded context can go into the same namespace. Alternatively, create a namespace for each development team.
 
@@ -258,13 +258,13 @@ Even when you use managed identities, you might still need to store some credent
 
 - **Kubernetes secrets:** Another option is to use Kubernetes secrets. This option is the easiest to configure but the least secure. Secrets are stored in *etcd*, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
-Using a solution like Key Vault provides several advantages, including:
+Use a solution like Key Vault to get the following advantages:
 
 - Centralized control of secrets
-- Helping to ensure that all secrets are encrypted at rest
+- Encryption of secrets at rest
 - Centralized key management
 - Access control of secrets
-- Key lifecycle management
+- Key life cycle management
 - Auditing
 
 This architecture uses a managed identity for microservices to authenticate to Key Vault and access secrets.
@@ -297,7 +297,7 @@ Consider the following goals of a robust CI/CD process for a microservices archi
 
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
+For more information about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
 
 Using a service mesh like Istio can help with CI/CD processes, like canary deployments, A/B testing of microservices, and staged rollouts with percentage-based traffic splits.
 
@@ -313,11 +313,11 @@ Consider the following points for some of the services used in this architecture
 
 #### AKS
 
-- In the [free tier](/azure/aks/free-standard-pricing-tiers), there are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources that your Kubernetes cluster consumes.
+- In the [Free tier](/azure/aks/free-standard-pricing-tiers), there are no costs associated for AKS in deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources that your Kubernetes cluster consumes.
 
-- Consider using [horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale microservices in or scale them out depending on load.
+- Consider using [the Horizontal Pod Autoscaler (HPA)](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to automatically scale microservices in or scale them out depending on load.
 
-- Configure [cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler) to scale the nodes in or scale them out depending on load.
+- Configure [the Cluster Austoscaler (CA)](/azure/aks/concepts-scale#cluster-autoscaler) to scale the nodes in or scale them out depending on load.
 
 - Consider using [spot nodes](/azure/aks/spot-node-pool) to host noncritical microservices.
 
