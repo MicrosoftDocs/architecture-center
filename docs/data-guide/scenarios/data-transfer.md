@@ -21,7 +21,7 @@ Using physical hardware to transfer data to Azure is a good option when the foll
 
 - Your network is slow or unreliable.
 - Getting more network bandwidth is too expensive.
-- Security or organizational policies don't allow outbound connections when dealing with sensitive data.
+- Security or organizational policies don't allow outbound connections when handling sensitive data.
 
 If your primary concern is how long it takes to transfer your data, consider testing to confirm whether network transfer is slower than physical transport.
 
