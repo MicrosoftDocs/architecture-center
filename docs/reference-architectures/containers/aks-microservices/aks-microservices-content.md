@@ -26,13 +26,13 @@ The following data flow corresponds to the previous diagram:
 
 1. The workflow microservice takes the following actions:
 
-   - Consumes message information from the Service Bus message queue.
+   - Consumes message information from the Service Bus message queue
 
-   - Sends an HTTPS request to the delivery microservice, which passes data to external data storage in Azure Managed Redis.
+   - Sends an HTTPS request to the delivery microservice, which passes data to external data storage in Azure Managed Redis
 
-   - Sends an HTTPS request to the drone scheduler microservice.
+   - Sends an HTTPS request to the drone scheduler microservice
 
-   - Sends an HTTPS request to the package microservice, which passes data to external data storage in MongoDB.
+   - Sends an HTTPS request to the package microservice, which passes data to external data storage in MongoDB
 
 1. An HTTPS GET request returns the delivery status. This request passes through the managed ingress controller into the delivery microservice. Then the delivery microservice reads data from Azure Managed Redis.
 
