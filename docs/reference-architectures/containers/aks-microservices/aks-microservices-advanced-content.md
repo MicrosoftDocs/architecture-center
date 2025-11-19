@@ -254,9 +254,9 @@ maxCount: 5
 
 The Horizontal Pod Autoscaler (HPA) scales pods based on observed CPU, memory, or custom metrics. To configure horizontal pod scaling, you specify target metrics and the minimum and maximum number of replicas in the Kubernetes deployment pod specification. Load test your services to determine these numbers.
 
-CA and HPA work together, so enable both autoscaler options in your AKS cluster. HPA scales the application, while CA scales the infrastructure.
+The CA and the HPA work together, so enable both autoscaler options in your AKS cluster. The HPA scales the application, while CA scales the infrastructure.
 
-The following example sets resource metrics for HPA:
+The following example sets resource metrics for the HPA:
 
 ```yaml
 apiVersion: autoscaling/v2
@@ -279,7 +279,7 @@ spec:
           averageUtilization: 70
 ```
 
-HPA looks at actual resources consumed or other metrics from running pods. The CA provisions nodes for pods that aren't scheduled yet. As a result, CA looks at the requested resources, as specified in the pod specification. Use load testing to fine-tune these values.
+The HPA looks at actual resources consumed or other metrics from running pods. The CA provisions nodes for pods that aren't scheduled yet. As a result, CA looks at the requested resources, as specified in the pod specification. Use load testing to fine-tune these values.
 
 For more information, see [Scaling options for applications in AKS](/azure/aks/concepts-scale).
 
@@ -287,11 +287,11 @@ For more information, see [Scaling options for applications in AKS](/azure/aks/c
 
 The [Vertical Pod Autoscaler (VPA)](/azure/aks/use-vertical-pod-autoscaler) automatically adjusts the CPU and memory requests for your pods to match the usage patterns of your workloads. When it's configured, the VPA automatically sets resource requests and limits on containers for each workload based on past usage. The VPA makes CPU and memory available for other pods and helps ensure effective utilization of your AKS clusters.
 
-In this architecture, VPA increases the CPU and memory requests and limits for microservices based on their past usage. For example, if the workflow microservice consumes more CPU compared to other microservices, the VPA can monitor this usage and increase the CPU limits for the workflow microservice.
+In this architecture, the VPA increases the CPU and memory requests and limits for microservices based on their past usage. For example, if the workflow microservice consumes more CPU compared to other microservices, the VPA can monitor this usage and increase the CPU limits for the workflow microservice.
 
-#### Kubernetes event-driven autoscaling
+#### Kubernetes Event-Driven Autoscaling
 
-The [Kubernetes Event-Driven Autoscaler (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
+The [Kubernetes Event-Driven Autoscaling (KEDA)](/azure/aks/keda-about) add-on enables event-driven autoscaling to scale your microservice to meet demand in a sustainable and cost-efficient manner. For example, KEDA can scale up microservices when the number of messages in the Service Bus queue surpasses specific thresholds.
 
 In the Fabrikam drone delivery scenario, KEDA scales out the workflow microservice depending on the Service Bus queue depth and based on the ingestion microservice output. For a list of KEDA scalers for Azure services, see [Integrations with KEDA on AKS](/azure/aks/keda-integrations).
 
@@ -305,9 +305,9 @@ Kubernetes load balances traffic to pods that match a label selector for a servi
 
 - The startup probe tells Kubernetes whether the pod is started.
 
-The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container serving HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which alerts Kubernetes to restart the pod.
+The liveness probes handle pods that are still running but are unhealthy and should be recycled. For example, if a container that serves HTTP requests hangs, the container doesn't crash, but it stops serving requests. The HTTP liveness probe stops responding, which alerts Kubernetes to restart the pod.
 
-Sometimes a pod might not be ready to receive traffic, even though the pod starts successfully. For example, the application running in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
+Sometimes a pod might not be ready to receive traffic, even though the pod starts successfully. For example, the application that runs in the container might be performing initialization tasks. The readiness probe indicates whether the pod is ready to receive traffic.
 
 Microservices should expose endpoints in their code that facilitate health probes, with delay and timeout tailored specifically to the checks that they perform. The [HPA formula](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details) relies on the pod's ready phase, so it's crucial that health probes exist and are accurate.
 
