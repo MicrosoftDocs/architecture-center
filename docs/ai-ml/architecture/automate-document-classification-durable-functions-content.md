@@ -3,7 +3,7 @@ This article describes an architecture that processes various documents. The arc
 ## Architecture
 
 :::image type="complex" border="false" source="_images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents." lightbox="_images/automate-document-classification-durable-functions.svg":::
-The image is a flowchart that has multiple sections. The ingestion section contains an Azure web app. It connects via arrows to the document store section that contains Azure Blob Storage and the activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the document processing, document metadata collection, and vectorize and index sections. The chat with your data section contains Azure AI Foundry. The ingestion section points to the vectorize and index data section and the chat with your data section.
+The image is a flowchart that has multiple sections. The ingestion section contains an Azure web app. It connects via arrows to the document store section that contains Azure Blob Storage and the activation section that contains an Azure Service Bus queue. The Azure Functions orchestration section contains icons that represent analyze activity, metadata store activity, and embedding activity. Arrows point from these icons to the document processing, document metadata collection, and vectorize and index sections. The chat with your data section contains Microsoft Foundry. The ingestion section points to the vectorize and index data section and the chat with your data section.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/automate-document-classification-durable-functions.vsdx) of this architecture.*
@@ -30,7 +30,7 @@ The following workflow corresponds to the previous diagram:
 
 This architecture uses the following components:
 
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database that can scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. In this architecture, Azure Cosmos DB services as the metadata store for the document classification information.
 
@@ -46,11 +46,11 @@ This architecture uses the following components:
 
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that integrates large language models (LLMs) into applications. In this architecture, Semantic Kernel creates embeddings for the document content and metadata information, which are stored in AI Search.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Azure AI Foundry deploys an Azure OpenAI model.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry deploys an Azure OpenAI model.
 
-  - [Azure AI Foundry projects](/azure/ai-foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has a single Azure AI Foundry project within the Azure AI Foundry account.
+  - [Foundry projects](/azure/ai-foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has a single Foundry project within the Foundry account.
 
-  - [Azure AI Foundry models](/azure/ai-foundry/how-to/deploy-models-openai) let you deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
+  - [Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview?) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
 ### Alternatives
 
@@ -62,7 +62,7 @@ This architecture uses the following components:
 
 - You can use the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) instead of Semantic Kernel to orchestrate the workflows.
 
-- To provide a natural language interface for users, you can use other language models within Azure AI Foundry. The platform supports various models from different providers, including Mistral, Meta, Cohere, and Hugging Face.
+- To provide a natural language interface for users, you can use other language models within Foundry. The platform supports various models from different providers, including Mistral, Meta, Cohere, and Hugging Face.
 
 ### Scenario details
 
@@ -96,7 +96,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-To ensure reliability and high availability when you invoke models from Azure AI Foundry projects that use OpenAI models hosted in Azure, consider using a generative API gateway like [Azure API Management](/azure/api-management/genai-gateway-capabilities). This approach manages requests across multiple model deployments or Azure AI Foundry endpoints. The Azure back-end gateway supports round-robin, weighted, and priority-based routing across deployments and provides full control of traffic distribution. This approach lets your Azure AI Foundry project implement resilient failover strategies and intelligent load distribution tuned to your performance, regional availability, or cost requirements.
+To ensure reliability and high availability when you invoke models from Foundry projects that use OpenAI models hosted in Azure, consider using a generative API gateway like [Azure API Management](/azure/api-management/genai-gateway-capabilities). This approach manages requests across multiple model deployments or Foundry endpoints. The Azure back-end gateway supports round-robin, weighted, and priority-based routing across deployments and provides full control of traffic distribution. This approach lets your Foundry project implement resilient failover strategies and intelligent load distribution tuned to your performance, regional availability, or cost requirements.
 
 For learning and early proof-of-concept work, use a [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) deployment. Global Standard is pay-as-you-go, provides the highest default quota, and uses the Azure global infrastructure to route each request to the most available region. This approach reduces the chance of encountering regional quota or capacity constraints while you experiment and aligns with the Microsoft guidance to use Global Standard as the default starting point.
 
@@ -104,7 +104,7 @@ For production workloads, choose the [deployment type](/azure/ai-foundry/foundry
 
 - **Data-processing location:**
 
-  - Use *Global Standard or Global Provisioned* when you want the highest availability and inferencing can occur in any Azure AI Foundry region, while data at rest remains in your selected geography.
+  - Use *Global Standard or Global Provisioned* when you want the highest availability and inferencing can occur in any Foundry region, while data at rest remains in your selected geography.
 
   - Use *Data Zone Standard or Data Zone Provisioned* when you must keep inferencing within a Microsoft-defined data zone, for example US-only or EU-only, to meet data residency requirements.
 
@@ -124,18 +124,18 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 The most significant costs for this architecture include the following components:
 
-- Model inference usage via Azure AI Foundry, which includes OpenAI or other models
+- Model inference usage via Foundry, which includes OpenAI or other models
 - Document ingestion and processing via Document Intelligence
 - Indexing and search consumption via AI Search
 
 To optimize costs, consider the following recommendations:
 
-- **Use provisioned throughput units (PTUs) or reservations for Azure AI Foundry deployments** instead of pay-per-token usage when the workload is predictable.
+- **Use provisioned throughput units (PTUs) or reservations for Foundry deployments** instead of pay-per-token usage when the workload is predictable.
 
   - For more information, see the following resources:
 
     - [Provisioned throughput overview](/azure/ai-foundry/openai/concepts/provisioned-throughput)
-    - [Save costs with AI Foundry reservations](/azure/cost-management-billing/reservations/azure-ai-foundry)
+    - [Save costs with Foundry reservations](/azure/cost-management-billing/reservations/azure-ai-foundry)
     - [Plan and manage Foundry costs](/azure/ai-foundry/how-to/costs-plan-manage)
 
 - **Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.**
@@ -158,7 +158,7 @@ This solution can expose performance bottlenecks when you process high volumes o
 
 - **Apply scalable compute and orchestration** by using durable functions, which is part of Azure Functions, for the document-processing pipeline and tune its scaling behavior. For more information, see [Performance and scale in durable functions](/azure/azure-functions/durable/durable-functions-perf-and-scale).
 
-- **Choose the appropriate deployment model in Azure AI Foundry** for inference workloads. Use serverless APIs for variable workloads and provisioned throughput models when you expect heavy, consistent traffic. For more information, see [Provisioned throughput for Azure AI Foundry models](/azure/ai-foundry/openai/concepts/provisioned-throughput) and [Performance and latency optimization for Azure OpenAI and Azure AI Foundry models](/azure/ai-foundry/openai/how-to/latency).
+- **Choose the appropriate deployment model in Foundry** for inference workloads. Use serverless APIs for variable workloads and provisioned throughput models when you expect heavy, consistent traffic. For more information, see [Provisioned throughput for Foundry Models](/azure/ai-foundry/openai/concepts/provisioned-throughput) and [Performance and latency optimization for Azure OpenAI and Foundry Models](/azure/ai-foundry/openai/how-to/latency).
 
 - **Optimize indexing and retrieval performance** by configuring appropriate partitioning, replicas, and schema for AI Search. For more information, see [AI Search performance tips](/azure/search/search-performance-tips).
 
@@ -193,7 +193,7 @@ For product documentation, see the following resources:
 
 - [Azure documentation for all products](/azure?product=all)
 - [Durable functions documentation](/azure/azure-functions/durable)
-- [Azure AI Foundry documentation](/azure/ai-foundry)
+- [Foundry documentation](/azure/ai-foundry)
 - [Document Intelligence documentation](/azure/ai-services/document-intelligence)
 - [AI Search documentation](/azure/search)
 - [Semantic Kernel documentation](/semantic-kernel/overview)
