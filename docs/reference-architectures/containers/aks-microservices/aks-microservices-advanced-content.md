@@ -420,7 +420,7 @@ Consider the following points when you plan for scalability:
 ## Next steps
 
 - [Introduction to AKS](/azure/aks/what-is-aks)
-- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Private Link?](/azure/private-link/private-link-overview)
 - [What is Application Gateway?](/azure/application-gateway/overview)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
