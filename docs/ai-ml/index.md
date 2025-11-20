@@ -92,7 +92,7 @@ For more information, see the following resources:
 
 - [Adopt, extend, and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview)
 - [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- [Azure AI Foundry](/azure/ai-foundry/what-is-ai-foundry)
+- [Microsoft Foundry](/azure/ai-foundry/what-is-ai-foundry)
 
 ### Retrieval Augmented Generation
 
@@ -138,15 +138,15 @@ For more information, see the following resources:
 
 #### AI and Machine learning reference architectures for Azure
 
-- [Azure AI Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Baseline Azure AI Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Azure AI Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Microsoft Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
+- [Baseline Microsoft Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
-  :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Azure AI Foundry.":::
+  :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Microsoft Foundry.":::
   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
-    
-  Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Azure AI Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Azure AI Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
 
-  To the far right, a separate box represents Azure AI Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Azure AI Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
+  Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Microsoft Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
+
+  To the far right, a separate box represents Microsoft Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
   :::image-end:::
 
 ### Automated machine learning
@@ -172,9 +172,9 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
+- [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-  [Azure AI Agent Service](/azure/ai-services/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Azure AI Foundry.
+  [Azure AI Agent Service](/azure/ai-services/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Foundry.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -299,7 +299,7 @@ For more information, see the following resources:
 
 ## Data processing for AI
 
-You can use the following tools to prepare data for machine learning and AI applications. Ensure that your data is clean and structured so that you can use it for advanced analytics. 
+You can use the following tools to prepare data for machine learning and AI applications. Ensure that your data is clean and structured so that you can use it for advanced analytics.
 
 ### Fabric Data Factory
 
@@ -310,7 +310,6 @@ Fabric Data Factory supports code solutions and no-code or low-code solutions:
 - Use [data pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) to create workflow capabilities at cloud scale. Use the drag-and-drop interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
 
 - Use [dataflows](/fabric/data-factory/data-factory-overview#dataflows) as a low-code interface to ingest data from hundreds of data sources and transform it by using over 300 data transformations.
-
 
 For more information, see [Data Factory end-to-end scenario: Introduction and architecture](/fabric/data-factory/tutorial-end-to-end-introduction).
 
@@ -349,9 +348,9 @@ Machine Learning offers the following capabilities:
 
   For more information, see the following resources:
 
-    - [Hyperparameter tuning a model with Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
-    - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
-    - [Learning path: Perform hyperparameter tuning with Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
+  - [Hyperparameter tuning a model with Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
+  - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
+  - [Learning path: Perform hyperparameter tuning with Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
 
 - **Model training:** You can iteratively use an algorithm to create or *teach* models. After models are trained, you can use them to analyze data and make predictions.
 
@@ -369,22 +368,22 @@ Machine Learning offers the following capabilities:
 
   For more information, see the following resources:
 
-    - [Train models with Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
-    - [Tutorial: Train a model in Machine Learning](/azure/machine-learning/tutorial-train-model)
-    - [Deep learning and distributed training with Machine Learning](/azure/machine-learning/concept-distributed-training)
+  - [Train models with Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
+  - [Tutorial: Train a model in Machine Learning](/azure/machine-learning/tutorial-train-model)
+  - [Deep learning and distributed training with Machine Learning](/azure/machine-learning/concept-distributed-training)
 
 - **AutoML:** This process automates the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time that it takes to produce production-ready machine learning models. AutoML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
 
-    You can use AutoML when you want Machine Learning to use a specified target metric to train and tune a model. You don't need data science expertise to identify an end-to-end machine learning pipeline for problems.
+  You can use AutoML when you want Machine Learning to use a specified target metric to train and tune a model. You don't need data science expertise to identify an end-to-end machine learning pipeline for problems.
 
-    Machine learning professionals and developers across industries can use AutoML to:
+  Machine learning professionals and developers across industries can use AutoML to:
 
-    - Implement machine learning solutions without extensive programming or machine learning knowledge.
-    - Save time and resources.
-    - Apply data science best practices.
-    - Provide agile problem-solving.
+  - Implement machine learning solutions without extensive programming or machine learning knowledge.
+  - Save time and resources.
+  - Apply data science best practices.
+  - Provide agile problem-solving.
 
-    For more information, see [What is AutoML?](/azure/machine-learning/concept-automated-ml).
+  For more information, see [What is AutoML?](/azure/machine-learning/concept-automated-ml).
 
 - **Scoring:** This process, also called *prediction*, uses a trained machine learning model to generate values based on new input data. The values, or scores, can represent predictions of future values, but they might also represent a likely category or outcome.
 
@@ -412,7 +411,7 @@ For more information, see the following resources:
 
 - [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
-- [Baseline AI Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat)
+- [Baseline Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat)
 
 ### Azure AI services for custom AI
 
@@ -465,15 +464,15 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Use the responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and LLM flows.
 - Deploy models via REST API endpoints, real-time inference, and batch inference.
-- Use hub workspaces to share compute, quota, security, and connectivity to company resources, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs).
+- Use hub workspaces to share compute, quota, security, and connectivity to company resources, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs).
 
-#### AI Foundry
+#### Microsoft Foundry
 
-[AI Foundry](/azure/ai-foundry/what-is-ai-foundry) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
+[Microsoft Foundry](/azure/ai-foundry/what-is-ai-foundry) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
 
-- Build together as one team. Your AI Foundry hub provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
+- Build together as one team. Your Foundry account provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
-- Organize your work. Your AI Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
+- Organize your work. Your Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
 - Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
 - Discover and benchmark from over 1,600 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
@@ -485,11 +484,11 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Deploy AI innovations to the Azure-managed infrastructure to provide continuous monitoring and governance across environments.
 - Continuously monitor deployed apps for safety, quality, and token consumption in production.
 
-For more information, see [AI Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
+For more information, see [Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
 
-#### Azure AI Agent Service in AI Foundry portal
+#### Azure AI Agent Service in the Foundry portal
 
-Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Azure AI Foundry account.
+Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
 
 Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
 
@@ -543,7 +542,6 @@ Learn more about Microsoft AI, and stay up to date with related news:
 - [Azure AI](https://azure.microsoft.com/solutions/ai/)
 - [Microsoft AI news](https://news.microsoft.com/source/topics/ai/)
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
-- [Azure Architecture Center](../index.yml)
 
 ## Next step
 

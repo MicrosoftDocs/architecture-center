@@ -6,7 +6,7 @@ This article provides a series of designs that typically progress from an initia
 
 ## Get started
 
-If you're embarking on your cloud adoption journey with the medallion lakehouse architecture, start with these training modules on the [Learn platform](https://learn.microsoft.com). You can use:
+If you're embarking on your cloud adoption journey with the medallion lakehouse architecture, start with these training modules.
 
 - [Data Factory](/training/paths/data-integration-scale-azure-data-factory) for data ingestion.
 
