@@ -13,7 +13,7 @@ ms.custom: arb-web
 
 The core components of this architecture are a **web front end** that handles client requests and a **worker** that does resource-intensive tasks, long-running workflows, or batch jobs. The web front end communicates with the worker through a **message queue**.
 
-:::image type="content" source="./images/web-queue-worker-logical.svg" alt-text="A logical diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-logical.svg":::
+:::image type="content" source="./images/web-queue-worker-logical.svg" alt-text="A logical diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-logical.svg" border="false":::
 
 The following components are commonly incorporated into this architecture:
 
@@ -21,13 +21,13 @@ The following components are commonly incorporated into this architecture:
 
 - A cache to store values from the database for quick reads
 
-- A content delivery network (CDN) to serve static content
+- A content delivery network to serve static content
 
 - Remote services, like email or Short Message Service (SMS), that non-Microsoft service providers typically provide
 
-- Identity provider for authentication
+- An identity provider for authentication
 
-The web and worker are both stateless, and session state can be stored in a distributed cache. The worker handles any long-running work asynchronously. Messages on the queue can start the worker, or a schedule can run it for batch processing. The worker is optional, so if the application has no long-running operations, you can omit it.
+The web and worker are both stateless, and session state can be stored in a distributed cache. The worker handles long-running work asynchronously. Messages on the queue can start the worker, or a schedule can run it for batch processing. The worker is optional if the application has no long-running operations.
 
 The front end might include a web API. A single‑page application can consume the web API by making AJAX calls, or a native client application can consume it directly.
 
@@ -67,11 +67,11 @@ Consider this architecture for the following use cases:
 
 - Expose a well-designed API to the client. For more information, see [API design best practices](../../best-practices/api-design.md).
 
-- Autoscale to handle changes in load. For more information, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
+- Automatically scale to handle changes in load. For more information, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
 
 - Cache semistatic data. For more information, see [Caching best practices](../../best-practices/caching.yml).
 
-- Use a CDN to host static content. For more information, see [CDN best practices](../../best-practices/cdn.yml).
+- Use a content delivery network to host static content. For more information, see [Content delivery network best practices](../../best-practices/cdn.yml).
 
 - Use polyglot persistence when appropriate. For more information, see [Understand data models](../../data-guide/technology-choices/understand-data-store-models.md).
 
@@ -81,7 +81,7 @@ Consider this architecture for the following use cases:
 
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
-:::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Physical diagram of Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
+:::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
    Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Managed Redis for session state and low-latency data access, Azure Blob Storage for file and document storage, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
 :::image-end:::
 
@@ -95,21 +95,21 @@ This section describes a recommended Web-Queue-Worker architecture that uses App
 
 - [Azure Managed Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
 
-- [Azure CDN](/azure/cdn/cdn-overview) is used to cache static content like images, CSS, or HTML.
+- [Azure Content Delivery Network](/azure/cdn/cdn-overview) is used to cache static content like images, CSS, or HTML.
 
 - For storage, choose technologies that best fit your application's needs. This approach, known as *polyglot persistence*, uses multiple storage technologies in the same system to meet different requirements. To illustrate this idea, the diagram shows both [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-For more information, see [Baseline highly available zone-redundant app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) and [Build message-driven business applications with NServiceBus and Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
+For more information, see [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) and [Build message-driven business applications with NServiceBus and Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
 
 ### Other considerations
 
-- Not every transaction must go through the queue and worker to storage. The web front end can do simple read/write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
+- Not every transaction must go through the queue and worker to storage. The web front end can do simple read and write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
 
 - Use the built-in autoscale feature of App Service to scale out the number of VM instances. If the load on the application follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
 
 - Consider putting the web app and the Functions app into separate App Service plans so that they can scale independently.
 
-- Use separate App Service plans for production and testing. If you use the same plan for both environments, your tests will run on the production VMs.
+- Use separate App Service plans for production and testing. If you use the same plan for both environments, your tests run on the production VMs.
 
 - Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version if there's a problem during the update.
 
