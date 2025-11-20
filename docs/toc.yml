@@ -68,7 +68,7 @@ items:
     - name: N-tier application
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
+      href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
     - name: Overview
