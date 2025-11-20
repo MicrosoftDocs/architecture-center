@@ -24,6 +24,6 @@ products:
   - azure-container-apps
   - azure-cosmos-db
   - azure-service-bus
-thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-runtime-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps.png
 content: |
    [!INCLUDE[](microservices-with-container-apps-content.md)]
