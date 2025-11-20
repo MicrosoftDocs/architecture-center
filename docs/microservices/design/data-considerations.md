@@ -45,9 +45,9 @@ No single approach works for all cases. Consider the following general guideline
 
 - **Use an [event-driven architecture style](../../guide/architecture-styles/event-driven.md).** In this architecture style, a service publishes an event when changes to its public models or entities occur. Other services can subscribe to these events. For example, another service can use the events to construct a materialized view of the data that's more suitable for querying.
 
-- **Publish a schema for events.** A service that owns events should publish a schema to automate serialization and deserialization of events. This approach avoids tight coupling between publishers and subscribers. Consider JSON schema or a framework like [Microsoft Bond](https://github.com/Microsoft/bond), Protobuf, or Avro.
+  - **Publish a schema for events.** A service that owns events should publish a schema to automate serialization and deserialization of events. This approach avoids tight coupling between publishers and subscribers. Consider JSON schema or a framework like Protobuf or Avro.
 
-- **Reduce event bottlenecks at scale.** At high scale, events can become a bottleneck on the system. Consider using aggregation or batching to reduce the total load.
+  - **Reduce event bottlenecks at scale.** At high scale, events can become a bottleneck on the system. Consider using aggregation or batching to reduce the total load.
 
 ## Example: Choose data stores for the drone delivery application
 
