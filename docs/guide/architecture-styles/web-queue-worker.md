@@ -82,7 +82,7 @@ Consider this architecture for the following use cases:
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
 :::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Physical diagram of Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
-   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Managed Redis for session state and low-latency data access, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
+   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Managed Redis for session state and low-latency data access, Azure Blob Storage for file and document storage, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
