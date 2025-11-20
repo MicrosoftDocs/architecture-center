@@ -179,5 +179,5 @@ Principal authors:
 [Stream Analytics]: /azure/stream-analytics/stream-analytics-introduction
 [Microsoft Power Platform]: /power-platform
 [Internet of Things Learning Path]: https://techcommunity.microsoft.com/blog/iotblog/internet-of-things---event-learning-path-learn-to-build-iot-solutions-on-microso/1636151
-[Introduction to Azure IoT]: https://learn.microsoft.com/training/modules/introduction-to-azure-iot/
+[Introduction to Azure IoT]: /training/modules/introduction-to-azure-iot/
 [Seeed Studio's IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html

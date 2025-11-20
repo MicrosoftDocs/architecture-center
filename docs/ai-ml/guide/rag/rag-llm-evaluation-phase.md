@@ -4,10 +4,9 @@ description: Learn about how to evaluate your RAG solution from end to end by ca
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/29/2025 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Large language model end-to-end evaluation
@@ -88,12 +87,12 @@ The following table provides guidance for how to evaluate completeness and utili
 
 Use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Azure AI Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 > [!NOTE]
-> You can use Azure [Azure AI Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations or use the guidance in this article to calculate relevance yourself.
+> You can use the [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations or use the guidance in this article to calculate relevance yourself.
 
 #### Evaluate relevance
 

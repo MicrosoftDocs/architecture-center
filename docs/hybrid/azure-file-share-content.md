@@ -48,7 +48,7 @@ Premium file shares are deployed to FileStorage storage accounts and are stored 
 
 ### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files only allows the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 are unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
@@ -100,7 +100,7 @@ For more information, see [Azure Files scalability and performance targets][Azur
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
+- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure role-based access control (Azure RBAC) model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
   > [!NOTE]
   > Access to Azure file shares is always authenticated. Azure file shares don't support anonymous access. Besides identity-based authentication over SMB, users can authenticate to Azure file share also by using storage access key and Shared Access Signature.

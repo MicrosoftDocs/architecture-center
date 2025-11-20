@@ -5,7 +5,7 @@ author: stephen-sumner
 ms.author: pnp
 ms.date: 02/04/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-web

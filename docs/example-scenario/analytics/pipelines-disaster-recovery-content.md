@@ -26,7 +26,7 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 
 ### Components
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency through region-paired automated failover and CI/CD-based user-managed recovery.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service designed to help you manage and automate data workflows at scale. In this architecture, it orchestrates data movement and transformation workflows and supports resiliency and recovery through region-paired automated failover and CI/CD-based user-managed recovery.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a unified platform for big data and data warehousing that's designed to help you analyze vast amounts of data quickly and efficiently.
 
@@ -192,7 +192,7 @@ Other contributors:
 - [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/reliability/reliability-data-factory)
 - [IR in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
 - [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)
 - [BCDR for Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery)
 

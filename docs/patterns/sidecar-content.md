@@ -50,7 +50,7 @@ Use this pattern when:
 This pattern might not be suitable:
 
 - When interprocess communication needs to be optimized. Communication between a parent application and sidecar services includes some overhead, notably latency in the calls. This might not be an acceptable trade-off for chatty interfaces.
-- For small applications where the resource cost of deploying a sidecar service for each instance is not worth the advantage of isolation.
+- For small applications where the resource cost of deploying a sidecar service for each instance isn't worth the advantage of isolation.
 - When the service needs to scale differently than or independently from the main applications. If so, it might be better to deploy the feature as a separate service.
 
 ## Workload design

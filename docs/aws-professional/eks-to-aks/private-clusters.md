@@ -4,7 +4,7 @@ description: Understand networking options to help securely access the Kubernete
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -169,8 +169,6 @@ Other contributors:
 
 - [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Create a public or private AKS cluster by using Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
-- [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Training: Introduction to Private Link](/learn/modules/introduction-azure-private-link/)
 - [Training: Introduction to secure network infrastructure with Azure network security](/learn/paths/secure-networking-infrastructure)
 

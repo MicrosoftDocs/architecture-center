@@ -4,7 +4,7 @@ description: Compare technology choices for big data batch processing in Azure, 
 author: pratimav0420
 ms.author: prvalava
 ms.date: 07/31/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -34,7 +34,7 @@ Microsoft offers several services that you can use to do batch processing.
 
 - *Languages:* Python, Java, Scala, and SQL
 
-- *Security:* Managed virtual network, RBAC and access control, and storage access control lists on Azure Data Lake Storage
+- *Security:* Managed virtual network, Azure role-based access control (Azure RBAC), and storage access control lists on Azure Data Lake Storage
 - *Primary storage:* Data Lake Storage and also integrates with other sources
 - *Spark:* Custom Spark configuration setup with predefined node sizes
 
