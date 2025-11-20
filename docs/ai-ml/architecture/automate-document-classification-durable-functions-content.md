@@ -79,7 +79,7 @@ NLP lets users interact with the system in a conversational manner. Users can as
 
 ### Potential use cases
 
-- **Report titles.** Many government agencies and municipalities manage paper records that don't have a digital form. An effective automated solution can generate a file that contains all the documents that you need to satisfy a document request.
+- **Generate report titles.** Many government agencies and municipalities manage paper records that don't have a digital form. An effective automated solution can generate a file that contains all the documents that you need to satisfy a document request.
 
 - **Manage maintenance records.** Scan and send paper records, like aircraft, locomotive, and machinery maintenance records, to outside organizations.
 
@@ -113,7 +113,7 @@ For production workloads, choose the [deployment type](/azure/ai-foundry/foundry
 
   - Use *Provisioned deployment types, like Global Provisioned, Data Zone Provisioned, and Regional Provisioned* for predictable, higher-volume workloads that need reserved throughput, consistent latency, and the option to use reservations for cost optimization.
 
-Most teams begin with **Global Standard**, or **Data Zone Standard** where residency matters, during development, and then transition critical paths to **Provisioned** SKUs after they understand steady-state throughput and latency requirements.
+Most teams begin with **Global Standard** for development, or use **Data Zone Standard** when data residency is important. After they determine their steady-state throughput and latency requirements, they move critical paths to **Provisioned** SKUs.
 
 For more information about reliability in solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
