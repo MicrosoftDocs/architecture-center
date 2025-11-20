@@ -175,7 +175,7 @@ You can consider using these platforms for AI and machine learning when you need
 
 ## Machine learning operational model
 
-When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.yml) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
+When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.md) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
 
 ## Antipatterns to avoid
 
