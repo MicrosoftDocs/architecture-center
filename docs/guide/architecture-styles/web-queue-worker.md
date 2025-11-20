@@ -113,10 +113,6 @@ For more information, see [Baseline highly available zone-redundant app services
 
 - Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version if there's a problem during the update.
 
-## Next step
-
-- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
-
 ## Related resource
 
 - [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml)
