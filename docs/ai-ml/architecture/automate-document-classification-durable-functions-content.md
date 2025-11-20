@@ -28,11 +28,10 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-This architecture uses the following components:
 
 - [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a Service Bus queue triggers a durable functions instance. This instance then initiates and orchestrates the document-processing pipeline.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database that can scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. In this architecture, Azure Cosmos DB services as the metadata store for the document classification information.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database that can scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. In this architecture, Azure Cosmos DB serves as the metadata store for the document classification information.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). In this architecture, Blob Storage stores the document files that the user uploads and that the durable functions pipeline processes.
 
@@ -48,9 +47,9 @@ This architecture uses the following components:
 
 - [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry deploys an Azure OpenAI model.
 
-  - [Foundry projects](/azure/ai-foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has a single Foundry project within the Foundry account.
+  - [Foundry projects](/azure/ai-foundry/how-to/create-projects) are specialized workspaces that you can use to establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has a single Foundry project within the Foundry account.
 
-  - [Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview?) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
+  - [Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) is a platform that deploys flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach uses MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
 ### Alternatives
 
@@ -135,7 +134,7 @@ To optimize costs, consider the following recommendations:
   - For more information, see the following resources:
 
     - [Provisioned throughput overview](/azure/ai-foundry/openai/concepts/provisioned-throughput)
-    - [Save costs with Microsoft Foundry reservations](/azure/cost-management-billing/reservations/azure-ai-foundry)
+    - [Save costs with Microsoft Foundry reservations](/azure/cost-management-billing/reservations/microsoft-foundry)
     - [Plan and manage Microsoft Foundry costs](/azure/ai-foundry/how-to/costs-plan-manage)
 
 - **Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.**
