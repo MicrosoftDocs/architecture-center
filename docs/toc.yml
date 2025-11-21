@@ -60,7 +60,7 @@ items:
             - name: API gateways
               href: microservices/design/gateway.yml
             - name: Data considerations
-              href: microservices/design/data-considerations.yml
+              href: microservices/design/data-considerations.md
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
