@@ -102,7 +102,7 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 
 #### Data storage
 
-In a microservices architecture, services shouldn't share data storage solutions. Each service should manage its own dataset to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services. This process can happen when services share the same underlying data schemas. When services manage their own data stores, they can use the correct data store for their particular requirements. For more information, see [Data considerations for microservices](../../../microservices/design/data-considerations.yml).
+In a microservices architecture, services shouldn't share data storage solutions. Each service should manage its own dataset to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services. This process can happen when services share the same underlying data schemas. When services manage their own data stores, they can use the correct data store for their particular requirements. For more information, see [Data considerations for microservices](../../../microservices/design/data-considerations.md).
 
 Avoid storing persistent data in local cluster storage because that method binds the data to the node. Instead, use an external service like SQL Database or Azure Cosmos DB. Another option is to mount a persistent data volume to a solution by using Azure Disk Storage or Azure Files. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage).
 
