@@ -264,11 +264,7 @@ Follow the [steps in the README.md in the Container Apps example scenario reposi
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
-
-- [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy/) | Technical Writer
-
-Other contributors:
+Contributors:
 
 - [Julien Strebler](https://www.linkedin.com/in/julien-strebler-57647490/) | Cloud Solution Architect
 - [Steve Caravajal](https://www.linkedin.com/in/stevecaravajal/) | Cloud Solution Architect
