@@ -8,19 +8,16 @@ ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom:
-  - cognitive services
-  - AI guide
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # Choose an Azure AI services technology
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) provide a suite of data science tools, models, and inferencing capabilities that support a broad range of functions. Most AI services require little to no AI expertise. This accessibility makes them available to students, small-business owners, startups, and large enterprises alike. Instead of building custom solutions, Microsoft recommends that you use these services to embed intelligent functionality into your workloads. In many cases, prebuilt models and software-as-a-service solutions provide the necessary capabilities. However, many services support further customization and fine-tuning without the need to redesign your workload.
 
-Some projects require capabilities beyond what prebuilt models provide. You might need to use your own data exclusively to build a new model or perform functions that existing prebuilt models don’t support. In these cases, you can use [Azure Machine Learning](/azure/machine-learning) to build custom models of any type or scale. These solutions require more expertise, but they provide tailored functionality for organizations of any size and budget.
+Some projects require capabilities beyond what prebuilt models provide. You might need to use your own data exclusively to build a new model or perform functions that existing prebuilt models don't support. In these cases, you can use [Azure Machine Learning](/azure/machine-learning) to build custom models of any type or scale. These solutions require more expertise, but they provide tailored functionality for organizations of any size and budget.
 
-This article compares AI services and Machine Learning solutions. It’s organized by broad categories to help you choose the right service or model for your use case.
+This article compares AI services and machine learning solutions. It's organized by broad categories to help you choose the right service or model for your use case.
 
 ## Categories of AI services
 
