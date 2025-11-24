@@ -72,6 +72,12 @@ Test the failover between Azure Front Door and your alternative CDN to detect an
 
 - **Prefill both CDNs.** You can serve a percentage of your most popular content through the passive CDN even before a failover event occurs. We recommend using the [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method), which can be configured to always send a small portion of your traffic to the secondary CDN so that it's ready to serve production traffic at all times.
 
+#### Subdomains
+
+Sometimes you might combine both application-level routing and content delivery. For example, you might have static assets that benefit from caching, while your primary web application might not use caching.
+
+In this scenario, consider putting your content assets on a dedicated subdomain, so that you can reconfigure them independently of application server routing.
+
 ## Tradeoffs
 
 Using multiple CDNs comes with some tradeoffs. 
