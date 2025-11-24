@@ -280,7 +280,7 @@ Chat architectures contain stateful components, so DR planning is essential. The
 
 For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
-The following recommendations help address DR concerns:
+The following recommendations are key excerpts from the [Foundry Agent Service disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery?view=foundry) guide:
 
 - **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat threads. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
@@ -294,7 +294,7 @@ The following recommendations help address DR concerns:
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
 
-- **Microsoft Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you recreate your project and its capability host, minimizing change coordination with all project dependencies.
+- **Microsoft Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you re-create your project and its capability host, minimizing change coordination with all project dependencies.
 
 As an added preventative measure for the Foundry Agent Service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against catastrophic loss of state in AI Search, Cosmos DB, and Storage.
 
