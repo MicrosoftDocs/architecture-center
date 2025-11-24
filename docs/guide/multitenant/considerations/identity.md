@@ -4,7 +4,7 @@ description: Learn about multitenant identity architecture with authentication, 
 author: plagueho
 ms.author: dascottr
 ms.date: 05/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

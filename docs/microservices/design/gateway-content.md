@@ -76,11 +76,11 @@ When selecting an API gateway, consider the following factors:
 Previous articles explored the interfaces *between* microservices and between microservices and client applications. These interfaces treat each service as a self-contained, opaque unit. A critical principle of microservices architecture is that services should never expose internal details about how they manage data. This approach has significant implications for maintaining data integrity and consistency, which is the subject of the next article.
 
 > [!div class="nextstepaction"]
-> [Data considerations for microservices](./data-considerations.yml)
+> [Data considerations for microservices](./data-considerations.md)
 
 ## Related resources
 
-- [Design APIs for microservices](api-design.yml)
+- [Design APIs for microservices](api-design.md)
 - [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)

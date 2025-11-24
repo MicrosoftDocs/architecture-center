@@ -4,7 +4,7 @@ description: Avoid data silos by using a recommended structure for collections i
 author: jcorioland
 ms.author: jucoriol
 ms.date: 05/28/2024 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

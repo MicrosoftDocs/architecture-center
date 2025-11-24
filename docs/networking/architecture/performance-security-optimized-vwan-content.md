@@ -100,7 +100,7 @@ Configure routes for the Virtual WAN hub as follows:
 
 ### Alternatives
 
-If self-hosting NVAs is not a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution does not allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
+If self-hosting NVAs isn't a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution doesn't allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
 

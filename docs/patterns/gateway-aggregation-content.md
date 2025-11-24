@@ -2,7 +2,7 @@ Use a gateway to aggregate multiple individual requests into a single request. T
 
 ## Context and problem
 
-To perform a single task, a client might have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely impact the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
+To perform a single task, a client might have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely affect the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
 
 In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request might be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
 
@@ -31,7 +31,7 @@ In the following diagram, the application sends a request to the gateway (1). Th
 - Implement distributed tracing using correlation IDs to track each individual call.
 - Monitor request metrics and response sizes.
 - Consider returning cached data as a failover strategy to handle failures.
-- Instead of building aggregation into the gateway, consider placing an aggregation service behind the gateway. Request aggregation will likely have different resource requirements than other services in the gateway and might impact the gateway's routing and offloading functionality.
+- Instead of building aggregation into the gateway, consider placing an aggregation service behind the gateway. Request aggregation will likely have different resource requirements than other services in the gateway and might affect the gateway's routing and offloading functionality.
 
 ## When to use this pattern
 
