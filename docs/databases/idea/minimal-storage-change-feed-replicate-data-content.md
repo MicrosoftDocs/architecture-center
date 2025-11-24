@@ -90,7 +90,7 @@ Other contributors:
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)

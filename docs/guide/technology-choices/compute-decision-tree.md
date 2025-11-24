@@ -278,4 +278,4 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 [microservices]: ../architecture-styles/microservices.md
 [n-tier]: ../architecture-styles/n-tier.md
 [uptime-sla]: /azure/aks/uptime-sla
-[w-q-w]: ../architecture-styles/web-queue-worker.yml
+[w-q-w]: ../architecture-styles/web-queue-worker.md
