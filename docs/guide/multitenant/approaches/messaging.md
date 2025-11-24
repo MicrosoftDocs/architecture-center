@@ -31,7 +31,7 @@ The following table describes the main kinds of messaging types, along with exam
 
 For more information, see [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data)
 
-Azure provides several messaging services that you can use to support your messaging requirements, including [Azure Event Hubs](/azure/event-hubs/overview), [Azure Event Grid](/azure/event-grid/overview), and [Azure Service Bus](/azure/service-bus-messaging/overview). To learn about how to select the right service for your needs, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](/azure/event-grid/compare-messaging-services).
+Azure provides several messaging services that you can use to support your messaging requirements, including [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Event Grid](/azure/event-grid/overview), and [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). To learn about how to select the right service for your needs, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](/azure/event-grid/compare-messaging-services).
 
 You can also deploy and manage your own messaging service on virtual machines, containers, or in services like AKS. When you do so, you take on the responsibility to deploy, manage, and maintain your messaging infrastructure.
 
