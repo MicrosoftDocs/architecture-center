@@ -51,10 +51,7 @@ With this approach, we will introduce several components and provide guidance th
     
     We also recommend that you disable Traffic Manager's endpoint monitoring. You should have procedures to [detect when your primary traffic path isn't available](#health-monitoring), and to [respond by switch traffic to use the secondary path](#response-procedures).
 
-    > [!IMPORTANT]
-    > This solution mitigates risks associated with outages in Azure Front Door or other providers, but it's susceptible to Azure Traffic Manager outages as a global point of failure. For more information, see [Availability of Azure Traffic Manager](#availability-of-azure-traffic-manager).
-
-    You can also consider using a different global traffic routing system, such as a global load balancer. However, Traffic Manager works well for many situations.
+    You can also consider using a different global traffic routing system. However, Traffic Manager works well for many situations.
 
 1. You have two ingress paths:
 
@@ -126,11 +123,13 @@ When you're designing a mission-critical web architecture, there are many factor
 
 ### Domain names and DNS
 
-Your mission-critical application should use custom domain names to control how traffic flows to your application and reduce dependencies on a single provider.
+Your mission-critical application should use custom domain names to control how traffic flows to your application and reduce dependencies on a single provider. Consider the following points when planning your DNS approach:
 
-It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, users can't reach your service.
+- **DNS service:** It's a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, users can't reach your service.
 
-It's recommended that you use multiple DNS resolvers to increase overall resiliency even further.
+- **DNS resolvers:** We recommend that you use multiple DNS resolvers to increase overall resiliency even further.
+
+- **Apex domains:** You use a CNAME to point your domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the apex (or root) of a domain. We recommend hosting your DNS domain on Azure DNS and using [Alias records](/azure/dns/tutorial-alias-tm) to point to your Traffic Manager profile.
 
 #### CNAME chaining
 
