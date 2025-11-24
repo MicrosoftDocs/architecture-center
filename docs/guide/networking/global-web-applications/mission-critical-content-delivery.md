@@ -4,7 +4,7 @@ description: Learn how to develop highly resilient global HTTP applications when
 author: johndowns
 ms.author: pnp
 ms.reviewer: dburkhardt
-ms.date: 02/21/2025
+ms.date: 11/25/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: guide
@@ -94,6 +94,7 @@ Principal authors:
 
 - [Dave Burkhardt](https://www.linkedin.com/in/dave-burkhardt-13b79b3/) | Principal Program Manager, Azure Front Door
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Akhil Karmalkar](https://www.linkedin.com/in/akhil-karmalkar-8b200546/) | Principal Program Manager, Azure Front Door
 - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Principal Content Developer, Azure Patterns & Practices
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
