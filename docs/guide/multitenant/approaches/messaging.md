@@ -1,8 +1,8 @@
 ---
 title: Architectural approaches for messaging in multitenant solutions
 description: This article describes approaches for messaging in a multitenant solution.
-author: paolosalvatori
-ms.author: paolos
+author: johndowns
+ms.author: pnp
 ms.date: 11/21/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
