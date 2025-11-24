@@ -40,7 +40,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Backup](/azure/backup/backup-overview) is a service that backs up and restores data in Azure. In this architecture, it ensures data protection and enables recovery during the migration process.
 
-- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities. In this architecture, it supports platform as a service (PaaS) compute workloads that you recreate in the target tenant by using DevOps processes.
+- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities. In this architecture, it supports platform as a service (PaaS) compute workloads that you re-create in the target tenant by using DevOps processes.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed and intelligent relational database service. You can use SQL Database to create a high-performance data storage layer for modern cloud applications. In this architecture, it serves as a data service that's backed up and restored during tenant migration because of limitations in direct movement.
 
@@ -48,9 +48,9 @@ The following data flow corresponds to the previous diagram:
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a software as a service (SaaS) analytics platform that unifies data integration, data engineering, data warehousing, real-time analytics, data science, and business intelligence. In this architecture, it provides an enterprise-scale analytics platform across migrated workloads by consolidating data pipelines, storage (OneLake), and analytical compute in the target tenant.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that accelerates and manages the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you recreate in the target tenant.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that accelerates and manages the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you re-create in the target tenant.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you recreate it in the target tenant.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you re-create it in the target tenant.
 
 - [Azure AI services](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, AI services enhance migrated applications with cognitive intelligence.
 
@@ -58,7 +58,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service. In this architecture, it supports real-time data processing across tenants.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service that securely stores and provides access to secrets. In this architecture, it's a resource that you recreate in the target tenant to maintain secure access.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a PaaS service that securely stores and provides access to secrets. In this architecture, it's a resource that you re-create in the target tenant to maintain secure access.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. It provides control over operating systems, storage, and applications without the need to own physical infrastructure. In this architecture, VMs are backed up and restored in the target tenant to preserve custom logic and configurations.
 
@@ -74,7 +74,7 @@ In this scenario, a healthcare company that has multiple global business units w
 
 To begin, the company classifies workload resources into three categories. One group includes compute resources managed by using PaaS. A second group includes data services that require both PaaS and IaaS support. The final group includes compute resources managed by using IaaS. For each resource type, they use the following approaches:
 
-- For PaaS, or compute, resources that run based on logic and configuration, they recreate these resources in the target tenant by using DevOps processes.
+- For PaaS, or compute, resources that run based on logic and configuration, they re-create these resources in the target tenant by using DevOps processes.
 
   PaaS compute resources include Key Vault, Machine Learning, Azure Data Factory, and Azure Databricks.
 
