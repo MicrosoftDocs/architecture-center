@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Analytics end-to-end with Microsoft Fabric
+  title: Analytics End-to-End With Microsoft Fabric
   description: Learn how to use Microsoft's data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: lavansree06
   ms.author: lsreedhar
@@ -8,12 +8,12 @@ metadata:
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:
-    - databases
     - analytics
+    - databases
   ms.custom:
+    - arb-data
     - data-analytics
     - example-scenario
-    - arb-data
   ai-usage: ai-assisted
 name: Analytics end-to-end with Microsoft Fabric
 azureCategories:

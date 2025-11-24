@@ -30,7 +30,7 @@ Knowing how to [store your data](../../data-guide/technology-choices/analytical-
 
 To get started, consider the following example implementations:
 
--   [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+-   [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 -   [Databases architecture design](../../databases/index.yml)
 
