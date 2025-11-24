@@ -33,7 +33,7 @@ The front end might include a web API. A single‑page application can consume t
 
 ## When to use this architecture
 
-The Web-Queue-Worker architecture is typically implemented by using managed compute services like Azure App Service or Azure Cloud Services.
+The Web-Queue-Worker architecture is typically implemented by using managed compute services like Azure App Service or Azure Kubernetes Service.
 
 Consider this architecture for the following use cases:
 
@@ -105,11 +105,11 @@ For more information, see [Baseline highly available zone-redundant web applicat
 
 - Not every transaction must go through the queue and worker to storage. The web front end can do simple read and write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
 
-- Use the built-in autoscale feature of App Service to scale out the number of VM instances. If the load on the application follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
+- Use the built-in autoscale feature of your compute platform to scale out the number of instances. If the load on the application follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
 
 - Consider putting the web app and the Functions app into separate App Service plans so that they can scale independently.
 
-- Use separate App Service plans for production and testing. If you use the same plan for both environments, your tests run on the production VMs.
+- Use separate App Service plans for production and testing.
 
 - Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version if there's a problem during the update.
 
