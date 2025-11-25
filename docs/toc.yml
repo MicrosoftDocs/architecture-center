@@ -603,10 +603,6 @@ items:
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
-    - name: Solution ideas
-      items:
-      - name: DFS failover cluster
-        href: solution-ideas/articles/dfs-failover-cluster-vms.yml
     - name: SAP
       items:
       - name: Guides
