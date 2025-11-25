@@ -8,7 +8,7 @@ The example workload is a containerized microservices application. It reuses the
 > For a greenfield workload, see [Deploy microservices by using Container Apps and Dapr](./microservices-with-container-apps-dapr.yml).
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.png) An [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) supports this architecture and illustrates some of the design choices described in this article.
+> :::image type="icon" source="../../_images/github.png"::: An [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) supports this architecture and illustrates some of the design choices described in this article.
 
 ## Architecture
 
