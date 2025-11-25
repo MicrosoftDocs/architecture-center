@@ -38,7 +38,9 @@ The following diagram shows how traffic flows between the CDNs:
 
 - **Traffic Manager using weighted routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types) and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 
-    In normal operations, Traffic Manager sends 100% of your requests through Azure Front Door. If Azure Front Door is unavailable, you disable the Azure Front Door endpoint, and Traffic Manager sends the requests through the alternative CDN instead.
+    In normal operations, Traffic Manager sends 100% of your requests through Azure Front Door.
+    
+    If Azure Front Door is unavailable, you disable the Azure Front Door endpoint, and Traffic Manager sends the requests through the alternative CDN instead.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
@@ -64,13 +66,15 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 #### Cache fill
 
-For many situations, it makes sense to use an active-passive routing approach. During normal operations, all traffic is routed to Azure Front Door and bypasses the secondary CDN. However, if you're running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
+For many situations, it makes sense to use an active-passive routing approach. During normal operations, all traffic is routed to Azure Front Door and bypasses the alternative CDN. You can achieve this by setting the Traffic Manager endpoint weight to 100% for Azure Front Door and 0% for your alternative CDN.
+
+However, if you're running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
 
 Test the failover between Azure Front Door and your alternative CDN to detect anomalies or performance problems. If your solution is at risk from performance problems during cache fills, consider these approaches to reduce the risk:
 
 - **Scale out or scale** up your origins to cope with higher traffic levels, especially during a cache fill.
 
-- **Prefill both CDNs.** You can serve a percentage of your most popular content through the passive CDN even before a failover event occurs. We recommend using the [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method), which can be configured to always send a small portion of your traffic to the secondary CDN so that it's ready to serve production traffic at all times.
+- **Prefill both CDNs.** You can serve a percentage of your most popular content through the passive CDN even before a failover event occurs. We recommend using the [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method), which can be configured to always send a small portion of your traffic to the alternative CDN so that it's ready to serve production traffic at all times.
 
 #### Subdomains
 

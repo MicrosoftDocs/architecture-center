@@ -38,7 +38,9 @@ The solution includes the following components:
 
 - **Traffic Manager using weighted routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types) and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 
-  In normal operations, Traffic Manager sends 100% of the incoming requests through Azure Front Door. If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described below.
+  In normal operations, Traffic Manager sends 100% of the incoming requests through Azure Front Door.
+  
+  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described below.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
@@ -55,6 +57,8 @@ The following sections describe some important considerations for this type of a
 #### Traffic Manager configuration
 
 This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to achieve both weighted and performance-based routing together for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might only need a single Traffic Manager profile configured to use weighted routing.
+
+By using weighted routing on the first Traffic Manager profile, you can easily divert some production traffic to your alternative traffic path if you need to test it.
 
 #### Regional distribution
 

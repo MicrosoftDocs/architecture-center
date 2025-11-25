@@ -47,9 +47,9 @@ With this approach, we will introduce several components and provide guidance th
 
 1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to the alternative service that you've selected.
 
-    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). For a mission-critical architecture, we recommend using the *weighted* routing method, which can be easily configured to send some or all of your traffic to different endpoints.
+    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). For a mission-critical architecture, we recommend using the *weighted* routing method, which can be easily configured to send some or all of your traffic to different endpoints. Typically, in normal operations, 100% of your traffic is directed through Azure Front Door.
     
-    We also recommend that you disable Traffic Manager's endpoint monitoring. You should have procedures to [detect when your primary traffic path isn't available](#health-monitoring), and to [respond by switch traffic to use the secondary path](#response-procedures).
+    We recommend that you disable Traffic Manager's endpoint monitoring. You should have procedures to [detect when your primary traffic path isn't available](#health-monitoring), and to [respond by switch traffic to use the secondary path](#response-procedures).
 
     You can also consider using a different global traffic routing system. However, Traffic Manager works well for many situations.
 
@@ -131,11 +131,9 @@ Your mission-critical application should use custom domain names to control how 
 
 - **Apex domains:** You use a CNAME to point your domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the apex (or root) of a domain. We recommend hosting your DNS domain on Azure DNS and using [Alias records](/azure/dns/tutorial-alias-tm) to point to your Traffic Manager profile.
 
-#### CNAME chaining
+- **CNAME chaining:** Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called *CNAME chaining*. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
 
-Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called *CNAME chaining*. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
-
-Adding additional links to a CNAME chain can affect DNS name resolution performance. However, DNS responses are usually cached, which reduces the performance impact.
+    Adding additional links to a CNAME chain can affect DNS name resolution performance. However, DNS responses are usually cached, which reduces the performance impact.
 
 ### TLS certificates
 
@@ -176,7 +174,7 @@ Include these questions in your health model design:
 
 #### Health monitoring
 
-There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs.
+There are multiple global load balancing solutions that enable you to switch to a secondary platform if an outage occurs. Azure Traffic Manager is suitable in most cases.
 
 When you use Traffic Manager with Azure Front Door, you should have your own monitoring third-party or custom monitoring solution to detect when Azure Front Door is unavailable and initiate your response processes. Because Azure Front Door is a globally distributed system that uses anycast networking, it's important to perform connectivity checks from within the same geographic regions as your clients.
 
@@ -189,7 +187,9 @@ You also should be prepared to trigger your response procedures manually if your
 
 If your monitoring systems detect that Azure Front Door is unavailable, you need to reconfigure Traffic Manager to direct all of your traffic through your alternative path by using one of these approaches:
 
-- **If you use custom or third-party monitoring tooling:** You can precreate automated response plans that programmatically reconfigure Traffic Manager to disable the endpoint, using one of these approaches:
+- **If you manually detect the outage:** Manually disable the endpoint in your Traffic Manager profile. For detailed steps, see [Add, disable, enable, delete, or move endpoints](/azure/traffic-manager/traffic-manager-manage-endpoints#to-disable-an-endpoint).
+
+- **Build custom or use third-party monitoring tooling:** You can precreate automated response plans that programmatically reconfigure Traffic Manager to disable the endpoint, using one of these approaches:
 
     #### [Azure CLI](#tab/cli)
     
@@ -221,8 +221,6 @@ If your monitoring systems detect that Azure Front Door is unavailable, you need
 
     ---
 
-- **If you manually detect the outage:** Manually disable the endpoint in your Traffic Manager profile. For detailed steps, see [Add, disable, enable, delete, or move endpoints](/azure/traffic-manager/traffic-manager-manage-endpoints#to-disable-an-endpoint).
-
 > [!IMPORTANT]
 > Redirecting all traffic through the secondary path is a short-term solution that enables business continuity during an ongoing outage. After the outage is resolved, restore normal operations through Azure Front Door as soon as practicable.
 
@@ -243,9 +241,9 @@ You also need to determine which of those factors are within your control and wh
 
 ### Resilient reconfiguration processes
 
-When you're planning how to operate a solution with redundant ingress path, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
+When you're planning how to operate a solution with a redundant ingress path, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
 
-When you plan your failover strategy, don't take a dependency on a single tool like the Azure portal in case connectivity is disrupted. Plan to use tools like the Azure CLI, Azure PowerShell, or REST APIs to perform any reconfiguration steps like rerouting your traffic. For example commands you can include in failover scripts, see [Response procedures](#response-procedures).
+When you plan your failover strategy, don't take a dependency on a single tool like the Azure portal in case connectivity is disrupted. Understand how to use tools like the Azure CLI, Azure PowerShell, or REST APIs to perform any reconfiguration steps like rerouting your traffic. To see example commands you can include in failover scripts, see [Response procedures](#response-procedures).
 
 You should also consider the number of independent control planes that you need to interact with to manage your solution. When you use Azure services, Azure Resource Manager provides a unified and consistent control plane. However, if you use a third-party service to route traffic, you might need to use a separate control plane to configure the service, which introduces further operational complexity.
 
