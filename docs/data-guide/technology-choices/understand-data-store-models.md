@@ -37,7 +37,7 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 | Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or approximate nearest neighbor (ANN) similarity | Azure AI Search or Azure Cosmos DB variants |
-| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Synapse Analytics, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
+| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
 
 > [!NOTE]
 > A single service might provide multiple models, also known as *multimodel*. Choose the best-fit model instead of combining models in a way that complicates operations.
@@ -200,7 +200,7 @@ Use the following table to help determine which Azure service meets your use cas
 
 |Service|Best for|Key features|Example use case|
 |-----|-----|-----|-----|
-|[Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)|Big data analytics and hierarchical data|HDFS, hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data by using Azure Synapse Analytics or Azure Databricks|
+|[Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)|Big data analytics and hierarchical data|HDFS, hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data by using Azure Data Factory or Azure Databricks|
 |[Blob Storage](/azure/storage/blobs/storage-blobs-introduction)|General-purpose object storage|Flat namespace, simple REST API, and tiered storage that includes hot, cool, and archive|Hosting images, documents, backups, and static website content|
 
 ### Search and indexing data stores <a id="search-engine-databases"></a>
