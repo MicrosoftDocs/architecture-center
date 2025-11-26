@@ -62,10 +62,14 @@ The workload uses the following Azure services in coordination with each other:
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure DocumentDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and Cassandra, where the stateless microservices write their state and application data.
 =======
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
 >>>>>>> 502062375b2b070c1f63f924f1cc12bb6ea8bfb9
+=======
+- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
+>>>>>>> d38d0d6042b644fc65b68564e73771901666a8e7
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
@@ -73,7 +77,7 @@ The workload uses the following Azure services in coordination with each other:
 
 ### Alternatives
 
-The [advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) describes an alternative scenario of this example that uses Kubernetes.
+- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure DocumentDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and Cassandra, where the stateless microservices write their state and application data.
 
 ## Scenario details
 
