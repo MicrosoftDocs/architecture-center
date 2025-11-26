@@ -38,7 +38,7 @@ This section explains how to bring data from Azure databases and platforms like 
 
 1. Use [Data Factory pipelines](/fabric/data-factory/data-factory-overview) to ingest data from a wide range of databases, both on-premises and in the cloud. To ingest the data, you can use various approaches like a [copy activity](/fabric/data-factory/copy-data-activity), a [copy job](/fabric/data-factory/what-is-copy-job), or [Dataflow Gen2](/fabric/data-factory/dataflows-gen2-overview). These options also provide orchestration, transformation, and scheduling capabilities. For more information, see [Supported connectors](/fabric/data-factory/connector-overview#supported-connectors-in-fabric).
 
-1. [T-SQL](/fabric/data-warehouse/ingest-data-tsql) provides capabilities to load data at scale from your existing lakehouses and warehouses. It lets you create new table versions that have aggregated data, filtered subsets, or results from complex queries.
+1. Use [T-SQL](/fabric/data-warehouse/ingest-data-tsql) capabilities to load data at scale from your existing lakehouses and warehouses. You can create new table versions that have aggregated data, filtered subsets, or results from complex queries.
 
 ##### Store
 
