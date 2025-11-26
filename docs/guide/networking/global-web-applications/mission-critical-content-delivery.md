@@ -66,7 +66,7 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 #### Cache fill
 
-For many situations, it makes sense to use an active-passive routing approach. During normal operations, all traffic is routed to Azure Front Door and bypasses the alternative CDN. You can achieve this by setting the Traffic Manager endpoint weight to 100% for Azure Front Door and 0% for your alternative CDN.
+For many situations, it makes sense to use an active-passive routing approach. During normal operations, all traffic is routed to Azure Front Door and bypasses the alternative CDN. You can achieve this by enabling the Traffic Manager endpoint for Azure Front Door and disabling the endpoint for your alternative CDN.
 
 However, if you're running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
 
