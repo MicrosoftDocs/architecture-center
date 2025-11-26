@@ -13,7 +13,7 @@ The example workload is a containerized microservices application. It reuses the
 ## Architecture
 
 :::image type="complex" border="false" source="./media/microservices-with-container-apps.png" alt-text="Diagram that shows the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps.png":::
-   The diagram shows a Container Apps environment as a large rectangle that contains five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure Cosmos DB for MongoDB API. Drone Scheduler service goes to Azure Cosmos DB for NoSQL. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows.
+   The diagram shows a Container Apps environment as a large rectangle that contains five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure DocumentDB API. Drone Scheduler service goes to Azure Cosmos DB for NoSQL. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows.
 :::image-end:::
 
 The following diagram illustrates the runtime architecture for the solution.
@@ -55,21 +55,13 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the AKS implementation.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, the microservices write their state and application data to their own Azure Cosmos DB databases.
+- [Azure DocumentDB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, the microservices write their state and application data to their own Azure Cosmos DB databases.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure DocumentDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and Cassandra, where the stateless microservices write their state and application data.
-=======
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
->>>>>>> 502062375b2b070c1f63f924f1cc12bb6ea8bfb9
-=======
-- [Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets such as API keys, passwords, and certificates. In this architecture, the drone scheduler and delivery services use user-assigned managed identities to authenticate with Key Vault and retrieve secrets needed for their runtime requirements.
->>>>>>> d38d0d6042b644fc65b68564e73771901666a8e7
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
@@ -77,7 +69,7 @@ The workload uses the following Azure services in coordination with each other:
 
 ### Alternatives
 
-- **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a globally distributed, multiple-model database service. It stores data by using the open-source [Azure DocumentDB](/azure/cosmos-db/mongodb-introduction) API. Microservices are typically stateless and write their state to external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database with open-source APIs for MongoDB and Cassandra, where the stateless microservices write their state and application data.
+The [advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) describes an alternative scenario of this example that uses Kubernetes.
 
 ## Scenario details
 
@@ -174,7 +166,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
 - Use the dynamic load balancing and scaling features of Container Apps to improve availability. Over-provision your environment's subnet so that it always has enough [available IP addresses for future replicas or jobs](/azure/container-apps/custom-virtual-networks#subnet).
 
-- Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure Cosmos DB for MongoDB.
+- Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure DocumentDB.
 
 - Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
 
