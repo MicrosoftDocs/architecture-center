@@ -90,7 +90,7 @@
 		.st74 {fill:#cecece;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st75 {fill:url(#grad3-506);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st76 {fill:url(#grad0-510);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st77 {marker-end:url(#mrkr4-554);stroke:#000000;stroke-dasharray:7,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st77 {marker-end:url(#mrkr4-553);stroke:#000000;stroke-dasharray:7,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st78 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.28409090909091}
 		.st79 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -220,7 +220,7 @@
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
 		</marker>
-		<marker id="mrkr4-554" class="st78" v:arrowType="4" v:arrowSize="2" v:setback="7.04" refX="-7.04" orient="auto"
+		<marker id="mrkr4-553" class="st78" v:arrowType="4" v:arrowSize="2" v:setback="7.04" refX="-7.04" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
 		</marker>
@@ -2739,18 +2739,17 @@
 			<rect x="0" y="363.937" width="57.0938" height="29.8125" class="st4"/>
 			<text x="7.56" y="375.84" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 						x="11.01" dy="1.2em" class="st12">Entra ID</tspan></text>		</g>
-		<g id="shape1280-526" v:mID="1280" v:groupContext="shape" transform="translate(651.937,-289.875)">
+		<g id="shape1280-526" v:mID="1280" v:groupContext="shape" transform="translate(651.937,-284.966)">
 			<title>Sheet.1280</title>
-			<desc>Azure Cosmos DB for MongoDB</desc>
+			<desc>Azure DocumentDB</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(64000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="58.7812" cy="379.687" width="117.57" height="28.125"/>
 			<rect x="0" y="365.625" width="117.562" height="28.125" class="st4"/>
-			<text x="11.89" y="375.49" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB for <tspan
-						x="36.29" dy="1.38em" class="st12">MongoDB</tspan></text>		</g>
-		<g id="shape1281-530" v:mID="1281" v:groupContext="shape" transform="translate(652.5,-237.375)">
+			<text x="15.35" y="383.29" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure DocumentDB</text>		</g>
+		<g id="shape1281-529" v:mID="1281" v:groupContext="shape" transform="translate(652.5,-237.375)">
 			<title>Sheet.1281</title>
 			<desc>Azure Cosmos DB</desc>
 			<v:userDefs>
@@ -2760,7 +2759,7 @@
 			<v:textRect cx="55.9687" cy="380.812" width="111.94" height="25.875"/>
 			<rect x="0" y="367.875" width="111.937" height="25.875" class="st4"/>
 			<text x="16.68" y="384.41" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB</text>		</g>
-		<g id="shape219-533" v:mID="219" v:groupContext="shape" transform="translate(689.062,-315)">
+		<g id="shape219-532" v:mID="219" v:groupContext="shape" transform="translate(689.062,-305.591)">
 			<title>Sheet.219</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(66000):26"/>
@@ -2814,7 +2813,7 @@
 						Nv4PYUlGi4ix4EsAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="362.55" width="31.2" height="31.2" class="st4"/>
 		</g>
-		<g id="shape220-537" v:mID="220" v:groupContext="shape" transform="translate(690.187,-254.419)">
+		<g id="shape220-536" v:mID="220" v:groupContext="shape" transform="translate(690.187,-254.419)">
 			<title>Sheet.220</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(67000):26"/>
@@ -2868,7 +2867,7 @@
 						WAy/Nv4PYUlGi4ix4EsAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="363.356" width="30.3938" height="30.3938" class="st4"/>
 		</g>
-		<g id="shape1282-541" v:mID="1282" v:groupContext="shape" transform="translate(412.754,-137.524)">
+		<g id="shape1282-540" v:mID="1282" v:groupContext="shape" transform="translate(412.754,-137.524)">
 			<title>Sheet.1282</title>
 			<desc>Azure CNI powered by Cilium</desc>
 			<v:userDefs>
@@ -2879,7 +2878,7 @@
 			<rect x="0" y="378.292" width="110.362" height="15.4584" class="st4"/>
 			<text x="5.48" y="383.02" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure CNI powered by <tspan
 						x="41.32" dy="1.2em" class="st12">Cilium</tspan></text>		</g>
-		<g id="shape221-545" v:mID="221" v:groupContext="shape" transform="translate(395.998,-133.248)">
+		<g id="shape221-544" v:mID="221" v:groupContext="shape" transform="translate(395.998,-133.248)">
 			<title>Sheet.221</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(69000):26"/>
@@ -3097,7 +3096,7 @@
 						MTExMTExMTExMTExMTExMTExMTExMR1i/T+F/NJCHgRZKQAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="369.726" width="21.1152" height="24.024" class="st4"/>
 		</g>
-		<g id="shape1283-549" v:mID="1283" v:groupContext="shape" v:layerMember="0" transform="translate(352.696,-158.34)">
+		<g id="shape1283-548" v:mID="1283" v:groupContext="shape" v:layerMember="0" transform="translate(352.696,-158.34)">
 			<title>Dynamic connector</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -3105,7 +3104,7 @@
 			</v:userDefs>
 			<path d="M0 396.61 L0 408.89 L34.14 408.89" class="st77"/>
 		</g>
-		<g id="shape222-555" v:mID="222" v:groupContext="shape" transform="translate(686.812,-198.818)">
+		<g id="shape222-554" v:mID="222" v:groupContext="shape" transform="translate(686.812,-198.818)">
 			<title>Sheet.222</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(71000):26"/>
@@ -3587,7 +3586,7 @@
 						UCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCicb8Hx2zOzej4Zl3AAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="356.062" width="37.6875" height="37.6875" class="st4"/>
 		</g>
-		<g id="shape1284-559" v:mID="1284" v:groupContext="shape" transform="translate(650.812,-183.375)">
+		<g id="shape1284-558" v:mID="1284" v:groupContext="shape" transform="translate(650.812,-183.375)">
 			<title>Sheet.1284</title>
 			<desc>Azure Managed Redis</desc>
 			<v:userDefs>
