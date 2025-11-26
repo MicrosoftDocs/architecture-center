@@ -98,13 +98,13 @@ When you use Dataverse Link to Fabric, Dataverse creates a lakehouse in OneLake 
 
 ##### Process
 
-1. [View the Dataverse-generated lakehouse](/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-the-dataverse-generated-fabric-lakehouse) to explore tables linked from your Dataverse environment.
+- [View the Dataverse-generated lakehouse](/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-the-dataverse-generated-fabric-lakehouse) to explore tables linked from your Dataverse environment.
 
-1. Query the Dataverse-generated lakehouse by using the [SQL endpoint](/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-data-with-sql-endpoint), explore data by using [Spark notebooks](/fabric/data-engineering/lakehouse-notebook-load-data), and access data through [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or the SQL editor.
+- Query the Dataverse-generated lakehouse by using the [SQL endpoint](/power-apps/maker/data-platform/fabric-work-data-and-power-bi#explore-data-with-sql-endpoint), explore data by using [Spark notebooks](/fabric/data-engineering/lakehouse-notebook-load-data), and access data through [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or the SQL editor.
 
-1. Reference Dataverse data across other lakehouses by using [shortcuts](/fabric/onelake/onelake-shortcuts) to reuse the same data without copying or duplicating it.
+- Reference Dataverse data across other lakehouses by using [shortcuts](/fabric/onelake/onelake-shortcuts) to reuse the same data without copying or duplicating it.
 
-1. Enrich data by using [Data Wrangler](/fabric/data-science/data-wrangler), a low-code and no-code tool in Fabric notebooks. It lets you explore, prepare, and shape data for exploratory analysis. The operations generate code in either pandas or PySpark, and you can save the code in the notebook as a reusable function.
+- Enrich data by using [Data Wrangler](/fabric/data-science/data-wrangler), a low-code and no-code tool in Fabric notebooks. It lets you explore, prepare, and shape data for exploratory analysis. The operations generate code in either pandas or PySpark, and you can save the code in the notebook as a reusable function.
 
 ##### Serve
 
@@ -292,19 +292,19 @@ Data governance is a common challenge in large enterprise environments. Business
 
 #### Microsoft Purview
 
-1. [Microsoft Purview](/purview/data-governance-overview) data governance consists of two solutions. The [Unified Catalog](/purview/unified-catalog) and [Data Map](/purview/data-map) provide a modern governance experience by consolidating metadata from diverse catalogs and sources. This integration enables visibility, strengthens data confidence, and supports responsible innovation across the enterprise.
+- [Microsoft Purview](/purview/data-governance-overview) data governance consists of two solutions. The [Unified Catalog](/purview/unified-catalog) and [Data Map](/purview/data-map) provide a modern governance experience by consolidating metadata from diverse catalogs and sources. This integration enables visibility, strengthens data confidence, and supports responsible innovation across the enterprise.
 
-1. Maintain [glossary terms](/purview/unified-catalog-glossary-terms-create-manage) with the specific business terminology that users need to understand dataset semantics and usage across the organization.
+- Maintain [glossary terms](/purview/unified-catalog-glossary-terms-create-manage) with the specific business terminology that users need to understand dataset semantics and usage across the organization.
 
-1. Register [data sources](/purview/data-map-data-sources-register-manage) and organize them into [collections](/purview/data-map-domains-collections-manage), which also serve as security boundaries for metadata.
+- Register [data sources](/purview/data-map-data-sources-register-manage) and organize them into [collections](/purview/data-map-domains-collections-manage), which also serve as security boundaries for metadata.
 
-1. Set up [regular scans](/purview/data-map-scan-ingestion) to automatically catalog and update relevant metadata about organizational data assets. When a Fabric tenant is scanned, [metadata and lineage](/purview/data-map-lineage-fabric) from Fabric assets, including Power BI, are automatically ingested into the Microsoft Purview unified data catalog.
+- Set up [regular scans](/purview/data-map-scan-ingestion) to automatically catalog and update relevant metadata about organizational data assets. When a Fabric tenant is scanned, [metadata and lineage](/purview/data-map-lineage-fabric) from Fabric assets, including Power BI, are automatically ingested into the Microsoft Purview unified data catalog.
 
-1. Automatically assign [data classification](/purview/data-map-classification) and [data sensitivity](/purview/data-map-sensitivity-labels) labels to data assets based on preconfigured or custom rules during scans.
+- Automatically assign [data classification](/purview/data-map-classification) and [data sensitivity](/purview/data-map-sensitivity-labels) labels to data assets based on preconfigured or custom rules during scans.
 
-1. Use [Unified Catalog health management](/purview/unified-catalog-data-health-management) to monitor the overall health of the data landscape and protect the organization against security and privacy risks.
+- Use [Unified Catalog health management](/purview/unified-catalog-data-health-management) to monitor the overall health of the data landscape and protect the organization against security and privacy risks.
 
-1. A built-in [Microsoft Purview hub](/fabric/governance/use-microsoft-purview-hub) within Fabric provides insights into data inventory, sensitivity labels, and endorsements. It serves as a gateway to connect with broader Microsoft Purview capabilities.
+- A built-in [Microsoft Purview hub](/fabric/governance/use-microsoft-purview-hub) within Fabric provides insights into data inventory, sensitivity labels, and endorsements. It serves as a gateway to connect with broader Microsoft Purview capabilities.
 
 ### Platform services
 
