@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Analytics End-to-End With Microsoft Fabric
-  description: Learn how to use Microsoft's data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
+  description: Learn how to use Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: lavansree06
   ms.author: lsreedhar
   ms.date: 10/24/2025
@@ -19,7 +19,7 @@ name: Analytics end-to-end with Microsoft Fabric
 azureCategories:
   - databases
   - analytics
-summary: This example scenario demonstrates how to use the family of Microsoft's data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
+summary: This example scenario demonstrates how to use the family of Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
 products:
   - fabric
   - azure-cosmos-db
