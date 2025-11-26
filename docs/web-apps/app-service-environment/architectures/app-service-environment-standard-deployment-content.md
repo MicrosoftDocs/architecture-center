@@ -35,7 +35,7 @@ This reference implementation deploys a web app named *Voting App*, which intera
 
 The simple voting app in this implementation lets users view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in an Azure Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
 
-The web apps are the only components that can are reachable from the internet. Internet traffic must pass through Azure Application Gateway, which is protected by a WAF. An internet client can't access the API or the function app.
+The web apps are the only components that are reachable from the internet. Internet traffic must pass through Azure Application Gateway, which is protected by a WAF. An internet client can't access the API or the function app.
 
 ### Components
 
@@ -45,7 +45,7 @@ The web apps are the only components that can are reachable from the internet. I
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native, stateful firewall service built into Azure. It provides high availability and unrestricted cloud scalability, and it supports both inbound and outbound filtering rules. In this architecture, Azure Firewall restricts outbound traffic from the web application. A route table is configured to route outgoing traffic that doesn't go through the private endpoint channels to the firewall. For simplicity, this architecture configures all private endpoints on the services subnet.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a identity and network access product that provides access rights and permissions management to Azure resources and services. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) assign identities to services and apps. They can authenticate to any service that supports Microsoft Entra authentication. This approach removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and network access product that provides access rights and permissions management to Azure resources and services. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) assign identities to services and apps. They can authenticate to any service that supports Microsoft Entra authentication. This approach removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely stores and manages sensitive information like secrets, encryption keys, and certificates. This architecture uses Key Vault to store secrets and credentials that the apps require. Use this option instead of storing secrets directly in the application.
 
@@ -159,7 +159,7 @@ Both configurations use the resource `"type": "Microsoft.Network/networkSecurity
 
 [Private endpoints](/azure/private-link/private-endpoint-overview) enable enhanced-security private connectivity between clients and Azure services over a private network. They provide a privately accessed IP address for the Azure service, which enables enhanced-security traffic to an Azure Private Link resource. The platform validates network connections and allows only connections that target the specified Private Link resource. 
 
-Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Service Bus, SQL Database, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
+Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Azure Service Bus, SQL Database, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
 
 To enable private endpoints, you must also configure private DNS zones. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -175,7 +175,7 @@ For more information, see [Configure Firewall with your App Service Environment 
 
 Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID, managed identities and Azure role-based access control (Azure RBAC).
 
-On cloud applications, you must secure the credentials required to authenticate to cloud services. Ideally, the credentials should never appear on developer workstations or in source control. Key Vault securely stores credentials and secrets, but the app must authenticate to Key Vault to retrieve them. **Managed identities for Azure resources** provide Azure services with an automatically managed identity in Microsoft Entra Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
+On cloud applications, you must secure the credentials required to authenticate to cloud services. Ideally, the credentials should never appear on developer workstations or in source control. Key Vault securely stores credentials and secrets, but the app must authenticate to Key Vault to retrieve them. **Managed identities for Azure resources** provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
 
 [Azure RBAC](/azure/role-based-access-control/overview) manages access to Azure resources by defining the following conditions:
 
