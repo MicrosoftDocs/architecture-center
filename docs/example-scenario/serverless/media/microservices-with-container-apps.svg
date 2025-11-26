@@ -955,14 +955,14 @@
 						x="-16.59" dy="1.2em" class="st19">DB for NoSQL</tspan></text>		</g>
 		<g id="shape1338-201" v:mID="1338" v:groupContext="shape" transform="translate(160.875,-120.579)">
 			<title>Sheet.1338</title>
-			<desc>Azure Document DB</desc>
+			<desc>Azure DocumentDB</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(15000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54.2812" cy="595.125" width="108.57" height="33.75"/>
 			<rect x="0" y="578.25" width="108.562" height="33.75" class="st17"/>
-			<text x="5" y="598.73" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Document DB</text>		</g>
+			<text x="6.51" y="598.73" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure DocumentDB</text>		</g>
 		<g id="shape1341-204" v:mID="1341" v:groupContext="shape" v:layerMember="0"
 				transform="translate(235.736,660.921) rotate(180)">
 			<title>Side to top/bottom.1001</title>
