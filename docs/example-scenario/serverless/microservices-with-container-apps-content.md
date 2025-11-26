@@ -55,9 +55,9 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the AKS implementation.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, Azure Cosmos DB serves as the primary NoSQL database. Microservices use APIs to store their state and application data in Azure Cosmos DB.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, the microservices write their state and application data to their own Azure Cosmos DB databases.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so you can invoke them with HTTP requests.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
 - [Azure Managed Redis](/azure/redis/overview) is an in-memory caching service. In this architecture, it reduces latency and improves throughput for frequently accessed drone delivery data.
 
@@ -65,7 +65,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance.
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance.
 
 ### Alternatives
 
@@ -132,7 +132,7 @@ The workflow service is implemented as a long-running container app. But it can 
 The workload uses the built-in external ingress feature of Container Apps to expose the ingestion service. The ingress control approach doesn't provide the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in Azure DDoS Protection plans. You need to front all web-facing workloads with a WAF. To achieve this configuration in the Container Apps environment, you should disable the built-in public ingress and add [Application Gateway](/azure/container-apps/waf-app-gateway) or [Azure Front Door](/azure/container-apps/how-to-integrate-with-azure-front-door).
 
 > [!NOTE]
-> Gateways require meaningful health probes, which keep the ingress service alive and prevent it from scaling to zero dynamically.
+> Gateways require meaningful health probes, which keep the ingress service alive and prevent it from scaling to zero.
 
 ### Modernize with Dapr
 
@@ -182,13 +182,13 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Rewrite service code to use the app's own managed identity to authenticate to dependencies instead of preshared secrets. All dependencies have SDKs that support managed identity authentication.
 
-- You can securely store sensitive values at the application level. When environment variables change, the container app creates a new revision.
+- You can securely store sensitive values in environment variables at the application level. When environment variables change, the container app creates a new revision.
 
 #### Network security
 
 - To limit external access, only the ingestion service is configured for external ingress. The back-end services can be accessed only through the internal virtual network in the Container Apps environment and are configured as internal mode. Only expose services to the internet where required.
 
-  - Because this architecture uses the built-in external ingress feature, this solution doesn't provide the ability to completely position your ingress point behind a WAF or to include it in DDoS Protection plans. Front all web-facing workloads with a web application firewall. For more information about ingress improvements, see [Implement ingress control](#implement-ingress-control).
+  Because this architecture uses the built-in external ingress feature, this solution doesn't provide the ability to completely position your ingress point behind a WAF or to include it in DDoS Protection plans. Front all web-facing workloads with a web application firewall. For more information about ingress improvements, see [Implement ingress control](#implement-ingress-control).
 
 - When you create an environment, you can provide a custom virtual network. Otherwise, Microsoft automatically generates and manages a virtual network. You can't manipulate this Microsoft-managed virtual network, such as by adding network security groups (NSGs) or force tunneling traffic to an egress firewall. The example uses an automatically generated virtual network, but a custom virtual network improves security control. A custom network lets you apply [NSGs](/azure/container-apps/firewall-integration) and user-defined route (UDR)-based routing through Azure Firewall.
 
@@ -241,8 +241,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-Performance considerations in this solution:
 
 - The workload is distributed among multiple microservice applications.
 
