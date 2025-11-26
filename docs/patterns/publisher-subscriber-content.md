@@ -49,6 +49,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](/azure/service-bus-messaging/), [Event Hubs](/azure/event-hubs/) or [Event Grid](/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
 
+  Libraries like [MassTransit](https://masstransit.io) and [NServiceBus](https://docs.particular.net/nservicebus/) also provide built-in support for the publish-subscribe model on Azure Service Bus and other messaging technologies.
+
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 
 - **Security.** Connecting to any message channel must be restricted by security policy to prevent eavesdropping by unauthorized users or applications.
