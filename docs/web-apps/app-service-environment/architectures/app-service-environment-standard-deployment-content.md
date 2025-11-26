@@ -11,7 +11,7 @@ The diagram shows a secure, zone‑redundant App Service Environment inside an A
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-environment.vsdx) of this architecture.*
 
-![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
+:::image type="icon" source="../../../_images/github.png"::: A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
 ### Workflow
 
@@ -33,7 +33,7 @@ Always deploy an App Service Environment in its own subnet in the enterprise vir
 
 This reference implementation deploys a web app named *Voting App*, which interacts with a private web API and a function. It also deploys a mock web app named *Test App* to demonstrate multiple-app deployments. In the reference implementation, each App Service app runs in its own App Service plan, which enables independent scaling when needed.
 
-The simple voting app in this implementation lets users view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in an Azure Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
+The simple voting app in this implementation lets users view existing entries, create new entries, and vote on existing entries. The web API creates and retrieves entries and votes. The data is stored in an Azure SQL database. To demonstrate asynchronous data updates, the web app queues newly added votes in an Service Bus instance. The function picks up queued votes and updates the SQL database. Azure Cosmos DB stores a mock-up ad that the web app retrieves to display in the browser. The application uses Azure Managed Redis for cache management. A Balanced Optimized tier of Azure Managed Redis is configured in the same virtual network as the App Service Environment, and it runs in its own subnet. This setup provides enhanced security and isolation for the cache.
 
 The web apps are the only components that are reachable from the internet. Internet traffic must pass through Azure Application Gateway, which is protected by a WAF. An internet client can't access the API or the function app.
 
@@ -59,7 +59,13 @@ The diagram shows a virtual network that includes two subnets, the Application G
 
 An internal App Service Environment can host several web apps and APIs that have HTTP endpoints. These applications aren't exposed to the public internet because the ILB IP address can only be accessed from within the virtual network. [Application Gateway](/azure/application-gateway/overview) selectively exposes these applications to the internet. The App Service Environment assigns a default URL to each App Service application as `<default-appName>.<app-service-environment-domain>.appserviceenvironment.net`. A [private DNS zone](/azure/dns/private-dns-overview) is created that maps the App Service Environment domain name to the App Service Environment ILB IP address. This approach avoids custom DNS for app access within the virtual network.
 
-Application Gateway is configured to include a [listener](/azure/application-gateway/configuration-overview#listeners) that accepts HTTP requests on the gateway's IP address. For simplicity, this implementation doesn't use a public DNS name registration. You must modify the localhost file on your computer to point an arbitrarily chosen URL to the Application Gateway IP address. The listener uses a self-signed certificate to process these requests. Application Gateway has [back-end pools](/azure/application-gateway/configuration-overview#backend-pool) for each App Service application's default URL. A [routing rule](/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the back-end pool. [HTTP settings](/azure/application-gateway/configuration-overview) determine whether the connection between the gateway and the App Service Environment uses encryption. These settings also override the incoming HTTP host header with a host name from the back-end pool. This implementation uses default certificates created for the default App Service Environment app URLs, and the gateway trusts those certificates. The request redirects to the default URL of the corresponding app. The private [DNS linked to the virtual network](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP address. The App Service Environment then forwards the request to the requested app service. Any HTTP communication within the App Service Environment apps goes through private DNS. You must configure the listener, back-end pool, routing rule, and HTTP settings on the application gateway for each App Service Environment app.
+Application Gateway is configured to include a [listener](/azure/application-gateway/configuration-overview#listeners) that accepts HTTP requests on the gateway's IP address. For simplicity, this implementation doesn't use a public DNS name registration. You must modify the localhost file on your computer to point an arbitrarily chosen URL to the Application Gateway IP address. The listener uses a self-signed certificate to process these requests. 
+
+Application Gateway has [back-end pools](/azure/application-gateway/configuration-overview#backend-pool) for each App Service application's default URL. A [routing rule](/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the back-end pool. 
+
+[HTTP settings](/azure/application-gateway/configuration-overview) determine whether the connection between the gateway and the App Service Environment uses encryption. These settings also override the incoming HTTP host header with a host name from the back-end pool. This implementation uses default certificates created for the default App Service Environment app URLs, and the gateway trusts those certificates. The request redirects to the default URL of the corresponding app. 
+
+The private [DNS linked to the virtual network](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP address. The App Service Environment then forwards the request to the requested app service. Any HTTP communication within the App Service Environment apps goes through private DNS. You must configure the listener, back-end pool, routing rule, and HTTP settings on the application gateway for each App Service Environment app.
 
 Review the [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep) and [dns.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/dns.bicep) files to learn how these configurations allow multiple sites. The web app named `testapp` is an empty app created to demonstrate this configuration.
 
@@ -159,7 +165,7 @@ Both configurations use the resource `"type": "Microsoft.Network/networkSecurity
 
 [Private endpoints](/azure/private-link/private-endpoint-overview) enable enhanced-security private connectivity between clients and Azure services over a private network. They provide a privately accessed IP address for the Azure service, which enables enhanced-security traffic to an Azure Private Link resource. The platform validates network connections and allows only connections that target the specified Private Link resource. 
 
-Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Azure Service Bus, SQL Database, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
+Private endpoints support network policies, like NSGs, user-defined routes (UDRs), and application security groups. To improve security, enable private endpoints for any Azure service that supports them. To help secure the service in the virtual network, disable public access to block access from the public internet. This architecture configures private endpoints for the services that support it, including Service Bus, SQL Database, Key Vault, and Azure Cosmos DB. You can see the configuration in [privatendpoints.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/privateendpoints.bicep).
 
 To enable private endpoints, you must also configure private DNS zones. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -194,7 +200,7 @@ Some services support managed identities and use Azure RBAC to set up permission
 
 - For Azure Cosmos DB, use [keys](/azure/cosmos-db/secure-access-to-data#master-keys).
 
-If the workload needs service-based access, store the pre-shared secrets in Key Vault. Access the vault through the managed identity of the web application.
+If the workload needs service-based access, store the preshared secrets in Key Vault. Access the vault through the managed identity of the web application.
 
 Apps access secrets stored in Key Vault. They reference the Key Vault key and value pair. The [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file defines the configuration. The Voting App uses the following code.
 
@@ -241,7 +247,7 @@ Azure Managed Redis has various [pricing options](https://azure.microsoft.com/pr
 Other services that help secure the App Service Environment also have several pricing options:
 
 - [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
-- [Azure Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
+- [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
 - [Microsoft Entra pricing](https://www.microsoft.com/security/business/microsoft-entra-pricing)
 
 ### Operational Excellence
@@ -256,7 +262,7 @@ You can deploy apps to an internal App Service Environment only from within the 
 
 - **Use a point-to-site VPN connection from a local workstation.** Extend your App Service Environment virtual network to your development machine. Deploy from your local workstation. This method also works well for an initial development environment but doesn't suit a production environment.
 
-- **Use Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted windows agents](/azure/devops/pipelines/agents/v2-windows).
+- **Use Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows).
 
 We recommend that you use Azure Pipelines or another CI/CD tool for production environments. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-data-app.yml) file implements such a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-web-app.yml).
 
@@ -302,7 +308,7 @@ Principal author:
 
 Other contributors:
 
-- [Deep Bhattacharya](https://www.linkedin.com/in/deepbhattacharyya/) | Cloud Solution Architect
+- [Deep Bhattacharya](https://www.linkedin.com/in/deeplydiligent/) | Cloud Solution Architect
 - [Suhas Rao](https://www.linkedin.com/in/suhasaraos/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -310,9 +316,9 @@ Other contributors:
 ## Next steps
 
 - [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema)
-- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Key Vault](/azure/key-vault/general/overview)
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Related resource
 
-- [High availability enterprise deployment that uses App Service Environment](./ase-high-availability-deployment.yml).
+- [High availability enterprise deployment that uses App Service Environment](./ase-high-availability-deployment.yml)
