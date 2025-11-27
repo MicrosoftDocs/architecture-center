@@ -64,7 +64,7 @@ Application Gateway is a regional resource that meets the requirements of this b
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
 - Consider implementing [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) for Application Gateway to readily adjust to dynamic traffic flows. 
 - Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
-- Disable public network access on the App Service to ensure network isolation. In Bicep, public network access is disabled by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
+- Disable public network access on the App Service to ensure network isolation. In Bicep, public network access is disabled by setting `publicNetworkAccess: 'Disabled'` under `properties`.
 
 ### Flow from App Services to Azure services
 
