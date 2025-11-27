@@ -844,12 +844,12 @@
 		</g>
 		<g id="shape107-263" v:mID="107" v:groupContext="shape" transform="translate(560.732,-263.427)">
 			<title>Sheet.107</title>
-			<desc>Azure AI Foundry project</desc>
+			<desc>Microsoft Foundry project</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="63.1568" cy="528.188" width="126.33" height="19.1728"/>
 			<rect x="0" y="518.601" width="126.315" height="19.1728" class="st6"/>
-			<text x="8.25" y="531.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry project</text>		</g>
+			<text x="8.25" y="531.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry project</text>		</g>
 		<g id="shape108-266" v:mID="108" v:groupContext="shape" transform="translate(30.6887,-22.9442)">
 			<title>Sheet.108</title>
 			<rect v:rectContext="foreign" x="0" y="475.982" width="117.834" height="61.7921" class="st43"/>
@@ -992,12 +992,12 @@
 		</g>
 		<g id="shape114-286" v:mID="114" v:groupContext="shape" transform="translate(524.003,-430.73)">
 			<title>Sheet.114</title>
-			<desc>Azure AI Foundry account</desc>
+			<desc>Foundry account</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7921" cy="528.188" width="57.6" height="19.1728"/>
 			<rect x="0" y="518.601" width="57.5852" height="19.1728" class="st6"/>
-			<text x="10.2" y="519.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI <tspan
+			<text x="10.2" y="519.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 						x="10.66" dy="1.2em" class="st22">Foundry </tspan><tspan x="11.35" dy="1.2em" class="st22">account</tspan></text>		</g>
 		<g id="group115-291" transform="translate(537.348,-464.452)" v:mID="115" v:groupContext="group">
 			<title>Sheet.115</title>
@@ -1024,12 +1024,12 @@
 		</g>
 		<g id="shape120-309" v:mID="120" v:groupContext="shape" transform="translate(533.877,-500.351)">
 			<title>Sheet.120</title>
-			<desc>Azure AI Foundry</desc>
+			<desc>Microsoft Foundry</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="63.1568" cy="528.188" width="126.33" height="19.1728"/>
 			<rect x="0" y="518.601" width="126.315" height="19.1728" class="st6"/>
-			<text x="25.06" y="531.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry    </text>		</g>
+			<text x="25.06" y="531.19" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry    </text>		</g>
 		<g id="group121-312" transform="translate(540.138,-186.776)" v:mID="121" v:groupContext="group">
 			<title>Sheet.121</title>
 			<g id="shape122-313" v:mID="122" v:groupContext="shape">

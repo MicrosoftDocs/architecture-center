@@ -166,7 +166,7 @@ Principal author:
 
 ## Next steps
 
-Review the [Azure Database Migration Guides](https://learn.microsoft.com/data-migration).
+Review the [Azure Database Migration Guides](/data-migration).
 
 For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 

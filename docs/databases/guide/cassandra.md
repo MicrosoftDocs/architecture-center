@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 ms.author: arsenv
 ms.date: 05/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: best-practice
 ms.custom:
   - fcp
@@ -118,7 +118,7 @@ For more information, see [Comparing relative performance of various replication
 
 When Cassandra's Java code reads data files, it uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
 
-For this reason, when executing read performance tests against the same data, the second and subsequent reads will appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads will be faster even after clearing the OS page cache and restarting the Cassandra service.
+For this reason, when executing read performance tests against the same data, the second and subsequent reads then appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads are faster even after clearing the OS page cache and restarting the Cassandra service.
 
 For more information, see [Observations on Cassandra usage of Linux page caching](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-linux-page-caching.md) (GitHub).
 
@@ -160,7 +160,7 @@ Other contributor:
 
 For more information about these performance results, see [Cassandra on Azure VMs Performance Experiments][repo].
 
-For information on general Cassandra settings, not specific to Azure, see:
+For more information about general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
 

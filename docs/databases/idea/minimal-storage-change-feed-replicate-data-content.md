@@ -45,7 +45,7 @@ This article presents a high-availability solution for a web application dealing
 
 This solution uses Azure Cosmos DB to store the large volume of data that the web application uses. Web apps that handle massive amounts of data benefit from the ability of Azure Cosmos DB to elastically and independently scale throughput and storage.
 
-Another key solution component is the Azure Cosmos DB change feed. When changes are made to the database, the change feed stream is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution.
+Another key solution component is the Azure Cosmos DB change feed. When changes are made to the database, the change feed stream is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution. You can also orchestrate broader downstream data movement by using Azure Data Factory pipelines or Microsoft Fabric Data Factory to land data in analytics zones.
 
 The web app needs the data for only a limited amount of time. The solution takes advantage of that fact to further reduce costs. Specifically, another function periodically runs and deletes expired data from Azure Cosmos DB. Besides being triggered, functions can also be scheduled to run at set times.
 
@@ -82,11 +82,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Principal author:
 
-- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams/) | Cloud Solution Architect - Digital and Application Innovation
+
+Other contributors:
+
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
@@ -98,7 +102,8 @@ Principal author:
 - [Change feed design patterns in Azure Cosmos DB](/azure/cosmos-db/change-feed-design-patterns)
 - [Serverless event-based architectures with Azure Cosmos DB and Azure Functions](/azure/cosmos-db/change-feed-functions)
 - [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Orchestrate data movement and transformation in Azure Data Factory](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Data integration with Data Factory in Microsoft Fabric](/fabric/data-factory/)
 
 ## Related resources
 

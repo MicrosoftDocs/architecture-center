@@ -56,11 +56,11 @@ items:
             - name: Interservice communication
               href: microservices/design/interservice-communication.yml
             - name: API design
-              href: microservices/design/api-design.yml
+              href: microservices/design/api-design.md
             - name: API gateways
               href: microservices/design/gateway.yml
             - name: Data considerations
-              href: microservices/design/data-considerations.yml
+              href: microservices/design/data-considerations.md
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
@@ -68,7 +68,7 @@ items:
     - name: N-tier application
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
+      href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
     - name: Overview
@@ -159,12 +159,14 @@ items:
         href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
+      - name: Choose an AI model for your workload
+        href: ai-ml/guide/choose-ai-model.md
     - name: Choose a networking service
       items:
       - name: Load balancing options
         href: guide/technology-choices/load-balancing-overview.md
-      - name: VNet peering and VPN gateways
-        href: reference-architectures/hybrid-networking/vnet-peering.yml
+      - name: Virtual network peering, VPN gateways, and spoke-to-spoke communication
+        href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
@@ -453,6 +455,8 @@ items:
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose an analytical data store in Microsoft Fabric
+          href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
@@ -469,14 +473,12 @@ items:
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Use Azure Synapse Analytics to design an enterprise BI solution
-        href: example-scenario/analytics/enterprise-bi-synapse.yml
+      - name: Use Microsoft Fabric to design an enterprise BI solution
+        href: example-scenario/analytics/enterprise-bi-microsoft-fabric.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
-      - name: Secure a data lakehouse
-        href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics

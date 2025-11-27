@@ -1,5 +1,8 @@
 This baseline architecture is based on the [Basic web application architecture](./basic-web-app.yml) and extends it to provide detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Azure Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure platform as a service (PaaS) solutions such as Azure Key Vault and Azure SQL Database.
 
+> [!IMPORTANT]
+> :::image type="icon" source="../../../_images/github.svg"::: The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+
 ## Architecture
 
 :::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
@@ -77,7 +80,7 @@ Consider the following points when implementing virtual network integration and 
 
 - Use the [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns) guidance for naming private DNS zones.
 - Configure service firewalls to ensure the storage account, key vault, SQL Database, and other Azure services can only be connected to privately.
-  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic.
+  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic originating outside the virtual network.
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
   - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access).
 
@@ -87,9 +90,9 @@ The network in this architecture has separate subnets for the Application Gatewa
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
-| GatewaySubnet    | Rule 1: Allow inbound control plane access<br><br>Rule 2: Allow inbound internet HTTPS access | Rule 1: Allow outbound access to PrivateEndpointsSubnet<br><br>Rule 2`: Allow outbound access to Azure Monitor |
+| GatewaySubnet    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 | PrivateEndpointsSubnet | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
-| AppServicesSubnet | Default rules: Allow inbound from vnet  | Rule 1: Allow outbound access to PrivateEndpointsSubnet<br><br>Rule 2: Allow outbound access to Azure Monitor |
+| AppServicesSubnet | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
@@ -105,7 +108,9 @@ An example of a network schema could be:
 | Subnet          | GatewaySubnet          | 10.0.1.0/24   |
 | Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
-| Subnet          | AgentsSubject          | 10.0.2.32/27  |
+| Subnet          | AgentsSubnet           | 10.0.2.32/27  |
+
+Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation)
 
 ## Considerations
 
@@ -125,8 +130,8 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 
 #### App Services
 
-- Deploy a minimum of three instances of App Services with Availability Zone support.
-- Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
+- Deploy a minimum two instances of App Services with Availability Zone support. For additional resiliency, the minimum should be at least equal to the number of available zones in your region, with additional instances for redundancy within zones.
+- Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
 #### Blob storage
@@ -175,7 +180,7 @@ Consider the following recommendations when configuring data-in-transit encrypti
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
-- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
+- Follow the guidance in [Grant permission to applications to access an Azure Key Vault using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions not just to specific values.
 - [Enable end to end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the backend pool for the application gateway. When you configure the backend setting for the backend pool, use the HTTPS protocol over the backend port 443.
 
 ##### Data at rest
@@ -313,7 +318,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 
 ##### Database
 
-- User database Insights. For Azure SQL databases, it is recommended to use [Database Watcher](/azure/azure-sql/database-watcher-overview). Database watcher is a managed monitoring solution for database services in the Azure SQL family. For more information and other options, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
+- Enable database monitoring. For Azure SQL databases, it is recommended to use [Database Watcher](/azure/azure-sql/database-watcher-overview). Database watcher is a managed monitoring solution for database services in the Azure SQL family. For more information and other options, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 - If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
 ### Performance Efficiency
@@ -358,7 +363,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Read Enterprise web app patterns](/azure/architecture/web-apps/guides/enterprise-app-patterns/overview)
+> [Read Highly available multi-region web application](./multi-region.yml)
 
 ## Related resources
 

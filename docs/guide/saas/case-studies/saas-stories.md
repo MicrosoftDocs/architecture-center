@@ -3,8 +3,8 @@ title: Microsoft SaaS stories
 description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv
-ms.date: 10/07/2024
-ms.topic: conceptual
+ms.date: 11/11/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

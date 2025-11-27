@@ -4,7 +4,7 @@ description: Learn about day-2 patching and upgrading practices for Azure Kubern
 author: aionic
 ms.author: anevico
 ms.date: 02/06/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks

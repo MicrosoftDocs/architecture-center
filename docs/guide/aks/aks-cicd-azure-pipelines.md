@@ -4,7 +4,7 @@ description: Learn how to build a CI/CD pipeline for AKS apps by using Azure Pip
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 09/29/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.category:
  - containers

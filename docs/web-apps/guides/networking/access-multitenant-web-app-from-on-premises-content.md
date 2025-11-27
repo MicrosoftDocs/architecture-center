@@ -1,6 +1,6 @@
 This article shows how to set up improved-security private connectivity to an App Service web app or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure platform as a service (PaaS) solutions over Azure Private Link, without using the public internet.
 
-In this article, Azure App Service refers to the pricing tiers where there is shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and is not the focus of this article.
+In this article, Azure App Service refers to the pricing tiers where there's shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and isn't the focus of this article.
 
 ## Architecture
 
@@ -135,7 +135,7 @@ There's no added cost for App Service regional VNet Integration in supported pri
 
 Private endpoint is available for Windows web apps and Linux web apps, containerized or not, hosted on Basic, Standard, Premium v2, Premium v3, and Isolated v2 App Service plans, and also for function apps deployed to a Premium plan.
 
-The Azure Private Link service that enables the private endpoints for PaaS services has an associated cost that's based on an hourly fee plus a premium on bandwidth. See the [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link) page for details. Connections from a client virtual network to the Azure Firewall in the hub virtual network incur charges. You aren't charged for connections from Azure Firewall in the hub virtual network to private endpoints in a peered virtual network.
+The Azure Private Link service that enables the private endpoints for PaaS services has an associated cost that's based on an hourly fee plus a premium on bandwidth. For more information, see the [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link) page. Connections from a client virtual network to the Azure Firewall in the hub virtual network incur charges. You aren't charged for connections from Azure Firewall in the hub virtual network to private endpoints in a peered virtual network.
 
 Azure Private DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
 

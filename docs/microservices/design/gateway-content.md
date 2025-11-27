@@ -57,7 +57,7 @@ Here are some options for implementing an API gateway in your application.
 
 - **[Azure Front Door](/azure/frontdoor/front-door-overview)**. Azure Front Door is a content delivery network (CDN). It uses global and local points of presence (PoPs) to provide fast, reliable, and secure access to your applications' static and dynamic web content globally.
 
-- **[Azure API Management](/azure/api-management/)**. API Management is a managed solution for publishing APIs to external and internal customers. It provides features to manage public-facing APIs, including rate limiting, IP restrictions, and authentication using Microsoft Entra ID or other identity providers. API Management doesn't perform any load balancing, so you should use it with a load balancer, such as Azure Application Gateway, or a reverse proxy. For information, see [API Management with Azure Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- **[Azure API Management](/azure/api-management/)**. API Management is a managed solution for publishing APIs to external and internal customers. It provides features to manage public-facing APIs, including rate limiting, IP restrictions, and authentication using Microsoft Entra ID or other identity providers. API Management doesn't perform any load balancing, so you should use it with a load balancer, such as Azure Application Gateway, or a reverse proxy. For more information, see [API Management with Azure Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
 ## Choose an API gateway technology
 
@@ -76,11 +76,11 @@ When selecting an API gateway, consider the following factors:
 Previous articles explored the interfaces *between* microservices and between microservices and client applications. These interfaces treat each service as a self-contained, opaque unit. A critical principle of microservices architecture is that services should never expose internal details about how they manage data. This approach has significant implications for maintaining data integrity and consistency, which is the subject of the next article.
 
 > [!div class="nextstepaction"]
-> [Data considerations for microservices](./data-considerations.yml)
+> [Data considerations for microservices](./data-considerations.md)
 
 ## Related resources
 
-- [Design APIs for microservices](api-design.yml)
+- [Design APIs for microservices](api-design.md)
 - [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)

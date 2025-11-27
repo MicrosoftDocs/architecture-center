@@ -23,7 +23,7 @@ The tightly coupled approach is preferred in these cases:
 * One team owns both the quantum code and the classical code, and the code is integrated.
 * Quantum components share the same lifecycle as the classical components.
 * Use of the quantum components is limited to a single application or small set of related applications.
-* The quantum job represents a specialized solution (for example, a molecular simulation) that will be used only by one specialized classical application.
+* The quantum job represents a specialized solution (for example, a molecular simulation) that gets used only by one specialized classical application.
 * The implemented algorithm is hybrid quantum-classical by nature, for example, Variational Quantum Eigensolvers (VQE) and Quantum Approximate Optimization Algorithms (QAOA).
 
 ### Architecture
@@ -152,7 +152,7 @@ The architectures presented here are for business problems that require quantum 
 
 ### Considerations
 
-Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job is executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 #### Reliability
 
@@ -166,7 +166,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 #### Operational Excellence
 
