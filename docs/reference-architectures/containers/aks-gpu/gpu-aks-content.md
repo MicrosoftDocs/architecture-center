@@ -52,7 +52,7 @@ Consider cost implications before you deploy GPU nodes in AKS clusters. Understa
 
 Language models, like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://llama.meta.com/llama3/), [Falcon](https://falconllm.tii.ae/), or [Phi open models](https://azure.microsoft.com/products/phi/), can take advantage of GPU parallel-processing capabilities. Use GPUs with these models to improve performance.
 
-GPUs can speed up training and inference tasks, which involve complex computations and large amounts of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process delivers fast results and improves performance.
+GPUs can speed up training, fine-tuning, and inference tasks, which involve complex computations and large amounts of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process delivers fast results and improves performance.
 
 Language models often have complex neural networks with several layers and parameters, which can increase computational demand. GPUs accelerate key operations in language processing, such as matrix multiplication and convolutions, which speeds up training and inference times.
 
