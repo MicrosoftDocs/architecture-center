@@ -136,7 +136,7 @@ Alternatively, you can use pretrained, open-source AI and machine learning model
 
 When you use pretrained models for inferencing, you might experience dynamic and fluctuating resource usage, depending on the volume of data that you process. When you run live data through your chosen model, spikes in traffic sometimes occur depending on the model size and requirements. You must maintain an acceptable, low level of latency throughout the inferencing process. To effectively use your GPUs for high performance and low latency, you can conduct distributed inference with the models that KAITO supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
 
-## GPU Health Monitoring
+## GPU health monitoring
 
 GPU issues can be particularly difficult to detect, often causing silent errors or degraded performance rather than outright failures. This can lead to added troubleshooting time, unnecessary resource consumption, and increased operational costs. [GPU health monitoring on AKS](/azure/aks/node-problem-detector) enables consistent and frequent monitoring of node events and conditions reported by the built-in Node Problem Detector (NPD) on select GPU VM sizes. NPD surfaces key signals such as incorrect GPU count or network connectivity faults directly into Kubernetes node conditions, enabling teams to quickly identify and respond to problems. This makes it easier to automate alerting, node cordoning, and workload rescheduling, helping maintain application reliability and performance in compute-intensive environments.
 
