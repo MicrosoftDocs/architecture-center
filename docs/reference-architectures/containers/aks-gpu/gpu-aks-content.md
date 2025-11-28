@@ -64,13 +64,13 @@ Not all workloads benefit from GPU-enabled agent nodes, and in some cases, CPUs 
 
 Many Microsoft customers take advantage of GPU workloads to innovate for their customers. Consider the following examples:
 
-- [SymphonyAI modernizes deployments across industries with Azure OpenAI and AKS](https://www.microsoft.com/customers/story/24393-symphonyai-azure-kubernetes-service/).
+- [Royal Bank of Canada (RBC) accelerates inference at scale with KAITO and GPUs on AKS](https://ignite.microsoft.com/sessions/6322e0f4-63f1-4e57-b311-d230e1f63995).
 - [NBA players improve performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states).
 - [An AI company called Mr. Turing uses AI and AKS to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
 
 ## GPU workload deployment best practices
 
-AKS provides various options to deploy GPU-enabled Linux and Windows node pools and workloads. To ensure the smooth operation of your GPU workload, follow these [best practices](/azure/aks/best-practices-gpu).
+AKS provides various options to deploy GPU-enabled Linux and Windows node pools and workloads.
 
 ### Linux workload deployment
 
@@ -107,6 +107,8 @@ Consider the following best practices:
 > [!NOTE]
 > Microsoft doesn't support or manage the maintenance and compatibility of the NVIDIA drivers as part of the node image deployment when you use the NVIDIA GPU operator.
 
+- Learn more about FAQ and GPU best practices in [AKS documentation](/azure/aks/best-practices-gpu).
+
 ### GPU workload deployment for LLMs
 
 The [Kubernetes AI toolchain operator (KAITO)](/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies how you run open-source LLMs, like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama), on your Kubernetes cluster. You can deploy KAITO on your AKS cluster as a managed add-on for [AKS](/azure/aks/intro-kubernetes). KAITO uses [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification in the workspace custom resource definition of your chosen model. KAITO creates the inference server as an endpoint for your LLM and reduces overall onboarding time so that you can do machine learning operations rather than infrastructure setup and maintenance.
@@ -132,7 +134,7 @@ For AI and machine learning scenarios, you must differentiate between training w
 
 Model sharding is a common advanced technique that you can use to divide stages of model training. You can assign GPUs to distinct tasks and maximize their use, by enabling [multi-instance GPU (MIG)](/azure/aks/gpu-multi-instance) on NVIDIA GPU node pool(s) on AKS. GPUs can scale up and scale out HPC workloads, such as NV-series or ND-series VMs on Azure. This capability helps maintain high resource usage and reduce user intervention for machine learning training processes that are lengthy and expensive.
 
-Alternatively, you can use pretrained, open-source AI and machine learning models for inferencing. Get started with popular models like Llama, Falcon, or Mistral as a faster and more cost-effective option compared to building and training an LLM from scratch. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
+Alternatively, you can use pretrained, open-source AI and machine learning models for inferencing. Get started with popular models like Llama, Falcon, or Phi as a faster and more cost-effective option compared to building and training an LLM from scratch. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
 
 When you use pretrained models for inferencing, you might experience dynamic and fluctuating resource usage, depending on the volume of data that you process. When you run live data through your chosen model, spikes in traffic sometimes occur depending on the model size and requirements. You must maintain an acceptable, low level of latency throughout the inferencing process. To effectively use your GPUs for high performance and low latency, you can conduct distributed inference with the models that KAITO supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
 
@@ -164,6 +166,8 @@ Linux GPU workload deployments on AKS support [multiple-instance GPUs](/azure/ak
 
 NVIDIA supports other partitioning techniques, such as time-slicing and the multi-process service implementation. To [manually apply these configurations](/azure/aks/use-nvidia-gpu#skip-gpu-driver-installation), use the NVIDIA GPU Operator.
 
+For advanced scenarios, you can improve resource bin packing on AKS nodes and optimize the utilization of GPU resources in your cluster. You can set scheduler configurations using one or more in-tree Kubernetes scheduling plugins to introduce workload placement strategies that differ from the default AKS scheduler. For more information, see [Scheduler Configuration on AKS (preview)](/azure/aks/concepts-scheduler-configuration).
+
 ## Contributors
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
@@ -189,6 +193,5 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 - [Create multi-instance GPU (MIG) node pools on AKS](/azure/aks/gpu-multi-instance)
 - [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 - [Use GPUs for Windows node pools on AKS](/azure/aks/use-windows-gpu)
-- [Use GPUs on AKS](/azure/aks/use-nvidia-gpu)
 
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)
