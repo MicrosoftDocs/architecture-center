@@ -4,7 +4,7 @@ description: This article describes the different stages of a tenant life cycle 
 author: johndowns
 ms.author: pnp
 ms.date: 06/13/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -35,7 +35,7 @@ When you onboard a new tenant, consider the following factors:
 - **Process:** Decide whether to make onboarding a self-service, automated, or manual process.
 
 - **Data residency:** Determine whether the tenant has any specific requirements for data residency, such as compliance with data sovereignty regulations.
-- **Compliance:** Identify compliance standards that the tenant must meet. These standards might include the Payment Card Industry Data Security Standard (PCI DSS) or the Heath Insurance Portability and Accountability Act (HIPAA).
+- **Compliance:** Identify compliance standards that the tenant must meet. These standards might include the Payment Card Industry Data Security Standard (PCI DSS) or the Health Insurance Portability and Accountability Act (HIPAA).
 - **Disaster recovery:** Confirm whether the tenant has specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO). Determine whether these guarantees differ from the ones that you provide to other tenants.
 - **Information:** Define what information you need to fully onboard the tenant. For example, you might need their organization's legal name or their company logo, including the file size and format.
 - **Billing:** Determine whether the platform provides different pricing options and billing models.

@@ -4,7 +4,7 @@ Architects and developers struggle to define the correct size for a microservice
    The diagram has two key sections. One section labeled Shipping bounded content and contains the following terms: Scheduler, Package, Delivery, and Delivery history. Five arrows point from Scheduler to the following terms: Accounts, Third-party transportation, Drone management, Package, and Delivery. An arrow points from Delivery to Delivery history.
 :::image-end:::
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.md).
 
 ## From domain model to microservices
 
@@ -61,7 +61,7 @@ The details of the Drone and Account bounded contexts are beyond the scope of th
 
 So far, the team hasn't considered any nonfunctional requirements. After evaluating the application's throughput needs, the development team creates a separate Ingestion microservice to handle client requests. This microservice implements [load leveling](../../patterns/queue-based-load-leveling.yml) by placing incoming requests into a buffer for processing. The Scheduler then reads requests from the buffer and implements the workflow.
 
-Nonfunctional requirements also lead the team to create one more service. The existing services focus on scheduling and delivering packages in real time. However, the system must also store delivery history in long-term storage for data analysis. Initially, the team considered making this task part of the Delivery service. But the data storage requirements for historical analysis differ from the requirements for in-flight operations. For more information, see [Data considerations](../design/data-considerations.yml). As a result, the team created a separate Delivery History service. This service listens for DeliveryTracking events from the Delivery service and writes them to long-term storage.
+Nonfunctional requirements also lead the team to create one more service. The existing services focus on scheduling and delivering packages in real time. However, the system must also store delivery history in long-term storage for data analysis. Initially, the team considered making this task part of the Delivery service. But the data storage requirements for historical analysis differ from the requirements for in-flight operations. For more information, see [Data considerations](../design/data-considerations.md). As a result, the team created a separate Delivery History service. This service listens for DeliveryTracking events from the Delivery service and writes them to long-term storage.
 
 The following diagram shows the design at this point:
 
@@ -76,7 +76,7 @@ The following diagram shows the design at this point:
 At this point, you should have a clear understanding of the purpose and functionality of each microservice in your design. Now you can architect the system.
 
 > [!div class="nextstepaction"]
-> [Design a microservices architecture](../design/index.yml)
+> [Design a microservices architecture](../design/index.md)
 
 ## Related resources
 

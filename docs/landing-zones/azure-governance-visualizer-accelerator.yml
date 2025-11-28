@@ -1,18 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Governance Visualizer Deployment Guidance
-  description: Analyze and streamline cloud governance for compliance and operational insights by using the Azure Governance Visualizer accelerator.
+  description: Analyze and streamline cloud governance for compliance and operational insights by using the Azure Governance Visualizer.
   author: sebassem
   ms.author: sebassem
   ms.date: 01/16/2025
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: architecture-guide
 azureCategories:
   - devops
 products:
   - azure
 name: Use the Azure Governance Visualizer to optimize cloud governance
-summary: Analyze and streamline cloud governance for compliance and operational insights by using the Azure Governance Visualizer accelerator.
+summary: Analyze and streamline cloud governance for compliance and operational insights by using the Azure Governance Visualizer.
 thumbnailUrl: ../browse/thumbs/azure-governance-visualizer-accelerator-architecture.png
 content: |
   [!INCLUDE[](azure-governance-visualizer-accelerator-content.md)]

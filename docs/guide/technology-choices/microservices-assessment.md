@@ -4,7 +4,7 @@ description: Learn about the considerations to keep in mind when you move to a m
 author: ovaismehboob 
 ms.author: ovmehboo
 ms.date: 06/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.reviewer: nasiddi
 ms.subservice: architecture-guide
 ms.custom: fcp
@@ -448,4 +448,4 @@ Principal authors:
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Use domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
-- [Design a microservices architecture](../../microservices/design/index.yml)
+- [Design a microservices architecture](../../microservices/design/index.md)

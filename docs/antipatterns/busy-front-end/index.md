@@ -121,7 +121,7 @@ public async Task RunAsync(CancellationToken cancellationToken)
 - This approach adds some additional complexity to the application. You must handle queuing and dequeuing safely to avoid losing requests in the event of a failure.
 - The application takes a dependency on an additional service for the message queue.
 - The processing environment must be sufficiently scalable to handle the expected workload and meet the required throughput targets.
-- While this approach should improve overall responsiveness, the tasks that are moved to the back end may take longer to complete.
+- While this approach should improve overall responsiveness, the tasks that are moved to the back end might take longer to complete.
 - Consider combining this with the [Throttling pattern](/azure/architecture/patterns/throttling) to avoid overwhelming backend systems. Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern](/azure/architecture/patterns/priority-queue).
 
 ## How to detect the problem
@@ -212,7 +212,7 @@ The following graph shows the results of a load test. The overall volume of requ
 [background-jobs]: ../../best-practices/background-jobs.md
 [load-leveling]: ../../patterns/queue-based-load-leveling.yml
 [sync-io]: ../synchronous-io/index.md
-[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.yml
+[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
 
 [AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
 [AppDynamics-Metrics-Front-End-Requests]: ./_images/AppDynamicsFrontEndMetrics.jpg

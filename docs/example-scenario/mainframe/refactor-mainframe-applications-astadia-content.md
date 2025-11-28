@@ -1,4 +1,4 @@
-Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure Virtual Machines. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
+Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure virtual machines (VMs). Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
 
 ## Mainframe architecture
 
@@ -35,7 +35,7 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
    - On-premises administrative access uses Azure Bastion hosts.
    - Azure users connect to the system via virtual network peering.
 1. Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. It operates at level-7, application level, or level-4, network level, depending on the application input.
-1. Astadia runtime libraries run refactored applications on Azure Virtual Machines. Compute resources use Azure Premium SSD or Azure Ultra Disk Storage managed disks with accelerated networking.
+1. Astadia runtime libraries run refactored applications on Azure VMs. Compute resources use Azure Premium SSD or Azure Ultra Disk Storage managed disks with accelerated networking.
 1. Data services in the application clusters support multiple connections to persistent data sources. Azure Private Link provides private connectivity from inside the virtual network to Azure services. Data sources include data services such as Azure SQL Database and Azure PostgreSQL.
 1. Data storage is local-redundant or geo-redundant, depending on usage. It's a mixture of:
    - High-performance storage:
@@ -56,7 +56,7 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
 
 - [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Azure Storage provides various storage options to support the data requirements of the refactored mainframe applications.
 
-  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on VMs. The available types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Azure Standard HDD. In this architecture, Azure Disk Storage provides high-performance storage for the refactored applications by using either Premium SSD or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on its VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Standard SSD. In this architecture, Azure Disk Storage provides high-performance storage for the refactored applications by using either Premium SSD or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides fully managed file shares in the cloud that are accessed via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments share access by mounting file shares concurrently. In this architecture, Azure Files provides shared file storage that can be accessed by multiple instances of the refactored applications.
 
@@ -92,7 +92,7 @@ There are important reasons why companies should replace their COBOL and mainfra
 - **Limited flexibility:** COBOL and the underlying systems that support it weren't designed for modern cloud-based applications. They're inflexible and hard to integrate.
 - **Exorbitant costs:** IBM mainframe hardware and software costs are high. Licensing and maintenance fees for ancillary mainframe applications and databases are rising.
 
-There *is* a way forward for COBOL and mainframe systems. Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure Virtual Machines. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
+There *is* a way forward for COBOL and mainframe systems. Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure VMs. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
 
 Refactoring reduces costs and allows for deeper integration and for customization to meet business requirements. The hassles and costs of COBOL and the mainframe give way to a new world of quality and scalability that includes:
 

@@ -50,17 +50,17 @@ items:
           - name: Design a microservices architecture
             items:
             - name: Introduction
-              href: microservices/design/index.yml
+              href: microservices/design/index.md
             - name: Choose a compute option
               href: microservices/design/compute-options.md
             - name: Interservice communication
               href: microservices/design/interservice-communication.yml
             - name: API design
-              href: microservices/design/api-design.yml
+              href: microservices/design/api-design.md
             - name: API gateways
               href: microservices/design/gateway.yml
             - name: Data considerations
-              href: microservices/design/data-considerations.yml
+              href: microservices/design/data-considerations.md
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
@@ -68,7 +68,7 @@ items:
     - name: N-tier application
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
+      href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
     - name: Overview
@@ -121,22 +121,12 @@ items:
         href: guide/technology-choices/storage-options.md
     - name: Choose a data store
       items:
-      - name: Understand data stores in Azure
-        href: data-guide/technology-choices/data-store-classification.md
+      - name: Prepare to choose a data store in Azure
+        href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
+        href: data-guide/technology-choices/understand-data-store-models.md
+      - name: Selecting a specialized data store model
         items:
-          - name: Types of data store models
-            href: guide/technology-choices/data-store-overview.md
-          - name: Non-relational data store
-            href: data-guide/big-data/non-relational-data.yml
-          - name: Review data options
-            href: guide/technology-choices/data-options.md
-          - name: Criteria for choosing a data store
-            href: guide/technology-choices/data-store-considerations.md
-      - name: Selecting a data store model
-        items:
-          - name: Select a data store
-            href: guide/technology-choices/data-store-decision-tree.md
           - name: Big data storage
             href: data-guide/technology-choices/data-storage.md
           - name: Search data store
@@ -169,12 +159,14 @@ items:
         href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
+      - name: Choose an AI model for your workload
+        href: ai-ml/guide/choose-ai-model.md
     - name: Choose a networking service
       items:
       - name: Load balancing options
         href: guide/technology-choices/load-balancing-overview.md
-      - name: VNet peering and VPN gateways
-        href: reference-architectures/hybrid-networking/vnet-peering.yml
+      - name: Virtual network peering, VPN gateways, and spoke-to-spoke communication
+        href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
@@ -249,12 +241,8 @@ items:
     href: guide/saas-multitenant-solution-architecture/index.md
   - name: Mission-critical applications
     items:
-    - name: Mission-critical baseline architecture
+    - name: Mission-critical architecture design
       href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-    - name: Mission-critical baseline with network controls
-      href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
-    - name: Mission-critical baseline architecture in Azure landing zones
-      href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
     - name: Mission-critical baseline with App Service
       href: guide/networking/global-web-applications/mission-critical-app-service.yml
     - name: Design areas
@@ -467,6 +455,8 @@ items:
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose an analytical data store in Microsoft Fabric
+          href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
@@ -483,14 +473,12 @@ items:
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Use Azure Synapse Analytics to design an enterprise BI solution
-        href: example-scenario/analytics/enterprise-bi-synapse.yml
+      - name: Use Microsoft Fabric to design an enterprise BI solution
+        href: example-scenario/analytics/enterprise-bi-microsoft-fabric.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
-      - name: Secure a data lakehouse
-        href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
@@ -525,7 +513,7 @@ items:
       items:
       - name: VM baseline
         href: virtual-machines/baseline.yml
-      - name: VM baseline in Azure landing zones
+      - name: VM baseline in an Azure landing zone
         href: virtual-machines/baseline-landing-zone.yml
       - name: Teamcenter baseline architecture
         href: example-scenario/manufacturing/teamcenter-baseline.yml
@@ -685,8 +673,8 @@ items:
           items:
           - name: High availability for multitier AKS apps
             href: guide/aks/aks-high-availability.yml
-          - name: CI/CD for AKS apps (Azure Pipelines)
-            href: guide/aks/aks-cicd-azure-pipelines.yml
+          - name: CI/CD for AKS apps via Azure Pipelines
+            href: guide/aks/aks-cicd-azure-pipelines.md
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
         - name: Infrastructure
@@ -747,9 +735,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-    items:
-    - name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
-      href: solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml
   - name: DevOps
     items:
     - name: Get started
@@ -1045,7 +1030,7 @@ items:
           href: example-scenario/file-storage/moodle-azure-netapp-files.yml
         - name: Oracle Database with Azure NetApp Files
           href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-        - name: SQL Server on VMs with ANF
+        - name: SQL Server on VMs with Azure NetApp Files
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml

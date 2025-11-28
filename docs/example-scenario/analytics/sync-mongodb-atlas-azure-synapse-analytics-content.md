@@ -224,10 +224,6 @@ Atlas triggers and Azure Functions are time-tested for performance and scalabili
 
 MongoDB Atlas integrates with Azure Synapse Analytics, enabling Atlas customers to use Atlas as a source or a sink for Azure Synapse Analytics. This solution enables you to use MongoDB operational data in real-time from Azure Synapse Analytics for complex analytics and AI inference.
 
-## Deploy this scenario
-
-[Real-Time Sync from MongoDB Atlas to Azure Synapse Analytics](https://github.com/Azure/Azure_Synapse_RealTimeSync_Using_AtlasTrigger_and_AzureFunction)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
