@@ -190,6 +190,4 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 - [Use GPUs for Windows node pools on AKS](/azure/aks/use-windows-gpu)
 - [Use GPUs on AKS](/azure/aks/use-nvidia-gpu)
 
-## Related resource
-
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)
