@@ -182,7 +182,8 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 
-- [Autoscale NVIDIA GPU nodes with KEDA and DCGM exporter metrics on AKS](/azure/aks/autoscale-gpu-workloads-with-keda)
+- [Use GPUs on AKS](/azure/aks/use-nvidia-gpu)
+- Learn about AKS [GPU node pool best practices](/azure/aks/best-practices-gpu)
 - [Bring your own AI models to intelligent apps on AKS with KAITO](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
 - [Fine-tune language models with AI toolchain operator add-on](/azure/aks/ai-toolchain-operator-fine-tune)
 - [Create multi-instance GPU (MIG) node pools on AKS](/azure/aks/gpu-multi-instance)
