@@ -1,9 +1,3 @@
----
-title: Use Azure Kubernetes Service to host GPU-based workloads
-ms.date: 09/29/2025
-author: sdesai345
----
-
 This article describes how to efficiently run workloads that use GPU nodes on an Azure Kubernetes Service (AKS) cluster. Learn how to choose the right SKU, use GPU nodes to train machine learning (ML) models, and use GPU nodes to run inference on AKS.
 
 ## Scenarios
