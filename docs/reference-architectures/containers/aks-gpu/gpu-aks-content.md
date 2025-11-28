@@ -115,6 +115,7 @@ The [Kubernetes AI toolchain operator (KAITO)](/azure/aks/ai-toolchain-operator)
 To improve AI operations on AKS, KAITO provides the following capabilities:
 
 - **Container image management**: Use container images to manage LLMs. KAITO provides an HTTP server so that you can use [preset model workspaces](https://github.com/kaito-project/kaito/tree/main/examples/inference) to perform inference, tool calling, and MCP.
+
 - **Supports bring-your-own (BYO) models**: KAITO enables you to bring in-house, pre-trained LLMs using a [custom deployment template](https://kaito-project.github.io/kaito/docs/custom-model) using HuggingFace Transformers for inference.
 - **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware or troubleshoot costly GPU out-of-memory (OOM) errors. 
 - **Provides out-of-box inference monitoring**: When deployed with the default vLLM inference engine, [KAITO surfaces real-time vLLM metrics](/azure/aks/ai-toolchain-operator-monitoring) with Prometheus and Grafana to provide key insights into inference performance and health on your AKS cluster.
