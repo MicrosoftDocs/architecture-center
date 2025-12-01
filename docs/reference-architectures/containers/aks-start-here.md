@@ -81,7 +81,7 @@ Getting your workload deployed on AKS is a great milestone and this is when [day
 
 ## Stay current with AKS
 
-Kubernetes and AKS are both rapidly evolving. Staying aware of the roadmap can help you make informed architectural decisions and anticipate planned deprecations. Consider bookmarking it for quick access.
+Kubernetes and AKS are rapidly evolving. Staying aware of the roadmap can help you make informed architectural decisions and anticipate planned deprecations. Consider bookmarking it for quick access.
 
 > [!div class="nextstepaction"]
 > [AKS product roadmap](https://aka.ms/aks/roadmap)

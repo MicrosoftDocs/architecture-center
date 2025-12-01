@@ -854,7 +854,7 @@ While you can configure GitOps and Flux manually, we recommend the [GitOps with 
 
 Deploy *any* change, such as architecture components, workload, and cluster configuration, to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they're deployed to production.
 
-Run tests and validations at each stage before you move on to the next. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
+Run tests and validations at each stage before you continue to the next stage. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
 
 Advanced deployment techniques, such as [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B testing, and [canary releases](https://martinfowler.com/bliki/CanaryRelease.html), require extra processes and potentially extra tooling. [Flagger](https://github.com/fluxcd/flagger) is a popular open-source solution to help solve for advanced deployment scenarios.
 
