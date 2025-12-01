@@ -52,7 +52,7 @@ The key assumptions for this DR worked example are:
 
 ## Next steps
 
-After your review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) for this use case.
+After you review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) for this use case.
 
 ## Related resources
 
