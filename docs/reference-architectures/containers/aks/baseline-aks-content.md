@@ -89,7 +89,7 @@ For more information, see [Hub-spoke network topology in Azure](../../../network
 The hub virtual network is the central point of connectivity and observability. In this architecture, the hub contains:
 
 - Azure Firewall with global firewall policies, defined by your central IT teams to enforce organization-wide firewall policy.
-- Azure Bastion for remote access to virtual machines (VMs).
+- Azure Bastion, which you can use either to remotely access virtual machines or to establish a secure tunnel into the private network perimeter.
 - A gateway subnet for VPN connectivity.
 - Azure Monitor for network observability.
 
@@ -105,7 +105,7 @@ This subnet is a placeholder for a VPN gateway or an Azure ExpressRoute gateway.
 
 #### Subnet to host Azure Bastion
 
-This subnet is a placeholder for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This subnet is for management and operations only.
+This subnet is for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This subnet is for management and operations only.
 
 ### Spoke virtual network
 
