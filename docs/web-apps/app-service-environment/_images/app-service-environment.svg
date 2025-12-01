@@ -1095,10 +1095,9 @@
 				<title>Sheet.165</title>
 				<path d="M0 686.14 L89.91 686.14" class="st37"/>
 			</g>
-			<g id="shape166-373" v:mID="166" v:groupContext="shape" transform="translate(335.225,-507.708)">
+			<g id="shape166-373" v:mID="166" v:groupContext="shape" transform="translate(331.798,-492.174)">
 				<title>com.lucidchart.Line.166</title>
-				<path d="M0 686.14 L0 699.86 a0.7515 0.7515 -180 0 0 0.7515 0.7515 L64.63 700.61 a0.7515 0.7515 -180 0 0 0.7515 -0.7515
-							 L65.38 694.18" class="st37"/>
+				<path d="M0 686.14 L63.68 686.14" class="st37"/>
 			</g>
 			<g id="group167-378" transform="translate(458.251,-549.648)" v:mID="167" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.167</title>
@@ -1419,10 +1418,9 @@
 					</g>
 				</g>
 			</g>
-			<g id="shape225-519" v:mID="225" v:groupContext="shape" transform="translate(730.634,-559.685)">
+			<g id="shape225-519" v:mID="225" v:groupContext="shape" transform="translate(757.541,-559.685)">
 				<title>Sheet.225</title>
-				<path d="M0 686.14 L0 699.86 a0.7515 0.7515 -180 0 0 0.7515 0.7515 L81.2 700.61 a0.7515 0.7515 -180 0 0 0.7515 -0.7515
-							 L81.95 694.18" class="st37"/>
+				<path d="M0 686.14 L43.67 686.14" class="st37"/>
 			</g>
 			<g id="group226-524" transform="translate(811.706,-530.662)" v:mID="226" v:groupContext="group">
 				<title>Sheet.226</title>
@@ -1476,10 +1474,9 @@
 									x="16.68" dy="1.2em" class="st16">traffic</tspan></text>					</g>
 				</g>
 			</g>
-			<g id="shape234-542" v:mID="234" v:groupContext="shape" transform="translate(494.071,-75.9744)">
+			<g id="shape234-542" v:mID="234" v:groupContext="shape" transform="translate(494.071,-68.1081)">
 				<title>Sheet.234</title>
-				<path d="M9 695.14 L22.72 695.14 a0.7515 0.7515 -180 0 0 0.7515 -0.7515 L23.47 590.5 a0.7515 0.7515 -180 0 0 -0.7515
-							 -0.7515 L17.04 589.75" class="st48"/>
+				<path d="M9 695.14 L9 597.78" class="st48"/>
 			</g>
 			<g id="shape235-547" v:mID="235" v:groupContext="shape" transform="translate(493.308,-282.211)">
 				<title>com.lucidchart.Line.235</title>
@@ -1776,7 +1773,7 @@
 					<v:textRect cx="12.618" cy="701.891" width="72.46" height="13.5"/>
 					<text x="-14.58" y="705.19" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Service Bus</text>				</g>
 			</g>
-			<g id="group266-631" transform="translate(838.606,-118.501)" v:mID="266" v:groupContext="group">
+			<g id="group266-631" transform="translate(838.606,-120.593)" v:mID="266" v:groupContext="group">
 				<title>FreehandBlock.266</title>
 				<desc>Azure Key Vault</desc>
 				<g id="shape267-632" v:mID="267" v:groupContext="shape">
@@ -2370,46 +2367,25 @@
 								 678.2 22.64 677.84 22.82 677.61 L23.72 676.8 C23.9 676.58 24.21 676.58 24.44 676.8 Z" class="st10"/>
 				</g>
 			</g>
-			<g id="shape350-833" v:mID="350" v:groupContext="shape" transform="translate(715.514,-249.185)">
+			<g id="shape350-833" v:mID="350" v:groupContext="shape" transform="translate(716.998,-272.205)">
 				<title>Sheet.350</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L116.5 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L117 686.14" class="st68"/>
+				<path d="M0 704.01 L120.56 704.27" class="st68"/>
 			</g>
-			<g id="shape351-836" v:mID="351" v:groupContext="shape" transform="translate(715.514,-209.448)">
-				<title>com.lucidchart.Line.351</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L116.5 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L117 686.14" class="st68"/>
-			</g>
-			<g id="shape352-839" v:mID="352" v:groupContext="shape" transform="translate(717.005,-166.694)">
-				<title>com.lucidchart.Line.352</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L116.5 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L117 686.14" class="st68"/>
-			</g>
-			<g id="shape353-842" v:mID="353" v:groupContext="shape" transform="translate(716.234,-126.958)">
-				<title>com.lucidchart.Line.353</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L116.5 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L117 686.14" class="st68"/>
-			</g>
-			<g id="shape354-845" v:mID="354" v:groupContext="shape" transform="translate(626.285,-126.331)">
-				<title>com.lucidchart.Line.354</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L54.62 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L55.12 686.14" class="st69"/>
-			</g>
-			<g id="group355-848" transform="translate(587.462,-158.94)" v:mID="355" v:groupContext="group">
+			<g id="group355-836" transform="translate(587.462,-158.94)" v:mID="355" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.355</title>
-				<g id="shape356-849" v:mID="356" v:groupContext="shape">
+				<g id="shape356-837" v:mID="356" v:groupContext="shape">
 					<title>Sheet.356</title>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st1"/>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st2"/>
 				</g>
-				<g id="shape357-852" v:mID="357" v:groupContext="shape">
+				<g id="shape357-840" v:mID="357" v:groupContext="shape">
 					<title>Sheet.357</title>
 					<path d="M28.22 691.49 C20.56 697.39 9.58 695.99 3.64 688.39 a0.225 0.225 0 0 1 -0.000957079 -0.00123405 C-2.25
 								 680.74 -0.86 669.8 6.8 663.91 L6.92 663.78 a0.225 0.225 0 0 1 0.0254246 -0.0218876 C14.73 658.01
 								 25.66 659.64 31.41 667.33 a0.225 0.225 -180 0 0 0.000715156 0.000951147 C37.12 674.89 35.68 685.64
 								 28.22 691.49 a0.225 0.225 0 0 1 -0.00135623 0.00105332 Z" class="st51"/>
 				</g>
-				<g id="shape358-855" v:mID="358" v:groupContext="shape">
+				<g id="shape358-843" v:mID="358" v:groupContext="shape">
 					<title>Sheet.358</title>
 					<path d="M13.36 663.32 C12.24 664.99 11.3 666.88 10.76 668.81 C9.4 668.55 8.06 668.01 6.84 667.24 C8.64 665.39
 								 10.9 664.09 13.36 663.32 L21.1 663.32 C23.76 663.95 26.14 665.3 28.12 667.19 C26.73 668.01 25.2
@@ -2461,7 +2437,7 @@
 								 661.93 1.66 668.99 1.66 677.68 C1.66 686.41 8.78 693.47 17.5 693.47 C26.24 693.47 33.3 686.41 33.3
 								 677.68 C33.3 668.99 26.24 661.93 17.5 661.93" class="st4"/>
 				</g>
-				<g id="shape359-859" v:mID="359" v:groupContext="shape">
+				<g id="shape359-847" v:mID="359" v:groupContext="shape">
 					<title>Sheet.359</title>
 					<path d="M8.32 674.17 C8.55 674.17 8.82 674.17 9 674.21 C9.14 674.17 9.27 674.17 9.45 674.17 C9.54 674.17 9.63
 								 674.17 9.72 674.17 C11.43 674.35 12.69 675.83 12.56 677.5 C12.56 677.81 12.56 678.04 12.56 678.31
@@ -2502,26 +2478,25 @@
 								 C26.14 673.22 26.1 673.22 26.06 673.22 C25.96 673.22 25.96 673.22 25.88 673.22" class="st4"/>
 				</g>
 			</g>
-			<g id="shape360-862" v:mID="360" v:groupContext="shape" transform="translate(627.408,-166.831)">
+			<g id="shape360-850" v:mID="360" v:groupContext="shape" transform="translate(627.408,-166.831)">
 				<title>com.lucidchart.Line.360</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L54.62 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L55.12 686.14" class="st69"/>
+				<path d="M0 686.14 L55.12 686.14" class="st69"/>
 			</g>
-			<g id="group361-865" transform="translate(587.462,-202.255)" v:mID="361" v:groupContext="group">
+			<g id="group361-853" transform="translate(587.462,-202.255)" v:mID="361" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.361</title>
-				<g id="shape362-866" v:mID="362" v:groupContext="shape">
+				<g id="shape362-854" v:mID="362" v:groupContext="shape">
 					<title>Sheet.362</title>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st1"/>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st2"/>
 				</g>
-				<g id="shape363-869" v:mID="363" v:groupContext="shape">
+				<g id="shape363-857" v:mID="363" v:groupContext="shape">
 					<title>Sheet.363</title>
 					<path d="M28.22 691.49 C20.56 697.39 9.58 695.99 3.64 688.39 a0.225 0.225 0 0 1 -0.000957079 -0.00123405 C-2.25
 								 680.74 -0.86 669.8 6.8 663.91 L6.92 663.78 a0.225 0.225 0 0 1 0.0254246 -0.0218876 C14.73 658.01
 								 25.66 659.64 31.41 667.33 a0.225 0.225 -180 0 0 0.000715156 0.000951147 C37.12 674.89 35.68 685.64
 								 28.22 691.49 a0.225 0.225 0 0 1 -0.00135623 0.00105332 Z" class="st51"/>
 				</g>
-				<g id="shape364-872" v:mID="364" v:groupContext="shape">
+				<g id="shape364-860" v:mID="364" v:groupContext="shape">
 					<title>Sheet.364</title>
 					<path d="M13.36 663.32 C12.24 664.99 11.3 666.88 10.76 668.81 C9.4 668.55 8.06 668.01 6.84 667.24 C8.64 665.39
 								 10.9 664.09 13.36 663.32 L21.1 663.32 C23.76 663.95 26.14 665.3 28.12 667.19 C26.73 668.01 25.2
@@ -2573,7 +2548,7 @@
 								 661.93 1.66 668.99 1.66 677.68 C1.66 686.41 8.78 693.47 17.5 693.47 C26.24 693.47 33.3 686.41 33.3
 								 677.68 C33.3 668.99 26.24 661.93 17.5 661.93" class="st4"/>
 				</g>
-				<g id="shape365-876" v:mID="365" v:groupContext="shape">
+				<g id="shape365-864" v:mID="365" v:groupContext="shape">
 					<title>Sheet.365</title>
 					<path d="M8.32 674.17 C8.55 674.17 8.82 674.17 9 674.21 C9.14 674.17 9.27 674.17 9.45 674.17 C9.54 674.17 9.63
 								 674.17 9.72 674.17 C11.43 674.35 12.69 675.83 12.56 677.5 C12.56 677.81 12.56 678.04 12.56 678.31
@@ -2614,26 +2589,25 @@
 								 C26.14 673.22 26.1 673.22 26.06 673.22 C25.96 673.22 25.96 673.22 25.88 673.22" class="st4"/>
 				</g>
 			</g>
-			<g id="shape366-879" v:mID="366" v:groupContext="shape" transform="translate(627.408,-210.118)">
+			<g id="shape366-867" v:mID="366" v:groupContext="shape" transform="translate(627.408,-210.118)">
 				<title>com.lucidchart.Line.366</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L54.62 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L55.12 686.14" class="st69"/>
+				<path d="M0 686.14 L55.12 686.14" class="st69"/>
 			</g>
-			<g id="group367-882" transform="translate(587.65,-240.689)" v:mID="367" v:groupContext="group">
+			<g id="group367-870" transform="translate(587.65,-240.689)" v:mID="367" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.367</title>
-				<g id="shape368-883" v:mID="368" v:groupContext="shape">
+				<g id="shape368-871" v:mID="368" v:groupContext="shape">
 					<title>Sheet.368</title>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st1"/>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st2"/>
 				</g>
-				<g id="shape369-886" v:mID="369" v:groupContext="shape">
+				<g id="shape369-874" v:mID="369" v:groupContext="shape">
 					<title>Sheet.369</title>
 					<path d="M28.22 691.49 C20.56 697.39 9.58 695.99 3.64 688.39 a0.225 0.225 0 0 1 -0.000957079 -0.00123405 C-2.25
 								 680.74 -0.86 669.8 6.8 663.91 L6.92 663.78 a0.225 0.225 0 0 1 0.0254246 -0.0218876 C14.73 658.01
 								 25.66 659.64 31.41 667.33 a0.225 0.225 -180 0 0 0.000715156 0.000951147 C37.12 674.89 35.68 685.64
 								 28.22 691.49 a0.225 0.225 0 0 1 -0.00135623 0.00105332 Z" class="st51"/>
 				</g>
-				<g id="shape370-889" v:mID="370" v:groupContext="shape">
+				<g id="shape370-877" v:mID="370" v:groupContext="shape">
 					<title>Sheet.370</title>
 					<path d="M13.36 663.32 C12.24 664.99 11.3 666.88 10.76 668.81 C9.4 668.55 8.06 668.01 6.84 667.24 C8.64 665.39
 								 10.9 664.09 13.36 663.32 L21.1 663.32 C23.76 663.95 26.14 665.3 28.12 667.19 C26.73 668.01 25.2
@@ -2685,7 +2659,7 @@
 								 661.93 1.66 668.99 1.66 677.68 C1.66 686.41 8.78 693.47 17.5 693.47 C26.24 693.47 33.3 686.41 33.3
 								 677.68 C33.3 668.99 26.24 661.93 17.5 661.93" class="st4"/>
 				</g>
-				<g id="shape371-893" v:mID="371" v:groupContext="shape">
+				<g id="shape371-881" v:mID="371" v:groupContext="shape">
 					<title>Sheet.371</title>
 					<path d="M8.32 674.17 C8.55 674.17 8.82 674.17 9 674.21 C9.14 674.17 9.27 674.17 9.45 674.17 C9.54 674.17 9.63
 								 674.17 9.72 674.17 C11.43 674.35 12.69 675.83 12.56 677.5 C12.56 677.81 12.56 678.04 12.56 678.31
@@ -2726,19 +2700,18 @@
 								 C26.14 673.22 26.1 673.22 26.06 673.22 C25.96 673.22 25.96 673.22 25.88 673.22" class="st4"/>
 				</g>
 			</g>
-			<g id="shape372-896" v:mID="372" v:groupContext="shape" transform="translate(627.588,-248.551)">
+			<g id="shape372-884" v:mID="372" v:groupContext="shape" transform="translate(627.588,-248.551)">
 				<title>com.lucidchart.Line.372</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L54.62 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L55.12 686.14" class="st69"/>
+				<path d="M0 686.14 L55.12 686.14" class="st69"/>
 			</g>
-			<g id="group373-899" transform="translate(378,-654.869)" v:mID="373" v:groupContext="group">
+			<g id="group373-887" transform="translate(378,-654.869)" v:mID="373" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.373</title>
-				<g id="shape374-900" v:mID="374" v:groupContext="shape">
+				<g id="shape374-888" v:mID="374" v:groupContext="shape">
 					<title>Sheet.374</title>
 					<rect x="0" y="674.405" width="17.28" height="20.7504" class="st1"/>
 					<rect x="0" y="674.405" width="17.28" height="20.7504" class="st2"/>
 				</g>
-				<g id="shape375-903" v:mID="375" v:groupContext="shape">
+				<g id="shape375-891" v:mID="375" v:groupContext="shape">
 					<title>Sheet.375</title>
 					<path d="M17.28 684.08 C17.28 689.66 10.41 694.15 8.91 695.06 a0.225 0.225 0 0 1 -0.0114318 0.00645948 C8.73
 								 695.15 8.56 695.15 8.38 695.07 a0.225 0.225 0 0 1 -0.0160619 -0.00862365 C6.82 694.15 0 689.65 0
@@ -2746,48 +2719,48 @@
 								 C5.9 676.7 4.64 674.41 8.64 674.41 C12.64 674.41 11.38 676.7 16.74 676.84 a0.225 0.225 -180 0 0
 								 0.00448223 6.97435E-05 C17.06 676.84 17.28 677.06 17.28 677.38 L17.28 684.08 Z" class="st35"/>
 				</g>
-				<g id="shape376-905" v:mID="376" v:groupContext="shape">
+				<g id="shape376-893" v:mID="376" v:groupContext="shape">
 					<title>Sheet.376</title>
 					<path d="M16.56 684.13 C16.56 689.26 10.26 693.36 8.91 694.21 C8.73 694.3 8.55 694.3 8.37 694.21 C7.02 693.4
 								 0.72 689.26 0.72 684.13 L0.72 678.01 C0.72 677.74 0.94 677.52 1.17 677.52 C6.12 677.38 4.95 675.26
 								 8.64 675.26 C12.33 675.26 11.16 677.38 16.06 677.52 C16.34 677.52 16.56 677.74 16.56 678.01 L16.56
 								 684.13 Z" class="st36"/>
 				</g>
-				<g id="shape377-907" v:mID="377" v:groupContext="shape">
+				<g id="shape377-895" v:mID="377" v:groupContext="shape">
 					<title>Sheet.377</title>
 					<path d="M8.64 684.76 L8.64 675.26 C12.33 675.26 11.16 677.38 16.06 677.52 C16.34 677.52 16.56 677.74 16.56 678.01
 								 L16.56 684.18 C16.56 684.4 16.56 684.53 16.56 684.76 L8.64 684.76 Z" class="st5"/>
 				</g>
-				<g id="shape378-910" v:mID="378" v:groupContext="shape">
+				<g id="shape378-898" v:mID="378" v:groupContext="shape">
 					<title>Sheet.378</title>
 					<path d="M8.64 684.76 L0.76 684.76 C1.22 689.58 7.06 693.4 8.37 694.21 C8.46 694.26 8.5 694.26 8.6 694.26 L8.64
 								 694.26 L8.64 684.76 Z" class="st5"/>
 				</g>
-				<g id="shape379-913" v:mID="379" v:groupContext="shape">
+				<g id="shape379-901" v:mID="379" v:groupContext="shape">
 					<title>Sheet.379</title>
 					<path d="M1.17 677.52 C6.12 677.38 4.95 675.26 8.64 675.26 L8.64 684.76 L0.76 684.76 C0.76 684.53 0.76 684.4
 								 0.76 684.18 L0.76 678.01 C0.76 677.74 0.94 677.56 1.17 677.52 Z" class="st11"/>
 				</g>
-				<g id="shape380-915" v:mID="380" v:groupContext="shape">
+				<g id="shape380-903" v:mID="380" v:groupContext="shape">
 					<title>Sheet.380</title>
 					<path d="M16.52 684.76 L8.64 684.76 L8.64 694.26 C8.73 694.26 8.78 694.26 8.86 694.21 C10.22 693.4 16.06 689.58
 								 16.52 684.76 Z" class="st11"/>
 				</g>
 			</g>
-			<g id="group381-917" v:mID="381" v:groupContext="group">
+			<g id="group381-905" v:mID="381" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.381</title>
-				<g id="shape382-918" v:mID="382" v:groupContext="shape">
+				<g id="shape382-906" v:mID="382" v:groupContext="shape">
 					<title>Sheet.382</title>
 					<rect x="0" y="618.886" width="144.36" height="76.2768" class="st70"/>
 					<rect x="0" y="618.886" width="144.36" height="76.2768" class="st2"/>
 				</g>
-				<g id="shape383-921" v:mID="383" v:groupContext="shape">
+				<g id="shape383-909" v:mID="383" v:groupContext="shape">
 					<title>Sheet.383</title>
-					<clipPath id="clip-path922" clipPathUnits="userSpaceOnUse">
+					<clipPath id="clip-path910" clipPathUnits="userSpaceOnUse">
 						<rect x="0" y="618.886" width="144.367" height="76.2552"/>
 					</clipPath>
 					<image x="0" y="618.798" width="144.367" height="76.4077" preserveAspectRatio="none"
-							clip-path="url(#clip-path922)" overflow="hidden" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANS
+							clip-path="url(#clip-path910)" overflow="hidden" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANS
 								UhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAA
 								Gu3SURBVHhe7d3BkeNImibsFqE02LKRoATYw4iQt/9aIrQZBdgSIQXYQx1WgLzunlqEFCE1mLJRoH/zGrAnyh0RQcL9dTjJ5
 								/CYdX+VEXDAQTD4vXTgb//85z//BgAAAAAAAGlNAQAAAAAAABKaAgAAAAAAACQ0BQAAAAAAAEhoCgAAAAAAAJDQFAAAAAAAA
@@ -3175,16 +3148,16 @@
 								w8aGiK+5Pn7SwAAAABJRU5ErkJggg=="/>
 				</g>
 			</g>
-			<g id="group384-923" transform="translate(837.497,-653.998)" v:mID="384" v:groupContext="group">
+			<g id="group384-911" transform="translate(837.497,-653.998)" v:mID="384" v:groupContext="group">
 				<title>Sheet.384</title>
-				<g id="group385-924" transform="translate(8.3448,0)" v:mID="385" v:groupContext="group">
+				<g id="group385-912" transform="translate(8.3448,0)" v:mID="385" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock</title>
-					<g id="shape386-925" v:mID="386" v:groupContext="shape">
+					<g id="shape386-913" v:mID="386" v:groupContext="shape">
 						<title>Sheet.386</title>
 						<rect x="0" y="686.199" width="11.4336" height="8.9568" class="st1"/>
 						<rect x="0" y="686.199" width="11.4336" height="8.9568" class="st2"/>
 					</g>
-					<g id="shape387-928" v:mID="387" v:groupContext="shape">
+					<g id="shape387-916" v:mID="387" v:groupContext="shape">
 						<title>Sheet.387</title>
 						<path d="M0 688.63 C0.86 689.17 2.25 689.76 3.78 689.76 C5.13 689.76 6.38 689.36 7.41 688.68 a0.05625 0.05625
 									 0 0 1 0.0309019 -0.00917879 C7.45 688.68 7.47 688.68 7.47 688.68 L11.09 686.41 a0.225 0.225
@@ -3192,14 +3165,14 @@
 									 694.93 9.58 694.62 a0.225 0.225 0 0 1 -0.00104581 -0.000648978 L0 688.63 Z" class="st71"/>
 					</g>
 				</g>
-				<g id="group388-930" transform="translate(0,-5.3928)" v:mID="388" v:groupContext="group">
+				<g id="group388-918" transform="translate(0,-5.3928)" v:mID="388" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock.388</title>
-					<g id="shape389-931" v:mID="389" v:groupContext="shape">
+					<g id="shape389-919" v:mID="389" v:groupContext="shape">
 						<title>Sheet.389</title>
 						<rect x="0" y="665.412" width="19.7568" height="29.7504" class="st1"/>
 						<rect x="0" y="665.412" width="19.7568" height="29.7504" class="st2"/>
 					</g>
-					<g id="shape390-934" v:mID="390" v:groupContext="shape">
+					<g id="shape390-922" v:mID="390" v:groupContext="shape">
 						<title>Sheet.390</title>
 						<path d="M17.24 666.49 L0.76 685.08 a0.225 0.225 -180 0 0 -0.00102159 0.00116087 C-0.5 686.52 -0.18 688.68
 									 1.48 689.71 C1.48 689.71 7.6 693.54 8.32 693.99 a0.225 0.225 0 0 1 0.00111999 0.000699796 C9.18
@@ -3210,28 +3183,28 @@
 									 Z" class="st72"/>
 					</g>
 				</g>
-				<g id="group391-936" transform="translate(10.1808,-8.9424)" v:mID="391" v:groupContext="group">
+				<g id="group391-924" transform="translate(10.1808,-8.9424)" v:mID="391" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock.391</title>
-					<g id="shape392-937" v:mID="392" v:groupContext="shape">
+					<g id="shape392-925" v:mID="392" v:groupContext="shape">
 						<title>Sheet.392</title>
 						<rect x="0" y="678.344" width="9.5832" height="16.7904" class="st1"/>
 						<rect x="0" y="678.344" width="9.5832" height="16.7904" class="st2"/>
 					</g>
-					<g id="shape393-940" v:mID="393" v:groupContext="shape">
+					<g id="shape393-928" v:mID="393" v:groupContext="shape">
 						<title>Sheet.393</title>
 						<path d="M0.13 689.23 L0.13 689.23 a0.225 0.225 -180 0 0 0.00790875 0.00517084 L9.24 694.92 a0.225 0.225
 									 -180 0 0 0.344145 -0.190865 L9.58 678.94 a0.225 0.225 -180 0 0 -0.393297 -0.149336 L0.11 689.02
 									 a0.141959 0.141959 -180 0 0 0.0260216 0.21138 Z" class="st73"/>
 					</g>
 				</g>
-				<g id="group394-942" transform="translate(19.7568,-0.0072)" v:mID="394" v:groupContext="group">
+				<g id="group394-930" transform="translate(19.7568,-0.0072)" v:mID="394" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock.394</title>
-					<g id="shape395-943" v:mID="395" v:groupContext="shape">
+					<g id="shape395-931" v:mID="395" v:groupContext="shape">
 						<title>Sheet.395</title>
 						<rect x="0" y="666.881" width="19.7568" height="28.26" class="st1"/>
 						<rect x="0" y="666.881" width="19.7568" height="28.26" class="st2"/>
 					</g>
-					<g id="shape396-946" v:mID="396" v:groupContext="shape">
+					<g id="shape396-934" v:mID="396" v:groupContext="shape">
 						<title>Sheet.396</title>
 						<path d="M18.27 684.34 C19.89 683.31 20.25 681.15 18.99 679.71 a0.225 0.225 -180 0 0 -0.000980426 -0.00111461
 									 L8.23 667.55 a0.225 0.225 -180 0 0 -0.0780813 -0.0568931 C7.26 667.11 6.28 666.88 5.31 666.88
@@ -3242,55 +3215,55 @@
 									 -0.00476505 L18.27 684.34 a0.225 0.225 -180 0 0 0.000924439 -0.000581964 Z" class="st74"/>
 					</g>
 				</g>
-				<g id="group397-948" transform="translate(19.7496,-25.7328)" v:mID="397" v:groupContext="group">
+				<g id="group397-936" transform="translate(19.7496,-25.7328)" v:mID="397" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock.397</title>
-					<g id="shape398-949" v:mID="398" v:groupContext="shape">
+					<g id="shape398-937" v:mID="398" v:groupContext="shape">
 						<title>Sheet.398</title>
 						<rect x="0" y="685.76" width="8.1936" height="9.4032" class="st1"/>
 						<rect x="0" y="685.76" width="8.1936" height="9.4032" class="st2"/>
 					</g>
-					<g id="shape399-952" v:mID="399" v:groupContext="shape">
+					<g id="shape399-940" v:mID="399" v:groupContext="shape">
 						<title>Sheet.399</title>
 						<path d="M0 685.99 L0 695.16 C0 695.16 0.22 694.85 0.22 694.85 C1.44 693.5 3.24 692.6 5.31 692.6 C6.02 692.6
 									 6.69 692.73 7.33 692.94 a0.225 0.225 -180 0 0 0.238694 -0.363043 L2.52 686.88 C1.9 686.18 1.09
 									 685.82 0.24 685.77 a0.225 0.225 -180 0 0 -0.23981 0.224512 Z" class="st75"/>
 					</g>
 				</g>
-				<g id="group400-954" transform="translate(19.7568,-8.9424)" v:mID="400" v:groupContext="group">
+				<g id="group400-942" transform="translate(19.7568,-8.9424)" v:mID="400" v:groupContext="group">
 					<title>com.lucidchart.FreehandBlock.400</title>
-					<g id="shape401-955" v:mID="401" v:groupContext="shape">
+					<g id="shape401-943" v:mID="401" v:groupContext="shape">
 						<title>Sheet.401</title>
 						<rect x="0" y="678.351" width="9.5832" height="16.7832" class="st1"/>
 						<rect x="0" y="678.351" width="9.5832" height="16.7832" class="st2"/>
 					</g>
-					<g id="shape402-958" v:mID="402" v:groupContext="shape">
+					<g id="shape402-946" v:mID="402" v:groupContext="shape">
 						<title>Sheet.402</title>
 						<path d="M9.41 688.95 L0.39 678.79 a0.225 0.225 -180 0 0 -0.393297 0.149336 L0 694.73 a0.225 0.225 -180 0
 									 0 0.34416 0.190856 L9.36 689.29 a0.225 0.225 -180 0 0 0.0491375 -0.340192 Z" class="st76"/>
 					</g>
 				</g>
 			</g>
-			<g id="group403-960" transform="translate(822.002,-619.999)" v:mID="403" v:groupContext="group">
+			<g id="group403-948" transform="translate(822.002,-619.999)" v:mID="403" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.403</title>
 				<desc>Microsoft Entra ID</desc>
-				<g id="shape404-961" v:mID="404" v:groupContext="shape">
+				<g id="shape404-949" v:mID="404" v:groupContext="shape">
 					<title>Sheet.404</title>
 					<rect x="0" y="664.642" width="70.8768" height="30.5064" class="st1"/>
 					<rect x="0" y="664.642" width="70.8768" height="30.5064" class="st2"/>
 				</g>
-				<g id="shape405-964" v:mID="405" v:groupContext="shape">
+				<g id="shape405-952" v:mID="405" v:groupContext="shape">
 					<title>Sheet.405</title>
 					<rect x="0" y="664.642" width="70.8768" height="30.5064" rx="0.225" ry="0.225" class="st14"/>
 				</g>
-				<g id="shape403-966" v:mID="403" v:groupContext="groupContent">
+				<g id="shape403-954" v:mID="403" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="35.4672" cy="680.115" width="63" height="22.9536"/>
 					<text x="10.28" y="676.51" class="st77" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 								x="14.42" dy="1.2em" class="st16">Entra ID</tspan></text>				</g>
 			</g>
-			<g id="group406-969" transform="translate(459.065,-445.738)" v:mID="406" v:groupContext="group">
+			<g id="group406-957" transform="translate(459.065,-445.738)" v:mID="406" v:groupContext="group">
 				<title>FreehandBlock.406</title>
-				<g id="shape407-970" v:mID="407" v:groupContext="shape">
+				<g id="shape407-958" v:mID="407" v:groupContext="shape">
 					<title>Sheet.407</title>
 					<path d="M-0 599.71 a0.351898 0.351898 0 0 1 0.367598 -0.357695 a0.3735 0.3735 -180 0 0 0.0167214 0.00037449
 								 L103.14 599.35 a0.3735 0.3735 -180 0 0 0.00656683 -5.7733E-05 a0.351482 0.351482 0 0 1 0.357489
@@ -3300,7 +3273,7 @@
 								 a0.3735 0.3735 -180 0 0 0.000105207 -0.00886446 L0 599.72 a0.3735 0.3735 -180 0 0 -5.70463E-05 -0.00652766
 								 Z" class="st1"/>
 				</g>
-				<g id="shape408-973" v:mID="408" v:groupContext="shape">
+				<g id="shape408-961" v:mID="408" v:groupContext="shape">
 					<title>Sheet.408</title>
 					<path d="M0 694.76 a0.401513 0.401513 -180 0 0 0.360546 0.381651 a0.225 0.225 -180 0 0 0.0227041 0.00115163 L103.13
 								 695.16 a0.225 0.225 -180 0 0 0.0154267 -0.000527308 a0.376542 0.376542 -180 0 0 0.350646 -0.385639
@@ -3311,9 +3284,9 @@
 							class="st39"/>
 				</g>
 			</g>
-			<g id="group409-975" transform="translate(459.065,-340.193)" v:mID="409" v:groupContext="group">
+			<g id="group409-963" transform="translate(459.065,-340.193)" v:mID="409" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.409</title>
-				<g id="shape410-976" v:mID="410" v:groupContext="shape">
+				<g id="shape410-964" v:mID="410" v:groupContext="shape">
 					<title>Sheet.410</title>
 					<path d="M-0 599.7 a0.351898 0.351898 0 0 1 0.367598 -0.357695 a0.3735 0.3735 -180 0 0 0.0167214 0.00037449 L103.14
 								 599.35 a0.3735 0.3735 -180 0 0 0.00652766 -5.70463E-05 a0.351898 0.351898 0 0 1 0.357695 0.367598
@@ -3323,7 +3296,7 @@
 								 -180 0 0 0.000105207 -0.00886446 L0 599.71 a0.3735 0.3735 -180 0 0 -5.70463E-05 -0.00652766 Z"
 							class="st1"/>
 				</g>
-				<g id="shape411-979" v:mID="411" v:groupContext="shape">
+				<g id="shape411-967" v:mID="411" v:groupContext="shape">
 					<title>Sheet.411</title>
 					<path d="M0 694.75 a0.416135 0.416135 -180 0 0 0.354395 0.384992 a0.225 0.225 -180 0 0 0.0328881 0.00242126 L103.13
 								 695.16 a0.225 0.225 -180 0 0 0.0154267 -0.000527308 a0.376542 0.376542 -180 0 0 0.350646 -0.385639
@@ -3334,9 +3307,9 @@
 							class="st39"/>
 				</g>
 			</g>
-			<g id="group412-981" transform="translate(829.807,-291.492)" v:mID="412" v:groupContext="group">
+			<g id="group412-969" transform="translate(829.807,-291.492)" v:mID="412" v:groupContext="group">
 				<title>com.lucidchart.UserImage2Block</title>
-				<g id="shape413-982" v:mID="413" v:groupContext="shape">
+				<g id="shape413-970" v:mID="413" v:groupContext="shape">
 					<title>Sheet.413</title>
 					<image x="0" y="658.407" width="36.7344" height="36.7344" preserveAspectRatio="none" xlink:href="data:image/png;base64,
 								iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAYAAAB91L6VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAA
@@ -3840,37 +3813,37 @@
 								x+PxeDwej8fj8Xg8Ho9nrv1/ebI2qcqC5f4AAAAASUVORK5CYII="/>
 				</g>
 			</g>
-			<g id="group414-984" transform="translate(791.438,-272.851)" v:mID="414" v:groupContext="group">
+			<g id="group414-972" transform="translate(791.438,-272.851)" v:mID="414" v:groupContext="group">
 				<title>com.lucidchart.MinimalTextBlock</title>
 				<desc>Azure Managed Redis</desc>
-				<g id="shape415-985" v:mID="415" v:groupContext="shape">
+				<g id="shape415-973" v:mID="415" v:groupContext="shape">
 					<title>Sheet.415</title>
 				</g>
-				<g id="shape414-987" v:mID="414" v:groupContext="groupContent">
+				<g id="shape414-975" v:mID="414" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="56.25" cy="681.414" width="112.5" height="27.4536"/>
 					<text x="3.23" y="684.16" class="st15" v:langID="1033"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Azure Managed Redis</text>				</g>
 			</g>
-			<g id="shape416-989" v:mID="416" v:groupContext="shape" transform="translate(714.348,-298.274)">
+			<g id="shape416-977" v:mID="416" v:groupContext="shape" transform="translate(716.695,-320.823)">
 				<title>com.lucidchart.Line</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L116.5 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L117 686.14" class="st68"/>
+				<path d="M0 702.18 L13 702.18 a0.4995 0.4995 0 0 1 0.4995 0.4995 L13.5 705.61 a0.4995 0.4995 -180 0 0 0.4995 0.4995
+							 L113.11 706.1" class="st68"/>
 			</g>
-			<g id="group417-992" transform="translate(586.498,-289.771)" v:mID="417" v:groupContext="group">
+			<g id="group417-980" transform="translate(586.498,-289.771)" v:mID="417" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.417</title>
-				<g id="shape418-993" v:mID="418" v:groupContext="shape">
+				<g id="shape418-981" v:mID="418" v:groupContext="shape">
 					<title>Sheet.418</title>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st1"/>
 					<rect x="0" y="660.308" width="34.92" height="34.8336" class="st2"/>
 				</g>
-				<g id="shape419-996" v:mID="419" v:groupContext="shape">
+				<g id="shape419-984" v:mID="419" v:groupContext="shape">
 					<title>Sheet.419</title>
 					<path d="M28.22 691.49 C20.56 697.39 9.58 695.99 3.64 688.39 a0.225 0.225 0 0 1 -0.000957079 -0.00123405 C-2.25
 								 680.74 -0.86 669.8 6.8 663.91 L6.92 663.78 a0.225 0.225 0 0 1 0.0254246 -0.0218876 C14.73 658.01
 								 25.66 659.64 31.41 667.33 a0.225 0.225 -180 0 0 0.000715156 0.000951147 C37.12 674.89 35.68 685.64
 								 28.22 691.49 a0.225 0.225 0 0 1 -0.00135623 0.00105332 Z" class="st51"/>
 				</g>
-				<g id="shape420-999" v:mID="420" v:groupContext="shape">
+				<g id="shape420-987" v:mID="420" v:groupContext="shape">
 					<title>Sheet.420</title>
 					<path d="M13.36 663.32 C12.24 664.99 11.3 666.88 10.76 668.81 C9.4 668.55 8.06 668.01 6.84 667.24 C8.64 665.39
 								 10.9 664.09 13.36 663.32 L21.1 663.32 C23.76 663.95 26.14 665.3 28.12 667.19 C26.73 668.01 25.2
@@ -3922,7 +3895,7 @@
 								 661.93 1.66 668.99 1.66 677.68 C1.66 686.41 8.78 693.47 17.5 693.47 C26.24 693.47 33.3 686.41 33.3
 								 677.68 C33.3 668.99 26.24 661.93 17.5 661.93" class="st4"/>
 				</g>
-				<g id="shape421-1003" v:mID="421" v:groupContext="shape">
+				<g id="shape421-991" v:mID="421" v:groupContext="shape">
 					<title>Sheet.421</title>
 					<path d="M8.32 674.17 C8.55 674.17 8.82 674.17 9 674.21 C9.14 674.17 9.27 674.17 9.45 674.17 C9.54 674.17 9.63
 								 674.17 9.72 674.17 C11.43 674.35 12.69 675.83 12.56 677.5 C12.56 677.81 12.56 678.04 12.56 678.31
@@ -3963,29 +3936,24 @@
 								 C26.14 673.22 26.1 673.22 26.06 673.22 C25.96 673.22 25.96 673.22 25.88 673.22" class="st4"/>
 				</g>
 			</g>
-			<g id="shape422-1006" v:mID="422" v:groupContext="shape" transform="translate(626.414,-297.648)">
-				<title>com.lucidchart.Line.422</title>
-				<path d="M0 686.14 L0 699.14 a0.4995 0.4995 -180 0 0 0.4995 0.4995 L54.63 699.64 a0.4995 0.4995 -180 0 0 0.4995 -0.4995
-							 L55.13 686.14" class="st69"/>
-			</g>
-			<g id="group423-1009" transform="translate(683.698,-298.476)" v:mID="423" v:groupContext="group">
+			<g id="group423-994" transform="translate(683.698,-298.476)" v:mID="423" v:groupContext="group">
 				<title>com.lucidchart.FreehandBlock.423</title>
-				<g id="shape424-1010" v:mID="424" v:groupContext="shape">
+				<g id="shape424-995" v:mID="424" v:groupContext="shape">
 					<title>Sheet.424</title>
 					<rect x="0" y="664.52" width="32.9832" height="30.6432" class="st1"/>
 					<rect x="0" y="664.52" width="32.9832" height="30.6432" class="st2"/>
 				</g>
-				<g id="shape425-1013" v:mID="425" v:groupContext="shape">
+				<g id="shape425-998" v:mID="425" v:groupContext="shape">
 					<title>Sheet.425</title>
 					<rect x="15.1632" y="667.94" width="2.0304" height="12.96" class="st66"/>
 				</g>
-				<g id="shape426-1015" v:mID="426" v:groupContext="shape">
+				<g id="shape426-1000" v:mID="426" v:groupContext="shape">
 					<title>Sheet.426</title>
 					<path d="M19.17 667.53 C19.17 669.2 17.82 670.55 16.16 670.55 C14.49 670.55 13.14 669.2 13.14 667.53 C13.14 665.87
 								 14.49 664.52 16.16 664.52 C17.82 664.52 19.17 665.87 19.17 667.53 C19.17 667.53 19.17 667.53 19.17
 								 667.53 Z" class="st10"/>
 				</g>
-				<g id="shape427-1017" v:mID="427" v:groupContext="shape">
+				<g id="shape427-1002" v:mID="427" v:groupContext="shape">
 					<title>Sheet.427</title>
 					<path d="M15.75 680.22 L12.42 680.22 C10.44 680.27 8.78 681.66 8.46 683.64 C8.06 685.89 9.58 688.05 11.84 688.41
 								 C11.74 687.87 11.74 687.38 11.84 686.88 C10.44 686.52 9.58 685.17 9.9 683.73 C10.17 682.56 11.2
@@ -3994,7 +3962,7 @@
 								 688.46 L15.75 688.46 C15.8 688.46 15.88 688.46 15.93 688.46 C18.22 688.41 19.98 686.52 19.98 684.27
 								 C19.89 681.98 18 680.18 15.75 680.22 Z" class="st67"/>
 				</g>
-				<g id="shape428-1020" v:mID="428" v:groupContext="shape">
+				<g id="shape428-1005" v:mID="428" v:groupContext="shape">
 					<title>Sheet.428</title>
 					<path d="M20.48 683.73 C20.52 683.91 20.56 684.14 20.56 684.32 C20.56 684.68 20.52 684.95 20.48 685.26 C21.82
 								 685.58 22.72 686.97 22.41 688.32 C22.14 689.58 21.1 690.35 19.84 690.35 L16.56 690.35 C15.12 690.35
@@ -4003,7 +3971,7 @@
 								 687.65 C12.51 689.98 14.31 691.83 16.56 691.88 L19.84 691.88 C21.87 691.88 23.58 690.44 23.9 688.46
 								 C24.26 686.21 22.72 684.09 20.48 683.73 Z" class="st67"/>
 				</g>
-				<g id="shape429-1023" v:mID="429" v:groupContext="shape">
+				<g id="shape429-1008" v:mID="429" v:groupContext="shape">
 					<title>Sheet.429</title>
 					<path d="M10.19 693.66 L9.46 694.4 a0.225 0.225 0 0 1 -0.00503693 0.00492766 C9.27 694.58 8.97 694.58 8.75 694.41
 								 a0.225 0.225 0 0 1 -0.0217407 -0.0192014 L0.32 685.94 C-0.09 685.53 -0.09 684.9 0.31 684.5 a0.225
@@ -4011,19 +3979,19 @@
 								 692.87 C10.44 693.05 10.44 693.4 10.22 693.59 L10.22 693.59 a0.10499 0.10499 0 0 1 -0.0304033 0.0738901
 								 Z" class="st11"/>
 				</g>
-				<g id="shape430-1025" v:mID="430" v:groupContext="shape">
+				<g id="shape430-1010" v:mID="430" v:groupContext="shape">
 					<title>Sheet.430</title>
 					<path d="M9.36 676.17 L10.17 677.03 C10.35 677.21 10.35 677.57 10.17 677.79 L1.17 686.79 L0.32 685.94 C-0.09
 								 685.58 -0.09 684.9 0.32 684.5 L8.6 676.17 C8.82 675.99 9.09 675.99 9.32 676.17 C9.32 676.17 9.32
 								 676.17 9.36 676.17 Z" class="st10"/>
 				</g>
-				<g id="shape431-1027" v:mID="431" v:groupContext="shape">
+				<g id="shape431-1012" v:mID="431" v:groupContext="shape">
 					<title>Sheet.431</title>
 					<path d="M31.95 684.36 L22.77 693.5 C22.59 693.72 22.59 693.99 22.77 694.22 L23.54 694.98 C23.62 695.07 23.76
 								 695.16 23.9 695.16 C24.03 695.16 24.16 695.07 24.26 694.98 L32.72 686.57 C33.12 686.16 33.12 685.53
 								 32.72 685.08 L31.95 684.36 Z" class="st11"/>
 				</g>
-				<g id="shape432-1029" v:mID="432" v:groupContext="shape">
+				<g id="shape432-1014" v:mID="432" v:groupContext="shape">
 					<title>Sheet.432</title>
 					<path d="M24.44 676.8 L32.72 685.08 C33.12 685.53 33.12 686.16 32.72 686.57 L31.86 687.38 L22.82 678.38 C22.64
 								 678.2 22.64 677.84 22.82 677.61 L23.72 676.8 C23.9 676.58 24.21 676.58 24.44 676.8 Z" class="st10"/>
