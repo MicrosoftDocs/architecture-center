@@ -92,7 +92,7 @@ There are several noteworthy approaches that you can use to compensate for issue
 
 - **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach might require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function might be necessary until the issues are resolved.
 
-- **Drop messages:** If messages aren't important or are considered non-mission critical, consider moving on and not processing them. This approach doesn't work for scenarios that require strong consistency such as recording moves in a chess match or finance-based transactions. Error handling inside of a function is recommended for catching and dropping messages that can't be processed.
+- **Drop messages:** If messages aren't important or mission critical, consider discarding them instead of processing them. This approach doesn't work for scenarios that require strong consistency such as recording moves in a chess match or finance-based transactions. Error handling inside of a function is recommended for catching and dropping messages that can't be processed.
 
 - **Retry:** There are many situations that might warrant the reprocessing of an event. The most common scenario would be a transient error encountered when calling another service or dependency. Network errors, service limits and availability, and strong consistency are perhaps the most frequent use cases that justify reprocessing attempts.
 

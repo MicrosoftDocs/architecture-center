@@ -128,7 +128,7 @@ Cassandra natively supports the concept of multiple datacenters, making it easy 
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
-It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region When you use LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
+It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when you use LOCAL_QUORUM write consistency, or significantly decreased performance of writes when you use EACH_QUORUM.
 
 When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/4.0/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](https://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 

@@ -69,7 +69,7 @@ You also need to enable integration of AD FS and Microsoft Entra multifactor aut
 
 ## Scenario details
 
-Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
+Enterprise messaging infrastructure (EMI) is a key service for organizations. The move from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
 
 This article describes an architecture to enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.
 
