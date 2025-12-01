@@ -141,7 +141,7 @@ AKS cluster can be configured with API Server VNet Integration that projects the
 
 This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
-- Your Azure virtual network, which is used for resources like cluster nodes, private endpoints, and Application Gateway.
+- Your Azure virtual network, which is used for resources like cluster nodes, private cluster, private endpoints, and Application Gateway.
 - The cluster uses [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
 
 ### Virtual network IP address space
@@ -157,6 +157,8 @@ The address space of your Azure virtual network should be large enough to hold a
   Because this architecture uses Azure CNI Overlay, the scalability of your pods doesn't affect your virtual network's address space.
 
 - **Private Link addresses:** Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
+
+- **Private Cluster API Server addresses:** API Server VNet Integration allows you to place the control-plane endpoint inside your virtual network. Be aware that this feature requires a minimum subnet size, so ensure you meet these prerequisites during your network planning.
 
 - **Reserved IP addresses:** Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
 
