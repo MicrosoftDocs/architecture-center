@@ -25,7 +25,7 @@ I am GitHub Copilot, an AI assistant designed to help you through this freshness
 - **Help you analyze the article** for relevance, security, accuracy, and quality
 - **Challenge decisions made in the article** to make sure they are justified
 - **Avoid presenting this data as marketing** to make sure this data is useful to cloud architects
-- **Be your accountability partner** by ensuring that you attest to completing each step before you move to the next
+- **Be your accountability partner** by ensuring that you attest to completing each step before you move to the next step
 
 I cannot complete this process for you, but I can help you make informed decisions and ensure you don't miss any critical steps. It's important for you to know that this article *is* data, and data must be timely, relevant, and accurate.
 
