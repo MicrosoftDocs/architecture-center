@@ -472,7 +472,7 @@ This section summarizes some common use cases for these data types and commands.
 
 ### Perform atomic and batch operations
 
-Redis supports a series of atomic get-and-set operations on string values. These operations remove the possible race hazards that might occur when using separate `GET` and `SET` commands. The operations that are available include:
+Redis supports a series of atomic get-and-set operations on string values. These operations remove the possible race hazards that might occur when you use separate `GET` and `SET` commands. The operations that are available include:
 
 - `INCR`, `INCRBY`, `DECR`, and `DECRBY`, which perform atomic increment and decrement operations on integer numeric data values. The StackExchange library provides overloaded versions of the `IDatabase.StringIncrementAsync` and `IDatabase.StringDecrementAsync` methods to perform these operations and return the resulting value that is stored in the cache. The following code snippet illustrates how to use these methods:
 

@@ -631,7 +631,7 @@ items:
         items:
         - name: SAP S/4 HANA for Large Instances
           href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
-        - name: SAP workload automation using SUSE
+        - name: SAP workload automation by using SUSE
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
     items:
@@ -771,7 +771,7 @@ items:
         items:
         - name: Azure Arc solutions
           items:
-          - name: Manage Kubernetes using Azure Arc
+          - name: Manage Kubernetes by using Azure Arc
             href: hybrid/arc-hybrid-kubernetes.yml
           - name: Deploy an Azure Arc-enabled SQL managed instance for DR
             href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
@@ -1036,7 +1036,7 @@ items:
         href: hybrid/hybrid-file-services.yml
       - name: Mainframe
         items:
-        - name: Mainframe file and tape backup to Azure using Luminex
+        - name: Mainframe file and tape backup to Azure by using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Mainframe file replication on Azure
           href: solution-ideas/articles/mainframe-azure-file-replication.yml

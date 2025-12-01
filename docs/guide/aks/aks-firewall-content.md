@@ -132,7 +132,7 @@ For more information, see:
 - [Restrict egress traffic from an AKS cluster using Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall)
 - [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb)
 
-### Deploy workloads to a private AKS cluster when using Azure DevOps
+### Deploy workloads to a private AKS cluster when you use Azure DevOps
 
 If you use [Azure DevOps](/azure/devops), note that you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster. They don't have access to its API server. To deploy workloads to your private AKS cluster, you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?tabs=browser#install) in the same virtual network as your private AKS cluster, or in a peered virtual network. In the latter case, be sure to create a virtual network link between the private DNS zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent.
 

@@ -1,6 +1,6 @@
 ---
 title: Guidance for using Azure Private Link service in a multitenant solution
-description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+description: This article describes the features of Azure Private Link that are useful when you work with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: pnp
 ms.date: 07/11/2025

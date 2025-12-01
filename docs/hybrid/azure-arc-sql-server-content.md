@@ -68,7 +68,7 @@ Azure Arc enabled SQL Managed Instance becomes a containerized deployment runnin
 - Azure Arc enabled data services on an Azure Arc-enabled Kubernetes cluster. Azure Arc-enabled Kubernetes supports a wide range of Kubernetes distributions hosted in cloud or on-premises environments on virtual or physical servers.
 - Azure Arc enabled data services on an AKS cluster hosted on an on-premises, physical Azure Local instance.
 
-Both options support equivalent SQL Server-related capabilities because these capabilities rely on the Azure Arc enabled data services layer. However, when using Azure Local, you should implement AKS because this simplifies the implementation and management of the Kubernetes infrastructure and its workloads.
+Both options support equivalent SQL Server-related capabilities because these capabilities rely on the Azure Arc enabled data services layer. However, when you use Azure Local, you should implement AKS because this simplifies the implementation and management of the Kubernetes infrastructure and its workloads.
 
 Azure Arc enabled SQL Managed Instance offers [near 100% compatibility][azure-arc-enabled-sql-mi-compatibility] with the latest SQL Server database engine. This facilitates lift and shift migrations to Azure Arc enabled data services with minimal application and database changes.
 <!--LM: Please check that "becomes" retains the meaning in the following paragraph.-->

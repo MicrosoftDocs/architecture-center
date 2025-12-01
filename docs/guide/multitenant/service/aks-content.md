@@ -241,7 +241,7 @@ The following sections describe security best practices for multitenant solution
 
 ### Cluster access
 
-When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when using tools such as [kubectl][kubectl], [Helm][helm], [Flux][flux], or [Argo CD][argo-cd].
+When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when you use tools such as [kubectl][kubectl], [Helm][helm], [Flux][flux], or [Argo CD][argo-cd].
 
 For more information about authentication and authorization with AKS, see the following articles:
 

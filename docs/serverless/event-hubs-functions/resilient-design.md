@@ -74,7 +74,7 @@ Without error handling, it can be tricky to implement retries, detect runtime ex
 
 Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts and exponential back off strategies are just a few of the considerations that make it challenging. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies-preview) that can make up for many of these tasks that you would typically code yourself.
 
-Several important factors that must be considered when using the retry policies with the Event Hub binding, include:
+Several important factors that must be considered when you use the retry policies with the Event Hub binding, include:
 
 - **Avoid indefinite retries:** When the [max retry count](/azure/azure-functions/functions-host-json#retry) setting is set to a value of -1, the function retries indefinitely. In general, indefinite retries should be used sparingly with Functions and almost never with the Event Hub trigger binding.
 

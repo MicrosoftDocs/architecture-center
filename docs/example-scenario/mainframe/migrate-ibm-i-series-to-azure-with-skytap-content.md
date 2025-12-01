@@ -52,7 +52,7 @@ The numbers in the diagram correspond to the following data flow.
 
 ## Scenario details
 
-The IBM System i family of midrange computers was first introduced in 1988 as the AS/400. Until now, your choice was to rearchitect iSeries applications before moving them to the cloud or maintain them on-premises or in a co-located facility—both expensive options.
+The IBM System i family of midrange computers was first introduced in 1988 as the AS/400. Until now, your choice was to rearchitect iSeries applications before you move them to the cloud or maintain them on-premises or in a co-located facility—both expensive options.
 
 In this example, a web app on Azure gives users a modern interface for the resources running in Skytap on Azure. You can continue to run critical components or systems of record (SOR) on IBM i on-premises. You can also migrate complete IBM i workloads and modernize them using native Azure services, such as advanced analytics and machine learning. In this type of all-cloud scenario, Skytap on Azure helps you optimize costs.
 

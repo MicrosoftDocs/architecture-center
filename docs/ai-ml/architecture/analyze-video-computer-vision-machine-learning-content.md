@@ -90,13 +90,13 @@ Many industries record video footage to detect the presence or absence of a spec
 
 A video recording can be separated into individual frames so that different technologies can analyze the images. An example of this technology is *computer vision*, which is the capability of a computer to identify objects and entities in an image.
 
-With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. By using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to continuously improve the model, you can achieve better results and adapt to changes in video data over time.
+With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. You can achieve better results and adapt to changes in video data over time by using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to continuously improve the model.
 
 ### Potential use cases
 
 This scenario is relevant for any business that analyzes videos. Consider the following sample use cases:
 
-- **Agriculture:** Monitor and analyze crops and soil conditions over time. By using drones or unmanned aerial vehicles (UAVs), farmers can record video footage for analysis.
+- **Agriculture:** Monitor and analyze crops and soil conditions over time. Farmers can record video footage for analysis by using drones or unmanned aerial vehicles (UAVs).
 
 - **Environmental sciences:** Analyze aquatic species to learn where they're located and how they evolve. Environmental researchers can navigate the shoreline and record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
 
