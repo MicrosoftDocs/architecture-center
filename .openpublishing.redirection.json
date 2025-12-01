@@ -7165,7 +7165,7 @@
     {
       "source_path": "docs/solution-ideas/articles/dfs-failover-cluster-vms.yml",
       "redirect_url": "/azure/storage/files/files-manage-namespaces",
-      "redirect_document_id": false    
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/hadoop/apache-hdfs-migration.yml",
