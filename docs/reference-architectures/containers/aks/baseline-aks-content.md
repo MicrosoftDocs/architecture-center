@@ -129,6 +129,10 @@ Create Private Link connections for the [Azure Container Registry](/azure/contai
 
 For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
+#### Subnet to host Azure AKS Api server
+
+AKS cluster can be configured with API Server VNet Integration that projects the API server endpoint IP directly into a delegated subnet. This ensures that all traffic between the API server, node pools, and connected clients stays entirely within the private network.
+
 ## Plan the IP addresses
 
 [ ![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.svg)](images/aks-baseline-network-topology.svg#lightbox)
