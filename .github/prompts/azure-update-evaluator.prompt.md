@@ -45,7 +45,7 @@ Generate a non-tabular report that summarizes updates found in the provided JSON
   
   **Example of most common use case:** {single paragraph with a realistic scenario you create. Bring this change into the context of a imaginary, but realistic workload.}
   
-  **Architecture perspective:** {Generate a paragraph focusing on benefits of this change to a workload. How would someone designing a workload change their design by using this data? Does this introduce any new trade-offs? Provide an example and justification for these workload design benefits and tradeoffs.}
+  **Architecture perspective:** {Generate a paragraph focusing on benefits of this change to a workload. How would someone designing a workload use this data to change their design? Does this introduce any new trade-offs? Provide an example and justification for these workload design benefits and tradeoffs.}
   
   **Product perspective:** {factual description of the change, without examples. Explain the change simply, such as with a "Before" and "After" approach.}
   
