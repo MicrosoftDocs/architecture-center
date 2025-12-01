@@ -143,4 +143,4 @@ Principal author:
 
 ## Related resources
 
--   [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
+- [Azure data platform end-to-end with Microsoft Fabric](../dataplate2e/data-platform-end-to-end.yml)

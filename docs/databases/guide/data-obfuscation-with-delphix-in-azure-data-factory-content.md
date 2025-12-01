@@ -216,4 +216,4 @@ Learn more about the key Azure services in this solution:
 
 - [ETL overview](/azure/architecture/data-guide/relational-data/etl)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-- [Analytics end-to-end with Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Analytics end-to-end with Microsoft Fabric](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
