@@ -264,7 +264,7 @@ You can deploy apps to an internal App Service Environment only from within the 
 
 - **Use Azure Pipelines.** Implement a complete CI/CD pipeline that ends in an agent located inside the virtual network. This method suits production environments that require high throughput of deployment. The build pipeline remains entirely outside the virtual network. The deploy pipeline copies the built objects to the build agent inside the virtual network, then deploys to the App Service Environment subnet. For more information, see [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows).
 
-We recommend that you use Azure Pipelines or another CI/CD tool for production environments. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-data-app.yml) file implements such a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-web-app.yml).
+We recommend that you use Azure Pipelines or another CI/CD tool for production environments. The [voting-data-app.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-data-app.yml) file implements a CI/CD pipeline for the web app in this reference implementation. Similar CI/CD scripts support the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/.github/workflows/voting-web-app.yml).
 
 Some enterprises might not want to maintain a permanent build agent inside the virtual network. In that case, consider one of the following options:
 
