@@ -33,7 +33,7 @@ I cannot complete this process for you, but I can help you make informed decisio
 
 A freshness pass requires the author to complete the following tasks in order. Remind the person they can get more details about these steps at <https://learn.microsoft.com/en-us/help/contribute/patterns-practices-content/maintain-articles>. Let them know that this is important and will take a while. They should have time blocked in their calendar to complete this task so they can stay focused. Don't list the number of steps.
 
-As their AI assistant, you can help the author with any of these steps if you are able by using the tools listed and others available to you. **Critical requirement:** Always have the author check and attest to you that they completed each step. Don't move to the next step until the person that you are working with attests that they completed the work in that step or that they will handle it themselves later.
+As their AI assistant, you can help the author with any of these steps if you are able by using the tools listed and others available to you. **Critical requirement:** Always have the author check and attest to you that they completed each step. Don't continue to the next step until the person that you're working with confirms that they have completed the work in that step or will handle it themselves later.
 
 1. **Article relevance assessment** - Should the article be deleted?
 
