@@ -111,7 +111,7 @@ The Atlas function is coded to invoke an Azure function that writes the change d
 
 The Azure function uses a storage key for authentication. You can also use Microsoft Entra ID OAuth implementations. The `storage_account_key` and other attributes related to Dake Lake Storage are fetched from the configured OS environment variables. After the request body is decoded, the `fullDocument` (the entire inserted or updated document) is parsed from the request body and then written to Data Lake Storage by the Data Lake client functions `append_data` and `flush_data`.
 
-For a delete operation, `fullDocumentBeforeChange` is used instead of `fullDocument`. `fullDocument` doesn't have any value in a delete operation, so the code fetches the document that was deleted, which is captured in `fullDocumentBeforeChange`. Note that `fullDocumentBeforeChange` is only populated when the **Document Preimage** setting is set to on, as shown in the previous screenshot.
+For a delete operation, `fullDocumentBeforeChange` is used instead of `fullDocument`. `fullDocument` doesn't have any value in a delete operation, so the code fetches the document that was deleted, which is captured in `fullDocumentBeforeChange`. The `fullDocumentBeforeChange` field is only populated when the **Document Preimage** setting is set to on, as shown in the previous screenshot.
 
 ```javascript
 import json

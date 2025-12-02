@@ -108,7 +108,7 @@ The sample receives the PDF forms, extracts the data fields, and saves the data 
 
 You can use the repository as is, without code modification, to process and visualize any single-page PDF forms such as safety forms, invoices, incident records, and many others. To use it, you only need to collect sample PDF forms, train a new model to learn the layout of the forms, and plug the model into the solution. You also need to redesign the Power BI report for your datasets so that it provides the insights that you want.
 
-The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The sample uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
+The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The sample uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process various forms.
 
 ### Deployment repository
 

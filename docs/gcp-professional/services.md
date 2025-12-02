@@ -13,7 +13,7 @@ ms.collection:
 
 # Google Cloud to Azure services comparison
 
-This article helps you understand how Microsoft Azure services compare to Google Cloud. (Note that Google Cloud used to be called the Google Cloud Platform (GCP).) Whether you are planning a multi-cloud solution with Azure and Google Cloud, or migrating to Azure, you can compare the IT capabilities of Azure and Google Cloud services in all the technology categories.
+This article helps you understand how Microsoft Azure services compare to Google Cloud. Google Cloud was formerly known as *Google Cloud Platform (GCP)*. Whether you are planning a multi-cloud solution with Azure and Google Cloud, or migrating to Azure, you can compare the IT capabilities of Azure and Google Cloud services in all the technology categories.
 
 This article compares services that are roughly comparable. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 

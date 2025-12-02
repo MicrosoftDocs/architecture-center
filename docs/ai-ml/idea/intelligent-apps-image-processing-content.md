@@ -16,7 +16,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 2. Event Grid sends a notification that triggers the Azure functions.
 3. Azure Functions calls the Azure AI Vision API to analyze the newly uploaded image. Azure AI Vision accesses the image via the blob URL that's parsed by Azure Functions.
 4. Azure Functions persists the AI Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
-5. The results can be consumed and reflected on the web or mobile front end. Note that this approach retrieves the results of the classification but not the uploaded image.
+5. The results can be consumed and reflected on the web or mobile front end. This approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
