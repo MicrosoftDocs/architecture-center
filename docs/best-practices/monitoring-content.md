@@ -230,7 +230,7 @@ Typical high-level indicators that can be depicted visually include:
 
 All of these indicators should be capable of being filtered by a specified period of time.
 
-A cloud application likely comprises a number of subsystems and components. An operator should be able to select a high-level indicator and see how it's composed from the health of the underlying elements. For example, if the uptime of the overall system falls below an acceptable value, an operator should be able to zoom in and determine which elements are contributing to this failure.
+A cloud application likely comprises a number of subsystems and components. An operator should be able to select a high-level indicator and see how it's composed from the health of the underlying elements. For example, if the uptime of the overall system declines to an unacceptable value, an operator should be able to zoom in and determine which elements are contributing to this failure.
 
 > [!NOTE]
 > System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. (In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.)
@@ -638,7 +638,7 @@ The data that instrumentation captures can provide a snapshot of the system stat
 - Is it the result of a large number of database operations?
 - Is this reflected in the database response times, the number of transactions per second, and application response times at the same juncture?
 
-If so, one remedial action that might reduce the load might be to shard the data over more servers. In addition, exceptions can arise as a result of a fault in any level of the system. An exception in one level often triggers another fault in the level above.
+If so, one remedial action that might reduce the load might be to shard the data over more servers. In addition, exceptions can arise as a result of a fault in any level of the system. An exception in one level often triggers another fault in the previous level.
 
 For these reasons, you need to be able to correlate the different types of monitoring data at each level to produce an overall view of the state of the system and the applications that are running on it. You can then use this information to make decisions about whether the system is functioning acceptably or not, and determine what can be done to improve the quality of the system.
 

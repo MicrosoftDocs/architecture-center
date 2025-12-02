@@ -65,7 +65,7 @@ Consider the following examples:
 
 - Scale out to 10 instances on weekdays, and scale in to four instances on Saturday and Sunday.
 
-- Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
+- Scale out by one instance if average CPU usage is higher than 70%, and scale in by one instance if CPU usage falls beneath 50%.
 - Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
 
 Scale up the resource when load increases to ensure availability. At times of low usage, scale down so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile.
@@ -84,7 +84,7 @@ Consider the following points when using autoscaling:
 
 - It's often difficult to understand the relationship between metrics and capacity requirements, especially when an application is initially deployed. Configure a little extra capacity at the beginning, and then monitor and tune the autoscaling rules to bring the capacity closer to the actual load.
 
-- Configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling isn't an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding or falling below a specified threshold.
+- Configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling isn't an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding or falling beneath a specified threshold.
 
 - Autoscaling rules that use a detection mechanism based on a measured trigger attribute use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. Trigger attributes include CPU usage or queue length. By default, the aggregate is an average of the values. This approach prevents the system from reacting too quickly or causing rapid oscillation. It also allows time for new instances that are automatically started to settle into running mode. Other autoscaling actions can't occur while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes. So it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but periods of less than 25 minutes might cause unpredictable results. For the Web Apps feature of App Service, the averaging period is shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
 
@@ -126,7 +126,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 ### Other scaling criteria
 
-- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it's unnecessary to scale, even if the queue length is long.
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is beneath a meaningful business threshold, then it's unnecessary to scale, even if the queue length is long.
   - For example, there could be 50,000 messages in a queue. But the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a partner web service for sending out emails. Business stakeholders might not consider this scenario as urgent enough to justify the cost of scaling out.
 
   - On the other hand, there could be 500 messages in a queue, with the same 500-ms critical time. But the endpoint is part of the critical path in a real-time online game, where business stakeholders defined a 100-ms or less response time. In that case, scaling out makes sense.
