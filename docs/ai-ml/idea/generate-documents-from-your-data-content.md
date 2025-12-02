@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates a document generation solution that enables organizations to create intelligent structured and unstructured documents grounded in their enterprise data. The solution uses Azure AI Document Intelligence to identify relevant data, summarize information, and generate contextual content through conversational interactions. Users can generate documents based on this organizational knowledge and receive them in Word format.
+This architecture demonstrates a document generation solution that enables organizations to create intelligent structured and unstructured documents grounded in their enterprise data. The solution uses Foundry IQ to identify relevant data, summarize information, and generate contextual content through conversational interactions. Users can generate documents based on this organizational knowledge and receive them in Word format.
 
 The architecture combines retrieval, summarization, and generation with document persistence to support faster document creation workflows. The system enables user interaction through natural language and helps embed organizational knowledge directly into document processing workflows. It also caches generated content to avoid regeneration overhead and accelerate document creation.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
-   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and Azure AI Document Intelligence processes the files and indexes the content. The indexed content flows through App Service and then into Azure AI Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
+   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and Foundry IQ processes the files and indexes the content. The indexed content flows through App Service and then into Microsoft Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/generate-documents.vsdx) of this architecture.*
@@ -22,9 +22,9 @@ The following workflow corresponds to the previous diagram:
 
 1. An Azure Storage account receives and stores enterprise documents, including PDF files. It makes them available for downstream services to process and index. A storage account also stores the generated documents from user sessions later.
 
-1. Azure AI Document Intelligence creates searchable indexes from the processed and enriched documents, which enables semantic search capabilities and rapid information retrieval for document generation. Indexing skills might maintain the index in Azure AI Search.
+1. Foundry IQ creates searchable indexes from the processed and enriched documents, which enables semantic search capabilities and rapid information retrieval for document generation. Indexing skills might maintain the index in Azure AI Search.
 
-1. Azure AI Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDK. This process generates contextual documents based on user queries and organizational data.
+1. Microsoft Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDK. This process generates contextual documents based on user queries and organizational data.
 
 1. Azure App Service hosts the web front end where users interact with the system by using natural language to generate documents.
 
@@ -34,9 +34,9 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web front-end interface where users interact with their enterprise data through conversational AI functionality. App Service also generates DOCX files by using the docx React library and stores them in Storage for delivery. The interface enables both structured and unstructured document generation and DOCX export capabilities, which provides a responsive and intuitive user experience.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service (MaaS) for the Semantic Kernel-based agents to invoke.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
 
-- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/?view=doc-intel-4.0.0) is a cloud-based Azure AI service that uses machine learning models to automate data processing in applications and workflows. Azure AI Document Intelligence helps enhance data-driven strategies and enrich document search capabilities.
+- [Foundry IQ](/azure/search/search-what-is-azure-search) is a scalable search infrastructure that indexes heterogeneous content and enables retrieval through APIs, applications, and AI agents. The platform provides native integrations with Azure's AI stack (OpenAI, Microsoft Foundry, Machine Learning) and supports extensible architectures for third-party and open-source model integration.
 
 - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution optimized for storing massive amounts of unstructured data. In this architecture, a Storage account stores enterprise documents and reference materials, including PDF files, that provide the foundational knowledge base for the document generation process. A Storage account also stores generated documents for caching purposes.
 
@@ -90,7 +90,7 @@ This architecture includes multiple components that you can substitute with othe
 
 **Current approach:** Use custom AI-powered generation that includes enterprise data grounding and intelligent caching for both structured and unstructured documents.
 
-**Alternative approach:** Use Azure AI Document Intelligence with prebuilt forms for structured documents only, combined with traditional document management systems.
+**Alternative approach:** Use Azure AI Foundry IQ with prebuilt forms for structured documents only, combined with traditional document management systems.
 
 Consider the alternative if your workload primarily focuses on standardized forms that have minimal unstructured content requirements.
 
@@ -105,6 +105,22 @@ Pricing varies based on region and usage, so you can't predict exact costs for y
 ## Deploy this scenario
 
 To deploy an implementation of this architecture, follow the [deployment steps](https://github.com/microsoft/document-generation-solution-accelerator).
+
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal author:
+
+- [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
+
+Other contributor:
+
+- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Senior Software Engineer
+- [Anish Arora](https://www.linkedin.com/in/aniarora/) | Senior Software Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
