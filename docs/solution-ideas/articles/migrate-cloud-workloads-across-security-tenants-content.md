@@ -48,7 +48,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a software as a service (SaaS) analytics platform that unifies data integration, data engineering, data warehousing, real-time analytics, data science, and business intelligence. In this architecture, it provides an enterprise-scale analytics platform across migrated workloads by consolidating data pipelines, storage (OneLake), and analytical compute in the target tenant.
 
-- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that accelerates and manages the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you re-create in the target tenant.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a service that helps manage the machine learning project life cycle. In this architecture, it's part of the PaaS compute resources that you re-create in the target tenant.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you re-create it in the target tenant.
 
