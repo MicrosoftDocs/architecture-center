@@ -4,7 +4,7 @@ metadata:
   description: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
   ms.author: gapolyak
   author: galinagpolyakova
-  ms.date: 08/28/2024
+  ms.date: 12/05/2025
   ms.topic: concept-article
   ms.subservice: example-scenario
   ms.custom:
