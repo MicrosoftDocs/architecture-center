@@ -52,7 +52,7 @@ You can also combine the two approaches by using the automation script to do mos
 The `Configure-WSUSServer` script allows you to set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
 > [!NOTE]
-> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
+> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide range of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
 
 The latest version of this script is [available on GitHub](https://github.com/mspnp/wsus-configuration).
 
