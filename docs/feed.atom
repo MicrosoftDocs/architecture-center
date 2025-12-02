@@ -849,7 +849,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Mainframe file and tape backup to Azure using Luminex]]></title>
+        <title type="html"><![CDATA[Back up mainframe file and tape to Azure by using Luminex]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer"/>
         <updated>2025-09-19T19:20:39.000Z</updated>
