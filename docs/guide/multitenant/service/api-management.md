@@ -51,7 +51,7 @@ In scenarios where your tenants share a common back-end application, the API Man
 
 ### Instance for each tenant
 
-In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a small number of tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
+In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a few tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users across different geographic regions, you might want to consider whether the [multiregion deployment](#multiregion-deployments) feature in API Management meets your requirements.

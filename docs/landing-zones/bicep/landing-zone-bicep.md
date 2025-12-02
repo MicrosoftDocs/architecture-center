@@ -63,7 +63,7 @@ In addition to modules, the Bicep landing zone architecture is structured using 
 
 :::image type="content" border="true" source="images/high-level-deployment-flow.png" alt-text="Diagram showing the deployment layers." lightbox="images/high-level-deployment-flow.png":::
 
-A benefit of this layered approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of the layers. You can add the remaining layers at a subsequent stage when you’re ready.
+A benefit of this layered approach is the ability to add to your environment incrementally over time. For example, you can start with a few layers. You can add the remaining layers at a subsequent stage when you’re ready.
 
 #### Module descriptions
 

@@ -157,7 +157,7 @@ The following image shows a monitoring dashboard. (We used [AppDynamics] for our
 
 ### Examine telemetry data and find correlations
 
-The next image shows some of the metrics gathered to monitor resource utilization during the same interval. At first, few users are accessing the system. As more users connect, CPU utilization becomes very high (100%). Also notice that the network I/O rate initially goes up as CPU usage rises. But once CPU usage peaks, network I/O actually goes down. That's because the system can only handle a relatively small number of requests once the CPU is at capacity. As users disconnect, the CPU load tails off.
+The next image shows metrics gathered to monitor resource utilization during the same interval. At first, only a few users access the system. As more users connect, CPU utilization rises to 100%. The network I/O rate increases at first, but drops after CPU usage peaks. At full capacity, the system can process only limited requests. As users disconnect, CPU load decreases.
 
 ![AppDynamics metrics showing the CPU and network utilization][AppDynamics-Metrics-Front-End-Requests]
 

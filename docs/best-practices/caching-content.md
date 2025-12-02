@@ -217,7 +217,7 @@ Furthermore, each server in the cluster can be replicated by using primary/subor
 
 A Redis cache has a finite size that depends on the resources available on the host computer. When you configure a Redis server, you can specify the maximum amount of memory it can use. You can also configure a key in a Redis cache to have an expiration time, after which it's automatically removed from the cache. This feature can help prevent the in-memory cache from filling with old or stale data.
 
-As memory fills up, Redis can automatically evict keys and their values by following a number of policies. The default is LRU (least recently used), but you can also select other policies such as evicting keys at random or turning off eviction altogether (in which, case attempts to add items to the cache fail if it's full). The page [Using Redis as an LRU cache](https://redis.io/topics/lru-cache) provides more information.
+As memory fills up, Redis can automatically evict keys and their values based on different policies. The default is least recently used (LRU), but you can also choose other options, like evicting keys at random or disabling eviction entirely. In that case, attempts to add items to the cache fail if it's full. For more information, see [Use Redis as an LRU cache](https://redis.io/topics/lru-cache).
 
 ### Redis transactions and batches
 
@@ -250,7 +250,7 @@ For more information, visit the [Redis security](https://redis.io/topics/securit
 
 Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
-The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
+The portal provides several predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
 Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
 

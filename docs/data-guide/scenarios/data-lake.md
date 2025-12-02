@@ -73,7 +73,7 @@ The following table compares data lakes and data warehouses.
 
 - **Processing bottlenecks**: As data volume and diversity increase, transformation and query workloads can introduce latency, requiring careful pipeline design and workload orchestration.
 - **Data integrity risks**: Without strong validation and monitoring, errors or incomplete ingestions can compromise the reliability of the lake's contents.
-- **Data quality and governance**: The variety of sources and formats makes it difficult to enforce consistent standards. Implementing metadata management, cataloging, and governance frameworks is critical.
+- **Data quality and governance**: The various sources and formats makes it difficult to enforce consistent standards. Implementing metadata management, cataloging, and governance frameworks is critical.
 - **Performance at scale**: Query performance and storage efficiency can degrade as the lake grows, requiring optimization strategies such as partitioning, indexing, and caching.
 - **Security and access control**: Ensuring appropriate permissions and auditing across diverse datasets to prevent misuse of sensitive data requires planning.
 - **Discoverability**: Without proper cataloging, lakes can devolve into "data swamps" where valuable information is present but inaccessible or misunderstood.

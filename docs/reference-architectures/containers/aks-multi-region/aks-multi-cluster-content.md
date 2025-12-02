@@ -135,7 +135,7 @@ Each AKS cluster in your architecture runs applications that support your worklo
 
 There are several deployment approaches you can consider, including:
 
-- **Pipelines:** For scenarios with a small number of clusters and relatively few, simple deployments, it's often best to use lightweight dedicated continuous delivery (CD) pipelines.
+- **Pipelines:** For scenarios that have only a few clusters and relatively simple deployments, it's often best to use lightweight dedicated continuous delivery (CD) pipelines.
 
    A single pipeline typically deploys a workload to one or more clusters. This approach minimizes operational overhead and remains manageable in low-scale environments. When moving from a single-cluster to few-cluster model, you can evolve the deployment pipelines you already have in place.
 
@@ -150,7 +150,7 @@ There are several deployment approaches you can consider, including:
 To decide which approach makes sense for your solution, consider these questions:
 
 - **Do you expect the number of clusters to remain fixed or increase over time?** If you plan to expand the number of clusters, or if you plan to adjust the number of clusters dynamically, it can quickly become unwieldy to maintain each cluster's configuration in your deployment pipelines.
-- **How many deployable units do you have to manage?** If you have a small number of monolithic applications, you only have a small number of individual deployments to coordinate. However, if you have a distributed microservices-based architecture, a large number of workloads, or both. then  this can quickly grow into hundreds of deployable units. Creating a pipeline for each deployment might become infeasible.
+- **How many deployable units do you have to manage?** If you have only a few monolithic applications, you only have a small number of individual deployments to coordinate. However, if you have a distributed microservices-based architecture, a large number of workloads, or both. then  this can quickly grow into hundreds of deployable units. Creating a pipeline for each deployment might become infeasible.
 - **What kind of deployment strategies do you need?** Common strategies include rolling updates, blue-green deployments, and canary deployments. Some deployment approaches must allow for "bake time" between rollouts, with close monitoring to check for any regressions introduced by the deployment. Evaluate each deployment approach to determine whether it supports your specific requirements.
 - **What network security constraints do your clusters work within?** Azure Kubernetes Fleet Manager operates under a hub-and-spoke cluster topology, where member clusters maintain outbound connections to a central hub cluster for workload reconciliation and heartbeat monitoring. A GitOps-based strategy requires participating clusters establish outbound access to a Git repository. When you use pipelines, the pipeline agent typically requires connectivity to each cluster to perform deployment operations.
 

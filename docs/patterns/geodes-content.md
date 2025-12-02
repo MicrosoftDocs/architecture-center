@@ -6,7 +6,7 @@ The Geode pattern involves deploying a collection of backend services into a set
 
 Many large-scale services have specific challenges around geo-availability and scale. Classic designs often *bring the data to the compute* by storing data in a remote SQL server that serves as the compute tier for that data, relying on scale-up for growth.
 
-The classic approach might present a number of challenges:
+The classic approach might cause the following problems:
 
 - Network latency issues for users coming from the other side of the globe to connect to the hosting endpoint
 - Traffic management for demand bursts that can overwhelm the services in a single region
@@ -16,7 +16,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 ## Solution
 
-Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
+Deploy the service into multiple satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
 The key difference between a [deployment stamp](./deployment-stamp.yml) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
 
