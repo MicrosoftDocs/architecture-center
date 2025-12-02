@@ -133,6 +133,8 @@ For more information, see [Private Link deployment options](../../../networking/
 
 AKS cluster can be configured with API Server VNet Integration that projects the API server endpoint IP directly into a delegated subnet. This ensures that all traffic between the API server, node pools, and connected clients stays entirely within the private network.
 
+AKS supports deploying a cluster in a private virtual network as a private cluster. All communication between the AKS-managed Kubernetes API server and both cluster-internal and external clients is restricted to a trusted network. With a private cluster you can use Azure Virtual Network, Network Security Group (NSG), and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+
 ## Plan the IP addresses
 
 [ ![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.svg)](images/aks-baseline-network-topology.svg#lightbox)
