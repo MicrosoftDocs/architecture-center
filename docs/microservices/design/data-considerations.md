@@ -85,7 +85,7 @@ The package service stores information about all packages. The data store for th
 - High write throughput to handle a large volume of packages
 - Simple queries by package ID without complex joins or referential integrity constraints
 
-The package data isn't relational, so a document-oriented database works well. Azure Cosmos DB can achieve high throughput by using sharded collections. The package service team is familiar with the MongoDB, Express.js, AngularJS, and Node.js (MEAN) stack, so they choose the [MongoDB API](/azure/documentdb/overview) for Azure Cosmos DB. This choice lets them use their existing MongoDB experience while getting the benefits of Azure Cosmos DB as a managed Azure service.
+The package data isn't relational, so a document-oriented database works well. Azure DocumentDB can achieve high throughput by using sharded collections. The package service team is familiar with the MongoDB, Express.js, AngularJS, and Node.js (MEAN) stack, so they choose to implement [Azure DocumentDB](/azure/documentdb/overview). This choice lets them use their existing MongoDB experience while getting the benefits of a fully managed high-performance Azure service.
 
 ## Related resources
 

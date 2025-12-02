@@ -113,7 +113,7 @@ The following table shows the provided types of vector data indexing.
 | Other | - | Flat, quantizedFlat<a href="#e4"><sup>4</sup></a> | Vector field limitation<a href="#e5"><sup>5</sup></a> </br> Vector index limitation<a href="#e6"><sup>6</sup></a> | - | - | External libraries are available<a href="#e7"><sup>7</sup></a> |
 
 1. <span id="e1">For more information, see [DiskANN for Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/how-to-use-pgdiskann).</span>
-1. <span id="e2">For more information, see [Azure DocumentDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search).</span>
+1. <span id="e2">For more information, see [Azure DocumentDB - Vector search overview](/azure/documentdb/vector-search).</span>
 1. <span id="e3">DiskANN-based vector indexing is currently available in [private preview](https://devblogs.microsoft.com/azure-sql/announcing-general-availability-of-native-vector-type-functions-in-azure-sql/) for Azure SQL.</span>
 1. <span id="e4">For more information, see [Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies).</span>
 1. <span id="e5">Only one vector field is available for each container.</span>
