@@ -74,7 +74,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is an Azure-managed service that stores private container images for deployment in AKS. In this architecture, it holds the container images for microservices, and AKS authenticates with it by using its Microsoft Entra managed identity. You can also use other registries, like Docker Hub.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure-managed, globally distributed NoSQL, relational, and vector database service. In this architecture, Azure Cosmos DB and [Azure DocumentDB](/azure/cosmos-db/mongodb/introduction) serve as external data stores for each microservice.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure-managed, globally distributed NoSQL, relational, and vector database service. In this architecture, Azure Cosmos DB and [Azure DocumentDB](/azure/documentdb/overview) serve as external data stores for each microservice.
 
 - [Key Vault](/azure/key-vault/general/overview) is an Azure-managed service that securely stores and manages secrets, keys, and certificates. In this architecture, Key Vault stores credentials that microservices use to access Azure Cosmos DB and Azure Managed Redis.
 
