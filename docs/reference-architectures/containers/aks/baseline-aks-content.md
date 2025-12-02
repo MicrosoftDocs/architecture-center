@@ -256,7 +256,7 @@ In this architecture, the cluster accesses Azure resources that Microsoft Entra 
 
 - [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor). Manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can work with the dedicated subnet for the internal ingress controller service and AKS private API server.
 
-- [Private DNS Zone contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor). Manages the cluster's ability to link the zone directly to the spoke VNet that hosts the cluster.
+- [Private DNS Zone contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor). Manages the cluster's ability to link the zone directly to the spoke VNet that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
 
 - [Monitoring Metrics Publisher role](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). Manages the cluster's ability to send metrics to Azure Monitor.
 
@@ -501,7 +501,6 @@ PROS
 
 CONS
 
-1. Requires enabling the FQDN for private cluster
 1. Depends heavily on laptop security posture. If device gets compromised, it has direct reach to a production VNet.
 1. Less predictable behavior. Local DNS overrides, firewall software, proxies, VPNs can all break and disrupt/interrupt ops.
 1. Harder to monitor operator traffic.
