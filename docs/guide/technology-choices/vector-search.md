@@ -22,7 +22,7 @@ This article compares the following services based on their vector search capabi
 
 - [Azure AI Search](/azure/search/)
 - [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/)
-- [Azure DocumentDB](/azure/cosmos-db/mongodb/vcore/)
+- [Azure DocumentDB](/azure/documentdb/overview)
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 - [Azure SQL Database](/azure/azure-sql/)
