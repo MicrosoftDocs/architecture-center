@@ -54,11 +54,11 @@ Another important term to note is *service level indicator* (service-level indic
 
 SLOs and SLIs always go hand in hand, and are usually defined in an iterative manner. SLOs are driven by key business objectives, whereas SLIs are driven by what's possible to be measured while implementing the service.
 
-The relationship between the monitored metric, the SLI, and the SLO is depicted below:
+The following image shows the relationship between the monitored metric, the SLI, and the SLO:
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-slo.png" alt-text="Identify the right metric for reliability, define how to calculate its SLI, set a target SLO." :::
+:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-slo.png" alt-text="Diagram that shows how to identify the right metric for reliability, define how to calculate its SLI, and set a target SLO." :::
 
-This is explained in more detail in [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
+For more information on this process, see [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
 
 ## Modeling scale and performance expectations
 
@@ -149,7 +149,7 @@ The performance of an API must be managed from its inception until it's deprecat
 
 Here are the elements of performance governance:
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-lifecycle.png" alt-text="The seven elements of performance governance, as described below." :::
+:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-lifecycle.png" alt-text="Diagram that shows the seven elements of performance governance, as described in the following section." :::
 
 - **Performance Objectives:** Define the aspirational performance SLOs for the business scenarios.
 - **Performance Modeling:** Identify business-critical workflows and transactions, and conduct modeling to understand the performance-related implications. Capture this information at a granular level for more accurate predictions.

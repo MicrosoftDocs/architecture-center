@@ -1,4 +1,4 @@
-Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that might be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
+Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that might be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated in the following diagram:
 
 ![Diagram showing mapping a request from tenants to deployments.](media/map-requests/map-logical-physical.png)
 

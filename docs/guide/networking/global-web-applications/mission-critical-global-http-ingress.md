@@ -40,7 +40,7 @@ The solution includes the following components:
 
   In normal operations, Traffic Manager sends 100% of the incoming requests through Azure Front Door.
   
-  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described below.
+  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described in the following section.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 

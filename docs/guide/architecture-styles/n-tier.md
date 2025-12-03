@@ -28,7 +28,7 @@ A traditional three-tier application has a presentation tier, an optional middle
 An N-tier application can have a **closed layer architecture** or an **open layer architecture**:
 
 - In a closed layer architecture, a layer can only call the next layer immediately down.
-- In an open layer architecture, a layer can call any layers below it.
+- In an open layer architecture, a layer can call any layers under it.
 
 A closed layer architecture limits the dependencies between layers. But this architecture might create unnecessary network traffic if one layer only passes requests along to the next layer.
 

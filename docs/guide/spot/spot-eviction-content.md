@@ -1,4 +1,4 @@
-This article describes best practices for how to build on Azure Spot Virtual Machines. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The right workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
+This article describes best practices for how to build on Azure Spot Virtual Machines. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The correct workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
 
 ## Understand spot VMs
 
@@ -30,7 +30,7 @@ Capacity changes or price changes cause evictions. The way capacity and price ch
 
 - **Capacity-only eviction:** This eviction type triggers an eviction when excess compute capacity is no longer available. By default, the price is capped at the pay-as-you-go rate. Use this eviction type when you don't want to pay more than the pay-as-you-go VM price.
 
-- **Price or capacity eviction:** This eviction type has two triggers. Azure evicts a spot VM when excess compute capacity is no longer available or the cost of the VM exceeds the maximum price that you set. This eviction type allows you to set a maximum price far below the pay-as-you-go price. Use this eviction type to set your own price cap.
+- **Price or capacity eviction:** This eviction type has two triggers. Azure evicts a spot VM when excess compute capacity is no longer available or the cost of the VM exceeds the maximum price that you set. This eviction type allows you to set a maximum price far less than the pay-as-you-go price. Use this eviction type to set your own price cap.
 
 ### Eviction policy
 
@@ -93,7 +93,7 @@ Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA 
 
 Your orchestration needs an automated pipeline to deploy new spot VMs after eviction. The pipeline should run outside the interruptible workload to help ensure permanence. The deployment pipeline should work according to the eviction policy that you choose for your spot VMs.
 
-For a Delete policy, we recommend that you build a pipeline that uses different VM sizes and deploys to different regions. For a Stop/Deallocate policy, the deployment pipeline needs two distinct actions. For the initial creation of a VM, the pipeline needs to deploy the right size VMs to the right location. For an evicted VM, the pipeline needs to try to restart the VM until it works. A combination of Azure Monitor alerts and Azure functions is one way to automate a deployment system. The pipeline could use bicep templates. They're declarative and idempotent and represent a best practice for infrastructure deployment.
+For a Delete policy, we recommend that you build a pipeline that uses different VM sizes and deploys to different regions. For a Stop/Deallocate policy, the deployment pipeline needs two distinct actions. For the initial creation of a VM, the pipeline needs to deploy the correct size VMs to the correct location. For an evicted VM, the pipeline needs to try to restart the VM until it works. A combination of Azure Monitor alerts and Azure functions is one way to automate a deployment system. The pipeline could use bicep templates. They're declarative and idempotent and represent a best practice for infrastructure deployment.
 
 ### Prepare for immediate eviction
 
@@ -127,7 +127,7 @@ Most interruptible workloads run applications. Applications need time to install
 
 Assign user-assigned managed identities to streamline the authentication and authorization process. User-assigned managed identities let you avoid putting credentials in code and aren't tied to a single resource like system-assigned managed identities. The user-assigned managed identities contain permissions and access tokens from Microsoft Entra ID that can be reused and assigned to spot VMs during orchestration. Token consistency across spot VMs helps streamline orchestration and simplifies the access to workload resources that the spot VMs have.
 
-If you use system-assigned managed identities, a new spot VM might get a different access token from Microsoft Entra ID. If you need to use system-assigned managed identities, make the workloads resilient to `403 Forbidden Error` responses. Your orchestration needs to get tokens from Microsoft Entra ID with the right permissions. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/overview).
+If you use system-assigned managed identities, a new spot VM might get a different access token from Microsoft Entra ID. If you need to use system-assigned managed identities, make the workloads resilient to `403 Forbidden Error` responses. Your orchestration needs to get tokens from Microsoft Entra ID with the correct permissions. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
 ## Example scenario
 
