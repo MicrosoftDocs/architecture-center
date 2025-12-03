@@ -34,7 +34,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
    - The pipelines can pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than replatforming the data.
 
-1. Use Microsoft Dynamics 365 data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. Bring Dynamics 365 data into Azure Data Lake Storage (ADLS gen2) or Link your Dataverse environment directly to Fabric to leverage D365 shortcut to OneLake. Results of analytics can be brought back into Dynamics or used for further analysis within Fabric.
+1. Use Microsoft Dynamics 365 data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. Bring Dynamics 365 data into Azure Data Lake Storage (ADLS gen2) or link your Dataverse environment directly to Fabric and use a D365 shortcut in OneLake. Results of analytics can be brought back into Dynamics or used for further analysis within Fabric.
 
 1. Real-time data from streaming sources can enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
