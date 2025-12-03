@@ -13,7 +13,7 @@ ms.collection:
 
 # Azure for Google Cloud Professionals
 
-This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. Google Cloud was previously called Google Cloud Platform (GCP).
+This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. Google Cloud was previously known as *Google Cloud Platform (GCP)*.
 
 You'll learn:
 

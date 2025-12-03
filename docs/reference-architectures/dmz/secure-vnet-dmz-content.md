@@ -211,7 +211,7 @@ New-AzSubscriptionDeployment -Location eastus `
 
 ---
 
-Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for *connections* and check the status of each connection.
+After the deployment completes, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for *connections* and check the status of each connection.
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 

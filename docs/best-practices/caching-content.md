@@ -250,7 +250,7 @@ For more information, visit the [Redis security](https://redis.io/topics/securit
 
 Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
-The portal provides several predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
+The portal provides several predefined configurations. These configurations range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
 Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
 

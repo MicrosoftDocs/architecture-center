@@ -80,7 +80,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Ingest
 
-1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide range of semi-structured data sources, both on-premises and in the cloud. For example:
+1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide range of semi-structured data sources, both on-premises and in the cloud. For example, pipelines can do the following operations:
 
     - Ingest data from file-based sources containing CSV or JSON files.
     - Connect to No-SQL databases such as Azure Cosmos DB or MongoDB.

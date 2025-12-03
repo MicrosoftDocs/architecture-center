@@ -564,7 +564,7 @@ A single request could conceivably result in a massive object that consumes cons
 
 You can minimize the size of large objects transmitted over the network by using HTTP compression. This approach helps to reduce the amount of network traffic and the associated network latency, but at the cost of requiring additional processing at the client and the server hosting the web API. For example, a client application that expects to receive compressed data can include an `Accept-Encoding: gzip` request header (other data compression algorithms can also be specified). If the server supports compression it should respond with the content held in gzip format in the message body and the `Content-Encoding: gzip` response header.
 
-You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Some web servers, like Internet Information Server, can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data or not.
+You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Some web servers, like Internet Information Server, can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data.
 
 ### Implement partial responses for clients that don't support asynchronous operations
 

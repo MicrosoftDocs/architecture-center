@@ -51,7 +51,7 @@ The preceding services in this list are core services that work throughout Azure
 
 6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
-7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide range of platform such as .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
+7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide range of platform like .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
 8.  **Azure Storage Analytics** performs logging and provides metrics for a storage account. You can use its data to trace requests, analyze usage trends, and diagnose issues with your storage account. For more information, see [Use Azure Storage analytics to collect logs and metrics data](/azure/storage/common/storage-analytics).
 

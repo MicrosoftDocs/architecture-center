@@ -48,7 +48,7 @@ In all cases, at least one IP address firewall rule or virtual network rule for 
 
 Azure Functions can be configured to consume events from or publish events to event hubs, which are set up with either service endpoints or private endpoints. Regional virtual network integration is needed for your function app to connect to an event hub using a service endpoint or a private endpoint.
 
-When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This is especially important for scenarios where you want to secure your function app by ensuring all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
+When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This configuration is especially important for scenarios where you want to secure your function app by ensuring that all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
 
 To trigger (consume) events in a virtual network environment, the function app needs to be hosted in a Premium plan, a Dedicated (App Service) plan, or an App Service Environment (ASE).
 

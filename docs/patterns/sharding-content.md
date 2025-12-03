@@ -40,7 +40,7 @@ If queries regularly retrieve data using a combination of attribute values, you 
 
 ## Sharding strategies
 
-Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them&mdash;a single server can host multiple shards. The strategies are:
+Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them. A single server can host multiple shards with the following strategies:
 
 **The Lookup strategy**. In this strategy the sharding logic implements a map that routes a request for data to the shard that contains that data using the shard key. In a multitenant application all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The figure illustrates sharding tenant data based on tenant IDs.
 
@@ -62,7 +62,7 @@ To understand the advantage of the Hash strategy over other sharding strategies,
 
 The three sharding strategies have the following advantages and considerations:
 
-- **Lookup**. This offers more control over the way that shards are configured and used. Using virtual shards reduces the impact when rebalancing data because new physical partitions can be added to even out the workload. The mapping between a virtual shard and the physical partitions that implement the shard can be modified without affecting application code that uses a shard key to store and retrieve data. Looking up shard locations can impose an additional overhead.
+- **Lookup**. This offers more control over the way that shards are configured and used. Using virtual shards reduces the impact when rebalancing data because new physical partitions can be added to even out the workload. The mapping between a virtual shard and the physical partitions that implement the shard can be modified without affecting application code that uses a shard key to store and retrieve data. Looking up shard locations adds extra overhead.
 
 - **Range**. This is easy to implement and works well with range queries because they can often fetch multiple data items from a single shard in a single operation. This strategy offers easier data management. For example, if users in the same region are in the same shard, updates can be scheduled in each time zone based on the local load and demand pattern. However, this strategy doesn't provide optimal balancing between shards. Rebalancing shards is difficult and might not resolve the problem of uneven load if the majority of activity is for adjacent shard keys.
 
@@ -110,7 +110,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - If an application must perform queries that retrieve data from multiple shards, it might be possible to fetch this data by using parallel tasks. Examples include fan-out queries, where data from multiple shards is retrieved in parallel and then aggregated into a single result. However, this approach inevitably adds some complexity to the data access logic of a solution.
 
-- For many applications, creating a larger number of small shards can be more efficient than having a few large shards because they can offer increased opportunities for load balancing. This can also be useful if you anticipate the need to migrate shards from one physical location to another. Moving a small shard is quicker than moving a large one.
+- For many applications, creating more small shards can be more efficient than creating fewer large shards because they provide greater opportunities for load balancing. This can also be useful if you anticipate the need to migrate shards from one physical location to another. Moving a small shard is quicker than moving a large one.
 
 - Make sure the resources available to each shard storage node are sufficient to handle the scalability requirements in terms of data size and throughput. For more information, see the section "Designing Partitions for Scalability" in the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
 

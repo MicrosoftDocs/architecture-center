@@ -178,7 +178,7 @@ All databases are created in the context of an Azure Cosmos DB database account.
 
 Consider the following points when deciding how to partition data with Azure Cosmos DB for NoSQL:
 
-- **The resources available to an Azure Cosmos DB database are subject to the quota limitations of the account**. A database can contain multiple collections. Each collection has its own performance level, which determines the reserved throughput (RU/s) limit available for that collection. For more information, see [Azure subscription and service limits, quotas, and constraints][azure-limits].
+- **The resources available to an Azure Cosmos DB database are subject to the quota limitations of the account**. A database can contain multiple collections. Each collection has its own performance level, which determines the reserved throughput in Request Units per second (RU/s) available for that collection. For more information, see [Azure subscription and service limits, quotas, and constraints][azure-limits].
 
 - **Each document must have an attribute that can be used to uniquely identify that document within the collection in which it's held**. This attribute is different from the shard key, which defines which collection holds the document. A collection can contain a large number of documents. In theory, it's limited only by the maximum length of the document ID. The document ID can be up to 255 characters.
 

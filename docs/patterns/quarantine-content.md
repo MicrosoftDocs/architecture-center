@@ -17,7 +17,7 @@ Have a process that validates the software for security before introducing it in
 
 > The process of quarantining is a security measure, which consists of a series of checkpoints that are employed before an artifact is consumed. Those security checkpoints make sure that an artifact transitions from an untrusted status to a trusted status.
 
-The quarantine process doesn't change the artifact’s composition. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine.
+The quarantine process doesn't change the artifact's composition. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine.
 
 Here's a typical quarantine workflow:
 
