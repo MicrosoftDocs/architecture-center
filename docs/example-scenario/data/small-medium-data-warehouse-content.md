@@ -8,7 +8,7 @@ SMBs that use on-premises SQL Server for data warehousing solutions under 500 GB
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
-A conceptual modernization opportunity involves transitioning the legacy data warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step toward comprehensive modernization, which enables the organization to fully adopt a lakehouse approach as the data warehouse expands and the team's skill set grows.
+A conceptual modernization opportunity involves transitioning the legacy data warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Microsoft Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step towards comprehensive modernization, which for SMBs can be represented by moving towards SaaS warehousing on Fabric or adopting a lakehouse approach as the data warehouse expands and the team's skill set grows.
 
 ## Architecture
 
@@ -34,7 +34,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
    - The pipelines can pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than replatforming the data.
 
-1. Use Microsoft Dynamics 365 data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. You can bring the fused and processed data back into Dynamics and use it for further analysis within Fabric.
+1. Use Microsoft Dynamics 365 data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. Bring Dynamics 365 data into Azure Data Lake Storage (ADLS gen2) or Link your Dataverse environment directly to Fabric OneLake You can bring the fused and processed data back into Dynamics and use it for further analysis within Fabric.
 
 1. Real-time data from streaming sources can enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
