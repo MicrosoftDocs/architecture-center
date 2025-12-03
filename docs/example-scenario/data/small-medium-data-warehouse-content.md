@@ -60,6 +60,8 @@ Fabric integrates with potential consumers of your multisource datasets, includi
 
 - [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a real-time data streaming platform and event ingestion service. In this architecture, Event Hubs integrates with Azure data services to ingest streaming data from various sources into Azure lakehouse (ADLS gen2) for analysis and reporting, as well as can be the source of streaming data directly to Fabric Real-Time Analytics.
 
+- [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized cloud-based repository where you can store all your data, both structured and unstructured. In this architecture it is a possible destination of streaming data archive or copy of Dynamics 365 data. 
+
 ### Alternatives
 
 - You can use [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) to replace or complement Event Hubs. Choose your solution based on the source of your streaming data and whether you need cloning and bidirectional communication with the reporting devices.
@@ -115,6 +117,9 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 Principal author:
 
 - [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
+
+Other contributors:
+
 - [Bhaskar Sharma](https://www.linkedin.com/in/bhaskar-sharma-00991555/) | Senior Program Manager
   
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
