@@ -89,7 +89,7 @@ For more information, see [Hub-spoke network topology in Azure](../../../network
 The hub virtual network is the central point of connectivity and observability. In this architecture, the hub contains:
 
 - Azure Firewall with global firewall policies, defined by your central IT teams to enforce organization-wide firewall policy.
-- Azure Bastion, which you can use either to remotely access virtual machines or to establish a secure tunnel into the private network perimeter.
+- Azure Bastion, which you can use to establish a secure tunnel into the private network perimeter so that you can perform cluster management operations.
 - A gateway subnet for VPN connectivity.
 - Azure Monitor for network observability.
 
@@ -105,7 +105,7 @@ This subnet is a placeholder for a VPN gateway or an Azure ExpressRoute gateway.
 
 #### Subnet to host Azure Bastion
 
-This subnet is for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet. This subnet is for management and operations only.
+This subnet is used for [Azure Bastion](/azure/bastion/bastion-overview). You can use Azure Bastion to securely access Azure resources without exposing the resources to the internet, and this architecture uses Azure Bastion to securely connect to the AKS cluster's API server for management operations. This subnet is for management and operations only.
 
 ### Spoke virtual network
 
@@ -129,11 +129,13 @@ Create Private Link connections for the [Azure Container Registry](/azure/contai
 
 For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
-#### Subnet to host Azure AKS Api server
+#### Subnet for the AKS API server
 
-AKS cluster can be configured with API Server VNet Integration that projects the API server endpoint IP directly into a delegated subnet. This ensures that all traffic between the API server, node pools, and connected clients stays entirely within the private network.
+An AKS cluster can be configured to use [API Server VNet Integration](/azure/aks/api-server-vnet-integration), which projects the API server endpoint into a delegated subnet in your virtual network. This configuration ensures that all traffic between the API server, node pools, and connected clients stays entirely within your private network, and it's referred to as a *private cluster*.
 
-AKS supports deploying a cluster in a private virtual network as a private cluster. All communication between the AKS-managed Kubernetes API server and both cluster-internal and external clients is restricted to a trusted network. With a private cluster you can use Azure Virtual Network, Network Security Group (NSG), and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+All communication between the AKS-managed Kubernetes API server and clients (both cluster-internal and external clients) is restricted to a trusted network.
+
+With a private cluster you can use network security groups (NSGs) and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 ## Plan the IP addresses
 
@@ -143,7 +145,7 @@ AKS supports deploying a cluster in a private virtual network as a private clust
 
 This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
-- Your Azure virtual network, which is used for resources like cluster nodes, private cluster, private endpoints, and Application Gateway.
+- Your Azure virtual network, which is used for resources like cluster nodes, the cluster's API server, private endpoints for Azure services, and Application Gateway.
 - The cluster uses [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
 
 ### Virtual network IP address space
@@ -160,7 +162,7 @@ The address space of your Azure virtual network should be large enough to hold a
 
 - **Private Link addresses:** Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
 
-- **Private Cluster API Server addresses:** API Server VNet Integration allows you to place the control-plane endpoint inside your virtual network. Be aware that this feature requires a minimum subnet size, so ensure you meet these prerequisites during your network planning.
+- **Private cluster API server addresses:** API Server VNet Integration allows you to project the AKS API server as an endpoint inside your virtual network. This feature requires a [minimum subnet size](/azure/aks/api-server-vnet-integration#create-a-private-aks-cluster-with-api-server-vnet-integration-using-bring-your-own-vnet), so ensure you meet these prerequisites during your network planning.
 
 - **Reserved IP addresses:** Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
 
@@ -256,7 +258,7 @@ In this architecture, the cluster accesses Azure resources that Microsoft Entra 
 
 - [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor). Manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can work with the dedicated subnet for the internal ingress controller service and AKS private API server.
 
-- [Private DNS Zone contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor). Manages the cluster's ability to link the zone directly to the spoke VNet that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
+- [Private DNS Zone Contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor). Manages the cluster's ability to link the zone directly to the spoke virtual network that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [create a private AKS cluster with a public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
 
 - [Monitoring Metrics Publisher role](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). Manages the cluster's ability to send metrics to Azure Monitor.
 
@@ -452,10 +454,10 @@ For more information, see [Define API server-authorized IP ranges](/azure/aks/ap
 
 For an additional layer of control, and when your security posture justifies the added complexity, you should provision a private AKS cluster. By using a private cluster, you can help ensure network traffic between your API server and your node pools remains on the private network only and is never exposed to the internet. This reference implementation enables private cluster using the API Server VNet integration. For more information, see [AKS private clusters](/azure/aks/private-clusters).
 
- Private traffic to a private AKS cluster may originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, clients doing administrative tasks now require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in several ways, such as:
+ Private traffic to a private AKS cluster may originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, clients doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in several ways, such as:
 
-1. Connecting to a jump-box VM through Azure Bastion.
-1. Opening a Bastion tunnel to the AKS API server.
+- Using Azure Bastion to open a tunnel to the AKS API server.
+- Connecting to a jump-box VM through Azure Bastion.
 
 For production environments with multiple operators, air-gapped jump boxes are the safer, more controlled, and more predictable baseline. On the other hand, Bastion tunneling is a great operational accelerator for trusted users and stable client setups, but not a full substitute for a hardened platform-level access point.
 
