@@ -88,7 +88,7 @@ This article describes several strategies for SMBs to modernize legacy data stor
 
 This solution isn't recommended for:
 
-- A [greenfield deployment](https://wikipedia.org/wiki/Greenfield_project) of data warehouses.
+- A greenfield deployments of data warehouses, use this pattern instead [Greenfield Lakehouse on Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
 - Migration of on-premises data warehouses that are larger than 1 TB or are projected to reach that size within a year.
 
