@@ -135,7 +135,7 @@ Each AKS cluster in your architecture runs applications that support your worklo
 
 There are several deployment approaches you can consider, including:
 
-- **Pipelines:** For scenarios that have only a few clusters and relatively simple deployments, it's often best to use lightweight dedicated continuous delivery (CD) pipelines.
+- **Pipelines:** For scenarios that have only a few clusters and relatively few, simple deployments, it's often best to use lightweight dedicated continuous delivery (CD) pipelines.
 
    A single pipeline typically deploys a workload to one or more clusters. This approach minimizes operational overhead and remains manageable in low-scale environments. When moving from a single-cluster to few-cluster model, you can evolve the deployment pipelines you already have in place.
 

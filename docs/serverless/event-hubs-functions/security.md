@@ -44,7 +44,7 @@ By default, Event Hubs namespaces are accessible from the internet, so long as t
 - [Allow access from specific virtual networks (service endpoints)](/azure/event-hubs/event-hubs-service-endpoints)
 - [Allow access via private endpoints](/azure/event-hubs/private-link-service)
 
-In all cases, at least one IP address firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace is accessible over the public internet (using the access key).
+In all cases, at least one IP firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace is accessible over the public internet (using the access key).
 
 Azure Functions can be configured to consume events from or publish events to event hubs, which are set up with either service endpoints or private endpoints. Regional virtual network integration is needed for your function app to connect to an event hub using a service endpoint or a private endpoint.
 

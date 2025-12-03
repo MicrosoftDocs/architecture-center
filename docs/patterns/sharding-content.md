@@ -40,7 +40,7 @@ If queries regularly retrieve data using a combination of attribute values, you 
 
 ## Sharding strategies
 
-Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them. A single server can host multiple shards with the following strategies:
+Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them. A single server can host multiple shards. Consider the following strategies:
 
 **The Lookup strategy**. In this strategy the sharding logic implements a map that routes a request for data to the shard that contains that data using the shard key. In a multitenant application all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The figure illustrates sharding tenant data based on tenant IDs.
 
