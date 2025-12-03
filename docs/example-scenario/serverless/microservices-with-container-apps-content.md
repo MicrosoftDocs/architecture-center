@@ -53,7 +53,9 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the AKS implementation.
 
-- [Azure DocumentDB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, the microservices write their state and application data to their own Azure Cosmos DB databases.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service.  In this architecture, the drone scheduler service uses Azure Cosmos DB as its data store.
+
+- [Azure DocumentDB](/azure/documentdb/overview) is a fully managed MongoDB-compatible database service for building modern applications. In this architecture, the package service uses Azure DocumentDB as its data store.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
