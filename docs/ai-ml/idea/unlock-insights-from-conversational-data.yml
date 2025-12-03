@@ -2,8 +2,8 @@
 metadata:
   title: Build a Conversation Knowledge Mining Solution by using Azure AI Services
   description: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Microsoft Foundry.
-  author: gpickett
-  ms.author: gpickett
+  author: malrose07
+  ms.author: malrose
   ms.date: 12/02/2025
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot
