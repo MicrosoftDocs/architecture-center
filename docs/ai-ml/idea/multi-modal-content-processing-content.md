@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding, Azure OpenAI in Azure AI Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Microsoft Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
 
 This architecture shows how to build scalable systems for processing content. The systems handle text, images, tables, and graphs and include automatic quality checks and human review for business document workflows.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multi-modal-content-processing.svg" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/multi-modal-content-processing.svg":::
-   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI in Foundry Models. The other line reads Extract and points to Azure AI Content Understanding. The next line in this section reads Task result and points to Blob Storage. The next line reads Task history or result and points to Azure Cosmos DB. An arrow that reads Dequeue points to Azure Queue Storage. An arrow that reads Enqueue points from Content processor API to Queue Storage. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
+   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI in Foundry Models. The other line reads Extract and points to Azure Content Understanding. The next line in this section reads Task result and points to Blob Storage. The next line reads Task history or result and points to Azure Cosmos DB. An arrow that reads Dequeue points to Azure Queue Storage. An arrow that reads Enqueue points from Content processor API to Queue Storage. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multi-modal-content-processing.vsdx) of this architecture.*
@@ -40,9 +40,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that you can use to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code that runs is custom coded by your software engineering team.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Microsoft Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
 
-  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Azure AI Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Azure AI Foundry. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
+  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Microsoft Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Microsoft Foundry. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
   - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, such as audio, video, text, and images, and transforms it into structured, searchable data. In this architecture, Content Understanding accurately performs advanced OCR and content extraction from multi-modal documents.
 
@@ -153,6 +153,8 @@ Principal author:
 Other contributor:
 
 - [Todd Herman](https://www.linkedin.com/in/todd-herman) | Principal Software Engineer
+- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Senior Software Engineer
+- [Anish Arora](https://www.linkedin.com/in/aniarora/) | Senior Software Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
