@@ -638,7 +638,7 @@ The data that instrumentation captures can provide a snapshot of the system stat
 - Is it the result of a large number of database operations?
 - Is this reflected in the database response times, the number of transactions per second, and application response times at the same juncture?
 
-If so, one remedial action that might reduce the load might be to shard the data over more servers. In addition, exceptions can arise as a result of a fault in any level of the system. An exception in one level often triggers another fault in the previous level.
+If so, one remedial action that might reduce the load might be to shard the data over more servers. In addition, exceptions can arise as a result of a fault in any level of the system. An exception in one level often triggers another fault in the level above.
 
 For these reasons, you need to be able to correlate the different types of monitoring data at each level to produce an overall view of the state of the system and the applications that are running on it. You can then use this information to make decisions about whether the system is functioning acceptably or not, and determine what can be done to improve the quality of the system.
 
