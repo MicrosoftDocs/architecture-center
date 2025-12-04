@@ -79,7 +79,7 @@ You can also obtain event log information about attempts to connect through the 
 Get-EventLog -LogName Application -Source RasClient | Format-List -Property *
 ```
 
-In the event of a failure to connect, this log will contain errors that look similar to the following:
+In the event of a failure to connect, this log will contain errors that look similar to the following example:
 
 ```console
 EventID            : 20227
@@ -109,7 +109,7 @@ Container          :
 PsPing -t <<web-server-address>>:80
 ```
 
-If the on-premises machine can route traffic to the web server, you should see output similar to the following:
+If the on-premises machine can route traffic to the web server, you should see output similar to the following example:
 
 ```console
 D:\PSTools> psping -t 10.20.0.5:80

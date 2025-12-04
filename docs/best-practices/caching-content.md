@@ -164,14 +164,14 @@ Irrespective of the cache service you use, consider how to protect the data that
 - The privacy of the data in the cache.
 - The privacy of data as it flows between the cache and the application that's using the cache.
 
-To protect data in the cache, the cache service might implement an authentication mechanism that requires that applications specify the following:
+To protect data in the cache, the cache service might implement an authentication mechanism that requires that applications specify the following details:
 
 - Which identities can access data in the cache.
 - Which operations (read and write) that these identities are allowed to perform.
 
 To reduce overhead that's associated with reading and writing data, after an identity has been granted write or read access to the cache, that identity can use any data in the cache.
 
-If you need to restrict access to subsets of the cached data, you can do one of the following:
+If you need to restrict access to subsets of the cached data, you can do one of the following approaches:
 
 - Split the cache into partitions (by using different cache servers) and only grant access to identities for the partitions that they should be allowed to use.
 - Encrypt the data in each subset by using different keys, and provide the encryption keys only to identities that should have access to each subset. A client application might still be able to retrieve all of the data in the cache, but it will only be able to decrypt the data for which it has the keys.

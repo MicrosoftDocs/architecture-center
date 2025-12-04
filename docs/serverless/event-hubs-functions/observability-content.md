@@ -28,7 +28,7 @@ Platform-generated metrics in Azure Monitor for Event Hubs and Azure Functions c
 
 Azure Functions integrates with Application Insights to provide advanced and detailed telemetry and insights into the Functions host and function executions. To learn more, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data). When using Application Insights to monitor a topology, there are a variety of configurations available. To learn more, see [How to configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring).
 
-The following is an example of extra telemetry for Event Hubs triggered functions generated in the **traces** table:
+The following example shows extra telemetry for Event Hubs triggered functions generated in the **traces** table:
 
 <pre>Trigger Details: PartionId: 6, Offset: 3985758552064-3985758624640, EnqueueTimeUtc: 2022-10-31T12:51:58.1750000+00:00-2022-10-31T12:52:03.8160000+00:00, SequenceNumber: 3712266-3712275, Count: 10</pre>
 

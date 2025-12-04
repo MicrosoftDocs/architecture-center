@@ -76,7 +76,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Using Nginx as the router, the following is a simple example configuration file for a server that routes requests for applications residing on different virtual directories to different machines at the back end.
+Using Nginx as the router, the following example configuration file for a server routes requests for applications residing on different virtual directories to different machines at the back end.
 
 ```console
 server {
