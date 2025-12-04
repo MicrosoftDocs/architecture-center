@@ -553,7 +553,7 @@ Other resources:
 [azure-local-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
 [azure-local-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azure-local-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview
