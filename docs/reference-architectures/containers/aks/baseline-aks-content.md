@@ -827,7 +827,7 @@ Finally, when using the GitOps Flux v2 cluster extension, kubectl isn't required
 
 Divide the workload by teams and types of resources to individually manage each portion.
 
-Start with a basic workload that contains the fundamental components and build on it. An initial task is to configure networking. Provision virtual networks for the hub and spokes and also subnets within those networks. For example, a spoke has separate subnets for system and user node pools, ingress resources, and the private AKS Api server. Deploy a subnet for Azure Firewall in the hub.
+Start with a basic workload that contains the fundamental components and build on it. An initial task is to configure networking. Provision virtual networks for the hub and spokes and also subnets within those networks. For example, a spoke has separate subnets for system and user node pools, ingress resources, and the private AKS API server. Deploy a subnet for Azure Firewall in the hub.
 
 Another task is to integrate the basic workload with Microsoft Entra ID.
 
