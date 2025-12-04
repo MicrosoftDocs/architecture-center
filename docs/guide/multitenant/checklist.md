@@ -47,7 +47,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Security considerations  
 
-- Apply [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution.
+- Apply [zero trust](/security/zero-trust) and least privilege principles in all layers of your solution.
 
 - Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system or via another method, like application-level tenant authorization.  
 

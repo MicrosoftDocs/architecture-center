@@ -101,7 +101,7 @@ The following common reverse proxies are used in Azure:
 It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the *audience* and *scope* claims.
 
 > [!NOTE]
-> This is part of the *assume Zero Trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
+> This is part of the *assume breach* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 
 When implementing request validation, you should consider the following:
 
