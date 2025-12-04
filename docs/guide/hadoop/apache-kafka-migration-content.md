@@ -34,7 +34,7 @@ To learn how to migrate your Apache Kafka applications to use Event Hubs, see [M
 | Use partitions                   | Platform as a service versus software |
 | Partitions are independent       | Partitioning       |
 | Use a client-side cursor concept | APIs              |
-| Can handle very high workloads | Runtime           |
+| Can scale to very high workloads | Runtime           |
 | Nearly identical conceptually | Protocols        |
 | Neither uses the HTTP protocol for receiving | Durability |
 |                                         | Security         |
