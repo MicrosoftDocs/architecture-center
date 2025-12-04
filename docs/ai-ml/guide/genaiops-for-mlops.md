@@ -130,11 +130,11 @@ Evaluation is key in the iterative experimentation process of building, evaluati
 
 #### Fine-tuning
 
-To evaluate fine-tuned or trained generative AI models, take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Azure AI Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
+To evaluate fine-tuned or trained generative AI models, take advantage of your existing MLOps investments. For example, if you use Machine Learning pipelines to orchestrate your machine learning model training, you can use the same evaluation features to fine-tune foundation language models or train new small language models. These features include the [Evaluate Model component](/azure/machine-learning/component-reference/evaluate-model), which computes industry-standard evaluation metrics for specific model types and compares results across models. If your workload uses Microsoft Foundry, you could instead extend your MLOps process to include its [evaluation capabilities](/azure/ai-foundry/how-to/develop/evaluate-sdk) found in the Evaluation SDK.
 
 #### RAG and prompting
 
-You need to extend your existing MLOps investments to evaluate generative AI solutions. You can use the Evaluations within AI Foundry or our Evaluation SDK.
+You need to extend your existing MLOps investments to evaluate generative AI solutions. You can use the Evaluations within Foundry or the Evaluation SDK.
 
 The experimentation process remains consistent, regardless of the use case for your generative AI solution. These use cases include classification, summarization, translation, and RAG. The important difference is the metrics that you use to evaluate the different use cases. Consider the following metrics based on use case:
 
@@ -162,7 +162,7 @@ Use your existing MLOps investments, with some possible adjustments, to deploy g
 
 #### RAG and prompting
 
-For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as the Azure AI Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as the Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
 
@@ -214,11 +214,11 @@ Generative solutions that use models exposed as a service, like Azure OpenAI, ha
 
 Many MLOps practitioners use a standardized toolkit to organize activities such as automation, tracking, deployment, and experimentation. This approach abstracts common concerns and implementation details, which makes these processes more efficient and manageable. A popular unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before you look for new tools to support GenAIOps patterns, you should review your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range of features for language models](https://mlflow.org/docs/latest/llms/index.html).
 
-You can also explore the benefits and trade-offs of introducing new tools into your flow. For example, the [Azure AI Evaluation SDK](/python/api/overview/azure/ai-evaluation-readme) for Python could be a feasible option because it has native support in the Azure AI Foundry portal.
+You can also explore the benefits and trade-offs of introducing new tools into your flow. For example, the [Azure AI Evaluation SDK](/python/api/overview/azure/ai-evaluation-readme) for Python could be a feasible option because it has native support in the Foundry portal.
 
 ## MLOps and GenAIOps maturity models
 
-You might have used the [MLOps maturity model](mlops-maturity-model.yml) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
+You might have used the [MLOps maturity model](mlops-maturity-model.md) to evaluate the maturity of your current MLOps and environment. As you extend your MLOps investments for generative AI workloads, you should use the [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might want to combine the two maturity models, but we recommend that you measure each model independently because MLOps and GenAIOps evolve separately. For example, you might be at level four in the MLOps maturity model but only at level one in the GenAIOps maturity model.
 
 Use the [GenAIOps Maturity Model assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/). This assessment helps you understand how your investments in GenAIOps are progressing.
 
@@ -245,5 +245,5 @@ As you start to extend your MLOps investments to include generative AI, it's imp
 ## Related resources
 
 - [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md)
-- [Baseline AI Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)

@@ -66,7 +66,7 @@ The solution to configure edge workloads during run-time can be based on an exte
 
 This variation has a configuration controller that's external to the workload. The role of the cloud configuration controller component is to push edits from the cloud datastore to the workload through the edge configuration controller. The edge also contains a datastore so that the system functions even when disconnected from the cloud.
 
-With IoT Edge, the edge configuration controller can be implemented as a module, and the configurations can be applied with [module twins](/azure/iot-hub/iot-hub-devguide-module-twins). The module twin has a size limit; if the configuration exceeds the limit, the solution can be [extended with Azure Blob Storage](https://github.com/Azure-Samples/azure-iot-hub-large-twin-example) or by chunking larger payloads over [direct methods](/azure/iot-edge/how-to-edgeagent-direct-method).
+With IoT Edge, the edge configuration controller can be implemented as a module, and the configurations can be applied with [module twins](/azure/iot-hub/iot-hub-devguide-module-twins). The module twin has a size limit; if the configuration exceeds the limit, the solution can be extended with Azure Blob Storage or by chunking larger payloads over [direct methods](/azure/iot-edge/how-to-edgeagent-direct-method).
 
 The benefits of this variation are:
 

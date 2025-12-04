@@ -337,7 +337,7 @@ When you mount Blob Storage as a file system into a container or pod, you can us
 - Images, documents, and streaming video or audio.
 - Disaster recovery data.
 
-Applications can access the data on the object storage via [BlobFuse](https://github.com/Azure/azure-storage-fuse/blob/master/README.md) or the [NFS 3.0 protocol](https://wikipedia.org/wiki/Network_File_System). Before the introduction of the Blob Storage CSI driver, the only option was to manually install an unsupported driver to access Blob Storage from your application that runs on AKS. A Blob Storage CSI driver that's enabled on AKS has two built-in storage classes: [azureblob-fuse-premium](/azure/aks/azure-blob-csi) and [azureblob-nfs-premium](/azure/aks/azure-blob-csi).
+Applications can access the data on the object storage via [Blobfuse2](https://github.com/Azure/azure-storage-fuse) or the [NFS 3.0 protocol](https://wikipedia.org/wiki/Network_File_System). Before the introduction of the Blob Storage CSI driver, the only option was to manually install an unsupported driver to access Blob Storage from your application that runs on AKS. A Blob Storage CSI driver that's enabled on AKS has two built-in storage classes: [azureblob-fuse-premium](/azure/aks/azure-blob-csi) and [azureblob-nfs-premium](/azure/aks/azure-blob-csi).
 
 To create an AKS cluster that has CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). For more information, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
 

@@ -3412,10 +3412,10 @@
 		</g>
 		<g id="shape4218-1113" v:mID="4218" v:groupContext="shape" transform="translate(418.035,-591.937)">
 			<title>Sheet.4218</title>
-			<desc>Azure AI Foundry</desc>
+			<desc>Microsoft Foundry</desc>
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="12.4253" cy="728.516" width="32.44" height="13.3435"/>
-			<text x="0.52" y="726.42" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI <tspan
+			<text x="0.52" y="726.42" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 						x="0.65" dy="1.2em" class="st13">Foundry</tspan></text>		</g>
 		<g id="shape4228-1116" v:mID="4228" v:groupContext="shape" v:layerMember="0" transform="translate(321.613,-660.937)">
 			<title>Dynamic connector.4228</title>
@@ -3570,11 +3570,11 @@
 		</g>
 		<g id="shape4282-1190" v:mID="4282" v:groupContext="shape" transform="translate(723.75,-580.5)">
 			<title>Sheet.4282</title>
-			<desc>Azure AI Foundry</desc>
+			<desc>Microsoft Foundry</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="34.8469" cy="719.283" width="69.7" height="10.4337"/>
 			<rect x="0" y="714.066" width="69.6938" height="10.4337" class="st9"/>
-			<text x="10.37" y="721.38" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry</text>		</g>
+			<text x="10.37" y="721.38" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry</text>		</g>
 		<g id="shape4322-1193" v:mID="4322" v:groupContext="shape" transform="translate(675.768,-444.848)">
 			<title>Rectangle.4322</title>
 			<v:userDefs>
@@ -3647,11 +3647,11 @@
 			<text x="6.07" y="719.46" class="st167" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>- or -</text>		</g>
 		<g id="shape4379-1219" v:mID="4379" v:groupContext="shape" transform="translate(626.11,-654.75)">
 			<title>Sheet.4379</title>
-			<desc>Azure AI Foundry project</desc>
+			<desc>Foundry project</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="67.5" cy="714.938" width="135" height="19.125"/>
 			<rect x="0" y="705.375" width="135" height="19.125" class="st9"/>
-			<text x="27.04" y="717.34" class="st49" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry project</text>		</g>
+			<text x="27.04" y="717.34" class="st49" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Foundry project</text>		</g>
 		<g id="shape4380-1222" v:mID="4380" v:groupContext="shape" transform="translate(677.778,-617.118)">
 			<title>Rectangle.2032</title>
 			<v:userDefs>

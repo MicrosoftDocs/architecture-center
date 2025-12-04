@@ -348,7 +348,6 @@ For the latest announcements, see the following resources:
 These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
-- [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 

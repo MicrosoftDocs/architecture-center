@@ -97,7 +97,7 @@ conceptualContent:
   items:
     - title: Popular articles
       links:
-      - text: AI Foundry chat baseline architecture
+      - text: Microsoft Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
         itemType: architecture
       - text: Develop and optimize a RAG implementation
@@ -124,7 +124,7 @@ conceptualContent:
       - text: AI architecture design
         itemType: overview
         url: /azure/architecture/ai-ml/
-      - text: AI Foundry chat baseline architecture
+      - text: Microsoft Foundry chat baseline architecture
         url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway

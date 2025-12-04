@@ -276,12 +276,12 @@ Principal author:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Well-Architected Framework service guide for AKS](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
+> [Well-Architected Framework service guide for AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 
 ### Azure Firewall
 
@@ -294,7 +294,6 @@ Principal author:
 
 ### Azure Kubernetes Service
 
-- [Create a private Azure Kubernetes Service cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)

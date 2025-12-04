@@ -166,4 +166,3 @@ Other contributors:
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Power BI embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
-- [Business process automation solution](https://github.com/Azure/business-process-automation)

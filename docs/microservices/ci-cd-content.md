@@ -81,7 +81,7 @@ In a rolling update, you deploy new instances of a service, and the new instance
 
 One challenge of rolling updates is that during the update process, a mix of old and new versions are running and receiving traffic. During this period, any request could get routed to either of the two versions.
 
-For breaking API changes, a good practice is to support both versions side by side, until all clients of the previous version are updated. See [API versioning](./design/api-design.yml#api-versioning).
+For breaking API changes, a good practice is to support both versions side by side, until all clients of the previous version are updated. See [API versioning](./design/api-design.md#api-versioning).
 
 ### Blue-green deployment
 

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 11/10/2025
+ms.date: 12/01/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -20,10 +20,47 @@ The following new and updated articles have recently been published in the Azure
 
 ## November 2025
 
+### New articles
+
+- [Web-Queue-Worker Architecture Style](./guide/architecture-styles/web-queue-worker.md)
+- [Data Considerations for Microservices](./microservices/design/data-considerations.md)
+- [API Design](./microservices/design/api-design.md)
+- [MLOps Maturity Model](./ai-ml/guide/mlops-maturity-model.md)
+- [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.md)
+- [Deploy MongoDB Atlas in Azure](./databases/architecture/mongodb-atlas-baseline.md)
+- [Choose the Right AI Model for Your Workload](./ai-ml/guide/choose-ai-model.md)
+
 ### Updated articles
 
+- [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#b64113461e](https://github.com/MicrosoftDocs/architecture-center/commit/b64113461e))
+- [Automate Video Analysis by Using Azure Machine Learning and Azure AI Vision](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#fbe994e490](https://github.com/MicrosoftDocs/architecture-center/commit/fbe994e490))
 - [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#9523c80384](https://github.com/MicrosoftDocs/architecture-center/commit/9523c80384))
 - [Azure Icons](./icons/index.md) ([#e780b39549](https://github.com/MicrosoftDocs/architecture-center/commit/e780b39549))
+- [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md) ([#39668ec73c](https://github.com/MicrosoftDocs/architecture-center/commit/39668ec73c))
+- [Architectural approaches for messaging in multitenant solutions](./guide/multitenant/approaches/messaging.md) ([#7959885e24](https://github.com/MicrosoftDocs/architecture-center/commit/7959885e24))
+- [Mission-critical global content delivery](./guide/networking/global-web-applications/mission-critical-content-delivery.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
+- [Mission-critical global HTTP ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
+- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
+- [Choose a Data Transfer Technology](./data-guide/scenarios/data-transfer.md) ([#fd12403a4a](https://github.com/MicrosoftDocs/architecture-center/commit/fd12403a4a))
+- [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml) ([#01d81fef19](https://github.com/MicrosoftDocs/architecture-center/commit/01d81fef19))
+- [Choose an Azure AI Technology](./data-guide/technology-choices/ai-services.md) ([#be37dd953f](https://github.com/MicrosoftDocs/architecture-center/commit/be37dd953f))
+- [Replicate Mainframe Data by Using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#3f0cd53f92](https://github.com/MicrosoftDocs/architecture-center/commit/3f0cd53f92))
+- [Develop a RAG Solution - Chunking Phase](./ai-ml/guide/rag/rag-chunking-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
+- [Develop a RAG Solution - Chunk Enrichment Phase](./ai-ml/guide/rag/rag-enrichment-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
+- [Develop a RAG Solution - Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
+- [Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
+- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
+- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
+- [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
+- [Use Azure Kubernetes Service to host GPU-based workloads](./reference-architectures/containers/aks-gpu/gpu-aks.yml) ([#a8af06a6fc](https://github.com/MicrosoftDocs/architecture-center/commit/a8af06a6fc))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
+- [Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
+- [Basic Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
+- [AI Architecture Design](./ai-ml/index.md) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
+- [Modernize Mainframe Workloads by Using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#fa01dc308a](https://github.com/MicrosoftDocs/architecture-center/commit/fa01dc308a))
+- [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md) ([#1d28bc6ad8](https://github.com/MicrosoftDocs/architecture-center/commit/1d28bc6ad8))
+- [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#8bac038701](https://github.com/MicrosoftDocs/architecture-center/commit/8bac038701))
+- [High Availability Enterprise Deployment That Uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml) ([#15cff51ed4](https://github.com/MicrosoftDocs/architecture-center/commit/15cff51ed4))
 - [Choose a Data Pipeline Orchestration Technology](./data-guide/technology-choices/pipeline-orchestration-data-movement.md) ([#d5bb3ca2d3](https://github.com/MicrosoftDocs/architecture-center/commit/d5bb3ca2d3))
 - [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml) ([#42e20acc18](https://github.com/MicrosoftDocs/architecture-center/commit/42e20acc18))
 - [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#06fd492d4b](https://github.com/MicrosoftDocs/architecture-center/commit/06fd492d4b))
@@ -65,13 +102,12 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
-- [API design](./microservices/design/api-design.yml) ([#8440f3852c](https://github.com/MicrosoftDocs/architecture-center/commit/8440f3852c))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#aa3d8316fd](https://github.com/MicrosoftDocs/architecture-center/commit/aa3d8316fd))
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml) ([#393206c28f](https://github.com/MicrosoftDocs/architecture-center/commit/393206c28f))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#0fcbbd784c](https://github.com/MicrosoftDocs/architecture-center/commit/0fcbbd784c))
 - [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml) ([#22cf380a96](https://github.com/MicrosoftDocs/architecture-center/commit/22cf380a96))
 - [Building the First Layer of Defense with Azure Security Services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml) ([#a209436e62](https://github.com/MicrosoftDocs/architecture-center/commit/a209436e62))
-- [Basic Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml) ([#21206b3026](https://github.com/MicrosoftDocs/architecture-center/commit/21206b3026))
+- [Basic Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/basic-azure-ai-foundry-chat.yml) ([#21206b3026](https://github.com/MicrosoftDocs/architecture-center/commit/21206b3026))
 - [Basic Web Application](./web-apps/app-service/architectures/basic-web-app.yml) ([#2beef7de79](https://github.com/MicrosoftDocs/architecture-center/commit/2beef7de79))
 - [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#461ec5c22c](https://github.com/MicrosoftDocs/architecture-center/commit/461ec5c22c))
 - [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#95cd197bcc](https://github.com/MicrosoftDocs/architecture-center/commit/95cd197bcc))
@@ -89,7 +125,6 @@ The following new and updated articles have recently been published in the Azure
 - [Caching guidance](./best-practices/caching.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [CDN guidance](./best-practices/cdn.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
-- [Data considerations for microservices](./microservices/design/data-considerations.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Interservice communication in microservices](./microservices/design/interservice-communication.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Bulkhead pattern](./patterns/bulkhead.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
 - [Gateway Aggregation pattern](./patterns/gateway-aggregation.yml) ([#085903fd32](https://github.com/MicrosoftDocs/architecture-center/commit/085903fd32))
@@ -146,8 +181,8 @@ The following new and updated articles have recently been published in the Azure
 - [Mainframe file and tape backup to Azure using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](./example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
-- [Modernize Mainframe Workloads by using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
-- [Replicate Mainframe Data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Modernize Mainframe Workloads by Using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Replicate Mainframe Data by Using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate AIX workloads to Azure with Skytap](./example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate IBM i series to Azure with Skytap](./example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
@@ -163,7 +198,7 @@ The following new and updated articles have recently been published in the Azure
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#e29a661cae](https://github.com/MicrosoftDocs/architecture-center/commit/e29a661cae))
 - [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
-- [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
+- [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Design great API developer experiences using API Management and GitHub](./example-scenario/web/design-api-developer-experiences-management-github.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#4462678826](https://github.com/MicrosoftDocs/architecture-center/commit/4462678826))
@@ -193,7 +228,7 @@ The following new and updated articles have recently been published in the Azure
 - [Project 15 Open Platform IoT Sustainability](./solution-ideas/articles/project-15-iot-sustainability.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [SAP S/4 HANA for Large Instances](./solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
 - [Modern Data Platform Architecture for SMBs](./solution-ideas/articles/small-medium-modern-data-platform.yml) ([#2caa8b8e6b](https://github.com/MicrosoftDocs/architecture-center/commit/2caa8b8e6b))
-- [Baseline Azure AI Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml) ([#d1f717a65e](https://github.com/MicrosoftDocs/architecture-center/commit/d1f717a65e))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml) ([#d1f717a65e](https://github.com/MicrosoftDocs/architecture-center/commit/d1f717a65e))
 - [Architectural Approaches for Compute in Multitenant Solutions](./guide/multitenant/approaches/compute.md) ([#c93fc4d86e](https://github.com/MicrosoftDocs/architecture-center/commit/c93fc4d86e))
 - [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md) ([#c93fc4d86e](https://github.com/MicrosoftDocs/architecture-center/commit/c93fc4d86e))
 - [Azure Service Bus Considerations for Multitenancy](./guide/multitenant/service/service-bus.md) ([#c93fc4d86e](https://github.com/MicrosoftDocs/architecture-center/commit/c93fc4d86e))
@@ -207,8 +242,8 @@ The following new and updated articles have recently been published in the Azure
 - [Cross-tenant secure access to apps with private endpoints](./networking/guide/cross-tenant-secure-access-private-endpoints.yml) ([#6580fb4573](https://github.com/MicrosoftDocs/architecture-center/commit/6580fb4573))
 - [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml) ([#6580fb4573](https://github.com/MicrosoftDocs/architecture-center/commit/6580fb4573))
 - [Network secure ingress pattern implementation with Azure Front Door Premium tier](./pattern-implementations/network-secure-ingress.md) ([#6580fb4573](https://github.com/MicrosoftDocs/architecture-center/commit/6580fb4573))
-- [Video Analysis by Using Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
-- [Baseline Azure AI Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
+- [Automate Video Analysis by Using Azure Machine Learning and Azure AI Vision](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
+- [Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Machine learning operations](./ai-ml/guide/machine-learning-operations-v2.md) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
 - [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml) ([#1505abca1c](https://github.com/MicrosoftDocs/architecture-center/commit/1505abca1c))
@@ -234,52 +269,4 @@ The following new and updated articles have recently been published in the Azure
 - [SAP HANA for Linux VMs in Scale-up Systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml) ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
 - [IoT analytics with Azure Data Explorer and Azure IoT Hub](./solution-ideas/articles/iot-azure-data-explorer.yml) ([#af9ee1ce14](https://github.com/MicrosoftDocs/architecture-center/commit/af9ee1ce14))
-
-## August 2025
-
-### New articles
-
-- [High Availability Enterprise Deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
-- [Choose an Azure Compute Service](./guide/technology-choices/compute-decision-tree.md)
-- [Azure App Service and Azure Functions Considerations for Multitenancy](./guide/multitenant/service/app-service.md)
-- [Architectural Approaches for AI and Machine Learning in Multitenant Solutions](./guide/multitenant/approaches/ai-machine-learning.md)
-- [Event-Driven Architecture Style](./guide/architecture-styles/event-driven.md)
-- [Architectural Approaches for the Deployment and Configuration of Multitenant Solutions](./guide/multitenant/approaches/deployment-configuration.md)
-- [Architectural Approaches for Storage and Data in Multitenant Solutions](./guide/multitenant/approaches/storage-data.md)
-- [Big Data Architecture Style](./guide/architecture-styles/big-data.md)
-- [Build a Conversation Knowledge Mining Solution by using Azure AI Services](./ai-ml/idea/unlock-insights-from-conversational-data.yml)
-
-### Updated articles
-
-- [Use Azure API Management in a Multitenant Solution](./guide/multitenant/service/api-management.md) ([#89f51781c9](https://github.com/MicrosoftDocs/architecture-center/commit/89f51781c9))
-- [Securely Managed Web Applications](./example-scenario/apps/fully-managed-secure-apps.yml) ([#3c46023f4e](https://github.com/MicrosoftDocs/architecture-center/commit/3c46023f4e))
-- [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#c8f307de2a](https://github.com/MicrosoftDocs/architecture-center/commit/c8f307de2a))
-- [Protect APIs by using Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml) ([#dd7b7cdd27](https://github.com/MicrosoftDocs/architecture-center/commit/dd7b7cdd27))
-- [What is a data lake?](./data-guide/scenarios/data-lake.md) ([#4c78cd751b](https://github.com/MicrosoftDocs/architecture-center/commit/4c78cd751b))
-- [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml) ([#a892eca707](https://github.com/MicrosoftDocs/architecture-center/commit/a892eca707))
-- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md) ([#a04fb8377e](https://github.com/MicrosoftDocs/architecture-center/commit/a04fb8377e))
-- [Compare AWS and Azure database technology](./aws-professional/databases.md) ([#1777f1607c](https://github.com/MicrosoftDocs/architecture-center/commit/1777f1607c))
-- [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#f11cac6fb0](https://github.com/MicrosoftDocs/architecture-center/commit/f11cac6fb0))
-- [Design for Self-Healing](./guide/design-principles/self-healing.md) ([#823d678ff1](https://github.com/MicrosoftDocs/architecture-center/commit/823d678ff1))
-- [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
-- [Replicate and Sync Mainframe Data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml) ([#5497afd77a](https://github.com/MicrosoftDocs/architecture-center/commit/5497afd77a))
-- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Measure Azure App Sustainability by Using the SCI Score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Greenfield Lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Modern data warehouses for small and midsize-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [SQL Server on Azure Virtual Machines With Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Google Cloud to Azure services comparison](./gcp-professional/services.md) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Rehost mainframe applications to Azure with Raincode compilers](./reference-architectures/app-modernization/raincode-reference-architecture.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml) ([#f5745bd0b6](https://github.com/MicrosoftDocs/architecture-center/commit/f5745bd0b6))
-- [Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#974aefb04b](https://github.com/MicrosoftDocs/architecture-center/commit/974aefb04b))
-- [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
-- [Azure Local Storage Switchless Architecture](./hybrid/azure-local-switchless.yml) ([#c502b23f75](https://github.com/MicrosoftDocs/architecture-center/commit/c502b23f75))
-- [Architectural Approaches for Networking in Multitenant Solutions](./guide/multitenant/approaches/networking.md) ([#4eacd2c846](https://github.com/MicrosoftDocs/architecture-center/commit/4eacd2c846))
-- [Retry Storm Antipattern](./antipatterns/retry-storm/index.md) ([#06241900a7](https://github.com/MicrosoftDocs/architecture-center/commit/06241900a7))
-- [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml) ([#debeaca649](https://github.com/MicrosoftDocs/architecture-center/commit/debeaca649))
-- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#39a0028b22](https://github.com/MicrosoftDocs/architecture-center/commit/39a0028b22))
-- [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml) ([#7715f6b1b2](https://github.com/MicrosoftDocs/architecture-center/commit/7715f6b1b2))
 

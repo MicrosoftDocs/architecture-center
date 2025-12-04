@@ -192,7 +192,7 @@ Other contributors:
 - [Shared responsibility for reliability](/azure/reliability/concept-shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/reliability/reliability-data-factory)
 - [IR in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
 - [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)
 - [BCDR for Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery)
 

@@ -181,5 +181,5 @@ Other contributors:
 
 ## Related resources
 
-- [MLOps maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
+- [MLOps maturity model](../../ai-ml/guide/mlops-maturity-model.md)
 - [MLOps v2](../../ai-ml/guide/machine-learning-operations-v2.md)

@@ -203,7 +203,7 @@ In addition to the workload, the cluster might contain several other images, suc
 
 In AKS, each node pool usually maps to a virtual machine scale set. Nodes are VMs in each node pool.
 
-Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system disk is 512 GB.
+Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system ephemeral disk is 64 GB.
 
 When you're planning the capacity for a user node pool, consider the following recommendations:
 
@@ -213,7 +213,7 @@ When you're planning the capacity for a user node pool, consider the following r
 
 - Deploy at least two nodes. That way, the workload has a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
-- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload. To lower costs, you can drop the size or use a different VM series.
+- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload.
 
 - Assume that your workload consumes up to 80% of each node when planning capacity for your cluster. The remaining 20% is reserved for AKS services.
 
@@ -221,7 +221,7 @@ When you're planning the capacity for a user node pool, consider the following r
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
+Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you may need to increase the disk size to avoid deployment or runtime issues.
 
 If you have a workload that is composed of a mixture of technologies, you can use different operating systems in different node pools. However, if you don't need different operating systems for your workload, we recommend that you use a single operating system for all your workload's node pools to reduce operational complexity.
 
@@ -924,7 +924,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Related resources
 
-- [AKS roadmap on GitHub](https://github.com/Azure/AKS/projects/1)
+- [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
 - [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
 - [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
 - [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)

@@ -110,7 +110,7 @@ An example of a network schema could be:
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubject          | 10.0.2.32/27  |
 
-Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation/tree/main)
+Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation)
 
 ## Considerations
 
@@ -131,7 +131,7 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 #### App Services
 
 - Deploy a minimum two instances of App Services with Availability Zone support. For additional resiliency, the minimum should be at least equal to the number of available zones in your region, with additional instances for redundancy within zones.
-- Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
+- Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
 #### Blob storage

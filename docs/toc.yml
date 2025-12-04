@@ -56,11 +56,11 @@ items:
             - name: Interservice communication
               href: microservices/design/interservice-communication.yml
             - name: API design
-              href: microservices/design/api-design.yml
+              href: microservices/design/api-design.md
             - name: API gateways
               href: microservices/design/gateway.yml
             - name: Data considerations
-              href: microservices/design/data-considerations.yml
+              href: microservices/design/data-considerations.md
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
@@ -68,7 +68,7 @@ items:
     - name: N-tier application
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
+      href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
     - name: Overview
@@ -159,6 +159,8 @@ items:
         href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
+      - name: Choose an AI model for your workload
+        href: ai-ml/guide/choose-ai-model.md
     - name: Choose a networking service
       items:
       - name: Load balancing options
@@ -601,10 +603,6 @@ items:
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
-    - name: Solution ideas
-      items:
-      - name: DFS failover cluster
-        href: solution-ideas/articles/dfs-failover-cluster-vms.yml
     - name: SAP
       items:
       - name: Guides
