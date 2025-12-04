@@ -33,7 +33,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 1. Remote clients send input via Azure ExpressRoute or from other Azure applications. In both cases, TCP/IP is the primary connection to the system.
 
-   A web browser accesses Azure system resources, which replaces terminal emulation for demand users and online users. Users access web-based applications over Transport Layer Security (TLS) port 443. To minimize user retraining, web applications' presentation layers can remain with minimal changes. Or you can update the presentation layer with modern user experience frameworks.
+   A web browser accesses Azure system resources, which replaces terminal emulation for demand users and online users. Users access web-based applications over Transport Layer Security (TLS) port 443. To minimize user retraining, web applications' presentation layers can remain mostly unchanged. Or you can update the presentation layer with modern user experience frameworks.
 
    (**1a**) For enhanced security, Microsoft Entra ID can enable and enforce authentication and authorization.
 
