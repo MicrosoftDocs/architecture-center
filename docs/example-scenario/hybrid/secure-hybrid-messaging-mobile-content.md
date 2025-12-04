@@ -162,7 +162,7 @@ This article doesn't discuss other protocols, like IMAP or POP. Typically, these
 This architecture is relevant for the following scenarios:
 
 - Enhance EMI security.
-- Adopt a [zero trust](https://www.microsoft.com/security/business/zero-trust) security strategy.
+- Adopt a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) security strategy.
 - Apply your standard high level of protection for your on-premises messaging service during transition to or coexistence with Exchange Online.
 - Enforce strict security or compliance requirements in closed or highly secured organizations, like those in the finance sector.
 
