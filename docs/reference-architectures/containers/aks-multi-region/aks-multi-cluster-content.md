@@ -45,7 +45,7 @@ Within each region, nodes in the AKS node pools are spread across multiple avail
 
 ### Deployment stamp considerations
 
-When you manage a multi-region AKS solution, you deploy multiple AKS clusters across multiple regions. Each one of these clusters is considered a *stamp*. If there's a regional failure, or if you need to add more capacity or regional presence for your clusters, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following things:
+When you manage a multi-region AKS solution, you deploy multiple AKS clusters across multiple regions. Each one of these clusters is considered a *stamp*. If there's a regional failure, or if you need to add more capacity or regional presence for your clusters, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following factors:
 
 - Select the appropriate technology for stamp definitions that allows for generalized configuration. For example, you might use Bicep for defining infrastructure as code.
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files.

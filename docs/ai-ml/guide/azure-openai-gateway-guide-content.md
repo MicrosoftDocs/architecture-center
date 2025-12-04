@@ -106,7 +106,7 @@ Reliability ensures that your application meets the commitments you make to your
 
 ### Security
 
-When considering how an API gateway benefits your architecture, use the [Design review checklist for Security](/azure/well-architected/security/checklist) to evaluate your design. You need to address security considerations, such as the following:
+When considering how an API gateway benefits your architecture, use the [Design review checklist for Security](/azure/well-architected/security/checklist) to evaluate your design. You need to address the following security considerations:
 
 - The surface area of the workload is increased with the addition of the gateway. That surface area brings extra identity and access management (IAM) considerations of the Azure resources, increased hardening efforts, and more.
 
@@ -131,7 +131,7 @@ To help manage costs when developing and testing a gateway, consider using a sim
 
 ### Operational Excellence
 
-When considering how an API gateway benefits your architecture, use the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist) to evaluate your design. You need to address operational excellence considerations such as the following:
+When considering how an API gateway benefits your architecture, use the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist) to evaluate your design. You need to address the following operational excellence considerations:
 
 - The gateway itself needs to be monitored by your workload's monitoring solution and potentially by clients. This means that gateway compute and operations need to be included in the workload's [health modeling](/azure/well-architected/cross-cutting-guides/health-modeling).
 
@@ -143,7 +143,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 ### Performance Efficiency
 
-When considering how an API gateway benefits your architecture, use the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) to evaluate your design. You need to address performance efficiency considerations such as the following:
+When considering how an API gateway benefits your architecture, use the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) to evaluate your design. You need to address the following performance efficiency considerations:
 
 - The gateway service can introduce a throughput bottleneck. Ensure the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution so that the gateway can reduce supply, or scale down, when demand is low, such as with business day usage.
 

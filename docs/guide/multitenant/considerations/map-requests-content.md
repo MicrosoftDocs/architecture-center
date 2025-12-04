@@ -76,7 +76,7 @@ Consider the following questions:
 
 Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication, and for unattended devices or kiosks used by unauthenticated users. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate might contain the email address of the user, which can be used to look up the tenant.
 
-When planning to use client certificates for tenant mapping consider the following:
+When planning to use client certificates for tenant mapping, consider the following factors:
 
 - How will you safely issue and renew the client certificates that are trusted by your service? Client certificates can be complex to work with, since they require special infrastructure to manage and issue certificates. If handled improperly, these complexities can *reduce* your security instead of increasing it.
 - Will client certificates be used only for initial login requests, or attached to all requests to your service?
@@ -103,7 +103,7 @@ It is important that your application validates that any requests that it receiv
 > [!NOTE]
 > This is part of the *assume Zero Trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 
-When implementing request validation, you should consider the following:
+When implementing request validation, consider the following factors:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.
 - Use trusted, widely used and well maintained authentication and authorization frameworks and middleware, instead of implementing all of the validation logic yourself. For example, don't build token signature validation logic or client certificate cryptography libraries. Instead, use features of your application platform (or known trusted packages) that have been validated and tested.

@@ -10,7 +10,7 @@ The workload can be deployed internally or externally facing, depending on your 
 
 ### Workflow
 
-From the perspective of infrastructure, this architecture provides the following:
+From the perspective of infrastructure, this architecture provides the following capabilities:
 
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
