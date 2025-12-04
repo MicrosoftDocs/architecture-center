@@ -41,7 +41,7 @@ Figure 1 shows horizontal partitioning or sharding. In this example, product inv
 
 The most important factor is the choice of a sharding key. It can be difficult to change the key after the system is in operation. The key must ensure that data is partitioned to spread the workload as evenly as possible across the shards.
 
-The shards don't have to be the same size. It's more important to balance the number of requests. Some shards might be large, but each item has a low number of access operations. Other shards might be smaller, but each item is accessed much more frequently. It's also important to ensure that a single shard doesn't exceed the scale limits (in terms of capacity and processing resources) of the data store.
+The shards don't have to be the same size. It's more important to balance the number of requests. Some shards might be very large, but each item has a low number of access operations. Other shards might be smaller, but each item is accessed much more frequently. It's also important to ensure that a single shard doesn't exceed the scale limits (in terms of capacity and processing resources) of the data store.
 
 Avoid creating "hot" partitions that can affect performance and availability. For example, using the first letter of a customer's name causes an unbalanced distribution, because some letters are more common. Instead, use a hash of a customer identifier to distribute data more evenly across partitions.
 

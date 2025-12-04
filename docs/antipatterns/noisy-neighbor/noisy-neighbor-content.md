@@ -52,7 +52,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Service Fabric, consider using the [built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
 
-- **Restrict the operations that tenants can perform.** For example, restrict tenants from running resource‑intensive database queries by setting a maximum record count or query time limit. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
+- **Restrict the operations that tenants can perform.** For example, restrict tenants from running resource-intensive database queries by setting a maximum record count or query time limit. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
 
 - **Provide a quality of service (QoS) system.** When you apply QoS, you prioritize some processes or workloads before other processes or workloads. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 
