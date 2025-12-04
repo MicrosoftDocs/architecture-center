@@ -88,7 +88,7 @@ AKS provides various options to deploy GPU-enabled Linux and Windows node pools 
   When you select a supported GPU-enabled VM, AKS automatically installs the appropriate NVIDIA CUDA or GRID driver. Some workloads depend on a specific driver, which can affect your deployment. For NC-series and ND-series VM sizes, AKS installs the CUDA driver. For NV-series VM sizes, AKS installs the GRID driver. 
 
 - View the [supported GPU-enabled VMs](/azure/aks/use-windows-gpu#supported-gpu-enabled-virtual-machines-vms) in Azure. We recommend that you use a minimum size of _Standard_NC6s_v3_ for AKS node pools. AKS doesn't support the NVv4 series based on AMD GPUs.
-- Understand the limitations when you use a Windows node pool. Kubernetes versions 1.28 and below don't support Windows GPUs.
+- Understand the limitations when you use a Windows node pool. Kubernetes versions 1.28 and earlier don't support Windows GPUs.
 - Use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints, and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) when you schedule workloads on your GPU-enabled node pools.
 
 > [!NOTE]

@@ -21,7 +21,7 @@ The system must provide a robust mechanism for selecting the leader. This method
 
 There are multiple strategies for electing a leader among a set of tasks in a distributed environment, including:
 
-- Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader. This strategy is demonstrated in the example included below.
+- Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader. This strategy is demonstrated in the following example.
 - Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html), the [Raft Consensus Algorithm](https://raft.github.io/), or the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
 
 ## Issues and considerations
@@ -65,7 +65,7 @@ The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-pat
 > To avoid a faulted leader instance retaining the lease indefinitely, specify a lifetime for the lease. When this expires, the lease becomes available. However, while an instance holds the lease it can request that the lease is renewed, and it'll be granted the lease for a further period of time. The leader instance can continually repeat this process if it wants to retain the lease.
 > For more information on how to lease a blob, see [Lease Blob (REST API)](/rest/api/storageservices/Lease-Blob).
 
-The `BlobDistributedMutex` class in the C# example below contains the `RunTaskWhenMutexAcquired` method that enables a worker instance to attempt to acquire a lease over a specified blob. The details of the blob (the name, container, and storage account) are passed to the constructor in a `BlobSettings` object when the `BlobDistributedMutex` object is created (this object is a simple struct that is included in the sample code). The constructor also accepts a `Task` that references the code that the worker instance should run if it successfully acquires the lease over the blob and is elected the leader. Note that the code that handles the low-level details of acquiring the lease is implemented in a separate helper class named `BlobLeaseManager`.
+The `BlobDistributedMutex` class in the following C# example contains the `RunTaskWhenMutexAcquired` method that enables a worker instance to attempt to acquire a lease over a specified blob. The details of the blob (the name, container, and storage account) are passed to the constructor in a `BlobSettings` object when the `BlobDistributedMutex` object is created (this object is a simple struct that is included in the sample code). The constructor also accepts a `Task` that references the code that the worker instance should run if it successfully acquires the lease over the blob and is elected the leader. Note that the code that handles the low-level details of acquiring the lease is implemented in a separate helper class named `BlobLeaseManager`.
 
 ```csharp
 public class BlobDistributedMutex
@@ -91,7 +91,7 @@ public class BlobDistributedMutex
   ...
 ```
 
-The `RunTaskWhenMutexAcquired` method in the code sample above invokes the `RunTaskWhenBlobLeaseAcquired` method shown in the following code sample to actually acquire the lease. The `RunTaskWhenBlobLeaseAcquired` method runs asynchronously. If the lease is successfully acquired, the worker instance has been elected the leader. The purpose of the `taskToRunWhenLeaseAcquired` delegate is to perform the work that coordinates the other worker instances. If the lease isn't acquired, another worker instance has been elected as the leader and the current worker instance remains a subordinate. Note that the `TryAcquireLeaseOrWait` method is a helper method that uses the `BlobLeaseManager` object to acquire the lease.
+The `RunTaskWhenMutexAcquired` method in the previous code sample invokes the `RunTaskWhenBlobLeaseAcquired` method shown in the following code sample to actually acquire the lease. The `RunTaskWhenBlobLeaseAcquired` method runs asynchronously. If the lease is successfully acquired, the worker instance has been elected the leader. The purpose of the `taskToRunWhenLeaseAcquired` delegate is to perform the work that coordinates the other worker instances. If the lease isn't acquired, another worker instance has been elected as the leader and the current worker instance remains a subordinate. Note that the `TryAcquireLeaseOrWait` method is a helper method that uses the `BlobLeaseManager` object to acquire the lease.
 
 ```csharp
   private async Task RunTaskWhenBlobLeaseAcquired(
@@ -123,7 +123,7 @@ The `RunTaskWhenMutexAcquired` method in the code sample above invokes the `RunT
 
 The task started by the leader also runs asynchronously. While this task is running, the `RunTaskWhenBlobLeaseAcquired` method shown in the following code sample periodically attempts to renew the lease. This helps to ensure that the worker instance remains the leader. In the sample solution, the delay between renewal requests is less than the time specified for the duration of the lease in order to prevent another worker instance from being elected the leader. If the renewal fails for any reason, the leader-specific task is canceled.
 
-If the lease fails to be renewed or the task is canceled (possibly as a result of the worker instance shutting down), the lease is released. At this point, this or another worker instance can be elected as the leader. The code extract below shows this part of the process.
+If the lease fails to be renewed or the task is canceled (possibly as a result of the worker instance shutting down), the lease is released. At this point, this or another worker instance can be elected as the leader. The following code extract shows this part of the process.
 
 ```csharp
   private async Task RunTaskWhenBlobLeaseAcquired(

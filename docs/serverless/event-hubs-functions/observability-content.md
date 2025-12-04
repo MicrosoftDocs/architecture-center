@@ -58,7 +58,7 @@ This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) forma
 
 ## Example Application Insights queries
 
-Below is a list of helpful Application Insights queries when monitoring Event Hubs with Azure Functions. This query display detailed information for event hub triggered function using telemetry **emitted by the Event Hubs extension 4.2.0 and greater**.
+The following list contains helpful Application Insights queries when you're monitoring Event Hubs with Azure Functions. This query display detailed information for event hub triggered function using telemetry **emitted by the Event Hubs extension 4.2.0 and greater**.
 
 When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#configure-sampling) in Application Insights, there can be gaps in the data.
 
