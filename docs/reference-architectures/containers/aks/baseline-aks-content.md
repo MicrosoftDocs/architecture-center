@@ -448,7 +448,7 @@ For more information, see [Differences between Azure network policy engines](/az
 
 ### Management traffic
 
-As part of running the cluster, the Kubernetes API server receives traffic from resources that want to do management operations on the cluster, such as requests to create resources to scale the cluster. Examples of those resources include the build agent pool in a DevOps pipeline, an Azure Bastion instance within the Azure Bastion subnet, and the node pools themselves. Instead of accepting this management traffic from all IP addresses, we recommend provision a private AKS cluster.
+As part of running the cluster, the Kubernetes API server receives traffic from resources that want to do management operations on the cluster, such as requests to create resources to scale the cluster. Examples of those resources include the build agent pool in a DevOps pipeline, an Azure Bastion instance within the Azure Bastion subnet, and the node pools themselves. Instead of accepting this management traffic from all IP addresses, we recommend that you provision a private AKS cluster.
 
 For more information, see [Define API server-authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges).
 
@@ -459,24 +459,9 @@ Private traffic to a private AKS cluster may originate from the spoke virtual ne
 - Using Azure Bastion to open a tunnel to the AKS API server.
 - Connecting to a jump-box VM through Azure Bastion.
 
+In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations.
+
 Lower environments may consider relaxing this private cluster recommendation for convenience. However, production AKS clusters should always be deployed as private clusters for a secure deployment baseline. 
-
-#### Azure Bastion Tunneling
-
-Operator tunnels from laptop into VNet and directly place requests to the private API server.
-
-PROS
-
-1. Zero infrastructure footprint. No Virtual Machines to manage, maintenance, secure, or monitor.
-1. Fast inner loop. Direct API calls from the operator’s tools on their laptop.
-1. Scales naturally. Add more operators → no extra infra required.
-
-CONS
-
-1. Depends heavily on laptop security posture. If device gets compromised, it has direct reach to a production VNet.
-1. Less predictable behavior. Local DNS overrides, firewall software, proxies, VPNs can all break and disrupt/interrupt ops.
-1. Harder to monitor operator traffic.
-1. Dangerous commands run from local terminals are closer to user mistakes. A jump box can add friction and context.
 
 ## Add secret management
 
