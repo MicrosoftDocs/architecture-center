@@ -118,7 +118,7 @@ For production microservices deployments on AKS, use [Azure CNI powered by Ciliu
 
 - **Flexible IP address management:** Azure CNI powered by Cilium supports both virtual network routed and overlay pod IP address assignment models based on your workload's network architecture requirements.
 
-When you implement network policies for microservices, follow a Zero Trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
+When you implement network policies for microservices, follow a zero trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
 
 #### API gateway
 
@@ -228,7 +228,7 @@ Implement network segmentation between microservices by using Kubernetes Network
 
 Follow these best practices for network policies in microservices architectures:
 
-- **Apply Zero Trust principles.** Start with deny-all network policies at the namespace level and explicitly allow only required traffic between microservices.
+- **Apply zero trust principles.** Start with deny-all network policies at the namespace level and explicitly allow only required traffic between microservices.
 
 - **Segment by bounded context.** Create namespaces for each bounded context in your microservices architecture and apply network policies to control traffic between these contexts.
 
