@@ -46,10 +46,6 @@ items:
           href: architecture/mongodb-atlas-baseline.md
         - name: Analyze MongoDB Atlas data
           href: architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Data movement
-        items:
-        - name: Disaster recovery for data analytics pipelines
-          href: ../example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Mainframe
         items:
         - name: Replicate and sync mainframe data

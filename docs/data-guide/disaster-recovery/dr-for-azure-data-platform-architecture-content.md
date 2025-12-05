@@ -263,7 +263,6 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Computed Optimized Gen2
-    - DR uplift options: N/A, Synapse recovery is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature.
     - Notes
         - If Self-Hosted Data Pipelines are used, they remain the customer's responsibility for recovery from a disaster.
 
