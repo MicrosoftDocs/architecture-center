@@ -167,7 +167,7 @@ At this point, it appears the `Post` method in the `WorkInFrontEnd` controller i
 
 The next step is to perform tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
 
-The graph below shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
+The following graph shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 
 ![Initial load test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
 
