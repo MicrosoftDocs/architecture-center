@@ -193,7 +193,7 @@ The following are considerations for scaling your environment.
 
 Learn more about the component technologies:
 
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs: A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)

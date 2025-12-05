@@ -146,7 +146,7 @@ When you assign resources to resource groups, consider these factors:
 
 ##### Deployment
 
-Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+Use [Azure Resource Manager templates][arm] to deploy the Azure resources and follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
 
 ##### Staging
 
