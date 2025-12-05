@@ -213,7 +213,7 @@ For more information, see:
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-*Web Application Firewall -* The WAF functionality of Azure Application Gateway detects and prevent attacks at the HTTP level, such as SQL injection (SQLi) or cross-site scripting (CSS).
+*Web Application Firewall -* The WAF functionality of Azure Application Gateway detects and prevents attacks at the HTTP level, such as SQL injection (SQLi) or cross-site scripting (CSS).
 
 *Next-Generation Firewall -* Azure Firewall Premium provides an additional layer of defense by inspecting content for non-web attacks, such as malicious files uploaded via HTTP(S) or any other protocol.
 
