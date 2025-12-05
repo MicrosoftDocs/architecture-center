@@ -205,7 +205,7 @@ To achieve zonal redundancy for the orchestration layer, follow these recommenda
 
 If your agent integrates with other workload-specific dependencies, such as custom tool connections or external knowledge stores, ensure that those dependencies meet your availability and redundancy requirements. Any single-zone or nonredundant dependency can undermine the overall reliability of the orchestration layer.
 
-The the Foundry portal, its data plane APIs, and the Foundry Agent Service capability don't provide direct controls for zone redundancy.
+The Foundry portal, its data plane APIs, and the Foundry Agent Service capability don't provide direct controls for zone redundancy.
 
 #### Reliability in Microsoft Foundry model hosting
 
@@ -341,7 +341,7 @@ The Foundry portal runs many actions by using the service's identity rather than
 
 To mitigate the risk of unauthorized access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
-Treat creating new projects in an Foundry account as a privileged action. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
+Treat creating new projects in a Foundry account as a privileged action. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
 
 ##### Microsoft Foundry project role assignments and connections
 
