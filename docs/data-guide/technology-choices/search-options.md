@@ -55,7 +55,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Updateable schema | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | No |
+| Supports scale-out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
