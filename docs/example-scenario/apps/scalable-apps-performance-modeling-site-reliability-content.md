@@ -180,7 +180,7 @@ The SLOs can be tailored to suit specific application requirements. However, it'
 
 ### Measure initial SLOs that are based on data from the logs
 
-Monitoring logs are created automatically when the API service is in use. Assume that a week of data shows the following:
+Monitoring logs are created automatically when the API service is in use. Assume that a week of data shows the following results:
 
 - Requests: 123,456
 - Successful requests: 123,204

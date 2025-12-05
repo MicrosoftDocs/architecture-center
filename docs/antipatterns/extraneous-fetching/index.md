@@ -182,7 +182,7 @@ A slow operation isn't necessarily a problem if it isn't being performed when th
 
 If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance.
 
-For each data source, instrument the system to capture the following:
+For each data source, instrument the system to capture the following information:
 
 - The frequency that each data store is accessed.
 - The volume of data entering and exiting the data store.

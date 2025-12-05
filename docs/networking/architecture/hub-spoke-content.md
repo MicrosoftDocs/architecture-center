@@ -326,7 +326,7 @@ Other contributors:
 
 ### Advanced scenarios
 
-Your architecture might differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
+Your architecture might differ from this simple hub-spoke architecture. The following list describes guidance for advanced scenarios:
 
 - **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
 
