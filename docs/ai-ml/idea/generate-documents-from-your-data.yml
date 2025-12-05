@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Generate documents from your data
+  title: Generate Documents from Your Data
   description: Learn how to build a simple system to generate documents. It combines retrieval, summarization, and generation to support faster document drafting by using AI.
   author: gpickett
   ms.author: gpickett
