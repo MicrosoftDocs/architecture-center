@@ -26,7 +26,7 @@ items:
         items:
         - name: Extract and map information from unstructured content
           href: idea/multi-modal-content-processing.yml
-        - name: Extract document templates from enterprise data
+        - name: Generate documents from your data
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml

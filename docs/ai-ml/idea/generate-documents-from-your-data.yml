@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a Document Generation System by Using AI
+  title: Generate documents from your data
   description: Learn how to build a simple system to generate documents. It combines retrieval, summarization, and generation to support faster document drafting by using AI.
   author: gpickett
   ms.author: gpickett
@@ -14,7 +14,7 @@ products:
   - ai-services
   - azure-cosmos-db
   - azure-ai-foundry
-name: Build a document generation system by using AI
+name: Generate documents from your data
 summary: Learn how to build a simple system for generating document templates by using AI. It combines retrieval, summarization, and generation to support faster document drafting.
 thumbnailUrl: /azure/architecture/browse/thumbs/generate-documents.png
 content: |
