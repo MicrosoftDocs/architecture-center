@@ -246,7 +246,7 @@ The following sections apply these steps to the example shown earlier that queri
 
 ### Load test the application
 
-This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query.
+This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query.
 
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
