@@ -152,7 +152,7 @@ The architectures presented here are for business problems that require quantum 
 
 ### Considerations
 
-Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job is executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job runs after the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 #### Reliability
 

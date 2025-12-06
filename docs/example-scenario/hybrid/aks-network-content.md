@@ -71,7 +71,7 @@ A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azu
 
 ### Kubernetes node VM IP pool
 
-Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
+Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range. This specification isn't necessary for DHCP allocation. Plan additional IP addresses for:
 
 - The KVA VM also uses more IP address for Kubernetes from the Kubernetes node VM IP pool. Plan to add IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
 - Control Plane VMs consume one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.

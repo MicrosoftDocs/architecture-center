@@ -491,7 +491,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   // newValue should be 50
   ```
 
-- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The code snippet below shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
+- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -548,7 +548,7 @@ Console.WriteLine("Result of decrement: {0}", tx2.Result);
 
 Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method simply queues all the commands that comprise the transaction to be run, and if any of them is malformed then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
 
-If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the example above. Reading the **Result** property will block the calling thread until the task has completed.
+If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property will block the calling thread until the task has completed.
 
 For more information, see [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions).
 
@@ -573,7 +573,7 @@ It's important to understand that unlike a transaction, if a command in a batch 
 
 ### Perform fire and forget cache operations
 
-Redis supports fire and forget operations by using command flags. In this situation, the client simply initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The example below shows how to perform the INCR command as a fire and forget operation:
+Redis supports fire and forget operations by using command flags. In this situation, the client simply initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -626,7 +626,7 @@ You can also combine existing sets to create new sets by using the SDIFF (set di
 
 The following code snippets show how sets can be useful for quickly storing and retrieving collections of related items. This code uses the `BlogPost` type that was described in the section Implement Redis Cache Client Applications earlier in this article.
 
-A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet below shows the sample data that's used for populating a C# list of `BlogPost` objects:
+A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet shows the sample data that's used for populating a C# list of `BlogPost` objects:
 
 ```csharp
 List<string[]> tags = new List<string[]>
@@ -721,7 +721,7 @@ A common task required of many applications is to find the most recently accesse
 
 You can implement this functionality by using a Redis list. A Redis list contains multiple items that share the same key. The list acts as a double-ended queue. You can push items to either end of the list by using the LPUSH (left push) and RPUSH (right push) commands. You can retrieve items from either end of the list by using the LPOP and RPOP commands. You can also return a set of elements by using the LRANGE and RRANGE commands.
 
-The code snippets below show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a blog post is read by a user, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
+The following code snippets show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a blog post is read by a user, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -747,7 +747,7 @@ foreach (string postTitle in await cache.ListRangeAsync(redisKey, 0, 9))
 
 Note that the `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
 
-To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The code snippet below shows you how to remove all but the five left-most items from the list:
+To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The following code snippet shows you how to remove all but the five left-most items from the list:
 
 ```csharp
 await cache.ListTrimAsync(redisKey, 0, 5);

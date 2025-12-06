@@ -35,7 +35,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
-- Does your database have specific security needs? If yes, consider the security features listed below.
+- Does your database have specific security needs? If yes, consider the following security features.
 
 ## Capability matrix
 
