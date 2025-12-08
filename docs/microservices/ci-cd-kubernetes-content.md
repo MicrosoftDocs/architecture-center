@@ -164,7 +164,7 @@ docker run delivery-test:1
 
 The CI pipeline should also run the tests as part of the build verification step.
 
-Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
+This file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
 
 - If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
 - A failing test doesn't cause the Docker `build` command to fail. That way, you can distinguish container build failures from test failures.

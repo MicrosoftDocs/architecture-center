@@ -14,7 +14,7 @@ ms.custom: guide
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
 
-Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if another provider offers a 100% uptime SLA, it's important to note that that isn't a guarantee of zero downtime, and that SLAs typically provide for service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
+Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if a provider offers a 100% uptime SLA, that doesn't guarantee zero downtime. SLAs typically provide service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
 
 If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 
@@ -40,7 +40,7 @@ The solution includes the following components:
 
   In normal operations, Traffic Manager sends 100% of the incoming requests through Azure Front Door.
   
-  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described below.
+  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described in the following section.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
@@ -68,9 +68,9 @@ Azure Front Door's points of presence are deployed globally, and TCP and TLS con
 
 #### Connections from clients
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against various attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
+As a global multitenant service, Azure Front Door provides inherent protection against various threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against various attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
 
-In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network, Application Gateway, and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
+In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network, Application Gateway, and origin servers against various attack types. For more information, see [Origin security](./overview.md#origin-security).
 
 #### Private Link connections to origin servers
 

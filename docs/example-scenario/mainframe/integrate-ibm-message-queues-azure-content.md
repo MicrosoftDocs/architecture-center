@@ -1,4 +1,4 @@
-When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines. This example architecture shows both approaches.
+When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of various fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines. This example architecture shows both approaches.
 
 ## Architecture
 
@@ -49,7 +49,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 A popular approach in digital transformation scenarios is to see whether
 existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
 
-When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines.
+When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of various fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines.
 
 This example architecture shows both approaches:
 

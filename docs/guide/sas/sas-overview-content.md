@@ -324,7 +324,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
+The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
 
 Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 

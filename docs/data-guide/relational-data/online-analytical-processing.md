@@ -175,8 +175,8 @@ The following tables summarize the key differences in capabilities between these
 | Capability | Fabric | Analysis Services | SQL Server Analysis Services | SQL Server with columnstore indexes | SQL Database with columnstore indexes |
 |-----|--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
 | Redundant regional servers for high availability | Yes |           Yes           |              No              |                 Yes                 |                     Yes                     |
-|             Supports query scale out             |      Yes |     Yes           |              No              |                 Yes                 |                     Yes                      |
-|          Dynamic scalability, scale up          |  Yes |         Yes           |              No              |                 Yes                 |                     Yes                      |
+|             Supports query scale-out             |      Yes |     Yes           |              No              |                 Yes                 |                     Yes                      |
+|          Dynamic scalability, scale-up          |  Yes |         Yes           |              No              |                 Yes                 |                     Yes                      |
 
 ## Next steps
 
