@@ -56,7 +56,7 @@ At the platform level, the following [big data best practices](../../guide/archi
 
 -   Orchestrate data ingestion using a data workflow or pipeline solution such as those supported by Azure Data Factory or Oozie.
 
--   Process data in place using a distributed data store, a big data approach that supports larger volumes of data and a greater variety of formats.
+-   Process data in place using a distributed data store, a big data approach that supports larger volumes of data and a wider range of formats.
 
 -   Scrub sensitive data early as part of the ingestion workflow to avoid storing it in your data lake.
 

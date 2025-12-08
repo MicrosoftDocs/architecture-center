@@ -18,7 +18,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
    - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
-1. **Azure Logic Apps**.  Logic apps are used to orchestrate the calls to the backend services.  Logic apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide connectivity through [connectors][logic-apps-connectors], reducing the need for custom code.
+1. **Azure Logic Apps**.  Logic apps are used to orchestrate the calls to the backend services.  Logic apps can be triggered by various events and can call various services. In this solution, Logic Apps is used to call the backend services and provide connectivity through [connectors][logic-apps-connectors], reducing the need for custom code.
 
 1. **Backend services**. The backend services can be any service or line of business application, such as a database, a web service, or a SaaS application. The backend services can be hosted in Azure or on-premises.
 

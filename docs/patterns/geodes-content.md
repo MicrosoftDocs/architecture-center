@@ -6,7 +6,7 @@ The Geode pattern involves deploying a collection of backend services into a set
 
 Many large-scale services have specific challenges around geo-availability and scale. Classic designs often *bring the data to the compute* by storing data in a remote SQL server that serves as the compute tier for that data, relying on scale-up for growth.
 
-The classic approach might present a number of challenges:
+The classic approach might cause the following problems:
 
 - Network latency issues for users coming from the other side of the globe to connect to the hosting endpoint
 - Traffic management for demand bursts that can overwhelm the services in a single region
@@ -16,7 +16,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 ## Solution
 
-Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
+Deploy the service into multiple satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
 The key difference between a [deployment stamp](./deployment-stamp.yml) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
 
@@ -53,7 +53,7 @@ Consider the following points when deciding how to implement this pattern:
 - Distributed deployments have a greater number of secrets and ingress points that require property security measures. Key Vault provides a secure layer for secret management and each layer within the API architecture should be properly secured so that the only ingress point for the API is the front-end service like Azure Front Door. The Azure Cosmos DB should restrict traffic to the Azure Function Apps, and the Function apps to Azure Front Door using Microsoft Entra ID or practices like IP restriction.
 - Performance is drastically affected by the number of geodes that are deployed and the specific App Service Plans applied to the API technology in each geode. Deployment of additional geodes or movement towards premium tiers come with increased costs for the additional memory and compute, but do not do so on a per transaction basis. Consider load testing the API architecture once deployed and contrast increasing the numbers of geodes with increasing the pricing tier so that the most cost-efficient model is used for your needs.
 - Determine the availability requirements for your data. Azure Cosmos DB has optional flags for enabling multi-region write, availability zones, and more. These increase the availability for the Azure Cosmos DB instance and creates a more resilient data layer, but come with additional costs.
-- Azure offers a variety of load balancers that provide different functionalities for distribution of traffic. Use the [decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview#choose-a-load-balancing-solution-for-your-scenario) to help select the right option for your API's front end.
+- Azure offers various load balancers that provide different functionalities for distribution of traffic. Use the [decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview#choose-a-load-balancing-solution-for-your-scenario) to help select the right option for your API's front end.
 
 ## When to use this pattern
 
