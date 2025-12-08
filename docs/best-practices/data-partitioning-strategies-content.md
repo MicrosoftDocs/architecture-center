@@ -239,7 +239,8 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - Azure Cache for Redis isn't intended to act as a permanent data store, so whatever partitioning scheme you implement, your application code must be able to retrieve data from a location that's not the cache.
 
-- Data that is frequently accessed together should be kept in the same partition. Redis is a powerful key-value store that provides several highly optimized mechanisms for structuring data. These mechanisms can be one of the following:
+- Data that is frequently accessed together should be kept in the same partition. Redis is a powerful key-value store that provides several highly optimized mechanisms for structuring data. It includes the following mechanisms:
+
   - Simple strings (binary data up to 512 MB in length)
   - Aggregate types such as lists (which can act as queues and stacks)
   - Sets (ordered and unordered)

@@ -73,7 +73,7 @@ You can deploy this scenario by following the steps in [Workflow](#workflow) aft
 
 #### Prepare the software and choose a test user
 
-To implement and test the playbook, you need Azure and Microsoft Sentinel along with the following:
+To implement and test the playbook, you need Azure and Microsoft Sentinel along with the following prerequisites:
 
 - A Microsoft Entra ID Protection license (Premium P2, E3, or E5).
 - A Microsoft Entra user. You can use either an existing user or [create a new user](/entra/identity/enterprise-apps/add-application-portal-assign-users). If you do create a new user, you can delete it when you're done using it.
@@ -96,7 +96,7 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
   - Select the **Playbook templates (Preview)** tab.
   - In the search field, enter **Block Microsoft Entra user - Incident**.
   - In the list of playbooks, select **Block Microsoft Entra user - Incident** and then select **Create playbook** in the bottom right corner to get to the **Create playback** page.
-  - On the **Create playbook** page, do the following:
+  - On the **Create playbook** page, do the following steps:
     - Select values for **Subscription**, **Resource group**, and **Region** from the lists.
     - Enter a value for **Playbook name** if you don't want to use the default name that appears.
     - If you want, select **Enable diagnostics logs in Log Analytics** to enable logs.

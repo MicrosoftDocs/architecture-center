@@ -121,11 +121,11 @@ Mission critical systems often utilize messaging services for message or event p
 - Azure Service Bus is recommended for message-based workloads when handling high-value messages.
 - Azure Event Hubs is recommended for event-based systems that process high volumes of events or telemetry.
 
-The following are design considerations and recommendations for Azure Service Bus premium and Azure Event Hubs in a mission critical architecture.
+The following sections describe design considerations and recommendations for Azure Service Bus premium and Azure Event Hubs in a mission critical architecture.
 
 ### Handle load
 
-The messaging system must be able to handle the required throughput (as in MB per second). Consider the following:
+The messaging system must be able to handle the required throughput (as in MB per second). Consider the following factors:
 
 - The non-functional requirements (NFRs) of the system should specify the average message size and the peak number of messages/second each stamp must support. This information can be used to calculate the required peak MB/second per stamp.
 - The impact of a failover must be considered when calculating the required peak MB/second per stamp.
@@ -137,10 +137,10 @@ The messaging system must be able to handle the required throughput (as in MB pe
 
 ### Every message must be processed
 
-Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following are details regarding this requirement when using Azure Service Bus premium:
+Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following details describe this requirement when you use Azure Service Bus premium:
 
 - To ensure that messages are properly transferred to and accepted by the broker, message producers should use one of the supported Service Bus API clients. Supported APIs will only return successfully from a send operation if the message was persisted on the queue/topic.
-- To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following outlines the process:
+- To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following steps outline the process:
   - The message consumer receives the message to process.
   - The consumer is given an exclusive lock on the message for a given time duration.
   - If the consumer successfully processes the message, it sends an acknowledgment back to the broker, and the message is removed from the queue.
@@ -166,7 +166,7 @@ One common technique of making message handling idempotent is to check a persist
 
 ### High availability and disaster recovery
 
-The message broker must be available for producers to send messages and consumers to receive them. The following are details regarding this requirement:
+The message broker must be available for producers to send messages and consumers to receive them. Do the following steps to ensure high availability for your message broker:
 
 - To ensure the highest availability with Service Bus, use the premium tier, which has support for availability zones in supporting regions. With availability zones, messages and metadata are replicated across three disparate data centers in the same region.
 - Use supported Service Bus or Event Hubs SDKs to automatically retry read or write failures.
