@@ -26,7 +26,7 @@ Design your mission-critical workload with appropriate data stores. Consider usi
 
 - **Database**
 
-  Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
+  Stores related to the workload. It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
   Data replication in an active-active configuration is highly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read and write requests.
 
