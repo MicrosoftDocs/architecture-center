@@ -84,7 +84,7 @@ Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and 
 
 - **Standardization**: Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable natural language processing models like M2M100 improves processing accuracy across multiple languages and formats. This improved accuracy leads to more consistent results.
 
-- **Data variety and complexity**: Addressing the variety of document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, which leads to more intuitive handling of diverse textual formats and more reliable data processing.
+- **Data variety and complexity**: Addressing the various document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, which leads to more intuitive handling of diverse textual formats and more reliable data processing.
 
 ## Key selection criteria
 

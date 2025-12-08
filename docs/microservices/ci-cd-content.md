@@ -95,7 +95,7 @@ One drawback of blue-green deployment is that during the update, you are running
 
 ### Canary release
 
-In a canary release, you roll out an updated version to a small number of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This lets you do a slow rollout in a controlled fashion, observe real data, and spot problems before all customers are affected.
+In a canary release, you first deploy an updated version to a small subset of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This approach lets you roll out gradually in a controlled way, monitor real data, and identify problems before they affect all customers.
 
 A canary release is more complex to manage than either blue-green or rolling update, because you must dynamically route requests to different versions of the service.
 

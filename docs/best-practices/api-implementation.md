@@ -50,7 +50,7 @@ For example, a POST operation should return status code 201 (Created) and the re
 
 ### Support content negotiation
 
-The body of a response message can contain data in a variety of formats. For example, an HTTP GET request could return data in JSON or XML format. When the client submits a request, it can include an Accept header that specifies the data formats that it can handle. These formats are specified as media types. For example, a client that issues a GET request that retrieves an image can specify an Accept header that lists the media types that the client can handle, such as `image/jpeg, image/gif, image/png`. When the web API returns the result, it should format the data by using one of these media types and specify the format in the Content-Type header of the response.
+The body of a response message can contain data in various formats. For example, an HTTP GET request could return data in JSON or XML format. When the client submits a request, it can include an Accept header that specifies the data formats that it can handle. These formats are specified as media types. For example, a client that issues a GET request that retrieves an image can specify an Accept header that lists the media types that the client can handle, such as `image/jpeg, image/gif, image/png`. When the web API returns the result, it should format the data by using one of these media types and specify the format in the Content-Type header of the response.
 
 If the client doesn't specify an Accept header, then use a sensible default format for the response body. As an example, the ASP.NET Web API framework defaults to JSON for text-based data.
 
@@ -564,7 +564,7 @@ A single request could conceivably result in a massive object that consumes cons
 
 You can minimize the size of large objects transmitted over the network by using HTTP compression. This approach helps to reduce the amount of network traffic and the associated network latency, but at the cost of requiring additional processing at the client and the server hosting the web API. For example, a client application that expects to receive compressed data can include an `Accept-Encoding: gzip` request header (other data compression algorithms can also be specified). If the server supports compression it should respond with the content held in gzip format in the message body and the `Content-Encoding: gzip` response header.
 
-You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Also note that some web servers (such as Internet Information Server) can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data or not.
+You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Some web servers, like Internet Information Server, can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data.
 
 ### Implement partial responses for clients that don't support asynchronous operations
 
@@ -633,7 +633,7 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
 3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
    - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
 4. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
-5. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
+5. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. If the task fails, the web API could also store information about the failure and set the status to *Failed*.
    - Consider applying [retry techniques](/azure/architecture/patterns/retry) to resolve possibly transient failures.
 6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
 7. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
@@ -647,7 +647,7 @@ Options for implementing notifications include:
 
 ### Ensure that each request is stateless
 
-Each request should be considered atomic. There should be no dependencies between one request made by a client application and any subsequent requests submitted by the same client. This approach assists in scalability; instances of the web service can be deployed on a number of servers. Client requests can be directed at any of these instances and the results should always be the same. It also improves availability for a similar reason; if a web server fails requests can be routed to another instance (by using Azure Traffic Manager) while the server is restarted with no ill effects on client applications.
+Each request should be considered atomic. There should be no dependencies between one request made by a client application and any subsequent requests submitted by the same client. This approach supports scalability. Instances of the web service can be deployed across multiple servers. Client requests can be directed at any of these instances and the results should always be the same. It also improves availability for a similar reason; if a web server fails requests can be routed to another instance (by using Azure Traffic Manager) while the server is restarted with no ill effects on client applications.
 
 ### Track clients and implement throttling to reduce the chances of DoS attacks
 
@@ -760,7 +760,7 @@ The Azure API Management Service includes a developer portal that describes the 
 
 This portal also provides:
 
-- Documentation for the product, listing the operations that it exposes, the parameters required, and the different responses that can be returned. Note that this information is generated from the details provided in step 3 in the list in the Publishing a web API by using the Microsoft Azure API Management Service section.
+- Documentation for the product, listing the operations that it exposes, the parameters required, and the different responses that can be returned. This information is generated from the details provided in step 3 in the list in the Publishing a web API by using the Microsoft Azure API Management Service section.
 - Code snippets that show how to invoke operations from several languages, including JavaScript, C#, Java, Ruby, Python, and PHP.
 - A developers' console that enables a developer to send an HTTP request to test each operation in the product and view the results.
 - A page where the developer can report any issues or problems found.
