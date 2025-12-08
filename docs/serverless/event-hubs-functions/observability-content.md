@@ -1,6 +1,6 @@
 Monitoring provides insights into the behavior and health of your systems, and helps build a holistic view of the environment, historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate.
 
-Azure Functions offers built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From Application Insights, you can get information such as the number of function app instances or request and dependency telemetry of a function. When working with Functions and Event Hubs, Application Insights can also track the outgoing dependency telemetries to the event hub, calculating the processing time and showing the end-to-end flow of the system connected through Event Hubs.
+Azure Functions offers built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From Application Insights, you can get information such as the number of function app instances or request and dependency telemetry of a function. When you work with Functions and Event Hubs, Application Insights can also track the outgoing dependency telemetries to the event hub, calculating the processing time and showing the end-to-end flow of the system connected through Event Hubs.
 
 This section introduces useful features and insights that you can get from Application Insights for your Event Hubs plus Functions solution.
 
@@ -26,7 +26,7 @@ Platform-generated metrics in Azure Monitor for Event Hubs and Azure Functions c
 
 - Azure Functions metrics share many of the metrics from [Azure App Service](/azure/app-service/web-sites-monitor), with the addition of [Function Execution Count and Function Execution Units](/azure/azure-functions/analyze-telemetry-data#azure-monitor-metrics) that can be used for [understanding utilization and cost of the Consumption plan](/azure/azure-functions/functions-consumption-costs). Other metrics of interest are Connections, Data In, Data Out, Average Memory Working Set, Thread Count, Requests, and Response Time.
 
-Azure Functions integrates with Application Insights to provide advanced and detailed telemetry and insights into the Functions host and function executions. To learn more, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data). When using Application Insights to monitor a topology, there are various configurations available. To learn more, see [How to configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring).
+Azure Functions integrates with Application Insights to provide advanced and detailed telemetry and insights into the Functions host and function executions. To learn more, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data). When you use Application Insights to monitor a topology, there are a variety of configurations available. To learn more, see [How to configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring).
 
 The following example shows extra telemetry for Event Hubs triggered functions generated in the **traces** table:
 

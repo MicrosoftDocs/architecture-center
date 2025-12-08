@@ -341,7 +341,7 @@
         <id>https://learn.microsoft.com/azure/architecture/best-practices/cdn</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/cdn"/>
         <updated>2025-11-05T18:05:18.000Z</updated>
-        <summary type="html"><![CDATA[Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
+        <summary type="html"><![CDATA[Guidance about using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -669,7 +669,7 @@
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration"/>
         <updated>2025-10-13T21:53:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful when working with multitenant systems, and use the provided links for guidance and examples.]]></summary>
+        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful for multitenant systems, and explore the provided links for guidance and examples.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1105,7 +1105,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Mainframe file and tape backup to Azure using Luminex]]></title>
+        <title type="html"><![CDATA[Back up mainframe file and tape to Azure by using Luminex]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer"/>
         <updated>2025-09-19T19:20:39.000Z</updated>

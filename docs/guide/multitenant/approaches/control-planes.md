@@ -76,7 +76,7 @@ The diagram has two main sections, a control plane and a data plane. The control
 - **Scalability:** The work required to run manual processes scales with the number of tenants that you need to manage. 
 - **Testability:** Manual processes are difficult to validate and test.
 
-#### When to consider moving away from a manual approach
+#### When to transition from a manual approach
 
 - When your team can't keep up with the workload required to maintain the application. This scenario often occurs when the number of tenants exceeds a manageable threshold, typically between 5 and 10 tenants.
 
