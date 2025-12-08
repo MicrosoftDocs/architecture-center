@@ -1829,7 +1829,7 @@
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/iot-azure-data-explorer</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/iot-azure-data-explorer"/>
         <updated>2025-09-03T22:22:59.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Data Explorer with Azure IoT Hub for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.]]></summary>
+        <summary type="html"><![CDATA[Use Azure Data Explorer with Azure IoT Hub for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

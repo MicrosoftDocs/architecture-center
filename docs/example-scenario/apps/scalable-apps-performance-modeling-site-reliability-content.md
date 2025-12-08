@@ -16,7 +16,7 @@ The concepts in this article apply to:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1881435-scalable-apps-performance-modeling-site-reliability.pptx) of this architecture.*
 
-The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use a variety of databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
+The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use various databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
 
 This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrate the blocks shown in the diagram. The use cases are:
 
