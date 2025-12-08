@@ -102,7 +102,7 @@ The preceding list doesn't include all services. The following tables describe s
 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer) | [Cost Management](https://azure.microsoft.com/services/cost-management) | Perform cost analysis and optimize cloud costs. |
 | [AWS Control Tower](https://aws.amazon.com/controltower) | [Azure Lighthouse](/azure/lighthouse/overview) | Set up and govern multiple-account or multiple-subscription environments. |
 | [AWS Resource Groups and Tag Editor](https://docs.aws.amazon.com/ARG) | [Resource Manager resource groups](/azure/azure-resource-manager/management/overview) and [tags](/azure/azure-resource-manager/management/tag-resources) | A resource group is a container that holds related resources for an Azure solution. Apply tags to your Azure resources to logically organize them by categories. |
-| [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig) | [Azure App Configuration](/azure/azure-app-configuration) | App Configuration is a managed service that helps developers simply and more securely centralize their application and feature settings. |
+| [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig) | [Azure App Configuration](/azure/azure-app-configuration) | App Configuration is a managed service that helps developers more securely and easily centralize their application and feature settings. |
 | [AWS Service Catalog](https://aws.amazon.com/servicecatalog) | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview) | Azure Managed Applications provides cloud solutions that customers can easily deploy and operate. |
 
 ### Authentication and authorization

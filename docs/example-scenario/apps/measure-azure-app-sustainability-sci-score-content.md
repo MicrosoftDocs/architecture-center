@@ -134,7 +134,7 @@ When you can identify the failure points that can affect your application, you c
 You can take one of the following actions:
 
 - Apply a graceful degradation of the app's services and features, as described in the [Well-Architected Framework documentation](/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1).
-- Create an eco-mode version of your application. Eco mode is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features. You can revert to this version during carbon emission spikes. You can also simply train your end users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.
+- Create an eco-mode version of your application. Eco mode is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features. You can revert to this version during carbon emission spikes. You can also train your users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.
 
 - If you choose to involve your users, you create an opportunity to drive a cultural change along with the technical one:
       - You can specify the impact of the choice: "By using the eco version, you save *x amount* of carbon" or "bringing our carbon score to *y amount*."

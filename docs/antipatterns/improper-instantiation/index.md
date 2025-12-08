@@ -47,7 +47,7 @@ public class NewHttpClientInstancePerRequestController : ApiController
 
 In a web application, this technique isn't scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server might exhaust the number of available sockets, resulting in `SocketException` errors.
 
-This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue isn't necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
+This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar problems. The following example creates an instance of the `ExpensiveToCreateService` class. In this case, the problem isn't necessarily socket exhaustion, but rather how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
 
 ```csharp
 public class NewServiceInstancePerRequestController : ApiController

@@ -40,7 +40,7 @@ If you use a shared cache, it can help alleviate concerns that data might differ
 
 *Figure 2: Using a shared cache.*
 
-An important benefit of the shared caching approach is the scalability it provides. Many shared cache services are implemented by using a cluster of servers and use software to distribute the data across the cluster transparently. An application instance simply sends a request to the cache service. The underlying infrastructure determines the location of the cached data in the cluster. You can easily scale the cache by adding more servers.
+An important benefit of the shared caching approach is the scalability it provides. Many shared cache services are implemented by using a cluster of servers and use software to distribute the data across the cluster transparently. An application instance sends a request to the cache service. The underlying infrastructure determines the location of the cached data in the cluster. You can easily scale the cache by adding more servers.
 
 There are two main disadvantages of the shared caching approach:
 
@@ -75,7 +75,7 @@ A cache doesn't have to include the complete data for an entity. For example, if
 
 We recommend that you carry out performance testing and usage analysis to determine whether prepopulating or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are important in applications that encounter heavy loads and must be highly scalable. For example, in highly scalable scenarios you can seed the cache to reduce the load on the data store at peak times.
 
-Caching can also be used to avoid repeating computations while the application is running. If an operation transforms data or performs a complicated calculation, it can save the results of the operation in the cache. If the same calculation is required afterward, the application can simply retrieve the results from the cache.
+Caching can also be used to avoid repeating computations while the application is running. If an operation transforms data or performs a complicated calculation, it can save the results of the operation in the cache. If the same calculation is required afterward, the application can retrieve the results from the cache.
 
 An application can modify data that's held in a cache. However, we recommend thinking of the cache as a transient data store that could disappear at any time. Don't store valuable data in the cache only; make sure that you maintain the information in the original data store as well. This means that if the cache becomes unavailable, you minimize the chance of losing data.
 
@@ -116,7 +116,7 @@ Caches are often designed to be shared by multiple instances of an application. 
 
 Depending on the nature of the data and the likelihood of collisions, you can adopt one of two approaches to concurrency:
 
-- **Optimistic**. Immediately prior to updating the data, the application checks to see whether the data in the cache has changed since it was retrieved. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision is application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
+- **Optimistic**. The application checks whether the data in the cache has changed since it was retrieved before it updates the data. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision is application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
 - **Pessimistic**. When it retrieves the data, the application locks it in the cache to prevent another instance from changing it. This process ensures that collisions can't occur, but they can also block other instances that need to process the same data. Pessimistic concurrency can affect the scalability of a solution and is recommended only for short-lived operations. This approach might be appropriate for situations where collisions are more likely, especially if an application updates multiple items in the cache and must ensure that these changes are applied consistently.
 
 ### Implement high availability and scalability, and improve performance
@@ -299,7 +299,7 @@ Partitioning the cache involves splitting the cache across multiple computers. T
 
 - Creating a cache that is much bigger than can be stored on a single server.
 - Distributing data across servers, improving availability. If one server fails or becomes inaccessible, the data that it holds is unavailable, but the data on the remaining servers can still be accessed. For a cache, this isn't crucial because the cached data is only a transient copy of the data that's held in a database. Cached data on a server that becomes inaccessible can be cached on a different server instead.
-- Spreading the load across servers, thereby improving performance and scalability.
+- Spreading the load across servers, which improves performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
 For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
@@ -464,7 +464,7 @@ The simplest use of Redis for caching concerns is key-value pairs where the valu
 
 Note that keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
-For example, use structured keys such as "customer:100" to represent the key for the customer with ID 100 rather than simply "100". This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
+For example, use structured keys like "customer:100" to represent the key for the customer with ID 100 instead of "100". This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
 
 Apart from one-dimensional binary strings, a value in a Redis key-value pair can also hold more structured information, including lists, sets (sorted and unsorted), and hashes. Redis provides a comprehensive command set that can manipulate these types, and many of these commands are available to .NET Framework applications through a client library such as StackExchange. The page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website provides a more detailed overview of these types and the commands that you can use to manipulate them.
 
@@ -546,7 +546,9 @@ Console.WriteLine("Result of increment: {0}", tx1.Result);
 Console.WriteLine("Result of decrement: {0}", tx2.Result);
 ```
 
-Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method simply queues all the commands that comprise the transaction to be run, and if any of them is malformed then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
+Remember that Redis transactions are unlike transactions in relational databases.  
+The `Execute` method queues all the commands that consist of the transaction to be run,  
+and if any of them is invalid, then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
 
 If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property will block the calling thread until the task has completed.
 
@@ -554,7 +556,7 @@ For more information, see [Transactions in Redis](https://stackexchange.github.i
 
 When performing batch operations, you can use the `IBatch` interface of the StackExchange library. This interface provides access to a set of methods similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous.
 
-You create an `IBatch` object by using the `IDatabase.CreateBatch` method, and then run the batch by using the `IBatch.Execute` method, as shown in the following example. This code simply sets a string value, increments and decrements the same counters used in the previous example, and displays the results:
+You create an `IBatch` object by using the `IDatabase.CreateBatch` method, and then run the batch by using the `IBatch.Execute` method, as shown in the following example. This code only sets a string value, increments and decrements the same counters used in the previous example, and displays the results:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -573,7 +575,7 @@ It's important to understand that unlike a transaction, if a command in a batch 
 
 ### Perform fire and forget cache operations
 
-Redis supports fire and forget operations by using command flags. In this situation, the client simply initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
+Redis supports fire and forget operations by using command flags. In this situation, the client initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -820,7 +822,7 @@ The first parameter to the `Subscribe` method is the name of the channel. This n
 
 Note also that the namespace used by channels is separate from that used by keys. This means you can have channels and keys that have the same name, although this might make your application code more difficult to maintain.
 
-The second parameter is an Action delegate. This delegate runs asynchronously whenever a new message appears on the channel. This example simply displays the message on the console (the message will contain the title of a blog post).
+The second parameter is an Action delegate. This delegate runs asynchronously whenever a new message appears on the channel. This example displays the message on the console (the message will contain the title of a blog post).
 
 To publish to a channel, an application can use the Redis PUBLISH command. The StackExchange library provides the `IServer.PublishAsync` method to perform this operation. The next code snippet shows how to publish a message to the "messages:blogPosts" channel:
 

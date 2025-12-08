@@ -407,7 +407,7 @@ Consider the following factors:
 
 - Whether the service requires authentication and authorization and whether you implement [Zero Trust architecture principles](/azure/security/fundamentals/zero-trust)
 
-- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond simply storing secrets in a key vault
+- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond only storing secrets in a key vault
 
 - Whether you use an API gateway to validate tokens and incoming requests
 

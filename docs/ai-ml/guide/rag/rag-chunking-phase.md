@@ -107,8 +107,8 @@ This section provides an overview of common chunking approaches. You can use mul
 
 A summarized decision-making matrix accompanies each approach. The matrix highlights the tools, associated costs, and more. The engineering effort and processing costs described here are subjective and included for relative comparison.
 
->[!IMPORTANT]
->Your chunking approach is a semipermanent choice in your overall solution design. Do a thorough comparison of the approaches to find the best fit for your use case and content type prior to choosing one to use in production. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
+> [!IMPORTANT]
+> Your chunking approach is a semipermanent choice in your overall solution design. Before you choose a solution for production, thoroughly compare the approaches to find the best fit for your use case and content type. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
 
 ### Fixed-size parsing, with overlap
 

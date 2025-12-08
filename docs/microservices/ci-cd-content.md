@@ -91,7 +91,7 @@ With a more traditional monolithic or N-tier application, blue-green deployment 
 
 **Example**. In Kubernetes, you don't need to provision a separate cluster to do blue-green deployments. Instead, you can take advantage of selectors. Create a new [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) resource with a new pod spec and a different set of labels. Create this deployment, without deleting the previous deployment or modifying the service that points to it. Once the new pods are running, you can update the service's selector to match the new deployment.
 
-One drawback of blue-green deployment is that during the update, you are running twice as many pods for the service (current and next). If the pods require a lot of CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
+One drawback of blue-green deployment is that during the update, you run twice as many pods for the service (current and next). If the pods require substantial CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
 
 ### Canary release
 

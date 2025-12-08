@@ -19,7 +19,7 @@ Admission controllers rarely cause problems, but it's crucial to ensure their pr
 
 ## Admission controller
 
-An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is a piece of code that intercepts requests to a Kubernetes API server prior to the persistence of an object but after a request is authenticated and authorized.
+An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is code that intercepts requests to the Kubernetes API server after authentication and authorization, but before an object is persisted.
 
 Admission controllers can be *validating*, *mutating*, or a combination of both. *Mutating* controllers can modify related objects before admitting a request. *Validating* controllers solely ensure that requests meet specific predefined criteria.
 

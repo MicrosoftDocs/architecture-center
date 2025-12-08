@@ -90,7 +90,7 @@ Clearly, this is complex query. As we'll see later, it turns out to use signific
 
 Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in a relational database management system (RDBMS).
 
-For example, the previous Transact-SQL code can be replaced with a statement that simply retrieves the data to be processed.
+For example, the previous Transact-SQL code can be replaced with a statement that retrieves only the data to be processed.
 
 ```sql
 SELECT
@@ -250,7 +250,7 @@ The next graph shows CPU utilization and DTUs as a percentage of service quota. 
 
 It could be that the tasks performed by the database are genuine data access operations, rather than processing, so it is important to understand the SQL statements being run while the database is busy. Monitor the system to capture the SQL traffic and correlate the SQL operations with application requests.
 
-If the database operations are purely data access operations, without a lot of processing, then the problem might be [Extraneous Fetching][ExtraneousFetching].
+If the database operations are purely data access operations, without extensive processing, then the problem might be [Extraneous Fetching][ExtraneousFetching].
 
 ### Implement the solution and verify the result
 

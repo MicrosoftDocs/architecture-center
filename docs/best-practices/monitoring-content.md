@@ -269,7 +269,7 @@ Depending on the nature of the application, there might be statutory or other le
 
 ### Requirements for auditing
 
-An analyst must be able to trace the sequence of business operations that users are performing so that you can reconstruct users' actions. This might be necessary simply as a matter of record, or as part of a forensic investigation.
+An analyst must be able to trace the sequence of business operations that users perform so that you can reconstruct users' actions. This record might be necessary only for documentation purposes, or as part of a forensic investigation.
 
 Audit information is highly sensitive. It likely includes data that identifies the users of the system, together with the tasks that they're performing. For this reason, audit information most likely takes the form of reports that are available only to trusted analysts rather than as an interactive system that supports drill-down of graphical operations. An analyst should be able to generate a range of reports. For example, reports might list all users' activities occurring during a specified time frame, detail the chronology of activity for a single user, or list the sequence of operations performed against one or more resources.
 
@@ -390,7 +390,7 @@ You should log all exceptions and warnings, and ensure that you retain a full tr
 Many applications use libraries and frameworks to perform common tasks such as accessing a data store or communicating over a network. These frameworks might be configurable to provide their own trace messages and raw diagnostic information, such as transaction rates and data transmission successes and failures.
 
 > [!NOTE]
-> Many modern frameworks automatically publish performance and trace events. Capturing this information is simply a matter of providing a means to retrieve and store it where it can be processed and analyzed.
+> Many modern frameworks automatically publish performance and trace events. Capturing this information involves providing a way to retrieve and store it so that it can be processed and analyzed.
 
 The operating system where the application is running can be a source of low-level system-wide information, such as performance counters that indicate I/O rates, memory utilization, and CPU usage. Operating system errors (such as the failure to open a file correctly) might also be reported.
 
@@ -592,7 +592,7 @@ Information that's used for more considered analysis, for reporting, and for spo
 
 #### *Log rotation and data retention*
 
-Instrumentation can generate considerable volumes of data. This data can be held in several places, starting with the raw log files, trace files, and other information captured at each node to the consolidated, cleaned, and partitioned view of this data held in shared storage. In some cases, after the data has been processed and transferred, the original raw source data can be removed from each node. In other cases, it might be necessary or simply useful to save the raw information. For example, data that's generated for debugging purposes might be best left available in its raw form but can then be discarded quickly after any bugs have been rectified.
+Instrumentation can generate considerable volumes of data. This data can be held in several places, starting with the raw log files, trace files, and other information captured at each node to the consolidated, cleaned, and partitioned view of this data held in shared storage. In some cases, after the data has been processed and transferred, the original raw source data can be removed from each node. In other cases, it might be necessary or useful to save the raw information. For example, data that's generated for debugging purposes might be best left available in its raw form but can then be discarded quickly after any bugs have been rectified.
 
 Performance data often has a longer life so that it can be used for spotting performance trends and for capacity planning. The consolidated view of this data is usually kept online for a finite period to enable fast access. After that, it can be archived or discarded. Data gathered for metering and billing customers might need to be saved indefinitely. Additionally, regulatory requirements might dictate that information collected for auditing and security purposes also needs to be archived and saved. This data is also sensitive and might need to be encrypted or otherwise protected to prevent tampering. You should never record users' passwords or other information that might be used to commit identity fraud. Such details should be scrubbed from the data before it's stored.
 
@@ -653,7 +653,7 @@ Diagnosis requires the ability to determine the cause of faults or unexpected be
 - Crash dumps for any failed processes either anywhere in the system or for a specified subsystem during a specified time window.
 - Activity logs recording the operations that are performed either by all users or for selected users during a specified period.
 
-Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate simply to store a copy of this information in its original format and make it available for cold analysis by an expert.
+Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate to store a copy of this information in its original format and make it available for cold analysis by an expert.
 
 ## Visualizing data and raising alerts
 

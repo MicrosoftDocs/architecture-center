@@ -107,7 +107,7 @@ A common challenge in microservices is correctly handling transactions that span
 
 There are two cases to consider:
 
-- A service might experience a *transient* failure such as a network timeout. These errors can often be resolved simply by retrying the call. If the operation still fails after a certain number of attempts, it's considered a nontransient failure.
+- A service might experience a *transient* failure such as a network timeout. These errors can often be resolved by retrying the call. If the operation still fails after a certain number of attempts, it's considered a nontransient failure.
 
 - A  *nontransient* failure is any failure that's unlikely to go away by itself. Nontransient failures include normal error conditions, such as invalid input. They also include unhandled exceptions in application code or a process crashing. If this type of error occurs, the entire business transaction must be marked as a failure. It might be necessary to undo other steps in the same transaction that already succeeded.
 

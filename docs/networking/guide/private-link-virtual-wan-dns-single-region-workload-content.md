@@ -115,7 +115,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 When implementing the extension for your enterprise, consider the following guidance.
 
 - Deploying the DNS extension isn't a task for the workload team. This task is an enterprise networking function and should be an implementation decision made with those individuals.
-- The DNS extension and private DNS zones must exist prior to adding any PaaS service you want to configure private endpoint DNS records for.
+- The DNS extension and private DNS zones must exist before you add any PaaS service for which you plan to configure private endpoint DNS records.
 - The virtual hub extension is a regional resource, avoid cross-region traffic and establish a hub extension per regional hub where private endpoint DNS resolution is expected.
 
 #### Spoke virtual network
