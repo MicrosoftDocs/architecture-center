@@ -49,7 +49,7 @@ When you use Azure as a modern data platform, you have your choice of platform a
 A popular approach in digital transformation scenarios is to see whether
 existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
 
-In this scenario, Azure can serve as either a PaaS or IaaS. PaaS enables cloud-native options for ingestion, transformation, and storage. IaaS provides greater control over hybrid infrastructure through customizable VMs. Both approaches let you take advantage of fully managed databases, storage, and analytics offerings across proprietary and open-source engines.
+In this scenario, Azure can serve as either a PaaS or an IaaS. PaaS enables cloud-native options for ingestion, transformation, and storage. IaaS provides greater control over hybrid infrastructure through customizable VMs. Both approaches let you take advantage of fully managed databases, storage, and analytics offerings across proprietary and open-source engines.
 
 The following architecture illustrates how these options work in practice:
 
