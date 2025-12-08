@@ -81,7 +81,7 @@ This section discusses the pros and cons of alternative approaches to the networ
 
 Subnets within the virtual networks can be used to segment traffic within the design. Subnet isolation separates resources for different functions.
 
-Network security groups can control the traffic that's allowed in and out of each subnet. Rules used within the network security groups can limit traffic based on IP, port, and protocol to block unwanted traffic into the subnet.
+Network security groups control the traffic that's allowed in and out of each subnet. Rules used within the network security groups limit traffic based on IP, port, and protocol to block unwanted traffic entering or leaving the subnet.
 
 ### Private endpoints - Ingress
 
