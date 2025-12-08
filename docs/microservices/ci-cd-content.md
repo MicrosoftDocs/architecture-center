@@ -50,7 +50,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See the following [Updating services](#updating-services) section.
+    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
 
 ## Monorepo vs. multi-repo
 

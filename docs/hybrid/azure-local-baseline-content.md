@@ -135,7 +135,7 @@ The sizing tool **Preferences** section guides you through questions that relate
 
 This scenario requires use of three-way mirroring for user volumes, which is the default for instances that have three or more physical machines.
 
-The output from the Azure Local sizing tool is a list of recommended hardware solution SKUs that can provide the required workload capacity and platform resiliency requirements based on the input values in the Sizer Project. For more information about available OEM hardware partner solutions, see [Azure Local solutions catalog](https://azurestackhcisolutions.azure.microsoft.com/#catalog). To help rightsize solution SKUs to meet your requirements, contact your preferred hardware solution provider or system integration (SI) partner.
+The output from the Azure Local sizing tool is a list of recommended hardware solution SKUs that can provide the required workload capacity and platform resiliency requirements based on the input values in the Sizer Project. For more information about available OEM hardware partner solutions, see [Azure Local solutions catalog](https://azurestackhcisolutions.azure.microsoft.com/#catalog). To help correctly size solution SKUs to meet your requirements, contact your preferred hardware solution provider or system integration (SI) partner.
 
 ### Physical disk drives
 
@@ -144,7 +144,7 @@ The output from the Azure Local sizing tool is a list of recommended hardware so
 The reliability of the platform depends on the performance of critical platform dependencies, such as physical disk types. Make sure to choose the correct disk types for your requirements. Use all-flash storage solutions such as NVMe drives or SSDs for workloads that have high-performance or low-latency requirements. These workloads include but aren't limited to highly transactional database technologies, production AKS clusters, or any mission-critical or business-critical workloads that have low-latency or high-throughput storage requirements. Use all-flash deployments to maximize storage performance. All-NVMe drive or all-SSD configurations, especially at a small scale, improve storage efficiency and maximize performance because no drives are used as a cache tier. For more information, see [All-flash based storage](/azure/azure-local/concepts/cache#all-flash-deployment-possibilities).
 
 :::image type="complex" source="images/azure-local-baseline-storage-architecture.png" alt-text="Diagram that shows a multi-node Azure Local instance storage architecture for a hybrid storage solution. It uses NVMe drives as the cache tier and SSD drives for capacity." lightbox="images/azure-local-baseline-storage-architecture.png" border="false":::
-    The diagram shows a multi-node cluster. Each node has two network adapters for storage and two for management and compute. The storage adapters connect to a storage network. The management and compute adapters connect to a management and compute network. Below the network layer, the diagram shows the storage stack. It starts with physical disks at the bottom, which include NVMe disks in the cache tiers and SSDs in the capacity tiers. Above the disks is the Storage Spaces Direct storage pool. The next layer in this section is the ReFS file system on a CSV. The next layer includes virtual disks for VMs. The top layer shows two VMs, with an arrow that indicates that they can be live migrated between the nodes.
+    The diagram shows a multi-node cluster. Each node has two network adapters for storage and two for management and compute. The storage adapters connect to a storage network. The management and compute adapters connect to a management and compute network. Beneath the network layer, the diagram shows the storage stack. It starts with physical disks at the bottom, which include NVMe disks in the cache tiers and SSDs in the capacity tiers. Above the disks is the Storage Spaces Direct storage pool. The next layer in this section is the ReFS file system on a CSV. The next layer includes virtual disks for VMs. The top layer shows two VMs, with an arrow that indicates that they can be live migrated between the nodes.
 :::image-end:::
 
 The physical disk drive type influences the performance of your cluster storage. The type of drive varies based on the performance characteristics of each drive type and the caching mechanism that you choose. The physical disk drive type is an integral part of any Storage Spaces Direct design and configuration. Depending on the Azure Local workload requirements and budget constraints, you can choose to [maximize performance][s2d-drive-max-performance], [maximize capacity][s2d-drive-max-capacity], or implement a mixed-drive type configuration that [balances performance and capacity][s2d-drive-balance-performance-capacity].
@@ -438,9 +438,9 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - **Network performance optimization:** Consider network performance optimization. As part of your design, be sure to include projected [network traffic bandwidth allocation][azure-local-network-bandwidth-allocation] when you determine your [optimal network hardware configuration][azure-local-networking].
 
-  To optimize compute performance in Azure Local, you can use GPU acceleration. GPU acceleration is beneficial for [high-performance AI or machine learning workloads][azure-local-gpu-acceleration] that involve data insights or inferencing. These workloads require deployment at edge locations because of considerations like data gravity or security requirements. In a hybrid deployment or on-premises deployment, it's important to take your workload performance requirements, including GPUs, into consideration. This approach helps you select the right services when you design and procure your Azure Local instances.
+  To optimize compute performance in Azure Local, you can use GPU acceleration. GPU acceleration is beneficial for [high-performance AI or machine learning workloads][azure-local-gpu-acceleration] that involve data insights or inferencing. These workloads require deployment at edge locations because of considerations like data gravity or security requirements. In a hybrid deployment or on-premises deployment, it's important to take your workload performance requirements, including GPUs, into consideration. This approach helps you select the correct services when you design and procure your Azure Local instances.
 
-  For more information, see [Recommendations for selecting the right services](/azure/well-architected/performance-efficiency/select-services).
+  For more information, see [Recommendations for selecting the correct services](/azure/well-architected/performance-efficiency/select-services).
 
 ## Deploy this scenario
 
@@ -553,7 +553,7 @@ Other resources:
 [azure-local-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
 [azure-local-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azure-local-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit-hci
+[azs-hybrid-benefit]: /azure/azure-local/concepts/azure-hybrid-benefit
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-monitor]: /azure/azure-monitor/overview
