@@ -58,7 +58,7 @@ Consider whether your tenants need to access your services through the internet 
 
 To secure your service for internet-based (public) access, use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls.
 
-To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a few tenants and when you deploy dedicated virtual networks for each tenant.
+To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have few tenants and when you deploy dedicated virtual networks for each tenant.
 
 ### Access to tenants' endpoints
 

@@ -28,7 +28,7 @@ Your network will have more than one Azure virtual network, which can be in the 
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
-You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Prices will vary by region.
+You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Prices vary by region.
 
 ## Manual deployment
 
