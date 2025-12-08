@@ -36,7 +36,7 @@ Scalability is measured by the ratio of throughput gain to resource increase. Id
 
 **Consider aggressive autoscaling for critical workloads**. For critical workloads, you want to keep ahead of demand. It's better to add new instances quickly under heavy load to handle the additional traffic, and then gradually scale back.
 
-**Design for scale in**.  Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scalein:
+**Design for scale in**. Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scalein:
 
 - Listen for shutdown events (when available) and shut down cleanly.
 - Clients/consumers of a service should support transient fault handling and retry.
@@ -45,7 +45,7 @@ Scalability is measured by the ratio of throughput gain to resource increase. Id
 
 **Consider scaling for redundancy.** Scaling out can improve your application's reliability. For example, consider scaling out across multiple [availability zones](/azure/reliability/availability-zones-overview), such as by using zone-redundant services. This approach can improve your application's throughput as well as provide resiliency if one zone experiences an outage.
 
-**Model and optimize your system's scalability.** You can use model your system using an approach such as [Amdahl's law](https://wikipedia.org/wiki/Amdahl's_law). Quantify scalability based on parameters such as contention and coherency.  Contention refers to delay due to waiting or queueing for shared resources. Coherence refers to delay for data to become consistent. For example, having a high contention indicates sequential processing that could be parallelized, while having a high coherency suggests excessive dependencies among processes, prompting you to minimize interactions. During workload design, you can calculate the maximum effective capacity of your system to avoid providing [more supply than demand which leads to waste](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-demand-and-supply).
+**Model and optimize your system's scalability.** You can use model your system using an approach such as [Amdahl's law](https://wikipedia.org/wiki/Amdahl's_law). Quantify scalability based on parameters such as contention and coherency. Contention refers to delay due to waiting or queueing for shared resources. Coherence refers to delay for data to become consistent. For example, having a high contention indicates sequential processing that could be parallelized, while having a high coherency suggests excessive dependencies among processes, prompting you to minimize interactions. During workload design, you can calculate the maximum effective capacity of your system to avoid providing [more supply than demand which leads to waste](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-demand-and-supply).
 
 ## Related resources
 

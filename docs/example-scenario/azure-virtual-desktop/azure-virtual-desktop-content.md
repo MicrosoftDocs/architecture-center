@@ -190,7 +190,7 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 
 For more information about the Azure Virtual Desktop Service limitations, see [Azure Virtual Desktop Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
-Also, note that:
+Also consider the following restrictions:
 
 - You can't create more than 500 application groups per single Microsoft Entra tenant\*.
   - If you require more than 500 application groups, submit a support ticket via the Azure portal.

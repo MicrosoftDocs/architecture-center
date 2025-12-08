@@ -217,7 +217,7 @@ Furthermore, each server in the cluster can be replicated by using primary/subor
 
 A Redis cache has a finite size that depends on the resources available on the host computer. When you configure a Redis server, you can specify the maximum amount of memory it can use. You can also configure a key in a Redis cache to have an expiration time, after which it's automatically removed from the cache. This feature can help prevent the in-memory cache from filling with old or stale data.
 
-As memory fills up, Redis can automatically evict keys and their values by following a number of policies. The default is LRU (least recently used), but you can also select other policies such as evicting keys at random or turning off eviction altogether (in which, case attempts to add items to the cache fail if it's full). The page [Using Redis as an LRU cache](https://redis.io/topics/lru-cache) provides more information.
+As memory fills up, Redis can automatically evict keys and their values based on different policies. The default is least recently used (LRU), but you can also choose other options, like evicting keys at random or disabling eviction entirely. In that case, attempts to add items to the cache fail if it's full. For more information, see [Use Redis as an LRU cache](https://redis.io/topics/lru-cache).
 
 ### Redis transactions and batches
 
@@ -250,7 +250,7 @@ For more information, visit the [Redis security](https://redis.io/topics/securit
 
 Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
-The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
+The portal provides several predefined configurations. These configurations range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
 Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
 
@@ -302,7 +302,7 @@ Partitioning the cache involves splitting the cache across multiple computers. T
 - Spreading the load across servers, which improves performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
-For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
+For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use various approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
 
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
@@ -462,7 +462,7 @@ The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExcha
 
 The simplest use of Redis for caching concerns is key-value pairs where the value is an uninterpreted string of arbitrary length that can contain any binary data. (It's essentially an array of bytes that can be treated as a string). This scenario was illustrated in the section Implement Redis Cache client applications earlier in this article.
 
-Note that keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
+Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
 For example, use structured keys like "customer:100" to represent the key for the customer with ID 100 instead of "100". This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
 
@@ -747,7 +747,7 @@ foreach (string postTitle in await cache.ListRangeAsync(redisKey, 0, 9))
 }
 ```
 
-Note that the `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
+The `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
 
 To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The following code snippet shows you how to remove all but the five left-most items from the list:
 

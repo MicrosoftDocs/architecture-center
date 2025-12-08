@@ -53,7 +53,7 @@ Consider whether the operation is idempotent. If so, it's inherently safe to ret
 
 ### Exception type
 
-A request to a service can fail for a variety of reasons raising different exceptions depending on the nature of the failure. Some exceptions indicate a failure that can be resolved quickly, while others indicate that the failure is longer lasting. It's useful for the retry policy to adjust the time between retry attempts based on the type of the exception.
+A request to a service can fail for various reasons raising different exceptions depending on the nature of the failure. Some exceptions indicate a failure that can be resolved quickly, while others indicate that the failure is longer lasting. It's useful for the retry policy to adjust the time between retry attempts based on the type of the exception.
 
 ### Transaction consistency
 
@@ -61,7 +61,7 @@ Consider how retrying an operation that's part of a transaction will affect the 
 
 ## General guidance
 
-- Ensure that all retry code is fully tested against a variety of failure conditions. Check that it doesn't severely affect the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
+- Ensure that all retry code is fully tested against various failure conditions. Check that it doesn't severely affect the performance or reliability of the application, cause excessive load on services and resources, or generate race conditions or bottlenecks.
 
 - Implement retry logic only where the full context of a failing operation is understood. For example, if a task that contains a retry policy invokes another task that also contains a retry policy, this extra layer of retries can add long delays to the processing. It might be better to configure the lower-level task to fail fast and report the reason for the failure back to the task that invoked it. This higher-level task can then handle the failure based on its own policy.
 

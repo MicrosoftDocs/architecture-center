@@ -318,8 +318,8 @@ A component/service can be described as stateful if it's designed to remember pr
 
 For a DR scenario that calls for redeployment:
 
-- Components/services that are "stateless", like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system.
-- Components/services that are "stateful", like Azure SQL Database and storage accounts, require more attention.
+- Components/services that are stateless, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system.
+- Components/services that are stateful, like Azure SQL Database and storage accounts, require more attention.
     - When procuring the component, a key decision is selecting the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs.
 - Datastores also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases need a separate backup process.
     - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test.

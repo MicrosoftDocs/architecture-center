@@ -16,7 +16,7 @@ Put closely associated resources that share the same lifecycle into the same [re
 
 ### Virtual machine
 
-You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.  Azure supports running various popular Linux distributions, including Debian, Red Hat Enterprise Linux (RHEL), and Ubuntu. For more information, see [Azure and Linux][azure-linux].
+You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage. Azure supports running various popular Linux distributions, including Debian, Red Hat Enterprise Linux (RHEL), and Ubuntu. For more information, see [Azure and Linux][azure-linux].
 
 Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you're moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
 
@@ -127,7 +127,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 
 For predictable workloads, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
-Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower.  Consider Spot VMs for these workloads:
+Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads the can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
 - High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 - Test environments, including continuous integration and continuous delivery workloads.

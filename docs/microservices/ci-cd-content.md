@@ -50,7 +50,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
+    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
 
 ## Monorepo vs. multi-repo
 
@@ -73,7 +73,7 @@ There are various strategies for updating a service that's already in production
 
 ### Rolling updates
 
-In a rolling update, you deploy new instances of a service, and the new instances start receiving requests right away. As the new instances come up, the previous instances are removed.
+In a rolling update, you deploy new instances of a service, and the new instances start receiving requests immediately. As the new instances come up, the previous instances are removed.
 
 **Example.** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
 
@@ -95,7 +95,7 @@ One drawback of blue-green deployment is that during the update, you run twice a
 
 ### Canary release
 
-In a canary release, you roll out an updated version to a small number of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This lets you do a slow rollout in a controlled fashion, observe real data, and spot problems before all customers are affected.
+In a canary release, you first deploy an updated version to a small subset of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This approach lets you roll out gradually in a controlled way, monitor real data, and identify problems before they affect all customers.
 
 A canary release is more complex to manage than either blue-green or rolling update, because you must dynamically route requests to different versions of the service.
 

@@ -28,7 +28,7 @@ I. Partitions run separate workloads, or segregate work types within the environ
 
 ## Azure architecture
 
-This is the architecture of the example system shown above when refactored for Azure. Note that the letter callouts in the diagrams reveal where the refactored solution handles the corresponding mainframe functionality.
+This is the architecture of the example system shown above when refactored for Azure. The letter callouts in the diagrams reveal where the refactored solution handles the corresponding mainframe functionality.
 
 :::image type="content" source="media/refactor-mainframe-applications-advanced-post.png" alt-text="Architecture diagram that shows the system on Azure after refactoring." lightbox="media/refactor-mainframe-applications-advanced-post.png":::
 
