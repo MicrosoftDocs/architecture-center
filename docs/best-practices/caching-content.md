@@ -464,7 +464,7 @@ The simplest use of Redis for caching concerns is key-value pairs where the valu
 
 Note that keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
-For example, use structured keys like "customer:100" to represent the key for the customer with ID 100 instead of "100". This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
+For example, use structured keys like `customer:100` to represent the key for the customer with ID 100 instead of `100`. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
 
 Apart from one-dimensional binary strings, a value in a Redis key-value pair can also hold more structured information, including lists, sets (sorted and unsorted), and hashes. Redis provides a comprehensive command set that can manipulate these types, and many of these commands are available to .NET Framework applications through a client library such as StackExchange. The page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website provides a more detailed overview of these types and the commands that you can use to manipulate them.
 
@@ -546,9 +546,7 @@ Console.WriteLine("Result of increment: {0}", tx1.Result);
 Console.WriteLine("Result of decrement: {0}", tx2.Result);
 ```
 
-Remember that Redis transactions are unlike transactions in relational databases.  
-The `Execute` method queues all the commands that consist of the transaction to be run,  
-and if any of them is invalid, then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
+Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that consist of the transaction to be run, and if any of them is invalid, then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
 
 If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property will block the calling thread until the task has completed.
 
@@ -822,7 +820,7 @@ The first parameter to the `Subscribe` method is the name of the channel. This n
 
 Note also that the namespace used by channels is separate from that used by keys. This means you can have channels and keys that have the same name, although this might make your application code more difficult to maintain.
 
-The second parameter is an Action delegate. This delegate runs asynchronously whenever a new message appears on the channel. This example displays the message on the console (the message will contain the title of a blog post).
+The second parameter is an `Action` delegate. The delegate runs asynchronously when a new message appears on the channel. In this example, the delegate displays the message on the console, and the message contains the title of a blog post.
 
 To publish to a channel, an application can use the Redis PUBLISH command. The StackExchange library provides the `IServer.PublishAsync` method to perform this operation. The next code snippet shows how to publish a message to the "messages:blogPosts" channel:
 

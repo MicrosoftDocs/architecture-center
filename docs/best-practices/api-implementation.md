@@ -574,7 +574,7 @@ HTTP HEAD requests and partial responses are described in more detail in [API de
 
 ### Avoid sending unnecessary 100-Continue status messages in client applications
 
-A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Before sending the data, the client application can submit an HTTP request with an Expect: 100-Continue header, a Content-Length header that indicates the size of the data, but an empty message body. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request including the data in the message body.
+A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. The client application sends an HTTP request with an `Expect: 100-Continue` header and a `Content-Length` header that specifies the size of the data, but the message body remains empty before the actual data transmission. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request including the data in the message body.
 
 If you host a service by using Internet Information Services (IIS), the HTTP.sys driver automatically detects and handles Expect: 100-Continue headers before passing requests to your web application. This means that you are unlikely to see these headers in your application code, and you can assume that IIS has already filtered any messages that it deems to be unfit or too large.
 

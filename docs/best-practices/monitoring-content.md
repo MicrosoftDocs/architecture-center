@@ -653,7 +653,7 @@ Diagnosis requires the ability to determine the cause of faults or unexpected be
 - Crash dumps for any failed processes either anywhere in the system or for a specified subsystem during a specified time window.
 - Activity logs recording the operations that are performed either by all users or for selected users during a specified period.
 
-Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate to store a copy of this information in its original format and make it available for cold analysis by an expert.
+Analyzing data for troubleshooting purposes often requires a deep technical understanding of the system architecture and the various components that compose the solution. As a result, a large degree of manual intervention is often required to interpret the data, establish the cause of problems, and recommend an appropriate strategy to correct them. It might be appropriate directly to store a copy of this information in its original format and make it available for cold analysis by an expert.
 
 ## Visualizing data and raising alerts
 
