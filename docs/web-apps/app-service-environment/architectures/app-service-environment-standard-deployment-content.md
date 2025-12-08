@@ -91,7 +91,7 @@ The App Service Environment assigns a default domain name to each app service an
 
 Application Gateway can use [TLS or SSL to encrypt and protect all traffic](/azure/application-gateway/ssl-overview) from web browsers. You can configure encryption in two ways:
 
-- **Encryption terminated at the gateway:**  For this method, the back-end pools are configured for HTTP. The encryption stops at the gateway, and traffic between the gateway and App Service is unencrypted. Encryption is CPU-intensive, so unencrypted traffic at the back end improves performance and allows simpler certificate management. This approach provides moderate security because the network configuration protects the back end.
+- **Encryption terminated at the gateway:** For this method, the back-end pools are configured for HTTP. The encryption stops at the gateway, and traffic between the gateway and App Service is unencrypted. Encryption is CPU-intensive, so unencrypted traffic at the back end improves performance and allows simpler certificate management. This approach provides moderate security because the network configuration protects the back end.
 
 - **End-to-end encryption:** In some scenarios that have specific security or compliance requirements, the traffic might need to be encrypted between the gateway and the app. This configuration uses HTTPS connections and requires certificates at the back-end pool.
 

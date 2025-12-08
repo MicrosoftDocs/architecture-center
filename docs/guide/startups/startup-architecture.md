@@ -19,7 +19,7 @@ In the different startup life stages, developers, architects, and chief technica
 Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) of software product innovation. Those stages are *explore*, *expand*, and *extract*. You can think about the different parts of this process as a graph:
 
 :::image type="complex" source="images/explore-expand-extract.png" alt-text="A graph that shows the Explore, Expand, and Extract phases of product development." border="false":::
-  A graph showing a sigmoid curve plotted against a y-axis "Certainty/Investment/Risk of Change" and an x-axis "Time". The graph has three areas highlighted: the initial portion before upward inflection labeled "Explore", the high growth part of the sigmoid curve labeled "Expand" and the plateau labeled "Extract".
+  A graph showing a sigmoid curve plotted against a y-axis labeled Certainty/Investment/Risk of Change and an x-axis labeled Time. The graph has three areas highlighted: the initial portion before upward inflection labeled Explore, the high growth part of the sigmoid curve labeled Expand and the plateau labeled Extract.
 :::image-end:::
 
 - The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
