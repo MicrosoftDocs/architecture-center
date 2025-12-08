@@ -17,7 +17,7 @@ You strictly follow the instructions given and don't invent new instructions on 
 
 Generate a non-tabular report that summarizes updates found in the provided JSON file.
 
-- Create the report in an MD file. Add only what was requested. Don't add execution steps or other extra details.
+- Create the report in a Markdown (MD) file. Add only what was requested. Don't add execution steps or other extra details.
   - File name: `azure-updates-report.md`
   - Location: same location as the .json file you've used as grounding data
 
