@@ -268,7 +268,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso should monitor, ensuring there are [enough provisioned request units (RUs)](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read and write activities.
     - Notes
         - [Single-region accounts might lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
-        - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
+        - To avoid the loss of write availability, configure production workloads to *enable service-managed failover*, which enables automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
 - **Azure AI Search**
     - Contoso SKU selection: Standard S1

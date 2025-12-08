@@ -140,7 +140,7 @@ network connectivity. The following Kubernetes services are available:
 - **Cluster IP**: This service creates an internal IP address for internal-only applications.
 - **NodePort**: This service creates port mapping on the underlying node, which makes the application directly accessible with the node IP address and port.
 - **LoadBalance**r: You can expose Kubernetes services externally using load-balancer rules or an ingress controller.
-- **ExternalName**:. This service uses a specific DNS entry for the Kubernetes application.
+- **ExternalName**: This service uses a specific DNS entry for the Kubernetes application.
 
 ### Kubernetes networks
 

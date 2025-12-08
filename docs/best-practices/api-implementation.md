@@ -294,7 +294,7 @@ The *max-age* value in the Cache-Control header is only a guide and not a guaran
 
 ### Provide ETags to optimize query processing
 
-When a client application retrieves an object, the response message can also include an *entity tag (ETag)*. An ETag is an opaque string that indicates the version of a resource; each time a resource changes the ETag is also modified. This ETag should be cached as part of the data by the client application. The following code example shows how to add an ETag as part of the response to an HTTP GET request. This code uses the `GetHashCode` method of an object to generate a numeric value that identifies the object (you can override this method if necessary and generate your own hash using an algorithm such as MD5) :
+When a client application retrieves an object, the response message can also include an *entity tag (ETag)*. An ETag is an opaque string that indicates the version of a resource; each time a resource changes the ETag is also modified. This ETag should be cached as part of the data by the client application. The following code example shows how to add an ETag as part of the response to an HTTP GET request. This code uses the `GetHashCode` method of an object to generate a numeric value that identifies the object (you can override this method if necessary and generate your own hash using an algorithm such as MD5):
 
 ```csharp
 public class OrdersController : ApiController
