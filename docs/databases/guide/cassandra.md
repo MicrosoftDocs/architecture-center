@@ -76,7 +76,7 @@ For more information, see [Comparing impact of disk read-ahead settings](https:/
 
 When running Cassandra on Azure, it's common to create an mdadm stripe set (that is, RAID 0) of multiple data disks to increase the overall disk throughput and IOPS closer to the VM limits. Optimal disk stripe size is an application-specific setting. For example, for SQL Server OLTP workloads, the recommendation is 64 KB. For data warehousing workloads, the recommendation is 256 KB.
 
-Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following:
+Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following approaches:
 
 - If you're already using a chunk size of 64 K or 256 K, it doesn't make sense to rebuild the disk array to use 128-K size.
 

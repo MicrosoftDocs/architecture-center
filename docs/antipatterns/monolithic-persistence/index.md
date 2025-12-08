@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 <!-- cSpell:ignore DTUs -->

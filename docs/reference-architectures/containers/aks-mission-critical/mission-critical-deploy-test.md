@@ -162,7 +162,7 @@ As part of the deployment pipeline for a release unit, there's a destroy stage t
 
 As part of the release cadence, a pre and post release checklist should be used. The following example is of items that should be in any checklist at a minimum.
 
-* **Pre-release checklist** - Before starting a release, check the following:
+* **Pre-release checklist** - Before starting a release, check the following items:
 
   * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
 

@@ -4,7 +4,7 @@ description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance of
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 06/26/2025
-ms.update-cycle: 730-days
+ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers

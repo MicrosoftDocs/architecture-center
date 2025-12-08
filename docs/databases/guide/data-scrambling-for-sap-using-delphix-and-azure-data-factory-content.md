@@ -91,7 +91,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Delphix CC irreversibly masks data values with realistic data that remains fully functional, which enables the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a Zero Trust perspective, operators don't need access to the actual data in order to mask it. The entire delivery of masked data from point A to point B can be automated via APIs.
+Delphix CC irreversibly masks data values with realistic data that remains fully functional, which enables the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a zero trust perspective, operators don't need access to the actual data in order to mask it. The entire delivery of masked data from point A to point B can be automated via APIs.
 
 ## Cost Optimization
 

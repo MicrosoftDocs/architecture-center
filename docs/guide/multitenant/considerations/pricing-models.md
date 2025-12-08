@@ -246,7 +246,7 @@ Implementing rate limiting can increase the solution complexity, but services li
 
 ## Pricing model lifecycle
 
-Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you might need to change your pricing models. This might be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Some common pricing lifecycle changes include the following:
+Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you might need to change your pricing models. This might be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Consider the following common pricing lifecycle changes:
 
 - Adding a completely new pricing model. For example, adding a [consumption pricing model](#consumption-based-pricing) to a solution that currently offers a [flat rate model](#flat-rate-pricing).
 - Retiring an existing pricing model.

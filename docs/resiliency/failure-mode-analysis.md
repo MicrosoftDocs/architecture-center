@@ -297,7 +297,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 **Recovery:**
 
 - If possible, design your message processing operations to be idempotent. Otherwise, store message IDs of messages that are already processed, and check the ID before processing a message.
-- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following:
+- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following points:
 
   - This setting prevents duplicate messages from being put into the queue. It doesn't prevent a receiver from processing the same message more than once.
   - Duplicate detection has a time window. If a duplicate is sent beyond this window, it won't be detected.

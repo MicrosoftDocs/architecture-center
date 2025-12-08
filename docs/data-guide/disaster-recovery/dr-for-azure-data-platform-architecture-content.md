@@ -5,13 +5,13 @@ To support this worked example, the fictitious firm "Contoso" is used with an Az
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
 [![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
 
-*The numbers in the following descriptions correspond to the preceding diagram above.*
+*The numbers in the following descriptions correspond to the preceding diagram.*
 
 ### Contoso's Azure Foundations - Workflow
 
 1. **Enterprise enrollment** - Contoso's top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered.
 1. **Identity and access management** – The components required to provide identity, authentication, resource access and authorization services across Contoso's Azure estate.
-1. **Management group and subscription organization** - A scalable group hierarchy aligned to the data platform's core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation. Management groups provide a governance scope above subscriptions.
+1. **Management group and subscription organization** - A scalable group hierarchy aligned to the data platform's core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation. Management groups provide a governance scope over the subscriptions.
 1. **Management subscription** - A dedicated subscription for the various management level  functions of required to support the data platform.
 1. **Connectivity subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services.
 1. **Landing zone subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources
@@ -27,7 +27,7 @@ Within this foundational structure, Contoso has implemented the following elemen
 
 ### Contoso's Data Platform - Workflow
 
-The workflow is read left to right, following the flow of data:
+The workflow is read from left to right, following the flow of data:
 
 - **Data sources** - The sources or types of data that the data platform can consume from.
 - **Ingest** - The Platform's capability to ingest data from various sources of varying structure and speed. This design reflects a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
@@ -37,7 +37,7 @@ The workflow is read left to right, following the flow of data:
 - **Serve** - The Platform's capability to shape and present data for downstream consumption.
 - **Data consumers** - The individuals, applications or downstream processes that consume data from the platforms' various serving touchpoints.
 - **Discover and govern** - The Platform's capabilities to govern the data it contains and ensure it's indexed, discoverable/searchable, well-described, with full lineage, and is transparent to its end users and consuming processes.
-- **Platform** - The foundation upon which the platform is built, that is, Contoso's Azure foundations as described above.
+- **Platform** - The foundation upon which the platform is built, that is, Contoso's Azure foundations as described previously.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
@@ -50,7 +50,7 @@ The following sections provide a baseline understanding of the DR process and le
 
 The following tables present a breakdown of each Azure service and component used across the Contoso – Data platform, with options for DR uplift.
 > [!NOTE]
-> The sections below are organized by stateful vs stateless services.
+> The following sections are organized by stateful versus stateless services.
 
 ### Stateful foundational components
 
@@ -263,7 +263,6 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Computed Optimized Gen2
-    - DR uplift options: N/A, Synapse recovery is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature.
     - Notes
         - If Self-Hosted Data Pipelines are used, they remain the customer's responsibility for recovery from a disaster.
 
@@ -313,7 +312,7 @@ The following tables present a breakdown of each Azure service and component use
         - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
 
 ## Stateful vs stateless components
-The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
+The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the following section provides some instruction based upon the coarse-grain classification of state.
 
 A component/service can be described as stateful if it's designed to remember preceding events or user interactions. Stateless means there's no record of previous interactions, and each interaction request has to be handled based entirely on information that comes with it.
 

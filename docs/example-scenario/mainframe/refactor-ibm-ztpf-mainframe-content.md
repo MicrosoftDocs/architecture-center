@@ -65,7 +65,7 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 
 This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling is containers, infrastructure utilization is optimized. 
 
-You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
+You can use the legacy web-application presentation layer with minimal changes to reduce user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
 
 ## Scenario details
 
