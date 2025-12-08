@@ -1,8 +1,8 @@
 ---
 title: Use Azure Front Door in a Multitenant Solution
-description: Learn about the key features of Azure Front Door that enhance reliability, scalability, and security when you work in multitenant solutions.
-author: rajnemani
-ms.author: ranema
+description: Learn about the key features of Azure Front Door that enhance reliability, scalability, and security when working in multitenant solutions.
+author: PlagueHO
+ms.author: dascottr
 ms.date: 05/15/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -364,3 +364,4 @@ Other contributors:
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
 - [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)
+
