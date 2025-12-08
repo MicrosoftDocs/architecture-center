@@ -1,7 +1,7 @@
 ---
 title: Google Cloud to Azure services comparison
 description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
-author: ZacharyRiffle
+author: JediRiff
 ms.author: zriffle
 ms.date: 07/11/2024
 ms.topic: concept-article
@@ -13,7 +13,10 @@ ms.collection:
 
 # Google Cloud to Azure services comparison
 
-This article helps you understand how Microsoft Azure services compare to Google Cloud. (Note that Google Cloud used to be called the Google Cloud Platform (GCP).) Whether you are planning a multi-cloud solution with Azure and Google Cloud, or migrating to Azure, you can compare the IT capabilities of Azure and Google Cloud services in all the technology categories.
+This article helps you understand how Microsoft Azure services compare to Google Cloud. Whether you are planning a multi-cloud solution with Azure and Google Cloud, or migrating to Azure, you can compare the IT capabilities of Azure and Google Cloud services in all the technology categories.
+
+> [!NOTE]
+> Google Cloud was formerly known as *Google Cloud Platform (GCP)*.
 
 This article compares services that are roughly comparable. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
@@ -105,7 +108,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
+| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide range of streaming data from IoT devices. |
 
 ## AI and machine learning
 
@@ -200,7 +203,6 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Provides a solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and identifies issues affecting them and the resources on which they depend. |
 | [Cloud Trace](https://cloud.google.com/trace) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Provides a solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and identifies issues affecting them and the resources on which they depend. |
-| [Snapshot Debugger](https://cloud.google.com/debugger) (Cloud Debugger deprecated) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) (Azure Monitor) | Azure Monitor Application Insights, a feature of Azure Monitor, excels in Application Performance Management (APM) for live web applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
 | [Cloud Profiler](https://cloud.google.com/profiler/docs/) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) (Azure Monitor) | Azure Monitor Application Insights, a feature of Azure Monitor, excels in Application Performance Management (APM) for live web applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
 | [Cloud Source Repositories](https://cloud.google.com/source-repositories) | [Azure Repos](https://azure.microsoft.com/services/devops/repos), [GitHub Repos](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-repositories) | A cloud service for collaborating on code development. |
 | [Cloud Build](https://cloud.google.com/build) | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/?nav=min), [GitHub Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and deployment. |
@@ -379,7 +381,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide range of devices. |
 | Gaming | [Game Servers](https://cloud.google.com/game-servers) | [Azure PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
 | Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Confidential Ledger](https://azure.microsoft.com/services/azure-confidential-ledger) | Tamperproof, unstructured data store hosted in trusted execution environments and backed by cryptographically verifiable evidence. |

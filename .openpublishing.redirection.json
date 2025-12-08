@@ -7583,6 +7583,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/pipelines-disaster-recovery.yml",
+      "redirect_url": "/azure/data-factory/secure-your-azure-data-factory#backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
       "redirect_url": "/azure/aks/pci-monitor",
       "redirect_document_id": false

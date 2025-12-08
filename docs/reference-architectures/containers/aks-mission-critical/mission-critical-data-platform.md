@@ -26,7 +26,7 @@ Design your mission-critical workload with appropriate data stores. Consider usi
 
 - **Database**
 
-  Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
+  Stores related to the workload. It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
   Data replication in an active-active configuration is highly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read and write requests.
 
@@ -71,9 +71,9 @@ The workload has these **data access characteristics**:
 
 - Read pattern:
   - Point reads - Fetching a single record. Item ID and partition key is directly used for maximum optimization (1 RU per request).
-  - List reads - Getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
+  - List reads - Getting catalog items to display in a list. A `FeedIterator` with a limit on the number of results is used.
 - Write pattern:
-  - Small writes - Requests usually insert a single or a small number of records in a transaction.
+  - Small writes - Requests usually insert a single or a few records in a transaction.
 - Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
 - Small payload or dataset size - usually in order of KB.
 - Low response time (in order of milliseconds).
@@ -121,11 +121,11 @@ Mission critical systems often utilize messaging services for message or event p
 - Azure Service Bus is recommended for message-based workloads when handling high-value messages.
 - Azure Event Hubs is recommended for event-based systems that process high volumes of events or telemetry.
 
-The following are design considerations and recommendations for Azure Service Bus premium and Azure Event Hubs in a mission critical architecture.
+The following sections describe design considerations and recommendations for Azure Service Bus premium and Azure Event Hubs in a mission critical architecture.
 
 ### Handle load
 
-The messaging system must be able to handle the required throughput (as in MB per second). Consider the following:
+The messaging system must be able to handle the required throughput (as in MB per second). Consider the following factors:
 
 - The non-functional requirements (NFRs) of the system should specify the average message size and the peak number of messages/second each stamp must support. This information can be used to calculate the required peak MB/second per stamp.
 - The impact of a failover must be considered when calculating the required peak MB/second per stamp.
@@ -137,10 +137,10 @@ The messaging system must be able to handle the required throughput (as in MB pe
 
 ### Every message must be processed
 
-Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following are details regarding this requirement when using Azure Service Bus premium:
+Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following details describe this requirement when you use Azure Service Bus premium:
 
 - To ensure that messages are properly transferred to and accepted by the broker, message producers should use one of the supported Service Bus API clients. Supported APIs will only return successfully from a send operation if the message was persisted on the queue/topic.
-- To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following outlines the process:
+- To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following steps outline the process:
   - The message consumer receives the message to process.
   - The consumer is given an exclusive lock on the message for a given time duration.
   - If the consumer successfully processes the message, it sends an acknowledgment back to the broker, and the message is removed from the queue.
@@ -157,7 +157,7 @@ In [RFC 7231](https://tools.ietf.org/html/rfc7231#section-4), the Hypertext Tran
 
 One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again.
 
-- There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, there can be a number of complications that can occur if the process running the code happens to fail. See the following example situations:
+- There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, complications can occur if the process that runs the code fails. Consider the following examples:
   - The code emitting the messages might run before the database transaction is committed, which is how many developers work using the [Unit of Work pattern](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern). Those messages can *escape*, if the failure occurs between calling the broker and asking that the database transaction be committed. As the transaction rolls back, those database-generated IDs are also undone, which leaves them available to other code that might be running at the same time. This can cause recipients of the *escaped* messages to process the wrong database entries, which hurts the overall consistency and correctness of your system.
   - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction committed - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, don't receive anything. This situation again results in an overall state of inconsistency.
 - The solution to the previously described problems involves using the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos), where the outgoing messages are stored *off to the side*, in the same transactional store as the business data. The messages are then transmitted to the message broker, when the initial message has been successfully processed.
@@ -166,7 +166,7 @@ One common technique of making message handling idempotent is to check a persist
 
 ### High availability and disaster recovery
 
-The message broker must be available for producers to send messages and consumers to receive them. The following are details regarding this requirement:
+The message broker must be available for producers to send messages and consumers to receive them. Do the following steps to ensure high availability for your message broker:
 
 - To ensure the highest availability with Service Bus, use the premium tier, which has support for availability zones in supporting regions. With availability zones, messages and metadata are replicated across three disparate data centers in the same region.
 - Use supported Service Bus or Event Hubs SDKs to automatically retry read or write failures.

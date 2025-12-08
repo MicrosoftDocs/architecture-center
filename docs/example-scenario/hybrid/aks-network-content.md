@@ -71,7 +71,7 @@ A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azu
 
 ### Kubernetes node VM IP pool
 
-Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
+Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range. This specification isn't necessary for DHCP allocation. Plan additional IP addresses for:
 
 - The KVA VM also uses more IP address for Kubernetes from the Kubernetes node VM IP pool. Plan to add IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
 - Control Plane VMs consume one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.
@@ -79,7 +79,7 @@ Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deplo
 
 ### Microsoft on-premises cloud service
 
-Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Local cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local in one of the following:
+Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Local cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local by using one of the following methods:
 
 - Azure Local cluster nodes with a DHCP-based IP address allocation mode. MOC service gets an IP address from the DHCP service presented on the physical network.
 - Azure Local cluster nodes with a static IP allocation model. The IP address for the MOC cloud service must be explicitly specified as an IP range in Classless Inter-Domain Routing (CIDR) format and it must be in the same subnet as the IP addresses of Azure Local cluster nodes.
@@ -140,7 +140,7 @@ network connectivity. The following Kubernetes services are available:
 - **Cluster IP**: This service creates an internal IP address for internal-only applications.
 - **NodePort**: This service creates port mapping on the underlying node, which makes the application directly accessible with the node IP address and port.
 - **LoadBalance**r: You can expose Kubernetes services externally using load-balancer rules or an ingress controller.
-- **ExternalName**:. This service uses a specific DNS entry for the Kubernetes application.
+- **ExternalName**: This service uses a specific DNS entry for the Kubernetes application.
 
 ### Kubernetes networks
 
@@ -227,11 +227,10 @@ The following recommendations apply for most scenarios. Follow the recommendatio
 
 ### Network recommendations
 
-The major concern in the networking design for the AKS on Azure Local is selecting a network model that provides enough IP addresses for
-your Kubernetes cluster, and its services and applications.
+The major concern in the networking design for the AKS on Azure Local is selecting a network model that provides enough IP addresses for your Kubernetes cluster, and its services and applications.
 
 - Consider implementing static IP addresses to allow AKS on Azure Local to control the IP address assignment.
-- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following:
+- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following items:
   - Addressing/hostnames for Proxy settings
   - IP addresses for the target cluster control plane
   - IP addresses for the Azure ARC

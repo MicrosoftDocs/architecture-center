@@ -96,7 +96,7 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 ![Diagram showing revenue increase, as the number of devices increases.](media/pricing-models/per-unit.png)
 
-Additionally, some solutions have highly variable usage patterns, where a small number of users has a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate regardless of how many users are in each store.
+Also, some solutions have highly variable usage patterns, where a few users disproportionately affect the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate regardless of how many users are in each store.
 
 **Benefits:** In systems where individual users don't have a significant effect on COGS, per-unit pricing is a better way to represent the reality of how the system scales and the resulting impact to COGS. It also can improve the alignment to the actual patterns of usage for a customer. For many IoT solutions, where each device generates a predictable and constant amount of consumption, this can be an effective model to scale your solution's growth.
 
@@ -246,7 +246,7 @@ Implementing rate limiting can increase the solution complexity, but services li
 
 ## Pricing model lifecycle
 
-Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you might need to change your pricing models. This might be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Some common pricing lifecycle changes include the following:
+Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you might need to change your pricing models. This might be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Consider the following common pricing lifecycle changes:
 
 - Adding a completely new pricing model. For example, adding a [consumption pricing model](#consumption-based-pricing) to a solution that currently offers a [flat rate model](#flat-rate-pricing).
 - Retiring an existing pricing model.
@@ -256,7 +256,7 @@ Like any other part of your solution, pricing models have a lifecycle. As your a
 - Adding or removing features from a [feature and service-level pricing model](#feature--and-service-level-based-pricing).
 - Changing from a business-to-consumer (B2C) commercial model to a business-to-business (B2B) commercial model. This change then necessitates new pricing structures for your business customers.
 
-It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a small number of tiers. This makes your solution more accessible and easier to manage.
+It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a few tiers. This makes your solution more accessible and easier to manage.
 
 > [!NOTE]
 > Pricing models and billing functions should be tested, ideally using automated testing, just like any other part of your system. The more complex the pricing models, the more testing is required, and so the cost of development and operational complexity will increase.

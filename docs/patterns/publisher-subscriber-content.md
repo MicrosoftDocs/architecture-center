@@ -10,7 +10,7 @@ Asynchronous messaging is an effective way to decouple senders from consumers, a
 
 ## Solution
 
-Introduce an asynchronous messaging subsystem that includes the following:
+Introduce an asynchronous messaging subsystem that includes the following components:
 
 - An input messaging channel used by the sender. The sender packages events into messages, using a known message format, and sends these messages via the input channel. The sender in this pattern is also called the *publisher*.
 

@@ -40,7 +40,7 @@ Working under the assumption of at-least once delivery, especially within the co
 
 There are several different scenarios that could result in duplicate events being delivered to a function:
 
-- **Checkpointing:** If the Azure Functions host crashes or the threshold set for the [batch checkpoint frequency](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings) isn't met, a checkpoint isn't created. As a result, the offset for the consumer isn't advanced and the next time the function is invoked, it will resume from the last checkpoint. It is important to note that checkpointing occurs at the partition level for each consumer.
+- **Checkpointing:** If the Azure Functions host crashes or the threshold set for the [batch checkpoint frequency](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings) isn't met, a checkpoint isn't created. As a result, the offset for the consumer isn't advanced and the next time the function is invoked, it will resume from the last checkpoint. Checkpointing occurs at the partition level for each consumer.
 
 - **Duplicate events published:** Many techniques can reduce the chances of the same event being published to a stream, but the consumer is still responsible for handling duplicates idempotently.
 

@@ -147,7 +147,7 @@ You can perform the following steps to help identify the cause:
 3. Correlate the instances of slow workloads with behavioral patterns.
 4. Identify the data stores being used. For each data source, run lower-level telemetry to observe the behavior of operations.
 5. Identify any slow-running queries that reference these data sources.
-6. Perform a resource-specific analysis of the slow-running queries and ascertain how the data is used and consumed.
+6. Perform a resource-specific analysis of the slow-running queries and determine what uses the data.
 
 Look for any of these symptoms:
 
@@ -182,7 +182,7 @@ A slow operation isn't necessarily a problem if it isn't being performed when th
 
 If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance.
 
-For each data source, instrument the system to capture the following:
+For each data source, instrument the system to capture the following information:
 
 - The frequency that each data store is accessed.
 - The volume of data entering and exiting the data store.
