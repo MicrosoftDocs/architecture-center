@@ -91,7 +91,7 @@ public class BlobDistributedMutex
   ...
 ```
 
-The `RunTaskWhenMutexAcquired` method in the previous code sample invokes the `RunTaskWhenBlobLeaseAcquired` method shown in the following code sample to actually acquire the lease. The `RunTaskWhenBlobLeaseAcquired` method runs asynchronously. If the lease is successfully acquired, the worker instance has been elected the leader. The purpose of the `taskToRunWhenLeaseAcquired` delegate is to perform the work that coordinates the other worker instances. If the lease isn't acquired, another worker instance has been elected as the leader and the current worker instance remains a subordinate. Note that the `TryAcquireLeaseOrWait` method is a helper method that uses the `BlobLeaseManager` object to acquire the lease.
+The `RunTaskWhenMutexAcquired` method in the preceding code sample invokes the `RunTaskWhenBlobLeaseAcquired` method shown in the following code sample to actually acquire the lease. The `RunTaskWhenBlobLeaseAcquired` method runs asynchronously. If the lease is successfully acquired, the worker instance has been elected the leader. The purpose of the `taskToRunWhenLeaseAcquired` delegate is to perform the work that coordinates the other worker instances. If the lease isn't acquired, another worker instance has been elected as the leader and the current worker instance remains a subordinate. Note that the `TryAcquireLeaseOrWait` method is a helper method that uses the `BlobLeaseManager` object to acquire the lease.
 
 ```csharp
   private async Task RunTaskWhenBlobLeaseAcquired(

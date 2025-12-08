@@ -132,7 +132,7 @@ The messaging system must be able to handle the required throughput (as in MB pe
 - For Azure Service Bus, the NFRs should specify any advanced Service Bus features such as sessions and de-duping messages. These features will affect the throughput of Service Bus.
 - The throughput of Service Bus with the required features should be calculated through testing as MB/second per Messaging Unit (MU). For more information about this topic, see [Service Bus premium and standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
 - The throughput of Azure Event Hubs should be calculated through testing as MB/second per throughput unit (TU) for the standard tier or processing unit (PU) for premium tier. For more information about this topic, see [Scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability).
-- The previous calculations can be used to validate that the messaging service can handle the required load per stamp, and the required number of scale units required to meet that load.
+- The preceding calculations can be used to validate that the messaging service can handle the required load per stamp, and the required number of scale units required to meet that load.
 - The operations section will discuss auto-scaling.
 
 ### Every message must be processed
@@ -177,7 +177,7 @@ The message broker must be available for producers to send messages and consumer
 
 ### Monitoring
 
-The messaging system acts as a buffer between message producers and consumers. There are key indicator types that you should monitor in a mission-critical system that provide valuable insights described in the following section:
+The messaging system acts as a buffer between message producers and consumers. You can gain valuable insights by monitoring key indicator types in a mission-critical system:
 
 - **Throttling** - Throttling indicates that the system doesn't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
 - **Queue depth** - A queue depth that is growing can indicate that message processors aren't working or there aren't enough processors to handle the current load. Queue depth can be used to inform auto-scaling logic of handlers.

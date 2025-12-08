@@ -108,7 +108,7 @@ GitOps is detailed in more depth in the [AKS baseline reference architecture](/a
 
 You can use a GitOps approach to deploy the base cluster configuration. You can enroll the cluster in the fleet to participate in fleet-wide activities like automated upgrade rollouts.
 
-You can also optionally use GitOps to deploy your workloads. To learn more, see the following [workload deployment](#workload-deployment) section.
+You can also optionally use GitOps to deploy your workloads. To learn more, see the [Workload deployment](#workload-deployment) section later in this article.
 
 ##### Azure Policy
 
