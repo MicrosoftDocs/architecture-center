@@ -105,7 +105,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Foundation Azure Firewalls into the secondary region.
     - Notes
-        - Azure Firewall can be created with [Availability Zones](/en-au/azure/firewall/deploy-availability-zone-powershell) for increased availability.
+        - Azure Firewall can be created with [Availability Zones](/azure/firewall/deploy-availability-zone-powershell) for increased availability.
         - A "Warm Spare" strategy would mitigate this activity.
 
 - **Azure DDoS**

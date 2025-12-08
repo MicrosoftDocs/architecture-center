@@ -116,7 +116,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
      - OpCon administration 
      - OpCon MFT administration
      - OpCon workflow development, implementation, and monitoring  
-     - OfCon Self Service
+     - OpCon Self Service
      - OpCon Vision (task dashboard)
      - OpCon MFT central application (dashboard and query application)
 

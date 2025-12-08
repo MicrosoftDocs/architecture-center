@@ -60,7 +60,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The following example illustrates how to create a simple a gateway aggregation NGINX service using Lua.
+The following example illustrates how to create a simple gateway aggregation NGINX service using Lua.
 
 ```lua
 worker_processes  4;
