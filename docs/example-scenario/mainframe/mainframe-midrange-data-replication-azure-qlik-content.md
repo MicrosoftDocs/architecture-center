@@ -55,7 +55,7 @@ When you design application architecture, it's crucial to prioritize networking 
 
 Azure and Fabric provide managed services that enable scalable cloud storage and managed databases for flexible and intelligent data management.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, Azure Databricks transforms and analyzes large volumes of ingested data by using machine learning models. It also supports development in R, Python, Java, Scala, and Spark SQL.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, Azure Databricks transforms and analyzes large volumes of ingested data by using machine learning models. It also supports development in R, Python, Java, Scala, and Spark SQL.
 
 - [OneLake](/fabric/onelake/onelake-overview) is a unified, logical data lake that can serve an entire organization. Like OneDrive, OneLake includes all Fabric tenants and provides a single place for all analytics data. In this architecture, OneLake serves as the persistent storage layer for processed change log data from on-premises systems.
 
@@ -171,7 +171,7 @@ Principal authors:
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 
 
-Others Contributors:
+Other contributors:
 
 - [Dharmendra Keshari](https://www.linkedin.com/in/dharmendra-keshari-a7043398/) | Cloud Solution Architect
 
