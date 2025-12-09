@@ -209,7 +209,7 @@ When you're ready for deployment, do the following steps:
 
 To build on the concepts from this design guide, explore the following Microsoft Learn resources:
 
-- [Deploy an enterprise-scale Azure landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone): Learn how to deploy a Virtual Desktop landing zone that align with the Cloud Adoption Framework.
+- [Deploy an enterprise-scale Azure landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone): Learn how to deploy a Virtual Desktop landing zone that aligns with the Cloud Adoption Framework.
 
 - [Network topology and connectivity for Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity): Explore recommended network designs, including hub-and-spoke topology, hybrid connectivity, RDP Shortpath, and security best practices for Virtual Desktop.
 

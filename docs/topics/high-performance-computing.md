@@ -44,7 +44,7 @@ The following articles provide more detail about this dynamic scaling capability
 
 ## Implementation checklist
 
-As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
+As you're looking to implement your own HPC solution on Azure, ensure you've reviewed the following topics:
 
 > [!div class="checklist"]
 >
