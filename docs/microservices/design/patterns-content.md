@@ -2,7 +2,7 @@ The goal of microservices is to increase the velocity of application releases, b
 
 ![Microservices design patterns](../images/microservices-patterns.png)
 
-[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a sidecar (see below).
+[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a [sidecar](../../patterns/sidecar.yml).
 
 [**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade between new and legacy applications, to ensure that the design of a new application isn't limited by dependencies on legacy systems.
 
