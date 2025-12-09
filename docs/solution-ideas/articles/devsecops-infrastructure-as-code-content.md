@@ -22,7 +22,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Configure the GitHub Actions workflow process to test the IaC by using locally deployed infrastructure states and plans.
 
-1. Configure GitHub Actions to scan for code quality and security problems. Create your own custom-built GitHub CodeQL queries to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
+1. Configure GitHub Actions to scan for code quality and security problems. Scan using your own custom-built GitHub CodeQL queries or other security tooling to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
 
 1. The IaC tool provisions and modifies resources for each environment by tailoring size, instance count, and other properties. You can run automated integration tests for IaC on provisioned resources.
 
@@ -41,6 +41,9 @@ The following dataflow corresponds to the previous diagram:
 - [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and raising alerts about misconfigurations or risks.
 
 - [CodeQL](https://codeql.github.com) is a semantic code analysis engine that enables custom queries to detect vulnerabilities and misconfigurations in code. In this architecture, CodeQL scans repository artifacts to identify potential security problems before deployment.
+
+  > [!NOTE]
+  > CodeQL does not have infrastructure as code scanning capabilities natively. Scanning is limited to any code-based assets in the repo or your custom CodeQL implementations such as the [CodeQL IaC Extractor](https://github.com/advanced-security/codeql-extractor-iac/) community project or vendor provided alternatives like Aqua Security's [Trivy IaC scanning](https://github.com/aquasecurity/tfsec).
 
 - [Terraform](https://www.terraform.io) is an open-source infrastructure automation tool developed by HashiCorp that enables declarative provisioning across cloud environments. In this architecture, Terraform provisions and modifies Azure resources based on IaC definitions and supports test-driven development workflows.
 
